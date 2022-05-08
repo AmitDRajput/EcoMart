@@ -1,0 +1,1 @@
+This project is developed for Ecomart to manage it daily operations
