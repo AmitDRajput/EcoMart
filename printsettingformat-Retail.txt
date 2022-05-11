@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PrintSettings>
+  <SaleBillPrintSettingsPlainPaper>
+    <GeneralSettings>
+      <PageWidth>800</PageWidth>
+      <PageHeight>400</PageHeight>
+      <LineFeed>9</LineFeed>
+      <ReverseLineFeed>9</ReverseLineFeed>
+      <ContentStartRow>120</ContentStartRow>
+    </GeneralSettings>
+    <PageHeader>
+      <ShopNameItem>       
+      <ShopAddress1Item>       
+      <ShopAddress2Item>       
+      <ShopTelephoneItem>      
+      <PatientName>       
+      <PatientAddress>       
+      <PatientTelephone>      
+      <DoctorName>      
+      <DoctorAddress>       
+      <TimeItem>       
+      <VoucherTypeSCAItem>       
+      <VoucherTypeSCRItem>        
+      <VoucherTypeSCSItem>       
+      <VoucherTypeSVUItem>       
+      <VoucherTypeDebitNoteItem>        
+      <VoucherTypeCreditNoteItem>       
+      <VoucherTypeStockOUTItem>        
+      <VoucherTypeStockINItem> 
+      <VoucherTypeCashReceiptItem> 
+      <VoucherTypeCashPaymentItem> 
+      <VoucherTypeBankReceiptItem>
+      <VoucherTypeBankPaymentItem>      
+      <DateItem>      
+      <PageNoItem>       
+    </PageHeader>
+    <PageContent>
+      <ColumnCount>8</ColumnCount>
+      <Column1>
+      <Column2> 
+      <Column3>      
+      <Column4>       
+      <Column5>       
+      <Column6>      
+      <Column7>      
+      <Column8>       
+    </PageContent>
+    <PageFooter>
+      <DiscountItem>       
+      <GrossAmountItem>       
+      <NarrationItem>       
+      <JurisdictionItem>      
+      <ATOWItem>       
+      <CreditNoteItem> 
+      <DebitNoteItem>
+      <BalanceAmountItem>        
+      <NetAmountItem>       
+      <SubjectItem>
+        <Text>I/We hereby certify that my/our Registration Certificate under Maharashtra Value Added Tax Act,2002 is in force on the date </Text>
+        <Row>343</Row>
+        <Column>1</Column>
+        <FontSize>7</FontSize>
+        <FontName>Arial</FontName>
+        <FontBold>false</FontBold>
+        <Show>true</Show>
+        <ShowText>true</ShowText>
+      </SubjectItem>
+     <DeclarationItem1>
+        <Text> on which the sale of goods specified in this Tax Invoice is made by me/us and that the transaction of sale covered by this Tax  </Text>
+        <Row>356</Row>
+        <Column>1</Column>
+        <FontSize>7</FontSize>
+        <FontName>Arial</FontName>
+        <FontBold>false</FontBold>
+        <Show>true</Show>
+        <ShowText>true</ShowText>
+      </DeclarationItem1>     
+      <DeclarationItem2>
+        <Text>Invoice is made by me/us and it shall beaccounted for in the turnover of sales while filling of return and the due tax, </Text>
+        <Row>369</Row>
+        <Column>1</Column>
+        <FontSize>7</FontSize>
+        <FontName>Arial</FontName>
+        <FontBold>false</FontBold>
+        <Show>true</Show>
+        <ShowText>true</ShowText>
+      </DeclarationItem2>     
+      <DeclarationItem3>
+        <Text>if any,payable on the sale has been paid or shall be paid</Text>
+        <Row>382</Row>
+        <Column>1</Column>
+        <FontSize>6</FontSize>
+        <FontName>Arial</FontName>
+        <FontBold>false</FontBold>
+        <Show>true</Show>
+        <ShowText>true</ShowText>
+      </DeclarationItem3>    
+      <DLNItem>       
+      <VATTINItem>      
+      <ShopNameItem>       
+      <SignatureItem>       
+      <ContinueItem>       
+    </PageFooter>
+  </SaleBillPrintSettingsPlainPaper>
+  ///////////////////////////////////////////////////    SaleBillPrintSetting PrePrintedPaper
+ <DebitNotePrintSettingsPlainPaper>
+  ///////////////////////////////////////////////////    DebitNotePrintSettings PlainPaper
+  <DebitNotePrintSettingsPlainPaper>    
+  ///////////////////////////////////////////////////    DebitNotePrintSettings pre printed Paper
+  <DebitNotePrintSettingsPrePrintedPaper>
+////////////////////////////////////////////////////////////////////////////////CashBankPrintSettingsforPlainPaper
+ <CashBankPrintSettingsPlainPaper>   
+  ///////////////////////////////////////////////////    CashBankPrintSettings pre printed Paper
+  <CashBankPrintSettingsPrePrintedPaper>
+</PrintSettings>

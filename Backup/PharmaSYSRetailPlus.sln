@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PharmaSYSRetailPlus", "PharmaSYSRetailPlus.csproj", "{FFDB97C7-E063-4910-AADC-C34BF89108A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibrary", "..\CommonLibrary\CommonLibrary.csproj", "{52A79842-9331-4F2F-8FA2-BE8F6F5187D5}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccProjectUniqueName0 = PharmaSYSRetailPlus.csproj
+		SccProjectName0 = \u0022$/PharmaSYSRetailPlus/PharmaSYSRetailPlus\u0022,\u0020BUAAAAAA
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		SccProjectUniqueName1 = ..\\CommonLibrary\\CommonLibrary.csproj
+		SccProjectName1 = \u0022$/PharmaSYSRetailPlus/CommonLibrary\u0022,\u0020NGBAAAAA
+		SccLocalPath1 = ..\\CommonLibrary
+		SccProvider1 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFDB97C7-E063-4910-AADC-C34BF89108A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFDB97C7-E063-4910-AADC-C34BF89108A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFDB97C7-E063-4910-AADC-C34BF89108A0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FFDB97C7-E063-4910-AADC-C34BF89108A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFDB97C7-E063-4910-AADC-C34BF89108A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFDB97C7-E063-4910-AADC-C34BF89108A0}.Release|x86.ActiveCfg = Release|Any CPU
+		{52A79842-9331-4F2F-8FA2-BE8F6F5187D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52A79842-9331-4F2F-8FA2-BE8F6F5187D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52A79842-9331-4F2F-8FA2-BE8F6F5187D5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{52A79842-9331-4F2F-8FA2-BE8F6F5187D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52A79842-9331-4F2F-8FA2-BE8F6F5187D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52A79842-9331-4F2F-8FA2-BE8F6F5187D5}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

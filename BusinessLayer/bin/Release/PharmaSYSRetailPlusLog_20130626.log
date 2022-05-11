@@ -1,0 +1,20 @@
+[08:05:53:125]Debug >> Log [ctor] >> Log path = [E:\PharmaSYSRetailPlus\PharmaSYSRetailPlus\bin\Release]
+[08:05:53:187]ERROR >> <<UclInstitutionalSale.btnOKCloneClick>> -    at PharmaSYSRetailPlus.InterfaceLayer.UclInstitutionalSale.btnOKCloneClick() in E:\PharmaSYSRetailPlus\PharmaSYSRetailPlus\InterfaceLayer\Controls\UclInstitutionalSale.cs:line 4804
+[08:16:46:390]Debug >> Log [ctor] >> Log path = [E:\PharmaSYSRetailPlus\PharmaSYSRetailPlus\bin\Release]
+[08:16:46:390]ERROR >> <<OdbcConnection.HandleError>> -    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader, Object[] methodArguments, SQL_API odbcApiMethod)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader)
+   at System.Data.Odbc.OdbcCommand.ExecuteNonQuery()
+   at PharmaSYSRetailPlus.DataLayer.DBInterface.ExecuteQuery(String strSql) in E:\PharmaSYSRetailPlus\PharmaSYSRetailPlus\DataLayer\DBInterface.cs:line 147
+[08:16:46:437]ERROR >> <<OdbcTransaction.Rollback>> -    at System.Data.Odbc.OdbcTransaction.Rollback()
+   at PharmaSYSRetailPlus.DataLayer.DBInterface.RollbackTransaction() in E:\PharmaSYSRetailPlus\PharmaSYSRetailPlus\DataLayer\DBInterface.cs:line 232
+[08:18:02:703]ERROR >> <<OdbcConnection.HandleError>> -    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader, Object[] methodArguments, SQL_API odbcApiMethod)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader)
+   at System.Data.Odbc.OdbcCommand.ExecuteNonQuery()
+   at PharmaSYSRetailPlus.DataLayer.DBInterface.ExecuteQuery(String strSql) in E:\PharmaSYSRetailPlus\PharmaSYSRetailPlus\DataLayer\DBInterface.cs:line 147
+[08:19:46:609]ERROR >> <<OdbcConnection.HandleError>> -    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader, Object[] methodArguments, SQL_API odbcApiMethod)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader)
+   at System.Data.Odbc.OdbcCommand.ExecuteNonQuery()
+   at PharmaSYSRetailPlus.DataLayer.DBInterface.ExecuteQuery(String strSql) in E:\PharmaSYSRetailPlus\PharmaSYSRetailPlus\DataLayer\DBInterface.cs:line 147

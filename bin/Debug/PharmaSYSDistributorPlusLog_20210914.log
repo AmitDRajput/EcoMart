@@ -1,0 +1,81 @@
+[18:33:21:833]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[18:33:21:834]ERROR >> <<SqlConnection.OnError>> -    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\EcoMart\EcoMartSolution\EcoMartSolution\DataLayer\DBInterface.cs:line 94
+[18:33:43:014]ERROR >> <<Company.GetIntID>> -    at PharmaSYSDistributorPlus.BusinessLayer.Company.GetIntID() in E:\EcoMart\EcoMartSolution\EcoMartSolution\BusinessLayer\Company.cs:line 281
+   at PharmaSYSDistributorPlus.InterfaceLayer.UclCompany.Save() in E:\EcoMart\EcoMartSolution\EcoMartSolution\InterfaceLayer\Controls\UclCompany.cs:line 229
+   at PharmaSYSDistributorPlus.InterfaceLayer.BaseControl.tsbtnSaveClik() in E:\EcoMart\EcoMartSolution\EcoMartSolution\InterfaceLayer\Controls\BaseControl.cs:line 875
+   at PharmaSYSDistributorPlus.InterfaceLayer.BaseControl.tsBtnSave_Click(Object sender, EventArgs e) in E:\EcoMart\EcoMartSolution\EcoMartSolution\InterfaceLayer\Controls\BaseControl.cs:line 912
+   at System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   at System.Windows.Forms.ToolStripButton.OnClick(EventArgs e)
+   at System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   at System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
+   at System.Windows.Forms.ToolStrip.OnMouseUp(MouseEventArgs mea)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ToolStrip.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at PharmaSYSDistributorPlus.Program.RunPharmaSYSDistributorPlus() in E:\EcoMart\EcoMartSolution\EcoMartSolution\Common\Classes\Program.cs:line 93
+[18:35:58:853]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[18:35:58:854]ERROR >> <<SqlConnection.OnError>> -    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.ExecuteScalar(String strSql) in E:\EcoMart\EcoMartSolution\EcoMartSolution\DataLayer\DBInterface.cs:line 206
+[18:38:10:727]ERROR >> Backup Path  Missing 
+[18:53:35:320]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[18:53:35:321]ERROR >> Backup Path  Missing 
+[19:04:58:711]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[19:04:58:713]ERROR >> <<SqlConnection.OnError>> -    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.ExecuteScalar(String strSql) in E:\EcoMart\EcoMartSolution\EcoMartSolution\DataLayer\DBInterface.cs:line 206
+[19:06:13:565]ERROR >> Backup Path  Missing 
+[19:32:25:374]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[19:32:25:376]ERROR >> <<SqlConnection.OnError>> -    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.ExecuteScalar(String strSql) in E:\EcoMart\EcoMartSolution\EcoMartSolution\DataLayer\DBInterface.cs:line 206
+[19:40:03:675]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[19:40:03:676]ERROR >> <<DataRow.GetDataColumn>> -    at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at PharmaSYSDistributorPlus.BusinessLayer.Messages.ReadDetailsByID() in E:\EcoMart\EcoMartSolution\EcoMartSolution\BusinessLayer\Messages.cs:line 96
+[19:40:20:367]ERROR >> <<UclMessagesSearch.SelectedID>> -    at PharmaSYSDistributorPlus.InterfaceLayer.UclMessagesSearch.SelectedID() in E:\EcoMart\EcoMartSolution\EcoMartSolution\InterfaceLayer\Controls\UclMessagesSearch.cs:line 67
+[19:40:34:559]ERROR >> Backup Path  Missing 
+[19:43:20:555]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[19:43:20:556]ERROR >> Backup Path  Missing 

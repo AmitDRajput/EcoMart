@@ -1,0 +1,3877 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FFDB97C7-E063-4910-AADC-C34BF89108A0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EcoMart</RootNamespace>
+    <AssemblyName>EcoMart</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.16, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLs\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonLibrary\bin\Release\CommonLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="ControlLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ControlLib\bin\Debug\ControlLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ControlLibBase">
+      <HintPath>..\ControlLib\bin\Debug\ControlLibBase.dll</HintPath>
+    </Reference>
+    <Reference Include="EcoMartLicenseLib">
+      <HintPath>C:\EcomartConfidentials\dist\EcoMartLicenseLib\bin\Debug\EcoMartLicenseLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\DLLs\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.0.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLs\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySqlBackup, Version=2.0.9.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MySqlBackup.NET.2.0.9.5\lib\net40\MySqlBackup.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Printing">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLayer\AccountingYear.cs" />
+    <Compile Include="BusinessLayer\Area.cs" />
+    <Compile Include="BusinessLayer\BackupPath.cs" />
+    <Compile Include="BusinessLayer\Bank.cs" />
+    <Compile Include="BusinessLayer\BankExpenses.cs" />
+    <Compile Include="BusinessLayer\BankPayment.cs" />
+    <Compile Include="BusinessLayer\BankReceipt.cs" />
+    <Compile Include="BusinessLayer\BankReConciliation.cs" />
+    <Compile Include="BusinessLayer\BarCode.cs" />
+    <Compile Include="BusinessLayer\BaseAccountObject.cs" />
+    <Compile Include="BusinessLayer\BaseObject.cs" />
+    <Compile Include="BusinessLayer\BillReprint.cs" />
+    <Compile Include="BusinessLayer\Branch.cs" />
+    <Compile Include="BusinessLayer\CashExpenses.cs" />
+    <Compile Include="BusinessLayer\CashExpenseSalary.cs" />
+    <Compile Include="BusinessLayer\CashPayment.cs" />
+    <Compile Include="BusinessLayer\CashReceipt.cs" />
+    <Compile Include="BusinessLayer\ChallanPurchase.cs" />
+    <Compile Include="BusinessLayer\ChangeVAT5to55.cs" />
+    <Compile Include="BusinessLayer\ChequeReturn.cs" />
+    <Compile Include="BusinessLayer\Company.cs" />
+    <Compile Include="BusinessLayer\Account.cs" />
+    <Compile Include="BusinessLayer\ContraEntry.cs" />
+    <Compile Include="BusinessLayer\DeletedORChangedVouchers.cs" />
+    <Compile Include="BusinessLayer\DelivaryBoy.cs" />
+    <Compile Include="BusinessLayer\DelivarySalesman.cs" />
+    <Compile Include="BusinessLayer\EmailID.cs" />
+    <Compile Include="BusinessLayer\Emilan.cs" />
+    <Compile Include="BusinessLayer\Favourite.cs" />
+    <Compile Include="BusinessLayer\FinalAccounts.cs" />
+    <Compile Include="BusinessLayer\IFShowYearEnd.cs" />
+    <Compile Include="BusinessLayer\ImportBill.cs" />
+    <Compile Include="BusinessLayer\JournalVoucher.cs" />
+    <Compile Include="BusinessLayer\MasterMainCompany.cs" />
+    <Compile Include="BusinessLayer\Operator.cs" />
+    <Compile Include="BusinessLayer\PhoneBook.cs" />
+    <Compile Include="BusinessLayer\PrintingVariables.cs" />
+    <Compile Include="BusinessLayer\ProductSchedulH1.cs" />
+    <Compile Include="BusinessLayer\ScanPrescription.cs" />
+    <Compile Include="BusinessLayer\Settings.cs" />
+    <Compile Include="BusinessLayer\ShelfProduct.cs" />
+    <Compile Include="BusinessLayer\CreditDebitNote.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BusinessLayer\PharmaSysRetailPlusLic.cs" />
+    <Compile Include="BusinessLayer\ShopDetailsForForm.cs" />
+    <Compile Include="BusinessLayer\StockReProcess.cs" />
+    <Compile Include="BusinessLayer\Substitute.cs" />
+    <Compile Include="BusinessLayer\TempStock.cs" />
+    <Compile Include="BusinessLayer\ToolRewrite.cs" />
+    <Compile Include="BusinessLayer\Transporter.cs" />
+    <Compile Include="BusinessLayer\YearEnd.cs" />
+    <Compile Include="Common\Classes\CacheObject.cs" />
+    <Compile Include="Common\Classes\FixAccounts.cs" />
+    <Compile Include="BusinessLayer\SSSale.cs" />
+    <Compile Include="BusinessLayer\Correction.cs" />
+    <Compile Include="BusinessLayer\CreditNoteAmount.cs" />
+    <Compile Include="BusinessLayer\CreditNoteStock.cs" />
+    <Compile Include="BusinessLayer\Customer.cs" />
+    <Compile Include="BusinessLayer\DailyPurchaseOrder.cs" />
+    <Compile Include="BusinessLayer\DebitNoteAmount.cs" />
+    <Compile Include="BusinessLayer\DebitNoteExpiry.cs" />
+    <Compile Include="BusinessLayer\DebitNoteStock.cs" />
+    <Compile Include="BusinessLayer\DebtorProduct.cs" />
+    <Compile Include="BusinessLayer\DetailPrescription.cs" />
+    <Compile Include="BusinessLayer\DetailPurchase.cs" />
+    <Compile Include="BusinessLayer\Doctor.cs" />
+    <Compile Include="BusinessLayer\DrugGrouping.cs" />
+    <Compile Include="BusinessLayer\GenericCategory.cs" />
+    <Compile Include="BusinessLayer\MPReports.cs" />
+    <Compile Include="BusinessLayer\SaleList.cs" />
+    <Compile Include="BusinessLayer\ShopLicense.cs" />
+    <Compile Include="BusinessLayer\Groupac.cs" />
+    <Compile Include="BusinessLayer\Level.cs" />
+    <Compile Include="BusinessLayer\Login.cs" />
+    <Compile Include="BusinessLayer\Messages.cs" />
+    <Compile Include="BusinessLayer\OPStock.cs" />
+    <Compile Include="BusinessLayer\Pack.cs" />
+    <Compile Include="BusinessLayer\PartyCompany.cs" />
+    <Compile Include="BusinessLayer\Prescription.cs" />
+    <Compile Include="BusinessLayer\Product.cs" />
+    <Compile Include="BusinessLayer\Purchase.cs" />
+    <Compile Include="BusinessLayer\PurchaseOrder.cs" />
+    <Compile Include="BusinessLayer\Statements.cs" />
+    <Compile Include="BusinessLayer\UserRights.cs" />
+    <Compile Include="BusinessLayer\Schedule.cs" />
+    <Compile Include="BusinessLayer\Scheme.cs" />
+    <Compile Include="BusinessLayer\VoucherSaleList.cs" />
+    <Compile Include="Common\Classes\FormState.cs" />
+    <Compile Include="Common\Classes\RetailServiceCallback.cs" />
+    <Compile Include="DataLayer\DBBackupPath.cs" />
+    <Compile Include="DataLayer\DBBankExpenses.cs" />
+    <Compile Include="DataLayer\DBBankReconciliation.cs" />
+    <Compile Include="DataLayer\DBBarCode.cs" />
+    <Compile Include="DataLayer\DBChallanPurchase.cs" />
+    <Compile Include="DataLayer\DBChangeVAT5to55.cs" />
+    <Compile Include="DataLayer\DBChequeReturn.cs" />
+    <Compile Include="DataLayer\DBContraEntry.cs" />
+    <Compile Include="DataLayer\DBDeletedORChangedVouchers.cs" />
+    <Compile Include="DataLayer\DBDelivaryBoy.cs" />
+    <Compile Include="DataLayer\DBDelivarySalesMan.cs" />
+    <Compile Include="DataLayer\DBEmailID.cs" />
+    <Compile Include="DataLayer\DBEmilan.cs" />
+    <Compile Include="DataLayer\DBFavourite.cs" />
+    <Compile Include="DataLayer\DBFinalAccounts.cs" />
+    <Compile Include="DataLayer\DBImportBill.cs" />
+    <Compile Include="DataLayer\DBJournalVoucher.cs" />
+    <Compile Include="DataLayer\DBBillReprint.cs" />
+    <Compile Include="DataLayer\DBLicense.cs" />
+    <Compile Include="DataLayer\DBMasterMainCompany.cs" />
+    <Compile Include="DataLayer\DBPhoneBook.cs" />
+    <Compile Include="DataLayer\DBProduct.cs" />
+    <Compile Include="DataLayer\DBProductScheduleH1.cs" />
+    <Compile Include="DataLayer\DBScanPrescription.cs" />
+    <Compile Include="DataLayer\DBIfShowYearEnd.cs" />
+    <Compile Include="DataLayer\DBShopDetails.cs" />
+    <Compile Include="DataLayer\DBStockReProcess.cs" />
+    <Compile Include="DataLayer\DbTempStock.cs" />
+    <Compile Include="DataLayer\DBToolRewrite.cs" />
+    <Compile Include="DataLayer\DBTransporter.cs" />
+    <Compile Include="DataLayer\DBYearEnd.cs" />
+    <Compile Include="DataLayer\SMSDB.cs" />
+    <Compile Include="DataLayer\SpecCharInSMSDB.cs" />
+    <Compile Include="InterfaceLayer\Classes\PSMessageBox.cs" />
+    <Compile Include="Common\Classes\ValidationHelper.cs" />
+    <Compile Include="Common\Classes\ShopDetails.cs" />
+    <Compile Include="BusinessLayer\SsStock.cs" />
+    <Compile Include="BusinessLayer\Stock.cs" />
+    <Compile Include="BusinessLayer\StockIn.cs" />
+    <Compile Include="BusinessLayer\StockOut.cs" />
+    <Compile Include="BusinessLayer\User.cs" />
+    <Compile Include="BusinessLayer\Ward.cs" />
+    <Compile Include="BusinessLayer\Salesman.cs" />
+    <Compile Include="BusinessLayer\ProductCategory.cs" />
+    <Compile Include="BusinessLayer\Shelf.cs" />
+    <Compile Include="Common\Classes\CheckEditing.cs" />
+    <Compile Include="Common\Classes\General.cs" />
+    <Compile Include="Common\Classes\ConnectionInfo.cs" />
+    <Compile Include="Common\Classes\Logs.cs" />
+    <Compile Include="DataLayer\DBOperator.cs" />
+    <Compile Include="DataLayer\DBShelfProduct.cs" />
+    <Compile Include="DataLayer\DBAccountingYear.cs" />
+    <Compile Include="DataLayer\DBHospitalPatient.cs" />
+    <Compile Include="DataLayer\DBPharmaSysRetailPlusLic.cs" />
+    <Compile Include="DataLayer\DBSettings.cs" />
+    <Compile Include="DataLayer\DBStatements.cs" />
+    <Compile Include="DataLayer\DBSubstitute.cs" />
+    <Compile Include="DataLayer\DBVoucherSale.cs" />
+    <Compile Include="InterfaceLayer\Classes\PharmaSysRetailPlusCache.cs" />
+    <Compile Include="InterfaceLayer\Classes\PharmaSysRetailPlusItem.cs" />
+    <Compile Include="Common\Interfaces\Interfaces.cs" />
+    <Compile Include="DataLayer\DBAccountDetails.cs" />
+    <Compile Include="DataLayer\DBCreditDebitNote.cs" />
+    <Compile Include="DataLayer\DBDebitNoteExpiry.cs" />
+    <Compile Include="DataLayer\DBAccount.cs" />
+    <Compile Include="DataLayer\DBArea.cs" />
+    <Compile Include="DataLayer\DBBank.cs" />
+    <Compile Include="DataLayer\DBBankPayment.cs" />
+    <Compile Include="DataLayer\DBBankReceipt.cs" />
+    <Compile Include="DataLayer\DBBranch.cs" />
+    <Compile Include="DataLayer\DBCashExpenses.cs" />
+    <Compile Include="DataLayer\DBCashExpenseSalary.cs" />
+    <Compile Include="DataLayer\DBCashPayment.cs" />
+    <Compile Include="DataLayer\DBCashReceipt.cs" />
+    <Compile Include="DataLayer\DBCorrection.cs" />
+    <Compile Include="DataLayer\DBCounterSale.cs" />
+    <Compile Include="DataLayer\DBCreditNoteAmount.cs" />
+    <Compile Include="DataLayer\DBCreditNoteStock.cs" />
+    <Compile Include="DataLayer\DBCustomer.cs" />
+    <Compile Include="DataLayer\DBDailyPurchaseOrder.cs" />
+    <Compile Include="DataLayer\DBDebitNoteAmount.cs" />
+    <Compile Include="DataLayer\DBDebitNoteStock.cs" />
+    <Compile Include="DataLayer\DBDebtorProduct.cs" />
+    <Compile Include="DataLayer\DBDelete.cs" />
+    <Compile Include="DataLayer\DBDetailPatient.cs" />
+    <Compile Include="DataLayer\DBDetailPrescription.cs" />
+    <Compile Include="DataLayer\DBDetailPurchase.cs" />
+    <Compile Include="DataLayer\DBDoctor.cs" />
+    <Compile Include="DataLayer\DBDrugGrouping.cs" />
+    <Compile Include="DataLayer\DBGeneral.cs" />
+    <Compile Include="DataLayer\DBGenericCategory.cs" />
+    <Compile Include="DataLayer\DBGetVouNumber.cs" />
+    <Compile Include="DataLayer\DBGroup.cs" />
+    <Compile Include="DataLayer\DBLevel.cs" />
+    <Compile Include="DataLayer\DBLogin.cs" />
+    <Compile Include="DataLayer\DBMessages.cs" />
+    <Compile Include="DataLayer\DBOPStock.cs" />
+    <Compile Include="DataLayer\DBPack.cs" />
+    <Compile Include="DataLayer\DBPartyCompany.cs" />
+    <Compile Include="DataLayer\DBPatient.cs" />
+    <Compile Include="DataLayer\DBPrescription.cs" />
+    <Compile Include="DataLayer\DBPurchase.cs" />
+    <Compile Include="DataLayer\DBPurchaseOrder.cs" />
+    <Compile Include="DataLayer\DBUserRights.cs" />
+    <Compile Include="DataLayer\DBSaleList.cs" />
+    <Compile Include="DataLayer\DBSchedule.cs" />
+    <Compile Include="DataLayer\DBScheme.cs" />
+    <Compile Include="DataLayer\DBSSSale.cs" />
+    <Compile Include="DataLayer\DBSsStock.cs" />
+    <Compile Include="DataLayer\DBStock.cs" />
+    <Compile Include="DataLayer\DBStockIn.cs" />
+    <Compile Include="DataLayer\DBStockOut.cs" />
+    <Compile Include="DataLayer\DBUser.cs" />
+    <Compile Include="DataLayer\DBVoucherNumbers.cs" />
+    <Compile Include="DataLayer\DBWard.cs" />
+    <Compile Include="DataLayer\DBSalesman.cs" />
+    <Compile Include="DataLayer\DBProductCategory.cs" />
+    <Compile Include="DataLayer\DBCompany.cs" />
+    <Compile Include="DataLayer\DBInterface.cs" />
+    <Compile Include="DataLayer\DBShelf.cs" />
+    <Compile Include="DataLayer\Query.cs" />
+    <Compile Include="InterfaceLayer\Classes\NetworkBrowser.cs" />
+    <Compile Include="InterfaceLayer\Classes\RegistryUtility.cs" />
+    <Compile Include="InterfaceLayer\Classes\ScriptExecutor.cs" />
+    <Compile Include="InterfaceLayer\Classes\SendSMS.cs" />
+    <Compile Include="InterfaceLayer\CommonControls\PSAutoSuggestTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSAutoSuggestTextBox.designer.cs">
+      <DependentUpon>PSAutoSuggestTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSCashBankcontrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSCashBankcontrol.Designer.cs">
+      <DependentUpon>PSCashBankcontrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSFromTo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSFromTo.Designer.cs">
+      <DependentUpon>PSFromTo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSGenericCategoryComboBoxNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSGenericCategoryComboBoxNew.Designer.cs">
+      <DependentUpon>PSGenericCategoryComboBoxNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSMainGridViewForCashBank.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSMainGridViewForSale.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSMainGridView_Patient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSMainSubViewControl_Paient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSMainSubViewControl_Paient.designer.cs">
+      <DependentUpon>PSMainSubViewControl_Paient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSMultiColumComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSMultiColumComboBox.designer.cs">
+      <DependentUpon>PSMultiColumComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSPnlLight.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSPnlLight.Designer.cs">
+      <DependentUpon>PSPnlLight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSPnlLightWithBorderStyleNone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSPnlLightWithBorderStyleNone.Designer.cs">
+      <DependentUpon>PSPnlLightWithBorderStyleNone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSProductMainGridViewCounter2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSProductMainGridViewCRDB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSProductViewControlCRDB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSProductViewControlCRDB.Designer.cs">
+      <DependentUpon>PSProductViewControlCRDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSProductViewCounter2Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSProductViewCounter2Control.Designer.cs">
+      <DependentUpon>PSProductViewCounter2Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSSaleViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSSaleViewControl.Designer.cs">
+      <DependentUpon>PSSaleViewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSContinuousProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSProductViewControlForBillReprint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSProductViewControlForBillReprint.Designer.cs">
+      <DependentUpon>PSProductViewControlForBillReprint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSProductMainGridViewForBillReprint.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSComboBox.Designer.cs">
+      <DependentUpon>PSComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSDateVoucher.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSDateVoucher.Designer.cs">
+      <DependentUpon>PSDateVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSLabel.designer.cs">
+      <DependentUpon>PSLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSLableWithBorderMiddleRight.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSLableWithBorderMiddleRight.Designer.cs">
+      <DependentUpon>PSLableWithBorderMiddleRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSLableWithBorderMiddleLeft.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSlblMessage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSlblMessage.Designer.cs">
+      <DependentUpon>PSlblMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSDateTo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSDateTo.Designer.cs">
+      <DependentUpon>PSDateTo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSDateFrom.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSDateFrom.Designer.cs">
+      <DependentUpon>PSDateFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSHeaderLabelForReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSHeaderLabelForReports.Designer.cs">
+      <DependentUpon>PSHeaderLabelForReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSHeaderLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSHeaderLabel.Designer.cs">
+      <DependentUpon>PSHeaderLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSHeaderLabelForOverView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSHeaderLabelForOverView.Designer.cs">
+      <DependentUpon>PSHeaderLabelForOverView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSComboBoxNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSComboBoxNew.Designer.cs">
+      <DependentUpon>PSComboBoxNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSbtnOKMultiSelection.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSbtnOKMultiSelection.Designer.cs">
+      <DependentUpon>PSbtnOKMultiSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSMainGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSMainSubViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSMainSubViewControl.Designer.cs">
+      <DependentUpon>PSMainSubViewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSpnlMultiSelection.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSpnlMultiSelection.Designer.cs">
+      <DependentUpon>PSpnlMultiSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSProductMainGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSProductViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSProductViewControl.Designer.cs">
+      <DependentUpon>PSProductViewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSTextBox.Designer.cs">
+      <DependentUpon>PSTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSNameControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSNameControl.Designer.cs">
+      <DependentUpon>PSNameControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSMessageBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CommonControls\PSMessageBoxForm.Designer.cs">
+      <DependentUpon>PSMessageBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\FormImportInPurchaseControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\FormImportInPurchaseControl.Designer.cs">
+      <DependentUpon>FormImportInPurchaseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclAccount.designer.cs">
+      <DependentUpon>UclAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\FormUploadEmilan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\FormUploadEmilan.Designer.cs">
+      <DependentUpon>FormUploadEmilan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\StopWatch.cs" />
+    <Compile Include="InterfaceLayer\Controls\UclBulkProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBulkProduct.Designer.cs" />
+    <Compile Include="InterfaceLayer\Controls\UclDelivaryBoy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDelivaryBoy.Designer.cs">
+      <DependentUpon>UclDelivaryBoy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDelivaryBoySearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDelivaryBoySearch.Designer.cs">
+      <DependentUpon>UclDelivaryBoySearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDistributorCreditNoteStockSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDistributorCreditNoteStockSearch.Designer.cs">
+      <DependentUpon>UclDistributorCreditNoteStockSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclJournalVoucherSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclJournalVoucherSearch.designer.cs">
+      <DependentUpon>UclJournalVoucherSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMasterDelivarySalesman.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMasterDelivarySalesman.Designer.cs">
+      <DependentUpon>UclMasterDelivarySalesman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\uclMasterDelivarySalesmanSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\uclMasterDelivarySalesmanSearch.Designer.cs">
+      <DependentUpon>uclMasterDelivarySalesmanSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMasterMainCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMasterMainCompany.Designer.cs">
+      <DependentUpon>UclMasterMainCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMasterMainCompanySearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMasterMainCompanySearch.Designer.cs">
+      <DependentUpon>UclMasterMainCompanySearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclOPStock.Designer.cs">
+      <DependentUpon>UclOPStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderAllTypes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderAllTypes.Designer.cs">
+      <DependentUpon>UclPurchaseOrderAllTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderList.designer.cs">
+      <DependentUpon>UclPurchaseOrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSaleSummaryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSaleSummaryControl.Designer.cs">
+      <DependentUpon>UclSaleSummaryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettingsBackupPath.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettingsBackupPath.Designer.cs">
+      <DependentUpon>UclSettingsBackupPath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankExpenses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankExpenses.Designer.cs">
+      <DependentUpon>UclBankExpenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankExpensesSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankExpensesSearch.Designer.cs">
+      <DependentUpon>UclBankExpensesSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBulkPrintPartywiseSale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBulkPrintPartywiseSale.Designer.cs">
+      <DependentUpon>UclBulkPrintPartywiseSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclChequeReturn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclChequeReturn.Designer.cs">
+      <DependentUpon>UclChequeReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclChequeReturnSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclChequeReturnSearch.Designer.cs">
+      <DependentUpon>UclChequeReturnSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclContraEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclContraEntry.Designer.cs">
+      <DependentUpon>UclContraEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclContraEntrySearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclContraEntrySearch.Designer.cs">
+      <DependentUpon>UclContraEntrySearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDistributorCreditNoteStock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDistributorCreditNoteStock.Designer.cs">
+      <DependentUpon>UclDistributorCreditNoteStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDistributorSale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDistributorSale.Designer.cs">
+      <DependentUpon>UclDistributorSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDistributorSaleSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDistributorSaleSearch.Designer.cs">
+      <DependentUpon>UclDistributorSaleSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDoBankReconciliation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDoBankReconciliation.Designer.cs">
+      <DependentUpon>UclDoBankReconciliation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclEmailID.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclEmailID.Designer.cs">
+      <DependentUpon>UclEmailID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclEmailIDSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclEmailIDSearch.Designer.cs">
+      <DependentUpon>UclEmailIDSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclJournalVoucher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclJournalVoucher.Designer.cs">
+      <DependentUpon>UclJournalVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkProductScheduleH1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkProductScheduleH1.Designer.cs">
+      <DependentUpon>UclLinkProductScheduleH1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPhoneBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPhoneBook.Designer.cs">
+      <DependentUpon>UclPhoneBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPhoneBookSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPhoneBookSearch.Designer.cs">
+      <DependentUpon>UclPhoneBookSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolDistributorPercentageChange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolDistributorPercentageChange.designer.cs">
+      <DependentUpon>UclToolDistributorPercentageChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolTodaysBirthday.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolTodaysBirthday.Designer.cs">
+      <DependentUpon>UclToolTodaysBirthday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolCashCounter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolCashCounter.Designer.cs">
+      <DependentUpon>UclToolCashCounter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolChangeVAT5To55.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolChangeVAT5To55.Designer.cs">
+      <DependentUpon>UclToolChangeVAT5To55.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolEmilanDownload.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolEmilanDownload.Designer.cs">
+      <DependentUpon>UclToolEmilanDownload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolEmilanDownLoadPurchase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolEmilanDownLoadPurchase.Designer.cs">
+      <DependentUpon>UclToolEmilanDownLoadPurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolPrintBarCode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolPrintBarCode.Designer.cs">
+      <DependentUpon>UclToolPrintBarCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderByStockAndSale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderByStockAndSale.Designer.cs">
+      <DependentUpon>UclPurchaseOrderByStockAndSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderForToday.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderForToday.Designer.cs">
+      <DependentUpon>UclPurchaseOrderForToday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettingsEmail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettingsEmail.Designer.cs">
+      <DependentUpon>UclSettingsEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettingsReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettingsReport.Designer.cs">
+      <DependentUpon>UclSettingsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPartywisePurchase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPartywisePurchase.Designer.cs">
+      <DependentUpon>UclStatementPartywisePurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPartywisePurchaseSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPartywisePurchaseSearch.Designer.cs">
+      <DependentUpon>UclStatementPartywisePurchaseSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPartywiseSale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPartywiseSale.Designer.cs">
+      <DependentUpon>UclStatementPartywiseSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkShelfProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkShelfProduct.Designer.cs">
+      <DependentUpon>UclLinkShelfProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclOperator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclOperator.Designer.cs">
+      <DependentUpon>UclOperator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPartywiseSaleSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPartywiseSaleSearch.Designer.cs">
+      <DependentUpon>UclStatementPartywiseSaleSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPurchase7Days.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPurchase7Days.Designer.cs">
+      <DependentUpon>UclStatementPurchase7Days.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashReceiptSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashReceiptSearch.Designer.cs">
+      <DependentUpon>UclCashReceiptSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\BaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\BaseControl.Designer.cs">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\SearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\SearchControl.Designer.cs">
+      <DependentUpon>SearchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclAccountSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclAccountSearch.Designer.cs">
+      <DependentUpon>UclAccountSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclArea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclArea.Designer.cs">
+      <DependentUpon>UclArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclAreaSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclAreaSearch.Designer.cs">
+      <DependentUpon>UclAreaSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBank.designer.cs">
+      <DependentUpon>UclBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankSearch.designer.cs">
+      <DependentUpon>UclBankSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankPayment.Designer.cs">
+      <DependentUpon>UclBankPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankPaymentSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankPaymentSearch.Designer.cs">
+      <DependentUpon>UclBankPaymentSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankReceipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankReceipt.Designer.cs">
+      <DependentUpon>UclBankReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankReceiptSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankReceiptSearch.Designer.cs">
+      <DependentUpon>UclBankReceiptSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBranch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBranch.Designer.cs">
+      <DependentUpon>UclBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBranchSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBranchSearch.Designer.cs">
+      <DependentUpon>UclBranchSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashExpenses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashExpenses.Designer.cs">
+      <DependentUpon>UclCashExpenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashExpensesSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashExpensesSearch.Designer.cs">
+      <DependentUpon>UclCashExpensesSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashPayment.Designer.cs">
+      <DependentUpon>UclCashPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashPaymentSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashPaymentSearch.Designer.cs">
+      <DependentUpon>UclCashPaymentSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashReceipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashReceipt.Designer.cs">
+      <DependentUpon>UclCashReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCompany.Designer.cs">
+      <DependentUpon>UclCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCompanySearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCompanySearch.Designer.cs">
+      <DependentUpon>UclCompanySearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCorrectioninRate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCorrectioninRate.Designer.cs">
+      <DependentUpon>UclCorrectioninRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCorrectioninRateSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCorrectioninRateSearch.Designer.cs">
+      <DependentUpon>UclCorrectioninRateSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCreditNoteAmount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCreditNoteAmount.Designer.cs">
+      <DependentUpon>UclCreditNoteAmount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCreditNoteAmountSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCreditNoteAmountSearch.Designer.cs">
+      <DependentUpon>UclCreditNoteAmountSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCreditNoteStock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCreditNoteStock.Designer.cs">
+      <DependentUpon>UclCreditNoteStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCreditNoteStockSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCreditNoteStockSearch.Designer.cs">
+      <DependentUpon>UclCreditNoteStockSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCustomer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCustomer.Designer.cs">
+      <DependentUpon>UclCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCustomerSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCustomerSearch.Designer.cs">
+      <DependentUpon>UclCustomerSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDailyPurchaseOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDailyPurchaseOrder.Designer.cs">
+      <DependentUpon>UclDailyPurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDebitNoteAmount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDebitNoteAmount.Designer.cs">
+      <DependentUpon>UclDebitNoteAmount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDebitNoteAmountSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDebitNoteAmountSearch.Designer.cs">
+      <DependentUpon>UclDebitNoteAmountSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDebitNoteExpiry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDebitNoteExpiry.Designer.cs">
+      <DependentUpon>UclDebitNoteExpiry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDebitNoteStockSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDebitNoteStockSearch.Designer.cs">
+      <DependentUpon>UclDebitNoteStockSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkDebtorProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkDebtorProduct.Designer.cs">
+      <DependentUpon>UclLinkDebtorProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkDebtorProductSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkDebtorProductSearch.Designer.cs">
+      <DependentUpon>UclLinkDebtorProductSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDoctor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDoctor.Designer.cs">
+      <DependentUpon>UclDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDoctorSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDoctorSearch.Designer.cs">
+      <DependentUpon>UclDoctorSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkDrugGrouping.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkDrugGrouping.Designer.cs">
+      <DependentUpon>UclLinkDrugGrouping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkDrugGroupingSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkDrugGroupingSearch.Designer.cs">
+      <DependentUpon>UclLinkDrugGroupingSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclGenericCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclGenericCategory.Designer.cs">
+      <DependentUpon>UclGenericCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclGenericCategorySearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclGenericCategorySearch.Designer.cs">
+      <DependentUpon>UclGenericCategorySearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclGroup.Designer.cs">
+      <DependentUpon>UclGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclGroupSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclGroupSearch.Designer.cs">
+      <DependentUpon>UclGroupSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMessagesSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMessagesSearch.Designer.cs">
+      <DependentUpon>UclMessagesSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMessages.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMessages.Designer.cs">
+      <DependentUpon>UclMessages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMessageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMessageView.Designer.cs">
+      <DependentUpon>UclMessageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclOPStock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclOPStockSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclOPStockSearch.Designer.cs">
+      <DependentUpon>UclOPStockSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkPartyCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkPartyCompany.Designer.cs">
+      <DependentUpon>UclLinkPartyCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkPartyCompanySearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkPartyCompanySearch.Designer.cs">
+      <DependentUpon>UclLinkPartyCompanySearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPrescription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPrescription.Designer.cs">
+      <DependentUpon>UclPrescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPrescriptionSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPrescriptionSearch.Designer.cs">
+      <DependentUpon>UclPrescriptionSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclProdCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclProdCategory.Designer.cs">
+      <DependentUpon>UclProdCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclProdCategorySearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclProdCategorySearch.Designer.cs">
+      <DependentUpon>UclProdCategorySearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclProduct.Designer.cs">
+      <DependentUpon>UclProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclProductSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclProductSearch.Designer.cs">
+      <DependentUpon>UclProductSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchase.Designer.cs">
+      <DependentUpon>UclPurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrder.Designer.cs">
+      <DependentUpon>UclPurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderSearch.Designer.cs">
+      <DependentUpon>UclPurchaseOrderSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseSearch.Designer.cs">
+      <DependentUpon>UclPurchaseSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettings.Designer.cs">
+      <DependentUpon>UclSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettingsForPrint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettingsForPrint.Designer.cs">
+      <DependentUpon>UclSettingsForPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPurchase15Days.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPurchase15Days.Designer.cs">
+      <DependentUpon>UclStatementPurchase15Days.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementSale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementSale.Designer.cs">
+      <DependentUpon>UclStatementSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStockOutExpiredProducts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStockOutExpiredProducts.Designer.cs">
+      <DependentUpon>UclStockOutExpiredProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolCompanyShortName.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolCompanyShortName.Designer.cs">
+      <DependentUpon>UclToolCompanyShortName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolPrintSettingForRetailer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolPrintSettingForRetailer.Designer.cs">
+      <DependentUpon>UclToolPrintSettingForRetailer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolRemoveLinkEDEProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolRemoveLinkEDEProduct.Designer.cs">
+      <DependentUpon>UclToolRemoveLinkEDEProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolRewrite.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolRewrite.Designer.cs">
+      <DependentUpon>UclToolRewrite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolShelfTransfer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolShelfTransfer.Designer.cs">
+      <DependentUpon>UclToolShelfTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolStockReProcess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolStockReProcess.Designer.cs">
+      <DependentUpon>UclToolStockReProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSubstitute.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSubstitute.Designer.cs">
+      <DependentUpon>UclSubstitute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSubstituteControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSubstituteControl.Designer.cs">
+      <DependentUpon>UclSubstituteControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolSale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolSale.Designer.cs">
+      <DependentUpon>UclToolSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclTransporterSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclTransporterSearch.Designer.cs">
+      <DependentUpon>UclTransporterSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclUserRights.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclUserRights.Designer.cs">
+      <DependentUpon>UclUserRights.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclUserRightsSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclUserRightsSearch.Designer.cs">
+      <DependentUpon>UclUserRightsSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSalesman.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSalesman.Designer.cs">
+      <DependentUpon>UclSalesman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSalesmanSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSalesmanSearch.Designer.cs">
+      <DependentUpon>UclSalesmanSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclScheme.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclScheme.Designer.cs">
+      <DependentUpon>UclScheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSchemeSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSchemeSearch.Designer.cs">
+      <DependentUpon>UclSchemeSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclShelf.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclShelf.Designer.cs">
+      <DependentUpon>UclShelf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclShelfSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclShelfSearch.Designer.cs">
+      <DependentUpon>UclShelfSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStockIn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStockIn.Designer.cs">
+      <DependentUpon>UclStockIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStockInSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStockInSearch.Designer.cs">
+      <DependentUpon>UclStockInSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStockOut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStockOut.Designer.cs">
+      <DependentUpon>UclStockOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStockOutSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStockOutSearch.Designer.cs">
+      <DependentUpon>UclStockOutSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclUser.Designer.cs">
+      <DependentUpon>UclUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclUserSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclUserSearch.Designer.cs">
+      <DependentUpon>UclUserSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclWard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclWard.Designer.cs">
+      <DependentUpon>UclWard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclWardSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclWardSearch.Designer.cs">
+      <DependentUpon>UclWardSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDebitNotestock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDebitNotestock.Designer.cs">
+      <DependentUpon>UclDebitNotestock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclYearEnd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclYearEnd.Designer.cs">
+      <DependentUpon>UclYearEnd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Forms\AddSMSsettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Forms\AddSMSsettings.Designer.cs">
+      <DependentUpon>AddSMSsettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Forms\Download_Updates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Forms\Download_Updates.Designer.cs" />
+    <Compile Include="InterfaceLayer\Forms\FormImportSaleBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Forms\FormImportSaleBill.Designer.cs">
+      <DependentUpon>FormImportSaleBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolFillBarCodeNumbers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolFillBarCodeNumbers.Designer.cs">
+      <DependentUpon>UclToolFillBarCodeNumbers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderMinMax.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderMinMax.Designer.cs">
+      <DependentUpon>UclPurchaseOrderMinMax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolSetMinMaxLevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolSetMinMaxLevel.Designer.cs">
+      <DependentUpon>UclToolSetMinMaxLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Forms\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Forms\FormMain.designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Forms\FormShopDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Forms\FormShopDetails.Designer.cs">
+      <DependentUpon>FormShopDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseNewProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseNewProduct.Designer.cs">
+      <DependentUpon>UclPurchaseNewProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\FormMacIDAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\FormMacIDAdd.Designer.cs">
+      <DependentUpon>FormMacIDAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\FormMacIDList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\FormMacIDList.Designer.cs">
+      <DependentUpon>FormMacIDList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\FormValidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\FormValidation.Designer.cs">
+      <DependentUpon>FormValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Classes\Program.cs" />
+    <Compile Include="InterfaceLayer\Forms\FormSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Forms\FormSplash.Designer.cs">
+      <DependentUpon>FormSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Forms\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Forms\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Classes\LockTable.cs" />
+    <Compile Include="Common\Classes\LockTableRows.cs" />
+    <Compile Include="InterfaceLayer\Validation\IValidationControl.cs" />
+    <Compile Include="InterfaceLayer\Validation\UclAssociation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclAssociation.Designer.cs">
+      <DependentUpon>UclAssociation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclConnectDatabase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclConnectDatabase.Designer.cs">
+      <DependentUpon>UclConnectDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclCreateDatabase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclCreateDatabase.Designer.cs">
+      <DependentUpon>UclCreateDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclImportLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclImportLicense.Designer.cs">
+      <DependentUpon>UclImportLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclNoDatabase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclNoDatabase.Designer.cs">
+      <DependentUpon>UclNoDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclNoLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclNoLicense.Designer.cs">
+      <DependentUpon>UclNoLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclTrialLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclTrialLicense.Designer.cs">
+      <DependentUpon>UclTrialLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclTrialLicenseExpired.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Validation\UclTrialLicenseExpired.Designer.cs">
+      <DependentUpon>UclTrialLicenseExpired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\BarCodePrinter.cs" />
+    <Compile Include="Printing\DashLine.cs" />
+    <Compile Include="Printing\GeneralReport.cs" />
+    <Compile Include="Printing\PlainPaperPrinter.cs" />
+    <Compile Include="Printing\PlainPaperPrinterForDistributor.cs" />
+    <Compile Include="Printing\PrePrintedPaperPrinter.cs" />
+    <Compile Include="Printing\PrintFactory.cs" />
+    <Compile Include="Printing\PrintHead.cs" />
+    <Compile Include="Printing\PrintSettings.cs" />
+    <Compile Include="Printing\PrintSettingsForDistributor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSAutoSuggestTextBox.resx">
+      <DependentUpon>PSAutoSuggestTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSCashBankcontrol.resx">
+      <DependentUpon>PSCashBankcontrol.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSFromTo.resx">
+      <DependentUpon>PSFromTo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSGenericCategoryComboBoxNew.resx">
+      <DependentUpon>PSGenericCategoryComboBoxNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSMainGridViewForCashBank.resx">
+      <DependentUpon>PSMainGridViewForCashBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSMainGridViewForSale.resx">
+      <DependentUpon>PSMainGridViewForSale.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSMainGridView_Patient.resx">
+      <DependentUpon>PSMainGridView_Patient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSMainSubViewControl_Paient.resx">
+      <DependentUpon>PSMainSubViewControl_Paient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSMultiColumComboBox.resx">
+      <DependentUpon>PSMultiColumComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSProductMainGridViewCounter2.resx">
+      <DependentUpon>PSProductMainGridViewCounter2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSProductMainGridViewCRDB.resx">
+      <DependentUpon>PSProductMainGridViewCRDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSProductViewControlCRDB.resx">
+      <DependentUpon>PSProductViewControlCRDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSProductViewCounter2Control.resx">
+      <DependentUpon>PSProductViewCounter2Control.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSSaleViewControl.resx">
+      <DependentUpon>PSSaleViewControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSDateTo.resx">
+      <DependentUpon>PSDateTo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSDateFrom.resx">
+      <DependentUpon>PSDateFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSHeaderLabelForReports.resx">
+      <DependentUpon>PSHeaderLabelForReports.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSHeaderLabel.resx">
+      <DependentUpon>PSHeaderLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSHeaderLabelForOverView.resx">
+      <DependentUpon>PSHeaderLabelForOverView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSComboBoxNew.resx">
+      <DependentUpon>PSComboBoxNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSbtnOKMultiSelection.resx">
+      <DependentUpon>PSbtnOKMultiSelection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSMainGridView.resx">
+      <DependentUpon>PSMainGridView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSMainSubViewControl.resx">
+      <DependentUpon>PSMainSubViewControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSpnlMultiSelection.resx">
+      <DependentUpon>PSpnlMultiSelection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSProductMainGridView.resx">
+      <DependentUpon>PSProductMainGridView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSProductViewControl.resx">
+      <DependentUpon>PSProductViewControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSTextBox.resx">
+      <DependentUpon>PSTextBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSNameControl.resx">
+      <DependentUpon>PSNameControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\FormImportInPurchaseControl.resx">
+      <DependentUpon>FormImportInPurchaseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclAccount.resx">
+      <DependentUpon>UclAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\FormUploadEmilan.resx">
+      <DependentUpon>FormUploadEmilan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclBulkProduct.resx" />
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDelivaryBoy.resx">
+      <DependentUpon>UclDelivaryBoy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDelivaryBoySearch.resx">
+      <DependentUpon>UclDelivaryBoySearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDistributorCreditNoteStockSearch.resx">
+      <DependentUpon>UclDistributorCreditNoteStockSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCashReceiptSearch.resx">
+      <DependentUpon>UclCashReceiptSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\BaseControl.resx">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\SearchControl.resx">
+      <DependentUpon>SearchControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclAccountSearch.resx">
+      <DependentUpon>UclAccountSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclArea.resx">
+      <DependentUpon>UclArea.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclAreaSearch.resx">
+      <DependentUpon>UclAreaSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclBank.resx">
+      <DependentUpon>UclBank.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclBankSearch.resx">
+      <DependentUpon>UclBankSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclBankPayment.resx">
+      <DependentUpon>UclBankPayment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclBankPaymentSearch.resx">
+      <DependentUpon>UclBankPaymentSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclBankReceipt.resx">
+      <DependentUpon>UclBankReceipt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclBankReceiptSearch.resx">
+      <DependentUpon>UclBankReceiptSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclBranch.resx">
+      <DependentUpon>UclBranch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclBranchSearch.resx">
+      <DependentUpon>UclBranchSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCashExpenses.resx">
+      <DependentUpon>UclCashExpenses.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCashExpensesSearch.resx">
+      <DependentUpon>UclCashExpensesSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCashPayment.resx">
+      <DependentUpon>UclCashPayment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCashPaymentSearch.resx">
+      <DependentUpon>UclCashPaymentSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCashReceipt.resx">
+      <DependentUpon>UclCashReceipt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCompany.resx">
+      <DependentUpon>UclCompany.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCompanySearch.resx">
+      <DependentUpon>UclCompanySearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCorrectioninRate.resx">
+      <DependentUpon>UclCorrectioninRate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCorrectioninRateSearch.resx">
+      <DependentUpon>UclCorrectioninRateSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCreditNoteAmount.resx">
+      <DependentUpon>UclCreditNoteAmount.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCreditNoteAmountSearch.resx">
+      <DependentUpon>UclCreditNoteAmountSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCreditNoteStock.resx">
+      <DependentUpon>UclCreditNoteStock.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCreditNoteStockSearch.resx">
+      <DependentUpon>UclCreditNoteStockSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCustomer.resx">
+      <DependentUpon>UclCustomer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCustomerSearch.resx">
+      <DependentUpon>UclCustomerSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDailyPurchaseOrder.resx">
+      <DependentUpon>UclDailyPurchaseOrder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDebitNoteAmount.resx">
+      <DependentUpon>UclDebitNoteAmount.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDebitNoteAmountSearch.resx">
+      <DependentUpon>UclDebitNoteAmountSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDebitNoteExpiry.resx">
+      <DependentUpon>UclDebitNoteExpiry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDebitNoteStockSearch.resx">
+      <DependentUpon>UclDebitNoteStockSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDistributorCreditNoteStock.resx">
+      <DependentUpon>UclDistributorCreditNoteStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclJournalVoucher.resx">
+      <DependentUpon>UclJournalVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclJournalVoucherSearch.resx">
+      <DependentUpon>UclJournalVoucherSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclLinkDebtorProduct.resx">
+      <DependentUpon>UclLinkDebtorProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclLinkDebtorProductSearch.resx">
+      <DependentUpon>UclLinkDebtorProductSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDoctor.resx">
+      <DependentUpon>UclDoctor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDoctorSearch.resx">
+      <DependentUpon>UclDoctorSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclLinkDrugGrouping.resx">
+      <DependentUpon>UclLinkDrugGrouping.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclLinkDrugGroupingSearch.resx">
+      <DependentUpon>UclLinkDrugGroupingSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclGenericCategory.resx">
+      <DependentUpon>UclGenericCategory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclGenericCategorySearch.resx">
+      <DependentUpon>UclGenericCategorySearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclGroup.resx">
+      <DependentUpon>UclGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclGroupSearch.resx">
+      <DependentUpon>UclGroupSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclMasterDelivarySalesman.resx">
+      <DependentUpon>UclMasterDelivarySalesman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\uclMasterDelivarySalesmanSearch.resx">
+      <DependentUpon>uclMasterDelivarySalesmanSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclMasterMainCompany.resx">
+      <DependentUpon>UclMasterMainCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclMasterMainCompanySearch.resx">
+      <DependentUpon>UclMasterMainCompanySearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclMessagesSearch.resx">
+      <DependentUpon>UclMessagesSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclMessages.resx">
+      <DependentUpon>UclMessages.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclMessageView.resx">
+      <DependentUpon>UclMessageView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclOPStock.resx">
+      <DependentUpon>UclOPStock.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclOPStockSearch.resx">
+      <DependentUpon>UclOPStockSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclLinkPartyCompany.resx">
+      <DependentUpon>UclLinkPartyCompany.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclLinkPartyCompanySearch.resx">
+      <DependentUpon>UclLinkPartyCompanySearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPhoneBook.resx">
+      <DependentUpon>UclPhoneBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPhoneBookSearch.resx">
+      <DependentUpon>UclPhoneBookSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPrescription.resx">
+      <DependentUpon>UclPrescription.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPrescriptionSearch.resx">
+      <DependentUpon>UclPrescriptionSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderAllTypes.resx">
+      <DependentUpon>UclPurchaseOrderAllTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderList.resx">
+      <DependentUpon>UclPurchaseOrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclSaleSummaryControl.resx">
+      <DependentUpon>UclSaleSummaryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolDistributorPercentageChange.resx">
+      <DependentUpon>UclToolDistributorPercentageChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolTodaysBirthday.resx">
+      <DependentUpon>UclToolTodaysBirthday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolCashCounter.resx">
+      <DependentUpon>UclToolCashCounter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolChangeVAT5To55.resx">
+      <DependentUpon>UclToolChangeVAT5To55.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolEmilanDownload.resx">
+      <DependentUpon>UclToolEmilanDownload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolEmilanDownLoadPurchase.resx">
+      <DependentUpon>UclToolEmilanDownLoadPurchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolPrintBarCode.resx">
+      <DependentUpon>UclToolPrintBarCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclProdCategory.resx">
+      <DependentUpon>UclProdCategory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclProdCategorySearch.resx">
+      <DependentUpon>UclProdCategorySearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclProduct.resx">
+      <DependentUpon>UclProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclProductSearch.resx">
+      <DependentUpon>UclProductSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchase.resx">
+      <DependentUpon>UclPurchase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrder.resx">
+      <DependentUpon>UclPurchaseOrder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderByStockAndSale.resx">
+      <DependentUpon>UclPurchaseOrderByStockAndSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderSearch.resx">
+      <DependentUpon>UclPurchaseOrderSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseSearch.resx">
+      <DependentUpon>UclPurchaseSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclSettings.resx">
+      <DependentUpon>UclSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclSettingsForPrint.resx">
+      <DependentUpon>UclSettingsForPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclSettingsReport.resx">
+      <DependentUpon>UclSettingsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclStatementPurchase15Days.resx">
+      <DependentUpon>UclStatementPurchase15Days.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclStatementPurchase7Days.resx">
+      <DependentUpon>UclStatementPurchase7Days.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclStockOutExpiredProducts.resx">
+      <DependentUpon>UclStockOutExpiredProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolPrintSettingForRetailer.resx">
+      <DependentUpon>UclToolPrintSettingForRetailer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolRemoveLinkEDEProduct.resx">
+      <DependentUpon>UclToolRemoveLinkEDEProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolRewrite.resx">
+      <DependentUpon>UclToolRewrite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolShelfTransfer.resx">
+      <DependentUpon>UclToolShelfTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclTransporterSearch.resx">
+      <DependentUpon>UclTransporterSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclUserRights.resx">
+      <DependentUpon>UclUserRights.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclUserRightsSearch.resx">
+      <DependentUpon>UclUserRightsSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclSalesman.resx">
+      <DependentUpon>UclSalesman.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclSalesmanSearch.resx">
+      <DependentUpon>UclSalesmanSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclScheme.resx">
+      <DependentUpon>UclScheme.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclSchemeSearch.resx">
+      <DependentUpon>UclSchemeSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclShelf.resx">
+      <DependentUpon>UclShelf.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclShelfSearch.resx">
+      <DependentUpon>UclShelfSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclStockIn.resx">
+      <DependentUpon>UclStockIn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclStockInSearch.resx">
+      <DependentUpon>UclStockInSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclStockOut.resx">
+      <DependentUpon>UclStockOut.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclStockOutSearch.resx">
+      <DependentUpon>UclStockOutSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclUser.resx">
+      <DependentUpon>UclUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclUserSearch.resx">
+      <DependentUpon>UclUserSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclWard.resx">
+      <DependentUpon>UclWard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclWardSearch.cs.resx">
+      <DependentUpon>UclWardSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclWardSearch.resx">
+      <DependentUpon>UclWardSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDebitNotestock.resx">
+      <DependentUpon>UclDebitNotestock.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolFillBarCodeNumbers.resx">
+      <DependentUpon>UclToolFillBarCodeNumbers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderMinMax.resx">
+      <DependentUpon>UclPurchaseOrderMinMax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolSetMinMaxLevel.resx">
+      <DependentUpon>UclToolSetMinMaxLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Forms\AddSMSsettings.resx">
+      <DependentUpon>AddSMSsettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Forms\Download_Updates.resx" />
+    <EmbeddedResource Include="InterfaceLayer\Forms\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Forms\FormShopDetails.resx">
+      <DependentUpon>FormShopDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseNewProduct.resx">
+      <DependentUpon>UclPurchaseNewProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Validation\FormMacIDList.resx">
+      <DependentUpon>FormMacIDList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Validation\FormValidation.resx">
+      <DependentUpon>FormValidation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Forms\FormSplash.resx">
+      <DependentUpon>FormSplash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Forms\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Validation\UclAssociation.resx">
+      <DependentUpon>UclAssociation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Validation\UclConnectDatabase.resx">
+      <DependentUpon>UclConnectDatabase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Validation\UclCreateDatabase.resx">
+      <DependentUpon>UclCreateDatabase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Validation\UclImportLicense.resx">
+      <DependentUpon>UclImportLicense.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Validation\UclNoDatabase.resx">
+      <DependentUpon>UclNoDatabase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Validation\UclNoLicense.resx">
+      <DependentUpon>UclNoLicense.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Validation\UclTrialLicense.resx">
+      <DependentUpon>UclTrialLicense.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Validation\UclTrialLicenseExpired.resx">
+      <DependentUpon>UclTrialLicenseExpired.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Base\ReportBaseControl.resx">
+      <DependentUpon>ReportBaseControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Base\ReportPanelTop.resx">
+      <DependentUpon>ReportPanelTop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclChallanProductList.resx">
+      <DependentUpon>UclChallanProductList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclChallanPurchaseList.resx">
+      <DependentUpon>UclChallanPurchaseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclDistributorAreawiseOutstanding.resx">
+      <DependentUpon>UclDistributorAreawiseOutstanding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclDistributorDailySale.resx">
+      <DependentUpon>UclDistributorDailySale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclDistributorPartywiseOutStanding.resx">
+      <DependentUpon>UclDistributorPartywiseOutStanding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclExpiryListDetail.resx">
+      <DependentUpon>UclExpiryListDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclGSTPurchaseRegister.resx">
+      <DependentUpon>UclGSTPurchaseRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclGSTSaleRegister.resx">
+      <DependentUpon>UclGSTSaleRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListNextVisitDate.resx">
+      <DependentUpon>UclListNextVisitDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListTodaysChequesTobeDeposited.resx">
+      <DependentUpon>UclListTodaysChequesTobeDeposited.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclMISListSummaryFromToBillNumber.resx">
+      <DependentUpon>UclMISListSummaryFromToBillNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclPurchaseListPartyWiseOutstanding.resx">
+      <DependentUpon>UclPurchaseListPartyWiseOutstanding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleDayWiseVoucherSaleTotal.resx">
+      <DependentUpon>UclSaleDayWiseVoucherSaleTotal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListCompanywisesale.resx">
+      <DependentUpon>UclSaleListCompanywisesale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListCompanywiseSummary.resx">
+      <DependentUpon>UclSaleListCompanywiseSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListPartywiseOutstanding.resx">
+      <DependentUpon>UclSaleListPartywiseOutstanding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListAllBatchWise.resx">
+      <DependentUpon>UclStockListAllBatchWise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListClosingStockAsOn.resx">
+      <DependentUpon>UclStockListClosingStockAsOn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListOpeningStock.resx">
+      <DependentUpon>UclStockListOpeningStock.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListProductLedgerBatchWise.resx">
+      <DependentUpon>UclStockListProductLedgerBatchWise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListStocknSaleValue.resx">
+      <DependentUpon>UclStockListStocknSaleValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclAcListAgeing.resx">
+      <DependentUpon>UclAcListAgeing.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclAcListBankBook.resx">
+      <DependentUpon>UclAcListBankBook.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclAcListCashBook.resx">
+      <DependentUpon>UclAcListCashBook.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclAcListCreditorLedger.resx">
+      <DependentUpon>UclAcListCreditorLedger.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclAcListDebtorLedger.resx">
+      <DependentUpon>UclAcListDebtorLedger.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclAcListGeneralLedger.resx">
+      <DependentUpon>UclAcListGeneralLedger.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclAcListJournal.resx">
+      <DependentUpon>UclAcListJournal.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclAcListPurchaseRegister.resx">
+      <DependentUpon>UclAcListPurchaseRegister.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclAcListSalesRegister.resx">
+      <DependentUpon>UclAcListSalesRegister.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclAcListSundryCreditor.resx">
+      <DependentUpon>UclAcListSundryCreditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclAcListSundryDebtor.resx">
+      <DependentUpon>UclAcListSundryDebtor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclFACListBalanceSheet.resx">
+      <DependentUpon>UclFACListBalanceSheet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclFACListEntryofScheduleNumber.resx">
+      <DependentUpon>UclFACListEntryofScheduleNumber.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclFACListPrintSchedules.resx">
+      <DependentUpon>UclFACListPrintSchedules.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclFACListProfitandLoss.resx">
+      <DependentUpon>UclFACListProfitandLoss.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclFACListTrialBalance.resx">
+      <DependentUpon>UclFACListTrialBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclMISListBankInterest.resx">
+      <DependentUpon>UclMISListBankInterest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclMISListCurrentStockValue.resx">
+      <DependentUpon>UclMISListCurrentStockValue.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclMISListDailyBankClosing.resx">
+      <DependentUpon>UclMISListDailyBankClosing.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclMISListDailyCashClosing.resx">
+      <DependentUpon>UclMISListDailyCashClosing.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclMISListProfitCompany.resx">
+      <DependentUpon>UclMISListProfitCompany.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclMISListProfitDay.resx">
+      <DependentUpon>UclMISListProfitDay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclMISListCurrentStockStatement.resx">
+      <DependentUpon>UclMISListCurrentStockStatement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclMISListStockStatementBank.resx">
+      <DependentUpon>UclMISListStockStatementBank.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclMISListSummary.resx">
+      <DependentUpon>UclMISListSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclPurchaseListAllPartySummary.resx">
+      <DependentUpon>UclPurchaseListAllPartySummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclPurchaseListCategory.resx">
+      <DependentUpon>UclPurchaseListCategory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclPurchaseListCompany.resx">
+      <DependentUpon>UclPurchaseListCompany.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclPurchaseListDiscount.resx">
+      <DependentUpon>UclPurchaseListDiscount.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclPurchaseListNewProduct.resx">
+      <DependentUpon>UclPurchaseListNewProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclPurchaseListPartyProduct.resx">
+      <DependentUpon>UclPurchaseListPartyProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclPurchaseListPartywisebills.resx">
+      <DependentUpon>UclPurchaseListPartywisebills.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclPurchaseListProduct.resx">
+      <DependentUpon>UclPurchaseListProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclPurchaseListProductBatch.resx">
+      <DependentUpon>UclPurchaseListProductBatch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListAdmitPatient.resx">
+      <DependentUpon>UclSaleListAdmitPatient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListCategory.resx">
+      <DependentUpon>UclSaleListCategory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListCreditCard.resx">
+      <DependentUpon>UclSaleListCreditCard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListDailySale.resx">
+      <DependentUpon>UclSaleListDailySale.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListProductSummary.resx">
+      <DependentUpon>UclSaleListProductSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListDoctor.resx">
+      <DependentUpon>UclSaleListDoctor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListDoctorCompany.resx">
+      <DependentUpon>UclSaleListDoctorCompany.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListIPD.resx">
+      <DependentUpon>UclSaleListIPD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListOPD.resx">
+      <DependentUpon>UclSaleListOPD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListOperator.resx">
+      <DependentUpon>UclSaleListOperator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListPartyProduct.resx">
+      <DependentUpon>UclSaleListPartyProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListPartySaleSummary.resx">
+      <DependentUpon>UclSaleListPartySaleSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListPatient.resx">
+      <DependentUpon>UclSaleListPatient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListProduct.resx">
+      <DependentUpon>UclSaleListProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListProductBatch.resx">
+      <DependentUpon>UclSaleListProductBatch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListRegularPartyProduct.resx">
+      <DependentUpon>UclSaleListRegularPartyProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListSheduledDrug.resx">
+      <DependentUpon>UclSaleListSheduledDrug.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSchemeListAll.resx">
+      <DependentUpon>UclSchemeListAll.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSchemeListCompanywise.resx">
+      <DependentUpon>UclSchemeListCompanywise.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSchemeListCompanywisePurchase.resx">
+      <DependentUpon>UclSchemeListCompanywisePurchase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclCreditNoteStockInListProduct.resx">
+      <DependentUpon>UclCreditNoteStockInListProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclCreditDebitStockINOUTListProduct.resx">
+      <DependentUpon>UclCreditDebitStockINOUTListProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSchemeListProductPurchase.resx">
+      <DependentUpon>UclSchemeListProductPurchase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListBatchwise.resx">
+      <DependentUpon>UclStockListBatchwise.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListCategorySummary.resx">
+      <DependentUpon>UclStockListCategorySummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListCompanywiseSummary.resx">
+      <DependentUpon>UclStockListCompanywiseSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListCurrentStock.resx">
+      <DependentUpon>UclStockListCurrentStock.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListNonMoving.resx">
+      <DependentUpon>UclStockListNonMoving.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListOpeningStockProduct.resx">
+      <DependentUpon>UclStockListOpeningStockProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListPatient.resx">
+      <DependentUpon>UclStockListPatient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListProductLedger.resx">
+      <DependentUpon>UclStockListProductLedger.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListShelf.resx">
+      <DependentUpon>UclStockListShelf.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListStocknSale.resx">
+      <DependentUpon>UclStockListStocknSale.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclDebitNoteStockOutListProduct.resx">
+      <DependentUpon>UclDebitNoteStockOutListProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListAccount.resx">
+      <DependentUpon>UclListAccount.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListArea.resx">
+      <DependentUpon>UclListArea.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListBank.resx">
+      <DependentUpon>UclListBank.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListBranch.resx">
+      <DependentUpon>UclListBranch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclCashExpenseSalaryList.resx">
+      <DependentUpon>UclCashExpenseSalaryList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclVouCashPaidList.resx">
+      <DependentUpon>UclVouCashPaidList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclVouCashExpensesList.resx">
+      <DependentUpon>UclVouCashExpensesList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclVouCashReceiptList.resx">
+      <DependentUpon>UclVouCashReceiptList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclVouChequePaidList.resx">
+      <DependentUpon>UclVouChequePaidList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclVouChequeReceiptList.resx">
+      <DependentUpon>UclVouChequeReceiptList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListCompany.resx">
+      <DependentUpon>UclListCompany.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclCreditDebitNoteProductList.resx">
+      <DependentUpon>UclCreditDebitNoteProductList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclCreditNoteList.resx">
+      <DependentUpon>UclCreditNoteList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclCreditDebitNotePartyList.resx">
+      <DependentUpon>UclCreditDebitNotePartyList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclCreditNoteListProduct.resx">
+      <DependentUpon>UclCreditNoteListProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclDebitNoteList.resx">
+      <DependentUpon>UclDebitNoteList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclDebitNoteListProduct.resx">
+      <DependentUpon>UclDebitNoteListProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListDoctor.resx">
+      <DependentUpon>UclListDoctor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListGenericCategory.resx">
+      <DependentUpon>UclListGenericCategory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListProductAll.resx">
+      <DependentUpon>UclListProductAll.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclStockListAll.resx">
+      <DependentUpon>UclStockListAll.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListProductBySelection.resx">
+      <DependentUpon>UclListProductBySelection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListShelf.resx">
+      <DependentUpon>UclListShelf.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclCreditNoteStockInList.resx">
+      <DependentUpon>UclCreditNoteStockInList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclDebitNoteStockOutList.resx">
+      <DependentUpon>UclDebitNoteStockOutList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printing\CoolPrintPreviewDialog.resx">
+      <DependentUpon>CoolPrintPreviewDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Reporting\Base\DateVoucherTypeControlOneDateSale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Base\DateVoucherTypeControlOneDateSale.Designer.cs">
+      <DependentUpon>DateVoucherTypeControlOneDateSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Base\DateVoucherTypeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Base\DateVoucherTypeControl.Designer.cs">
+      <DependentUpon>DateVoucherTypeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Base\ReportBaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Base\ReportBaseControl.Designer.cs">
+      <DependentUpon>ReportBaseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Base\ReportPanelTop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Base\ReportPanelTop.Designer.cs">
+      <DependentUpon>ReportPanelTop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListBankBookByClearedDate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListBankBookByClearedDate.Designer.cs">
+      <DependentUpon>UclAcListBankBookByClearedDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclChallanProductList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclChallanProductList.Designer.cs">
+      <DependentUpon>UclChallanProductList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclChallanPurchaseList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclChallanPurchaseList.Designer.cs">
+      <DependentUpon>UclChallanPurchaseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDistributorAreawiseOutstanding.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDistributorAreawiseOutstanding.Designer.cs">
+      <DependentUpon>UclDistributorAreawiseOutstanding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDistributorDailySale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDistributorDailySale.Designer.cs">
+      <DependentUpon>UclDistributorDailySale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDistributorPartywiseOutStanding.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDistributorPartywiseOutStanding.Designer.cs">
+      <DependentUpon>UclDistributorPartywiseOutStanding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclExpiryListDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclExpiryListDetail.Designer.cs">
+      <DependentUpon>UclExpiryListDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclGSTPurchaseRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclGSTPurchaseRegister.Designer.cs">
+      <DependentUpon>UclGSTPurchaseRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclGSTSaleRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclGSTSaleRegister.Designer.cs">
+      <DependentUpon>UclGSTSaleRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclH1SaleList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclH1SaleList.Designer.cs">
+      <DependentUpon>UclH1SaleList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListNextVisitDate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListNextVisitDate.Designer.cs">
+      <DependentUpon>UclListNextVisitDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListTodaysChequesTobeDeposited.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListTodaysChequesTobeDeposited.Designer.cs">
+      <DependentUpon>UclListTodaysChequesTobeDeposited.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListSummaryFromToBillNumber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListSummaryFromToBillNumber.Designer.cs">
+      <DependentUpon>UclMISListSummaryFromToBillNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListPartyWiseOutstanding.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListPartyWiseOutstanding.Designer.cs">
+      <DependentUpon>UclPurchaseListPartyWiseOutstanding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleDayWiseVoucherSaleTotal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleDayWiseVoucherSaleTotal.Designer.cs">
+      <DependentUpon>UclSaleDayWiseVoucherSaleTotal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListCompanywisesale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListCompanywisesale.Designer.cs">
+      <DependentUpon>UclSaleListCompanywisesale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListCompanywiseSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListCompanywiseSummary.Designer.cs">
+      <DependentUpon>UclSaleListCompanywiseSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPartywiseOutstanding.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPartywiseOutstanding.Designer.cs">
+      <DependentUpon>UclSaleListPartywiseOutstanding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListAllBatchWise.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListAllBatchWise.Designer.cs">
+      <DependentUpon>UclStockListAllBatchWise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListClosingStockAsOn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListClosingStockAsOn.Designer.cs">
+      <DependentUpon>UclStockListClosingStockAsOn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListProductLedgerBatchWise.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListProductLedgerBatchWise.Designer.cs">
+      <DependentUpon>UclStockListProductLedgerBatchWise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListStocknSaleValue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListStocknSaleValue.Designer.cs">
+      <DependentUpon>UclStockListStocknSaleValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouBankExpensesList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouBankExpensesList.Designer.cs">
+      <DependentUpon>UclVouBankExpensesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequePaidButNotCleared.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequePaidButNotCleared.Designer.cs">
+      <DependentUpon>UclVouChequePaidButNotCleared.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequeReceivedButNotCleared.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequeReceivedButNotCleared.Designer.cs">
+      <DependentUpon>UclVouChequeReceivedButNotCleared.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclExpiryListProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclExpiryListProduct.Designer.cs">
+      <DependentUpon>UclExpiryListProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkShelfProductSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkShelfProductSearch.Designer.cs">
+      <DependentUpon>UclLinkShelfProductSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequeReturnList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequeReturnList.Designer.cs">
+      <DependentUpon>UclVouChequeReturnList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListOperator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListOperator.Designer.cs">
+      <DependentUpon>UclListOperator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListTodaysCheques.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListTodaysCheques.Designer.cs">
+      <DependentUpon>UclListTodaysCheques.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListChangedVouchers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListChangedVouchers.Designer.cs">
+      <DependentUpon>UclMISListChangedVouchers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListDeletedVouchers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListDeletedVouchers.Designer.cs">
+      <DependentUpon>UclMISListDeletedVouchers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListDaily.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListDaily.Designer.cs">
+      <DependentUpon>UclPurchaseListDaily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListDailyProducts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListDailyProducts.Designer.cs">
+      <DependentUpon>UclSaleListDailyProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPartywiseBills.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPartywiseBills.Designer.cs">
+      <DependentUpon>UclSaleListPartywiseBills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListOpeningStock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListOpeningStock.Designer.cs">
+      <DependentUpon>UclStockListOpeningStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListAgeing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListAgeing.Designer.cs">
+      <DependentUpon>UclAcListAgeing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListBankBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListBankBook.Designer.cs">
+      <DependentUpon>UclAcListBankBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListCashBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListCashBook.Designer.cs">
+      <DependentUpon>UclAcListCashBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListCreditorLedger.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListCreditorLedger.Designer.cs">
+      <DependentUpon>UclAcListCreditorLedger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListDebtorLedger.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListDebtorLedger.Designer.cs">
+      <DependentUpon>UclAcListDebtorLedger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListGeneralLedger.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListGeneralLedger.Designer.cs">
+      <DependentUpon>UclAcListGeneralLedger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListJournal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListJournal.Designer.cs">
+      <DependentUpon>UclAcListJournal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListPurchaseRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListPurchaseRegister.Designer.cs">
+      <DependentUpon>UclAcListPurchaseRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListSalesRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListSalesRegister.Designer.cs">
+      <DependentUpon>UclAcListSalesRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListSundryCreditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListSundryCreditor.Designer.cs">
+      <DependentUpon>UclAcListSundryCreditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListSundryDebtor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListSundryDebtor.Designer.cs">
+      <DependentUpon>UclAcListSundryDebtor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclFACListBalanceSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclFACListBalanceSheet.Designer.cs">
+      <DependentUpon>UclFACListBalanceSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclFACListEntryofScheduleNumber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclFACListEntryofScheduleNumber.Designer.cs">
+      <DependentUpon>UclFACListEntryofScheduleNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclFACListPrintSchedules.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclFACListPrintSchedules.Designer.cs">
+      <DependentUpon>UclFACListPrintSchedules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclFACListProfitandLoss.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclFACListProfitandLoss.Designer.cs">
+      <DependentUpon>UclFACListProfitandLoss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclFACListTrialBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclFACListTrialBalance.Designer.cs">
+      <DependentUpon>UclFACListTrialBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListBankInterest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListBankInterest.Designer.cs">
+      <DependentUpon>UclMISListBankInterest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListCurrentStockValue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListCurrentStockValue.Designer.cs">
+      <DependentUpon>UclMISListCurrentStockValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListDailyBankClosing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListDailyBankClosing.Designer.cs">
+      <DependentUpon>UclMISListDailyBankClosing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListDailyCashClosing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListDailyCashClosing.Designer.cs">
+      <DependentUpon>UclMISListDailyCashClosing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListProfitCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListProfitCompany.Designer.cs">
+      <DependentUpon>UclMISListProfitCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListProfitDay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListProfitDay.Designer.cs">
+      <DependentUpon>UclMISListProfitDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListCurrentStockStatement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListCurrentStockStatement.Designer.cs">
+      <DependentUpon>UclMISListCurrentStockStatement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListStockStatementBank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListStockStatementBank.Designer.cs">
+      <DependentUpon>UclMISListStockStatementBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListSummary.Designer.cs">
+      <DependentUpon>UclMISListSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListAllPartySummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListAllPartySummary.Designer.cs">
+      <DependentUpon>UclPurchaseListAllPartySummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListCompany.Designer.cs">
+      <DependentUpon>UclPurchaseListCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListDiscount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListDiscount.Designer.cs">
+      <DependentUpon>UclPurchaseListDiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListPartywisebills.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListPartywisebills.Designer.cs">
+      <DependentUpon>UclPurchaseListPartywisebills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListProduct.Designer.cs">
+      <DependentUpon>UclPurchaseListProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListNewProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListNewProduct.Designer.cs">
+      <DependentUpon>UclPurchaseListNewProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListCategory.Designer.cs">
+      <DependentUpon>UclPurchaseListCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListPartyProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListPartyProduct.Designer.cs">
+      <DependentUpon>UclPurchaseListPartyProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListProductBatch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListProductBatch.Designer.cs">
+      <DependentUpon>UclPurchaseListProductBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListAdmitPatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListAdmitPatient.Designer.cs">
+      <DependentUpon>UclSaleListAdmitPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListCategory.Designer.cs">
+      <DependentUpon>UclSaleListCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListCreditCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListCreditCard.Designer.cs">
+      <DependentUpon>UclSaleListCreditCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListDailySale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListDailySale.Designer.cs">
+      <DependentUpon>UclSaleListDailySale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListProductSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListProductSummary.Designer.cs">
+      <DependentUpon>UclSaleListProductSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListDoctor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListDoctor.Designer.cs">
+      <DependentUpon>UclSaleListDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListDoctorCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListDoctorCompany.Designer.cs">
+      <DependentUpon>UclSaleListDoctorCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListIPD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListIPD.Designer.cs">
+      <DependentUpon>UclSaleListIPD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListOPD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListOPD.Designer.cs">
+      <DependentUpon>UclSaleListOPD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListOperator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListOperator.Designer.cs">
+      <DependentUpon>UclSaleListOperator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPartyProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPartyProduct.Designer.cs">
+      <DependentUpon>UclSaleListPartyProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPartySaleSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPartySaleSummary.Designer.cs">
+      <DependentUpon>UclSaleListPartySaleSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPatient.Designer.cs">
+      <DependentUpon>UclSaleListPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListProduct.Designer.cs">
+      <DependentUpon>UclSaleListProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListProductBatch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListProductBatch.Designer.cs">
+      <DependentUpon>UclSaleListProductBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListRegularPartyProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListRegularPartyProduct.Designer.cs">
+      <DependentUpon>UclSaleListRegularPartyProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListSheduledDrug.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListSheduledDrug.Designer.cs">
+      <DependentUpon>UclSaleListSheduledDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSchemeListAll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSchemeListAll.Designer.cs">
+      <DependentUpon>UclSchemeListAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSchemeListCompanywise.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSchemeListCompanywise.Designer.cs">
+      <DependentUpon>UclSchemeListCompanywise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSchemeListCompanywisePurchase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSchemeListCompanywisePurchase.Designer.cs">
+      <DependentUpon>UclSchemeListCompanywisePurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditNoteStockInListProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditNoteStockInListProduct.Designer.cs">
+      <DependentUpon>UclCreditNoteStockInListProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditDebitStockINOUTListProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditDebitStockINOUTListProduct.Designer.cs">
+      <DependentUpon>UclCreditDebitStockINOUTListProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSchemeListProductPurchase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclSchemeListProductPurchase.Designer.cs">
+      <DependentUpon>UclSchemeListProductPurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListBatchwise.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListBatchwise.Designer.cs">
+      <DependentUpon>UclStockListBatchwise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListCategorySummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListCategorySummary.Designer.cs">
+      <DependentUpon>UclStockListCategorySummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListCompanywiseSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListCompanywiseSummary.Designer.cs">
+      <DependentUpon>UclStockListCompanywiseSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListCurrentStock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListCurrentStock.Designer.cs">
+      <DependentUpon>UclStockListCurrentStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListNonMoving.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListNonMoving.Designer.cs">
+      <DependentUpon>UclStockListNonMoving.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListPatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListPatient.Designer.cs">
+      <DependentUpon>UclStockListPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListProductLedger.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListProductLedger.Designer.cs">
+      <DependentUpon>UclStockListProductLedger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListShelf.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListShelf.Designer.cs">
+      <DependentUpon>UclStockListShelf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListStocknSale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListStocknSale.Designer.cs">
+      <DependentUpon>UclStockListStocknSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDebitNoteStockOutListProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDebitNoteStockOutListProduct.Designer.cs">
+      <DependentUpon>UclDebitNoteStockOutListProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListAccount.Designer.cs">
+      <DependentUpon>UclListAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListArea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListArea.Designer.cs">
+      <DependentUpon>UclListArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListBank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListBank.Designer.cs">
+      <DependentUpon>UclListBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListBranch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListBranch.Designer.cs">
+      <DependentUpon>UclListBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCashExpenseSalaryList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCashExpenseSalaryList.Designer.cs">
+      <DependentUpon>UclCashExpenseSalaryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouCashPaidList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouCashPaidList.Designer.cs">
+      <DependentUpon>UclVouCashPaidList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouCashExpensesList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouCashExpensesList.Designer.cs">
+      <DependentUpon>UclVouCashExpensesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouCashReceiptList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouCashReceiptList.Designer.cs">
+      <DependentUpon>UclVouCashReceiptList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequePaidList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequePaidList.Designer.cs">
+      <DependentUpon>UclVouChequePaidList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequeReceiptList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequeReceiptList.Designer.cs">
+      <DependentUpon>UclVouChequeReceiptList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListCompany.Designer.cs">
+      <DependentUpon>UclListCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditDebitNoteProductList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditDebitNoteProductList.Designer.cs">
+      <DependentUpon>UclCreditDebitNoteProductList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditNoteList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditNoteList.Designer.cs">
+      <DependentUpon>UclCreditNoteList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditDebitNotePartyList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditDebitNotePartyList.Designer.cs">
+      <DependentUpon>UclCreditDebitNotePartyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditNoteListProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditNoteListProduct.Designer.cs">
+      <DependentUpon>UclCreditNoteListProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDebitNoteList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDebitNoteList.Designer.cs">
+      <DependentUpon>UclDebitNoteList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDebitNoteListProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDebitNoteListProduct.Designer.cs">
+      <DependentUpon>UclDebitNoteListProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListDoctor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListDoctor.Designer.cs">
+      <DependentUpon>UclListDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListGenericCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListGenericCategory.Designer.cs">
+      <DependentUpon>UclListGenericCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListProductAll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListProductAll.Designer.cs">
+      <DependentUpon>UclListProductAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListAll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListAll.Designer.cs">
+      <DependentUpon>UclStockListAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListProductBySelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListProductBySelection.Designer.cs">
+      <DependentUpon>UclListProductBySelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListShelf.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclListShelf.Designer.cs">
+      <DependentUpon>UclListShelf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditNoteStockInList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditNoteStockInList.Designer.cs">
+      <DependentUpon>UclCreditNoteStockInList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDebitNoteStockOutList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclDebitNoteStockOutList.Designer.cs">
+      <DependentUpon>UclDebitNoteStockOutList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListOpeningStockProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListOpeningStockProduct.Designer.cs">
+      <DependentUpon>UclStockListOpeningStockProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\CoolPrintPreviewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Printing\CoolPrintPreviewDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Printing\CoolPrintPreviewDialog.designer.cs">
+      <DependentUpon>CoolPrintPreviewDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\PageImageList.cs" />
+    <Compile Include="Printing\PrintBill.cs" />
+    <Compile Include="Printing\PrintDGV.cs" />
+    <Compile Include="Reporting\Controls\UclVouStatementPurchaseList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouStatementPurchaseList.Designer.cs">
+      <DependentUpon>UclVouStatementPurchaseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouStatementSaleList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclVouStatementSaleList.Designer.cs">
+      <DependentUpon>UclVouStatementSaleList.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DBScript\MySQL_0-1.sql" />
+    <Content Include="bin\Debug\CommonLibrary.dll" />
+    <Content Include="bin\Debug\CommonLibrary.pdb" />
+    <Content Include="bin\Debug\ControlLib.dll" />
+    <Content Include="bin\Debug\ControlLibBase.dll" />
+    <Content Include="PrintSettingsForDistributor.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\circle-128.png" />
+    <None Include="Resources\Close_18.png" />
+    <None Include="Resources\Maximize_18.png" />
+    <None Include="Resources\1.jpg" />
+    <None Include="Resources\2.jpg" />
+    <None Include="Resources\3.jpg" />
+    <None Include="Resources\4.jpg" />
+    <None Include="Resources\5.jpg" />
+    <None Include="Resources\6.jpg" />
+    <None Include="Resources\7.jpg" />
+    <None Include="Resources\8.jpg" />
+    <None Include="Resources\9.jpg" />
+    <None Include="Resources\10.png" />
+    <None Include="Resources\11.jpg" />
+    <Content Include="Resources\PrintSettings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSProductViewControlForBillReprint.resx">
+      <DependentUpon>PSProductViewControlForBillReprint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSProductMainGridViewForBillReprint.resx">
+      <DependentUpon>PSProductMainGridViewForBillReprint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSCheckBox.resx">
+      <DependentUpon>PSCheckBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSDateVoucher.resx">
+      <DependentUpon>PSDateVoucher.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSLabel.resx">
+      <DependentUpon>PSLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSLableWithBorderMiddleRight.resx">
+      <DependentUpon>PSLableWithBorderMiddleRight.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSLableWithBorderMiddleLeft.resx">
+      <DependentUpon>PSLableWithBorderMiddleLeft.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSlblMessage.resx">
+      <DependentUpon>PSlblMessage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSRadioButton.resx">
+      <DependentUpon>PSRadioButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSMessageBoxForm.resx">
+      <DependentUpon>PSMessageBoxForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclSettingsBackupPath.resx">
+      <DependentUpon>UclSettingsBackupPath.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclBankExpenses.resx">
+      <DependentUpon>UclBankExpenses.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclBankExpensesSearch.resx">
+      <DependentUpon>UclBankExpensesSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclBulkPrintPartywiseSale.resx">
+      <DependentUpon>UclBulkPrintPartywiseSale.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclChequeReturn.resx">
+      <DependentUpon>UclChequeReturn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclChequeReturnSearch.resx">
+      <DependentUpon>UclChequeReturnSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclContraEntry.resx">
+      <DependentUpon>UclContraEntry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclContraEntrySearch.resx">
+      <DependentUpon>UclContraEntrySearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDistributorSale.resx">
+      <DependentUpon>UclDistributorSale.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDistributorSaleSearch.resx">
+      <DependentUpon>UclDistributorSaleSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclDoBankReconciliation.resx">
+      <DependentUpon>UclDoBankReconciliation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclEmailID.resx">
+      <DependentUpon>UclEmailID.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclEmailIDSearch.resx">
+      <DependentUpon>UclEmailIDSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclLinkProductScheduleH1.resx">
+      <DependentUpon>UclLinkProductScheduleH1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderForToday.resx">
+      <DependentUpon>UclPurchaseOrderForToday.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclSettingsEmail.resx">
+      <DependentUpon>UclSettingsEmail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclStatementPartywisePurchase.resx">
+      <DependentUpon>UclStatementPartywisePurchase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclStatementPartywisePurchaseSearch.resx">
+      <DependentUpon>UclStatementPartywisePurchaseSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclStatementPartywiseSale.resx">
+      <DependentUpon>UclStatementPartywiseSale.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclLinkShelfProduct.resx">
+      <DependentUpon>UclLinkShelfProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclLinkShelfProductSearch.resx">
+      <DependentUpon>UclLinkShelfProductSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclOperator.resx">
+      <DependentUpon>UclOperator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclStatementPartywiseSaleSearch.resx">
+      <DependentUpon>UclStatementPartywiseSaleSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclStatementSale.resx">
+      <DependentUpon>UclStatementSale.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolCompanyShortName.resx">
+      <DependentUpon>UclToolCompanyShortName.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclToolStockReProcess.resx">
+      <DependentUpon>UclToolStockReProcess.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclSubstitute.resx">
+      <DependentUpon>UclSubstitute.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclSubstituteControl.resx">
+      <DependentUpon>UclSubstituteControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclYearEnd.resx">
+      <DependentUpon>UclYearEnd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Forms\FormImportSaleBill.resx">
+      <DependentUpon>FormImportSaleBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Validation\FormMacIDAdd.resx">
+      <DependentUpon>FormMacIDAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Base\DateVoucherTypeControlOneDateSale.resx">
+      <DependentUpon>DateVoucherTypeControlOneDateSale.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Base\DateVoucherTypeControl.resx">
+      <DependentUpon>DateVoucherTypeControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclAcListBankBookByClearedDate.resx">
+      <DependentUpon>UclAcListBankBookByClearedDate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclH1SaleList.resx">
+      <DependentUpon>UclH1SaleList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclVouBankExpensesList.resx">
+      <DependentUpon>UclVouBankExpensesList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclVouChequePaidButNotCleared.resx">
+      <DependentUpon>UclVouChequePaidButNotCleared.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclVouChequeReceivedButNotCleared.resx">
+      <DependentUpon>UclVouChequeReceivedButNotCleared.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclExpiryListProduct.resx">
+      <DependentUpon>UclExpiryListProduct.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclVouChequeReturnList.resx">
+      <DependentUpon>UclVouChequeReturnList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListOperator.resx">
+      <DependentUpon>UclListOperator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclListTodaysCheques.resx">
+      <DependentUpon>UclListTodaysCheques.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclMISListChangedVouchers.resx">
+      <DependentUpon>UclMISListChangedVouchers.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclMISListDeletedVouchers.resx">
+      <DependentUpon>UclMISListDeletedVouchers.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclPurchaseListDaily.resx">
+      <DependentUpon>UclPurchaseListDaily.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListDailyProducts.resx">
+      <DependentUpon>UclSaleListDailyProducts.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclSaleListPartywiseBills.resx">
+      <DependentUpon>UclSaleListPartywiseBills.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclVouStatementPurchaseList.resx">
+      <DependentUpon>UclVouStatementPurchaseList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Controls\UclVouStatementSaleList.resx">
+      <DependentUpon>UclVouStatementSaleList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Resources\Add.PNG" />
+    <None Include="Resources\Close.PNG" />
+    <None Include="Resources\canstock3023718[1].jpg" />
+    <Content Include="PrintSettings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Resources\16x16-free-application-icons\png\16x16\Save.png" />
+    <Content Include="Resources\Bank1.jpg" />
+    <None Include="Resources\box_green.png" />
+    <None Include="Resources\buttonsmallgo.jpg" />
+    <None Include="Resources\border2.jpg" />
+    <None Include="Resources\blue-photo-frame.jpg" />
+    <None Include="Resources\bullet.gif" />
+    <Content Include="Resources\company.jpg" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\crosssmall.PNG" />
+    <None Include="Resources\delete-128.PNG" />
+    <Content Include="Resources\doctor.jpg" />
+    <Content Include="Resources\configuration.jpg" />
+    <None Include="Resources\fav_enable.png" />
+    <None Include="Resources\fav_disable.png" />
+    <None Include="Resources\dropdowntriangle.jpeg" />
+    <None Include="Resources\Trash.png" />
+    <None Include="Resources\FormSplash.jpg" />
+    <None Include="Resources\msg_warning.gif" />
+    <None Include="Resources\msg_information.gif" />
+    <None Include="Resources\msg_error.gif" />
+    <None Include="Resources\zoommania.jpg" />
+    <None Include="Resources\places.gif" />
+    <None Include="Resources\frame12.jpg" />
+    <None Include="Resources\frame5GOForComboSmall.JPG" />
+    <None Include="Resources\frame5GOSmall.JPG" />
+    <None Include="Resources\wallpaper8.jpg" />
+    <None Include="Resources\framecolourfull.JPG" />
+    <None Include="Resources\frame13.jpg" />
+    <None Include="Resources\frame8.jpg" />
+    <None Include="Resources\Frame7.jpg" />
+    <None Include="Resources\wallpaper5.jpg" />
+    <None Include="Resources\wallpaper6.jpg" />
+    <None Include="Resources\wallpaper7.jpg" />
+    <None Include="Resources\wallpaperredtulip.jpg" />
+    <None Include="Resources\wallpaper4.jpg" />
+    <None Include="Resources\wallpaper3.jpg" />
+    <None Include="Resources\wallpaper1.jpg" />
+    <None Include="Resources\ScreenSaltWaterMountainView.jpg" />
+    <None Include="Resources\frame5.jpg" />
+    <None Include="Resources\frame14.jpg" />
+    <None Include="Resources\go.jpg" />
+    <None Include="Resources\salesman11.JPG" />
+    <None Include="Resources\salesman1.JPG" />
+    <None Include="Resources\ward.jpg" />
+    <None Include="Resources\ProdCategory1.JPG" />
+    <None Include="Resources\ProdCategory.JPG" />
+    <None Include="Resources\Shelf1.JPG" />
+    <None Include="Resources\Shelf.jpg" />
+    <None Include="Resources\Icon.ico" />
+    <None Include="Resources\Users.jpeg" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\patient.jpg" />
+    <None Include="Resources\medicine.jpg" />
+    <None Include="Resources\Homeopathy.jpeg" />
+    <None Include="Resources\Filter.PNG" />
+    <None Include="Resources\Edit.PNG" />
+    <None Include="Resources\Diseases.jpeg" />
+    <None Include="Resources\delete.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+if not exist "$(TargetDir)Libs" md "$(TargetDir)Libs"
+xcopy /s /y "$(SolutionDir)packages\Apache.Ignite.1.9.0\Libs\*.*" "$(TargetDir)Libs"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

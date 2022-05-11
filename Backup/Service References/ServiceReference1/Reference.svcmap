@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9b09b0f0-def7-4e8d-86d0-267e02b7dc84" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://comp:8675/PharmaSYSRetailPlusService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="73d76955-dd25-4f9a-87e4-b1078b5c7add" SourceId="1" SourceUrl="net.tcp://comp:8675/PharmaSYSRetailPlusService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="04aabd75-375b-4806-8350-4ad8b154d66a" SourceId="1" SourceUrl="net.tcp://comp:8675/PharmaSYSRetailPlusService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="412dea0e-a8aa-48e0-b6ea-2af31752f53e" SourceId="1" SourceUrl="net.tcp://comp:8675/PharmaSYSRetailPlusService/mex" />
+    <MetadataFile FileName="PharmaSYSRetailPlusService.xsd" MetadataType="Schema" ID="0a85930b-6cae-46ff-ae42-827eaab200b7" SourceId="1" SourceUrl="net.tcp://comp:8675/PharmaSYSRetailPlusService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,165 @@
+[18:48:52:805]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[18:48:52:820]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[18:48:57:852]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[18:48:57:977]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[18:51:30:839]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[18:51:30:854]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[18:55:27:217]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[18:55:27:233]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[18:55:34:383]ERROR >> System.Data.EvaluateException: Cannot find column [Barcode].
+   at System.Data.NameNode.Bind(DataTable table, List`1 list)
+   at System.Data.BinaryNode.Bind(DataTable table, List`1 list)
+   at System.Data.DataExpression.Bind(DataTable table)
+   at System.Data.DataView.set_RowFilter(String value)
+   at System.Windows.Forms.BindingSource.set_InnerListFilter(String value)
+   at PharmaSYSDistributorPlus.InterfaceLayer.CommonControls.PSMainSubViewControl.DoFilter(String filterValue) in E:\GitDistributor - New\PharmaSYSDistributorPlus\InterfaceLayer\CommonControls\PSMainSubViewControl.cs:line 450
+[18:56:55:606]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[18:56:55:622]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[18:58:10:736]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[18:58:10:752]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[18:59:11:184]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[18:59:11:200]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[18:59:58:752]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[18:59:58:768]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[19:00:52:563]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[19:00:52:578]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[19:01:58:294]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[19:01:58:309]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[19:04:51:892]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[19:04:51:905]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[19:06:32:600]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[19:06:32:616]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[19:07:59:863]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[19:07:59:876]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[19:08:58:210]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[19:08:58:224]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[19:10:26:461]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[19:10:26:469]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94

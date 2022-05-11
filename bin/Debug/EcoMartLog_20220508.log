@@ -1,0 +1,33 @@
+[09:55:55:680]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[09:55:55:692]ERROR >> <<ManifestBasedResourceGroveler.HandleResourceStreamMissing>> -    at System.Resources.ManifestBasedResourceGroveler.HandleResourceStreamMissing(String fileName)
+   at System.Resources.ManifestBasedResourceGroveler.GrovelForResourceSet(CultureInfo culture, Dictionary`2 localResourceSets, Boolean tryParents, Boolean createIfNotExists, StackCrawlMark& stackMark)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo requestedCulture, Boolean createIfNotExists, Boolean tryParents, StackCrawlMark& stackMark)
+   at System.Resources.ResourceManager.InternalGetResourceSet(CultureInfo culture, Boolean createIfNotExists, Boolean tryParents)
+   at System.Resources.ResourceManager.GetObject(String name, CultureInfo culture, Boolean wrapUnmanagedMemStream)
+   at EcoMart.Properties.Resources.get_Icon() in E:\EcoMart\EcoMartSolution\EcoMartSolution\Properties\Resources.Designer.cs:line 468
+   at EcoMart.InterfaceLayer.FormSplash..ctor() in E:\EcoMart\EcoMartSolution\EcoMartSolution\InterfaceLayer\Forms\FormSplash.cs:line 20
+   at EcoMart.Program.RunEcoMart() in E:\EcoMart\EcoMartSolution\EcoMartSolution\Common\Classes\Program.cs:line 65
+[09:59:36:133]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[09:59:36:135]ERROR >> <<DataRow.GetDataColumn>> -    at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at EcoMart.BusinessLayer.EcoMartLic.Read() in E:\EcoMart\EcoMartSolution\EcoMartSolution\BusinessLayer\PharmaSysRetailPlusLic.cs:line 35
+[10:10:55:146]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[10:10:55:168]ERROR >> <<DataRow.GetDataColumn>> -    at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at EcoMart.BusinessLayer.EcoMartLic.Read() in E:\EcoMart\EcoMartSolution\EcoMartSolution\BusinessLayer\PharmaSysRetailPlusLic.cs:line 35
+[10:12:34:267]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[10:12:34:278]ERROR >> <<DataRow.GetDataColumn>> -    at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at EcoMart.BusinessLayer.EcoMartLic.Read() in E:\EcoMart\EcoMartSolution\EcoMartSolution\BusinessLayer\PharmaSysRetailPlusLic.cs:line 35
+[10:41:54:989]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[10:41:55:022]ERROR >> <<DataRow.GetDataColumn>> -    at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at EcoMart.BusinessLayer.EcoMartLic.Read() in E:\EcoMart\EcoMartSolution\EcoMartSolution\BusinessLayer\PharmaSysRetailPlusLic.cs:line 35
+[10:42:08:233]ERROR >> <<ValidationHelper.IsFullLicense>> -    at EcoMart.Common.Classes.ValidationHelper.IsFullLicense() in E:\EcoMart\EcoMartSolution\EcoMartSolution\Common\Classes\ValidationHelper.cs:line 150
+   at EcoMart.Common.Classes.ValidationHelper.DoValidate() in E:\EcoMart\EcoMartSolution\EcoMartSolution\Common\Classes\ValidationHelper.cs:line 32
+[12:05:20:693]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[12:05:20:724]ERROR >> <<DataRow.GetDataColumn>> -    at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at EcoMart.BusinessLayer.EcoMartLic.Read() in E:\EcoMart\EcoMartSolution\EcoMartSolution\BusinessLayer\PharmaSysRetailPlusLic.cs:line 35
+[12:12:57:425]Debug >> Log [ctor] >> Log path = [E:\EcoMart\EcoMartSolution\EcoMartSolution\bin\Debug]
+[12:12:57:426]ERROR >> Backup Path  Missing 

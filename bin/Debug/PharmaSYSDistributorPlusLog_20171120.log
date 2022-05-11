@@ -1,0 +1,28 @@
+[17:44:29:016]Debug >> Log [ctor] >> Log path = [E:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[17:44:29:050]ERROR >> <<NativeDriver.Open>> -    at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.OpenConnection() in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 414
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.Initialize() in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 58
+[17:44:34:312]ERROR >> <<NativeDriver.Open>> -    at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.OpenConnection() in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 414
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.Initialize() in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 58
+[17:44:41:610]ERROR >> <<NativeDriver.Open>> -    at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.OpenConnection() in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 414
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.Initialize() in E:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 58

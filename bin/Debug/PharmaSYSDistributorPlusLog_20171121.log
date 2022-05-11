@@ -1,0 +1,168 @@
+[17:47:45:990]Debug >> Log [ctor] >> Log path = [D:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[17:47:46:040]ERROR >> <<MySqlAuthenticationPlugin.AuthenticationFailed>> -    at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.Authenticate(Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.OpenConnection() in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 414
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.Initialize() in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 58
+[17:54:34:431]Debug >> Log [ctor] >> Log path = [D:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[17:54:34:476]ERROR >> <<MySqlAuthenticationPlugin.AuthenticationFailed>> -    at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.Authenticate(Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.OpenConnection() in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 414
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.Initialize() in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 58
+[17:54:44:027]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[17:55:24:457]ERROR >> <<ValidationHelper.IsFullLicense>> -    at PharmaSYSDistributorPlus.Common.Classes.ValidationHelper.IsFullLicense() in D:\GitDistributor - New\PharmaSYSDistributorPlus\Common\Classes\ValidationHelper.cs:line 149
+   at PharmaSYSDistributorPlus.Common.Classes.ValidationHelper.DoValidate() in D:\GitDistributor - New\PharmaSYSDistributorPlus\Common\Classes\ValidationHelper.cs:line 32
+[17:55:27:194]ERROR >> System.NullReferenceException: Object reference not set to an instance of an object.
+   at PharmaSYSDistributorPlus.BusinessLayer.ShopDetails.FillShopDetails(Licence license) in D:\GitDistributor - New\PharmaSYSDistributorPlus\Common\Classes\ShopDetails.cs:line 195
+[17:55:42:028]ERROR >> FormMain.Initialize:Object reference not set to an instance of an object.
+[17:56:05:185]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[17:56:05:456]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[17:56:05:810]ERROR >> FormMain.SetFavourite:Object reference not set to an instance of an object.
+[17:56:18:949]ERROR >> Backup Path  Missing 
+[17:57:05:298]Debug >> Log [ctor] >> Log path = [D:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[17:57:05:344]ERROR >> <<MySqlAuthenticationPlugin.AuthenticationFailed>> -    at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.Authenticate(Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.OpenConnection() in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 414
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.Initialize() in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 58
+[17:57:19:681]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[17:57:52:918]ERROR >> <<ValidationHelper.IsFullLicense>> -    at PharmaSYSDistributorPlus.Common.Classes.ValidationHelper.IsFullLicense() in D:\GitDistributor - New\PharmaSYSDistributorPlus\Common\Classes\ValidationHelper.cs:line 149
+   at PharmaSYSDistributorPlus.Common.Classes.ValidationHelper.DoValidate() in D:\GitDistributor - New\PharmaSYSDistributorPlus\Common\Classes\ValidationHelper.cs:line 32
+[17:58:02:615]ERROR >> System.NullReferenceException: Object reference not set to an instance of an object.
+   at PharmaSYSDistributorPlus.BusinessLayer.ShopDetails.FillShopDetails(Licence license) in D:\GitDistributor - New\PharmaSYSDistributorPlus\Common\Classes\ShopDetails.cs:line 195
+[17:58:25:856]ERROR >> FormMain.Initialize:Object reference not set to an instance of an object.
+[17:59:29:428]Debug >> Log [ctor] >> Log path = [D:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[17:59:29:465]ERROR >> <<MySqlAuthenticationPlugin.AuthenticationFailed>> -    at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.Authenticate(Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.OpenConnection() in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 414
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.Initialize() in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 58
+[17:59:37:050]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[17:59:42:339]ERROR >> <<ValidationHelper.IsFullLicense>> -    at PharmaSYSDistributorPlus.Common.Classes.ValidationHelper.IsFullLicense() in D:\GitDistributor - New\PharmaSYSDistributorPlus\Common\Classes\ValidationHelper.cs:line 149
+   at PharmaSYSDistributorPlus.Common.Classes.ValidationHelper.DoValidate() in D:\GitDistributor - New\PharmaSYSDistributorPlus\Common\Classes\ValidationHelper.cs:line 32
+[18:00:15:412]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[18:01:58:926]Debug >> Log [ctor] >> Log path = [D:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[18:01:58:988]ERROR >> <<MySqlAuthenticationPlugin.AuthenticationFailed>> -    at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.Authenticate(Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.OpenConnection() in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 414
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.Initialize() in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 58
+[18:02:09:326]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[18:02:30:666]ERROR >> <<ValidationHelper.IsFullLicense>> -    at PharmaSYSDistributorPlus.Common.Classes.ValidationHelper.IsFullLicense() in D:\GitDistributor - New\PharmaSYSDistributorPlus\Common\Classes\ValidationHelper.cs:line 150
+   at PharmaSYSDistributorPlus.Common.Classes.ValidationHelper.DoValidate() in D:\GitDistributor - New\PharmaSYSDistributorPlus\Common\Classes\ValidationHelper.cs:line 32
+[18:05:53:006]Debug >> Log [ctor] >> Log path = [D:\GitDistributor - New\PharmaSYSDistributorPlus\bin\Debug]
+[18:05:53:050]ERROR >> <<MySqlAuthenticationPlugin.AuthenticationFailed>> -    at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.Authenticate(Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.OpenConnection() in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 414
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.Initialize() in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 58
+[18:06:00:699]ERROR >> <<MySqlStream.ReadPacket>> -    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at PharmaSYSDistributorPlus.DataLayer.DBInterface.SelectDataSet(String strQuery) in D:\GitDistributor - New\PharmaSYSDistributorPlus\DataLayer\DBInterface.cs:line 94
+[18:06:40:223]ERROR >> <<ValidationHelper.IsFullLicense>> -    at PharmaSYSDistributorPlus.Common.Classes.ValidationHelper.IsFullLicense() in D:\GitDistributor - New\PharmaSYSDistributorPlus\Common\Classes\ValidationHelper.cs:line 150
+   at PharmaSYSDistributorPlus.Common.Classes.ValidationHelper.DoValidate() in D:\GitDistributor - New\PharmaSYSDistributorPlus\Common\Classes\ValidationHelper.cs:line 32
