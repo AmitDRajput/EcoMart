@@ -16,7 +16,8 @@ namespace EcoMart.InterfaceLayer
     public partial class UclArea : BaseControl
     {
         #region Declaration
-        private Area _Area;
+//comment
+        private Area _Area; 
         Hashtable htTableList;
         public int CurrentNumber = 0;
         #endregion
