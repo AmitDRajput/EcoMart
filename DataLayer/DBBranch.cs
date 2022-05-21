@@ -69,12 +69,11 @@ namespace EcoMart.DataLayer
             }
             return bRetValue;
         }
-
         public bool IsNameUniqueForAdd(string Name, string Id)
         {
-            string strSql = GetDataForUniqueForAdd(Name, Id);
+            int ifdup = GetDataForUniqueForAdd(Name, Id);
             bool bRetValue = false;
-            if (DBInterface.ExecuteQuery(strSql) > 0)
+            if (ifdup > 0)
             {
                 bRetValue = true;
             }
@@ -83,14 +82,31 @@ namespace EcoMart.DataLayer
 
         public bool IsNameUniqueForEdit(string Name, string Id)
         {
-            string strSql = GetDataForUniqueForEdit(Name, Id);
+            int ifdup = GetDataForUniqueForAdd(Name, Id);
             bool bRetValue = false;
-            if (DBInterface.ExecuteQuery(strSql) > 0)
+            if (ifdup > 0)
             {
                 bRetValue = true;
             }
             return bRetValue;
         }
+        private int GetDataForUniqueForAdd(string Name, string Id)
+        {
+            StringBuilder sQuery = new StringBuilder();
+            DataRow dRow = null;          
+            string strSql = "Select BranchId from masterbranch where BranchName= '" + Name + "'";
+            dRow = DBInterface.SelectFirstRow(strSql);
+            if (dRow == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+
+        }
+       
         public DataRow GetMaxID()
         {
             DataRow dRow = null;
@@ -102,16 +118,7 @@ namespace EcoMart.DataLayer
         }
         #region Query Building Functions
 
-        private string GetDataForUniqueForAdd(string Name, string Id)
-        {
-            StringBuilder sQuery = new StringBuilder();
-            sQuery.AppendFormat("Select BranchId from masterbranch where BranchName='{0}'", Name);
-            if (Id != "")
-            {
-                sQuery.AppendFormat(" AND BranchId in ('{0}')", Id);
-            }
-            return sQuery.ToString();
-        }
+       
         private string GetDataForUniqueForEdit(string Name, string Id)
         {
             StringBuilder sQuery = new StringBuilder();

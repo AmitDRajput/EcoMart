@@ -29,27 +29,12 @@ namespace EcoMart.DataLayer
             }
             return dRow;
         }
-
-        //public int AddDetails(string Id, string EmailID, string Details)
-        //{
-        //    bool bRetValue = false;
-        //    string strSql = GetInsertQuery(Id,EmailID, Details);
-
-        //    if (DBInterface.ExecuteQuery(strSql) > 0)
-        //    {
-        //        bRetValue = true;
-        //    }
-        //    return bRetValue;
-        //}
+        
         public int AddDetails(int Id, string Name, string Details, string createdby, string createddate, string createdtime)
         {
             int iRetValue = 0;
             string strSql = GetInsertQuery(Id, Name, Details, createdby, createddate, createdtime);
-            iRetValue = DBInterface.ExecuteScalar(strSql);
-            //if (DBInterface.ExecuteQuery(strSql) > 0)
-            //{
-            //    iRetValue = true;
-            //}
+            iRetValue = DBInterface.ExecuteScalar(strSql);          
             return iRetValue;
         }
 
@@ -87,39 +72,45 @@ namespace EcoMart.DataLayer
         }
         public bool IsNameUniqueForAdd(string Name, string Id)
         {
-            string strSql = "Select EmailID from masterEmail where EmailName='" + Name + "'";
-            bool bRetValue = true;
-            DataRow dr = DBInterface.SelectFirstRow(strSql);
-            if (dr == null)
-            {
-                bRetValue = false;
-            }
-            return bRetValue;
-        }
-
-        public bool IsNameUniqueForEdit(string Name, string Id)
-        {
-            string strSql = GetDataForUniqueForEdit(Name, Id);
+            int ifdup = GetDataForUniqueForAdd(Name, Id);
             bool bRetValue = false;
-            if (DBInterface.ExecuteQuery(strSql) > 0)
+            if (ifdup > 0)
             {
                 bRetValue = true;
             }
             return bRetValue;
         }
 
-        #region Query Building Functions
-      
-        private string GetDataForUniqueForAdd(string Name, string Id)
+        public bool IsNameUniqueForEdit(string Name, string Id)
         {
-           
-             string strSql = "Select EmailID from masterEmail where EmailID='" + Name +"'";
-            //if (Id != "")
-            //{
-            //    sQuery.AppendFormat(" AND ID in ('{0}')", Id);
-            //}
-             return strSql;
+            int ifdup = GetDataForUniqueForAdd(Name, Id);
+            bool bRetValue = false;
+            if (ifdup > 0)
+            {
+                bRetValue = true;
+            }
+            return bRetValue;
         }
+        private int GetDataForUniqueForAdd(string Name, string Id)
+        {
+            StringBuilder sQuery = new StringBuilder();
+            DataRow dRow = null;
+            string strSql = "Select EmailId from masterEmail where EmailName= '" + Name + "'";
+            dRow = DBInterface.SelectFirstRow(strSql);
+            if (dRow == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+
+        }
+       
+        #region Query Building Functions
+
+       
         private string GetDataForUniqueForEdit(string Name, string Id)
         {
             StringBuilder sQuery = new StringBuilder();
@@ -130,16 +121,7 @@ namespace EcoMart.DataLayer
             }
             return sQuery.ToString();
         }
-
-        //private string GetInsertQuery(string Id, string EmailID, string Details)
-        //{
-        //    Query objQuery = new Query();
-        //    objQuery.Table = "tblEmailID";
-        //    objQuery.AddToQuery("ID", Id, true);
-        //    objQuery.AddToQuery("EmailID", EmailID);
-        //    objQuery.AddToQuery("Details", Details);      
-        //    return objQuery.InsertQuery();
-        //}
+        
         private string GetInsertQuery(int EmailID, string EmailName,string Details, string createdby, string createddate, string createdtime)
         {
             Query objQuery = new Query();

@@ -32,7 +32,7 @@ namespace EcoMart.BusinessLayer
         }
 
         public override void DoValidate()
-        {
+        {           
             try
             {
                 if (Name == "")
@@ -48,7 +48,7 @@ namespace EcoMart.BusinessLayer
                 }
                 else
                 {
-                    if (dbval.IsNameUniqueForAdd(Name, IntID ))
+                    if (dbval.IsNameUniqueForAdd(Name, Id ))
                     {
                         ValidationMessages.Add("Name Already Exists.");
                     }
@@ -87,7 +87,7 @@ namespace EcoMart.BusinessLayer
                 {
                     //IntID = drow["SalesmanId"].ToString();
                     Id = drow["SalesmanID"].ToString();
-                    Name = Convert.ToString(drow["Name"]);
+                    Name = Convert.ToString(drow["SalesmanName"]);
                     Address1= Convert.ToString(drow["Address1"]);
                     Address2 = Convert.ToString(drow["Address2"]);
                     Telephone = Convert.ToString(drow["TelephoneNumber"]);

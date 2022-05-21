@@ -16,7 +16,6 @@ namespace EcoMart.InterfaceLayer
     public partial class UclArea : BaseControl
     {
         #region Declaration
-//comment
         private Area _Area; 
         Hashtable htTableList;
         public int CurrentNumber = 0;
@@ -239,13 +238,10 @@ namespace EcoMart.InterfaceLayer
                 if (_Area.IsValid)
                 {
                     if (_Mode == OperationMode.Add || _Mode == OperationMode.OpenAsChild)
-                    {
-                        _Area.IntID  = _Area.GetIntID(); /* Guid.NewGuid().ToString().ToUpper().Replace("-", "");*/
+                    {                        
                         _Area.CreatedBy = General.CurrentUser.Id;
                         _Area.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
-                        _Area.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
-                        //retValue = _Area.AddDetails();
-                        //MessageBox.Show("Area information has been saved successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _Area.CreatedTime = DateTime.Now.ToString("HH:mm:ss");                        
                         _Area.IntID = _Area.AddDetails();
                         if (_Area.IntID > 0)
                         {
@@ -275,7 +271,7 @@ namespace EcoMart.InterfaceLayer
                         retValue = true;
                     }                    
                 }
-                else // Show Validation Messages
+                else 
                 {
                     _errorMessage = new System.Text.StringBuilder();
                     _errorMessage.Append("Error while validating the input" + Environment.NewLine);
@@ -400,20 +396,7 @@ namespace EcoMart.InterfaceLayer
             {
                 Log.WriteException(ex);
             }
-        }
-        //private void txtName_EnterKeyPressed(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (_Mode == OperationMode.Add)
-        //            Save();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Log.WriteException(ex);
-        //    }
-        //}
-
+        }  
        
         #endregion
 

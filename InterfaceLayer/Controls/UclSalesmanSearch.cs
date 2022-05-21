@@ -95,7 +95,7 @@ namespace EcoMart.InterfaceLayer
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_SalesmanName";
-                column.DataPropertyName = "Name";
+                column.DataPropertyName = "SalesmanName";
                 column.HeaderText = "Salesman Name";
                 column.Width = 580;
                 //column.ReadOnly = true;

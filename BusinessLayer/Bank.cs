@@ -47,7 +47,7 @@ namespace EcoMart.BusinessLayer
                 DBBank dbval = new DBBank();
                 if (IFEdit == "Y")
                 {
-                    if (dbval.IsNameUniqueForEdit(Name, IntID ))
+                    if (dbval.IsNameUniqueForEdit(Name, Id ))
                     {
                         ValidationMessages.Add("Name Already Exists.");
                     }

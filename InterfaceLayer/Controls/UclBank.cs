@@ -242,8 +242,7 @@ namespace EcoMart.InterfaceLayer
                 if (_Bank.IsValid)
                 {
                     if (_Mode == OperationMode.Add || _Mode == OperationMode.OpenAsChild)
-                    {
-                        //_Bank.IntID = _Bank.GetIntID(); /* Guid.NewGuid().ToString().ToUpper().Replace("-", "");*/
+                    {                       
                         _Bank.CreatedBy = General.CurrentUser.Id;
                         _Bank.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
                         _Bank.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
@@ -275,7 +274,7 @@ namespace EcoMart.InterfaceLayer
                         retValue = true;
                     }
                 }
-                else // Show Validation Messages
+                else 
                 {
                     _errorMessage = new System.Text.StringBuilder();
                     _errorMessage.Append("Error while validating the input" + Environment.NewLine);

@@ -299,7 +299,10 @@ namespace EcoMart.InterfaceLayer
             txtLBTPercent.Text = "0.0";
             txtDoctorRequired.Text = "";
             txtName.Focus();
-            txtSaleDiscount.Text = "";           
+            txtSaleDiscount.Text = "";
+            tsBtnFifth.Visible = false;
+            tsBtnPrint.Visible = false;
+            tsBtnSavenPrint.Visible = false;
         }
         #endregion
 

@@ -37,11 +37,7 @@ namespace EcoMart.DataLayer
         {
             int iRetValue = 0;
             string strSql = GetInsertQuery(Id, Name,createdby,createddate,createdtime);
-            iRetValue = DBInterface.ExecuteScalar(strSql);
-            //if (DBInterface.ExecuteQuery(strSql) > 0)
-            //{
-            //    iRetValue = true;
-            //}
+            iRetValue = DBInterface.ExecuteScalar(strSql);          
             return iRetValue;
         }
 
@@ -68,60 +64,51 @@ namespace EcoMart.DataLayer
             }
             return bRetValue;
         }
-
-        public bool IsNameUniqueForAdd(string Name, string Id)
-        {
-            string strSql = GetDataForUniqueForAdd(Name);
-            bool bRetValue = false;
-            if (DBInterface.ExecuteQuery(strSql) > 0)
-            {
-                bRetValue = true;
-            }
-            return bRetValue;
-        }
-
-        public bool IsNameUniqueForEdit(string Name, int Id)
-        {
-            string strSql = GetDataForUniqueForEdit(Name, Id);
-            bool bRetValue = false;
-            if (DBInterface.ExecuteQuery(strSql)> 0)
-            {
-                bRetValue = true;
-            }
-            return bRetValue;
-        }
-       
-
+        
 
         #region Query Building Functions
-
-        private string GetDataForUniqueForAdd(string Name) //, string Id)
+        public bool IsNameUniqueForAdd(string Name, string Id)
         {
-
-            StringBuilder sQuery = new StringBuilder();
-            sQuery.AppendFormat("Select * from MasterBank where BankName ='{0}'", Name);
-            //if (Id != "")
-            //{
-            //    sQuery.AppendFormat(" AND BankId in ('{0}')", Id);
-            //}
-            return sQuery.ToString();
-        }
-        private string GetDataForUniqueForEdit(string Name, int Id)
-        {
-            StringBuilder sQuery = new StringBuilder();
-            sQuery.AppendFormat("Select BankId from MasterBank where BankName='{0}'", Name);
-            if (Id != 0)
+            int ifdup = GetDataForUniqueForAdd(Name, Id);
+            bool bRetValue = false;
+            if (ifdup > 0)
             {
-                sQuery.AppendFormat(" AND BankId  != ({0})", Id);
+                bRetValue = true;
             }
-            return sQuery.ToString();
-        }   
+            return bRetValue;
+        }
+
+        public bool IsNameUniqueForEdit(string Name, string Id)
+        {
+            int ifdup = GetDataForUniqueForAdd(Name, Id);
+            bool bRetValue = false;
+            if (ifdup > 0)
+            {
+                bRetValue = true;
+            }
+            return bRetValue;
+        }
+        private int GetDataForUniqueForAdd(string Name, string Id)
+        {
+            StringBuilder sQuery = new StringBuilder();
+            DataRow dRow = null;          
+            string strSql = "Select BankId from masterbank where BankName= '" + Name + "'";
+            dRow = DBInterface.SelectFirstRow(strSql);
+            if (dRow == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+
+        }  
 
         private string GetInsertQuery(int Id, string Name,string createdby, string createddate,string createdtime)
         {
             Query objQuery = new Query();
-            objQuery.Table = "MasterBank";
-            //objQuery.AddToQuery("BankId", Id);
+            objQuery.Table = "MasterBank";           
             objQuery.AddToQuery("BankName", Name);
             objQuery.AddToQuery("CreatedDate", createddate);
             objQuery.AddToQuery("CreatedTime", createdtime);

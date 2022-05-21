@@ -3443,7 +3443,7 @@ namespace EcoMart
 
                 AddAccountItem(_Band, _SubMenuItem);
                 AddCompanyItem(_Band, _SubMenuItem);
-                AddDoctorItem(_Band, _SubMenuItem);
+                //AddDoctorItem(_Band, _SubMenuItem);
                 AddGroupItem(_Band, _SubMenuItem);
                 //   AddPatientItem(_Band, _SubMenuItem);
                 //AddPrescriptionItem(_Band, _SubMenuItem);

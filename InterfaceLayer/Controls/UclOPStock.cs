@@ -3485,19 +3485,19 @@ namespace EcoMart.InterfaceLayer
                     pobj.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
                     pobj.IFEdit = "N";
                     pobj.Validate();
-                    if (pobj.IsValid)
-                        IsProductCreateOrUpdate = pobj.AddDetails();
-                    else // Show Validation Messages
-                    {
-                        _errorMessage = new System.Text.StringBuilder();
-                        _errorMessage.Append("Error while validating the input" + Environment.NewLine);
-                        foreach (string _message in pobj.ValidationMessages)
-                        {
-                            _errorMessage.AppendFormat("- {0}" + Environment.NewLine, _message);
-                        }
-                        MessageBox.Show(_errorMessage.ToString(), General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        IsProductCreateOrUpdate = false;
-                    }
+                    //if (pobj.IsValid)
+                    //    IsProductCreateOrUpdate = pobj.AddDetails();
+                    //else // Show Validation Messages
+                    //{
+                    //    _errorMessage = new System.Text.StringBuilder();
+                    //    _errorMessage.Append("Error while validating the input" + Environment.NewLine);
+                    //    foreach (string _message in pobj.ValidationMessages)
+                    //    {
+                    //        _errorMessage.AppendFormat("- {0}" + Environment.NewLine, _message);
+                    //    }
+                    //    MessageBox.Show(_errorMessage.ToString(), General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    IsProductCreateOrUpdate = false;
+                    //}
                     if (IsProductCreateOrUpdate)
                         FillBatchGrid();
                 }

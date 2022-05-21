@@ -15,7 +15,7 @@ namespace EcoMart.DataLayer
         public DataTable GetOverviewData()
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select SalesmanID, Name from mastersalesman order by Name";
+            string strSql = "Select SalesmanID, SalesmanName from mastersalesman order by SalesmanName";
 
             dtable = DBInterface.SelectDataTable(strSql);
 
@@ -38,11 +38,7 @@ namespace EcoMart.DataLayer
         {
             int iRetValue = 0;
             string strSql = GetInsertQuery(Id, Name,Address1,Address2,Telephone,MobileNumberForSMS,MailID, createdby, createddate, createtime);
-            iRetValue = DBInterface.ExecuteScalar(strSql);
-            //if (DBInterface.ExecuteQuery(strSql) > 0)
-            //{
-            //    bRetValue = true;
-            //}
+            iRetValue = DBInterface.ExecuteScalar(strSql);           
             return iRetValue;
         }
 
@@ -70,11 +66,11 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool IsNameUniqueForAdd(string Name, int Id)
+        public bool IsNameUniqueForAdd(string Name, string Id)
         {
-            string strSql = GetDataForUniqueForAdd(Name, Id);
+            int ifdup = GetDataForUniqueForAdd(Name, Id);
             bool bRetValue = false;
-            if (DBInterface.ExecuteQuery(strSql) > 0)
+            if (ifdup > 0)
             {
                 bRetValue = true;
             }
@@ -83,45 +79,39 @@ namespace EcoMart.DataLayer
 
         public bool IsNameUniqueForEdit(string Name, string Id)
         {
-            string strSql = GetDataForUniqueForEdit(Name, Id);
+            int ifdup = GetDataForUniqueForAdd(Name, Id);
             bool bRetValue = false;
-            if (DBInterface.ExecuteQuery(strSql) > 0)
+            if (ifdup > 0)
             {
                 bRetValue = true;
             }
             return bRetValue;
-        }      
-
-
-        #region Query Building Functions     
-
-        private string GetDataForUniqueForAdd(string Name, int Id)
+        }
+        private int GetDataForUniqueForAdd(string Name, string Id)
         {
             StringBuilder sQuery = new StringBuilder();
-            sQuery.AppendFormat("Select SalesmanID from mastersalesman where Name='{0}'", Name);
-            if (Id != 0)
+            DataRow dRow = null;
+            string strSql = "Select SalesmanID from mastersalesman where SalesmanName= '" + Name + "'";
+            dRow = DBInterface.SelectFirstRow(strSql);
+            if (dRow == null)
             {
-                sQuery.AppendFormat(" AND SalesmanID = ({0})", Id);
+                return 0;
             }
-            return sQuery.ToString();
-        }
-        private string GetDataForUniqueForEdit(string Name, string Id)
-        {
-            StringBuilder sQuery = new StringBuilder();
-            sQuery.AppendFormat("Select SalesmanID from mastersalesman where Name='{0}'", Name);
-            if (Id != "")
+            else
             {
-                sQuery.AppendFormat(" AND SalesmanID not in ('{0}')", Id);
+                return 1;
             }
-            return sQuery.ToString();
+
         }
+
+
+        #region Query Building Functions    
 
         private string GetInsertQuery(int Id, string Name,string Address1, string Address2, string Telephone, string MobileNumberForSMS, string MailID, string createdby, string createddate, string createdtime)
         {
             Query objQuery = new Query();
-            objQuery.Table = "mastersalesman";
-            //objQuery.AddToQuery("SalesmanID", Id);
-            objQuery.AddToQuery("Name",Name);
+            objQuery.Table = "mastersalesman";           
+            objQuery.AddToQuery("SalesmanName", Name);
             objQuery.AddToQuery("Address1", Address1);
             objQuery.AddToQuery("Address2", Address2);
             objQuery.AddToQuery("TelephoneNumber", Telephone);
@@ -139,7 +129,7 @@ namespace EcoMart.DataLayer
             Query objQuery = new Query();
             objQuery.Table = "mastersalesman";
             objQuery.AddToQuery("SalesmanID", Id, true);
-            objQuery.AddToQuery("Name", Name);
+            objQuery.AddToQuery("SalesmanName", Name);
             objQuery.AddToQuery("Address1", Address1);
             objQuery.AddToQuery("Address2", Address2);
             objQuery.AddToQuery("TelephoneNumber", Telephone);

@@ -126,14 +126,14 @@ namespace EcoMart.BusinessLayer
 
                 if (IFEdit == "Y")
                 {
-                    if (dbComp.IsNameUniqueForEdit(CName, Id))
+                    if (dbComp.IsNameUniqueForEdit(CName, ShortName))
                     {
                         ValidationMessages.Add("Company Already Exists.");
                     }
                 }
                 else
                 {
-                    if (dbComp.IsNameUniqueForAdd(CName, Id))
+                    if (dbComp.IsNameUniqueForAdd(CName, ShortName))
                     {
                         ValidationMessages.Add("Company Already Exists.");
                     }

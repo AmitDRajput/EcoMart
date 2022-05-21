@@ -74,9 +74,9 @@ namespace EcoMart.DataLayer
         }
         public bool IsNameUniqueForAdd(string Name, string Id)
         {
-            string strSql = GetDataForUniqueForAdd(Name, Id);
+            int ifdup = GetDataForUniqueForAdd(Name, Id);
             bool bRetValue = false;
-            if (DBInterface.ExecuteQuery(strSql) > 0)
+            if (ifdup > 0)
             {
                 bRetValue = true;
             }
@@ -85,9 +85,9 @@ namespace EcoMart.DataLayer
 
         public bool IsNameUniqueForEdit(string Name, string Id)
         {
-            string strSql = GetDataForUniqueForEdit(Name, Id);
+            int ifdup = GetDataForUniqueForAdd(Name, Id);
             bool bRetValue = false;
-            if (DBInterface.ExecuteQuery(strSql) > 0)
+            if (ifdup > 0)
             {
                 bRetValue = true;
             }
@@ -106,15 +106,21 @@ namespace EcoMart.DataLayer
 
         #region Query Building Functions
 
-        private string GetDataForUniqueForAdd(string Name, string Id)
+        private int GetDataForUniqueForAdd(string Name, string Id)
         {
             StringBuilder sQuery = new StringBuilder();
-            sQuery.AppendFormat("Select AreaId from masterarea where AreaName='{0}'", Name);
-            if (Id != "")
+            DataRow dRow = null;           
+            string strSql = "Select AreaId from masterarea where AreaName= '"+ Name + "'" ;
+            dRow = DBInterface.SelectFirstRow(strSql);
+            if (dRow == null)
             {
-                sQuery.AppendFormat(" AND AreaId in ('{0}')", Id);
+                return 0;
             }
-            return sQuery.ToString();
+            else
+            {
+                return 1;
+            }
+            
         }
         private string GetDataForUniqueForEdit(string Name, string Id)
         {
@@ -130,8 +136,7 @@ namespace EcoMart.DataLayer
         private string GetInsertQuery(int Id, string Name,string createdby,string createddate,string createdtime)
         {
             Query objQuery = new Query();
-            objQuery.Table = "MasterArea";
-            //objQuery.AddToQuery("AreaId", Id);
+            objQuery.Table = "MasterArea";           
             objQuery.AddToQuery("AreaName", Name);
             objQuery.AddToQuery("CreatedUserID", createdby);
             objQuery.AddToQuery("CreatedDate", createddate);

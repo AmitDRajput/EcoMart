@@ -1,5 +1,5 @@
 ﻿//Description : This class contains all methods required for Salesman master. 
-//              This is user control required for Add/Update/Delete Salesman details
+//              This is user control required for Add/Update/Delete Sale//Description : This class contains all methods required for Salesman master.sman details
 
 
 using System;
@@ -121,7 +121,7 @@ namespace EcoMart.InterfaceLayer
 
         public override bool View()
         {
-            htTableList = General.GetTableListByCode("SalesmanID", "Name", "mastersalesman");
+            htTableList = General.GetTableListByCode("SalesmanID", "SalesmanName", "mastersalesman");
             bool retValue = base.View();
             ClearData();
             FilltxtName();
@@ -272,7 +272,7 @@ namespace EcoMart.InterfaceLayer
         public void FilltxtName()
         {
             txtName.SelectedID = null;
-            txtName.SourceDataString = new string[2] { "ID", "Name" };
+            txtName.SourceDataString = new string[2] { "ID", "SalesmanName" };
             txtName.ColumnWidth = new string[2] { "0", "300" };
             Salesman _txt = new Salesman();
             DataTable dtable = _txt.GetOverviewData();
@@ -349,51 +349,7 @@ namespace EcoMart.InterfaceLayer
             ttSalesman.SetToolTip(txtName, "A-Z,0-9,space only");
         }
         #endregion
-
-        //private void panel1_Paint(object sender, PaintEventArgs e)
-        //{
-
-        //}
-
-        //private void txtMailId_TextChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void txtMobileNumberForSMS_TextChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void txtTelephone_TextChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void txtDocAddress2_Load(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void txtDocAddress1_Load(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void txtName_Load(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void txtName_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-           
-        //}
-
-        //private void txtName_EnterKeyPressed(object sender, EventArgs e)
-        //{
-          
-        //}
+              
 
         private void txtDocAddress1_EnterKeyPressed(object sender, EventArgs e)
         {
@@ -543,27 +499,13 @@ namespace EcoMart.InterfaceLayer
                     break;
             }
         }
-
-        //private void txtName_KeyDown(object sender, KeyEventArgs e)
-        //{
-
-        //}
-
-        //private void txtName_KeyPress_1(object sender, KeyPressEventArgs e)
-        //{
-           
-        //}
+               
 
         private void txtName_EnterKeyPressed_1(object sender, EventArgs e)
         {
             FillSearchData(txtName.SelectedID, "");
             txtDocAddress1.Focus();
         }
-
-        //private void panel1_Click(object sender, EventArgs e)
-        //{
-
-        //}
 
         private void txtDocAddress1_KeyDown_2(object sender, KeyEventArgs e)
         {

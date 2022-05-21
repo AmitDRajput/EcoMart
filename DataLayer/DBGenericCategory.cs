@@ -68,16 +68,42 @@ namespace EcoMart.DataLayer
             }
             return bRetValue;
         }
-       
-        public bool IsNameUnique(string Name, string Id)
+        public bool IsNameUniqueForAdd(string Name, string Id)
         {
-            string strSql = GetDataForUnique(Name, Id);
+            int ifdup = GetDataForUniqueForAdd(Name, Id);
             bool bRetValue = false;
-            if (DBInterface.ExecuteQuery(strSql) > 0)
+            if (ifdup > 0)
             {
                 bRetValue = true;
             }
             return bRetValue;
+        }
+
+        public bool IsNameUniqueForEdit(string Name, string Id)
+        {
+            int ifdup = GetDataForUniqueForAdd(Name, Id);
+            bool bRetValue = false;
+            if (ifdup > 0)
+            {
+                bRetValue = true;
+            }
+            return bRetValue;
+        }
+        private int GetDataForUniqueForAdd(string Name, string Id)
+        {
+            StringBuilder sQuery = new StringBuilder();
+            DataRow dRow = null;
+            string strSql = "Select GenericCategoryId from MasterGenericCategory where GenericCategoryName= '" + Name + "'";
+            dRow = DBInterface.SelectFirstRow(strSql);
+            if (dRow == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+
         }
         public DataRow GetMaxID()
         {
@@ -89,17 +115,7 @@ namespace EcoMart.DataLayer
             return dRow;
         }
         #region Query Building Functions
-        private string GetDataForUnique(string Name, string Id)
-        {
-            StringBuilder sQuery = new StringBuilder();
-            sQuery.AppendFormat("Select GenericCategoryId from MasterGenericCategory where GenericCategoryName='{0}'", Name);
-            if (Id != "")
-            {
-                sQuery.AppendFormat(" AND GenericCategoryId not in ('{0}')", Id);
-            }
-            return sQuery.ToString();
-        }
-
+       
         private string GetInsertQuery(int Id, string Name, string createdby, string createddate, string createdtime)
         {
             Query objQuery = new Query();

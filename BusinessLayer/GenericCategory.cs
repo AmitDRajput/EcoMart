@@ -40,24 +40,50 @@ namespace EcoMart.BusinessLayer
             }        
         }
 
+        //public override void DoValidate()
+        //{
+        //    try
+        //    {
+        //        if (Name == "")
+        //            ValidationMessages.Add("Please enter the Generic Category Name.");
+        //        DBGenericCategory dbGenericCategory = new DBGenericCategory();
+        //        if (dbGenericCategory.IsNameUnique(Name, Id))
+        //        {
+        //            ValidationMessages.Add("Drug Category Already Exist.");
+        //        }
+        //    }
+        //    catch (Exception Ex)
+        //    {
+        //        Log.WriteException(Ex);
+        //    }        
+        //}
         public override void DoValidate()
         {
             try
             {
                 if (Name == "")
                     ValidationMessages.Add("Please enter the Generic Category Name.");
-                DBGenericCategory dbGenericCategory = new DBGenericCategory();
-                if (dbGenericCategory.IsNameUnique(Name, Id))
+                DBGenericCategory dbval = new DBGenericCategory();
+                if (IFEdit == "Y")
                 {
-                    ValidationMessages.Add("Drug Category Already Exist.");
+                    if (dbval.IsNameUniqueForEdit(Name, Id))
+                    {
+                        ValidationMessages.Add("Name Already Exists.");
+                    }
+                }
+                else
+                {
+                    if (dbval.IsNameUniqueForAdd(Name, Id))
+                    {
+                        ValidationMessages.Add("Name Already Exists.");
+                    }
                 }
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Log.WriteException(Ex);
-            }        
+                Log.WriteException(ex);
+            }
         }
-
 
         public override bool CanBeDeleted()
         {
