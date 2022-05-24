@@ -35,7 +35,7 @@ public class DBPurchase
         public DataRow GetDNAmount(string accountid)
         {
             DataRow dr;
-            string strSql = "Select sum(AmountNet) as AmountNet from vouchercreditdebitnote where AmountClear = 0 && (VoucherType = '"+ FixAccounts.VoucherTypeForDebitNoteAmount +"' || VoucherType = '"+ FixAccounts.VoucherTypeForDebitNoteStock +"')  && AccountID = '" + accountid + "'";
+            string strSql = "Select sum(AmountNet) as AmountNet from vouchercreditdebitnote where AmountClear = 0 AND (VoucherType = '"+ FixAccounts.VoucherTypeForDebitNoteAmount +"' OR VoucherType = '"+ FixAccounts.VoucherTypeForDebitNoteStock +"')  AND AccountID = '" + accountid + "'";
             dr = DBInterface.SelectFirstRow(strSql);
             return dr;
         }

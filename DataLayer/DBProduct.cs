@@ -370,7 +370,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
 
-            string strsql = "Select a.ProductID,a.ProdClosingStock,'' As BatchNumber, '' As Expiry,cast(0 as decimal(10,2)) AS MRP from masterproduct a  where " + filterValue + "order by prodname LIMIT 50";
+            string strsql = "Select TOP 50 a.ProductID,a.ProdClosingStock,'' As BatchNumber, '' As Expiry,cast(0 as decimal(10,2)) AS MRP from masterproduct a  where " + filterValue + "order by prodname";
             dtable = DBInterface.SelectDataTable(strsql);
 
             return dtable;
@@ -380,7 +380,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
 
-            string strsql = "Select a.ProductID,a.ClosingStock As ProdClosingStock, a.BatchNumber, a.Expiry, cast(a.MRP as decimal(10,2)) as MRP from tblstock a  where " + filterValue + " LIMIT 50";
+            string strsql = "Select TOP 50 a.ProductID,a.ClosingStock As ProdClosingStock, a.BatchNumber, a.Expiry, cast(a.MRP as decimal(10,2)) as MRP from tblstock a  where " + filterValue;
             dtable = DBInterface.SelectDataTable(strsql);
 
             return dtable;
@@ -441,54 +441,54 @@ namespace EcoMart.DataLayer
                 {
                     var JoinResult = (from p in dtProduct.AsEnumerable()
                                       join t in dtStock.AsEnumerable()
-                                      on p.Field<Int32>("ProductID") equals t.Field<Int32>("ProductID")
+                                      on p.Field<int>("ProductID") equals t.Field<int>("ProductID")
                                       select new
                                       {
-                                          ProductID = p.Field<Int32>("ProductID"),
+                                          ProductID = p.Field<int>("ProductID"),
                                           ProdName = p.Field<string>("ProdName"),
                                           ProdPack = p.Field<string>("ProdPack"),
                                           ProdPackType = p.Field<string>("ProdPackType"),
-                                          //   ProdLoosePack = p.Field<Int32>("ProdLoosePack"),
-                                          ProdClosingStockPack = p.Field<Int32>("ProdClosingStockPack"),
+                                          //   ProdLoosePack = p.Field<int>("ProdLoosePack"),
+                                          ProdClosingStockPack = p.Field<int>("ProdClosingStockPack"),
                                           ProdCompShortName = p.Field<string>("ProdCompShortName"),
-                                          ProdBoxQuantity = p.Field<Int32>("ProdBoxQuantity"),
-                                          ProdVATPercent = p.Field<double>("ProdVATPercent"),
+                                          ProdBoxQuantity = p.Field<int>("ProdBoxQuantity"),
+                                          ProdVATPercent = p.Field<decimal?>("ProdVATPercent"),
                                           //////   ProdCST = p.Field<double>("ProdCST"),
                                           ProdGrade = p.Field<string>("ProdGrade"),
-                                          ProdCompID = p.Field<Int32>("ProdCompID"),
+                                          ProdCompID = p.Field<int?>("ProdCompID"),
                                           ProdLastPurchaseMRP = p.Field<double?>("ProdLastPurchaseMRP"),
                                           ProdLastPurchaseSaleRate = p.Field<double?>("ProdLastPurchaseSaleRate"),
-                                          ProdShelfID = p.Field<Int32>("ProdShelfID"),
+                                          ProdShelfID = p.Field<int?>("ProdShelfID"),
                                           ProdScheduleDrugCode = p.Field<string>("ProdScheduleDrugCode"),
                                           ProdIfSchedule = p.Field<string>("ProdIfSchedule"),
-                                          ProdOpeningStock = p.Field<Int32>("ProdOpeningStock"),
+                                          ProdOpeningStock = p.Field<int?>("ProdOpeningStock"),
                                           ProdIfSaleDisc = p.Field<string>("ProdIfSaleDisc"),
                                           ProdLastPurchaseRate = p.Field<double?>("ProdLastPurchaseRate"),
                                           ProdIfShortListed = p.Field<string>("ProdIfShortListed"),
                                           ProdRequireColdStorage = p.Field<string>("ProdRequireColdStorage"),
                                           ProdMRP = p.Field<double?>("ProdMRP"),
-                                          ///////
-                                          ProdMinLevel = p.Field<Int32?>("ProdMinLevel"),
-                                          ProdMaxLevel = p.Field<Int32?>("ProdMaxLevel"),
-                                          ProdLastSaleStockID = p.Field<Int32?>("ProdLastSaleStockID"),
-                                          ProdLastPurchaseStockID = p.Field<Int32?>("ProdLastPurchaseStockID"),
+                                          /////////
+                                          ProdMinLevel = p.Field<int?>("ProdMinLevel"),
+                                          ProdMaxLevel = p.Field<int?>("ProdMaxLevel"),
+                                          ProdLastSaleStockID = p.Field<int?>("ProdLastSaleStockID"),
+                                          ProdLastPurchaseStockID = p.Field<int?>("ProdLastPurchaseStockID"),
                                           tag = p.Field<string>("tag"),
-                                          ProdDrugID = p.Field<Int32?>("ProdDrugID"),
-                                          ShelfID = p.Field<Int32?>("ShelfID"),
+                                          ProdDrugID = p.Field<int?>("ProdDrugID"),
+                                          ShelfID = p.Field<int?>("ShelfID"),
                                           ShelfCode = p.Field<string>("ShelfCode"),
-                                          CompID = p.Field<Int32?>("CompID"),
+                                          CompID = p.Field<int>("CompID"),
                                           CompName = p.Field<string>("CompName"),
                                           GenericCategoryName = p.Field<string>("GenericCategoryName"),
 
-                                          //   ProdlastSaleMRP = p.Field<double?>("ProdlastSaleMRP"),
-                                           Barcode = p.Field<string>("Barcode"),
-                                          ProdCategoryID = p.Field<Int32?>("ProdCategoryID"),
-                                          ProdClosingStock = t.Field<Int32?>("ProdClosingStock"),
+                                          ////   ProdlastSaleMRP = p.Field<double?>("ProdlastSaleMRP"),
+                                          Barcode = p.Field<string>("Barcode"),
+                                          ProdCategoryID = p.Field<int>("ProdCategoryID"),
+                                          ProdClosingStock = t.Field<int?>("ProdClosingStock"),
                                           BatchNumber = t.Field<string>("BatchNumber"),
                                           Expiry = t.Field<string>("Expiry"),
                                           MRP = t.Field<decimal>("MRP"),
 
-                                          HSNNumber = p.Field<Int32?>("HSNNumber")
+                                          HSNNumber = p.Field<decimal?>("HSNNumber")
                                       }).ToList();
                    
 
@@ -498,7 +498,8 @@ namespace EcoMart.DataLayer
             }
 
             catch (Exception Ex)
-            { Log.WriteException(Ex); }
+            { 
+                Log.WriteException(Ex); }
 
             DataTable dtTempCounterSale = CacheObject.Get<DataTable>("TempCounterSale");
             try
@@ -554,8 +555,8 @@ namespace EcoMart.DataLayer
                                                      ProdClosingStockPack = p.Field<Int64>("ProdClosingStockPack"),
                                                      ProdCompShortName = p.Field<string>("ProdCompShortName"),
                                                      ProdBoxQuantity = p.Field<UInt32>("ProdBoxQuantity"),
-                                                     ProdVATPercent = p.Field<double>("ProdVATPercent"),
-                                                     ProdCST = p.Field<double>("ProdCST"),
+                                                     ProdVATPercent = p.Field<double?>("ProdVATPercent"),
+                                                     ProdCST = p.Field<double?>("ProdCST"),
                                                      ProdGrade = p.Field<string>("ProdGrade"),
                                                      ProdCompID = p.Field<string>("ProdCompID"),
                                                      ProdLastPurchaseMRP = p.Field<double?>("ProdLastPurchaseMRP"),

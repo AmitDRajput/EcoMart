@@ -151,7 +151,7 @@ namespace EcoMart.DataLayer
                 "AccDoctorID, AccAreaID, AccShortName,  AccBirthDay, AccBirthMonth, AccBirthYear, AccHistory, " +
                 "AccEmailID, AccRemark1,AccRemark2, AccBankAccountNumber " +
                 ", AccCrVisitDays, AccDbVisitDay1, AccDbVisitDay2, AccDbVisitDay3 " +
-                ", AccVATTin, AccPAN, AccDLN,AccTokenNumber,AccDiscountOffered,AccStatement15Days,AccLessPercentInDebitNote,AccLBT,IFLBT from masteraccount where AccountID='{0}' ";
+                ", AccVATTin, AccPAN, AccDLN,AccTokenNumber,AccDiscountOffered,AccStatement15Days,AccLessPercentInDebitNote,AccLBT,IFLBT, ACCIFOMS from masteraccount where AccountID='{0}' ";
 
                 strSql = string.Format(strSql, Id);
                 dRow = DBInterface.SelectFirstRow(strSql);

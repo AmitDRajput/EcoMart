@@ -20,7 +20,7 @@ namespace EcoMart.DataLayer
         public DataTable GetStockByProductIDForPurchase(string prodID, int mclstock)
         {
             DataTable dtable = new DataTable();
-            string strSql = string.Format("Select a.StockID,a.ProductId,a.BatchNumber,a.Expiry,a.TradeRate,a.PurchaseRate,a.MRP,a.SaleRate,a.ClosingStock,a.PurchaseVATPercent,a.ScanCode,a.PriceToRetailer,a.ProfitPercent,b.AccountId,b.AccName from tblstock a left outer join  masteraccount b on a.LastPurchaseAccountId = b.AccountID  where a.ProductID = '{0}' &&  closingstock >= "+ mclstock +" order by closingstock desc", prodID);
+            string strSql = string.Format("Select a.StockID,a.ProductId,a.BatchNumber,a.Expiry,a.TradeRate,a.PurchaseRate,a.MRP,a.SaleRate,a.ClosingStock,a.PurchaseVATPercent,a.ScanCode,b.AccountId,b.AccName from tblstock a left outer join  masteraccount b on a.LastPurchaseAccountId = b.AccountID  where a.ProductID = '{0}' AND closingstock >= "+ mclstock +" order by closingstock desc", prodID);
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
