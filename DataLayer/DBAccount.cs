@@ -138,7 +138,6 @@ namespace EcoMart.DataLayer
             return dRow;
         }
 
-      
 
         public DataRow ReadDetailsByID(string Id)
         {
@@ -146,19 +145,20 @@ namespace EcoMart.DataLayer
             if (Id != "")
             {
                 string strSql = "Select AccountID,AccCode, AccName, AccOpeningDebit, AccOpeningCredit, " +
-                "AccAddress1,AccAddress2, AccTelephone, MobileNumberForSMS, AccContactPerson, AccDiscountOffered, AccCrVisitDays, " +
+                "AccAddress1,AccAddress2, AccTelephone, MobileNumberForSMS, AccContactPerson, AccDiscountOffered, " +
                 "AccTransactionType, AccIFOctroi, AccOctroiPer, AccBankId, AccBranchID, AccGroupID, " +
-                "AccDoctorID, AccAreaID, AccShortName,  AccBirthDay, AccBirthMonth, AccBirthYear, AccHistory, " +
+                "AccDoctorID, AccAreaID,   AccBirthDay, AccBirthMonth, AccBirthYear, " +
                 "AccEmailID, AccRemark1,AccRemark2, AccBankAccountNumber " +
-                ", AccCrVisitDays, AccDbVisitDay1, AccDbVisitDay2, AccDbVisitDay3 " +
-                ", AccVATTin, AccPAN, AccDLN,AccTokenNumber,AccDiscountOffered,AccStatement15Days,AccLessPercentInDebitNote,AccLBT,IFLBT, ACCIFOMS from masteraccount where AccountID='{0}' ";
+
+                ", AccVATTin, AccPAN, AccDLN,AccTokenNumber,AccDiscountOffered,AccLBT,IFLBT from masteraccount where AccountID='{0}' ";
 
                 strSql = string.Format(strSql, Id);
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
             return dRow;
-        }      
+        }
 
+        
         #region For Debtors
 
         public bool AddDetailsDr(int Id, string AccCode, string AccName, string AccGroupID, 
@@ -200,14 +200,14 @@ namespace EcoMart.DataLayer
         }
 
         private string GetInsertQueryDr(int Id, string AccCode, string AccName, string AccGroupID,
-            double AccOpeningDebit, double AccOpeningCredit, string AccAddress1, string AccAddress2, string AccEmailID,
-            string AccTransactionType, string AccBankId, string AccBranchID, string AccDoctorID, string accAreaID, string AccTelephone, string AccMobileNumberForSMS,
-            string AccContactPerson, string AccRemark1,string AccRemark2, int AccBirthDay, int AccBirthMonth, int AccBirthYear
-            , int AccDbVisitDay1, int AccDbVisitDay2, int AccDbVisitDay3, string AccVATTIN, string AccDLN, int AccTokenNumber, double accDiscountOffered, string accLBT, string ifLBT, string accAiocdaCode, string accScorgCode, string createdby, string createddate, string createdtime)
+      double AccOpeningDebit, double AccOpeningCredit, string AccAddress1, string AccAddress2, string AccEmailID,
+      string AccTransactionType, string AccBankId, string AccBranchID, string AccDoctorID, string accAreaID, string AccTelephone, string AccMobileNumberForSMS,
+      string AccContactPerson, string AccRemark1, string AccRemark2, int AccBirthDay, int AccBirthMonth, int AccBirthYear
+      , int AccDbVisitDay1, int AccDbVisitDay2, int AccDbVisitDay3, string AccVATTIN, string AccDLN, int AccTokenNumber, double accDiscountOffered, string accLBT, string ifLBT, string accAiocdaCode, string accScorgCode, string createdby, string createddate, string createdtime)
         {
             Query objQuery = new Query();
             objQuery.Table = "masteraccount";
-            objQuery.AddToQuery("AccountID", Id, true);
+            //objQuery.AddToQuery("AccountID", Id, true);
             objQuery.AddToQuery("AccCode", AccCode);
             objQuery.AddToQuery("AccName", AccName);
             objQuery.AddToQuery("AccGroupID", AccGroupID);
@@ -216,7 +216,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("AccAddress1", AccAddress1);
             objQuery.AddToQuery("AccAddress2", AccAddress2);
             objQuery.AddToQuery("AccEmailID", AccEmailID);
-            objQuery.AddToQuery("AccTransactionType", AccTransactionType);
+            //objQuery.AddToQuery("AccTransactionType", AccTransactionType);
             objQuery.AddToQuery("AccBankId", AccBankId);
             objQuery.AddToQuery("AccBranchID", AccBranchID);
             objQuery.AddToQuery("AccDoctorID", AccDoctorID);
@@ -232,7 +232,7 @@ namespace EcoMart.DataLayer
             //objQuery.AddToQuery("AccDbVisitDay1", AccDbVisitDay1);
             //objQuery.AddToQuery("AccDbVisitDay2", AccDbVisitDay2);
             //objQuery.AddToQuery("AccDbVisitDay3", AccDbVisitDay3);
-          //  objQuery.AddToQuery("AccNameAddress", AccNameAddress);
+            //  objQuery.AddToQuery("AccNameAddress", AccNameAddress);
             //objQuery.AddToQuery("AccVATTin", AccVATTIN);
             objQuery.AddToQuery("AccDLN", AccDLN);
             objQuery.AddToQuery("AccTokenNumber", AccTokenNumber);
@@ -254,9 +254,9 @@ namespace EcoMart.DataLayer
         }
 
         private string GetUpdateQueryDr(string Id, string AccCode, string AccName, string AccGroupID,
-            double AccOpeningDebit, double AccOpeningCredit, string AccAddress1,string AccAddress2, string AccEmailID,
+            double AccOpeningDebit, double AccOpeningCredit, string AccAddress1, string AccAddress2, string AccEmailID,
             string AccTransactionType, string AccBankId, string AccBranchID, string AccDoctorID, string accAreaID, string AccTelephone, string AccMobileNumberForSMS,
-            string AccContactPerson, string AccRemark1,string AccRemark2, int AccBirthDay, int AccBirthMonth, int AccBirthYear
+            string AccContactPerson, string AccRemark1, string AccRemark2, int AccBirthDay, int AccBirthMonth, int AccBirthYear
             , int AccDbVisitDay1, int AccDbVisitDay2, int AccDbVisitDay3, string AccVATTIN, string AccDLN, int AccTokenNumber, double accDiscountOffered, string accLBT, string ifLBT, string accAiocdaCode, string accScorgCode, string modifiedby, string modifydate, string modifytime)
         {
             Query objQuery = new Query();
@@ -270,7 +270,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("AccAddress1", AccAddress1);
             objQuery.AddToQuery("AccAddress2", AccAddress2);
             objQuery.AddToQuery("AccEmailID", AccEmailID);
-            objQuery.AddToQuery("AccTransactionType", AccTransactionType);
+            //objQuery.AddToQuery("AccTransactionType", AccTransactionType);
             objQuery.AddToQuery("AccBankId", AccBankId);
             objQuery.AddToQuery("AccBranchID", AccBranchID);
             objQuery.AddToQuery("AccDoctorID", AccDoctorID);
@@ -283,28 +283,29 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("AccBirthDay", AccBirthDay);
             objQuery.AddToQuery("AccBirthMonth", AccBirthMonth);
             objQuery.AddToQuery("AccBirthYear", AccBirthYear);
-            objQuery.AddToQuery("AccDbVisitDay1", AccDbVisitDay1);
-            objQuery.AddToQuery("AccDbVisitDay2", AccDbVisitDay2);
-            objQuery.AddToQuery("AccDbVisitDay3", AccDbVisitDay3);
-        //    objQuery.AddToQuery("AccNameAddress", AccNameAddress);
+            //objQuery.AddToQuery("AccDbVisitDay1", AccDbVisitDay1);
+            //objQuery.AddToQuery("AccDbVisitDay2", AccDbVisitDay2);
+            //objQuery.AddToQuery("AccDbVisitDay3", AccDbVisitDay3);
+            //    objQuery.AddToQuery("AccNameAddress", AccNameAddress);
             objQuery.AddToQuery("AccVATTin", AccVATTIN);
             objQuery.AddToQuery("AccDLN", AccDLN);
             objQuery.AddToQuery("AccTokenNumber", AccTokenNumber);
-            objQuery.AddToQuery("AccCrVisitDays", "");
-            objQuery.AddToQuery("AccShortName", "");
+            // objQuery.AddToQuery("AccCrVisitDays", "");
+            //objQuery.AddToQuery("AccShortName", "");
             objQuery.AddToQuery("AccDiscountOffered", accDiscountOffered);
             objQuery.AddToQuery("IFFIX", "N");
             objQuery.AddToQuery("AccIfOctroi", "N");
             objQuery.AddToQuery("AccOctroiPer", 0);
             objQuery.AddToQuery("AccLBT", accLBT);
             objQuery.AddToQuery("IFLBT", ifLBT);
-            objQuery.AddToQuery("AIOCDACode", accAiocdaCode);
-            objQuery.AddToQuery("SCORGID", accScorgCode);
+            //objQuery.AddToQuery("AIOCDACode", accAiocdaCode);
+            //objQuery.AddToQuery("SCORGID", accScorgCode);
             objQuery.AddToQuery("ModifiedUserID", modifiedby);
             objQuery.AddToQuery("ModifiedDate", modifydate);
             objQuery.AddToQuery("ModifiedTime", modifytime);
             return objQuery.UpdateQuery();
         }
+
         #endregion
 
         #region For Creditors
@@ -343,13 +344,13 @@ namespace EcoMart.DataLayer
         }
 
         private string GetInsertQueryCreditor(string Id, string AccCode, string AccName, string AccGroupID,
-            double AccOpeningDebit, double AccOpeningCredit, string AccAddress1, string AccAddress2, string AccEmailID,
-            string AccTelephone, string AccMobileNumberForSMS, string AccContactPerson, string AccRemark1, string AccRemark2,
-            string AccCrVisitDays, string AccShortName, double AccDiscountOffered, string AccVATTin, string AccDLN, string AccStatement15Days, double AccLessPercentInDebitNote, string accLBT, string ifLBT, string accAiocdaCode, string accScorgCode, string createdby, string createddate, string createdtime)
+       double AccOpeningDebit, double AccOpeningCredit, string AccAddress1, string AccAddress2, string AccEmailID,
+       string AccTelephone, string AccMobileNumberForSMS, string AccContactPerson, string AccRemark1, string AccRemark2,
+       string AccCrVisitDays, string AccShortName, double AccDiscountOffered, string AccVATTin, string AccDLN, string AccStatement15Days, double AccLessPercentInDebitNote, string accLBT, string ifLBT, string accAiocdaCode, string accScorgCode, string createdby, string createddate, string createdtime)
         {
             Query objQuery = new Query();
             objQuery.Table = "masteraccount";
-            objQuery.AddToQuery("AccountID", Id, true);
+            //objQuery.AddToQuery("AccountID", Id, true);
             objQuery.AddToQuery("AccCode", AccCode);
             objQuery.AddToQuery("AccName", AccName);
             objQuery.AddToQuery("AccGroupID", AccGroupID);
@@ -363,24 +364,24 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("AccContactPerson", AccContactPerson);
             objQuery.AddToQuery("AccRemark1", AccRemark1);
             objQuery.AddToQuery("AccRemark2", AccRemark2);
-            objQuery.AddToQuery("AccCrVisitDays", AccCrVisitDays);
-            objQuery.AddToQuery("AccShortName", AccShortName);
+            //objQuery.AddToQuery("AccCrVisitDays", AccCrVisitDays);
+            //objQuery.AddToQuery("AccShortName", AccShortName);
             objQuery.AddToQuery("AccDiscountOffered", AccDiscountOffered);
             objQuery.AddToQuery("IFFIX", "N");
             objQuery.AddToQuery("AccVATTin", AccVATTin);
             objQuery.AddToQuery("AccDLN", AccDLN);
-            objQuery.AddToQuery("AccStatement15Days", "Y");
-            objQuery.AddToQuery("AccLessPercentInDebitNote", AccLessPercentInDebitNote);
+            //objQuery.AddToQuery("AccStatement15Days", "Y");
+            //objQuery.AddToQuery("AccLessPercentInDebitNote", AccLessPercentInDebitNote);
             objQuery.AddToQuery("AccLBT", accLBT);
             objQuery.AddToQuery("IFLBT", ifLBT);
-            objQuery.AddToQuery("AIOCDACode", accAiocdaCode);
+            //objQuery.AddToQuery("AIOCDACode", accAiocdaCode);
             objQuery.AddToQuery("GlobalID", accScorgCode);   // changed by [ansuman] [27.12.2016]
             objQuery.AddToQuery("CreatedUserID", createdby);
             objQuery.AddToQuery("CreatedDate", createddate);
             objQuery.AddToQuery("CreatedTime", createdtime);
             return objQuery.InsertQuery();
         }
-       
+
         private string GetUpdateQueryCreditor(string Id, string AccCode, string AccName, string AccGroupID,
             double AccOpeningDebit, double AccOpeningCredit, string AccAddress1, string AccAddress2, string AccEmailID,
             string AccTelephone, string AccMobileNumberForSMS, string AccContactPerson, string AccRemark1, string AccRemark2,
@@ -402,15 +403,15 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("AccContactPerson", AccContactPerson);
             objQuery.AddToQuery("AccRemark1", AccRemark1);
             objQuery.AddToQuery("AccRemark2", AccRemark2);
-            objQuery.AddToQuery("AccCrVisitDays", AccCrVisitDays);
-            objQuery.AddToQuery("AccShortName", AccShortName);
+            // objQuery.AddToQuery("AccCrVisitDays", AccCrVisitDays);
+            //objQuery.AddToQuery("AccShortName", AccShortName);
             objQuery.AddToQuery("AccDiscountOffered", AccDiscountOffered);
             objQuery.AddToQuery("AccVATTin", AccVATTin);
-            objQuery.AddToQuery("AccStatement15Days", AccStatement15Days);
-            objQuery.AddToQuery("AccLessPercentInDebitNote", AccLessPercentInDebitNote);
+            //objQuery.AddToQuery("AccStatement15Days", AccStatement15Days);
+            //objQuery.AddToQuery("AccLessPercentInDebitNote", AccLessPercentInDebitNote);
             objQuery.AddToQuery("AccLBT", accLBT);
             objQuery.AddToQuery("IFLBT", ifLBT);
-            objQuery.AddToQuery("AIOCDACode", accAiocdaCode);
+            //objQuery.AddToQuery("AIOCDACode", accAiocdaCode);
             objQuery.AddToQuery("GlobalID", accScorgCode); // changed by [ansuman]
             objQuery.AddToQuery("ModifiedUserID", modifyby);
             objQuery.AddToQuery("ModifiedDate", modifydate);

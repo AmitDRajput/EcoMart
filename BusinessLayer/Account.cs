@@ -511,20 +511,20 @@ namespace EcoMart.BusinessLayer
                         AccBirthMonth = Convert.ToInt32(drow["AccBirthMonth"]);
                     if (drow["AccBirthYear"] != DBNull.Value)
                         AccBirthYear = Convert.ToInt32(drow["AccBirthYear"]);
-                    if (drow["AccCrVisitDays"] != DBNull.Value)
-                        AccCrVisitDays = Convert.ToString(drow["AccCrVisitDays"]);
-                    if (drow["AccShortName"] != DBNull.Value)
-                        AccShortName = Convert.ToString(drow["AccShortName"]);
-                    if (drow["AccDbVisitDay1"] != DBNull.Value)
-                        AccDbVisitDay1 = Convert.ToInt32(drow["AccDbVisitDay1"]);
-                    if (drow["AccDbVisitDay2"] != DBNull.Value)
-                        AccDbVisitDay2 = Convert.ToInt32(drow["AccDbVisitDay2"]);
-                    if (drow["AccDbVisitDay3"] != DBNull.Value)
-                        AccDbVisitDay3 = Convert.ToInt32(drow["AccDbVisitDay3"]);
+                    //if (drow["AccCrVisitDays"] != DBNull.Value)
+                    //    AccCrVisitDays = Convert.ToString(drow["AccCrVisitDays"]);
+                    //if (drow["AccShortName"] != DBNull.Value)
+                    //    AccShortName = Convert.ToString(drow["AccShortName"]);
+                    //if (drow["AccDbVisitDay1"] != DBNull.Value)
+                    //    AccDbVisitDay1 = Convert.ToInt32(drow["AccDbVisitDay1"]);
+                    //if (drow["AccDbVisitDay2"] != DBNull.Value)
+                    //    AccDbVisitDay2 = Convert.ToInt32(drow["AccDbVisitDay2"]);
+                    //if (drow["AccDbVisitDay3"] != DBNull.Value)
+                    //    AccDbVisitDay3 = Convert.ToInt32(drow["AccDbVisitDay3"]);
                     if (drow["AccDiscountOffered"] != DBNull.Value)
                         AccDiscountOffered = Convert.ToDouble(drow["AccDiscountOffered"]);
-                    if (drow["AccLessPercentInDebitNote"] != DBNull.Value)
-                        AccLessPercentInDebitNote = Convert.ToDouble(drow["AccLessPercentInDebitNote"]);
+                    //if (drow["AccLessPercentInDebitNote"] != DBNull.Value)
+                    //    AccLessPercentInDebitNote = Convert.ToDouble(drow["AccLessPercentInDebitNote"]);
                     if (drow["AccVATTin"] != DBNull.Value)
                         AccVATTin = Convert.ToString(drow["AccVATTin"]);
                     if (drow["AccBankAccountNumber"] != DBNull.Value)
@@ -544,8 +544,8 @@ namespace EcoMart.BusinessLayer
                         AccLBT = drow["AccLBT"].ToString();
                     if (drow["IFLBT"] != DBNull.Value)
                         IfLBt = drow["IFLBT"].ToString();
-                    if (drow["ACCIFOMS"] != DBNull.Value)
-                        IFOMS = Convert.ToString(drow["ACCIFOMS"]);
+                    //if (drow["ACCIFOMS"] != DBNull.Value)
+                    //    IFOMS = Convert.ToString(drow["ACCIFOMS"]);
                     AccStatement15Days = "Y";
 
                 }
