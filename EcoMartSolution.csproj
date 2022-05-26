@@ -160,6 +160,7 @@
     <Compile Include="BusinessLayer\ChallanPurchase.cs" />
     <Compile Include="BusinessLayer\ChangeVAT5to55.cs" />
     <Compile Include="BusinessLayer\ChequeReturn.cs" />
+    <Compile Include="BusinessLayer\City.cs" />
     <Compile Include="BusinessLayer\Company.cs" />
     <Compile Include="BusinessLayer\Account.cs" />
     <Compile Include="BusinessLayer\ContraEntry.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="BusinessLayer\VoucherSaleList.cs" />
     <Compile Include="Common\Classes\FormState.cs" />
     <Compile Include="Common\Classes\RetailServiceCallback.cs" />
+    <Compile Include="DataLayer\DBCity.cs" />
     <Compile Include="DataLayer\DBBackupPath.cs" />
     <Compile Include="DataLayer\DBBankExpenses.cs" />
     <Compile Include="DataLayer\DBBankReconciliation.cs" />
@@ -570,6 +572,18 @@
     </Compile>
     <Compile Include="InterfaceLayer\CommonControls\PSMessageBoxForm.Designer.cs">
       <DependentUpon>PSMessageBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCitySearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCitySearch.Designer.cs">
+      <DependentUpon>UclCitySearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCity.Designer.cs">
+      <DependentUpon>UclCity.cs</DependentUpon>
     </Compile>
     <Compile Include="InterfaceLayer\Controls\FormImportInPurchaseControl.cs">
       <SubType>Form</SubType>
@@ -1687,6 +1701,12 @@
     <EmbeddedResource Include="InterfaceLayer\CommonControls\PSNameControl.resx">
       <DependentUpon>PSNameControl.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCitySearch.resx">
+      <DependentUpon>UclCitySearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclCity.resx">
+      <DependentUpon>UclCity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\Controls\FormImportInPurchaseControl.resx">
       <DependentUpon>FormImportInPurchaseControl.cs</DependentUpon>

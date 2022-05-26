@@ -69,6 +69,7 @@ namespace EcoMart
         UclBank _UclBank;
         UclBranch _UclBranch;
         UclArea _UclArea;
+        UclCity _UclCity;
         UclCustomer _UclCustomer;
         UclEmailID _UclEmailID;
         UclGenericCategory _UclGenericCategory;
@@ -2628,7 +2629,31 @@ namespace EcoMart
             _SubSubMenuItem.Visible = isViewVisible;
             _BandItem.Visible = isViewVisible;
         }
+        private void AddCityItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        {
 
+            ToolStripMenuItem _SubSubMenuItem = null;
+            ControlItem _ControlItem = null;
+
+            _ControlItem = new ControlItem();
+            _ControlItem.ItemName = "City";
+            _ControlItem.ItemMode = OperationMode.View;
+            _ControlItem.Control = _UclCity;
+
+            _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
+            _BandItem.Name = _ControlItem.ItemName;
+            _BandItem.Tag = _ControlItem;
+            _Band.Items.Add(_BandItem);
+            _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+            _SubSubMenuItem.Name = _ControlItem.ItemName;
+            _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+            _SubSubMenuItem.Tag = _ControlItem;
+            _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+
+            bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
+            _SubSubMenuItem.Visible = isViewVisible;
+            _BandItem.Visible = isViewVisible;
+        }
         private void AddBankItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
         {
 
@@ -3470,6 +3495,7 @@ namespace EcoMart
                 _SubMenuItem.Name = "Masters-2";
 
                 AddAreaItem(_Band, _SubMenuItem);
+                AddCityItem(_Band, _SubMenuItem);
                 AddBankItem(_Band, _SubMenuItem);
                 AddBranchItem(_Band, _SubMenuItem);
                 //AddCustomerItem(_Band, _SubMenuItem);
@@ -11040,6 +11066,13 @@ namespace EcoMart
                         _UclArea.ExitClicked += new EventHandler(Item_ExitClicked);
                         _item.Control = _UclArea;
                         break;
+                    case "City":
+                        _UclCity = new UclCity();
+                        _UclCity.Dock = DockStyle.Fill;
+                        _UclCity.Visible = false;
+                        _UclCity.ExitClicked += new EventHandler(Item_ExitClicked);
+                        _item.Control = _UclCity;
+                        break;
                     case "Bank":
                         _UclBank = new UclBank();
                         _UclBank.Dock = DockStyle.Fill;
@@ -12733,6 +12766,10 @@ namespace EcoMart
                     case "Area":
                         _item.Control = null;
                         _UclArea = null;
+                        break;
+                    case "City":
+                        _item.Control = null;
+                        _UclCity = null;
                         break;
                     case "Bank":
                         _item.Control = null;

@@ -405,9 +405,7 @@ namespace EcoMart.InterfaceLayer
         {
             ttArea.SetToolTip(txtName, "A-Z,0-9,space only");
         }
-        #endregion
-
-        
+        #endregion       
 
        
     }
