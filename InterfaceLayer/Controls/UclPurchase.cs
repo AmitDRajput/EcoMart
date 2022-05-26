@@ -913,7 +913,7 @@ namespace EcoMart.InterfaceLayer
                                             {
                                                 //SS
                                                 //_/*Purchase.ChangedID = _Purchase.GetChangedIntID(); /* Guid.NewGuid().ToString().ToUpper().Replace("-", "");*/*                                                
-                                               _Purchase.ChangedIntID = _Purchase.AddChangedDetails();
+                                                _Purchase.ChangedIntID = _Purchase.AddChangedDetails();
                                                 AddPreviousRowsInChangedDetail();
                                                 MessageBox.Show("Information has been Updated successfully.'", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 datePickerBillDate.Value = DateTime.Now.Date;
@@ -2984,7 +2984,7 @@ namespace EcoMart.InterfaceLayer
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_VAT";
                 column.DataPropertyName = "PurchaseVATPercent";
-                column.HeaderText = "VAT%";
+                column.HeaderText = "GST%";
                 column.Width = 50;
                 column.ReadOnly = true;
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -2999,7 +2999,7 @@ namespace EcoMart.InterfaceLayer
                 column.ReadOnly = true;
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                 column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                //  column.Visible = false;
+                column.Visible = false;
                 mpMSVC.ColumnsMain.Add(column);
 
                 column = new DataGridViewTextBoxColumn();
@@ -5863,19 +5863,19 @@ namespace EcoMart.InterfaceLayer
                 {
                     //if (txtPendingScheme.Visible == true && _Mode == OperationMode.Add)
                     //    txtPendingScheme.Focus();
-                    int ss = 0;
-                    if (txtSchemeQuantity.Text != null && txtSchemeQuantity.Text.ToString() != string.Empty)
-                        ss = Convert.ToInt32(txtSchemeQuantity.Text.ToString());
-                    if (ss > 0)
-                    {
-                        ClearSchemePnl();
-                        GetScheme();
-                    }
-                    else
-                        txtSchemeAmount.Focus();
-                }
-                else
+                    //int ss = 0;
+                    //if (txtSchemeQuantity.Text != null && txtSchemeQuantity.Text.ToString() != string.Empty)
+                    //    ss = Convert.ToInt32(txtSchemeQuantity.Text.ToString());
+                    //if (ss > 0)
+                    //{
+                    //    ClearSchemePnl();
+                    //    GetScheme();
+                    //}
+                    //else
                     txtSchemeAmount.Focus();
+                }
+                //else
+                //    txtSchemeAmount.Focus();
                 if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Up)
                     txtQuantity.Focus();
             }
@@ -7100,7 +7100,7 @@ namespace EcoMart.InterfaceLayer
                     }
                     dr.Cells["Col_GSTAmountZero"].Value = mgstamt0;
                     if (_Purchase.IFOMS != "Y")
-                    {                      
+                    {
                         dr.Cells["Col_GSTSAmount"].Value = mgstamts.ToString();
                         dr.Cells["Col_GSTCAmount"].Value = mgstamtc.ToString();
                         dr.Cells["Col_GSTS"].Value = mgsts.ToString();
@@ -9219,7 +9219,7 @@ namespace EcoMart.InterfaceLayer
                         pobj.ProdGenericID = Convert.ToInt32(mcbGenCatOpStock.SeletedItem.ItemData[0].ToString());
                     if (mcbProductCategory1.SeletedItem != null)
                         pobj.ProdProductCategoryID = Convert.ToInt32(mcbProductCategory1.SeletedItem.ItemData[0].ToString()); // [14.11.2016]
-                                                                                                             //   pobj.ProdLoosePack = Convert.ToInt32(txtUOM.Text);
+                                                                                                                              //   pobj.ProdLoosePack = Convert.ToInt32(txtUOM.Text);
                     pobj.ProdPackType = txtPackType1.Text;
                     pobj.ProdPack = txtPack1.Text;
                     if (mcbShelfNoOpStock.SeletedItem != null)
