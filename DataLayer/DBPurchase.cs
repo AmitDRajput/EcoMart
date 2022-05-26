@@ -58,7 +58,7 @@ public class DBPurchase
                 PurchaseAmount12Point5PercentVAT, AmountVAT12Point5Percent, PurchaseAmountZeroVATS, DueDate, NumberofChallans, StatementNumber, voucherSubType,
                  gstAmt0, gstAmtS5, gstAmtS12, gstAmtS18, gstAmtS28, gstAmtC5, gstAmtC12, gstAmtC18, gstAmtC28, gsts5,
                 gsts12, gsts18, gsts28, gstc5, gstc12, gstc18, gstc28, gstAmtI5, gstAmtI12, gstAmtI18, gstAmtI28, gstI5, gstI12, gstI18, gstI28, createdby, createddate, createdtime);
-            strSql += ";select last_insert_ID()";
+            //strSql += ";select last_insert_ID()";
             int ii = Convert.ToInt32(DBInterface.ExecuteScalar(strSql)) ;                     
             return ii;
         }
@@ -263,7 +263,7 @@ public class DBPurchase
 
         public DataRow CheckProductInShortList(string productID)
         {
-            string strSql = string.Format("Select *  from tbldailyshortlist where ProductID = '{0}' &&  OrderNumber =  0", productID);
+            string strSql = string.Format("Select *  from tbldailyshortlist where ProductID = '{0}' AND  OrderNumber =  0", productID);
             return DBInterface.SelectFirstRow(strSql);
         }
         public DataRow GetFirstAndSecondCreditor(string productID)
@@ -310,7 +310,7 @@ public class DBPurchase
         public bool RemoveFromShortList(string productID)
         {
             bool returnVal = false;
-            string strSql = "Delete from tbldailyshortlist where ProductID = '" + productID + "' && OrderNumber = 0";
+            string strSql = "Delete from tbldailyshortlist where ProductID = '" + productID + "' AND OrderNumber = 0";
             try
             {
                 DBInterface.ExecuteQuery(strSql);
@@ -944,7 +944,7 @@ public class DBPurchase
         {
             DataTable dtable = new DataTable();
             string strSql = "";
-            strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,b.GSTnumber,(AmountCreditNote) as TotalLess,(AmountFreight+AmountDebitNote) as TotalAdd,AmountGST0,AmountGSTS5,GSTS5,AmountGSTS12,GSTS12,AmountGSTS18,GSTS18,AmountGSTS28,GSTS28,AmountGSTC5,GSTC5,AmountGSTC12,GSTC12,AmountGSTC18,GSTC18,AmountGSTC28,GSTC28, AmountCreditNote,AmountFreight,AmountDebitNote,RoundUpAmount,AmountCashDiscount from voucherpurchase a inner join masteraccount b on a.AccountID = b.AccountID && a.voucherdate >= '" + fromdate + "' && a.voucherdate <= '" + todate + "' order by VoucherNumber";
+            strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,b.GSTnumber,(AmountCreditNote) as TotalLess,(AmountFreight+AmountDebitNote) as TotalAdd,AmountGST0,AmountGSTS5,GSTS5,AmountGSTS12,GSTS12,AmountGSTS18,GSTS18,AmountGSTS28,GSTS28,AmountGSTC5,GSTC5,AmountGSTC12,GSTC12,AmountGSTC18,GSTC18,AmountGSTC28,GSTC28, AmountCreditNote,AmountFreight,AmountDebitNote,RoundUpAmount,AmountCashDiscount from voucherpurchase a inner join masteraccount b on a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -953,14 +953,14 @@ public class DBPurchase
         {
             DataTable dtable = new DataTable();
             string strSql = "";
-            strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.VoucherSubType,a.PurchaseBillNumber,a.VoucherDate,c.ProductID,c.ProdName,c.HSNNumber,b.ProductID,b.ProductVATPercent,b.GSTAmountZero,b.GSTSAmount,b.GSTCAmount,b.GSTIAmount,b.GSTS,b.GSTC,b.GSTI from voucherpurchase a inner join detailpurchase b on a.PurchaseID = b.PurchaseID inner join masterproduct c on b.ProductID = c.ProductID where a.voucherdate >= '" + fromdate + "' && a.voucherdate <= '" + todate + "' order by VoucherNumber";
+            strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.VoucherSubType,a.PurchaseBillNumber,a.VoucherDate,c.ProductID,c.ProdName,c.HSNNumber,b.ProductID,b.ProductVATPercent,b.GSTAmountZero,b.GSTSAmount,b.GSTCAmount,b.GSTIAmount,b.GSTS,b.GSTC,b.GSTI from voucherpurchase a inner join detailpurchase b on a.PurchaseID = b.PurchaseID inner join masterproduct c on b.ProductID = c.ProductID where a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
         public DataTable GetOverviewData()
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.VoucherSubType,a.PurchaseBillNumber,a.VoucherDate,a.AmountNet,b.AccName,b.AccAddress1,b.AccAddress2,a.AmountClear,0 as AmountVAT from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID && a.VoucherSubType = '1'  order by a.VoucherNumber";
+            string strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.VoucherSubType,a.PurchaseBillNumber,a.VoucherDate,a.AmountNet,b.AccName,b.AccAddress1,b.AccAddress2,a.AmountClear,0 as AmountVAT from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.VoucherSubType = '1'  order by a.VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -968,7 +968,7 @@ public class DBPurchase
         public DataTable GetOverviewDataForWithoutStockSearch()
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.VoucherSubType,a.PurchaseBillNumber,a.VoucherDate,a.AmountNet,b.AccName,b.AccAddress1,b.AccAddress2,a.AmountClear,(a.AmountVAT5Percent+a.AmountVAT12Point5Percent) as AmountVAT from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID && a.VoucherSubType = '2'  order by a.VoucherNumber";
+            string strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.VoucherSubType,a.PurchaseBillNumber,a.VoucherDate,a.AmountNet,b.AccName,b.AccAddress1,b.AccAddress2,a.AmountClear,(a.AmountVAT5Percent+a.AmountVAT12Point5Percent) as AmountVAT from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.VoucherSubType = '2'  order by a.VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -976,14 +976,14 @@ public class DBPurchase
         public DataTable GetOverviewDataForPurchaseRegister(string fromdate, string todate, string voutype)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select distinct purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear,(AmountVAT5Percent+AmountVAT12Point5Percent) as AmountVAT from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID && a.voucherdate >= '" + fromdate + "' && a.voucherdate <= '" + todate + "' && a.vouchertype = '" + voutype + "' order by VoucherNumber";
+            string strSql = "Select distinct purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear,(AmountVAT5Percent+AmountVAT12Point5Percent) as AmountVAT from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' AND a.vouchertype = '" + voutype + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
         public DataTable GetOverviewDataForPurchaseRegister(string fromdate, string todate)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select distinct purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID && a.voucherdate >= '" + fromdate + "' && a.voucherdate <= '" + todate + "' order by VoucherNumber";
+            string strSql = "Select distinct purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -993,11 +993,11 @@ public class DBPurchase
             string strSql = "";
             if (voutype == string.Empty)
             {
-                strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID && a.voucherdate >= '" + fromdate + "' && a.voucherdate <= '" + todate + "'order by VoucherNumber";
+                strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "'order by VoucherNumber";
             }
             else
             {
-                strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID && a.voucherdate >= '" + fromdate + "' && a.voucherdate <= '" + todate + "' && a.voucherType = '" + voutype + "' order by VoucherNumber";
+                strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' AND a.voucherType = '" + voutype + "' order by VoucherNumber";
             }
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
@@ -1007,11 +1007,11 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "";
 
-            strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID && a.AccountID = '" + accountID + "' && a.voucherdate >= '" + fromdate + "' && a.voucherdate <= '" + todate + "'order by VoucherNumber";
+            strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.AccountID = '" + accountID + "' AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "'order by VoucherNumber";
             //}
             //else
             //{
-            //    strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID && a.voucherdate >= '" + fromdate + "' && a.voucherdate <= '" + todate + "' && a.voucherType = '" + voutype + "' order by VoucherNumber";
+            //    strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' AND a.voucherType = '" + voutype + "' order by VoucherNumber";
             //}
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
@@ -1022,20 +1022,20 @@ public class DBPurchase
             string strSql = "";
             if (voutype == string.Empty)
             {
-                strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount) as AmountDiscount,AmountAddOn,AmountFreight,AmountExcise,AmountCreditNote,AmountDebitNote,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID && AmountCashDiscount+AmountSchemeDiscount+AmountSpecialDiscount+AmountItemDiscount+AmountAddOn+AmountCreditNote+AmountDebitNote > 0 && a.voucherdate >= '" + fromdate + "' && a.voucherdate <= '" + todate + "'order by VoucherNumber";
+                strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount) as AmountDiscount,AmountAddOn,AmountFreight,AmountExcise,AmountCreditNote,AmountDebitNote,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND AmountCashDiscount+AmountSchemeDiscount+AmountSpecialDiscount+AmountItemDiscount+AmountAddOn+AmountCreditNote+AmountDebitNote > 0 AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "'order by VoucherNumber";
             }
             else
             {
-                strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount) as AmountDiscount,AmountAddOn,AmountFreight,AmountExcise,AmountCreditNote,AmountDebitNote,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID && AmountCashDiscount+AmountSchemeDiscount+AmountSpecialDiscount+AmountItemDiscount+AmountAddOn+AmountCreditNote+AmountDebitNote > 0 && a.voucherdate >= '" + fromdate + "' && a.voucherdate <= '" + todate + "' && a.voucherType = '" + voutype + "' order by VoucherNumber";
+                strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount) as AmountDiscount,AmountAddOn,AmountFreight,AmountExcise,AmountCreditNote,AmountDebitNote,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND AmountCashDiscount+AmountSchemeDiscount+AmountSpecialDiscount+AmountItemDiscount+AmountAddOn+AmountCreditNote+AmountDebitNote > 0 AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' AND a.voucherType = '" + voutype + "' order by VoucherNumber";
             }
-            //  string strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount) as AmountDiscount,AmountAddOn,AmountCreditNote,AmountDebitNote,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID && AmountCashDiscount+AmountSchemeDiscount+AmountSpecialDiscount+AmountItemDiscount+AmountAddOn+AmountCreditNote+AmountDebitNote > 0 order by VoucherType,VoucherNumber";
+            //  string strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount) as AmountDiscount,AmountAddOn,AmountCreditNote,AmountDebitNote,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND AmountCashDiscount+AmountSchemeDiscount+AmountSpecialDiscount+AmountItemDiscount+AmountAddOn+AmountCreditNote+AmountDebitNote > 0 order by VoucherType,VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
         public DataTable GetOverviewDataForVATReportDATE(string mfromdate, string mtodate)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select voucherType,VoucherDate,sum(AmountNet) as AmountNet,sum(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountDebitNote) as TotalLess,sum(AmountAddOn+AmountCreditNote) as TotalAdd,sum(AmountCreditNote) as AmountCreditNote,sum(AmountDebitNote) as AmountDebitNote,sum(AmountPurchase5PercentVAT) as AmountPurchase5PercentVAT,sum(AmountPurchase12point5PercentVAT) as AmountPurchase12point5PercentVAT,sum(AmountPurchaseZeroVAT) as AmountPurchaseZeroVAT,sum(RoundUpAmount) as RoundUpAmount,sum(AmountVAT5Percent) as AmountVAT5Percent, sum(AmountVAT12Point5Percent) as AmountVAT12Point5Percent from voucherpurchase where VoucherDate >= '" + mfromdate + "' && VoucherDate <= '" + mtodate + "'  group by vouchertype,VoucherDate order by VoucherDate";
+            string strSql = "Select voucherType,VoucherDate,sum(AmountNet) as AmountNet,sum(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountDebitNote) as TotalLess,sum(AmountAddOn+AmountCreditNote) as TotalAdd,sum(AmountCreditNote) as AmountCreditNote,sum(AmountDebitNote) as AmountDebitNote,sum(AmountPurchase5PercentVAT) as AmountPurchase5PercentVAT,sum(AmountPurchase12point5PercentVAT) as AmountPurchase12point5PercentVAT,sum(AmountPurchaseZeroVAT) as AmountPurchaseZeroVAT,sum(RoundUpAmount) as RoundUpAmount,sum(AmountVAT5Percent) as AmountVAT5Percent, sum(AmountVAT12Point5Percent) as AmountVAT12Point5Percent from voucherpurchase where VoucherDate >= '" + mfromdate + "' AND VoucherDate <= '" + mtodate + "'  group by vouchertype,VoucherDate order by VoucherDate";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1058,7 +1058,7 @@ public class DBPurchase
         public DataTable GetOverviewDataForVATReportOtherDetails()
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount) as AmountDiscount,AmountAddOn,AmountCreditNote,AmountDebitNote,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID && AmountCashDiscount+AmountSchemeDiscount+AmountSpecialDiscount+AmountItemDiscount+AmountAddOn+AmountCreditNote+AmountDebitNote > 0 order by VoucherType,VoucherNumber";
+            string strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount) as AmountDiscount,AmountAddOn,AmountCreditNote,AmountDebitNote,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent,AmountItemDiscount,AmountSpecialDiscount,AmountSchemeDiscount,AmountCashDiscount from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND AmountCashDiscount+AmountSchemeDiscount+AmountSpecialDiscount+AmountItemDiscount+AmountAddOn+AmountCreditNote+AmountDebitNote > 0 order by VoucherType,VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1074,7 +1074,7 @@ public class DBPurchase
         public DataTable GetOverviewDataForVATReportMONTH(string mfromdate, string mtodate)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select voucherType,VoucherDate,sum(AmountNet) as AmountNet,sum(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountDebitNote) as TotalLess,sum(AmountAddOn+AmountCreditNote) as TotalAdd,sum(AmountCreditNote) as AmountCreditNote,sum(AmountDebitNote) as AmountDebitNote,sum(AmountPurchase5PercentVAT) as AmountPurchase5PercentVAT,sum(AmountPurchase12point5PercentVAT) as AmountPurchase12point5PercentVAT,sum(AmountPurchaseZeroVAT) as AmountPurchaseZeroVAT,sum(RoundUpAmount) as RoundUpAmount,sum(AmountVAT5Percent) as AmountVAT5Percent, sum(AmountVAT12Point5Percent) as AmountVAT12Point5Percent from voucherpurchase where VoucherDate >= '" + mfromdate + "' && VoucherDate <= '" + mtodate + "'  group by vouchertype, substring(VoucherDate,5,2) order by VoucherDate";
+            string strSql = "Select voucherType,VoucherDate,sum(AmountNet) as AmountNet,sum(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountDebitNote) as TotalLess,sum(AmountAddOn+AmountCreditNote) as TotalAdd,sum(AmountCreditNote) as AmountCreditNote,sum(AmountDebitNote) as AmountDebitNote,sum(AmountPurchase5PercentVAT) as AmountPurchase5PercentVAT,sum(AmountPurchase12point5PercentVAT) as AmountPurchase12point5PercentVAT,sum(AmountPurchaseZeroVAT) as AmountPurchaseZeroVAT,sum(RoundUpAmount) as RoundUpAmount,sum(AmountVAT5Percent) as AmountVAT5Percent, sum(AmountVAT12Point5Percent) as AmountVAT12Point5Percent from voucherpurchase where VoucherDate >= '" + mfromdate + "' AND VoucherDate <= '" + mtodate + "'  group by vouchertype, substring(VoucherDate,5,2) order by VoucherDate";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1082,7 +1082,7 @@ public class DBPurchase
         public DataTable GetOverviewDataForVATReportMONTHALL(string mfromdate, string mtodate)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select voucherType,VoucherDate, sum(AmountNet) as AmountNet,sum(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountDebitNote) as TotalLess,sum(AmountAddOn+AmountCreditNote) as TotalAdd,sum(AmountCreditNote) as AmountCreditNote,sum(AmountDebitNote) as AmountDebitNote,sum(AmountPurchase5PercentVAT) as AmountPurchase5PercentVAT,sum(AmountPurchase12point5PercentVAT) as AmountPurchase12point5PercentVAT,sum(AmountPurchaseZeroVAT) as AmountPurchaseZeroVAT,sum(RoundUpAmount) as RoundUpAmount,sum(AmountVAT5Percent) as AmountVAT5Percent, sum(AmountVAT12Point5Percent) as AmountVAT12Point5Percent from voucherpurchase where VoucherDate >= '" + mfromdate + "' && VoucherDate <= '" + mtodate + "'  group by substr(VoucherDate,5,2) order by VoucherDate";
+            string strSql = "Select voucherType,VoucherDate, sum(AmountNet) as AmountNet,sum(AmountItemDiscount+AmountSpecialDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountDebitNote) as TotalLess,sum(AmountAddOn+AmountCreditNote) as TotalAdd,sum(AmountCreditNote) as AmountCreditNote,sum(AmountDebitNote) as AmountDebitNote,sum(AmountPurchase5PercentVAT) as AmountPurchase5PercentVAT,sum(AmountPurchase12point5PercentVAT) as AmountPurchase12point5PercentVAT,sum(AmountPurchaseZeroVAT) as AmountPurchaseZeroVAT,sum(RoundUpAmount) as RoundUpAmount,sum(AmountVAT5Percent) as AmountVAT5Percent, sum(AmountVAT12Point5Percent) as AmountVAT12Point5Percent from voucherpurchase where VoucherDate >= '" + mfromdate + "' AND VoucherDate <= '" + mtodate + "'  group by substr(VoucherDate,5,2) order by VoucherDate";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1090,7 +1090,7 @@ public class DBPurchase
         public DataTable GetOverviewDataForVATReportTIN(string mfromdate, string mtodate )
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select a.VoucherDate,sum(a.AmountPurchase5PercentVAT + a.AmountPurchase12point5PercentVAT) as TotalAmount,sum(a.AmountVAT5Percent + a.AmountVAT12Point5Percent) as TotalVAT,b.AccountID,b.AccName,b.AccAddress1,b.AccVATTIN  from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID && a.VoucherDate >= '"+ mfromdate  +"' && a.VoucherDate <= '"+ mtodate  +"'  group by b.AccountID  order by TotalVAT desc";
+            string strSql = "Select a.VoucherDate,sum(a.AmountPurchase5PercentVAT + a.AmountPurchase12point5PercentVAT) as TotalAmount,sum(a.AmountVAT5Percent + a.AmountVAT12Point5Percent) as TotalVAT,b.AccountID,b.AccName,b.AccAddress1,b.AccVATTIN  from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.VoucherDate >= '"+ mfromdate  +"' AND a.VoucherDate <= '"+ mtodate  +"'  group by b.AccountID  order by TotalVAT desc";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1126,7 +1126,7 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "Select a.PurchaseID,a.ProductID,a.BatchNumber,a.Quantity ,a.SchemeQuantity,a.ReplacementQuantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount, " +
                  "b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.SchemeQuantity > 0 &&  a.ProductID = '" +productID +"' order by VoucherNumber";
+                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.SchemeQuantity > 0 AND  a.ProductID = '" +productID +"' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1135,7 +1135,7 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "Select a.PurchaseID,a.ProductID,a.MRP,a.BatchNumber,a.Quantity ,a.SchemeQuantity,a.ReplacementQuantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount, " +
                  "b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.ProductId = '" + productid + "' && a.BatchNumber = '" + mbatchno + "' && a.MRP = "+ mrp +"  order by VoucherNumber";
+                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.ProductId = '" + productid + "' AND a.BatchNumber = '" + mbatchno + "' AND a.MRP = "+ mrp +"  order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1145,7 +1145,7 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "Select a.PurchaseID,a.ProductID,a.BatchNumber,a.Quantity ,a.SchemeQuantity,a.ReplacementQuantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount, " +
                  "b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where c.AccountID = '" + partyid + "' && a.ProductId = '" + productid + "' order by VoucherNumber";
+                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where c.AccountID = '" + partyid + "' AND a.ProductId = '" + productid + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1154,7 +1154,7 @@ public class DBPurchase
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.PurchaseBillNumber,a.VoucherDate,a.AmountNet,a.AccountID,c.AccountID,c.AccName " +
-                 "from voucherpurchase a inner join masteraccount c on a.Accountid = c.AccountID where a.AccountID = '" + partyid + "' && a.voucherdate >= '" + fromDate + "' &&  a.voucherdate <= '" + toDate + "' order by VoucherNumber";
+                 "from voucherpurchase a inner join masteraccount c on a.Accountid = c.AccountID where a.AccountID = '" + partyid + "' AND a.voucherdate >= '" + fromDate + "' AND  a.voucherdate <= '" + toDate + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1162,7 +1162,7 @@ public class DBPurchase
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.PurchaseBillNumber,a.VoucherDate ,a.AmountNet , a.AmountVAT5Percent,a.AmountVAT12point5Percent " +
-                 "from voucherpurchase a inner join masteraccount c on a.Accountid = c.AccountID where a.AccountID = '" + partyid + "' && a.voucherdate >= '" + fromDate + "' &&  a.voucherdate <= '" + toDate + "' && a.StatementNumber = 0  && AmountClear = 0 order by VoucherType, VoucherNumber";
+                 "from voucherpurchase a inner join masteraccount c on a.Accountid = c.AccountID where a.AccountID = '" + partyid + "' AND a.voucherdate >= '" + fromDate + "' AND  a.voucherdate <= '" + toDate + "' AND a.StatementNumber = 0  AND AmountClear = 0 order by VoucherType, VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1171,7 +1171,7 @@ public class DBPurchase
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.PurchaseBillNumber,a.VoucherDate ,a.AmountNet , a.AmountVAT5Percent,a.AmountVAT12point5Percent " +
-                 "from voucherpurchase a inner join masteraccount c on a.Accountid = c.AccountID where a.statementnumber = "+ statementNumber +" && voucherseries = '"+ voucherSeries + "' order by VoucherType, VoucherNumber";
+                 "from voucherpurchase a inner join masteraccount c on a.Accountid = c.AccountID where a.statementnumber = "+ statementNumber +" AND voucherseries = '"+ voucherSeries + "' order by VoucherType, VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1188,7 +1188,7 @@ public class DBPurchase
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.voucherdate, sum(a.AmountNet) as AmountNet,a.AccountID,c.AccountID,c.AccName " +
-                 "from voucherpurchase a inner join masteraccount c on a.Accountid = c.AccountID  where a.voucherdate >= '" + fromdate + "' &&  a.voucherdate <= '" + todate + "'  group by a.AccountID  order by c.AccName ";
+                 "from voucherpurchase a inner join masteraccount c on a.Accountid = c.AccountID  where a.voucherdate >= '" + fromdate + "' AND  a.voucherdate <= '" + todate + "'  group by a.AccountID  order by c.AccName ";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1197,7 +1197,7 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "Select sum(a.Quantity *a.TradeRate) as AmountNet,a.ProductId, sum(a.AmountItemDiscount) as AmountItemDiscount, " +
                  "sum(a.AmountSchemeDiscount) as AmountSchemeDiscount, sum(a.AmountSpecialDiscount) as AmountSpecialDiscount, " +
-                 "sum(a.AmountCashDiscount) as AmountCashDiscount, b.ProductID,b.ProdCategoryID,c.ProductCategoryID,c.ProductCategoryName,d.voucherdate from detailpurchase a inner join masterproduct b on a.ProductID = b.ProductID inner join masterproductcategory c on b.ProdCategoryID = c.ProductCategoryID inner join voucherpurchase d on a.PurchaseID = d.PurchaseID  where d.voucherdate >= '" + mfromdate + "' && d.voucherdate <= '"+ mtodate +"' group by c.ProductCategoryID order by c.ProductCategoryName ";
+                 "sum(a.AmountCashDiscount) as AmountCashDiscount, b.ProductID,b.ProdCategoryID,c.ProductCategoryID,c.ProductCategoryName,d.voucherdate from detailpurchase a inner join masterproduct b on a.ProductID = b.ProductID inner join masterproductcategory c on b.ProdCategoryID = c.ProductCategoryID inner join voucherpurchase d on a.PurchaseID = d.PurchaseID  where d.voucherdate >= '" + mfromdate + "' AND d.voucherdate <= '"+ mtodate +"' group by c.ProductCategoryID order by c.ProductCategoryName ";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1207,7 +1207,7 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "Select a.purchaseID,a.ProductID,a.BatchNumber,a.Expiry,a.MRP,a.Quantity,(a.SchemeQuantity + a.ReplacementQuantity) as SchemeQuantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount,b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName, " +
                  " d.ProductID,d.ProdName,d.ProdLoosePack,d.ProdPack " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.purchaseID = b.purchaseID inner join masteraccount c on b.AccountID = c.AccountID inner join masterproduct d on a.productId = d.ProductID where d.ProdCompID = '" + companyid + "' && b.Voucherdate >= '"+ mfromdate +"' && b.Voucherdate <='"+ mtodate  + "' order by d.ProdName";
+                 "from detailpurchase a  inner join voucherpurchase b on a.purchaseID = b.purchaseID inner join masteraccount c on b.AccountID = c.AccountID inner join masterproduct d on a.productId = d.ProductID where d.ProdCompID = '" + companyid + "' AND b.Voucherdate >= '"+ mfromdate +"' AND b.Voucherdate <='"+ mtodate  + "' order by d.ProdName";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1217,7 +1217,7 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "Select a.purchaseID,a.ProductID,a.BatchNumber,a.Expiry,a.MRP,a.Quantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount,b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName, " +
                  " d.ProductID,d.ProdName,d.ProdLoosePack,d.ProdPack " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.purchaseID = b.purchaseID inner join masteraccount c on b.AccountID = c.AccountID inner join masterproduct d on a.productId = d.ProductID where  d.CreatedDate >= '"+ General.ShopDetail.Shopsy + "' &&  b.Voucherdate >= '"+ mfromdate +"' && b.Voucherdate <='"+ mtodate  + "'  order by d.ProdName";
+                 "from detailpurchase a  inner join voucherpurchase b on a.purchaseID = b.purchaseID inner join masteraccount c on b.AccountID = c.AccountID inner join masterproduct d on a.productId = d.ProductID where  d.CreatedDate >= '"+ General.ShopDetail.Shopsy + "' AND  b.Voucherdate >= '"+ mfromdate +"' AND b.Voucherdate <='"+ mtodate  + "'  order by d.ProdName";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1277,7 +1277,7 @@ public class DBPurchase
 
                     string strSql = "select  b.PurchaseID  , b.VoucherType, " +
                                     "b.VoucherNumber,b.VoucherSubType,b.VoucherDate,a.AccName,a.AccAddress1,b.AmountNet as Amount,b.AmountBalance, a.AccAddress2 as AccAddress2  from  voucherpurchase b inner join masteraccount a on b.AccountID = a.AccountID  " +
-                                    "where b.AccountID = '" + accID + "' &&  b.voucherdate >= '" + fromdate + "'  && b.VoucherDate <= '" + todate + "' && b.AmountBalance > 0 order by b.VoucherDate,b.VoucherNumber";
+                                    "where b.AccountID = '" + accID + "' AND  b.voucherdate >= '" + fromdate + "'  AND b.VoucherDate <= '" + todate + "' AND b.AmountBalance > 0 order by b.VoucherDate,b.VoucherNumber";
 
 
                     dt = DBInterface.SelectDataTable(strSql);
@@ -1301,7 +1301,7 @@ public class DBPurchase
 
                     string strSql = "select  b.PurchaseID  , b.VoucherType, " +
                                     "b.VoucherNumber,b.VoucherSubType,b.VoucherDate,b.AccountID,a.AccName,a.AccAddress1,b.AmountNet as Amount, b.AmountBalance, a.AccAddress2,a.accopeningdebit,a.accopeningCredit,a.accclearedamount  from  voucherpurchase b " +
-                                    "inner join masteraccount a on b.AccountID = a.AccountID where b.VoucherType = 'PCR' &&  b.AmountBalance > 0   &&  b.voucherdate >= '" + fromdate + "'  && b.VoucherDate <= '" + todate + "' order by a.AccName, a.AccAddress1,b.VoucherDate";
+                                    "inner join masteraccount a on b.AccountID = a.AccountID where b.VoucherType = 'PCR' AND  b.AmountBalance > 0   AND  b.voucherdate >= '" + fromdate + "'  AND b.VoucherDate <= '" + todate + "' order by a.AccName, a.AccAddress1,b.VoucherDate";
 
 
                     dt = DBInterface.SelectDataTable(strSql);
@@ -1329,7 +1329,7 @@ public class DBPurchase
             DataRow dRow = null;
             
            
-                string strSql = "Select * from voucherpurchase where VoucherNumber = " + vouno + " && VoucherType = '" + voutype + "'";
+                string strSql = "Select * from voucherpurchase where VoucherNumber = " + vouno + " AND VoucherType = '" + voutype + "'";
                 dRow = DBInterface.SelectFirstRow(strSql);
            
             return dRow;
@@ -1399,7 +1399,7 @@ public class DBPurchase
             bool retVal = true;
             string strSql = "";
             DataTable dt = new DataTable();
-            strSql = "select * from voucherpurchase where accountID = '" + AccID + "' && PurchaseBillNumber = '" + PurBillNumber + "' && PurchaseID != '" + Id + "'";
+            strSql = "select * from voucherpurchase where accountID = '" + AccID + "' AND PurchaseBillNumber = '" + PurBillNumber + "' AND PurchaseID != '" + Id + "'";
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 retVal = false;
@@ -1412,7 +1412,7 @@ public class DBPurchase
             bool retVal = true;
             string strSql = "";
             DataTable dt = new DataTable();
-            strSql = "select * from voucherpurchase where accountID = '" + AccID + "' && PurchaseBillNumber = '" + PurBillNumber + "'";
+            strSql = "select * from voucherpurchase where accountID = '" + AccID + "' AND PurchaseBillNumber = '" + PurBillNumber + "'";
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 retVal = false;
@@ -1426,7 +1426,7 @@ public class DBPurchase
             bool retVal = true;
             string strSql = "";
             DataTable dt = new DataTable();
-            strSql = "select * from voucherpurchase where voucherDate >= '"+ VoucherDate + "' && voucherDate <= '" + VoucherDate + "' && statementnumber > 0";
+            strSql = "select * from voucherpurchase where voucherDate >= '"+ VoucherDate + "' AND voucherDate <= '" + VoucherDate + "' AND statementnumber > 0";
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 retVal = false;
@@ -1440,7 +1440,7 @@ public class DBPurchase
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.PurchaseBillNumber,a.VoucherDate,a.AmountNet,a.AmountItemDiscount,a.AmountSpecialDiscount,a.AmountSchemeDiscount,a.AmountCashDiscount,a.AccountID,c.AccountID,c.AccName " +
-                 "from voucherpurchase a inner join masteraccount c on a.Accountid = c.AccountID where (a.AmountItemDiscount > 0 || a.AmountSpecialDiscount > 0 || a.amountSchemeDiscount > 0 || a.AmountCashDiscount > 0 ) && (a.VoucherDate >= '" + mfromDate + "' && a.VoucherDate <= '" + mtoDate + "' ) order by VoucherNumber";
+                 "from voucherpurchase a inner join masteraccount c on a.Accountid = c.AccountID where (a.AmountItemDiscount > 0 OR a.AmountSpecialDiscount > 0 OR a.amountSchemeDiscount > 0 OR a.AmountCashDiscount > 0 ) AND (a.VoucherDate >= '" + mfromDate + "' AND a.VoucherDate <= '" + mtoDate + "' ) order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1494,7 +1494,7 @@ public class DBPurchase
         {
             DataRow dRow = null;
             {
-                string strSql = "Select * from voucherpurchase where VoucherType = '" + voutype + "'  && VoucherSubType = '" + vouSubType + "' &&  VoucherSeries = '" + VouSeries + "'  order by Vouchernumber ";
+                string strSql = "Select * from voucherpurchase where VoucherType = '" + voutype + "'  AND VoucherSubType = '" + vouSubType + "' AND  VoucherSeries = '" + VouSeries + "'  order by Vouchernumber ";
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
             return dRow;
@@ -1504,7 +1504,7 @@ public class DBPurchase
         {
             DataRow dRow = null;
             {
-                string strSql = "Select * from voucherpurchase where VoucherType = '" + vouType + "'  && VoucherSubType = '" + vouSubType + "' && VoucherSeries = '" + vouSeries + "'  order by Vouchernumber desc ";
+                string strSql = "Select * from voucherpurchase where VoucherType = '" + vouType + "'  AND VoucherSubType = '" + vouSubType + "' AND VoucherSeries = '" + vouSeries + "'  order by Vouchernumber desc ";
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
             return dRow;
@@ -1523,7 +1523,7 @@ public class DBPurchase
         {
             DataRow dRow = null;
             {
-                string strSql = "Select Vouchernumber from voucherpurchase where VoucherType =  '" + vouType + "'  &&  VoucherSubType = '" + vouSubType + "' &&  VoucherSeries = '" + vouSeries + "' order by Vouchernumber desc ";
+                string strSql = "Select Vouchernumber from voucherpurchase where VoucherType =  '" + vouType + "'  AND  VoucherSubType = '" + vouSubType + "' AND  VoucherSeries = '" + vouSeries + "' order by Vouchernumber desc ";
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
             return dRow;
@@ -1535,7 +1535,7 @@ public class DBPurchase
             DataRow dRow = null;
 
 
-            string strSql = "Select * from voucherpurchase where VoucherNumber = " + vouno + " && VoucherType = '" + voutype + "'  && Voucherseries = '" + vouSeries + "' && VoucherSubType = '" + vousubtype + "'";
+            string strSql = "Select * from voucherpurchase where VoucherNumber = " + vouno + " AND VoucherType = '" + voutype + "'  AND Voucherseries = '" + vouSeries + "' AND VoucherSubType = '" + vousubtype + "'";
             dRow = DBInterface.SelectFirstRow(strSql);
 
             return dRow;
@@ -1547,7 +1547,7 @@ public class DBPurchase
             bool retVal = true;
             string strSql = "";
             DataRow dr = null;
-            strSql = "select * from tblbillimportlink where DistributorID = '" + distributorID + "' && DistributorProductID = '" + distributorproductID + "'";
+            strSql = "select * from tblbillimportlink where DistributorID = '" + distributorID + "' AND DistributorProductID = '" + distributorproductID + "'";
             dr = DBInterface.SelectFirstRow(strSql);
             if (dr == null)
             {
