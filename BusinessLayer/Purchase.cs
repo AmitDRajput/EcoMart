@@ -3034,7 +3034,7 @@ public class Purchase : BaseObject
             DataRow dr = dbp.GetProductScancode(productID);
             if (dr != null)
             {
-                mproductScancode = dr["ProductNumberForBarcode"].ToString();
+                mproductScancode = dr["ScannedBarcode"].ToString();
             }
             if (mproductScancode != string.Empty)
             {

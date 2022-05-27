@@ -1875,7 +1875,7 @@ namespace EcoMart.InterfaceLayer
                         _Purchase.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         _Purchase.ProductID = prodrow.Cells["Col_ProductID"].Value.ToString();
                         _Purchase.Batchno = prodrow.Cells["Col_BatchNumber"].Value.ToString();
-                        if (prodrow.Cells["Col_UnitOfMeasure"].Value != null)
+                        if (prodrow.Cells["Col_UnitOfMeasure"].Value != null && !String.IsNullOrEmpty(prodrow.Cells["Col_UnitOfMeasure"].Value.ToString()))
                             _Purchase.ProdLoosePack = Convert.ToInt32(prodrow.Cells["Col_UnitOfMeasure"].Value.ToString());
                         if (prodrow.Cells["Col_MRP"].Value != null)
                             _Purchase.MRP = Convert.ToDouble(prodrow.Cells["Col_MRP"].Value.ToString());
@@ -8927,7 +8927,7 @@ namespace EcoMart.InterfaceLayer
                                     //mcbProductCategory1.Refresh();
                                     //mcbProductCategory1.FillData(dt);
                                     mcbProductCategory1.SelectedID = drowProdCat["ProductCategoryID"].ToString();
-                                    pobj.ProdProductCategoryID = Convert.ToInt32 ( mcbProductCategory1.SeletedItem.ItemData[0].ToString ());
+                                    pobj.ProdProductCategoryID = Convert.ToInt32(mcbProductCategory1.SeletedItem.ItemData[0].ToString());
                                 }
                             }
 
@@ -9213,7 +9213,7 @@ namespace EcoMart.InterfaceLayer
                     pobj.Name = txtProdName.Text.Trim();
                     pobj.Name = (pobj.Name.Replace("*", "X"));
                     pobj.Name = (pobj.Name.Replace("%", "Per"));
-                    pobj.ProdCompID = Convert.ToInt32 ( mcbCompany1.SeletedItem.ItemData[0].ToString());
+                    pobj.ProdCompID = Convert.ToInt32(mcbCompany1.SeletedItem.ItemData[0].ToString());
                     pobj.ProdCompShortName = mcbCompany1.SeletedItem.ItemData[2];
                     if (mcbGenCatOpStock.SeletedItem != null)
                         pobj.ProdGenericID = Convert.ToInt32(mcbGenCatOpStock.SeletedItem.ItemData[0].ToString());
@@ -9225,7 +9225,7 @@ namespace EcoMart.InterfaceLayer
                     if (mcbShelfNoOpStock.SeletedItem != null)
                     {
                         if (mcbShelfNoOpStock.SeletedItem.ItemData[0].ToString() != "")
-                            pobj.ProdShelfID = Convert.ToInt32 ( mcbShelfNoOpStock.SeletedItem.ItemData[0].ToString());
+                            pobj.ProdShelfID = Convert.ToInt32(mcbShelfNoOpStock.SeletedItem.ItemData[0].ToString());
                     }
                     else
                         pobj.ProdShelfID = 0;
