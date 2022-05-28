@@ -12,7 +12,7 @@ namespace EcoMart.BusinessLayer
     class SsStock : BaseObject
     {
         #region Declaration
-        private string _ProductId;
+        private int _ProductID;
         private string _BatchNumber;
         private string _Expiry;
         private string _ExpiryDate;
@@ -53,10 +53,10 @@ namespace EcoMart.BusinessLayer
         #region Properties
 
 
-        public string ProductId
+        public int ProductID
         {
-            get { return _ProductId; }
-            set { _ProductId = value; }
+            get { return _ProductID; }
+            set { _ProductID = value; }
         }
 
 
@@ -304,7 +304,7 @@ namespace EcoMart.BusinessLayer
             try
             {
                 base.Initialise();
-                _ProductId = "";
+                _ProductID = 0;
                 _BatchNumber = "";
                 _Expiry = "";
                 _ExpiryDate = "";
@@ -350,8 +350,8 @@ namespace EcoMart.BusinessLayer
         {
             try
             {
-                if (ProductId == "")
-                    ValidationMessages.Add("Please enter the  ProductId");
+                if (ProductID < 0)
+                    ValidationMessages.Add("Please enter the  ProductID");
                 if (BatchNumber == "")
                     ValidationMessages.Add("Please enter the  BatchNumber");
                 if (Expiry == "")
@@ -417,22 +417,22 @@ namespace EcoMart.BusinessLayer
 
         #region Public Methods
 
-        //public DataTable GetStockByProductID(string productID)
+        //public DataTable GetStockByProductID(int ProductID)
         //{
         //    DBSsStock dbData = new DBSsStock();
-        //    return dbData.GetStockByProductID(productID);
+        //    return dbData.GetStockByProductID(ProductID);
         //}
-        public DataTable GetStockByProductIDForPurchase(string productID, int mclstk)
+        public DataTable GetStockByProductIDForPurchase(int ProductID, int mclstk)
         {
             //Ss 6/11/2016
             //DBSsStock dbData = new DBSsStock();
-            //return dbData.GetStockByProductIDForPurchase(productID, mclstk);
+            //return dbData.GetStockByProductIDForPurchase(ProductID, mclstk);
             DataTable dt = new DataTable();
             DBSsStock dbData = new DBSsStock();
-            dt = dbData.GetStockByProductIDForPurchase(productID, mclstk);
+            dt = dbData.GetStockByProductIDForPurchase(ProductID, mclstk);
             DataRow dr = dt.NewRow();
             dr["StockID"] = 0;
-            dr["ProductId"] =0;
+            dr["ProductID"] = 0;
             dr["BatchNumber"] = "NEW";
             dt.Rows.InsertAt(dr, 0);
             //a.Expiry, a.TradeRate, a.PurchaseRate, a.MRP, a.SaleRate, a.ClosingStock, a.PurchaseVATPercent, a.ScanCode, b.AccountId, b.AccName]
@@ -440,31 +440,31 @@ namespace EcoMart.BusinessLayer
             return dt;
             //Ss 6/11/2016
         }
-        public DataTable GetStockByProductIDForDistributorSale(string productID)
+        public DataTable GetStockByProductIDForDistributorSale(int ProductID)
         {
             DBSsStock dbData = new DBSsStock();
-            return dbData.GetStockByProductIDForDistributorSale(productID);
+            return dbData.GetStockByProductIDForDistributorSale(ProductID);
         }
         public bool setDistributionPercentage(int _max) //Amar
         {
-            DBSsStock  dbstock = new DBSsStock();
-           return dbstock.setDistributionPercentage(_max);
-         
+            DBSsStock dbstock = new DBSsStock();
+            return dbstock.setDistributionPercentage(_max);
+
         }
-        public DataTable GetPurchaseDetailsForPurchaseOrder(string productID)
+        public DataTable GetPurchaseDetailsForPurchaseOrder(int ProductID)
         {
             DBSsStock dbData = new DBSsStock();
-            return dbData.GetPurchaseDetailsForPurchaseOrder(productID);
+            return dbData.GetPurchaseDetailsForPurchaseOrder(ProductID);
         }
-        public DataTable GetStockByProductIDForSale(string productID)
+        public DataTable GetStockByProductIDForSale(int ProductID)
         {
             DBSsStock dbData = new DBSsStock();
-            return dbData.GetStockByProductIDForSale(productID);
+            return dbData.GetStockByProductIDForSale(ProductID);
         }
-        public DataTable GetStockByProductIDForDBCRNote(string productID)
+        public DataTable GetStockByProductIDForDBCRNote(int ProductID)
         {
             DBSsStock dbData = new DBSsStock();
-            return dbData.GetStockByProductIDForDBCRNote(productID);
+            return dbData.GetStockByProductIDForDBCRNote(ProductID);
         }
         public DataTable GetStockByStockIDForDBCRNote(string StockID)
         {
@@ -472,7 +472,7 @@ namespace EcoMart.BusinessLayer
             return dbData.GetStockByStockIDForDBCRNote(StockID);
         }
 
-        public DataTable GetMergedStockCounter(DataTable dataSourceBatchList, DataTable dtTempCounterSale, string productID, DataTable EditedTempDataList)
+        public DataTable GetMergedStockCounter(DataTable dataSourceBatchList, DataTable dtTempCounterSale, int ProductID, DataTable EditedTempDataList)
         {
             DataTable dtable = new DataTable();
             try
@@ -485,7 +485,7 @@ namespace EcoMart.BusinessLayer
                     {
                         var JoinResultCounter = (from p in dataSourceBatchList.AsEnumerable()
                                                  join t in dtTempCounterSale.AsEnumerable()
-                                                 on new { A = productID, B = p.Field<string>("BatchNumber"), C = p.Field<double?>("SaleRate"),D = p.Field<string>("StockID") } equals new { A = t.Field<string>("ProductID"), B = t.Field<string>("BatchID"), C = t.Field<double?>("SRate"), D = t.Field<string>("StockID") }
+                                                 on new { A = ProductID, B = p.Field<string>("BatchNumber"), C = p.Field<double?>("SaleRate"), D = p.Field<string>("StockID") } equals new { A = t.Field<int>("ProductID"), B = t.Field<string>("BatchID"), C = t.Field<double?>("SRate"), D = t.Field<string>("StockID") }
                             into joinedtables
                                                  from stuff in joinedtables.DefaultIfEmpty()
                                                  select new
@@ -572,22 +572,22 @@ namespace EcoMart.BusinessLayer
             }
             return dt;
         }
-        //public DataTable GetStockByProductIDForSale(string productID)
+        //public DataTable GetStockByProductIDForSale(int ProductID)
         //{
         //    DBSsStock dbData = new DBSsStock();
-        //    return dbData.GetStockByProductIDForSale(productID);
+        //    return dbData.GetStockByProductIDForSale(ProductID);
         //}
 
-        public DataTable GetStockByProductIDForFill(string productID)
+        public DataTable GetStockByProductIDForFill(int ProductID)
         {
             DBSsStock dbData = new DBSsStock();
-            return dbData.GetStockByProductIDForFill(productID);
+            return dbData.GetStockByProductIDForFill(ProductID);
         }
 
-        //public DataTable GetValidBatchesByProductID(string productID)
+        //public DataTable GetValidBatchesByProductID(int ProductID)
         //{
         //    DBSsStock dbData = new DBSsStock();
-        //    return dbData.GetValidBatchesByProductID(productID);
+        //    return dbData.GetValidBatchesByProductID(ProductID);
         //}
 
         //public bool ReadDetailsByID()
@@ -600,8 +600,8 @@ namespace EcoMart.BusinessLayer
         //        drow = dbData.ReadDetailsByID(Id);
         //        if (drow != null)
         //        {
-        //            if (drow["ProductId"] != DBNull.Value)
-        //                ProductId = Convert.ToString(drow["ProductId"]);
+        //            if (drow["ProductID"] != DBNull.Value)
+        //                ProductID = Convert.ToString(drow["ProductID"]);
         //            if (drow["BatchNumber"] != DBNull.Value)
         //                BatchNumber = Convert.ToString(drow["BatchNumber"]);
         //            if (drow["Expiry"] != DBNull.Value)
@@ -691,13 +691,13 @@ namespace EcoMart.BusinessLayer
         //    {
         //        Log.WriteException(Ex);
         //    }        
-        //    return dbData.AddDetails(ProductId, BatchNumber, Expiry, ExpiryDate, TradeRate, PurchaseRate, MRP, SaleRate, OpeningStock, ClosingStock, PurchaseStock, TransferInStock, CreditNoteStock, SaleStock, TransferOutStock, DebitNoteStock, PurchaseSchemeStock, PurchaseReplacementStock, SaleSchemeStock, IfRateCorrection, ProductVATPercent, PurchaseVATPercent, ProdCST, CompanyId, LastPurchaseAccountId, LastPurchasePartyShortName, LastPurchaseBillNumber, LastPurchaseDate, LastPurchaseVoucherNumber, LastPurchaseVoucherType, ScanCode, CreatedDate, CreatedUserId, ModifyDate, ModifyUserId);
+        //    return dbData.AddDetails(ProductID, BatchNumber, Expiry, ExpiryDate, TradeRate, PurchaseRate, MRP, SaleRate, OpeningStock, ClosingStock, PurchaseStock, TransferInStock, CreditNoteStock, SaleStock, TransferOutStock, DebitNoteStock, PurchaseSchemeStock, PurchaseReplacementStock, SaleSchemeStock, IfRateCorrection, ProductVATPercent, PurchaseVATPercent, ProdCST, CompanyId, LastPurchaseAccountId, LastPurchasePartyShortName, LastPurchaseBillNumber, LastPurchaseDate, LastPurchaseVoucherNumber, LastPurchaseVoucherType, ScanCode, CreatedDate, CreatedUserId, ModifyDate, ModifyUserId);
         //}
 
         //public bool UpdateDetails()
         //{
         //    DBStock dbData = new DBStock();
-        //    return dbData.UpdateDetails(ProductId, BatchNumber, Expiry, ExpiryDate, TradeRate, PurchaseRate, MRP, SaleRate, OpeningStock, ClosingStock, PurchaseStock, TransferInStock, CreditNoteStock, SaleStock, TransferOutStock, DebitNoteStock, PurchaseSchemeStock, PurchaseReplacementStock, SaleSchemeStock, IfRateCorrection, ProductVATPercent, PurchaseVATPercent, ProdCST, CompanyId, LastPurchaseAccountId, LastPurchasePartyShortName, LastPurchaseBillNumber, LastPurchaseDate, LastPurchaseVoucherNumber, LastPurchaseVoucherType, ScanCode, CreatedDate, CreatedUserId, ModifyDate, ModifyUserId);
+        //    return dbData.UpdateDetails(ProductID, BatchNumber, Expiry, ExpiryDate, TradeRate, PurchaseRate, MRP, SaleRate, OpeningStock, ClosingStock, PurchaseStock, TransferInStock, CreditNoteStock, SaleStock, TransferOutStock, DebitNoteStock, PurchaseSchemeStock, PurchaseReplacementStock, SaleSchemeStock, IfRateCorrection, ProductVATPercent, PurchaseVATPercent, ProdCST, CompanyId, LastPurchaseAccountId, LastPurchasePartyShortName, LastPurchaseBillNumber, LastPurchaseDate, LastPurchaseVoucherNumber, LastPurchaseVoucherType, ScanCode, CreatedDate, CreatedUserId, ModifyDate, ModifyUserId);
         //}
 
         //public bool DeleteDetails()
@@ -706,18 +706,18 @@ namespace EcoMart.BusinessLayer
         //    return dbData.DeleteDetails(Id);
         //}
 
-        //public bool GetStockByProductIDAndBatchID(string productID, string batchID)
+        //public bool GetStockByProductIDAndBatchID(int ProductID, string batchID)
         //{
         //    bool retValue = false;
         //    try
         //    {
         //        DataRow drow = null;
         //        DBStock dbData = new DBStock();
-        //        drow = dbData.GetStockByProductIDAndBatchNumber(productID, batchID);
+        //        drow = dbData.GetStockByProductIDAndBatchNumber(ProductID, batchID);
         //        if (drow != null)
         //        {
-        //            if (drow["ProductId"] != DBNull.Value)
-        //                ProductId = Convert.ToString(drow["ProductId"]);
+        //            if (drow["ProductID"] != DBNull.Value)
+        //                ProductID = Convert.ToString(drow["ProductID"]);
         //            if (drow["BatchNumber"] != DBNull.Value)
         //                BatchNumber = Convert.ToString(drow["BatchNumber"]);
         //            if (drow["Expiry"] != DBNull.Value)
@@ -796,13 +796,13 @@ namespace EcoMart.BusinessLayer
         //    return retValue;
         //}
 
-        public DataRow GetStockByProductIDAndBatchNumberAndMRP(string productID, string batchID, string mrp)
+        public DataRow GetStockByProductIDAndBatchNumberAndMRP(int ProductID, string batchID, string mrp)
         {
             DataRow drow = null;
             try
             {
                 DBStock dbData = new DBStock();
-                drow = dbData.GetStockByProductIDAndBatchNumberAndMRP(productID, batchID, mrp);
+                drow = dbData.GetStockByProductIDAndBatchNumberAndMRP(ProductID, batchID, mrp);
             }
             catch (Exception Ex)
             {
@@ -1036,7 +1036,7 @@ namespace EcoMart.BusinessLayer
             }
             return dt;
         }
-        public int GetOpendingStockByProductID(string prodID)
+        public int GetOpendingStockByProductID(int prodID)
         {
             int opstk = 0;
             try
@@ -1129,13 +1129,13 @@ namespace EcoMart.BusinessLayer
             return dt;
         }
 
-        public DataTable GetDataForProductLedger(string mproductid, string mtodate)
+        public DataTable GetDataForProductLedger(string mProductID, string mtodate)
         {
             DataTable dt = null;
             try
             {
                 DBSsStock dbss = new DBSsStock();
-                dt = dbss.GetDataForProductLedger(mproductid, mtodate);
+                dt = dbss.GetDataForProductLedger(mProductID, mtodate);
             }
             catch (Exception Ex)
             {
@@ -1143,13 +1143,13 @@ namespace EcoMart.BusinessLayer
             }
             return dt;
         }
-        public DataTable GetSaleDataForProductLeder(string mproductid, string mtodate)
+        public DataTable GetSaleDataForProductLeder(string mProductID, string mtodate)
         {
             DataTable dt = null;
             try
             {
                 DBSsStock dbss = new DBSsStock();
-                dt = dbss.GetSaleDataForProductLeder(mproductid, mtodate);
+                dt = dbss.GetSaleDataForProductLeder(mProductID, mtodate);
             }
             catch (Exception Ex)
             {
@@ -1171,13 +1171,13 @@ namespace EcoMart.BusinessLayer
             }
             return dt;
         }
-        public DataTable GetDataForProductLedgerBatchWise(string mproductid, string mtodate, string mstockID)
+        public DataTable GetDataForProductLedgerBatchWise(string mProductID, string mtodate, string mstockID)
         {
             DataTable dt = null;
             try
             {
                 DBSsStock dbss = new DBSsStock();
-                dt = dbss.GetDataForProductLedgerStockIDWise(mproductid, mtodate, mstockID);
+                dt = dbss.GetDataForProductLedgerStockIDWise(mProductID, mtodate, mstockID);
             }
             catch (Exception Ex)
             {
@@ -1185,13 +1185,13 @@ namespace EcoMart.BusinessLayer
             }
             return dt;
         }
-        public DataTable GetSaleDataForProductLedgerBatchWise(string mproductid, string mtodate, string mstockID)
+        public DataTable GetSaleDataForProductLedgerBatchWise(string mProductID, string mtodate, string mstockID)
         {
             DataTable dt = null;
             try
             {
                 DBSsStock dbss = new DBSsStock();
-                dt = dbss.GetSaleDataForProductLedgerBatchWise(mproductid, mtodate, mstockID);
+                dt = dbss.GetSaleDataForProductLedgerBatchWise(mProductID, mtodate, mstockID);
             }
             catch (Exception Ex)
             {
@@ -1199,14 +1199,14 @@ namespace EcoMart.BusinessLayer
             }
             return dt;
         }
-        public int GetOpeningStockForBatch(string productID, string batchNumber)
+        public int GetOpeningStockForBatch(int ProductID, string batchNumber)
         {
             int opstk = 0;
             DataRow dr;
             try
             {
                 DBSsStock dbss = new DBSsStock();
-                dr = dbss.GetOpeningStockForBatch(productID, batchNumber);
+                dr = dbss.GetOpeningStockForBatch(ProductID, batchNumber);
                 if (dr != null)
                 {
                     if (dr["OpeningStock"] != DBNull.Value && dr["OpeningStock"].ToString() != string.Empty)
@@ -1277,13 +1277,13 @@ namespace EcoMart.BusinessLayer
             }
             return dt;
         }
-        public DataTable GetBatchListForReport(string productID)
+        public DataTable GetBatchListForReport(int ProductID)
         {
             DataTable dt = null;
             try
             {
                 DBSsStock dbss = new DBSsStock();
-                dt = dbss.GetBatchListForReport(productID);
+                dt = dbss.GetBatchListForReport(ProductID);
             }
             catch (Exception Ex)
             {
@@ -1293,13 +1293,13 @@ namespace EcoMart.BusinessLayer
         }
         #endregion
 
-        public bool UpdateClosingStockForYearEnd(string mproductid, string mstockid, int mclosingstock)
+        public bool UpdateClosingStockForYearEnd(string mProductID, string mstockid, int mclosingstock)
         {
             bool retValue = false;
             try
             {
                 DBSsStock dbss = new DBSsStock();
-                retValue = dbss.UpdateClosingStockForYearEnd(mproductid, mstockid, mclosingstock);
+                retValue = dbss.UpdateClosingStockForYearEnd(mProductID, mstockid, mclosingstock);
             }
             catch (Exception Ex)
             {

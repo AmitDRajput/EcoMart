@@ -18,7 +18,7 @@ namespace EcoMart.DataLayer
             return dtable;
         }
 
-        public DataTable GetStockByProductID(string prodID, int mode)
+        public DataTable GetStockByProductID(int prodID, int mode)
         {
             DataTable dtable = new DataTable();
             string strSql = string.Format("Select TempStockID,StockID,ProductID,SoldQuantity,ModuleNumber,CompName,Mode,CustomerNumber from tbltempstock where ProductID = '{0}' AND Mode={1}", prodID, mode);
@@ -34,14 +34,14 @@ namespace EcoMart.DataLayer
             return dtable;
         }
 
-        public string GetStockByStockIDAndProductID(string stockID, string productID, int moduleNumber, string compName, int mode, int customerNumber)
+        public string GetStockByStockIDAndProductID(string stockID, int ProductID, int moduleNumber, string compName, int mode, int customerNumber)
         {
             string retValue = string.Empty;
             try
             {
                 DataTable dtable = new DataTable();
                 DataRow dRow = null;
-                string strSql = string.Format("Select TempStockID, StockID,ProductID,ModuleNumber,CompName,Mode,CustomerNumber from tbltempstock where StockID = '{0}' AND ProductID = '{1}' AND ModuleNumber = {2} AND CompName = '{3}' AND Mode={4} AND CustomerNumber={5}", stockID, productID, moduleNumber, compName, mode, customerNumber);
+                string strSql = string.Format("Select TempStockID, StockID,ProductID,ModuleNumber,CompName,Mode,CustomerNumber from tbltempstock where StockID = '{0}' AND ProductID = '{1}' AND ModuleNumber = {2} AND CompName = '{3}' AND Mode={4} AND CustomerNumber={5}", stockID, ProductID, moduleNumber, compName, mode, customerNumber);
                 dRow = DBInterface.SelectFirstRow(strSql);
                 if (dRow != null)
                 {
@@ -55,10 +55,10 @@ namespace EcoMart.DataLayer
             return retValue;
         }
 
-        public bool AddDetails(string Id, string stockID, string productID, int soldQuantity, int moduleNumber, string compName, int mode, int customerNumber)
+        public bool AddDetails(string Id, string stockID, int ProductID, int soldQuantity, int moduleNumber, string compName, int mode, int customerNumber)
         {
             bool bRetValue = false;
-            string strSql = GetInsertQuery(Id, stockID, productID, soldQuantity, moduleNumber, compName, mode, customerNumber);
+            string strSql = GetInsertQuery(Id, stockID, ProductID, soldQuantity, moduleNumber, compName, mode, customerNumber);
 
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
@@ -67,10 +67,10 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool UpdateDetails(string Id, string stockID, string productID, int soldQuantity, int moduleNumber, string compName, int mode, int customerNumber)
+        public bool UpdateDetails(string Id, string stockID, int ProductID, int soldQuantity, int moduleNumber, string compName, int mode, int customerNumber)
         {
             bool bRetValue = false;
-            string strSql = GetUpdateQuery(Id, stockID, productID, soldQuantity, moduleNumber, compName, mode, customerNumber);
+            string strSql = GetUpdateQuery(Id, stockID, ProductID, soldQuantity, moduleNumber, compName, mode, customerNumber);
 
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
@@ -79,10 +79,10 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool DeleteDetails(string stockID, string productID, int soldQuantity, int moduleNumber, string compName, int customerNumber)
+        public bool DeleteDetails(string stockID, int ProductID, int soldQuantity, int moduleNumber, string compName, int customerNumber)
         {
             bool bRetValue = false;
-            string strSql = GetDeleteQuery(stockID, productID, soldQuantity, moduleNumber, compName, customerNumber);
+            string strSql = GetDeleteQuery(stockID, ProductID, soldQuantity, moduleNumber, compName, customerNumber);
 
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
@@ -127,13 +127,13 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        private string GetInsertQuery(string Id, string stockID, string productID, int soldQuantity, int moduleNumber, string compName, int mode, int customerNumber)
+        private string GetInsertQuery(string Id, string stockID, int ProductID, int soldQuantity, int moduleNumber, string compName, int mode, int customerNumber)
         {
             Query objQuery = new Query();
             objQuery.Table = "tbltempstock";
             objQuery.AddToQuery("TempStockID", Id);
             objQuery.AddToQuery("StockID", stockID);
-            objQuery.AddToQuery("ProductID", productID);
+            objQuery.AddToQuery("ProductID", ProductID);
             objQuery.AddToQuery("SoldQuantity", soldQuantity);
             objQuery.AddToQuery("ModuleNumber", moduleNumber);
             objQuery.AddToQuery("CompName", compName);
@@ -142,13 +142,13 @@ namespace EcoMart.DataLayer
             return objQuery.InsertQuery();
         }
 
-        private string GetUpdateQuery(string Id, string stockID, string productID, int soldQuantity, int moduleNumber, string compName, int mode, int customerNumber)
+        private string GetUpdateQuery(string Id, string stockID, int ProductID, int soldQuantity, int moduleNumber, string compName, int mode, int customerNumber)
         {
             Query objQuery = new Query();
             objQuery.Table = "tbltempstock";
             objQuery.AddToQuery("TempStockID", Id, true);
             objQuery.AddToQuery("StockID", stockID);
-            objQuery.AddToQuery("ProductID", productID);
+            objQuery.AddToQuery("ProductID", ProductID);
             objQuery.AddToQuery("SoldQuantity", soldQuantity);
             objQuery.AddToQuery("ModuleNumber", moduleNumber);
             objQuery.AddToQuery("CompName", compName);
@@ -157,14 +157,14 @@ namespace EcoMart.DataLayer
             return objQuery.UpdateQuery();
         }
 
-        private string GetDeleteQuery(string stockID, string productID, int soldQuantity, int moduleNumber, string compName, int customerNumber)
+        private string GetDeleteQuery(string stockID, int ProductID, int soldQuantity, int moduleNumber, string compName, int customerNumber)
         {
             string strSql = "";
 
             Query objQuery = new Query();
             objQuery.Table = "tbltempstock";
             objQuery.AddToQuery("StockID", stockID, true);
-            objQuery.AddToQuery("ProductID", productID, true);
+            objQuery.AddToQuery("ProductID", ProductID, true);
             objQuery.AddToQuery("SoldQuantity", soldQuantity, true);
             objQuery.AddToQuery("ModuleNumber", moduleNumber, true);
             objQuery.AddToQuery("CompName", compName, true);

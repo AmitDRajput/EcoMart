@@ -24,7 +24,7 @@ namespace EcoMart.DataLayer
         public DataTable GetOverviewDetailData(int ordernumber)
         {
             DataTable dtable = new DataTable();
-            string strsql = "Select a.OrderNumber,a.OrderDate,a.OrderQuantity,a.ProductID,(a.OrderQuantity*a.PurchaseRate) as Amount ,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdCompShortName from tbldailyshortlist a inner join masterproduct b where a.ProductId = b.ProductID && a.OrderNumber = " + ordernumber;
+            string strsql = "Select a.OrderNumber,a.OrderDate,a.OrderQuantity,a.ProductID,(a.OrderQuantity*a.PurchaseRate) as Amount ,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdCompShortName from tbldailyshortlist a inner join masterproduct b where a.ProductID = b.ProductID && a.OrderNumber = " + ordernumber;
             dtable = DBInterface.SelectDataTable(strsql);
             return dtable;
         }
@@ -42,7 +42,7 @@ namespace EcoMart.DataLayer
 
             string strSql = "Select a.DSLID,a.OrderNumber,a.OrderDate,a.ShortListDate,a.OrderQuantity,a.SchemeQuantity,a.IfSave,a.AccountID,e.AccName,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
           "b.ProdPartyId_1,b.ProdPartyId_2,b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,b.ProdMaxLevel - b.ProdClosingStock as OrderQuantity ,b.ProdLastPurchaseRate,c.AccountId,c.AccName,c.AccountID as AccountID1, c.AccName as AccName1,c.AccAddress1,c.AccAddress2, d.AccountID as AccountID2,d.AccName as AccName2  from tbldailyshortlist a " +
-         " inner join masterproduct b on a.ProductId = b.ProductID  left outer join masteraccount e on a.AccountID = e.AccountID  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID  left outer join masteraccount d on b.ProdPartyId_2 = d.AccountID where a.ShortListDate >= " + "'" + fromday + "'  && a.ShortListDate <= '" + today + "' && a.OrderNumber = 0 && b.ProdMaxLevel >= b.ProdClosingStock";
+         " inner join masterproduct b on a.ProductID = b.ProductID  left outer join masteraccount e on a.AccountID = e.AccountID  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID  left outer join masteraccount d on b.ProdPartyId_2 = d.AccountID where a.ShortListDate >= " + "'" + fromday + "'  && a.ShortListDate <= '" + today + "' && a.OrderNumber = 0 && b.ProdMaxLevel >= b.ProdClosingStock";
 
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
@@ -292,7 +292,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = new DataTable();
             string strSql = "Select distinct a.ProductID, sum(a.Quantity) as Quantity , e.VoucherDate, b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
     "COALESCE(b.ProdPartyId_1),COALESCE(b.ProdPartyId_2),b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,b.ProdMaxLevel as OrderQuantity ,b.ProdLastPurchaseRate,c.AccountId,c.AccName as AccName,c.AccCrVisitDays as AccCrVisitDays,c.AccAddress1,c.AccAddress2, '' as DLSID from  detailsale a " +
-   " inner join vouchersale e on a.MasterSaleID = e.ID inner join masterproduct b on a.ProductId = b.ProductID  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID   where  e.voucherdate >= '" + fromday + "' && e.voucherdate <= '" + today + "' && c.AccountID = '" + accountID + "'  Group by a.ProductID  order by b.ProdClosingStock asc";
+   " inner join vouchersale e on a.MasterSaleID = e.ID inner join masterproduct b on a.ProductID = b.ProductID  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID   where  e.voucherdate >= '" + fromday + "' && e.voucherdate <= '" + today + "' && c.AccountID = '" + accountID + "'  Group by a.ProductID  order by b.ProdClosingStock asc";
 
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
@@ -325,11 +325,11 @@ namespace EcoMart.DataLayer
 
             string strSql = "Select a.DSLID,a.OrderNumber,a.OrderDate,a.ShortListDate,a.OrderQuantity,a.IfSave,a.AccountID,a.SchemeQuantity,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
           "b.ProdPartyId_1,b.ProdPartyId_2,b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock, b.ProdLastPurchaseRate,0 as OrderQuantity1, c.AccountID , c.AccName ,c.AccAddress1,c.AccAddress2,c.AccountID as AccountID1, c.AccName as AccName1,c.AccAddress1,c.AccountID as AccountID2,c.AccName as AccName2, c.AccTelephone  from tbldailyshortlist a " +
-         " inner join masterproduct b on a.ProductId = b.ProductID  left outer join masteraccount c on a.AccountID = c.AccountID  where a.OrderNumber >= " + firstnumber + "  Order by a.OrderNumber ";
+         " inner join masterproduct b on a.ProductID = b.ProductID  left outer join masteraccount c on a.AccountID = c.AccountID  where a.OrderNumber >= " + firstnumber + "  Order by a.OrderNumber ";
 
             //       string strSql = "Select a.DSLID,a.OrderNumber,a.OrderDate,a.ShortListDate,a.OrderQuantity,a.IfSave,a.AccountID,e.AccName,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
             // "b.ProdPartyId_1,b.ProdPartyId_2,b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock, b.ProdLastPurchaseRate,0 as OrderQuantity1, c.AccountId,c.AccName,c.AccAddress1,c.AccAddress2,c.AccountID as AccountID1, c.AccName as AccName1,c.AccAddress1,c.AccAddress2,d.AccountID as AccountID2,d.AccName as AccName2  from tbldailyshortlist a " +
-            //" inner join masterproduct b on a.ProductId = b.ProductID  left outer join masteraccount e on a.AccountID = e.AccountID  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID  left outer join masteraccount d on b.ProdPartyId_2 = d.AccountID where a.OrderNumber >= " + firstnumber + "  Order by a.OrderNumber ";
+            //" inner join masterproduct b on a.ProductID = b.ProductID  left outer join masteraccount e on a.AccountID = e.AccountID  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID  left outer join masteraccount d on b.ProdPartyId_2 = d.AccountID where a.OrderNumber >= " + firstnumber + "  Order by a.OrderNumber ";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -488,7 +488,7 @@ namespace EcoMart.DataLayer
 
             string strSql = "Select a.DSLID,a.OrderNumber,a.OrderDate,a.ShortListDate,a.OrderQuantity,a.IfSave,a.AccountID,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
           "b.ProdPartyId_1,b.ProdPartyId_2,b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,a.PurchaseRate as ProdLastPurchaseRate,0 as Quantity,c.AccountId,c.AccName,c.AccountID from tbldailyshortlist a " +
-         " inner join masterproduct b on a.ProductId = b.ProductID  inner join masteraccount c on a.AccountID = c.AccountID where a.AccountID = '" + accountID + "' order by a.OrderNumber desc";
+         " inner join masterproduct b on a.ProductID = b.ProductID  inner join masteraccount c on a.AccountID = c.AccountID where a.AccountID = '" + accountID + "' order by a.OrderNumber desc";
 
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
@@ -500,7 +500,7 @@ namespace EcoMart.DataLayer
 
             string strSql = "Select a.DSLID,a.OrderNumber,a.OrderDate,a.ShortListDate,(a.OrderQuantity - a.PurchaseQuantity) as OrderQuantity,a.IfSave,a.AccountID,a.PurchaseQuantity,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
           "b.ProdPartyId_1,b.ProdPartyId_2,b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,a.PurchaseRate as ProdLastPurchaseRate,0 as Quantity,c.AccountId,c.AccName,c.AccountID from tbldailyshortlist a " +
-         " inner join masterproduct b on a.ProductId = b.ProductID  inner join masteraccount c on a.AccountID = c.AccountID where a.AccountID = '" + accountID + "' && a.purchaseQuantity < a.OrderQuantity order by a.OrderNumber desc";
+         " inner join masterproduct b on a.ProductID = b.ProductID  inner join masteraccount c on a.AccountID = c.AccountID where a.AccountID = '" + accountID + "' && a.purchaseQuantity < a.OrderQuantity order by a.OrderNumber desc";
 
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
@@ -511,7 +511,7 @@ namespace EcoMart.DataLayer
 
             string strSql = "Select a.DSLID,a.OrderNumber,a.OrderDate,a.ShortListDate,(a.OrderQuantity - a.PurchaseQuantity) as OrderQuantity,a.IfSave,a.AccountID,a.PurchaseQuantity,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
           "b.ProdPartyId_1,b.ProdPartyId_2,b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,a.PurchaseRate as ProdLastPurchaseRate,ifnull(((a.OrderQuantity - a.PurchaseQuantity) * b.ProdLoosePack),0) as Quantity,c.AccountId,c.AccName,c.AccountID from tbldailyshortlist a " +
-         " inner join masterproduct b on a.ProductId = b.ProductID  left outer join masteraccount c on a.AccountID = c.AccountID where (purchaseQuantity is null || a.purchaseQuantity < a.OrderQuantity ) && a.OrderQuantity > 0 order by a.OrderNumber desc";
+         " inner join masterproduct b on a.ProductID = b.ProductID  left outer join masteraccount c on a.AccountID = c.AccountID where (purchaseQuantity is null || a.purchaseQuantity < a.OrderQuantity ) && a.OrderQuantity > 0 order by a.OrderNumber desc";
 
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;

@@ -374,7 +374,7 @@ namespace EcoMart.Reporting.Controls
             ViewToDate.Text = General.GetDateInShortDateFormat(_MToDate);
             dgvReportList.Focus();
         }
-        private void FillAccountData(string ProductID, string batch, double mrp)
+        private void FillAccountData(int ProductID, string batch, double mrp)
         {
             int _RowIndex;
             DataGridViewRow currentdr = null;

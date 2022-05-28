@@ -806,10 +806,10 @@ namespace EcoMart.Reporting.Controls
                 btnViewList.Text = "View";
             }
         }    
-        private void GetPurchaseDataProductwise(string productID)
+        private void GetPurchaseDataProductwise(int ProductID)
         {
             DataTable dtable = new DataTable();
-            dtable = _Purchase.GetPurchaseDataProductWise(productID);
+            dtable = _Purchase.GetPurchaseDataProductWise(ProductID);
             _BindingSource = dtable;
         }
 
@@ -878,7 +878,7 @@ namespace EcoMart.Reporting.Controls
         private void btnOKMultiSelectionClick()
         {
             bool retValue = false;
-            string mproductID = "";
+            int mProductID = 0;
             try
             {
                 _MFromDate = fromDate1.Value.Date.ToString("yyyyMMdd");
@@ -906,12 +906,12 @@ namespace EcoMart.Reporting.Controls
                        
                         foreach (DataGridViewRow row in rowCollection)
                         {
-                            mproductID = "";
+                            mProductID = 0;
                             if (row.Cells["Col_ID"].Value != null)
-                                mproductID = row.Cells["Col_ID"].Value.ToString();
-                            if (mproductID != "")
+                                mProductID = Convert.ToInt32(row.Cells["Col_ID"].Value.ToString());
+                            if (mProductID != 0)
                             {
-                                GetPurchaseDataProductwise(mproductID);
+                                GetPurchaseDataProductwise(mProductID);
                                 if (_BindingSource != null && _BindingSource.Rows.Count > 0)
                                 {
                                     BindReportGrid(row.Cells["Col_ID"].Value.ToString(), row.Cells["Col_Name"].Value.ToString(), row.Cells["Col_UOM"].Value.ToString(),
@@ -922,8 +922,8 @@ namespace EcoMart.Reporting.Controls
                     }
                     else if (mcbProduct.SelectedID != null && mcbProduct.SelectedID != "")
                     {
-                        mproductID = mcbProduct.SelectedID.ToString();
-                        GetPurchaseDataProductwise(mproductID);
+                        mProductID = Convert.ToInt32(mcbProduct.SelectedID.ToString());
+                        GetPurchaseDataProductwise(mProductID);
                         if (_BindingSource.Rows.Count > 0)
                         {
                             BindReportGrid(mcbProduct.SeletedItem.ItemData[0].ToString(), mcbProduct.SeletedItem.ItemData[1].ToString(), mcbProduct.SeletedItem.ItemData[2].ToString(),

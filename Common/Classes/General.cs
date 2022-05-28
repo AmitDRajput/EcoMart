@@ -34,8 +34,8 @@ namespace EcoMart.Common
         public static string Password = "RTTT00054";
         //        String DeveloperId = "SGC01", UserId = "RTTT00054", Password = "RTTT00054";
         public static string ProdID = ""; 
-        public static string SubstituteProductID = "";
-        public static string CloseStockProductID = ""; // [ansuman] [06.11.2016]
+        public static int SubstituteProductID = 0;
+        public static int CloseStockProductID = 0; // [ansuman] [06.11.2016]
         public static int SoldStock = 0; // [ansuman] [06.11.2016]
 
 
@@ -763,12 +763,12 @@ namespace EcoMart.Common
             return retValue;
         }
 
-        internal static string GetProductName(string productID)
+        internal static string GetProductName(int ProductID)
         {
             string productname = "";
             DBProduct dbprod = new DBProduct();
             DataRow dr;
-            dr = dbprod.GetProductName(productID);
+            dr = dbprod.GetProductName(ProductID);
             if (dr["ProdName"] != DBNull.Value)
                 productname = dr["ProdName"].ToString();
             return productname;

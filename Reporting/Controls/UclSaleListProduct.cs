@@ -69,15 +69,15 @@ namespace EcoMart.Reporting.Controls
                 _MFromDate = FromDate;
                 _MToDate = ToDate;
                 mcbProduct.SelectedID = ID;
-                ShowReportGrid(ID);
+                ShowReportGrid(Convert.ToInt32(ID));
 
             }
         }
-        private void ShowReportGrid(string productID)
+        private void ShowReportGrid(int ProductID)
         {
             InitializeReportGrid();
             ShowpnlGO();
-            FillReportGrid(productID);
+            FillReportGrid(ProductID.ToString());
         }
         public override void SetFocus()
         {
@@ -824,10 +824,10 @@ namespace EcoMart.Reporting.Controls
             }
         }    
 
-        private void GetSaleDataProductwise(string productID)
+        private void GetSaleDataProductwise(int ProductID)
         {
             DataTable dtable = new DataTable();
-            dtable = _SaleList.GetSaleDataForGivenProduct(productID);          
+            dtable = _SaleList.GetSaleDataForGivenProduct(ProductID);          
             _BindingSource = dtable;
         }
 
@@ -904,7 +904,7 @@ namespace EcoMart.Reporting.Controls
                 if (retValue)
                 {
                     this.Cursor = Cursors.WaitCursor;
-                    string mproductID = "";
+                    int mProductID = 0;
                     FromDt = General.GetDateInDateFormat(FromDt);
                     ToDt = General.GetDateInDateFormat(ToDt);
                     ShowpnlGO();
@@ -922,15 +922,15 @@ namespace EcoMart.Reporting.Controls
                     {
                         if (dgvReportList.Rows.Count > 0)
                             dgvReportList.Rows.Clear();
-                        mproductID = "";
+                        mProductID = 0;
                         foreach (DataGridViewRow row in rowCollection)
                         {
-                            mproductID = "";
+                            mProductID = 0;
                             if (row.Cells["Col_ID"].Value != null)
-                                mproductID = row.Cells["Col_ID"].Value.ToString();
-                            if (mproductID != "")
+                                mProductID = Convert.ToInt32(row.Cells["Col_ID"].Value.ToString());
+                            if (mProductID != 0)
                             {
-                                GetSaleDataProductwise(mproductID);
+                                GetSaleDataProductwise(mProductID);
                                 if (_BindingSource.Rows.Count > 0)
                                 {
                                     BindReportGrid(row.Cells["Col_ID"].Value.ToString(), row.Cells["Col_Name"].Value.ToString(), row.Cells["Col_UOM"].Value.ToString(),
@@ -946,7 +946,7 @@ namespace EcoMart.Reporting.Controls
                     }
                     else if (mcbProduct.SelectedID != null && mcbProduct.SelectedID != "")
                     {
-                        mproductID = FillReportGrid(mproductID);
+                        mProductID = Convert.ToInt32(FillReportGrid(mProductID.ToString()));
                     }
 
                 }
@@ -960,10 +960,10 @@ namespace EcoMart.Reporting.Controls
             }
         }
 
-        private string FillReportGrid(string mproductID)
+        private string FillReportGrid(string mProductID)
         {
-            mproductID = mcbProduct.SelectedID.ToString();
-            GetSaleDataProductwise(mproductID);
+            mProductID = mcbProduct.SelectedID.ToString();
+            GetSaleDataProductwise(Convert.ToInt32(mProductID));
             if (_BindingSource.Rows.Count > 0)
             {
                 BindReportGrid(mcbProduct.SeletedItem.ItemData[0].ToString(), mcbProduct.SeletedItem.ItemData[1].ToString(), mcbProduct.SeletedItem.ItemData[2].ToString(),
@@ -974,7 +974,7 @@ namespace EcoMart.Reporting.Controls
             PrintReportHead2 = "";
             NoofRows();
             dgvReportList.Focus();
-            return mproductID;
+            return mProductID;
         }
 
         private void cbSelectAll_CheckedChanged(object sender, EventArgs e)

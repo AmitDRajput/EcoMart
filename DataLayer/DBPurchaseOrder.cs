@@ -13,7 +13,7 @@ namespace EcoMart.DataLayer
         {
         }
 
-        public bool AddProductDetails(string shortlistid, string Id, string ProductID, int Quantity, double schemeQuantity, string AccountID, double PurchaseRate, int OrderNumber, string OrderDate, string IFSAVE, string createdby, string createddate, string createdtime)
+        public bool AddProductDetails(string shortlistid, string Id, int ProductID, int Quantity, double schemeQuantity, string AccountID, double PurchaseRate, int OrderNumber, string OrderDate, string IFSAVE, string createdby, string createddate, string createdtime)
         {
 
             bool bRetValue = false;
@@ -26,7 +26,7 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool AddProductDetailsModified(string shortlistid, string Id, string ProductID, int Quantity, double schemeQuantity, string AccountID, double PurchaseRate, int OrderNumber, string OrderDate, string IFSAVE,string shortlistdate, string ifdailyshortlist, string DSLCreatedBy,string DSLCreatedDate,string DSLCreatedTime ,string ModifiedBy,string ModifiedDate,string ModifiedTime)                                                                                                                     
+        public bool AddProductDetailsModified(string shortlistid, string Id, int ProductID, int Quantity, double schemeQuantity, string AccountID, double PurchaseRate, int OrderNumber, string OrderDate, string IFSAVE,string shortlistdate, string ifdailyshortlist, string DSLCreatedBy,string DSLCreatedDate,string DSLCreatedTime ,string ModifiedBy,string ModifiedDate,string ModifiedTime)                                                                                                                     
         {
             bool bRetValue = false;
             string strSql = GetInsertProductQueryModified(shortlistid, Id, ProductID, Quantity, schemeQuantity,  AccountID, PurchaseRate, OrderNumber, OrderDate, IFSAVE, shortlistdate,ifdailyshortlist, DSLCreatedBy,DSLCreatedDate,DSLCreatedTime,ModifiedBy,ModifiedDate,ModifiedTime);
@@ -105,13 +105,13 @@ namespace EcoMart.DataLayer
             return objQuery.InsertQuery();
         }
 
-        private string GetInsertProductQuery(string shortlistid, string Id, string ProductID, int Quantity, double schemeQuantity, string AccountID, double PurchaseRate, int OrderNumber, string OrderDate, string IFSAVE, string createdby, string createddate, string createdtime)
+        private string GetInsertProductQuery(string shortlistid, string Id, int ProductID, int Quantity, double schemeQuantity, string AccountID, double PurchaseRate, int OrderNumber, string OrderDate, string IFSAVE, string createdby, string createddate, string createdtime)
         {
             Query objQuery = new Query();
             objQuery.Table = "tbldailyshortlist";
             objQuery.AddToQuery("DSLID", shortlistid);
             objQuery.AddToQuery("MasterID", Id);
-            objQuery.AddToQuery("ProductId", ProductID);
+            objQuery.AddToQuery("ProductID", ProductID);
             objQuery.AddToQuery("OrderQuantity", Quantity);
             objQuery.AddToQuery("SchemeQuantity", schemeQuantity);
             objQuery.AddToQuery("AccountID", AccountID);
@@ -162,13 +162,13 @@ namespace EcoMart.DataLayer
             return strSql;
         }
 
-        private string GetInsertProductQueryModified(string shortlistid, string Id, string ProductID, int Quantity, double schemeQuantity, string AccountID, double PurchaseRate, int OrderNumber, string OrderDate, string IFSAVE, string shortlistdate, string ifdailyshortlist, string DSLCreatedBy, string DSLCreatedDate, string DSLCreatedTime, string ModifiedBy, string ModifiedDate, string ModifiedTime)
+        private string GetInsertProductQueryModified(string shortlistid, string Id, int ProductID, int Quantity, double schemeQuantity, string AccountID, double PurchaseRate, int OrderNumber, string OrderDate, string IFSAVE, string shortlistdate, string ifdailyshortlist, string DSLCreatedBy, string DSLCreatedDate, string DSLCreatedTime, string ModifiedBy, string ModifiedDate, string ModifiedTime)
         {
             Query objQuery = new Query();
             objQuery.Table = "tbldailyshortlist";
             objQuery.AddToQuery("DSLID", shortlistid);
             objQuery.AddToQuery("MasterID", Id);
-            objQuery.AddToQuery("ProductId", ProductID);
+            objQuery.AddToQuery("ProductID", ProductID);
             objQuery.AddToQuery("OrderQuantity", Quantity);
             objQuery.AddToQuery("SchemeQuantity", schemeQuantity);
             objQuery.AddToQuery("AccountID", AccountID);
@@ -226,8 +226,8 @@ namespace EcoMart.DataLayer
             DataTable dt = null;
             if (Id != "")
             {
-                string strsql = "Select distinct a.DSLID, a.MasterID, a.ProductId,0 as Quantity,a.OrderQuantity,a.SchemeQuantity,a.PurchaseRate as ProdLastPurchaseRate,a.ShortListDate,a.IfDailyShortList,a.CreateduserID,a.CreatedDate,a.CreatedTime, b.ProductID, b.ProdName,b.Prodloosepack,b.prodpack,b.ProdCompShortName,b.ProdClosingStock,b.ProdBoxQuantity, a.OrderQuantity*a.PurchaseRate as Amount, 0 as sale " +
-                                    "from tbldailyshortlist a inner join masterproduct b  on a.ProductId = b.ProductId where  a.MasterID = '{0}' ";
+                string strsql = "Select distinct a.DSLID, a.MasterID, a.ProductID,0 as Quantity,a.OrderQuantity,a.SchemeQuantity,a.PurchaseRate as ProdLastPurchaseRate,a.ShortListDate,a.IfDailyShortList,a.CreateduserID,a.CreatedDate,a.CreatedTime, b.ProductID, b.ProdName,b.Prodloosepack,b.prodpack,b.ProdCompShortName,b.ProdClosingStock,b.ProdBoxQuantity, a.OrderQuantity*a.PurchaseRate as Amount, 0 as sale " +
+                                    "from tbldailyshortlist a inner join masterproduct b  on a.ProductID = b.ProductID where  a.MasterID = '{0}' ";
 
                 strsql = string.Format(strsql, Id);
                 dt = DBInterface.SelectDataTable(strsql);
@@ -239,8 +239,8 @@ namespace EcoMart.DataLayer
             DataTable dt = null;
             if (Id != "")
             {
-                string strsql = "Select distinct a.DSLID, a.MasterID, a.ProductId,0 as Quantity,a.OrderQuantity,a.SchemeQuantity,a.ShortListDate,a.IfDailyShortList,a.CreateduserID,a.CreatedDate,a.CreatedTime, b.ProductID, b.ProdName,b.Prodloosepack,b.prodpack,b.ProdCompShortName,b.ProdClosingStock,b.ProdBoxQuantity, a.OrderQuantity*a.PurchaseRate as Amount, 0 as sale, " +
-                                    "b.ProdLastPurchaseVATPer,b.ProdIFBarcodeRequired,b.ProdLastPurchaseRate,b.ProdLastPurchaseTradeRate,b.ProdLastPurchaseSaleRate,b.ProdLastPurchaseDistributorSaleRatePer,b.ProdLastPurchaseDistributorSaleRate,b.ProdLastPurchaseMRP,b.ProdLastPurchaseCSTPer,ProdLastPurchaseCST,ProdLastPurchaseExpiry,ProdLastPurchaseExpiryDate,ProdLastPurchaseBatchNumber,ProdLastPurchaseStockID   from tbldailyshortlist a inner join masterproduct b  on a.ProductId = b.ProductId where  a. MasterID = '{0}' ";
+                string strsql = "Select distinct a.DSLID, a.MasterID, a.ProductID,0 as Quantity,a.OrderQuantity,a.SchemeQuantity,a.ShortListDate,a.IfDailyShortList,a.CreateduserID,a.CreatedDate,a.CreatedTime, b.ProductID, b.ProdName,b.Prodloosepack,b.prodpack,b.ProdCompShortName,b.ProdClosingStock,b.ProdBoxQuantity, a.OrderQuantity*a.PurchaseRate as Amount, 0 as sale, " +
+                                    "b.ProdLastPurchaseVATPer,b.ProdIFBarcodeRequired,b.ProdLastPurchaseRate,b.ProdLastPurchaseTradeRate,b.ProdLastPurchaseSaleRate,b.ProdLastPurchaseDistributorSaleRatePer,b.ProdLastPurchaseDistributorSaleRate,b.ProdLastPurchaseMRP,b.ProdLastPurchaseCSTPer,ProdLastPurchaseCST,ProdLastPurchaseExpiry,ProdLastPurchaseExpiryDate,ProdLastPurchaseBatchNumber,ProdLastPurchaseStockID   from tbldailyshortlist a inner join masterproduct b  on a.ProductID = b.ProductID where  a. MasterID = '{0}' ";
 
                 strsql = string.Format(strsql, Id);
                 dt = DBInterface.SelectDataTable(strsql);
@@ -254,7 +254,7 @@ namespace EcoMart.DataLayer
 
             string strSql = "Select a.DSLID,a.OrderNumber,a.OrderDate,a.ShortListDate,a.OrderQuantity,a.IfSave,a.AccountID,e.AccName,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
           "b.ProdPartyId_1,b.ProdPartyId_2,b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,b.ProdMaxLevel - b.ProdClosingStock as OrderQuantity ,b.ProdLastPurchaseRate,0 as quantity  from tbldailyshortlist a " +
-         " inner join masterproduct b on a.ProductId = b.ProductID  left outer join masteraccount e on a.AccountID = e.AccountID   where a.AccountID = '"+ AccountId +"' &&  a.ShortListDate >= " + "'" + fromDate + "'  && a.ShortListDate <= '" + toDate + "' && a.OrderNumber = 0 && b.ProdMaxLevel >= b.ProdClosingStock";
+         " inner join masterproduct b on a.ProductID = b.ProductID  left outer join masteraccount e on a.AccountID = e.AccountID   where a.AccountID = '"+ AccountId +"' &&  a.ShortListDate >= " + "'" + fromDate + "'  && a.ShortListDate <= '" + toDate + "' && a.OrderNumber = 0 && b.ProdMaxLevel >= b.ProdClosingStock";
 
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;          
@@ -266,7 +266,7 @@ namespace EcoMart.DataLayer
 
             string strSql = "Select a.DSLID,a.OrderNumber,a.OrderDate,a.ShortListDate,a.OrderQuantity,a.IfSave,a.AccountID,e.AccName,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
           "b.ProdPartyId_1,b.ProdPartyId_2,b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,b.ProdMaxLevel - b.ProdClosingStock as OrderQuantity ,b.ProdLastPurchaseRate,0 as quantity  from tbldailyshortlist a " +
-         " inner join masterproduct b on a.ProductId = b.ProductID  left outer join masteraccount e on a.AccountID = e.AccountID   where  a.ShortListDate >= " + "'" + fromDate + "'  && a.ShortListDate <= '" + toDate + "' && a.OrderNumber = 0 && b.ProdMaxLevel >= b.ProdClosingStock";
+         " inner join masterproduct b on a.ProductID = b.ProductID  left outer join masteraccount e on a.AccountID = e.AccountID   where  a.ShortListDate >= " + "'" + fromDate + "'  && a.ShortListDate <= '" + toDate + "' && a.OrderNumber = 0 && b.ProdMaxLevel >= b.ProdClosingStock";
 
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
@@ -276,7 +276,7 @@ namespace EcoMart.DataLayer
             DataRow dr = null;
             if (mprod != "" && lastdate != "")
             {
-                string strsql = "Select  sum(a.quantity) as quantity  from  detailsale a  inner join vouchersale b on a.mastersaleID = b.ID where productID = '"+ mprod +"' &&  b.VoucherDate >= '"+ lastdate +"'";
+                string strsql = "Select  sum(a.quantity) as quantity  from  detailsale a  inner join vouchersale b on a.mastersaleID = b.ID where ProductID = '"+ mprod +"' &&  b.VoucherDate >= '"+ lastdate +"'";
                 dr = DBInterface.SelectFirstRow(strsql);
             }
             return dr;
@@ -293,9 +293,9 @@ namespace EcoMart.DataLayer
             return dr;
         }
 
-        public void TransferProductTodaySale(string accountID, string productID, int mqty)
+        public void TransferProductTodaySale(string accountID, int ProductID, int mqty)
         {
-            string strsql = "Update masterproduct set prodpartyID_1 = '"+ accountID  +"' where ProductID = '"+ productID +"'";
+            string strsql = "Update masterproduct set prodpartyID_1 = '"+ accountID  +"' where ProductID = '"+ ProductID +"'";
             DBInterface.ExecuteQuery(strsql);
         }
 

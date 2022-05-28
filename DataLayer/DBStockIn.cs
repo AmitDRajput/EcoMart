@@ -63,7 +63,7 @@ namespace EcoMart.DataLayer
             {
                 string strsql = "Select distinct a.ProductID, a.ProdName,a.Prodloosepack,a.prodpack,a.ProdCompShortName,a.ProdClosingStock,b.StockID,b.BatchNumber,b.Quantity,b.Quantity as oldquantity, " +
                              "b.PurchaseRate,b.MRP,b.SaleRate,b.TradeRate,b.Expiry,b.ReasonCode,b.ExpiryDate,b.VATPer,b.Amount " +
-                                "from detailcreditdebitnotestock b ,masterproduct a  where b.ProductId = a.ProductId  && " +
+                                "from detailcreditdebitnotestock b ,masterproduct a  where b.ProductID = a.ProductID  && " +
                                   " b.MasterID = '{0}' order by b.SerialNumber";
                 strsql = string.Format(strsql, Id);
                 dt = DBInterface.SelectDataTable(strsql);
@@ -98,11 +98,11 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool AddDetailsProducts(string Id, string stockid, string ProductId, string Batchno, int quantity, int SchemeQuantity,
+        public bool AddDetailsProducts(string Id, string stockid, int ProductID, string Batchno, int quantity, int SchemeQuantity,
               double PurchaseRate, double MRP, double SaleRate,double TradeRate, string Expiry, string ExpiryDate, string reasoncode, double VatPer, double Amount, string VouType, int VouNo, string VouDate,string MyDetailCRDBID, int serialNumber)
         {
             bool bRetValue = false;
-            string strSql = GetInsertQueryProducts(Id,stockid, ProductId, Batchno, quantity, SchemeQuantity, PurchaseRate, MRP, SaleRate,TradeRate, Expiry, ExpiryDate, reasoncode, VatPer, Amount, VouType, VouNo, VouDate,MyDetailCRDBID, serialNumber);
+            string strSql = GetInsertQueryProducts(Id,stockid, ProductID, Batchno, quantity, SchemeQuantity, PurchaseRate, MRP, SaleRate,TradeRate, Expiry, ExpiryDate, reasoncode, VatPer, Amount, VouType, VouNo, VouDate,MyDetailCRDBID, serialNumber);
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 bRetValue = true;
@@ -183,14 +183,14 @@ namespace EcoMart.DataLayer
             return objQuery.InsertQuery();
         }
 
-        private string GetInsertQueryProducts(string Id, string stockid, string ProductId, string Batchno, int quantity, int SchemeQuantity,
+        private string GetInsertQueryProducts(string Id, string stockid, int ProductID, string Batchno, int quantity, int SchemeQuantity,
               double PurchaseRate, double MRP, double SaleRate, double TradeRate, string Expiry, string ExpiryDate, string reasoncode, double VatPer, double Amount, string VouType, int VouNo, string VouDate, string MyDetailCRDBID, int serialNumber)
         {
             Query objQuery = new Query();
             objQuery.Table = "detailcreditdebitnotestock";
             objQuery.AddToQuery("MasterID", Id);
             objQuery.AddToQuery("StockID", stockid);
-            objQuery.AddToQuery("ProductID", ProductId);
+            objQuery.AddToQuery("ProductID", ProductID);
             objQuery.AddToQuery("BatchNumber", Batchno);
             objQuery.AddToQuery("Quantity", quantity);           
             objQuery.AddToQuery("PurchaseRate", PurchaseRate);

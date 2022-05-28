@@ -988,7 +988,7 @@ namespace EcoMart.InterfaceLayer
                     }
                     if (dt.Columns[colIndex].ColumnName == "ProductID")
                     {
-                        string Pname = dt.Rows[index][colIndex].ToString();
+                        int Pname = Convert.ToInt32(dt.Rows[index][colIndex].ToString());
 
                         Stock StockObj = new Stock();
                         DataRow drow = null;

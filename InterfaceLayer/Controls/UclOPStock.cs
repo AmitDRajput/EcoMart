@@ -640,7 +640,7 @@ namespace EcoMart.InterfaceLayer
                 {
                     foreach (DataGridViewRow prodrow in dgvMPMSVCMain.Rows)
                     {
-                        _OPStock.ProductID = "";
+                        _OPStock.ProductID = 0;
                         _OPStock.Batchno = "";
                         _OPStock.MRP = 0;
                         _OPStock.Expiry = "";
@@ -667,7 +667,7 @@ namespace EcoMart.InterfaceLayer
                             _OPStock.SerialNumber += 1;
                             _OPStock.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
 
-                            _OPStock.ProductID = prodrow.Cells["Col_ProductID"].Value.ToString(); // [ansuman] [28.11.2016]
+                            _OPStock.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString()); // [ansuman] [28.11.2016]
                             loosepack = 1;
                             if (prodrow.Cells["Col_UnitOfMeasure"].Value != null && prodrow.Cells["Col_UnitOfMeasure"].Value.ToString() != string.Empty)
                                 loosepack = Convert.ToDouble(prodrow.Cells["Col_UnitOfMeasure"].Value.ToString());
@@ -771,7 +771,7 @@ namespace EcoMart.InterfaceLayer
         //        {
         //            if (prodrow.Cells["Col_ProductID"].Value != null && prodrow.Cells["Col_ProductID"].Value.ToString() != string.Empty)
         //            {
-        //                _OPStock.ProductID = prodrow.Cells["Col_ProductID"].Value.ToString();
+        //                _OPStock.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString());
         //                EcoMartCache.RefreshProductData(_OPStock.ProductID);
         //            }
         //        }
@@ -814,7 +814,7 @@ namespace EcoMart.InterfaceLayer
                     _OPStock.MRP = Convert.ToDouble(dgvMPMSVCMain.Rows[mrowindex].Cells["Col_MRP"].Value.ToString());
                 if (dgvMPMSVCMain.MainDataGridCurrentRow.Cells["Col_Amount"].Value != null)
                     mmamt = Convert.ToDouble(dgvMPMSVCMain.MainDataGridCurrentRow.Cells["Col_Amount"].Value.ToString());
-                _OPStock.ProductID = dgvMPMSVCMain.MainDataGridCurrentRow.Cells["Col_ProductID"].Value.ToString();
+                _OPStock.ProductID = Convert.ToInt32(dgvMPMSVCMain.MainDataGridCurrentRow.Cells["Col_ProductID"].Value.ToString());
                 dgvMPMSVCMain.Enabled = false;
                 pnlProductDetail.BringToFront();
                 pnlProductDetail.Visible = true;
@@ -1628,7 +1628,7 @@ namespace EcoMart.InterfaceLayer
                 txtMasterVATAmt.Text = mprodvatamt.ToString("#0.0000");
                 //  mcbShelf.SelectedID = mshelfID;
                 SsStock invss = new SsStock();
-                invdr = invss.GetStockByProductIDAndBatchNumberAndMRP(mprodno, mbatchno, mmrp);
+                invdr = invss.GetStockByProductIDAndBatchNumberAndMRP(Convert.ToInt32(mprodno), mbatchno, mmrp);
 
                 if (invdr != null)
                 {
@@ -1763,7 +1763,7 @@ namespace EcoMart.InterfaceLayer
                 txtMasterVATPer.Text = mprodvatper.ToString("#0.00");
                 txtMasterVATAmt.Text = mprodvatamt.ToString("#0.00");
                 SsStock invss = new SsStock();
-                invdr = invss.GetStockByProductIDAndBatchNumberAndMRP(mprodno, mbatchno, mmrp);
+                invdr = invss.GetStockByProductIDAndBatchNumberAndMRP(Convert.ToInt32(mprodno), mbatchno, mmrp);
 
                 if (invdr != null)
                 {
@@ -1800,7 +1800,7 @@ namespace EcoMart.InterfaceLayer
             {
                 DataTable dt = new DataTable();
                 SsStock invss = new SsStock();
-                dt = invss.GetStockByProductIDForPurchase(dgvMPMSVCMain.MainDataGridCurrentRow.Cells[0].Value.ToString(), 0);
+                dt = invss.GetStockByProductIDForPurchase(Convert.ToInt32(dgvMPMSVCMain.MainDataGridCurrentRow.Cells[0].Value.ToString()), 0);
                 dgvBatchGrid.DataSource = dt;
             }
             catch (Exception Ex)
@@ -3063,7 +3063,7 @@ namespace EcoMart.InterfaceLayer
                     //DataRow cmpnydetails = null;
                     DBProduct dbProd = new DBProduct();
                     DBCompany dbComp = new DBCompany();
-                    drowprod = dbProd.ReadDetailsByID(ID);
+                    drowprod = dbProd.ReadDetailsByID(Convert.ToInt32(ID));
 
                     if (drowprod != null)
                     {
@@ -3503,7 +3503,7 @@ namespace EcoMart.InterfaceLayer
                 }
                 else
                 {
-                    pobj.Id = _OPStock.ProductID;
+                    pobj.Id = _OPStock.ProductID.ToString();
                     pobj.IFEdit = "Y";
                     pobj.Validate();
                     if (pobj.IsValid)

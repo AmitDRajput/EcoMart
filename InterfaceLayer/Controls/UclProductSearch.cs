@@ -86,7 +86,7 @@ namespace EcoMart.InterfaceLayer
                 DataGridViewTextBoxColumn column;
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_ID";
-                column.DataPropertyName = "ProductId";
+                column.DataPropertyName = "ProductID";
                 column.HeaderText = "ID";
                 column.Visible = false;
                 dgvSearchList.Columns.Add(column);

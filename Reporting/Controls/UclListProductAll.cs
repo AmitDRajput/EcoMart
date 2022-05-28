@@ -291,7 +291,7 @@ namespace EcoMart.Reporting.Controls
                 DataGridViewTextBoxColumn column;
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_ID";
-                column.DataPropertyName = "ProductId";
+                column.DataPropertyName = "ProductID";
                 column.HeaderText = "ID";
                 column.Visible = false;
                 dgvReportList.Columns.Add(column);

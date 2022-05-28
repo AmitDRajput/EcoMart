@@ -26,14 +26,14 @@ namespace EcoMart.DataLayer
         //public bool UpdateMasterProduct()
         //{
         //    bool bRetValue = false;
-        //    string strSql = "update masterproduct  set prodclosingstock = (select COALESCE(sum(tblstock.closingstock),0) from tblstock where masterproduct.productid = tblstock.productid   group by tblstock.productid)";
+        //    string strSql = "update masterproduct  set prodclosingstock = (select COALESCE(sum(tblstock.closingstock),0) from tblstock where masterproduct.ProductID = tblstock.ProductID   group by tblstock.ProductID)";
 
         //    if (DBInterface.ExecuteQuery(strSql) > 0)
         //    {
         //        bRetValue = true;
         //    }
 
-        //    strSql = "update masterproduct  set prodopeningstock = (select COALESCE(sum(tblstock.openingtock),0) from tblstock where masterproduct.productid = tblstock.productid   group by tblstock.productid)";
+        //    strSql = "update masterproduct  set prodopeningstock = (select COALESCE(sum(tblstock.openingtock),0) from tblstock where masterproduct.ProductID = tblstock.ProductID   group by tblstock.ProductID)";
 
         //    if (DBInterface.ExecuteQuery(strSql) > 0)
         //    {
@@ -78,7 +78,7 @@ namespace EcoMart.DataLayer
         public DataTable GetStockFromtblStock()
         {
             DataTable dt;
-            string strSql = "Select productID, COALESCE(sum(openingStock),0) as opstk,COALESCE(sum(closingstock),0) as clstk from tblstock  group by productid";
+            string strSql = "Select ProductID, COALESCE(sum(openingStock),0) as opstk,COALESCE(sum(closingstock),0) as clstk from tblstock  group by ProductID";
 
             dt = DBInterface.SelectDataTable(strSql);
             return dt;

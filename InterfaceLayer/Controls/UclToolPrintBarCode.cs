@@ -222,7 +222,7 @@ namespace EcoMart.InterfaceLayer
         {
             DataTable dt = new DataTable();
             if (mcbProduct.SelectedID != null && mcbProduct.SelectedID.ToString() != string.Empty)
-               dt = _BarCode.GetStockByProductID(mcbProduct.SelectedID.ToString());
+               dt = _BarCode.GetStockByProductID(Convert.ToInt32(mcbProduct.SelectedID.ToString()));
             if (dt != null && dt.Rows.Count > 0)
             {
                 dgvBatchGrid.DataSource = dt;

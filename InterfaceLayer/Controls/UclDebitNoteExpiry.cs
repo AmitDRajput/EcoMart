@@ -184,7 +184,7 @@ namespace EcoMart.InterfaceLayer
                                         double.TryParse(mpMainSubViewControl.Rows[jindex].Cells["Col_Amount"].Value.ToString(), out mamount);
                                     totalamount += mamount;
                                     _DNExpiry.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                                    _DNExpiry.ProductID = mpMainSubViewControl.Rows[jindex].Cells["Col_ProductID"].Value.ToString();                                  
+                                    _DNExpiry.ProductID = Convert.ToInt32(mpMainSubViewControl.Rows[jindex].Cells["Col_ProductID"].Value.ToString());                                  
                                     int muom = 1;
                                      Int32.TryParse(mpMainSubViewControl.Rows[jindex].Cells["Col_UOM"].Value.ToString(), out  muom);
                                      _DNExpiry.UOM = muom;
@@ -506,7 +506,7 @@ namespace EcoMart.InterfaceLayer
         //        {
         //            if (prodrow.Cells["Col_ProductID"].Value != null && prodrow.Cells["Col_ProductID"].Value.ToString() != string.Empty)
         //            {
-        //               _DNExpiry.ProductID = prodrow.Cells["Col_ProductID"].Value.ToString();
+        //               _DNExpiry.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString());
         //               EcoMartCache.RefreshProductData(_DNExpiry.ProductID);
         //            }
         //        }

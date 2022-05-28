@@ -18,7 +18,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
 
         private BindingSource _BindingSource;
         private DataTable _DataTable;
-        private DataTable _EditedTempDataList ;
+        private DataTable _EditedTempDataList;
         private DataTable _DataTableMain;
 
         private DataGridViewColumnCollection _ColumnsMain;
@@ -98,7 +98,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
             {
                 _DataTable = value;
             }
-        }        
+        }
         public DataTable EditedTempDataList
         {
             get
@@ -131,7 +131,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
         {
             get { return _DataGridViewSelectedRow; }
         }
-        
+
         public string Filter
         {
             get { return _sFilter; }
@@ -288,6 +288,10 @@ namespace EcoMart.InterfaceLayer.CommonControls
                             for (int colIndex = 0; colIndex < dgMainGrid.Columns.Count; colIndex++)
                             {
                                 DataGridViewColumn col = dgMainGrid.Columns[colIndex];
+                                if (!col.Visible)
+                                {
+                                    continue;
+                                }
                                 if (col.DataPropertyName != null && col.DataPropertyName != "")
                                 {
                                     if (DoubleColumnNames != null && DoubleColumnNames.Contains(col.Name))
@@ -299,7 +303,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                                         dr.Cells[col.Name].Value = _DataTableMain.Rows[index][col.DataPropertyName].ToString();
                                     }
                                 }
-                                if(colIndex == 1)
+                                if (colIndex == 1)
                                 {
                                     dr.Cells[1].ReadOnly = true;
                                 }
@@ -316,7 +320,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
 
         public void BindGridSub()
         {
-          try
+            try
             {
                 if (DataSource != null && DataSource.Rows.Count > 0)
                 {
@@ -454,7 +458,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                     dgSubGrid.CurrentCell = dgSubGrid.Rows[0].Cells[1];
                 }
                 //Set ID column invisible
-                if(dgSubGrid.ColumnCount > 0)
+                if (dgSubGrid.ColumnCount > 0)
                     dgSubGrid.Columns[0].Visible = false;
             }
             catch (Exception ex) { Log.WriteError(ex.ToString()); }
@@ -484,7 +488,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                     else
                     { strFilterString += " like '%" + filterValue + "%' "; }
                     DataTable dtClosingStock = DBProduct.GetFilteredProductStock(strFilterString);
-                    DataTable dtMergedProduct = DBProduct.GetMergedProductStock(DataSource, dtClosingStock,EditedTempDataList);
+                    DataTable dtMergedProduct = DBProduct.GetMergedProductStock(DataSource, dtClosingStock, EditedTempDataList);
                     if (dtMergedProduct != null && dtMergedProduct.Rows.Count > 0)
                         _BindingSource.DataSource = dtMergedProduct;
                     if (dtMergedProduct.Rows.Count == 0)
@@ -549,7 +553,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
             bool retValue = false;
             if (dgSubGrid.Visible)
             {
-                dgSubGrid.Visible = false; 
+                dgSubGrid.Visible = false;
                 retValue = true;
             }
             return retValue;
@@ -574,10 +578,13 @@ namespace EcoMart.InterfaceLayer.CommonControls
                         OnDetailsFilled(_DataGridViewSelectedRow);
                 }
             }
-            catch (Exception ex) { Log.WriteError(ex.ToString()); }
+            catch (Exception ex)
+            {
+                Log.WriteError(ex.ToString());
+            }
 
         }
-        public bool LoadProduct(string productID)
+        public bool LoadProduct(int ProductID)
         {
             bool retValue = false;
             if (dgMainGrid.IsFirstColumn())
@@ -626,7 +633,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
         }
 
         #endregion Methods
-        
+
         #region GridEvents
 
         private void dgSubGrid_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -718,7 +725,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                         dgSubGrid.Rows[0].Selected = true;
                         //dgSubGrid.CurrentCell = dgSubGrid.Rows[0].Cells[0];
                     }
-                }               
+                }
                 else if (string.IsNullOrEmpty(Convert.ToString(dgMainGrid.CurrentRow.Cells[1].Value)) == false)
                 {
                     if (keyValue == (int)Keys.Right)
@@ -748,7 +755,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                         FillDetails();
                     dgSubGrid.Visible = false;
                     //  dgMainGrid.Focus();
-                      SetFocus(2);
+                    SetFocus(2);
                     e.Handled = true;
                 }
                 else if (e.KeyCode == Keys.Escape)
@@ -788,8 +795,8 @@ namespace EcoMart.InterfaceLayer.CommonControls
                 if (e.ColumnIndex == 1)       // [ansuman]
                 {
                     if (string.IsNullOrEmpty(Convert.ToString(dgMainGrid.CurrentRow.Cells[0].Value)) == false)
-                        General.SubstituteProductID = dgMainGrid.CurrentRow.Cells[0].Value.ToString();
-                    else General.SubstituteProductID = string.Empty;
+                        General.SubstituteProductID = Convert.ToInt32(dgMainGrid.CurrentRow.Cells[0].Value.ToString());
+                    else General.SubstituteProductID = 0;
                 }
                 this.Focus();
                 this.SetFocus(e.RowIndex, e.ColumnIndex);
@@ -869,8 +876,8 @@ namespace EcoMart.InterfaceLayer.CommonControls
                         OnShowViewForm(dgMainGrid.CurrentRow);
                     }
                 }
-                else if(e.KeyCode == Keys.Enter)
-                {                  
+                else if (e.KeyCode == Keys.Enter)
+                {
                     if (dgMainGrid.Rows.Count > 1 && (dgMainGrid.CurrentRow.Cells[0].Value == null))
                     {
                         dgMainGrid.ClearSelection();
@@ -924,7 +931,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
             }
             catch (Exception ex) { Log.WriteError(ex.ToString()); }
         }
-        
+
         #endregion GridEvents
     }
 }

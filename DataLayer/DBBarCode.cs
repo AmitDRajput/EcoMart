@@ -23,7 +23,7 @@ namespace EcoMart.DataLayer
         public DataTable GetBatchData(string iD)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select * from tblStock where productID = '"+ iD +"' order by Expiry";
+            string strSql = "Select * from tblStock where ProductID = '"+ iD +"' order by Expiry";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -36,10 +36,10 @@ namespace EcoMart.DataLayer
             return dr;
         }
 
-        public bool FillBarCodeNumbers(string productID, string productNumber)
+        public bool FillBarCodeNumbers(int ProductID, string productNumber)
         {
             bool retValue = false;
-            string strSql = "update masterproduct set  ProductNumberForBarcode = '" + productNumber + "' where productID = '" + productID + "'";
+            string strSql = "update masterproduct set  ProductNumberForBarcode = '" + productNumber + "' where ProductID = '" + ProductID + "'";
             if (DBInterface.ExecuteQuery(strSql) > 0)
                 retValue = true;
             return retValue;
@@ -56,16 +56,16 @@ namespace EcoMart.DataLayer
         public DataTable GetProductsFromMasterProduct()
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select productID,ProductNumberForBarcode from masterproduct where ProductNumberForBarcode is null || ProductNumberForBarcode = ''";
+            string strSql = "Select ProductID,ProductNumberForBarcode from masterproduct where ProductNumberForBarcode is null || ProductNumberForBarcode = ''";
             dtable = DBInterface.SelectDataTable(strSql);
             int cc = dtable.Rows.Count;
             return dtable;
         }
 
-        public DataTable GetRowsFromtblStock(string mproductid)
+        public DataTable GetRowsFromtblStock(int mProductID)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select stockID,productID,scancode from tblstock where productID = '" + mproductid + "' order  by scancode desc";
+            string strSql = "Select stockID,ProductID,scancode from tblstock where ProductID = '" + mProductID + "' order  by scancode desc";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -91,14 +91,14 @@ namespace EcoMart.DataLayer
         internal DataTable GetPurchaseData(string mvoutype, int mvouno)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select a.productID,a.prodName,a.ProdLoosePack,a.ProdPack,a.ProdCompShortName,a.ProdIfBarCodeRequired,b.StockID,b.PurchaseID,b.BatchNumber,b.MRP,b.SaleRate,b.Expiry,b.ExpiryDate,(b.Quantity+b.SchemeQuantity) as Quantity,c.StockID,c.ScanCode,d.PurchaseID,d.VoucherType,d.VoucherNumber,b.SerialNumber from voucherpurchase d inner join detailpurchase b on d.PurchaseID = b.PurchaseID  inner join masterproduct a on  b.ProductID = a.ProductID inner join tblstock c on b.stockID = c.StockID  where d.VoucherNumber = " + mvouno + "  && d.VoucherType = '" + mvoutype + "' order by b.SerialNumber";
+            string strSql = "Select a.ProductID,a.prodName,a.ProdLoosePack,a.ProdPack,a.ProdCompShortName,a.ProdIfBarCodeRequired,b.StockID,b.PurchaseID,b.BatchNumber,b.MRP,b.SaleRate,b.Expiry,b.ExpiryDate,(b.Quantity+b.SchemeQuantity) as Quantity,c.StockID,c.ScanCode,d.PurchaseID,d.VoucherType,d.VoucherNumber,b.SerialNumber from voucherpurchase d inner join detailpurchase b on d.PurchaseID = b.PurchaseID  inner join masterproduct a on  b.ProductID = a.ProductID inner join tblstock c on b.stockID = c.StockID  where d.VoucherNumber = " + mvouno + "  && d.VoucherType = '" + mvoutype + "' order by b.SerialNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
-        public DataTable GetStockByProductID(string prodID)
+        public DataTable GetStockByProductID(int prodID)
         {
             DataTable dtable = new DataTable();
-            string strSql = string.Format("Select StockID,ProductId,BatchNumber,MRP,Expiry,ExpiryDate,TradeRate,PurchaseRate,SaleRate,ClosingStock,ProductVATPercent,ScanCode,DistributorSaleRate,ScanCode from tblstock where ProductID  = '{0}' and ClosingStock <> 0", prodID);
+            string strSql = string.Format("Select StockID,ProductID,BatchNumber,MRP,Expiry,ExpiryDate,TradeRate,PurchaseRate,SaleRate,ClosingStock,ProductVATPercent,ScanCode,DistributorSaleRate,ScanCode from tblstock where ProductID  = '{0}' and ClosingStock <> 0", prodID);
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
 
@@ -107,7 +107,7 @@ namespace EcoMart.DataLayer
         public DataTable GetGivenProductData(string mstockID)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select a.productID,a.prodName,a.ProdLoosePack,a.ProdPack,a.ProdCompShortName,a.ProdIfBarCodeRequired,b.StockID,'' as PurchaseID,b.BatchNumber,b.MRP,b.SaleRate,b.Expiry,b.ExpiryDate,b.ClosingStock as Quantity,b.ScanCode from tblstock b inner join masterproduct a on b.ProductID = a.ProductID  where b.StockID = '" + mstockID + "'";
+            string strSql = "Select a.ProductID,a.prodName,a.ProdLoosePack,a.ProdPack,a.ProdCompShortName,a.ProdIfBarCodeRequired,b.StockID,'' as PurchaseID,b.BatchNumber,b.MRP,b.SaleRate,b.Expiry,b.ExpiryDate,b.ClosingStock as Quantity,b.ScanCode from tblstock b inner join masterproduct a on b.ProductID = a.ProductID  where b.StockID = '" + mstockID + "'";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -115,7 +115,7 @@ namespace EcoMart.DataLayer
         public DataTable GetShelfwiseData(string mshelf)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select a.productID,a.prodName,a.ProdLoosePack,a.ProdPack,a.ProdCompShortName,a.ProdIfBarCodeRequired,b.StockID, '' as PurchaseID,b.BatchNumber,b.MRP,b.SaleRate,b.Expiry,b.ExpiryDate,(b.ClosingStock/a.ProdLoosePack) as Quantity,b.ScanCode from tblstock b inner join masterproduct a on b.ProductID = a.ProductID   where  a.prodshelfID = '" + mshelf + "' && (b.ClosingStock/a.ProdLoosePack) >= 1";
+            string strSql = "Select a.ProductID,a.prodName,a.ProdLoosePack,a.ProdPack,a.ProdCompShortName,a.ProdIfBarCodeRequired,b.StockID, '' as PurchaseID,b.BatchNumber,b.MRP,b.SaleRate,b.Expiry,b.ExpiryDate,(b.ClosingStock/a.ProdLoosePack) as Quantity,b.ScanCode from tblstock b inner join masterproduct a on b.ProductID = a.ProductID   where  a.prodshelfID = '" + mshelf + "' && (b.ClosingStock/a.ProdLoosePack) >= 1";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }

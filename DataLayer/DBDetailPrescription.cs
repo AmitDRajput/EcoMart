@@ -8,7 +8,7 @@ namespace EcoMart.DataLayer
 {
     class DBDetailPrescription
     {
-        public bool AddDetail(string PrescriptionID, string ProductID, int Quantity, string CreatedDate, string CreatedUserID, string ModifyDate, string ModifyUserID)
+        public bool AddDetail(string PrescriptionID, int ProductID, int Quantity, string CreatedDate, string CreatedUserID, string ModifyDate, string ModifyUserID)
         {
             Query objQuery = new Query();
             objQuery.Table = "linkprescription";
@@ -29,7 +29,7 @@ namespace EcoMart.DataLayer
             return false;
         }
 
-        public bool UpdateDetail(string PrescriptionID, string ProductID, int Quantity, string CreatedDate, string CreatedUserID, string ModifyDate, string ModifyUserID)
+        public bool UpdateDetail(string PrescriptionID, int ProductID, int Quantity, string CreatedDate, string CreatedUserID, string ModifyDate, string ModifyUserID)
         {
             Query objQuery = new Query();
             objQuery.Table = "linkprescription";

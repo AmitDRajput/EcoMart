@@ -30,7 +30,7 @@ namespace EcoMart.BusinessLayer
         private double _VAT5Percent;
         private double _VATOPercent;
         private double _VAT12point5Percent;
-        private string _ProductID;
+        private int _ProductID;
         private int _ProdLoosePack;
         private string _Batchno;
         private string _Pack;
@@ -339,7 +339,7 @@ namespace EcoMart.BusinessLayer
             get { return _ShelfID; }
             set { _ShelfID = value; }
         }
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
@@ -982,7 +982,7 @@ namespace EcoMart.BusinessLayer
             _Expiry = "";
             _ExpiryDate = "";
             _Mrp = 0;
-            _ProductID = "";
+            _ProductID = 0;
             _PurchaseRate = 0;
             _Quantity = 0;
             _NoofRows = 0;
@@ -2191,7 +2191,7 @@ namespace EcoMart.BusinessLayer
         }
 
 
-        public DataRow GetDetailsForProduct(string prodID)
+        public DataRow GetDetailsForProduct(int prodID)
         {
             DataRow dr = null;
             try
@@ -2370,16 +2370,16 @@ namespace EcoMart.BusinessLayer
             return dbprod.UpdatePurchaseStockInmasterProductReduceFromTemp(ProductID, (Quantity + SchemeQuanity + ReplacementQuantity) * ProdLoosePack);
         }
 
-        public void RemoveFromShortList(string productID)
+        public void RemoveFromShortList(int ProductID)
         {
 
             DBPurchase dbpur = new DBPurchase();
             DataRow dr = null;
             try
             {
-                dr = dbpur.CheckProductInShortList(productID);
+                dr = dbpur.CheckProductInShortList(ProductID);
                 if (dr != null)
-                    dbpur.RemoveFromShortList(productID);
+                    dbpur.RemoveFromShortList(ProductID);
             }
             catch (Exception Ex)
             {
@@ -2387,7 +2387,7 @@ namespace EcoMart.BusinessLayer
             }
         }
 
-        public void GetFirstAndSecondCreditor(string productID)
+        public void GetFirstAndSecondCreditor(int ProductID)
         {
             string fcreditor = "";
             string screditor = "";
@@ -2395,7 +2395,7 @@ namespace EcoMart.BusinessLayer
             DataRow dr = null;
             try
             {
-                dr = dbpur.GetFirstAndSecondCreditor(productID);
+                dr = dbpur.GetFirstAndSecondCreditor(ProductID);
                 if (dr != null)
                 {
                     if (dr["ProdPartyID_1"] != DBNull.Value)
@@ -2524,10 +2524,10 @@ namespace EcoMart.BusinessLayer
         //    DBPurchase dbPur = new DBPurchase();
         //    return dbPur.GetOverviewDataForVATReportTINDetail(mfromdate, mtodate);
         //}17/10
-        public DataTable GetOverviewDataForLastPurchase(string productID)
+        public DataTable GetOverviewDataForLastPurchase(int ProductID)
         {
             DBPurchase dbPur = new DBPurchase();
-            return dbPur.GetOverviewDataForLastPurchase(productID);
+            return dbPur.GetOverviewDataForLastPurchase(ProductID);
         }
         public DataTable GetOverviewDataForPartywiseOutstandingPurchaseReportforParty(string accID, string fromdate, string todate)
         {
@@ -2569,24 +2569,24 @@ namespace EcoMart.BusinessLayer
             return dbPur.GetOverviewDataForProductList();
         }
 
-        public DataTable GetPurchaseDataProductWise(string productID)
+        public DataTable GetPurchaseDataProductWise(int ProductID)
         {
             DBPurchase dbPur = new DBPurchase();
-            return dbPur.GetPurchaseDataProductWise(productID);
+            return dbPur.GetPurchaseDataProductWise(ProductID);
         }
 
-        public DataTable GetPurchaseDataProductWiseWithScheme(string productID)
+        public DataTable GetPurchaseDataProductWiseWithScheme(int ProductID)
         {
             DBPurchase dbPur = new DBPurchase();
-            return dbPur.GetPurchaseDataProductWiseWithScheme(productID);
+            return dbPur.GetPurchaseDataProductWiseWithScheme(ProductID);
         }
-        public DataTable GetOverviewDataForProductBatchList(string ProductID, string mbatch, double mrp)
+        public DataTable GetOverviewDataForProductBatchList(int ProductID, string mbatch, double mrp)
         {
             DBPurchase dbPur = new DBPurchase();
             return dbPur.GetOverviewDataForProductBatchList(ProductID, mbatch, mrp);
         }
 
-        public DataTable GetOverviewDataForPartyProductList(string PartyID, string ProductID)
+        public DataTable GetOverviewDataForPartyProductList(string PartyID, int ProductID)
         {
             DBPurchase dbPur = new DBPurchase();
             return dbPur.GetOverviewDataForPartyProductList(PartyID, ProductID);
@@ -2835,32 +2835,32 @@ namespace EcoMart.BusinessLayer
             dbp.SavePurchaseBillFormat(PurchaseBillFormat, AccountID);
         }
 
-        public void SaveProductsintblbillimportlink(string guid, string DistributorID, string distributorproductID, string retailerproductID)
+        public void SaveProductsintblbillimportlink(string guid, string DistributorID, string distributorProductID, string retailerProductID)
         {
             //bool retValue = false;
             //DBPurchase dbp = new DBPurchase();
-            //retValue = dbp.CheckforProductforDistributorID(DistributorID, distributorproductID);
+            //retValue = dbp.CheckforProductforDistributorID(DistributorID, distributorProductID);
             //if (retValue == false)
             //{
-            //    dbp.AddLinkIntblbillimportlink(guid, DistributorID, distributorproductID, retailerproductID);
+            //    dbp.AddLinkIntblbillimportlink(guid, DistributorID, distributorProductID, retailerProductID);
             //}
            
         }
 
-        public string GetScanGodeForCurrentBatch(string productID)
+        public string GetScanGodeForCurrentBatch(int ProductID)
         {
             string mproductScancode = "";
             string mscancode = "";
             int iscancode = 0;
             DBPurchase dbp = new DBPurchase();
-            DataRow dr = dbp.GetProductScancode(productID);
+            DataRow dr = dbp.GetProductScancode(ProductID);
             if (dr != null)
             {
                 mproductScancode = dr["ProductNumberForBarcode"].ToString();
             }
             if (mproductScancode != string.Empty)
             {
-                DataTable dt = dbp.GetAllBatchNumbersForScanCode(productID);
+                DataTable dt = dbp.GetAllBatchNumbersForScanCode(ProductID);
                 foreach (DataRow drr in dt.Rows)
                 {
                     if (drr["Scancode"] != DBNull.Value && drr["Scancode"].ToString() != string.Empty)

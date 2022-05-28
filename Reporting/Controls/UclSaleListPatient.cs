@@ -531,7 +531,7 @@ namespace EcoMart.Reporting.Controls
                     if (mcbProduct.SelectedID == null || mcbProduct.SelectedID == string.Empty)
                         dtable = _SaleList.GetSaleDataForPatient(txtPatient.Text.ToString().Trim(), _MFromDate, _MToDate);
                     else
-                        dtable = _SaleList.GetSaleDataForPatient(txtPatient.Text.ToString().Trim(), _MFromDate, _MToDate,mcbProduct.SelectedID.ToString());
+                        dtable = _SaleList.GetSaleDataForPatient(txtPatient.Text.ToString().Trim(), _MFromDate, _MToDate, Convert.ToInt32(mcbProduct.SelectedID));
                 }
                 _BindingSource = dtable;
             }

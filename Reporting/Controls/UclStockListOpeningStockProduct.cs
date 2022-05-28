@@ -267,7 +267,7 @@ namespace EcoMart.Reporting.Controls
             {
                 DataTable dtable = new DataTable();               
                 if (mcbProduct.SelectedID != null && mcbProduct.SelectedID != "")
-                    dtable = _OPStock.GetOverviewDataForProductList(mcbProduct.SelectedID);
+                    dtable = _OPStock.GetOverviewDataForProductList(Convert.ToInt32(mcbProduct.SelectedID));
                 _BindingSource = dtable;
                 
             }

@@ -11,7 +11,7 @@ namespace EcoMart.BusinessLayer
     class DetailPrescription
     {
         string _PrescriptionID;
-	    string _ProductID;
+	    int _ProductID;
 	    int _Quantity;
 	    string _CreatedDate;
 	    string _CreatedUserID;
@@ -26,7 +26,7 @@ namespace EcoMart.BusinessLayer
             set { _PrescriptionID = value; }
         }
 
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }

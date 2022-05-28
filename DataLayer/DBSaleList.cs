@@ -176,14 +176,14 @@ namespace EcoMart.DataLayer
             return dt;
         }
 
-        public DataTable GetSaleDataForGivenProduct(string productid)
+        public DataTable GetSaleDataForGivenProduct(int ProductID)
         {
             DataTable dt = null;
             {
                 string strSql = "select a.MasterSaleID,a.ProductID,a.BatchNumber,a.MRP,a.PurchaseRate,a.SaleRate, " +
                                 "a.TradeRate,a.Expiry,a.ExpiryDate,a.Quantity,a.VATAmount,a.Amount,b.ID,b.AccountID,b.VoucherType,b.VoucherSubType, " +
                                 "b.VoucherNumber,b.VoucherDate,b.PatientName,b.PatientAddress1 as Address,c.AccCode from detailsale a  inner join vouchersale b " +
-                                "on A.MasterSaleID = B.ID  left outer join masteraccount c on b.AccountID = c.AccountID   where a.ProductID = '"+ productid+"' order by b.VoucherDate,b.VoucherType,b.VoucherNumber";
+                                "on A.MasterSaleID = B.ID  left outer join masteraccount c on b.AccountID = c.AccountID   where a.ProductID = '"+ ProductID+"' order by b.VoucherDate,b.VoucherType,b.VoucherNumber";
 
                 dt = DBInterface.SelectDataTable(strSql);
             }
@@ -197,7 +197,7 @@ namespace EcoMart.DataLayer
                 string strSql = "select a.MasterSaleID,a.ProductID,a.BatchNumber,a.MRP,a.PurchaseRate,a.SaleRate, " +
                                 "a.TradeRate,a.Expiry,a.ExpiryDate,a.Quantity,a.VATAmount,a.Amount,b.ID,b.PatientName as PatientShortName,b.DoctorShortName,b.VoucherType,b.VoucherSubType, " +
                                 "b.VoucherNumber,b.VoucherDate,b.MobileNumberForSMS,c.ProdName,c.ProdLoosePack,c.ProdPack from detailsale a  inner join vouchersale b " +
-                                "on A.MasterSaleID = B.ID inner join masterproduct c on a.productId = c.ProductId  where c.ProdScheduleDrugCode = 'H1' && b.voucherdate >= '" + fromdate + "' && b.voucherdate <= '" + todate + "' order by b.VoucherDate,b.VoucherType,b.VoucherNumber";
+                                "on A.MasterSaleID = B.ID inner join masterproduct c on a.ProductID = c.ProductID  where c.ProdScheduleDrugCode = 'H1' && b.voucherdate >= '" + fromdate + "' && b.voucherdate <= '" + todate + "' order by b.VoucherDate,b.VoucherType,b.VoucherNumber";
 
 
 
@@ -206,14 +206,14 @@ namespace EcoMart.DataLayer
             return dt;
         }
 
-        public DataTable GetSaleDataForGivenProductBatchMrp(string productid, string batch, double mrp, string fromdate, string todate)
+        public DataTable GetSaleDataForGivenProductBatchMrp(int ProductID, string batch, double mrp, string fromdate, string todate)
         {
             DataTable dt = null;
             {
                 string strSql = "select a.MasterSaleID,a.ProductID,a.BatchNumber,a.MRP,a.PurchaseRate,a.SaleRate, " +
                                 "a.TradeRate,a.Expiry,a.ExpiryDate,a.Quantity,a.VATAmount,a.Amount,b.ID,b.AccountID,b.VoucherType,b.VoucherSubType, " +
                                 "b.VoucherNumber,b.VoucherDate,b.PatientName,b.PatientAddress1 as Address,c.AccCode from detailsale a  inner join vouchersale b " +
-                                "on A.MasterSaleID = B.ID  left outer join masteraccount c on b.AccountID = c.AccountID   where a.ProductID = '" + productid + "' && a.BatchNumber = '"+batch +"' && a.MRP = "+mrp +" && b.VoucherDate >= '"+ fromdate +"' && b.VoucherDate <= '"+ todate +"' order by b.VoucherDate, b.Vouchertype, b.VoucherNumber";
+                                "on A.MasterSaleID = B.ID  left outer join masteraccount c on b.AccountID = c.AccountID   where a.ProductID = '" + ProductID + "' && a.BatchNumber = '"+batch +"' && a.MRP = "+mrp +" && b.VoucherDate >= '"+ fromdate +"' && b.VoucherDate <= '"+ todate +"' order by b.VoucherDate, b.Vouchertype, b.VoucherNumber";
 
                 dt = DBInterface.SelectDataTable(strSql);
             }
@@ -264,7 +264,7 @@ namespace EcoMart.DataLayer
             return dt;
         }
 
-        public DataTable GetSaleDataForPatient(string patient, string fromdate, string todate, string productID)
+        public DataTable GetSaleDataForPatient(string patient, string fromdate, string todate, int ProductID)
         {
             DataTable dt = null;
             {
@@ -272,7 +272,7 @@ namespace EcoMart.DataLayer
                                 "a.Expiry,a.Quantity,a.Amount,b.ID,b.AccountID,b.VoucherType, " +
                                 "b.VoucherNumber,b.VoucherSubType,b.VoucherDate,b.PatientName,b.PatientAddress1,c.AccCode,d.ProductID, " +
                                 "d.ProdName,d.ProdLoosePack,d.ProdPack,d.ProdCompShortName from detailsale a  inner join vouchersale b " +
-                                "on A.MasterSaleID = B.ID  left outer join masteraccount c on b.AccountID = c.AccountID  inner join masterproduct d on a.ProductID = d.ProductID  where a.productID = '"+ productID +"' && b.PatientName like  '%" + patient + "%' && b.VoucherDate >= '" + fromdate + "' && b.Voucherdate <= '" + todate + "' order by b.Vouchertype,b.VoucherNumber";
+                                "on A.MasterSaleID = B.ID  left outer join masteraccount c on b.AccountID = c.AccountID  inner join masterproduct d on a.ProductID = d.ProductID  where a.ProductID = '"+ ProductID +"' && b.PatientName like  '%" + patient + "%' && b.VoucherDate >= '" + fromdate + "' && b.Voucherdate <= '" + todate + "' order by b.Vouchertype,b.VoucherNumber";
 
                 dt = DBInterface.SelectDataTable(strSql);
             }
@@ -593,34 +593,34 @@ namespace EcoMart.DataLayer
             return dt;
         }
 
-        public DataTable GetOverviewDataForPartyProductListDebtor(string partyid, string productid)
+        public DataTable GetOverviewDataForPartyProductListDebtor(string partyid, int ProductID)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.MasterSaleID,a.ProductID,a.BatchNumber,a.Quantity ,a.SaleRate, a.Amount, " +
                  "b.ID,b.VoucherNumber,b.VoucherType,b.VoucherDate,b.AccountID,c.AccountID,c.AccName " +
-                 "from detailsale a  inner join vouchersale b on a.MasterSaleID = b.ID inner join masteraccount c on b.Accountid = c.AccountID where c.AccountID = '" + partyid + "' && a.ProductId = '" + productid + "' order by VoucherNumber";
+                 "from detailsale a  inner join vouchersale b on a.MasterSaleID = b.ID inner join masteraccount c on b.Accountid = c.AccountID where c.AccountID = '" + partyid + "' && a.ProductID = '" + ProductID + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
-        public DataTable GetOverviewDataForPartyProductListPatient(string partyid, string productid)
+        public DataTable GetOverviewDataForPartyProductListPatient(string partyid, int ProductID)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.MasterSaleID,a.ProductID,a.BatchNumber,a.Quantity ,a.SaleRate, a.Amount, " +
                  "b.ID,b.VoucherNumber,b.VoucherType,b.VoucherDate,b.PatientID,b.PatientName,b.PatientAddress1 " +
-                 "from detailsale a  inner join vouchersale b on a.MasterSaleID = b.ID where b.PatientID = '" + partyid + "' && a.ProductId = '" + productid + "' order by VoucherNumber";
+                 "from detailsale a  inner join vouchersale b on a.MasterSaleID = b.ID where b.PatientID = '" + partyid + "' && a.ProductID = '" + ProductID + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
-        public DataTable GetOverviewDataForRegularPartyProductSale(string partyid, string productid, string fromdate, string todate)
+        public DataTable GetOverviewDataForRegularPartyProductSale(string partyid, int ProductID, string fromdate, string todate)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.MasterSaleID,a.ProductID,a.BatchNumber,a.Quantity ,a.SaleRate, a.Amount, " +
                  "b.ID,b.VoucherNumber,b.VoucherType,b.VoucherDate,c.AccountID,c.AccName,c.AccAddress1 " +
-                 "from detailsale a  inner join vouchersale b on a.MasterSaleID = b.ID inner join masteraccount c on b.AccountID = c.AccountID where b.AccountID = '" + partyid + "' && a.ProductId = '" + productid + "' &&  b.voucherdate >= '" + fromdate + "'  && b.VoucherDate <= '" + todate + "' order by VoucherNumber";
+                 "from detailsale a  inner join vouchersale b on a.MasterSaleID = b.ID inner join masteraccount c on b.AccountID = c.AccountID where b.AccountID = '" + partyid + "' && a.ProductID = '" + ProductID + "' &&  b.voucherdate >= '" + fromdate + "'  && b.VoucherDate <= '" + todate + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
-        public DataTable GetOverviewDataForRegularPartyProductSalePatient(string partyid, string productid, string fromdate, string todate)
+        public DataTable GetOverviewDataForRegularPartyProductSalePatient(string partyid, int ProductID, string fromdate, string todate)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.MasterSaleID,a.ProductID,a.BatchNumber,a.Quantity ,a.SaleRate, a.Amount, " +
@@ -646,7 +646,7 @@ namespace EcoMart.DataLayer
         public DataTable GetSaleDataCategory(string mfromdate, string mtodate)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select sum(a.Amount) as AmountNet,a.ProductId,a.MasterSaleID, b.ProductID,b.ProdCategoryID,c.ProductCategoryID,c.ProductCategoryName,d.voucherdate from detailsale a inner join masterproduct b on a.ProductID = b.ProductID inner join masterproductcategory c on b.ProdCategoryID = c.ProductCategoryID inner join vouchersale d on a.MasterSaleID = d.ID  where d.voucherdate >= '" + mfromdate + "' && d.voucherdate <= '" + mtodate + "' group by c.ProductCategoryID order by c.ProductCategoryName ";
+            string strSql = "Select sum(a.Amount) as AmountNet,a.ProductID,a.MasterSaleID, b.ProductID,b.ProdCategoryID,c.ProductCategoryID,c.ProductCategoryName,d.voucherdate from detailsale a inner join masterproduct b on a.ProductID = b.ProductID inner join masterproductcategory c on b.ProdCategoryID = c.ProductCategoryID inner join vouchersale d on a.MasterSaleID = d.ID  where d.voucherdate >= '" + mfromdate + "' && d.voucherdate <= '" + mtodate + "' group by c.ProductCategoryID order by c.ProductCategoryName ";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }

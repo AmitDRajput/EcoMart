@@ -172,7 +172,7 @@ namespace EcoMart.InterfaceLayer
                 DataGridViewRow dr;
                 _DrugGrouping.Id = mcbDrug.SelectedID;
                // retValue = _DrugGrouping.DeleteDetails();
-                _DrugGrouping.ProductId = Convert.ToInt32( dgvProduct.Rows.Count.ToString());
+                _DrugGrouping.ProductID = Convert.ToInt32( dgvProduct.Rows.Count.ToString());
                 _DrugGrouping.Validate();
                 if (_DrugGrouping.IsValid)
                 {
@@ -194,7 +194,7 @@ namespace EcoMart.InterfaceLayer
                                 if (dr.Cells[0].Value.ToString().Trim() != null && dr.Cells[0].Value.ToString().Trim() != "")
                                 {
                                     _DrugGrouping.IntID  = Convert.ToInt32( mcbDrug.SelectedID.ToString());
-                                    _DrugGrouping.ProductId = Convert.ToInt32(dr.Cells[0].Value.ToString());
+                                    _DrugGrouping.ProductID = Convert.ToInt32(dr.Cells[0].Value.ToString());
                                 //SS
                                  /* * _DrugGrouping.DetailId = _DrugGrouping.GetIntID();  Guid.NewGuid().ToString().ToUpper().Replace("-", "");*/                                                                      // retValue = _DrugGrouping.AddDetails();
                                 retValue = _DrugGrouping.UpdateProductMaster();
@@ -242,7 +242,7 @@ namespace EcoMart.InterfaceLayer
                     //        _DrugGrouping.CreatedTime = "";
                     //        dr = dgvProduct.Rows[index];
                     //        _DrugGrouping.Id = mcbDrug.SelectedID;
-                    //        _DrugGrouping.ProductId = dr.Cells[0].Value.ToString();
+                    //        _DrugGrouping.ProductID = dr.Cells[0].Value.ToString();
                     //        if (dr.Cells[2].Value != null)
                     //            _DrugGrouping.CreatedBy = dr.Cells[2].Value.ToString();
                     //        if (dr.Cells[3].Value != null)
@@ -466,7 +466,7 @@ namespace EcoMart.InterfaceLayer
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_ID";
-                column.DataPropertyName = "ProductId";
+                column.DataPropertyName = "ProductID";
                 column.HeaderText = "ID";
                 column.Visible = false;
                 dgvProduct.Columns.Add(column);
@@ -528,7 +528,7 @@ namespace EcoMart.InterfaceLayer
                 {
                     int rowIndex = dgvProduct.Rows.Add();
                     DataGridViewRow dr = dgvProduct.Rows[rowIndex];
-                    dr.Cells[0].Value = dtable.Rows[index]["ProductId"].ToString();
+                    dr.Cells[0].Value = dtable.Rows[index]["ProductID"].ToString();
                     dr.Cells[1].Value = dtable.Rows[index]["ProdName"].ToString();
                     dr.Cells[5].Value = dtable.Rows[index]["ProdPack"].ToString();               
                 }
@@ -547,7 +547,7 @@ namespace EcoMart.InterfaceLayer
                 return true;
         }     
 
-        private bool IsProductAlreadyAdded(string ProductID)
+        private bool IsProductAlreadyAdded(int ProductID)
         {
             bool retValue = false;
             DataGridViewRow dr;
@@ -556,7 +556,7 @@ namespace EcoMart.InterfaceLayer
                 for (int index = 0; index < dgvProduct.Rows.Count; index++)
                 {
                     dr = dgvProduct.Rows[index];
-                    if (dr.Cells[0].Value.ToString() == ProductID)
+                    if (Convert.ToInt32(dr.Cells[0].Value.ToString()) == ProductID)
                     {
                         retValue = true;
                         break;
@@ -764,7 +764,7 @@ namespace EcoMart.InterfaceLayer
                 DataGridViewTextBoxColumn column;
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_ID";
-                column.DataPropertyName = "ProductId";
+                column.DataPropertyName = "ProductID";
                 column.HeaderText = "ID";
                 column.Visible = false;
                 dgvLowerList.Columns.Add(column);
@@ -856,7 +856,7 @@ namespace EcoMart.InterfaceLayer
                 DataGridViewTextBoxColumn column;
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_ID";
-                column.DataPropertyName = "ProductId";
+                column.DataPropertyName = "ProductID";
                 column.HeaderText = "ID";
                 column.Visible = false;
                 dgvUpperListY.Columns.Add(column);

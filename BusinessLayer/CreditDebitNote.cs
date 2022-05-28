@@ -52,30 +52,30 @@ namespace EcoMart.BusinessLayer
             return dbStock.GetOverviewDataForParty(AccID, fromDate, toDate);
         }
 
-        public DataTable GetDebitCreditListProduct(string productID, string fromDate, string toDate)
+        public DataTable GetDebitCreditListProduct(int ProductID, string fromDate, string toDate)
         {
             DBCreditDebitNote dbStock = new DBCreditDebitNote();
-            return dbStock.GetDebitCreditListProduct(productID, fromDate, toDate);
+            return dbStock.GetDebitCreditListProduct(ProductID, fromDate, toDate);
         }
         public DataTable GetDebitCreditStockListProductByVouType(string voutype, string fromDate, string toDate)
         {
             DBCreditDebitNote dbStock = new DBCreditDebitNote();
             return dbStock.GetDebitCreditStockListProductByVouType(voutype,fromDate,toDate);
         }
-        public DataTable GetDebitCreditStockListProductByVouType(string voutype, string fromDate, string toDate, string productID)
+        public DataTable GetDebitCreditStockListProductByVouType(string voutype, string fromDate, string toDate, int ProductID)
         {
             DBCreditDebitNote dbStock = new DBCreditDebitNote();
-            return dbStock.GetDebitCreditStockListProductByVouType(voutype, fromDate, toDate, productID);
+            return dbStock.GetDebitCreditStockListProductByVouType(voutype, fromDate, toDate, ProductID);
         }
-        public DataTable GetCreditDebitNoteListProduct(string Productid, string fromDate, string toDate)
+        public DataTable GetCreditDebitNoteListProduct(int ProductID, string fromDate, string toDate)
         {
             DBCreditDebitNote dbStock = new DBCreditDebitNote();
-            return dbStock.GetDebitCreditListProduct(Productid,fromDate,toDate);
+            return dbStock.GetDebitCreditListProduct(ProductID,fromDate,toDate);
         }
-        public DataTable GetStockoutListProduct(string Productid)
+        public DataTable GetStockoutListProduct(int ProductID)
         {
             DBCreditDebitNote dbStock = new DBCreditDebitNote();
-            return dbStock.GetStockoutListProduct(Productid);
+            return dbStock.GetStockoutListProduct(ProductID);
         }
         public DataTable GetOverviewDataForVATReport(string voucherType , string fromDate, string toDate)
         {

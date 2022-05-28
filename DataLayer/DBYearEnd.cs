@@ -231,7 +231,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = null;
             string strSql = "";
 
-            strSql = "Select b.ProductID, b.StockID, a.voucherDate,  b.Quantity , b.SchemeQuantity,d.Prodname,d.Prodpack,d.Prodloosepack  from detailopStock b inner join voucheropStock a on b.MasterID = a.MasterID inner join masterproduct d on b.productID = d.ProductId where a.voucherDate > '" + _MToDate + "'";
+            strSql = "Select b.ProductID, b.StockID, a.voucherDate,  b.Quantity , b.SchemeQuantity,d.Prodname,d.Prodpack,d.Prodloosepack  from detailopStock b inner join voucheropStock a on b.MasterID = a.MasterID inner join masterproduct d on b.ProductID = d.ProductID where a.voucherDate > '" + _MToDate + "'";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -257,7 +257,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = null;
             string strSql = "";
 
-            strSql = "Select b.ProductID, b.StockID, a.voucherDate, sum(b.Quantity) as Quantity , sum(b.SchemeQuantity) as SchemeQuantity,d.Prodname,d.Prodpack,d.Prodloosepack  from detailSale b inner join voucherSale a on b.MasterSaleID = a.ID inner join masterproduct d on b.productID = d.ProductId where a.voucherDate > '" + _MToDate + "' group by b.StockID";
+            strSql = "Select b.ProductID, b.StockID, a.voucherDate, sum(b.Quantity) as Quantity , sum(b.SchemeQuantity) as SchemeQuantity,d.Prodname,d.Prodpack,d.Prodloosepack  from detailSale b inner join voucherSale a on b.MasterSaleID = a.ID inner join masterproduct d on b.ProductID = d.ProductID where a.voucherDate > '" + _MToDate + "' group by b.StockID";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -282,7 +282,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = null;
             string strSql = "";
 
-            strSql = "Select b.ProductID, b.StockID, a.voucherDate,  sum(b.Quantity*d.ProdLoosePack) as Quantity , sum(b.SchemeQuantity*d.ProdLoosePack) as schemequantity,d.Prodname,d.Prodpack,d.Prodloosepack  from detailpurchase b inner join voucherpurchase a on b.PurchaseID = a.PurchaseID inner join masterproduct d on b.productID = d.ProductId where a.voucherDate > '" + _MToDate + "' group by b.StockID";
+            strSql = "Select b.ProductID, b.StockID, a.voucherDate,  sum(b.Quantity*d.ProdLoosePack) as Quantity , sum(b.SchemeQuantity*d.ProdLoosePack) as schemequantity,d.Prodname,d.Prodpack,d.Prodloosepack  from detailpurchase b inner join voucherpurchase a on b.PurchaseID = a.PurchaseID inner join masterproduct d on b.ProductID = d.ProductID where a.voucherDate > '" + _MToDate + "' group by b.StockID";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }        
@@ -308,7 +308,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = null;
             string strSql = "";
 
-            strSql = "Select b.ProductID, b.StockID, a.voucherDate,  sum(b.Quantity) as Quantity , sum(b.SchemeQuantity) as schemequantity,d.Prodname,d.Prodpack,d.Prodloosepack  from detailcreditdebitnotestock b inner join vouchercreditdebitnote a on b.MasterID = a.CRDBID inner join masterproduct d on b.productID = d.ProductId where a.voucherDate > '" + _MToDate + "' && (a.voucherType = '"+ FixAccounts.VoucherTypeForCreditNoteStock +"' || a.voucherType = '"+ FixAccounts.VoucherTypeForStockIN +"') group by b.StockID";
+            strSql = "Select b.ProductID, b.StockID, a.voucherDate,  sum(b.Quantity) as Quantity , sum(b.SchemeQuantity) as schemequantity,d.Prodname,d.Prodpack,d.Prodloosepack  from detailcreditdebitnotestock b inner join vouchercreditdebitnote a on b.MasterID = a.CRDBID inner join masterproduct d on b.ProductID = d.ProductID where a.voucherDate > '" + _MToDate + "' && (a.voucherType = '"+ FixAccounts.VoucherTypeForCreditNoteStock +"' || a.voucherType = '"+ FixAccounts.VoucherTypeForStockIN +"') group by b.StockID";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -334,7 +334,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = null;
             string strSql = "";
 
-            strSql = "Select b.ProductID, b.StockID, a.voucherDate,  sum(b.Quantity) as Quantity , sum(b.SchemeQuantity) as schemequantity,d.Prodname,d.Prodpack,d.Prodloosepack  from detailcreditdebitnotestock b inner join vouchercreditdebitnote a on b.MasterID = a.CrdbID inner join masterproduct d on b.productID = d.ProductId where a.voucherDate > '" + _MToDate + "' && (a.voucherType = '" + FixAccounts.VoucherTypeForDebitNoteStock + "' || a.voucherType = '" + FixAccounts.VoucherTypeForStockOut + "') group by b.StockID";
+            strSql = "Select b.ProductID, b.StockID, a.voucherDate,  sum(b.Quantity) as Quantity , sum(b.SchemeQuantity) as schemequantity,d.Prodname,d.Prodpack,d.Prodloosepack  from detailcreditdebitnotestock b inner join vouchercreditdebitnote a on b.MasterID = a.CrdbID inner join masterproduct d on b.ProductID = d.ProductID where a.voucherDate > '" + _MToDate + "' && (a.voucherType = '" + FixAccounts.VoucherTypeForDebitNoteStock + "' || a.voucherType = '" + FixAccounts.VoucherTypeForStockOut + "') group by b.StockID";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -359,7 +359,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = null;
             string strSql = "";
 
-            strSql = "Select b.ProductID, b.oldStockID,b.OldQuantity,b.NewStockID,b.NewQuantity, b.voucherDate, d.Prodname,d.Prodpack,d.Prodloosepack  from vouchercorrectioninRate b  inner join masterproduct d on b.productID = d.ProductId where b.voucherDate > '" + _MToDate + "'";
+            strSql = "Select b.ProductID, b.oldStockID,b.OldQuantity,b.NewStockID,b.NewQuantity, b.voucherDate, d.Prodname,d.Prodpack,d.Prodloosepack  from vouchercorrectioninRate b  inner join masterproduct d on b.ProductID = d.ProductID where b.voucherDate > '" + _MToDate + "'";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }

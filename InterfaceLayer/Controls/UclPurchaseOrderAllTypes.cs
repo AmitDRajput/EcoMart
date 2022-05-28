@@ -1295,7 +1295,7 @@ namespace EcoMart.InterfaceLayer
                     string preaccountid = "";
                     double mmpurrate = 0;
                     double mmamt = 0;
-                    string mmprodID = "";
+                    int mmprodID = 0;
                     string netrate = "";
 
 
@@ -1309,7 +1309,7 @@ namespace EcoMart.InterfaceLayer
                     mmamt = 0;
                     mmaccid = "";
                     mmordid = "";
-                    mmprodID = "";
+                    mmprodID = 0;
 
                     _DailyPurchaseOrder.DSLMasterID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                     _DailyPurchaseOrder.DSLAmount = 0;
@@ -1334,7 +1334,7 @@ namespace EcoMart.InterfaceLayer
 
                         int.TryParse(ddsr.Cells["Col_Quantity"].Value.ToString(), out mmqty);
                         mmaccid = ddsr.Cells["Col_ACCID"].Value.ToString();
-                        mmprodID = ddsr.Cells["Col_ProdID"].Value.ToString();
+                        mmprodID = Convert.ToInt32(ddsr.Cells["Col_ProdID"].Value.ToString());
                         netrate = ddsr.Cells["Col_NetRate"].Value.ToString();
                         mmordid = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         if (ddsr.Cells["Col_PurchaseRate"].Value != null)
@@ -1585,8 +1585,8 @@ namespace EcoMart.InterfaceLayer
             double mamt = 0;
             double mprate = 0;
             double mqty = 0;
-            string productid = "";
-            string drrproductid = "";
+            int ProductID = 0;
+            int drrProductID = 0;
             bool found = false;
             try
             {
@@ -1600,17 +1600,17 @@ namespace EcoMart.InterfaceLayer
                     found = false;
                     if (dr["ProductID"] != DBNull.Value)
                     {
-                        productid = dr["ProductID"].ToString();
+                        ProductID = Convert.ToInt32(dr["ProductID"].ToString());
                         foreach (DataGridViewRow drr in mpMainSubViewControl1.Rows)
                         {
-                            drrproductid = "";
+                            drrProductID = 0;
                             try
                             {
                                 if (drr.Cells["Col_ProdID"].Value != null)
                                 {
-                                    drrproductid = drr.Cells["Col_ProdID"].Value.ToString();
+                                    drrProductID = Convert.ToInt32(drr.Cells["Col_ProdID"].Value.ToString());
 
-                                    if (drrproductid == productid)
+                                    if (drrProductID == ProductID)
                                     {
                                         found = true;
                                         //  drr.Cells["Col_ProdLastPurchaseRate"].Value = dr["ProdLastPurchaseRate"].ToString();
@@ -1707,8 +1707,8 @@ namespace EcoMart.InterfaceLayer
             double mamt = 0;
             double mprate = 0;
             double mqty = 0;
-            string drrproductid = "";
-            string productid = "";
+            int drrProductID = 0;
+            int ProductID = 0;
             bool found = false;
             int ordernumber = 0;
             try
@@ -1721,19 +1721,19 @@ namespace EcoMart.InterfaceLayer
                     found = false;
                     if (dr["ProductID"] != DBNull.Value)
                     {
-                        productid = dr["ProductID"].ToString();
+                        ProductID = Convert.ToInt32(dr["ProductID"].ToString());
                         ordernumber = Convert.ToInt32(dr["OrderNumber"].ToString());
                         if (ordernumber == lastordernumber)
                         {
                             foreach (DataGridViewRow drr in mpMainSubViewControl.Rows)
                             {
-                                drrproductid = "";
+                                drrProductID = 0;
 
                                 if (drr.Cells["Col_ID"].Value != null)
                                 {
-                                    drrproductid = drr.Cells["Col_ID"].Value.ToString();
+                                    drrProductID = Convert.ToInt32(drr.Cells["Col_ID"].Value.ToString());
 
-                                    if (drrproductid == productid)
+                                    if (drrProductID == ProductID)
                                     {
                                         found = true;
                                         drr.Cells["Col_ProdLastPurchaseRate"].Value = dr["ProdLastPurchaseRate"].ToString();
@@ -2008,9 +2008,9 @@ namespace EcoMart.InterfaceLayer
             SsStock invss = new SsStock();
             int rowindex = 0;
 
-            string prodid = "";
+            int prodid = 0;
             if (mpMainSubViewControl1.MainDataGridCurrentRow.Cells["Col_ProdID"].Value != null)
-                prodid = mpMainSubViewControl1.MainDataGridCurrentRow.Cells["Col_ProdID"].Value.ToString();
+                prodid = Convert.ToInt32(mpMainSubViewControl1.MainDataGridCurrentRow.Cells["Col_ProdID"].Value.ToString());
 
 
             //  int expdt = 0;           
@@ -2031,7 +2031,7 @@ namespace EcoMart.InterfaceLayer
             }
             try
             {
-                dt = invss.GetPurchaseDetailsForPurchaseOrder(prodid.ToString());
+                dt = invss.GetPurchaseDetailsForPurchaseOrder(prodid);
                 //  dgvBatchGrid.DataSource = dt;
                 if (dt != null && dt.Rows.Count > 0)
                 {

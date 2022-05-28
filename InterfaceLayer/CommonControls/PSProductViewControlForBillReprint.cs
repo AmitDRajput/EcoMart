@@ -36,7 +36,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
         public delegate void NewBatchClicked();
         public event NewBatchClicked OnNewBatchClicked;
 
-        public delegate void SelectedProductClosingStock(int closingStockValue,string productID);    
+        public delegate void SelectedProductClosingStock(int closingStockValue,int ProductID);    
         public event DataGridViewCellEventHandler OnCellEnter;
         public event DataGridViewCellEventHandler OnCellLeave;
 
@@ -299,12 +299,12 @@ namespace EcoMart.InterfaceLayer.CommonControls
             pnlBatchGrid.Visible = false;
         }
 
-        public bool LoadProduct(string productID)
+        public bool LoadProduct(int ProductID)
         {
             bool retValue = false;
             if (dgMainGrid.IsFirstColumn())
             {
-                DoProductListFilterForProductID(productID);
+                DoProductListFilterForProductID(ProductID);
                 if (dgProductListGrid.Rows.Count > 0)
                     retValue = FillProductDetails();
                 else
@@ -379,13 +379,13 @@ namespace EcoMart.InterfaceLayer.CommonControls
             catch (Exception ex) { Log.WriteError(ex.ToString()); }
         }
 
-        private void FillGridBatchList(string productID)
+        private void FillGridBatchList(int ProductID)
         {
             try
             {
                 DataTable dt = new DataTable();
                 SsStock stock = new SsStock();            
-                DataSourceBatchList = stock.GetStockByProductIDForDBCRNote(productID);
+                DataSourceBatchList = stock.GetStockByProductIDForDBCRNote(ProductID);
                 if (DataSourceBatchList != null && DataSourceBatchList.Rows.Count > 0)
                 {
                     //RecalculateBatchQuantity(DataSourceBatchList);
@@ -592,7 +592,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
         //                if (dgRow.Cells["Col_StockID"].Value != null && dgRow.Cells["Col_StockID"].Value.ToString() != string.Empty && dgRow.Cells[0].Value != null && dgRow.Cells[0].Value.ToString() != string.Empty)
         //                {
         //                    tStock.StockId = dgRow.Cells["Col_StockID"].Value.ToString();
-        //                    tStock.ProductId = dgRow.Cells[0].Value.ToString();
+        //                    tStock.ProductID = dgRow.Cells[0].Value.ToString();
         //                    if (dgRow.Cells["Old_Quantity"].Value != null && dgRow.Cells["Old_Quantity"].Value.ToString() != string.Empty)
         //                    {
         //                        tStock.SoldQuantity = Convert.ToInt32(dgRow.Cells["Col_Quantity"].Value.ToString()) - Convert.ToInt32(dgRow.Cells["Old_Quantity"].Value.ToString());
@@ -615,7 +615,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
         //                    tStock.ModuleNumber = ModuleNumber;
         //                    tStock.CompName = ComputerName;
         //                    tStock.Mode = OperationMode;
-        //                    string tempStockID = tStock.GetStockByStockIDAndProductID(tStock.StockId, tStock.ProductId, tStock.ModuleNumber, tStock.CompName, tStock.Mode, tStock.CustomerNumber);
+        //                    string tempStockID = tStock.GetStockByStockIDAndProductID(tStock.StockId, tStock.ProductID, tStock.ModuleNumber, tStock.CompName, tStock.Mode, tStock.CustomerNumber);
         //                    if (tempStockID != string.Empty)
         //                    {
         //                        tStock.TempStockId = tempStockID;
@@ -635,14 +635,14 @@ namespace EcoMart.InterfaceLayer.CommonControls
         //                for (int index = 0; index < dtStock.Rows.Count; index++)
         //                {
         //                    DataRow dr = dtStock.Rows[index];
-        //                    string productID = dr["ProductID"].ToString();
-        //                    if (htProducts.Contains(productID))
+        //                    int ProductID = dr["ProductID"].ToString();
+        //                    if (htProducts.Contains(ProductID))
         //                    {
-        //                        htProducts[productID] = Convert.ToInt32(htProducts[productID]) + Convert.ToInt32(dr["SoldQuantity"].ToString());
+        //                        htProducts[ProductID] = Convert.ToInt32(htProducts[ProductID]) + Convert.ToInt32(dr["SoldQuantity"].ToString());
         //                    }
         //                    else
         //                    {
-        //                        htProducts.Add(productID, Convert.ToInt32(dr["SoldQuantity"].ToString()));
+        //                        htProducts.Add(ProductID, Convert.ToInt32(dr["SoldQuantity"].ToString()));
         //                    }
         //                    //EcoMartCache.RefreshProductData(dr["ProductID"].ToString(), OperationMode.Add, Convert.ToInt32(dr["SoldQuantity"].ToString()));
         //                }
@@ -673,11 +673,11 @@ namespace EcoMart.InterfaceLayer.CommonControls
             catch (Exception ex) { Log.WriteError(ex.ToString()); }
         }
 
-        private void DoProductListFilterForProductID(string productID)
+        private void DoProductListFilterForProductID(int ProductID)
         {
             try
             {
-                ProductListFilter = GetFilterStringForProductID(productID);
+                ProductListFilter = GetFilterStringForProductID(ProductID);
                 _BindingSourceProductList.Filter = ProductListFilter;
                 if (dgProductListGrid.Rows.Count > 0)
                 {
@@ -689,7 +689,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
             catch (Exception ex) { Log.WriteError(ex.ToString()); }
         }
 
-        private string GetFilterStringForProductID(string productID)
+        private string GetFilterStringForProductID(int ProductID)
         {
             string strFilterString = "";
             string strFilterColumn = "";
@@ -702,15 +702,15 @@ namespace EcoMart.InterfaceLayer.CommonControls
                 if (DataSourceProductList.Columns[dgMainGrid.Columns[0].DataPropertyName].DataType == typeof(int))
                 {
                     strFilterString += strFilterColumn + " = ";
-                    strFilterString += productID + " ";
+                    strFilterString += ProductID + " ";
                 }
                 else if (DataSourceProductList.Columns[dgMainGrid.Columns[0].DataPropertyName].DataType == typeof(string))
                 {
                     strFilterString += strFilterColumn;
                     if (General.CurrentSetting.MsetGeneralAlphabetical == "Y")
-                    { strFilterString += " like '" + productID + "%' "; }
+                    { strFilterString += " like '" + ProductID + "%' "; }
                     else
-                    { strFilterString += " like '%" + productID + "%' "; }
+                    { strFilterString += " like '%" + ProductID + "%' "; }
                     
                 }
             }
@@ -819,7 +819,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                 //int closingStockValue = 0;
                 //int mqty = 0;
                 //// ss 12/6/2013
-                //string productId = "";             
+                //int ProductID = 0;             
                 // ss 12/6/2013
                 // Check for closing stock
                 //if (!string.IsNullOrEmpty(ProductGridClosingStockColumnName))
@@ -827,7 +827,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                 //    if (_DataGridViewSelectedRow.Cells[ProductGridClosingStockColumnName].Value != null && _DataGridViewSelectedRow.Cells[ProductGridClosingStockColumnName].Value.ToString() != "")
                 //    {
                 //        closingStockValue = Convert.ToInt32(_DataGridViewSelectedRow.Cells[ProductGridClosingStockColumnName].Value.ToString());
-                //        productId = _DataGridViewSelectedRow.Cells[0].Value.ToString();
+                //        ProductID = _DataGridViewSelectedRow.Cells[0].Value.ToString();
 
                 //        //ss 2/10/2013
                 //        {
@@ -845,14 +845,14 @@ namespace EcoMart.InterfaceLayer.CommonControls
                 //    }
                 //    if (IsClosingStockZero)
                 //    {
-                //        productId = _DataGridViewSelectedRow.Cells[0].Value.ToString();
+                //        ProductID = _DataGridViewSelectedRow.Cells[0].Value.ToString();
                 //        dgProductListGrid.Visible = false;
                 //        dgMainGrid.CurrentCell.Value = "";
                 //        SetFocus(1);
                 //        dgMainGrid.Refresh();
                 //        if (OnSelectedProductClosingStock != null)
                 //        {
-                //            OnSelectedProductClosingStock(closingStockValue, productId);
+                //            OnSelectedProductClosingStock(closingStockValue, ProductID);
                 //        }
                 //        retValue = false;
                 //        return retValue;
@@ -865,7 +865,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                         OnProductSelected(_DataGridViewSelectedRow);
                 }
                 dgProductListGrid.Visible = false;                
-                FillGridBatchList(_DataGridViewSelectedRow.Cells[0].Value.ToString());
+                FillGridBatchList(Convert.ToInt32(_DataGridViewSelectedRow.Cells[0].Value.ToString()));
                 pnlBatchGrid.Location = GetCurrentRowLocationforBatchGrid();
                 pnlBatchGrid.Visible = true;
                 if (dgBatchListGrid.Rows.Count > 0)
@@ -1135,7 +1135,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
         //        if (dataGridViewRow.Cells["Col_StockID"].Value != null)
         //            tStock.StockId = dataGridViewRow.Cells["Col_StockID"].Value.ToString();
         //        if (dataGridViewRow.Cells["Col_ProductID"].Value != null)
-        //            tStock.ProductId = dataGridViewRow.Cells["Col_ProductID"].Value.ToString();
+        //            tStock.ProductID = dataGridViewRow.Cells["Col_ProductID"].Value.ToString();
         //        if (dataGridViewRow.Cells["Col_Quantity"].Value != null)
         //        {
         //            if (dataGridViewRow.Cells["Old_Quantity"].Value != null && dataGridViewRow.Cells["Old_Quantity"].Value.ToString() != string.Empty)
@@ -1160,7 +1160,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
         //        tStock.CompName = ComputerName;                
         //        tStock.DeleteDetails();
 
-        //        if (tStock.ProductId != string.Empty)
+        //        if (tStock.ProductID != string.Empty)
         //        {
         //            int soldQuantity = 0;
         //            if (dataGridViewRow.Cells["Old_Quantity"].Value != null && dataGridViewRow.Cells["Old_Quantity"].Value.ToString() != string.Empty)
@@ -1174,16 +1174,16 @@ namespace EcoMart.InterfaceLayer.CommonControls
         //            }
         //            if (dataGridViewRow.Cells["Col_Quantity"].Value != null)
         //            {
-        //                EcoMartCache.RefreshProductData(tStock.ProductId, OperationMode.Delete, soldQuantity);
+        //                EcoMartCache.RefreshProductData(tStock.ProductID, OperationMode.Delete, soldQuantity);
         //                //Reduce sold quantity
         //                foreach (DataGridViewRow row in dgMainGrid.Rows)
         //                {
-        //                    if (row.Cells["Col_ProductID"].Value != null && row.Cells["Col_ProductID"].Value.ToString() == tStock.ProductId && dataGridViewRow.Index != row.Index)
+        //                    if (row.Cells["Col_ProductID"].Value != null && row.Cells["Col_ProductID"].Value.ToString() == tStock.ProductID && dataGridViewRow.Index != row.Index)
         //                    {
         //                        soldQuantity += Convert.ToInt32(row.Cells["Col_Quantity"].Value.ToString());
         //                    }
         //                }
-        //                EcoMartCache.RefreshProductData(tStock.ProductId, OperationMode.Add, soldQuantity);
+        //                EcoMartCache.RefreshProductData(tStock.ProductID, OperationMode.Add, soldQuantity);
         //            }
         //        }
 

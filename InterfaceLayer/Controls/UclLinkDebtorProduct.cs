@@ -224,7 +224,7 @@ namespace EcoMart.InterfaceLayer
                         _DebtorProduct.CreatedBy = "";
                         _DebtorProduct.CreatedDate = "";
                         _DebtorProduct.CreatedTime = "";
-                        _DebtorProduct.ProductID = prodrow.Cells["Col_ID"].Value.ToString();
+                        _DebtorProduct.ProductID = Convert.ToInt32(prodrow.Cells["Col_ID"].Value.ToString());
                         _DebtorProduct.Quantity = Convert.ToInt32(prodrow.Cells["Col_Quantity"].Value);
                         if (prodrow.Cells["Col_CreatedBy"].Value != null)
                             _DebtorProduct.CreatedBy = prodrow.Cells["Col_CreatedBy"].Value.ToString();
@@ -652,7 +652,7 @@ namespace EcoMart.InterfaceLayer
 
         private void mpmsvc1_OnDetailsFilled(DataGridViewRow selectedRow)
         {
-            string mprodID = "";
+            int mprodID = 0;
             int mrowindex = 0;
             int mcindex = 0;
             try
@@ -660,14 +660,14 @@ namespace EcoMart.InterfaceLayer
                 _DebtorProduct.DuplicateProduct = false;
                 if (mpMSVC1.MainDataGridCurrentRow.Cells["Col_ID"].Value != null)
                 {
-                    mprodID = mpMSVC1.MainDataGridCurrentRow.Cells["Col_ID"].Value.ToString();
+                    mprodID = Convert.ToInt32(mpMSVC1.MainDataGridCurrentRow.Cells["Col_ID"].Value.ToString());
                     mrowindex = mpMSVC1.MainDataGridCurrentRow.Index;
                 }
                 foreach (DataGridViewRow prodrow in mpMSVC1.Rows)
                 {
                     if (prodrow.Cells["Col_ID"].Value != null)
                     {
-                        _DebtorProduct.ProductID = prodrow.Cells["Col_ID"].Value.ToString();
+                        _DebtorProduct.ProductID = Convert.ToInt32(prodrow.Cells["Col_ID"].Value.ToString());
                         mcindex = prodrow.Index;
                         if (_DebtorProduct.ProductID == mprodID && mrowindex != mcindex)
                         {
@@ -930,7 +930,7 @@ namespace EcoMart.InterfaceLayer
             try
             {
                // _PartyCompany.CurrentPartyId = dgvUpperListY.SelectedRow.Cells[0].Value.ToString().Trim();
-                _DebtorProduct.ProductID = dgvUpperListY.SelectedRow.Cells[0].Value.ToString();
+                _DebtorProduct.ProductID = Convert.ToInt32(dgvUpperListY.SelectedRow.Cells[0].Value.ToString());
                 FillLowerGridY();
             }
             catch (Exception Ex)

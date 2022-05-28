@@ -195,8 +195,8 @@ namespace EcoMart.InterfaceLayer
                 {
                     if (prodrow.Cells["Col_ID"].Value != null && prodrow.Cells["Col_ID"].Value.ToString() != "" )
                     {                       
-                        _ShelfProduct.ProductID = prodrow.Cells["Col_ID"].Value.ToString();
-                        returnVal = _ShelfProduct.UpdateMasterProductByProductId(_ShelfProduct.Id, _ShelfProduct.ProductID);
+                        _ShelfProduct.ProductID = Convert.ToInt32(prodrow.Cells["Col_ID"].Value.ToString());
+                        returnVal = _ShelfProduct.UpdateMasterProductByProductID(_ShelfProduct.Id, _ShelfProduct.ProductID);
                     }
                 }
             }
@@ -351,7 +351,7 @@ namespace EcoMart.InterfaceLayer
                 {
                     int rowIndex = dgvProduct.Rows.Add();
                     DataGridViewRow dr = dgvProduct.Rows[rowIndex];
-                    dr.Cells[0].Value = dtable.Rows[index]["ProductId"].ToString();
+                    dr.Cells[0].Value = dtable.Rows[index]["ProductID"].ToString();
                     dr.Cells[1].Value = dtable.Rows[index]["ProdName"].ToString();                 
                 }
                 if (dtable.Rows.Count > 0)
@@ -360,7 +360,7 @@ namespace EcoMart.InterfaceLayer
             }
             catch (Exception Ex) { Log.WriteException(Ex); }
         }
-        private bool IsProductAlreadyAdded(string ProductID)
+        private bool IsProductAlreadyAdded(int ProductID)
         {
             bool retValue = false;
             DataGridViewRow dr;
@@ -369,7 +369,7 @@ namespace EcoMart.InterfaceLayer
                 for (int index = 0; index < dgvProduct.Rows.Count; index++)
                 {
                     dr = dgvProduct.Rows[index];
-                    if (dr.Cells[0].Value.ToString() == ProductID)
+                    if (Convert.ToInt32(dr.Cells[0].Value.ToString()) == ProductID)
                     {
                         retValue = true;
                         break;
@@ -438,7 +438,7 @@ namespace EcoMart.InterfaceLayer
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_ID";
-                column.DataPropertyName = "ProductId";
+                column.DataPropertyName = "ProductID";
                 column.HeaderText = "ID";
                 column.Visible = false;
                 dgvProduct.Columns.Add(column);
@@ -483,7 +483,7 @@ namespace EcoMart.InterfaceLayer
             {
                 if (mcbProduct.SelectedID != null && mcbProduct.SelectedID != "")
                 {
-                    if (IsProductAlreadyAdded(mcbProduct.SelectedID) == false)
+                    if (IsProductAlreadyAdded(Convert.ToInt32(mcbProduct.SelectedID)) == false)
                     {
                         int index = dgvProduct.Rows.Add();
                         DataGridViewRow dr = dgvProduct.Rows[index];

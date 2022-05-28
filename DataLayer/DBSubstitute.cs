@@ -26,7 +26,7 @@ namespace EcoMart.DataLayer
         {
             //kiran
             DataTable dtable = new DataTable();
-            string strSql = "Select distinct  a.ProdName , a.ProductID, a.ProdLoosePack,a.ProdPack,a.ProdCompShortName,a.ProdClosingStock,b.StockID,b.BatchNumber,b.Expiry,b.ExpiryDate,b.ClosingStock,b.Margin from  masterproduct a inner join tblstock b on a.productID = b.ProductId  where   a.prodDrugID = '" + drugCode + "' " +/*&& b.ClosingStock > 0 */ "order by b.ClosingStock Desc,b.ExpiryDate";
+            string strSql = "Select distinct  a.ProdName , a.ProductID, a.ProdLoosePack,a.ProdPack,a.ProdCompShortName,a.ProdClosingStock,b.StockID,b.BatchNumber,b.Expiry,b.ExpiryDate,b.ClosingStock,b.Margin from  masterproduct a inner join tblstock b on a.ProductID = b.ProductID  where   a.prodDrugID = '" + drugCode + "' " +/*&& b.ClosingStock > 0 */ "order by b.ClosingStock Desc,b.ExpiryDate";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }

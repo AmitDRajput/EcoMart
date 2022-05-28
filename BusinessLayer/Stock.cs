@@ -8,10 +8,10 @@ using EcoMart.Common;
 
 namespace EcoMart.BusinessLayer
 {
-    class Stock: BaseObject
+    class Stock : BaseObject
     {
         #region Declaration
-        private string _ProductId;
+        private int _ProductID;
         private string _BatchNumber;
         private string _Expiry;
         private string _ExpiryDate;
@@ -41,17 +41,17 @@ namespace EcoMart.BusinessLayer
         private string _LastPurchaseDate;
         private string _LastPurchaseVoucherType;
         private long _LastPurchaseVoucherNumber;
-        private string _ScanCode;     
+        private string _ScanCode;
         private string _CreatedUserId;
         private string _ModifyDate;
         private string _ModifyUserId;
         #endregion
 
         #region Properties
-        public string ProductId
+        public int ProductID
         {
-            get { return _ProductId; }
-            set { _ProductId = value; }
+            get { return _ProductID; }
+            set { _ProductID = value; }
         }
 
 
@@ -284,7 +284,7 @@ namespace EcoMart.BusinessLayer
         public override void Initialise()
         {
             base.Initialise();
-            _ProductId = "";
+            _ProductID = 0;
             _BatchNumber = "";
             _Expiry = "";
             _ExpiryDate = "";
@@ -313,7 +313,7 @@ namespace EcoMart.BusinessLayer
             _LastPurchaseVoucherNumber = 0;
             _LastPurchaseVoucherType = "";
             _LastPurchasePartyShortName = "";
-            _ScanCode = "";       
+            _ScanCode = "";
             _CreatedUserId = "";
             _ModifyDate = "";
             _ModifyUserId = "";
@@ -323,8 +323,8 @@ namespace EcoMart.BusinessLayer
         {
             try
             {
-                if (ProductId == "")
-                    ValidationMessages.Add("Please enter the  ProductId");
+                if (ProductID < 0)
+                    ValidationMessages.Add("Please enter the  ProductID");
                 if (BatchNumber == "")
                     ValidationMessages.Add("Please enter the  BatchNumber");
                 if (Expiry == "")
@@ -383,42 +383,42 @@ namespace EcoMart.BusinessLayer
             catch (Exception Ex)
             {
                 Log.WriteException(Ex);
-            } 
+            }
         }
 
         #endregion
 
         #region Public Methods
 
-        public DataTable GetStockByProductID(string productID)
+        public DataTable GetStockByProductID(int ProductID)
         {
             DBStock dbData = new DBStock();
-            return dbData.GetStockByProductID(productID);
+            return dbData.GetStockByProductID(ProductID);
         }
-        public DataRow GetProductIDExists(string productID) // [ansuman]testing
+        public DataRow GetProductIDExists(int ProductID) // [ansuman]testing
         {
             DBStock dbData = new DBStock();
-            return dbData.GetProductIDExists(productID);
+            return dbData.GetProductIDExists(ProductID);
         }
-        public DataTable GetStockByProductIDForSale(string productID)
+        public DataTable GetStockByProductIDForSale(int ProductID)
         {
             DBStock dbData = new DBStock();
-            return dbData.GetStockByProductIDForSale(productID);
+            return dbData.GetStockByProductIDForSale(ProductID);
         }
-        public DataTable GetBatchListByProductID(string productID)
+        public DataTable GetBatchListByProductID(int ProductID)
         {
             DBStock dbData = new DBStock();
-            return dbData.GetBatchListByProductID(productID);
+            return dbData.GetBatchListByProductID(ProductID);
         }
-        public DataTable GetBatchListByProductIDForPurchaseBatchWise(string productID)
+        public DataTable GetBatchListByProductIDForPurchaseBatchWise(int ProductID)
         {
             DBStock dbData = new DBStock();
-            return dbData.GetBatchListByProductIDForPurchaseBatchWise(productID);
+            return dbData.GetBatchListByProductIDForPurchaseBatchWise(ProductID);
         }
-        public DataTable GetValidBatchesByProductID(string productID)
+        public DataTable GetValidBatchesByProductID(int ProductID)
         {
             DBStock dbData = new DBStock();
-            return dbData.GetValidBatchesByProductID(productID);
+            return dbData.GetValidBatchesByProductID(ProductID);
         }
 
         public bool ReadDetailsByID()
@@ -431,8 +431,8 @@ namespace EcoMart.BusinessLayer
                 drow = dbData.ReadDetailsByID(Id);
                 if (drow != null)
                 {
-                    if (drow["ProductId"] != DBNull.Value)
-                        ProductId = Convert.ToString(drow["ProductId"]);
+                    if (drow["ProductID"] != DBNull.Value)
+                        ProductID = Convert.ToInt32(drow["ProductID"]);
                     if (drow["BatchNumber"] != DBNull.Value)
                         BatchNumber = Convert.ToString(drow["BatchNumber"]);
                     if (drow["Expiry"] != DBNull.Value)
@@ -502,7 +502,7 @@ namespace EcoMart.BusinessLayer
             catch (Exception Ex)
             {
                 Log.WriteException(Ex);
-            }        
+            }
 
             return retValue;
         }
@@ -521,14 +521,14 @@ namespace EcoMart.BusinessLayer
             catch (Exception Ex)
             {
                 Log.WriteException(Ex);
-            }        
-            return dbData.AddDetails(ProductId, BatchNumber, Expiry, ExpiryDate, TradeRate, PurchaseRate, MRP, SaleRate, OpeningStock, ClosingStock, PurchaseStock, TransferInStock, CreditNoteStock, SaleStock, TransferOutStock, DebitNoteStock, PurchaseSchemeStock, PurchaseReplacementStock, SaleSchemeStock, IfRateCorrection, ProductVATPercent, PurchaseVATPercent, ProdCST, CompanyId, LastPurchaseAccountId,LastPurchasePartyShortName, LastPurchaseBillNumber, LastPurchaseDate, LastPurchaseVoucherNumber, LastPurchaseVoucherType, ScanCode, CreatedDate, CreatedUserId, ModifyDate, ModifyUserId);
+            }
+            return dbData.AddDetails(ProductID, BatchNumber, Expiry, ExpiryDate, TradeRate, PurchaseRate, MRP, SaleRate, OpeningStock, ClosingStock, PurchaseStock, TransferInStock, CreditNoteStock, SaleStock, TransferOutStock, DebitNoteStock, PurchaseSchemeStock, PurchaseReplacementStock, SaleSchemeStock, IfRateCorrection, ProductVATPercent, PurchaseVATPercent, ProdCST, CompanyId, LastPurchaseAccountId, LastPurchasePartyShortName, LastPurchaseBillNumber, LastPurchaseDate, LastPurchaseVoucherNumber, LastPurchaseVoucherType, ScanCode, CreatedDate, CreatedUserId, ModifyDate, ModifyUserId);
         }
 
         public bool UpdateDetails()
         {
             DBStock dbData = new DBStock();
-            return dbData.UpdateDetails(ProductId, BatchNumber, Expiry, ExpiryDate, TradeRate, PurchaseRate, MRP, SaleRate, OpeningStock, ClosingStock, PurchaseStock, TransferInStock, CreditNoteStock, SaleStock, TransferOutStock, DebitNoteStock, PurchaseSchemeStock, PurchaseReplacementStock, SaleSchemeStock, IfRateCorrection, ProductVATPercent, PurchaseVATPercent, ProdCST, CompanyId, LastPurchaseAccountId, LastPurchasePartyShortName, LastPurchaseBillNumber, LastPurchaseDate, LastPurchaseVoucherNumber, LastPurchaseVoucherType, ScanCode, CreatedDate, CreatedUserId, ModifyDate, ModifyUserId);
+            return dbData.UpdateDetails(ProductID, BatchNumber, Expiry, ExpiryDate, TradeRate, PurchaseRate, MRP, SaleRate, OpeningStock, ClosingStock, PurchaseStock, TransferInStock, CreditNoteStock, SaleStock, TransferOutStock, DebitNoteStock, PurchaseSchemeStock, PurchaseReplacementStock, SaleSchemeStock, IfRateCorrection, ProductVATPercent, PurchaseVATPercent, ProdCST, CompanyId, LastPurchaseAccountId, LastPurchasePartyShortName, LastPurchaseBillNumber, LastPurchaseDate, LastPurchaseVoucherNumber, LastPurchaseVoucherType, ScanCode, CreatedDate, CreatedUserId, ModifyDate, ModifyUserId);
         }
 
         public bool DeleteDetails()
@@ -537,18 +537,18 @@ namespace EcoMart.BusinessLayer
             return dbData.DeleteDetails(Id);
         }
 
-        public bool GetStockByProductIDAndBatchID(string productID, string batchID)
+        public bool GetStockByProductIDAndBatchID(int ProductID, string batchID)
         {
             bool retValue = false;
             try
             {
                 DataRow drow = null;
                 DBStock dbData = new DBStock();
-                drow = dbData.GetStockByProductIDAndBatchNumber(productID, batchID);
+                drow = dbData.GetStockByProductIDAndBatchNumber(ProductID, batchID);
                 if (drow != null)
                 {
-                    if (drow["ProductId"] != DBNull.Value)
-                        ProductId = Convert.ToString(drow["ProductId"]);
+                    if (drow["ProductID"] != DBNull.Value)
+                        ProductID = Convert.ToInt32(drow["ProductID"]);
                     if (drow["BatchNumber"] != DBNull.Value)
                         BatchNumber = Convert.ToString(drow["BatchNumber"]);
                     if (drow["Expiry"] != DBNull.Value)
@@ -623,22 +623,22 @@ namespace EcoMart.BusinessLayer
             catch (Exception Ex)
             {
                 Log.WriteException(Ex);
-            }        
+            }
             return retValue;
         }
 
-        public bool GetStockByProductIDAndBatchNumberAndMRP(string productID, string batchID, string mrp)
+        public bool GetStockByProductIDAndBatchNumberAndMRP(int ProductID, string batchID, string mrp)
         {
             bool retValue = false;
             try
             {
                 DataRow drow = null;
                 DBStock dbData = new DBStock();
-                drow = dbData.GetStockByProductIDAndBatchNumberAndMRP(productID, batchID, mrp);
+                drow = dbData.GetStockByProductIDAndBatchNumberAndMRP(ProductID, batchID, mrp);
                 if (drow != null)
                 {
-                    if (drow["ProductId"] != DBNull.Value)
-                        ProductId = Convert.ToString(drow["ProductId"]);
+                    if (drow["ProductID"] != DBNull.Value)
+                        ProductID = Convert.ToInt32(drow["ProductID"]);
                     if (drow["BatchNumber"] != DBNull.Value)
                         BatchNumber = Convert.ToString(drow["BatchNumber"]);
                     if (drow["Expiry"] != DBNull.Value)
@@ -713,7 +713,7 @@ namespace EcoMart.BusinessLayer
             catch (Exception Ex)
             {
                 Log.WriteException(Ex);
-            }        
+            }
             return retValue;
         }
 

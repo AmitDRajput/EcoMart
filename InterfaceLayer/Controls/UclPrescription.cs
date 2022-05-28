@@ -242,7 +242,7 @@ namespace EcoMart.InterfaceLayer
                     if (prodrow.Cells["Col_ID"].Value != null &&
                        Convert.ToInt32(prodrow.Cells["Col_Quantity"].Value) > 0)
                     {
-                        _Prescription.ProductID = prodrow.Cells["Col_ID"].Value.ToString();
+                        _Prescription.ProductID = Convert.ToInt32(prodrow.Cells["Col_ID"].Value.ToString());
                         _Prescription.Quantity = Convert.ToInt32(prodrow.Cells["Col_Quantity"].Value);
                         _Prescription.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         returnVal = _Prescription.AddProductDetails();
@@ -529,20 +529,20 @@ namespace EcoMart.InterfaceLayer
 
         private void mpMainSubViewControl1_OnDetailsFilled(DataGridViewRow selectedRow)
         {
-            string mprodID = "";
+            int mprodID = 0;
             int mrowindex = 0;
             int mcindex = 0;
             _Prescription.DuplicateProduct = false;
             if (mpMainSubViewControl1.MainDataGridCurrentRow.Cells["Col_ID"].Value != null)
             {
-                mprodID = mpMainSubViewControl1.MainDataGridCurrentRow.Cells["Col_ID"].Value.ToString();
+                mprodID = Convert.ToInt32(mpMainSubViewControl1.MainDataGridCurrentRow.Cells["Col_ID"].Value.ToString());
                 mrowindex = mpMainSubViewControl1.MainDataGridCurrentRow.Index;
             }
             foreach (DataGridViewRow prodrow in mpMainSubViewControl1.Rows)
             {
                 if (prodrow.Cells["Col_ID"].Value != null)
                 {
-                    _Prescription.ProductID = prodrow.Cells["Col_ID"].Value.ToString();
+                    _Prescription.ProductID = Convert.ToInt32(prodrow.Cells["Col_ID"].Value.ToString());
                     mcindex = prodrow.Index;
                     if (_Prescription.ProductID == mprodID && mrowindex != mcindex)
                     {

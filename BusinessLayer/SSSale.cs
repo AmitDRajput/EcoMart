@@ -18,7 +18,7 @@ namespace EcoMart.BusinessLayer
     {
 
         #region Declaration
-        private string _ProductID;
+        private int _ProductID;
         private string _NewBatchno;
         private double _NewMRP;
         private double _NewSaleRate;
@@ -88,8 +88,8 @@ namespace EcoMart.BusinessLayer
         private double _TotalDiscount12point5;
         private double _PreMySpecialDiscountPer;
         private double _PreMySpecialDiscountAmount;
-      //  private double _PreMyTotalSpecialDiscountPer5;
-      //  private double _PreMyTotalSpecialDiscountPer12point5;
+        //  private double _PreMyTotalSpecialDiscountPer5;
+        //  private double _PreMyTotalSpecialDiscountPer12point5;
         private double _PreTotalDiscount5;
         private double _PreTotalDiscount12point5;
 
@@ -164,7 +164,7 @@ namespace EcoMart.BusinessLayer
         private string _ShortNameForNarration;
         private string _CreditDebitNoteID;
         private int _CustNumber;
-      //  private string _Telephone;
+        //  private string _Telephone;
         private string _TempChallanID;
 
         private double _CrdbTotalAdd;
@@ -178,7 +178,7 @@ namespace EcoMart.BusinessLayer
         private string _PreNarration2;
         private string _PreVouType;
         private string _PreVouDate;
-        private int    _PreVouNumber;
+        private int _PreVouNumber;
         private double _PreAmountNet;
         private double _PreDiscPer;
         private double _PreDiscAmt;
@@ -592,7 +592,7 @@ namespace EcoMart.BusinessLayer
             get { return _LastStockID; }
             set { _LastStockID = value; }
         }
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
@@ -793,21 +793,21 @@ namespace EcoMart.BusinessLayer
         }
 
         internal bool AddAccountDetails()
-        {   
+        {
             bool retValue = false;
             try
             {
                 double mdebit = 0;
-            //    double mdiscper = 0;
-            //    double maddon = 0;
-            //    double mdiscamount = 0;
+                //    double mdiscper = 0;
+                //    double maddon = 0;
+                //    double mdiscamount = 0;
                 //  double mvat5per = 0;
                 //  double mvat12point5per = 0;
-             //   double mamtforzerovat = 0;
-          //     double mbillamount = 0;
-            //    double mround = 0;
-             //   double mcreditnoteamt = 0;
-             //   double mdebitnoteamt = 0;
+                //   double mamtforzerovat = 0;
+                //     double mbillamount = 0;
+                //    double mround = 0;
+                //   double mcreditnoteamt = 0;
+                //   double mdebitnoteamt = 0;
                 //if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
                 //    ShortNameForNarration = ShortName;
                 //else
@@ -831,7 +831,7 @@ namespace EcoMart.BusinessLayer
                                                 - GSTC5 - GSTC12 - GSTC18 - GSTC28
                                                 - GSTI5 - GSTI12 - GSTI18 - GSTI28
                                            - CrdbAddOn - CrdbRoundAmount - GSTAmt0 + CrNoteAmount - DbNoteAmount, 2);
-               
+
                 if (GSTAmt0 > 0)
                 {
                     DebitAccount = FixAccounts.AccountAmountGST0Sale;
@@ -856,7 +856,7 @@ namespace EcoMart.BusinessLayer
                     else
                     {
                         if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
-                            CreditAccount = FixAccounts.AccountCash;                       
+                            CreditAccount = FixAccounts.AccountCash;
                         else
                             CreditAccount = Convert.ToInt32(AccountID);
                     }
@@ -877,7 +877,7 @@ namespace EcoMart.BusinessLayer
                     else
                     {
                         if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
-                            CreditAccount = FixAccounts.AccountCash;                       
+                            CreditAccount = FixAccounts.AccountCash;
                         else
                             CreditAccount = Convert.ToInt32(AccountID);
                     }
@@ -897,7 +897,7 @@ namespace EcoMart.BusinessLayer
                     else
                     {
                         if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
-                            CreditAccount = FixAccounts.AccountCash;                       
+                            CreditAccount = FixAccounts.AccountCash;
                         else
                             CreditAccount = Convert.ToInt32(AccountID);
                     }
@@ -918,7 +918,7 @@ namespace EcoMart.BusinessLayer
                     else
                     {
                         if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
-                            CreditAccount = FixAccounts.AccountCash;                        
+                            CreditAccount = FixAccounts.AccountCash;
                         else
                             CreditAccount = Convert.ToInt32(AccountID);
                     }
@@ -940,7 +940,7 @@ namespace EcoMart.BusinessLayer
                     else
                     {
                         if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
-                            CreditAccount = FixAccounts.AccountCash;                        
+                            CreditAccount = FixAccounts.AccountCash;
                         else
                             CreditAccount = Convert.ToInt32(AccountID);
                     }
@@ -961,7 +961,7 @@ namespace EcoMart.BusinessLayer
                     else
                     {
                         if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
-                            CreditAccount = FixAccounts.AccountCash;                       
+                            CreditAccount = FixAccounts.AccountCash;
                         else
                             CreditAccount = Convert.ToInt32(AccountID);
                     }
@@ -981,7 +981,7 @@ namespace EcoMart.BusinessLayer
                     else
                     {
                         if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
-                            CreditAccount = FixAccounts.AccountCash;                       
+                            CreditAccount = FixAccounts.AccountCash;
                         else
                             CreditAccount = Convert.ToInt32(AccountID);
                     }
@@ -995,13 +995,13 @@ namespace EcoMart.BusinessLayer
                 if (GSTC28 > 0)
                 {
                     DebitAccount = FixAccounts.AccountCGST28Sale;
-                    
-                        if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
-                            CreditAccount = FixAccounts.AccountCash;
-                    
+
+                    if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
+                        CreditAccount = FixAccounts.AccountCash;
+
                     else
-                            CreditAccount = Convert.ToInt32(AccountID);
-                    
+                        CreditAccount = Convert.ToInt32(AccountID);
+
                     DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                     DebitAmount = 0;
                     CreditAmount = Math.Round(GSTC28, 2);
@@ -1017,12 +1017,12 @@ namespace EcoMart.BusinessLayer
                     DebitAccount = FixAccounts.AccountAddonSale;
 
                     if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
-                            CreditAccount = FixAccounts.AccountCash;
-                   
+                        CreditAccount = FixAccounts.AccountCash;
+
                     else
 
-                            CreditAccount = Convert.ToInt32(AccountID);
-                   
+                        CreditAccount = Convert.ToInt32(AccountID);
+
                     DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                     DebitAmount = 0;
                     CreditAmount = CrdbAddOn;
@@ -1031,14 +1031,14 @@ namespace EcoMart.BusinessLayer
                 if (CrdbRoundAmount > 0)
                 {
                     DebitAccount = FixAccounts.AccountRoundoffSale;
-                   
-                        if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
-                            CreditAccount = FixAccounts.AccountCash;
-                    
+
+                    if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
+                        CreditAccount = FixAccounts.AccountCash;
+
                     else
 
-                            CreditAccount = Convert.ToInt32(AccountID);
-                    
+                        CreditAccount = Convert.ToInt32(AccountID);
+
                     DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                     DebitAmount = 0;
                     CreditAmount = (CrdbRoundAmount);
@@ -1049,12 +1049,12 @@ namespace EcoMart.BusinessLayer
                     DebitAccount = FixAccounts.AccountRoundoffSale;
 
                     if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
-                            CreditAccount = FixAccounts.AccountCash;
-                    
+                        CreditAccount = FixAccounts.AccountCash;
+
                     else
 
-                            CreditAccount = Convert.ToInt32(AccountID);
-                   
+                        CreditAccount = Convert.ToInt32(AccountID);
+
                     DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                     DebitAmount = CrdbRoundAmount * (-1);
                     CreditAmount = 0;
@@ -1064,7 +1064,7 @@ namespace EcoMart.BusinessLayer
                 //if (CrdbDiscAmt > 0)
                 //{
                 //    DebitAccount = FixAccounts.AccountCashDiscountSale.ToString();
-                   
+
                 //        if (CrdbVouType == FixAccounts.VoucherTypeForCashSale || CrdbVouType == FixAccounts.VoucherTypeForVoucherSale)
                 //            CreditAccount = FixAccounts.AccountCash.ToString();
                 //    else if (SaleSubType == FixAccounts.SubTypeForCreditCardSale)
@@ -1072,7 +1072,7 @@ namespace EcoMart.BusinessLayer
                 //    else
 
                 //            CreditAccount = Convert.ToInt32(AccountID);
-                   
+
                 //    DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                 //    DebitAmount = CrdbDiscAmt;
                 //    CreditAmount = 0;
@@ -1128,7 +1128,7 @@ namespace EcoMart.BusinessLayer
                         DebitAccount = FixAccounts.AccountAmountSGST5Sale;
                     if (CrdbVouType == FixAccounts.VoucherTypeForCashSale || CrdbVouType == FixAccounts.VoucherTypeForVoucherSale)
                         CreditAccount = FixAccounts.AccountCash;
-                   
+
                     else
                         CreditAccount = Convert.ToInt32(AccountID);
                     DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
@@ -1148,7 +1148,7 @@ namespace EcoMart.BusinessLayer
                         DebitAccount = FixAccounts.AccountAmountSGST12Sale;
                     if (CrdbVouType == FixAccounts.VoucherTypeForCashSale || CrdbVouType == FixAccounts.VoucherTypeForVoucherSale)
                         CreditAccount = FixAccounts.AccountCash;
-                    
+
                     else
                         CreditAccount = Convert.ToInt32(AccountID);
                     DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
@@ -1167,7 +1167,7 @@ namespace EcoMart.BusinessLayer
                         DebitAccount = FixAccounts.AccountAmountSGST18Sale;
                     if (CrdbVouType == FixAccounts.VoucherTypeForCashSale || CrdbVouType == FixAccounts.VoucherTypeForVoucherSale)
                         CreditAccount = FixAccounts.AccountCash;
-                   
+
                     else
                         CreditAccount = Convert.ToInt32(AccountID);
                     DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
@@ -1185,7 +1185,7 @@ namespace EcoMart.BusinessLayer
                     else
                         DebitAccount = FixAccounts.AccountAmountSGST28Sale;
                     if (CrdbVouType == FixAccounts.VoucherTypeForCashSale || CrdbVouType == FixAccounts.VoucherTypeForVoucherSale)
-                        CreditAccount = FixAccounts.AccountCash;                   
+                        CreditAccount = FixAccounts.AccountCash;
                     else
                         CreditAccount = Convert.ToInt32(AccountID);
                     DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
@@ -1205,7 +1205,7 @@ namespace EcoMart.BusinessLayer
                         DebitAccount = FixAccounts.AccountAmountCGST5Sale;
                     if (CrdbVouType == FixAccounts.VoucherTypeForCashSale || CrdbVouType == FixAccounts.VoucherTypeForVoucherSale)
                         CreditAccount = FixAccounts.AccountCash;
-                    
+
                     else
                         CreditAccount = Convert.ToInt32(AccountID);
                     DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
@@ -1224,7 +1224,7 @@ namespace EcoMart.BusinessLayer
                     else
                         DebitAccount = FixAccounts.AccountAmountCGST12Sale;
                     if (CrdbVouType == FixAccounts.VoucherTypeForCashSale || CrdbVouType == FixAccounts.VoucherTypeForVoucherSale)
-                        CreditAccount = FixAccounts.AccountCash;                    
+                        CreditAccount = FixAccounts.AccountCash;
                     else
                         CreditAccount = Convert.ToInt32(AccountID);
                     DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
@@ -1242,7 +1242,7 @@ namespace EcoMart.BusinessLayer
                     else
                         DebitAccount = FixAccounts.AccountAmountCGST18Sale;
                     if (CrdbVouType == FixAccounts.VoucherTypeForCashSale || CrdbVouType == FixAccounts.VoucherTypeForVoucherSale)
-                        CreditAccount = FixAccounts.AccountCash;                   
+                        CreditAccount = FixAccounts.AccountCash;
                     else
                         CreditAccount = Convert.ToInt32(AccountID);
                     DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
@@ -1260,7 +1260,7 @@ namespace EcoMart.BusinessLayer
                     else
                         DebitAccount = FixAccounts.AccountAmountCGST28Sale;
                     if (CrdbVouType == FixAccounts.VoucherTypeForCashSale || CrdbVouType == FixAccounts.VoucherTypeForVoucherSale)
-                        CreditAccount = FixAccounts.AccountCash;                   
+                        CreditAccount = FixAccounts.AccountCash;
                     else
                         CreditAccount = Convert.ToInt32(AccountID);
                     DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
@@ -1270,21 +1270,21 @@ namespace EcoMart.BusinessLayer
                 }
                 if (CrdbAmountNet > 0)
                 {
-                    
-                        if (CrdbVouType == FixAccounts.VoucherTypeForCashSale || CrdbVouType == FixAccounts.VoucherTypeForVoucherSale)
-                            DebitAccount = FixAccounts.AccountCash;
+
+                    if (CrdbVouType == FixAccounts.VoucherTypeForCashSale || CrdbVouType == FixAccounts.VoucherTypeForVoucherSale)
+                        DebitAccount = FixAccounts.AccountCash;
+                    else
+                        DebitAccount = Convert.ToInt32(AccountID);
+                    if (CrdbVouType == FixAccounts.VoucherTypeForVoucherSale)
+                        CreditAccount = FixAccounts.AccountVoucherSale;
+                    else
+                    {
+                        if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
+                            CreditAccount = FixAccounts.AccountCashSale;
                         else
-                            DebitAccount = Convert.ToInt32(AccountID);
-                        if (CrdbVouType == FixAccounts.VoucherTypeForVoucherSale)
-                            CreditAccount = FixAccounts.AccountVoucherSale;
-                        else
-                        {
-                            if (CrdbVouType == FixAccounts.VoucherTypeForCashSale)
-                                CreditAccount = FixAccounts.AccountCashSale;
-                            else
-                                CreditAccount = FixAccounts.AccountCreditSale;
-                        }
-                   
+                            CreditAccount = FixAccounts.AccountCreditSale;
+                    }
+
                     DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                     DebitAmount = CrdbAmountNet;
                     CreditAmount = 0;
@@ -1296,8 +1296,8 @@ namespace EcoMart.BusinessLayer
                 Log.WriteException(Ex);
             }
             return retValue;
-        
-    }
+
+        }
 
         public string TodayS
         {
@@ -1948,7 +1948,7 @@ namespace EcoMart.BusinessLayer
                 //_CrdbDocID = "0";
                 _ShortName = "";
                 _PatientShortAddress = "";
-                _ProductID = "";
+                _ProductID = 0;
                 _Amount = 0;
                 _VATPer = 0;
                 _VATAmount = 0;
@@ -2054,7 +2054,7 @@ namespace EcoMart.BusinessLayer
                 _TransactionType = "";
                 _CreditDebitNoteID = "";
                 _CustNumber = 0;
-               // _Telephone = "";
+                // _Telephone = "";
                 _TempChallanID = "";
 
                 _CrdbTotalAdd = 0;
@@ -2161,7 +2161,7 @@ namespace EcoMart.BusinessLayer
             try
             {
                 bool retValue = false;
-                
+
                 string _MDate = CrdbVouDate;
                 string _CDate = DateTime.Now.Date.ToString("yyyyMMdd");
                 if (CrdbVouNo == 0)
@@ -2186,8 +2186,8 @@ namespace EcoMart.BusinessLayer
                         {
                             ValidationMessages.Add("Please Check Date...");
                         }
-                    }                   
-                  
+                    }
+
                 }
                 else
                 {
@@ -2198,8 +2198,8 @@ namespace EcoMart.BusinessLayer
                         ValidationMessages.Add("Please Check Date...");
                     }
                 }
-               if (PatientAddress1.Length > 50)
-                   ValidationMessages.Add("Address should be Max 50 Characters");
+                if (PatientAddress1.Length > 50)
+                    ValidationMessages.Add("Address should be Max 50 Characters");
 
                 if (CrdbVouType.ToString().Trim() == string.Empty)
                     ValidationMessages.Add("Select Voucher Type");
@@ -2211,7 +2211,7 @@ namespace EcoMart.BusinessLayer
                     {
                         if (CrdbName == "")
                             ValidationMessages.Add("Please enter Patient Name.");
-                       
+
                         if ((CrdbVouType == FixAccounts.VoucherTypeForCreditStatementSale && AccountID == ""))
                             ValidationMessages.Add("Not a Valid Sale Type");
                     }
@@ -2233,7 +2233,7 @@ namespace EcoMart.BusinessLayer
                         }
                     }
                     if (CrdbAmountBalance < 0)
-                        ValidationMessages.Add("Please Check Balance Amount");                   
+                        ValidationMessages.Add("Please Check Balance Amount");
 
                 }
                 else
@@ -2255,7 +2255,7 @@ namespace EcoMart.BusinessLayer
                                 ValidationMessages.Add("Wrong Operator");
                         }
                     }
-                    
+
                 }
             }
             catch (Exception Ex)
@@ -2301,7 +2301,7 @@ namespace EcoMart.BusinessLayer
             DBSSSale dbSale = new DBSSSale();
             return dbSale.GetOverviewDataSpecialSale(vouSubType, fromDate, toDate);
         }
-        public DataTable GetOverviewDataForLastSale(string accID, string ProductID)
+        public DataTable GetOverviewDataForLastSale(string accID, int ProductID)
         {
             DBSSSale dbSale = new DBSSSale();
             return dbSale.GetOverviewDataForLastSale(accID, ProductID);
@@ -2356,7 +2356,7 @@ namespace EcoMart.BusinessLayer
         public DataTable GetPreviousSale(string accountid)
         {
             DataTable dt = null;
-            DBSSSale  dbp = new DBSSSale();
+            DBSSSale dbp = new DBSSSale();
             try
             {
                 dt = dbp.GetPreviousSale(accountid);
@@ -2367,7 +2367,7 @@ namespace EcoMart.BusinessLayer
                         TotalPreviousSale += Convert.ToDouble(dr["AmountNet"].ToString());
 
                 }
-                
+
             }
             catch (Exception Ex)
             {
@@ -2375,10 +2375,10 @@ namespace EcoMart.BusinessLayer
             }
             return dt;
         }
-        public DataTable GetOverviewDataForLastPurchase(string productID)
+        public DataTable GetOverviewDataForLastPurchase(int ProductID)
         {
             DBSSSale dbp = new DBSSSale();
-            return dbp.GetOverviewDataForLastPurchase(productID);
+            return dbp.GetOverviewDataForLastPurchase(ProductID);
         }
         public DataTable GetPreviousSaleBillWise(string accountid, Int32 month)
         {
@@ -2386,7 +2386,7 @@ namespace EcoMart.BusinessLayer
             DBSSSale dbp = new DBSSSale();
             try
             {
-                dt = dbp.GetPreviousSaleBillWise(accountid, month); 
+                dt = dbp.GetPreviousSaleBillWise(accountid, month);
             }
             catch (Exception Ex)
             {
@@ -2423,7 +2423,7 @@ namespace EcoMart.BusinessLayer
         public DataTable GetVoucherSaleDataData(string voutdate, string changeCounterSaleType)
         {
             DBSSSale dbSale = new DBSSSale();
-            return dbSale.GetVoucherSaleDataData(voutdate,changeCounterSaleType);
+            return dbSale.GetVoucherSaleDataData(voutdate, changeCounterSaleType);
         }
         public DataTable GetRegularSaleOverviewData()
         {
@@ -2481,13 +2481,13 @@ namespace EcoMart.BusinessLayer
                     OldVoucherType = CrdbVouType;
                     IntID = Convert.ToInt32(drow["ID"].ToString());
                     CrdbVouNo = Convert.ToInt32(drow["VoucherNumber"].ToString());
-                //    CrdbCountersaleNumber = Convert.ToInt32(drow["CounterSaleNumber"].ToString());
+                    //    CrdbCountersaleNumber = Convert.ToInt32(drow["CounterSaleNumber"].ToString());
                     CrdbVouDate = drow["VoucherDate"].ToString();
                     SaleSubType = drow["VoucherSubType"].ToString();
                     if (drow["AccountID"] != DBNull.Value && drow["AccountID"].ToString() != string.Empty)
-                        AccountID = drow["AccountId"].ToString();                   
-            //        if (drow["MySpecialDiscountAmount"] != DBNull.Value)
-           //         MySpecialDiscountAmount = Convert.ToDouble(drow["MySpecialDiscountAmount"].ToString());
+                        AccountID = drow["AccountId"].ToString();
+                    //        if (drow["MySpecialDiscountAmount"] != DBNull.Value)
+                    //         MySpecialDiscountAmount = Convert.ToDouble(drow["MySpecialDiscountAmount"].ToString());
                     CrdbBillAmount = Convert.ToDouble(drow["AmountNet"].ToString());
                     CrdbBillAmount = CrdbBillAmount + MySpecialDiscountAmount;
                     CrdbAmountNet = CrdbBillAmount;
@@ -2497,8 +2497,8 @@ namespace EcoMart.BusinessLayer
                     CrdbAmount = Convert.ToDouble(drow["AmountGross"].ToString());
                     CrdbAmount = CrdbAmount + MySpecialDiscountAmount;
                     CrdbDiscPer = Convert.ToDouble(drow["CashDiscountPercent"].ToString());
-                    CrdbDiscAmt = Convert.ToDouble(drow["AmountCashDiscount"].ToString()); 
-                  //  ItemTotalDiscount = Convert.ToDouble(drow["Amount
+                    CrdbDiscAmt = Convert.ToDouble(drow["AmountCashDiscount"].ToString());
+                    //  ItemTotalDiscount = Convert.ToDouble(drow["Amount
                     if (drow["AddOnFreight"] != DBNull.Value)
                         CrdbAddOn = Convert.ToDouble(drow["AddOnFreight"].ToString());
                     if (drow["AmountCreditNoteStock"] != DBNull.Value)
@@ -2511,10 +2511,10 @@ namespace EcoMart.BusinessLayer
                         StatementNumber = Convert.ToInt32(drow["StatementNumber"].ToString());
                     if (drow["DoctorID"] != DBNull.Value)
                         DocID = drow["DoctorID"].ToString();
-                //    if (drow["DoctorShortName"] != DBNull.Value)
-                //        DoctorName = drow["DoctorShortName"].ToString();
-              //      if (drow["DoctorAddress"] != DBNull.Value)
-              //          DoctorAddress = drow["DoctorAddress"].ToString();
+                    //    if (drow["DoctorShortName"] != DBNull.Value)
+                    //        DoctorName = drow["DoctorShortName"].ToString();
+                    //      if (drow["DoctorAddress"] != DBNull.Value)
+                    //          DoctorAddress = drow["DoctorAddress"].ToString();
                     if (drow["PatientID"] != DBNull.Value)
                         PatientID = drow["PatientID"].ToString();
                     if (drow["OperatorID"] != DBNull.Value)
@@ -2522,29 +2522,29 @@ namespace EcoMart.BusinessLayer
                     if (drow["SalesmanID"] != DBNull.Value)
                         SalesmanID = Convert.ToInt32(drow["SalesmanID"].ToString());
                     if (drow["TransporterID"] != DBNull.Value)
-                       TransporterID = Convert.ToInt32(drow["TransporterID"].ToString());
+                        TransporterID = Convert.ToInt32(drow["TransporterID"].ToString());
                     if (drow["PatientName"] != DBNull.Value)
                         CrdbName = drow["PatientName"].ToString();
                     if (drow["PatientAddress1"] != DBNull.Value)
                         PatientAddress1 = drow["PatientAddress1"].ToString();
                     if (drow["PatientAddress2"] != DBNull.Value)
                         PatientAddress2 = drow["PatientAddress2"].ToString();
-                 //   if (drow["MobileNumberForSMS"] != DBNull.Value)
-                 //       MobileNumberForSMS = drow["MobileNumberForSMS"].ToString();
-               //     if (drow["PatientShortName"] != DBNull.Value)
-                //        ShortName = drow["PatientShortName"].ToString();
-               //     if (drow["PatientShortAddress"] != DBNull.Value)
-               //         PatientShortAddress = drow["PatientShortAddress"].ToString();
-               //     if (drow["IPDOPDCode"] != DBNull.Value)
-              //          CrdbIPDOPD = drow["IPDOPDCode"].ToString();
+                    //   if (drow["MobileNumberForSMS"] != DBNull.Value)
+                    //       MobileNumberForSMS = drow["MobileNumberForSMS"].ToString();
+                    //     if (drow["PatientShortName"] != DBNull.Value)
+                    //        ShortName = drow["PatientShortName"].ToString();
+                    //     if (drow["PatientShortAddress"] != DBNull.Value)
+                    //         PatientShortAddress = drow["PatientShortAddress"].ToString();
+                    //     if (drow["IPDOPDCode"] != DBNull.Value)
+                    //          CrdbIPDOPD = drow["IPDOPDCode"].ToString();
                     if (drow["OrderNumber"] != DBNull.Value)
                         OrderNumber = drow["OrderNumber"].ToString();
                     if (drow["OrderDate"] != DBNull.Value)
                         OrderDate = drow["OrderDate"].ToString();
-               //     if (drow["Telephone"] != DBNull.Value)
-                //        Telephone = drow["Telephone"].ToString();
-                //    if (drow["ScanPrescriptionFileName"] != DBNull.Value)
-               //         PrescriptionFileName = drow["ScanPrescriptionFileName"].ToString();
+                    //     if (drow["Telephone"] != DBNull.Value)
+                    //        Telephone = drow["Telephone"].ToString();
+                    //    if (drow["ScanPrescriptionFileName"] != DBNull.Value)
+                    //         PrescriptionFileName = drow["ScanPrescriptionFileName"].ToString();
                     //   if (drow["ScanPrescriptionID"] != DBNull.Value)
                     //     PrescriptionID = drow["ScanPrescriptionID"].ToString();
                     //     if (PrescriptionID != string.Empty)
@@ -2552,22 +2552,22 @@ namespace EcoMart.BusinessLayer
                     //     FileExtension = drow["FileExtension"].ToString();
                     //      Prescription = (byte[])(drow["PrescriptionData"]);
 
-                 //   //   }
-                 //   CrdbVat5 = Convert.ToDouble(drow["VAT5per"].ToString());
-                //    CrdbVat12point5 = Convert.ToDouble(drow["VAT12Point5Per"].ToString());
-               //     CrdbAmtForZeroVAT = Convert.ToDouble(drow["AmountForZeroVAT"].ToString());
-               //     CrdbAmountVat5 = Convert.ToDouble(drow["AmountVAT5Per"].ToString());
-               //     CrdbAmountVat12point5 = Convert.ToDouble(drow["AmountVAT12Point5Per"].ToString());
+                    //   //   }
+                    //   CrdbVat5 = Convert.ToDouble(drow["VAT5per"].ToString());
+                    //    CrdbVat12point5 = Convert.ToDouble(drow["VAT12Point5Per"].ToString());
+                    //     CrdbAmtForZeroVAT = Convert.ToDouble(drow["AmountForZeroVAT"].ToString());
+                    //     CrdbAmountVat5 = Convert.ToDouble(drow["AmountVAT5Per"].ToString());
+                    //     CrdbAmountVat12point5 = Convert.ToDouble(drow["AmountVAT12Point5Per"].ToString());
                     SchemeTotalDiscount = Convert.ToDouble(drow["AmountSchemeDiscount"].ToString());
-                    IfFullPayment = "Y";                   
+                    IfFullPayment = "Y";
                     if (CrdbAmountBalance > 0)
                         IfFullPayment = "N";
 
                     CrdbRoundAmount = Convert.ToDouble(drow["RoundingAmount"].ToString());
                     if (drow["DiscountAmountCB"] != DBNull.Value)
                         DiscountAmountCB = Convert.ToDouble(drow["DiscountAmountCB"].ToString());
-                 //   if (drow["AccTokenNumber"] != DBNull.Value)
-                  //      TokenNumber = Convert.ToInt32(drow["AccTokenNumber"].ToString());
+                    //   if (drow["AccTokenNumber"] != DBNull.Value)
+                    //      TokenNumber = Convert.ToInt32(drow["AccTokenNumber"].ToString());
                     CrdbTotalAmount = CrdbBillAmount + CrdbRoundAmount;
 
                     if (drow["ProfitInRupees"] != DBNull.Value)
@@ -2579,37 +2579,37 @@ namespace EcoMart.BusinessLayer
                     if (drow["ProfitPercentByPurchaseRate"] != DBNull.Value)
                         TotalProfitPercentByPurchaseRate = Convert.ToDouble(drow["ProfitPercentByPurchaseRate"].ToString());
 
-               //     if (drow["AmountPMTDiscount"] != DBNull.Value)
-                //        PMTTotalDiscount = Convert.ToDouble(drow["AmountPMTDiscount"].ToString());
+                    //     if (drow["AmountPMTDiscount"] != DBNull.Value)
+                    //        PMTTotalDiscount = Convert.ToDouble(drow["AmountPMTDiscount"].ToString());
                     if (drow["AmountItemDiscount"] != DBNull.Value)
                         ItemTotalDiscount = Convert.ToDouble(drow["AmountItemDiscount"].ToString());
-              //      if (drow["Telephone"] != DBNull.Value)
-              //          Telephone = drow["Telephone"].ToString();
-              //      if (drow["MySpecialDiscountPercent"] != DBNull.Value)
-              //          MySpecialDiscountPer = Convert.ToDouble(drow["MySpecialDiscountPercent"].ToString());
-              //      if (drow["MySpecialDiscountAmount"] != DBNull.Value)
-              //          MySpecialDiscountAmount = Convert.ToDouble(drow["MySpecialDiscountAmount"].ToString());
-              //      if (drow["MySpecialDiscountAmount12point5"] != DBNull.Value)
-              //          MyTotalSpecialDiscountPer12point5 = Convert.ToDouble(drow["MySpecialDiscountAmount12point5"].ToString());
-              //      if (drow["MySpecialDiscountAmount5"] != DBNull.Value)
-               //         MyTotalSpecialDiscountPer5 = Convert.ToDouble(drow["MySpecialDiscountAmount5"].ToString());
-               //     if (drow["AmountCashDiscount5"] != DBNull.Value)
-               //         TotalDiscount5 = Convert.ToDouble(drow["AmountCashDiscount5"].ToString());
-               //     if (drow["AmountCashDiscount12point5"] != DBNull.Value)
-               //         TotalDiscount12point5 = Convert.ToDouble(drow["AmountCashDiscount12point5"].ToString());
-               //     if (drow["NextVisitDate"] != DBNull.Value)
-               //         NextVisitDate = drow["NextVisitDate"].ToString();
-               //     else
-               //         NextVisitDate = ""; 
-             //       if (drow["DebtorsPatientID"] != DBNull.Value)
-              //          DebtorsPatientID = drow["DebtorsPatientID"].ToString();
-              //      else
-              //          DebtorsPatientID = "";
+                    //      if (drow["Telephone"] != DBNull.Value)
+                    //          Telephone = drow["Telephone"].ToString();
+                    //      if (drow["MySpecialDiscountPercent"] != DBNull.Value)
+                    //          MySpecialDiscountPer = Convert.ToDouble(drow["MySpecialDiscountPercent"].ToString());
+                    //      if (drow["MySpecialDiscountAmount"] != DBNull.Value)
+                    //          MySpecialDiscountAmount = Convert.ToDouble(drow["MySpecialDiscountAmount"].ToString());
+                    //      if (drow["MySpecialDiscountAmount12point5"] != DBNull.Value)
+                    //          MyTotalSpecialDiscountPer12point5 = Convert.ToDouble(drow["MySpecialDiscountAmount12point5"].ToString());
+                    //      if (drow["MySpecialDiscountAmount5"] != DBNull.Value)
+                    //         MyTotalSpecialDiscountPer5 = Convert.ToDouble(drow["MySpecialDiscountAmount5"].ToString());
+                    //     if (drow["AmountCashDiscount5"] != DBNull.Value)
+                    //         TotalDiscount5 = Convert.ToDouble(drow["AmountCashDiscount5"].ToString());
+                    //     if (drow["AmountCashDiscount12point5"] != DBNull.Value)
+                    //         TotalDiscount12point5 = Convert.ToDouble(drow["AmountCashDiscount12point5"].ToString());
+                    //     if (drow["NextVisitDate"] != DBNull.Value)
+                    //         NextVisitDate = drow["NextVisitDate"].ToString();
+                    //     else
+                    //         NextVisitDate = ""; 
+                    //       if (drow["DebtorsPatientID"] != DBNull.Value)
+                    //          DebtorsPatientID = drow["DebtorsPatientID"].ToString();
+                    //      else
+                    //          DebtorsPatientID = "";
 
-             //       if (drow["CreditCardBankID"] != DBNull.Value)
-             //           CreditCardBankID = drow["CreditCardBankID"].ToString();
-             //       else
-             //           CreditCardBankID = "";
+                    //       if (drow["CreditCardBankID"] != DBNull.Value)
+                    //           CreditCardBankID = drow["CreditCardBankID"].ToString();
+                    //       else
+                    //           CreditCardBankID = "";
                     if (drow["amountgst0"] != DBNull.Value)
                         GSTAmt0 = Convert.ToDouble(drow["amountgst0"].ToString());
                     if (drow["amountgsts5"] != DBNull.Value)
@@ -2713,7 +2713,7 @@ namespace EcoMart.BusinessLayer
                     PreTotalDiscount12point5 = TotalDiscount12point5;
                     PreTotalDiscount5 = TotalDiscount5;
                     PreMySpecialDiscountAmount = MySpecialDiscountAmount;
-                    PreMySpecialDiscountPer = MySpecialDiscountPer;                                       
+                    PreMySpecialDiscountPer = MySpecialDiscountPer;
                 }
             }
             catch (Exception Ex)
@@ -2742,7 +2742,7 @@ namespace EcoMart.BusinessLayer
                     SaleSubType = drow["VoucherSubType"].ToString();
                     if (drow["AccountID"] != DBNull.Value && drow["AccountID"].ToString() != string.Empty)
                         AccountID = drow["AccountId"].ToString();
-                   
+
                     CrdbBillAmount = Convert.ToDouble(drow["AmountNet"].ToString());
                     CrdbBillAmount = CrdbBillAmount + MySpecialDiscountAmount;
                     CrdbAmountNet = CrdbBillAmount;
@@ -2792,7 +2792,7 @@ namespace EcoMart.BusinessLayer
                         OrderDate = drow["OrderDate"].ToString();
                     if (drow["Telephone"] != DBNull.Value)
                         Telephone = drow["Telephone"].ToString();
-                    
+
                     //   if (drow["ScanPrescriptionID"] != DBNull.Value)
                     //     PrescriptionID = drow["ScanPrescriptionID"].ToString();
                     //     if (PrescriptionID != string.Empty)
@@ -2846,7 +2846,7 @@ namespace EcoMart.BusinessLayer
                     //if (drow["AmountCashDiscount12point5"] != DBNull.Value)
                     //    TotalDiscount12point5 = Convert.ToDouble(drow["AmountCashDiscount12point5"].ToString());
 
-                   
+
 
 
                 }
@@ -3143,7 +3143,7 @@ namespace EcoMart.BusinessLayer
                     CrdbVouNo = Convert.ToInt32(drow["VoucherNumber"].ToString());
                     CrdbCountersaleNumber = Convert.ToInt32(drow["CounterSaleNumber"].ToString());
                     CrdbVouDate = drow["VoucherDate"].ToString();
-                  //  SaleSubType = drow["VoucherSubType"].ToString();
+                    //  SaleSubType = drow["VoucherSubType"].ToString();
                     //if (drow["AccountID"] != DBNull.Value)
                     //    AccountID = drow["AccountId"].ToString();
                     //CrdbBillAmount = Convert.ToDouble(drow["AmountNet"].ToString());
@@ -3413,25 +3413,25 @@ namespace EcoMart.BusinessLayer
                 Log.WriteException(Ex);
             }
             return vouno;
-        }      
+        }
 
         public int AddDetails()
         {
             DBSSSale dbcrdb = new DBSSSale();
-            return dbcrdb.AddDetails(Id, AccountID, CrdbNarration1,CrdbNarration2, CrdbVouType, CrdbVouNo, CrdbVouDate,
-                CrdbAmountNet, CrdbDiscPer, CrdbDiscAmt, CrdbAmount, CrdbRoundAmount,DocID, CrdbAddOn, 
-                SaleSubType, CrdbAmountBalance, CrdbAmountClear,StatementNumber, CrNoteAmount,
-                DbNoteAmount, CrdbName, PatientAddress1, PatientAddress2, OperatorID,SalesmanID,TransporterID,
-                OrderNumber, OrderDate, TotalProfitInRupees,TotalProfitPercentByPurchaseRate, TotalProfitPercentBySaleRate,
-                ItemTotalDiscount,SchemeTotalDiscount,
+            return dbcrdb.AddDetails(Id, AccountID, CrdbNarration1, CrdbNarration2, CrdbVouType, CrdbVouNo, CrdbVouDate,
+                CrdbAmountNet, CrdbDiscPer, CrdbDiscAmt, CrdbAmount, CrdbRoundAmount, DocID, CrdbAddOn,
+                SaleSubType, CrdbAmountBalance, CrdbAmountClear, StatementNumber, CrNoteAmount,
+                DbNoteAmount, CrdbName, PatientAddress1, PatientAddress2, OperatorID, SalesmanID, TransporterID,
+                OrderNumber, OrderDate, TotalProfitInRupees, TotalProfitPercentByPurchaseRate, TotalProfitPercentBySaleRate,
+                ItemTotalDiscount, SchemeTotalDiscount,
                 GSTAmt0, GSTAmtS5, GSTAmtS12, GSTAmtS18, GSTAmtS28, GSTAmtC5, GSTAmtC12, GSTAmtC18, GSTAmtC28,
-           GSTS5, GSTS12, GSTS18, GSTS28, GSTC5, GSTC12, GSTC18, GSTC28, GSTAmtI5, GSTAmtI12, GSTAmtI18, GSTAmtI28, GSTI5, GSTI12, GSTI18, GSTI28, CreatedBy, CreatedDate, CreatedTime); 
+           GSTS5, GSTS12, GSTS18, GSTS28, GSTC5, GSTC12, GSTC18, GSTC28, GSTAmtI5, GSTAmtI12, GSTAmtI18, GSTAmtI28, GSTI5, GSTI12, GSTI18, GSTI28, CreatedBy, CreatedDate, CreatedTime);
         }
 
         public bool AddDetailsSpecialSale()
         {
             DBSSSale dbcrdb = new DBSSSale();
-            return dbcrdb.AddDetailsSpecialSale(Id, AccountID, CrdbNarration1,CrdbNarration2, CrdbVouType, CrdbVouNo, CrdbVouDate,
+            return dbcrdb.AddDetailsSpecialSale(Id, AccountID, CrdbNarration1, CrdbNarration2, CrdbVouType, CrdbVouNo, CrdbVouDate,
                 CrdbAmountNet, CrdbDiscPer, CrdbDiscAmt, CrdbAmount, CrdbVat5, CrdbVat12point5, CrdbRoundAmount,
                 DocID, DoctorName, DoctorAddress, CrdbAddOn, SaleSubType, CrdbAmountBalance, CrdbAmountClear,
                 CrdbOctoriPer, CrdbOctroiAmount, CrdbCountersaleNumber, StatementNumber, CrNoteAmount,
@@ -3456,9 +3456,9 @@ namespace EcoMart.BusinessLayer
             return dbsale.AddDetailsProductsSS(IntID, ProductID, Batchno, Quantity, PurchaseRate, MRP, SaleRate, TradeRate,
                 Expiry, VATPer, Amount, ExpiryDate, AccountID, CrdbCompanyID, VATAmount, CrdbIfProdDisc, LastStockID,
                 DetailId, SerialNumber, ProfitInRupees, ProfitPercentByPurchaseRate, ProfitPercentBySaleRate, PMTDiscountPer,
-                PMTDiscountAmount, ItemDiscountPer, ItemDiscountAmount, CrdbDiscAmt, MySpecialDiscountAmount,SchemeDiscountAmount,
-                SchemeQuanity,CrdbVouDate,CrdbCountersaleNumber,CrdbVouType, GSTPurchaseAmountZero, GSTSPurchaseAmount, GSTCPurchaseAmount, GSTSAmount, GSTCAmount,
-                NewBatchno,NewMRP,NewSaleRate);
+                PMTDiscountAmount, ItemDiscountPer, ItemDiscountAmount, CrdbDiscAmt, MySpecialDiscountAmount, SchemeDiscountAmount,
+                SchemeQuanity, CrdbVouDate, CrdbCountersaleNumber, CrdbVouType, GSTPurchaseAmountZero, GSTSPurchaseAmount, GSTCPurchaseAmount, GSTSAmount, GSTCAmount,
+                NewBatchno, NewMRP, NewSaleRate);
         }
         public bool AddProductDetailsSSSpecialSale()
         {
@@ -3487,17 +3487,17 @@ namespace EcoMart.BusinessLayer
         {
 
             DBSSSale dbcrdb = new DBSSSale();
-            return dbcrdb.UpdateDetails(Id, AccountID, CrdbNarration1,CrdbNarration2, CrdbVouType, CrdbVouNo, CrdbVouDate,
+            return dbcrdb.UpdateDetails(Id, AccountID, CrdbNarration1, CrdbNarration2, CrdbVouType, CrdbVouNo, CrdbVouDate,
                 CrdbAmountNet, CrdbDiscPer, CrdbDiscAmt, CrdbAmount, CrdbVat5, CrdbVat12point5, CrdbRoundAmount,
                 CrdbAmountNet, DocID, DoctorName, DoctorAddress, CrdbAddOn, SaleSubType, CrdbAmountBalance, CrdbAmountClear,
                 CrdbOctoriPer, CrdbOctroiAmount, CrdbCountersaleNumber, StatementNumber, CrNoteAmount, DbNoteAmount, CrdbName,
-                PatientAddress1, PatientAddress2, ShortName, PatientShortAddress, CrdbAmtForZeroVAT, OperatorID,PatientID,
-                CrdbAmountVat12point5, CrdbAmountVat5, CrdbIPDOPD, OrderNumber, OrderDate, TotalProfitInRupees, 
-                TotalProfitPercentByPurchaseRate, TotalProfitPercentBySaleRate, PMTTotalDiscount, ItemTotalDiscount, 
+                PatientAddress1, PatientAddress2, ShortName, PatientShortAddress, CrdbAmtForZeroVAT, OperatorID, PatientID,
+                CrdbAmountVat12point5, CrdbAmountVat5, CrdbIPDOPD, OrderNumber, OrderDate, TotalProfitInRupees,
+                TotalProfitPercentByPurchaseRate, TotalProfitPercentBySaleRate, PMTTotalDiscount, ItemTotalDiscount,
                 PrescriptionFileName, Telephone, MySpecialDiscountAmount, MySpecialDiscountPer, MyTotalSpecialDiscountPer12point5,
-                MyTotalSpecialDiscountPer5, TotalDiscount12point5, TotalDiscount5, SchemeTotalDiscount, IfFullPayment, NextVisitDate,DebtorsPatientID,
+                MyTotalSpecialDiscountPer5, TotalDiscount12point5, TotalDiscount5, SchemeTotalDiscount, IfFullPayment, NextVisitDate, DebtorsPatientID,
                 GSTAmt0, GSTAmtS5, GSTAmtS12, GSTAmtS18, GSTAmtS28, GSTAmtC5, GSTAmtC12, GSTAmtC18, GSTAmtC28,
-           GSTS5, GSTS12, GSTS18, GSTS28, GSTC5, GSTC12, GSTC18, GSTC28, GSTAmtI5, GSTAmtI12, GSTAmtI18, GSTAmtI28, GSTI5, GSTI12, GSTI18, GSTI28,ModifiedBy,ModifiedDate,ModifiedTime);
+           GSTS5, GSTS12, GSTS18, GSTS28, GSTC5, GSTC12, GSTC18, GSTC28, GSTAmtI5, GSTAmtI12, GSTAmtI18, GSTAmtI28, GSTI5, GSTI12, GSTI18, GSTI28, ModifiedBy, ModifiedDate, ModifiedTime);
         }
         public bool UpdateDetailsPrescription()
         {
@@ -3521,7 +3521,7 @@ namespace EcoMart.BusinessLayer
         {
 
             DBSSSale dbcrdb = new DBSSSale();
-            return dbcrdb.AddDetailsInDeleteMaster(Id, PreAccountID, PreNarration1,PreNarration2, PreVouType, CrdbVouNo, PreVouDate,
+            return dbcrdb.AddDetailsInDeleteMaster(Id, PreAccountID, PreNarration1, PreNarration2, PreVouType, CrdbVouNo, PreVouDate,
                 PreAmountNet, PreDiscPer, PreDiscAmt, PreAmount, PreVat5, PreVat12point5, PreRoundAmount,
                 PreAmountNet, PreDocID, PreDoctorNameAddress, PreDoctorAddress, PreAddOn, PreSaleSubType, PreAmountBalance, PreAmountClear,
                 PreOctoriPer, PreOctroiAmount, PreCountersaleNumber, PreStatementNumber, PreCrNoteAmount, PreDbNoteAmount, PreCrdbName,
@@ -3532,7 +3532,7 @@ namespace EcoMart.BusinessLayer
         {
 
             DBSSSale dbcrdb = new DBSSSale();
-            return dbcrdb.AddDetailsInChangedMaster(Id, ChangedID, PreAccountID, PreNarration1,PreNarration2, PreVouType, PreVouNumber, PreVouDate,
+            return dbcrdb.AddDetailsInChangedMaster(Id, ChangedID, PreAccountID, PreNarration1, PreNarration2, PreVouType, PreVouNumber, PreVouDate,
                 PreAmountNet, PreDiscPer, PreDiscAmt, PreAmount, PreVat5, PreVat12point5, PreRoundAmount,
                 PreAmountNet, PreDocID, PreDoctorNameAddress, PreDoctorAddress, PreAddOn, PreSaleSubType, PreAmountBalance, PreAmountClear,
                 PreOctoriPer, PreOctroiAmount, PreCountersaleNumber, PreStatementNumber, PreCrNoteAmount, PreDbNoteAmount, PreCrdbName,
@@ -3563,9 +3563,9 @@ namespace EcoMart.BusinessLayer
                  PatientAddress1, PatientAddress2, ShortName, PatientShortAddress, OperatorID, Telephone,
                  ModifiedBy, ModifiedDate, ModifiedTime);
         }
-                
-                
-                
+
+
+
         //        Id, AccountID, CrdbVouType, CrdbVouNo,
         //        CrdbVouDate, DocID, DoctorName, DoctorAddress, SaleSubType, CrdbCountersaleNumber, CrdbName, PatientID,
         //         PatientAddress1, PatientAddress2, ShortName, PatientShortAddress, OperatorID, Telephone,
@@ -3598,12 +3598,12 @@ namespace EcoMart.BusinessLayer
             DBSSSale dbsale = new DBSSSale();
             return dbsale.UpdateVoucherSaleUpdateStock(mstockID, mqty);
         }
-        public bool UpdateVoucherSaleUpdateMasterProduct(string mproductID, int mqty)
+        public bool UpdateVoucherSaleUpdateMasterProduct(string mProductID, int mqty)
         {
             DBSSSale dbsale = new DBSSSale();
-            return dbsale.UpdateVoucherSaleUpdateMasterProduct(mproductID, mqty);
+            return dbsale.UpdateVoucherSaleUpdateMasterProduct(mProductID, mqty);
         }
-        public bool UpdateVoucherSaleUpdateMaster(string mmasterSaleID, double mamt, double mvatamt5, double mvatamt12point5, double mvatamtforZero, double mvat5, double mvat12point5, double  mProfitInRupees,double mTotalProfitPercentBySaleRate,double mTotalProfitPercentByPurchaseRate)
+        public bool UpdateVoucherSaleUpdateMaster(string mmasterSaleID, double mamt, double mvatamt5, double mvatamt12point5, double mvatamtforZero, double mvat5, double mvat12point5, double mProfitInRupees, double mTotalProfitPercentBySaleRate, double mTotalProfitPercentByPurchaseRate)
         {
             DBSSSale dbsale = new DBSSSale();
             return dbsale.UpdateVoucherSaleUpdateMaster(mmasterSaleID, mamt, mvatamt5, mvatamt12point5, mvatamtforZero, mvat5, mvat12point5, mProfitInRupees, mTotalProfitPercentBySaleRate, mTotalProfitPercentByPurchaseRate);
@@ -3665,7 +3665,7 @@ namespace EcoMart.BusinessLayer
         public bool UpdateIntblStockForDistributor()
         {
             DBSsStock sstk = new DBSsStock();
-            return sstk.UpdateDebtorSaleStock(LastStockID, (Quantity+SchemeQuanity) * ProdPakn);
+            return sstk.UpdateDebtorSaleStock(LastStockID, (Quantity + SchemeQuanity) * ProdPakn);
 
         }
         public bool UpdateCreditDebitNoteAdjustedDetails(string crdbID, double mamtnet, string VouType, int VouNumber, string VouDate, string BillNumber, string puchaseid, string vouSeries)
@@ -3696,7 +3696,7 @@ namespace EcoMart.BusinessLayer
             {
                 DataRow dt = null;
                 DBSsStock sstk = new DBSsStock();
-                if (ProductID != "")
+                if (ProductID > 0)
                 {
                     dt = sstk.GetDataForAddToStock(ProductID);
                     if (dt != null)
@@ -3717,14 +3717,14 @@ namespace EcoMart.BusinessLayer
             int Closingstock = GetClosingStock();
             Closingstock -= Quantity;
             DBProduct dbprod = new DBProduct();
-            return dbprod.UpdateSaleStockInmasterProduct(ProductID, Closingstock, LastStockID, CrdbVouType, CrdbVouNo, CrdbVouDate, AccountID, ScanCode,MRP );
+            return dbprod.UpdateSaleStockInmasterProduct(ProductID, Closingstock, LastStockID, CrdbVouType, CrdbVouNo, CrdbVouDate, AccountID, ScanCode, MRP);
         }
         public bool UpdateSaleStockInMasterProductForDistributor()
         {
             int Closingstock = GetClosingStock();
-            Closingstock -= ((Quantity+SchemeQuanity) * ProdPakn);
+            Closingstock -= ((Quantity + SchemeQuanity) * ProdPakn);
             DBProduct dbprod = new DBProduct();
-            return dbprod.UpdateSaleStockInmasterProduct(ProductID, Closingstock, LastStockID, CrdbVouType, CrdbVouNo, CrdbVouDate, AccountID, ScanCode,MRP);
+            return dbprod.UpdateSaleStockInmasterProduct(ProductID, Closingstock, LastStockID, CrdbVouType, CrdbVouNo, CrdbVouDate, AccountID, ScanCode, MRP);
         }
         public int GetClosingStock()
         {
@@ -3740,7 +3740,7 @@ namespace EcoMart.BusinessLayer
         public bool UpdateIntblStockAddForDistributor()
         {
             DBSsStock sstk = new DBSsStock();
-            return sstk.UpdateDebtorSaleStockAddFromTemp(LastStockID, (Quantity+SchemeQuanity) * ProdPakn);
+            return sstk.UpdateDebtorSaleStockAddFromTemp(LastStockID, (Quantity + SchemeQuanity) * ProdPakn);
 
         }
         public bool UpdateDebtorSaleStockInMasterProductAddFromTemp()
@@ -3753,7 +3753,7 @@ namespace EcoMart.BusinessLayer
         public bool UpdateDebtorSaleStockInMasterProductAddFromTempForDistributor()
         {
             int Closingstock = GetClosingStock();
-            Closingstock += ((Quantity+SchemeQuanity) * ProdPakn);
+            Closingstock += ((Quantity + SchemeQuanity) * ProdPakn);
             DBProduct dbprod = new DBProduct();
             return dbprod.UpdateDebtorSaleStockInmasterProductAddFromTemp(ProductID, Closingstock);
         }
@@ -3806,7 +3806,7 @@ namespace EcoMart.BusinessLayer
             }
             return dRow;
         }
-       
+
 
         public void AddToShortList()
         {
@@ -3823,7 +3823,7 @@ namespace EcoMart.BusinessLayer
                     if (dr["ProdlastpurchasepartyID"] != DBNull.Value && dr["ProdlastpurchasepartyID"].ToString() != string.Empty)
                         accid = dr["ProdlastpurchasepartyID"].ToString();
                     else if (dr["ProdPartyID_1"] != DBNull.Value && dr["ProdPartyID_1"].ToString() != string.Empty)
-                    accid = dr["ProdPartyID_1"].ToString();
+                        accid = dr["ProdPartyID_1"].ToString();
                     dbsl.AddToShortList(ProductID, TodayS, ShortListID, PurchaseRate, accid);
                 }
             }
@@ -3931,7 +3931,7 @@ namespace EcoMart.BusinessLayer
             DataRow dr = null;
             try
             {
-                
+
                 DBSSSale dbScheme = new DBSSSale();
                 dr = dbScheme.GetSchemeDetails(mprod);
             }
@@ -3946,7 +3946,7 @@ namespace EcoMart.BusinessLayer
         {
             DBSSSale dbcrdb = new DBSSSale();
             dbcrdb.AddDetailsInTempPurchase(TempChallanID, ProductID, Batchno, Quantity, PurchaseRate, MRP, TradeRate,
-                Expiry,LastStockID, CreatedBy, CreatedDate, CreatedTime);
+                Expiry, LastStockID, CreatedBy, CreatedDate, CreatedTime);
         }
         public void UpdateDetailsInTempPurchase()
         {
@@ -3964,7 +3964,7 @@ namespace EcoMart.BusinessLayer
                 drow = sstk.GetRowForBatchMRPIntblTempPurchase(ProductID, Batchno, MRP);
 
                 if (drow != null)
-                    stockid = drow["StockID"].ToString();              
+                    stockid = drow["StockID"].ToString();
             }
             catch (Exception Ex)
             {
@@ -3974,7 +3974,7 @@ namespace EcoMart.BusinessLayer
 
         }
 
-        public string CheckForProductBatchMRPInStocktable( )
+        public string CheckForProductBatchMRPInStocktable()
         {
             DBSsStock sstk = new DBSsStock();
             DataRow drow = null;
@@ -3993,230 +3993,230 @@ namespace EcoMart.BusinessLayer
             return stockid;
         }
 
-       public  void UpdateDetailSaleForNewVoucherTypeAndNumber(string ID, string vouID, string vouType, int vouNumber)
+        public void UpdateDetailSaleForNewVoucherTypeAndNumber(string ID, string vouID, string vouType, int vouNumber)
         {
             DBSSSale dbs = new DBSSSale();
-            dbs.UpdateDetailSaleForNewVoucherTypeAndNumber(Id, vouID,vouType,vouNumber);
+            dbs.UpdateDetailSaleForNewVoucherTypeAndNumber(Id, vouID, vouType, vouNumber);
         }
 
-       public void GetPartyOtherDetails(string partyID)
-       {
-           DataRow dr = null;
-           DBSSSale dbs = new DBSSSale();
-           dr = dbs.GetPartyOtherDetails(partyID);
-           if (dr != null)
-           {
-               if (dr["AccVatTin"] != DBNull.Value)
-                   PatientVATTIN = dr["AccVatTin"].ToString();
-               if (dr["AccDLN"] != DBNull.Value)
-                   PartyDLN = dr["AccDLN"].ToString();
-               if (dr["ACCLBT"] != DBNull.Value)
-                  PartyLBT = dr["ACCLBT"].ToString();
-               if (dr["AccAddress1"] != DBNull.Value)
-                   PatientAddress1 = dr["AccAddress1"].ToString();
-               if (dr["AccAddress2"] != DBNull.Value)
-                   PatientAddress2 = dr["AccAddress2"].ToString();
-               if (dr["AccTelephone"] != DBNull.Value)
-                   Telephone = dr["AccTelephone"].ToString();
+        public void GetPartyOtherDetails(string partyID)
+        {
+            DataRow dr = null;
+            DBSSSale dbs = new DBSSSale();
+            dr = dbs.GetPartyOtherDetails(partyID);
+            if (dr != null)
+            {
+                if (dr["AccVatTin"] != DBNull.Value)
+                    PatientVATTIN = dr["AccVatTin"].ToString();
+                if (dr["AccDLN"] != DBNull.Value)
+                    PartyDLN = dr["AccDLN"].ToString();
+                if (dr["ACCLBT"] != DBNull.Value)
+                    PartyLBT = dr["ACCLBT"].ToString();
+                if (dr["AccAddress1"] != DBNull.Value)
+                    PatientAddress1 = dr["AccAddress1"].ToString();
+                if (dr["AccAddress2"] != DBNull.Value)
+                    PatientAddress2 = dr["AccAddress2"].ToString();
+                if (dr["AccTelephone"] != DBNull.Value)
+                    Telephone = dr["AccTelephone"].ToString();
 
-           }
-       }
+            }
+        }
 
-       public void GetLastRecordForSale()
-       {
-           DataRow dr;          
-           try
-           {
-               DBSSSale dbs = new DBSSSale();
-               dr = dbs.GetLastRecordForSale(CrdbVouType,SaleSubType,CrdbVouSeries);
-               if (dr != null && dr["ID"] != null)
-               {
+        public void GetLastRecordForSale()
+        {
+            DataRow dr;
+            try
+            {
+                DBSSSale dbs = new DBSSSale();
+                dr = dbs.GetLastRecordForSale(CrdbVouType, SaleSubType, CrdbVouSeries);
+                if (dr != null && dr["ID"] != null)
+                {
 
-                   Id = dr["ID"].ToString();                  
-                   
-               }
-              
-           }
-           catch (Exception Ex)
-           {
-               Log.WriteException(Ex);
-           }
-                   
-       }
+                    Id = dr["ID"].ToString();
 
-      public int GetLastVoucherNumber(string vouType, string subType , string vouSeries)
-      {
-          DataRow dr;
-          int lastvouno = 0;
-          try
-          {
-              DBSSSale dbs = new DBSSSale();
-              dr = dbs.GetLastVoucherNumber(vouType, subType, vouSeries);
-              if (dr != null)
-              {                 
-                 
-                  lastvouno = Convert.ToInt32(dr["VoucherNumber"].ToString());
+                }
 
-              }
+            }
+            catch (Exception Ex)
+            {
+                Log.WriteException(Ex);
+            }
 
-          }
-          catch (Exception Ex)
-          {
-              Log.WriteException(Ex);
-          }
-          return lastvouno;  
-      }
+        }
 
-      public DataRow GetFirstRecord()
-      {
-          DataRow dr = null;
-          try
-          {
-              DBSSSale dbs = new DBSSSale();
-              dr = dbs.GetFirstRecord(CrdbVouType,SaleSubType,CrdbVouSeries);            
-          }
-          catch (Exception Ex)
-          {
-              Log.WriteException(Ex);
-          }
-          return dr;
-      }
+        public int GetLastVoucherNumber(string vouType, string subType, string vouSeries)
+        {
+            DataRow dr;
+            int lastvouno = 0;
+            try
+            {
+                DBSSSale dbs = new DBSSSale();
+                dr = dbs.GetLastVoucherNumber(vouType, subType, vouSeries);
+                if (dr != null)
+                {
 
+                    lastvouno = Convert.ToInt32(dr["VoucherNumber"].ToString());
 
-      public void GetLastRecordForSaleSpecialSale()
-      {
-          DataRow dr;
-          try
-          {
-              DBSSSale dbs = new DBSSSale();
-              dr = dbs.GetLastRecordForSaleSpecialSale(CrdbVouType, CrdbVouSeries);
-              if (dr != null && dr["ID"] != null)
-              {
+                }
 
-                  Id = dr["ID"].ToString();
+            }
+            catch (Exception Ex)
+            {
+                Log.WriteException(Ex);
+            }
+            return lastvouno;
+        }
 
-              }
-
-          }
-          catch (Exception Ex)
-          {
-              Log.WriteException(Ex);
-          }
-
-      }
-
-      public int GetLastVoucherNumberSpecialSale(string vouType, string vouSeries)
-      {
-          DataRow dr;
-          int lastvouno = 0;
-          try
-          {
-              DBSSSale dbs = new DBSSSale();
-              dr = dbs.GetLastVoucherNumberSpecialSale(vouType, vouSeries);
-              if (dr != null)
-              {
-
-                  lastvouno = Convert.ToInt32(dr["VoucherNumber"].ToString());
-
-              }
-
-          }
-          catch (Exception Ex)
-          {
-              Log.WriteException(Ex);
-          }
-          return lastvouno;
-      }
-
-      public DataRow GetFirstRecordSpecialSale()
-      {
-          DataRow dr = null;
-          try
-          {
-              DBSSSale dbs = new DBSSSale();
-              dr = dbs.GetFirstRecordSpecialSale(CrdbVouType, CrdbVouSeries);
-          }
-          catch (Exception Ex)
-          {
-              Log.WriteException(Ex);
-          }
-          return dr;
-      }
-
-      internal void UpdateCreditDebitNoteforTypeChange(string p, string p_2, int p_3, string p_4, string p_5)
-      {
-          throw new NotImplementedException();
-      }
-
-      public string IfmultipleMRP(string mprodno, string mbatchno, double mmrpn)
-      {
-          string ifm = "N";
-          DataRow  dr = null;
-          DBSSSale dbs = new DBSSSale();
-          dr = dbs.IfMultipleMrp(mprodno, mbatchno, mmrpn);
-          if (dr != null)
-              ifm = "Y";
-          return ifm;
-      }
+        public DataRow GetFirstRecord()
+        {
+            DataRow dr = null;
+            try
+            {
+                DBSSSale dbs = new DBSSSale();
+                dr = dbs.GetFirstRecord(CrdbVouType, SaleSubType, CrdbVouSeries);
+            }
+            catch (Exception Ex)
+            {
+                Log.WriteException(Ex);
+            }
+            return dr;
+        }
 
 
+        public void GetLastRecordForSaleSpecialSale()
+        {
+            DataRow dr;
+            try
+            {
+                DBSSSale dbs = new DBSSSale();
+                dr = dbs.GetLastRecordForSaleSpecialSale(CrdbVouType, CrdbVouSeries);
+                if (dr != null && dr["ID"] != null)
+                {
 
-       public  void UpdateDetailSaleForRateInCounterSale(string detailID, double mrate, string voucherType, int voucherNumber)
-      {
+                    Id = dr["ID"].ToString();
 
-          DBSSSale dbs = new DBSSSale();
-          dbs.UpdateDetailSaleForRateInCounterSale(detailID, mrate, voucherType, voucherNumber);
-      }
+                }
 
-       //public string GetPutInBlackList(string selectedID)
-       //{
-       //    string putInBlackList = "N";
-       //    DataRow drow = null;
-       //    DBSSSale dbsale = new DBSSSale();
-       //    drow = dbsale.GetPutInBlackList(selectedID);
-       //    if (drow != null)
-       //    {
-       //        if (drow["PutInBlackList"] != DBNull.Value)
-       //            putInBlackList = drow["PutInBlackList"].ToString();
-       //    }
-       //    return putInBlackList;
+            }
+            catch (Exception Ex)
+            {
+                Log.WriteException(Ex);
+            }
 
-       //}
+        }
 
-       //public string GetPatientTelephone(string selectedID)
-       //{
-       //    string telephone = string.Empty;
-       //    DataRow drow = null;
-       //    DBSSSale dbsale = new DBSSSale();
-       //    drow = dbsale.GetPatientTelephone(selectedID);
-       //    if (drow != null && drow["TelephoneNumber"] != DBNull.Value)
-       //        telephone = drow["TelephoneNumber"].ToString();
-       //    return telephone;
-       //}
+        public int GetLastVoucherNumberSpecialSale(string vouType, string vouSeries)
+        {
+            DataRow dr;
+            int lastvouno = 0;
+            try
+            {
+                DBSSSale dbs = new DBSSSale();
+                dr = dbs.GetLastVoucherNumberSpecialSale(vouType, vouSeries);
+                if (dr != null)
+                {
+
+                    lastvouno = Convert.ToInt32(dr["VoucherNumber"].ToString());
+
+                }
+
+            }
+            catch (Exception Ex)
+            {
+                Log.WriteException(Ex);
+            }
+            return lastvouno;
+        }
+
+        public DataRow GetFirstRecordSpecialSale()
+        {
+            DataRow dr = null;
+            try
+            {
+                DBSSSale dbs = new DBSSSale();
+                dr = dbs.GetFirstRecordSpecialSale(CrdbVouType, CrdbVouSeries);
+            }
+            catch (Exception Ex)
+            {
+                Log.WriteException(Ex);
+            }
+            return dr;
+        }
+
+        internal void UpdateCreditDebitNoteforTypeChange(string p, string p_2, int p_3, string p_4, string p_5)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string IfmultipleMRP(string mprodno, string mbatchno, double mmrpn)
+        {
+            string ifm = "N";
+            DataRow dr = null;
+            DBSSSale dbs = new DBSSSale();
+            dr = dbs.IfMultipleMrp(mprodno, mbatchno, mmrpn);
+            if (dr != null)
+                ifm = "Y";
+            return ifm;
+        }
 
 
 
-     
+        public void UpdateDetailSaleForRateInCounterSale(string detailID, double mrate, string voucherType, int voucherNumber)
+        {
 
-       public int GetStockToCheckNegetive()
-       {
-           int stk = 0;
-           DBSsStock sstk = new DBSsStock();
-           stk =  sstk.GetStockToCheckNegetive(LastStockID);
-           return stk;
-       }
+            DBSSSale dbs = new DBSSSale();
+            dbs.UpdateDetailSaleForRateInCounterSale(detailID, mrate, voucherType, voucherNumber);
+        }
 
-       public void UpdateDoctor(string address, string docID)
-       {
-           DBSSSale dbs = new DBSSSale();
-           dbs.UpdateDoctor(address,docID);
-       }
+        //public string GetPutInBlackList(string selectedID)
+        //{
+        //    string putInBlackList = "N";
+        //    DataRow drow = null;
+        //    DBSSSale dbsale = new DBSSSale();
+        //    drow = dbsale.GetPutInBlackList(selectedID);
+        //    if (drow != null)
+        //    {
+        //        if (drow["PutInBlackList"] != DBNull.Value)
+        //            putInBlackList = drow["PutInBlackList"].ToString();
+        //    }
+        //    return putInBlackList;
 
-       //public void UpdatePatient(string mobilenumber, string telephone, string patientID ,string docID)
-       //{
-       //    DBSSSale dbs = new DBSSSale();
-       //    dbs.UpdatePatient(mobilenumber, telephone, patientID, docID);
-       //}
+        //}
+
+        //public string GetPatientTelephone(string selectedID)
+        //{
+        //    string telephone = string.Empty;
+        //    DataRow drow = null;
+        //    DBSSSale dbsale = new DBSSSale();
+        //    drow = dbsale.GetPatientTelephone(selectedID);
+        //    if (drow != null && drow["TelephoneNumber"] != DBNull.Value)
+        //        telephone = drow["TelephoneNumber"].ToString();
+        //    return telephone;
+        //}
+
+
+
+
+
+        public int GetStockToCheckNegetive()
+        {
+            int stk = 0;
+            DBSsStock sstk = new DBSsStock();
+            stk = sstk.GetStockToCheckNegetive(LastStockID);
+            return stk;
+        }
+
+        public void UpdateDoctor(string address, string docID)
+        {
+            DBSSSale dbs = new DBSSSale();
+            dbs.UpdateDoctor(address, docID);
+        }
+
+        //public void UpdatePatient(string mobilenumber, string telephone, string patientID ,string docID)
+        //{
+        //    DBSSSale dbs = new DBSSSale();
+        //    dbs.UpdatePatient(mobilenumber, telephone, patientID, docID);
+        //}
 
         public DataTable GetNegetiveStockRowsFromtblStock()
         {
@@ -4232,7 +4232,7 @@ namespace EcoMart.BusinessLayer
             try
             {
                 DBAccount actoken = new DBAccount();
-                dRow = actoken.GetdebtorDataByMobileNumber(AccCode,MobileNumberForSMS);
+                dRow = actoken.GetdebtorDataByMobileNumber(AccCode, MobileNumberForSMS);
             }
             catch (Exception Ex)
             {

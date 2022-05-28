@@ -31,7 +31,7 @@ namespace EcoMart.InterfaceLayer
             tsBtnSave.Visible = false;
             tsBtnCancel.Visible = false;
             tsBtnSavenPrint.Visible = false;
-            
+
         }
         private void FillProductCombo()
         {
@@ -89,7 +89,7 @@ namespace EcoMart.InterfaceLayer
             btnStart.Enabled = false;
             if (txtpasswd.Text.ToString().ToUpper() == "REMOVE")
             {
-                bool retValue = prod.RemoveEDEProductLink(mcbProduct.SelectedID,mcbCreditor.SelectedID);
+                bool retValue = prod.RemoveEDEProductLink(Convert.ToInt32(mcbProduct.SelectedID), mcbCreditor.SelectedID);
                 MessageBox.Show("DONE");
             }
         }

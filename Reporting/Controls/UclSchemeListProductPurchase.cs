@@ -723,10 +723,10 @@ namespace EcoMart.Reporting.Controls
                 Log.WriteException(Ex);
             }
         }
-        private void GetPurchaseDataProductwise(string productID)
+        private void GetPurchaseDataProductwise(int ProductID)
         {
             DataTable dtable = new DataTable();
-            dtable = _Purchase.GetPurchaseDataProductWiseWithScheme(productID);
+            dtable = _Purchase.GetPurchaseDataProductWiseWithScheme(ProductID);
             _BindingSource = dtable;
         }
         #endregion Other Private Methods
@@ -814,15 +814,15 @@ namespace EcoMart.Reporting.Controls
                 {
                     if (dgvReportList.Rows.Count > 0)
                         dgvReportList.Rows.Clear();
-                    string mproductID = "";
+                    int mProductID = 0;
                     foreach (DataGridViewRow row in rowCollection)
                     {
-                        mproductID = "";
+                        mProductID = 0;
                         if (row.Cells["Col_ID"].Value != null)
-                            mproductID = row.Cells["Col_ID"].Value.ToString();
-                        if (mproductID != "")
+                            mProductID = Convert.ToInt32(row.Cells["Col_ID"].Value.ToString());
+                        if (mProductID != 0)
                         {
-                            GetPurchaseDataProductwise(mproductID);
+                            GetPurchaseDataProductwise(mProductID);
                             if (_BindingSource.Rows.Count > 0)
                             {
                                 FillReportData(row.Cells["Col_ID"].Value.ToString(), row.Cells["Col_Name"].Value.ToString(), row.Cells["Col_UOM"].Value.ToString(),

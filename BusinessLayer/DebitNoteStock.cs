@@ -11,7 +11,7 @@ namespace EcoMart.BusinessLayer
     class DebitNoteStock : BaseObject
     {
         #region Declaration
-        private string _ProductID;
+        private int _ProductID;
         private string _Batchno;
         private double _Mrp;
         private double _PurchaseRate;
@@ -114,7 +114,7 @@ namespace EcoMart.BusinessLayer
             set { _StockID = value; }
         }
 
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
@@ -409,7 +409,7 @@ namespace EcoMart.BusinessLayer
                 _Expiry = "";
                 _ExpiryDate = "";
                 _Mrp = 0;
-                _ProductID = "";
+                _ProductID = 0;
                 _PurchaseRate = 0;
                 _Quantity = 0;
                 _ReasonCode = "";

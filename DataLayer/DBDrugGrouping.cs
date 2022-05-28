@@ -65,7 +65,7 @@ namespace EcoMart.DataLayer
         public DataTable GetProduct()
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select ProdName, ProductId,ProdLoosePack,ProdPack,ProdCompShortName  from masterproduct order by ProdName";
+            string strSql = "Select ProdName, ProductID,ProdLoosePack,ProdPack,ProdCompShortName  from masterproduct order by ProdName";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -99,7 +99,7 @@ namespace EcoMart.DataLayer
             DataRow dRow = null;
             if (Id != "")
             {
-                string strSql = "Select * from masterproduct where ProductId='{0}' ";
+                string strSql = "Select * from masterproduct where ProductID='{0}' ";
                 strSql = string.Format(strSql, Id);
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
@@ -118,12 +118,12 @@ namespace EcoMart.DataLayer
             }
             return bRetValue;
         }
-        public bool UpdateProductMaster(int  Id, int productID)
+        public bool UpdateProductMaster(int  Id, int ProductID)
         {
             bool bRetValue = false;
             if (Id != 0)
             {
-                string strSql = "update masterproduct set proddrugID = '" + Id + "' where productid = '" + productID + "'";
+                string strSql = "update masterproduct set proddrugID = '" + Id + "' where ProductID = '" + ProductID + "'";
                 if (DBInterface.ExecuteQuery(strSql) > 0)
                 {
                     bRetValue = true;
@@ -132,10 +132,10 @@ namespace EcoMart.DataLayer
             return bRetValue;
            
         }
-        public bool AddDetails(int Id,int detailID, int  ProductId, string createdby, string createddate, string createdtime, string modifyby, string modifydate, string modifytime)
+        public bool AddDetails(int Id,int detailID, int  ProductID, string createdby, string createddate, string createdtime, string modifyby, string modifydate, string modifytime)
         {        
             bool bRetValue = false;
-            string strSql = GetInsertQuery(Id,detailID, ProductId ,createdby,createddate,createdtime,modifyby,modifydate,modifytime);
+            string strSql = GetInsertQuery(Id,detailID, ProductID ,createdby,createddate,createdtime,modifyby,modifydate,modifytime);
 
          if (DBInterface.ExecuteQuery(strSql) > 0)
             {
@@ -156,9 +156,9 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool IsNameUnique(string ProductId, string Id)
+        public bool IsNameUnique(int ProductID, string Id)
         {
-            string strSql = GetDataForUnique(ProductId, Id);
+            string strSql = GetDataForUnique(ProductID, Id);
             bool bRetValue = false;
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
@@ -179,19 +179,19 @@ namespace EcoMart.DataLayer
 
         #region Query Building Functions
 
-        private string GetDataForUnique(string ProductId, string Id)
+        private string GetDataForUnique(int ProductID, string Id)
         {
             StringBuilder sQuery = new StringBuilder();
-            sQuery.AppendFormat("Select ProductId from linkdruggrouping where GenericCategoryID= " + '"' + Id +'"' + "and ProductID = "+ '"' +ProductId +'"', Id);
+            sQuery.AppendFormat("Select ProductID from linkdruggrouping where GenericCategoryID= " + '"' + Id +'"' + "and ProductID = "+ '"' +ProductID +'"', Id);
             return sQuery.ToString();
         }
-        private string GetInsertQuery(int Id, int detailID, int ProductId,string createdby, string createddate, string createdtime, string modifyby, string modifydate, string modifytime)
+        private string GetInsertQuery(int Id, int detailID, int ProductID,string createdby, string createddate, string createdtime, string modifyby, string modifydate, string modifytime)
        {
             Query objQuery = new Query();
             objQuery.Table = "linkdruggrouping";
             //objQuery.AddToQuery("LinkDrugGroupingID", detailID);
             objQuery.AddToQuery("GenericCategoryID", Id);
-            objQuery.AddToQuery("ProductID", ProductId);
+            objQuery.AddToQuery("ProductID", ProductID);
             objQuery.AddToQuery("CreatedDate", createddate);
             objQuery.AddToQuery("CreatedTime", createdtime);
             objQuery.AddToQuery("CreatedUserID", createdby);

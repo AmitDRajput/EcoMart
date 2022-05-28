@@ -12,7 +12,7 @@ namespace EcoMart.BusinessLayer
     {
         #region Declaration
         private string _PurchaseId;
-        private string _ProductID;
+        private int _ProductID;
         private string _BatchNumber;
         private double _TradeRate;
         private double _PurchaseRate;
@@ -58,7 +58,7 @@ namespace EcoMart.BusinessLayer
             set { _PurchaseId = value; }
         }
         
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
@@ -211,7 +211,7 @@ namespace EcoMart.BusinessLayer
             {
                 base.Initialise();
                 _PurchaseId = "";
-                _ProductID = "";
+                _ProductID = 0;
                 _BatchNumber = "";
                 _TradeRate = 0;
                 _PurchaseRate = 0;
@@ -315,7 +315,7 @@ namespace EcoMart.BusinessLayer
                     if (drow["PurchaseId"] != DBNull.Value)
                         PurchaseId = Convert.ToString(drow["PurchaseId"]);
                     if (drow["ProductID"] != DBNull.Value)
-                        ProductID = Convert.ToString(drow["ProductID"]);
+                        ProductID = Convert.ToInt32(drow["ProductID"]);
                     if (drow["BatchNumber"] != DBNull.Value)
                         BatchNumber = Convert.ToString(drow["BatchNumber"]);
                     if (drow["TradeRate"] != DBNull.Value)
@@ -359,7 +359,7 @@ namespace EcoMart.BusinessLayer
                     if (drow["IfTradeRateInclusiveOfVAT"] != DBNull.Value)
                         IfTradeRateInclusiveOfVAT = Convert.ToString(drow["IfTradeRateInclusiveOfVAT"]);
 
-                    _Product.Id = ProductID;
+                    _Product.Id = ProductID.ToString();
                     _Product.ReadDetailsByID();
                 }
             }
@@ -370,20 +370,20 @@ namespace EcoMart.BusinessLayer
             return retValue;
         }
 
-        public bool GetPurchaseByProductIdAndBatchId(string productID, string batchID, string BatchMRP)
+        public bool GetPurchaseByProductIDAndBatchId(int ProductID, string batchID, string BatchMRP)
         {
             bool retValue = false;
             try
             {
                 DataRow drow = null;
                 DBDetailPurchase dbData = new DBDetailPurchase();
-                drow = dbData.GetPurchaseByProductIdAndBatchId(productID, batchID, BatchMRP);
+                drow = dbData.GetPurchaseByProductIDAndBatchId(ProductID, batchID, BatchMRP);
                 if (drow != null)
                 {
                     if (drow["PurchaseId"] != DBNull.Value)
                         PurchaseId = Convert.ToString(drow["PurchaseId"]);
                     if (drow["ProductID"] != DBNull.Value)
-                        ProductID = Convert.ToString(drow["ProductID"]);
+                        ProductID = Convert.ToInt32(drow["ProductID"]);
                     if (drow["BatchNumber"] != DBNull.Value)
                         BatchNumber = Convert.ToString(drow["BatchNumber"]);
                     if (drow["TradeRate"] != DBNull.Value)

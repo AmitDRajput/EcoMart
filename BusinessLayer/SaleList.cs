@@ -110,20 +110,20 @@ namespace EcoMart.BusinessLayer
             DBSaleList dbsl = new DBSaleList();
             return dbsl.GetOverviewDataForAllPartySummary(fromdate, todate);
         }
-        public DataTable GetSaleDataForGivenProduct(string productid)
+        public DataTable GetSaleDataForGivenProduct(int ProductID)
         {
             DBSaleList dbsalelist = new DBSaleList();
-            return dbsalelist.GetSaleDataForGivenProduct(productid);
+            return dbsalelist.GetSaleDataForGivenProduct(ProductID);
         }
         public DataTable GetSaleDataForH1(string fromdate, string todate)
         {
             DBSaleList dbsalelist = new DBSaleList();
             return dbsalelist.GetSaleDataForH1(fromdate, todate);
         }
-        public DataTable GetSaleDataForGivenProductBatchMrp(string productid, string batch, double mrp, string fromDate, string toDate)
+        public DataTable GetSaleDataForGivenProductBatchMrp(int ProductID, string batch, double mrp, string fromDate, string toDate)
         {
             DBSaleList dbsalelist = new DBSaleList();
-            return dbsalelist.GetSaleDataForGivenProductBatchMrp(productid,batch,mrp,fromDate,toDate);
+            return dbsalelist.GetSaleDataForGivenProductBatchMrp(ProductID,batch,mrp,fromDate,toDate);
         }
         public DataTable GetSaleDataForScheduledProducts(string fromdate, string todate)
         {
@@ -148,10 +148,10 @@ namespace EcoMart.BusinessLayer
             DBSaleList dbsalelist = new DBSaleList();
             return dbsalelist.GetSaleDataForPatient(patient, fromdate, todate);
         }
-        public DataTable GetSaleDataForPatient(string patient, string fromdate, string todate, string productID)
+        public DataTable GetSaleDataForPatient(string patient, string fromdate, string todate, int ProductID)
         {
             DBSaleList dbsalelist = new DBSaleList();
-            return dbsalelist.GetSaleDataForPatient(patient, fromdate, todate,productID);
+            return dbsalelist.GetSaleDataForPatient(patient, fromdate, todate,ProductID);
         }
         public DataTable GetSaleDataForDoctor(string doctorid,  string fromdate, string todate)
         {
@@ -213,22 +213,22 @@ namespace EcoMart.BusinessLayer
             DBSaleList dbsalelist = new DBSaleList();
             return dbsalelist.GetOverviewDataForPartywiseOutstandingSaleReportforPatient(accID, fromdate, todate);
         }
-        public DataTable GetOverviewDataForPartyProductListDebtor(string PartyID, string ProductID)
+        public DataTable GetOverviewDataForPartyProductListDebtor(string PartyID, int ProductID)
         {
             DBSaleList dbsl = new DBSaleList();
             return dbsl.GetOverviewDataForPartyProductListDebtor(PartyID, ProductID);
         }
-        public DataTable GetOverviewDataForPartyProductListPatient(string PartyID, string ProductID)
+        public DataTable GetOverviewDataForPartyProductListPatient(string PartyID, int ProductID)
         {
             DBSaleList dbsl = new DBSaleList();
             return dbsl.GetOverviewDataForPartyProductListPatient(PartyID, ProductID);
         }
-        public DataTable GetOverviewDataForRegularPartyProductSale(string PartyID, string ProductID, string fromdate , string todate)
+        public DataTable GetOverviewDataForRegularPartyProductSale(string PartyID, int ProductID, string fromdate , string todate)
         {
             DBSaleList dbsl = new DBSaleList();
             return dbsl.GetOverviewDataForRegularPartyProductSale(PartyID, ProductID,fromdate,todate);
         }
-        public DataTable GetOverviewDataForRegularPartyProductSalePatient(string PartyID, string ProductID, string fromdate , string todate)
+        public DataTable GetOverviewDataForRegularPartyProductSalePatient(string PartyID, int ProductID, string fromdate , string todate)
         {
             DBSaleList dbsl = new DBSaleList();
             return dbsl.GetOverviewDataForRegularPartyProductSalePatient(PartyID, ProductID, fromdate, todate);

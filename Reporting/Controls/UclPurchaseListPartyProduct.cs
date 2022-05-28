@@ -779,15 +779,15 @@ namespace EcoMart.Reporting.Controls
                     {
                         if (dgvReportList.Rows.Count > 0)
                             dgvReportList.Rows.Clear();
-                        string mproductID = "";
+                        int mProductID = 0;
                         foreach (DataGridViewRow row in rowCollection)
                         {
-                            mproductID = "";
+                            mProductID = 0;
                             if (row.Cells["Col_ID"].Value != null)
-                                mproductID = row.Cells["Col_ID"].Value.ToString();
-                            if (mproductID != "")
+                                mProductID = Convert.ToInt32(row.Cells["Col_ID"].Value.ToString());
+                            if (mProductID != 0)
                             {
-                                GetPurchaseDataProductwise(mproductID);
+                                GetPurchaseDataProductwise(mProductID);
                                 if (_BindingSource.Rows.Count > 0)
                                 {
                                     BindReportGrid(row.Cells["Col_ID"].Value.ToString(), row.Cells["Col_Name"].Value.ToString(), row.Cells["Col_UOM"].Value.ToString(),
@@ -865,11 +865,11 @@ namespace EcoMart.Reporting.Controls
             }
         }
 
-        private void GetPurchaseDataProductwise(string productID)
+        private void GetPurchaseDataProductwise(int ProductID)
         {
             DataTable dtable = new DataTable();
             string acccode = mcbCreditor.SeletedItem.ItemData[1].ToString();
-            dtable = _Purchase.GetOverviewDataForPartyProductList(mcbCreditor.SelectedID, productID);
+            dtable = _Purchase.GetOverviewDataForPartyProductList(mcbCreditor.SelectedID, ProductID);
             _BindingSource = dtable;
         }
 

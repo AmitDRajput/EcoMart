@@ -11,7 +11,7 @@ namespace EcoMart.BusinessLayer
     class ShelfProduct : BaseObject
     {
         #region Declaration
-        private string _ProductID;
+        private int _ProductID;
         private int _Quantity;
         private string _ShelfID;
         private bool _DuplicateProduct;
@@ -39,7 +39,7 @@ namespace EcoMart.BusinessLayer
             set { _DuplicateProduct = value; }
         }
 
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
@@ -84,7 +84,7 @@ namespace EcoMart.BusinessLayer
         {
             base.Initialise();
             _Quantity = 0;
-            _ProductID = "";
+            _ProductID = 0;
             _ShelfID = "";
             _DuplicateProduct = false;
 
@@ -229,10 +229,10 @@ namespace EcoMart.BusinessLayer
             return dbdbprod.UpdateMasterProductClearShelfId(shelfID);
         }
 
-        public bool UpdateMasterProductByProductId(string shelfID, string productID)
+        public bool UpdateMasterProductByProductID(string shelfID, int ProductID)
         {
             DBShelfProduct dbdbprod = new DBShelfProduct();
-            return dbdbprod.UpdateMasterProductByProductId(shelfID,productID);
+            return dbdbprod.UpdateMasterProductByProductID(shelfID,ProductID);
         }
 
         #endregion

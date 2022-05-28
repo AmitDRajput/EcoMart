@@ -31,14 +31,14 @@ namespace EcoMart.InterfaceLayer
     //    {
     //        ReFillProductData();
     //    }
-    //    public static void RefreshProductData(string productID)
+    //    public static void RefreshProductData(int ProductID)
     //    {
-    //        //ReFillProductData(productID);
+    //        //ReFillProductData(ProductID);
     //    }
 
-    //    //public static void RefreshProductData(string productID, OperationMode mode, int quantity)
+    //    //public static void RefreshProductData(int ProductID, OperationMode mode, int quantity)
     //    //{
-    //    //    ReFillProductData(productID, mode, quantity);
+    //    //    ReFillProductData(ProductID, mode, quantity);
     //    //}
     //    #region Private Methods
     //    private static void FillProductData()
@@ -55,16 +55,16 @@ namespace EcoMart.InterfaceLayer
     //        _productData = prod.GetOverviewDataForCache();
     //    }
 
-    //    private static void ReFillProductData(string productID)
+    //    private static void ReFillProductData(int ProductID)
     //    {
     //        try
     //        {
     //            Product prod = new Product();
-    //            DataRow dRow = prod.GetOverviewDataForProductIDForCache(productID);
+    //            DataRow dRow = prod.GetOverviewDataForProductIDForCache(ProductID);
                
     //            if (dRow != null)
     //            {
-    //                DataRow[] rows = _productData.Select(string.Format("ProductID='{0}'", productID));
+    //                DataRow[] rows = _productData.Select(string.Format("ProductID='{0}'", ProductID));
     //                foreach (DataRow row in rows)
     //                {
     //                    for (int index = 0; index < _productData.Columns.Count; index++)
@@ -80,11 +80,11 @@ namespace EcoMart.InterfaceLayer
     //        }
     //    }
 
-    //    //private static void ReFillProductData(string productID, OperationMode mode, int quantity)
+    //    //private static void ReFillProductData(int ProductID, OperationMode mode, int quantity)
     //    //{
     //    //    try
     //    //    {
-    //    //        DataRow[] rows = _productData.Select(string.Format("ProductID='{0}'", productID));
+    //    //        DataRow[] rows = _productData.Select(string.Format("ProductID='{0}'", ProductID));
     //    //        foreach (DataRow row in rows)
     //    //        {
     //    //            if (mode == OperationMode.Add)

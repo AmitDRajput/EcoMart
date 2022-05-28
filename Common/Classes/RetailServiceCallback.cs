@@ -12,7 +12,7 @@ namespace EcoMart.Common.Classes
     //    BackgroundWorker m_oWorker;        
     //    #region IRetailPlusServiceCallback Members
 
-    //    //public void Notify(EcoMart.ServiceReference1.NotificationTypes notificationType, string productIdsToRefresh)
+    //    //public void Notify(EcoMart.ServiceReference1.NotificationTypes notificationType, int ProductIDsToRefresh)
     //    //{
     //    //    try
     //    //    {
@@ -21,7 +21,7 @@ namespace EcoMart.Common.Classes
     //    //        m_oWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(m_oWorker_RunWorkerCompleted);
     //    //        m_oWorker.WorkerReportsProgress = true;
     //    //        m_oWorker.WorkerSupportsCancellation = true;
-    //    //        m_oWorker.RunWorkerAsync(productIdsToRefresh);                
+    //    //        m_oWorker.RunWorkerAsync(ProductIDsToRefresh);                
     //    //    }
     //    //    catch (Exception ex)
     //    //    {
@@ -35,11 +35,11 @@ namespace EcoMart.Common.Classes
     //    //    {
     //    //        if (e.Result != null)
     //    //        {
-    //    //            string productIdsToRefresh = (string)e.Result;
-    //    //            if (productIdsToRefresh == string.Empty)
+    //    //            int ProductIDsToRefresh = (string)e.Result;
+    //    //            if (ProductIDsToRefresh == string.Empty)
     //    //                General.RefillClientProductListForCallBack();
     //    //            else
-    //    //                General.RefreshClientProductListForCallBack(productIdsToRefresh);
+    //    //                General.RefreshClientProductListForCallBack(ProductIDsToRefresh);
     //    //            General.FormMainInstance.WindowMenuItem_RunProductRefresh();
     //    //        }
     //    //    }

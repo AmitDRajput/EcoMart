@@ -11,7 +11,7 @@ namespace EcoMart.BusinessLayer
     class Prescription : BaseObject
     {
         #region Declaration
-        private string _ProductID;
+        private int _ProductID;
         private int _Quantity;
         private bool _DuplicateProduct;
         #endregion
@@ -36,7 +36,7 @@ namespace EcoMart.BusinessLayer
             get { return _DuplicateProduct; }
             set { _DuplicateProduct = value; }
         } 
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
@@ -72,7 +72,7 @@ namespace EcoMart.BusinessLayer
             {
                 base.Initialise();
                 _Quantity = 0;
-                _ProductID = "";
+                _ProductID = 0;
                 _DuplicateProduct = false;
             }
             catch (Exception Ex)

@@ -91,36 +91,36 @@ namespace EcoMart.DataLayer
             return dtable;
         }
 
-        public DataTable GetDebitCreditStockListProductByVouType(string voutype, string fromDate, string toDate, string productID)
+        public DataTable GetDebitCreditStockListProductByVouType(string voutype, string fromDate, string toDate, int ProductID)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.MasterID,a.ProductID,a.Quantity,a.SchemeQuantity,b.CRDBID,b.VoucherType,b.VoucherNumber,b.VoucherDate,b.AccountId,b.Narration, " +
                             "c.AccountID, c.AccName, c.AccAddress1, c.AccAddress2, d.ProdName, d.ProdLoosePack, d.ProdPack, d.ProdCompShortName from detailcreditdebitnotestock a inner join vouchercreditdebitnote b on a.MasterID = b.CRDBID " +
-                            " inner join masteraccount c  on b.AccountID = c.AccountID  inner join masterproduct d on a.ProductID = d.ProductID  where b.VoucherType = '" + voutype + "' && b.VoucherDate >= '" + fromDate + "' && b.VoucherDate <= '" + toDate + "' && a.productID = '"+ productID+"'" +
+                            " inner join masteraccount c  on b.AccountID = c.AccountID  inner join masterproduct d on a.ProductID = d.ProductID  where b.VoucherType = '" + voutype + "' && b.VoucherDate >= '" + fromDate + "' && b.VoucherDate <= '" + toDate + "' && a.ProductID = '"+ ProductID+"'" +
             "  union Select a.MasterID,a.ProductID,a.Quantity,a.SchemeQuantity,b.CRDBID,b.VoucherType,b.VoucherNumber,b.VoucherDate,b.AccountId,b.Narration, " +
             "d.ProdName, d.ProdLoosePack, d.ProdPack, d.ProdCompShortName from detailcreditdebitnotestock a inner join vouchercreditdebitnote b on a.MasterID = b.CRDBID " +
-            " inner join masterproduct d on a.ProductID = d.ProductID  where b.VoucherType = '" + voutype + "' && b.VoucherDate >= '" + fromDate + "' && b.VoucherDate <= '" + toDate + "' && a.productID = '" + productID + "'";
+            " inner join masterproduct d on a.ProductID = d.ProductID  where b.VoucherType = '" + voutype + "' && b.VoucherDate >= '" + fromDate + "' && b.VoucherDate <= '" + toDate + "' && a.ProductID = '" + ProductID + "'";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
-        public DataTable GetDebitCreditListProduct(string productID,string fromDate, string toDate)
+        public DataTable GetDebitCreditListProduct(int ProductID,string fromDate, string toDate)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.MasterID,a.ProductID,a.Quantity,a.SchemeQuantity,b.CRDBID,b.VoucherType,b.VoucherNumber,b.VoucherDate,b.AccountId,b.Narration, " +
                             "c.AccountID, c.AccName, c.AccAddress1, c.AccAddress2, d.ProdName, d.ProdLoosePack, d.ProdPack, d.ProdCompShortName from detailcreditdebitnotestock a inner join vouchercreditdebitnote b on a.MasterID = b.CRDBID " +
-                            " inner join masteraccount c  on b.AccountID = c.AccountID  inner join masterproduct d on a.ProductID = d.ProductID  where  b.VoucherDate >= '" + fromDate + "' && b.VoucherDate <= '" + toDate + "' && a.productID = '" + productID + "'" +
+                            " inner join masteraccount c  on b.AccountID = c.AccountID  inner join masterproduct d on a.ProductID = d.ProductID  where  b.VoucherDate >= '" + fromDate + "' && b.VoucherDate <= '" + toDate + "' && a.ProductID = '" + ProductID + "'" +
             "  union Select a.MasterID,a.ProductID,a.Quantity,a.SchemeQuantity,b.CRDBID,b.VoucherType,b.VoucherNumber,b.VoucherDate,b.AccountId,b.Narration, " +
             "d.ProdName, d.ProdLoosePack, d.ProdPack, d.ProdCompShortName from detailcreditdebitnotestock a inner join vouchercreditdebitnote b on a.MasterID = b.CRDBID " +
-            "inner join masterproduct d on a.ProductID = d.ProductID  where  b.VoucherDate >= '" + fromDate + "' && b.VoucherDate <= '" + toDate + "' && a.productID = '" + productID + "'";
+            "inner join masterproduct d on a.ProductID = d.ProductID  where  b.VoucherDate >= '" + fromDate + "' && b.VoucherDate <= '" + toDate + "' && a.ProductID = '" + ProductID + "'";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
-        public DataTable GetStockoutListProduct(string productid)
+        public DataTable GetStockoutListProduct(int ProductID)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.MasterID,a.ProductID,a.Quantity,a.SchemeQuantity,b.CRDBID,b.VoucherType,b.VoucherNumber,b.VoucherDate,b.AccountId, " +
                             "c.AccountID, c.AccName, c.AccAddress1, c.AccAddress2, d.ProdName, d.ProdLoosePack, d.ProdPack, d.ProdCompShortName from detailcreditdebitnotestock a inner join vouchercreditdebitnote b on a.MasterID = b.CRDBID " +
-                            " left outer join masteraccount c  on b.AccountID = c.AccountID  inner join masterproduct d on a.ProductID = d.ProductID  where  a.ProductID = '" + productid + "' &&  b.VoucherType = '"+ FixAccounts.VoucherTypeForStockOut +"' order by b.VoucherDate ";
+                            " left outer join masteraccount c  on b.AccountID = c.AccountID  inner join masterproduct d on a.ProductID = d.ProductID  where  a.ProductID = '" + ProductID + "' &&  b.VoucherType = '"+ FixAccounts.VoucherTypeForStockOut +"' order by b.VoucherDate ";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }

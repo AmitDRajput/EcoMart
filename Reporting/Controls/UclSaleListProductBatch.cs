@@ -19,7 +19,7 @@ namespace EcoMart.Reporting.Controls
     {
         #region Declaration
         private DataTable _BindingSource;
-        private DataTable _BindingSourceMultiSelection; 
+        private DataTable _BindingSourceMultiSelection;
         private SaleList _SaleList;
         private Stock _Stock;
         private string _MFromDate;
@@ -29,10 +29,10 @@ namespace EcoMart.Reporting.Controls
         public static string FromDt = ""; // [06.02.2017]
         public static string ToDt = "";   // [06.02.2017]
         private List<DataGridViewRow> rowCollection;
-       
+
         #endregion
 
-        # region Constructor
+        #region Constructor
         public UclSaleListProductBatch()
         {
             try
@@ -53,14 +53,14 @@ namespace EcoMart.Reporting.Controls
             {
                 _BindingSource = new DataTable();
                 _SaleList = new SaleList();
-                _Stock = new Stock(); 
+                _Stock = new Stock();
                 headerLabel1.Text = "SALE PRODUCT/BATCHWISE";
                 ClearControls();
-                FillProductCombo();              
+                FillProductCombo();
                 FillMultiSelectionGrid();
                 AddToolTip();
                 HidepnlGO();
-                
+
             }
             catch (Exception ex)
             {
@@ -72,8 +72,8 @@ namespace EcoMart.Reporting.Controls
             base.SetFocus();
             fromDate1.Focus();
         }
-     
-      
+
+
         public override bool HandleShortcutAction(Keys keyPressed, Keys modifier)
         {
             bool retValue = false;
@@ -86,7 +86,7 @@ namespace EcoMart.Reporting.Controls
             {
                 btnOKMultiSelectionClick();
                 retValue = true;
-            }           
+            }
             if (retValue == false)
             {
                 retValue = base.HandleShortcutAction(keyPressed, modifier);
@@ -94,10 +94,10 @@ namespace EcoMart.Reporting.Controls
             return retValue;
         }
 
-       
+
         #endregion
 
-        # region IReport Members      
+        #region IReport Members      
         public override void Export(string ExportFileName)
         {
             base.Export(ExportFileName);
@@ -120,12 +120,12 @@ namespace EcoMart.Reporting.Controls
                 Log.WriteException(ex);
             }
         }
-      
+
         private void PrintData() // Modified On [06.02.2017] FromDt, ToDt Added
         {
             PrintRow row;
             try
-            {               
+            {
                 PrintBill.Rows.Clear();
                 PrintFont = new Font(General.CurrentSetting.MsetPrintFontName, Convert.ToInt32(General.CurrentSetting.MsetPrintFontSize));
                 int totalrows = dgvReportList.Rows.Count;
@@ -137,7 +137,7 @@ namespace EcoMart.Reporting.Controls
                 // totalrows += 7; // for first page heading
                 totpg = Convert.ToDouble(Math.Ceiling(Convert.ToDouble(totalrows) / FixAccounts.NumberOfRowsPerReport));
                 PrintTotalPages = Convert.ToInt32(Math.Ceiling(totpg));
-                PrintHead(FromDt,ToDt);
+                PrintHead(FromDt, ToDt);
                 foreach (DataGridViewRow dr in dgvReportList.Rows)
                 {
 
@@ -281,7 +281,7 @@ namespace EcoMart.Reporting.Controls
             return totrows;
         }
 
-        private int PrintHead(string FromDate,string ToDate)
+        private int PrintHead(string FromDate, string ToDate)
         {
             PrintRow row;
             try
@@ -302,7 +302,7 @@ namespace EcoMart.Reporting.Controls
                 row = new PrintRow("Date", PrintRowPixel, 90, PrintFont);
                 PrintBill.Rows.Add(row);
                 row = new PrintRow("Party", PrintRowPixel, 230, PrintFont);
-                PrintBill.Rows.Add(row);               
+                PrintBill.Rows.Add(row);
                 row = new PrintRow("Batch", PrintRowPixel, 430, PrintFont);
                 PrintBill.Rows.Add(row);
                 row = new PrintRow("Qty", PrintRowPixel, 530, PrintFont);
@@ -345,7 +345,7 @@ namespace EcoMart.Reporting.Controls
         {
             try
             {
-                cbSelectAll.Checked = false;               
+                cbSelectAll.Checked = false;
                 lblFooterMessage.Text = "";
                 mcbProduct.SelectedID = "";
                 InitializeReportGrid();
@@ -366,14 +366,14 @@ namespace EcoMart.Reporting.Controls
 
                 fromDate1.Value = DateTime.Now;
                 toDate1.Value = DateTime.Now;
-                DataTable dtable = new DataTable();                                      
+                DataTable dtable = new DataTable();
             }
             catch (Exception ex)
             {
                 Log.WriteException(ex);
             }
         }
-       
+
         private void ConstructReportColumns()
         {
             try
@@ -433,7 +433,7 @@ namespace EcoMart.Reporting.Controls
                 column.DataPropertyName = "Address";
                 column.HeaderText = "Address";
                 column.Width = 300;
-              //  column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                //  column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dgvReportList.Columns.Add(column);
 
                 column = new DataGridViewTextBoxColumn();
@@ -459,7 +459,7 @@ namespace EcoMart.Reporting.Controls
                 column.HeaderText = "SaleRate";
                 column.Width = 100;
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;              
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvReportList.Columns.Add(column);
 
                 column = new DataGridViewTextBoxColumn();
@@ -470,7 +470,7 @@ namespace EcoMart.Reporting.Controls
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
                 column.DefaultCellStyle.Format = "N2";
                 column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
-                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;             
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvReportList.Columns.Add(column);
             }
             catch (Exception ex)
@@ -555,7 +555,7 @@ namespace EcoMart.Reporting.Controls
             _BindingSourceMultiSelection = new DataTable();
             dgvMultiSelection.DataSource = null;
 
-            cbSelectAll.Checked = false;           
+            cbSelectAll.Checked = false;
             pnlMultiSelection1.Visible = true;
             tsbtnPrint.Enabled = false;
             ViewFromDate.Text = "";
@@ -570,7 +570,7 @@ namespace EcoMart.Reporting.Controls
             if (General.EcoMartLicense.LicenseType == EcoMartLicenseLib.LicenseTypes.Full)
             {
                 tsbtnPrint.Enabled = true;
-            }       
+            }
             ViewFromDate.Text = General.GetDateInShortDateFormat(_MFromDate);
             ViewToDate.Text = General.GetDateInShortDateFormat(_MToDate);
             dgvReportList.Focus();
@@ -580,7 +580,7 @@ namespace EcoMart.Reporting.Controls
             //selectedRowCount = dgvMultiSelection.Rows.Count;
             //txtNoofSearches.Text = selectedRowCount.ToString("#0");
         }
-        private void FillAccountData(string ProductID, string batch, double mrp)
+        private void FillAccountData(int ProductID, string batch, double mrp)
         {
             try
             {
@@ -589,21 +589,21 @@ namespace EcoMart.Reporting.Controls
                 DataGridViewRow currentdr = dgvReportList.Rows[_RowIndex];
                 currentdr.DefaultCellStyle.BackColor = General.ReportTitleColor;
                 currentdr.Cells["Col_ID"].Value = ProductID;
-                _MProductName = mcbProduct.SeletedItem.ItemData[1].ToString() + " "+mcbProduct.SeletedItem.ItemData[2].ToString() +" "+ mcbProduct.SeletedItem.ItemData[3].ToString() + " "+ mcbProduct.SeletedItem.ItemData[4].ToString();   
+                _MProductName = mcbProduct.SeletedItem.ItemData[1].ToString() + " " + mcbProduct.SeletedItem.ItemData[2].ToString() + " " + mcbProduct.SeletedItem.ItemData[3].ToString() + " " + mcbProduct.SeletedItem.ItemData[4].ToString();
                 _MMrp = mrp.ToString("#0.00");
                 currentdr.Cells["Col_Name"].Value = _MProductName + " MRP:" + _MMrp;
                 double mtotamount = 0;
-                int mtotquantity = 0;             
+                int mtotquantity = 0;
 
                 foreach (DataRow dr in _BindingSource.Rows)
                 {
-                    string drproudtid = "";
+                    int drproudtid = 0;
                     string drbatch = "";
                     double drmrp = 0;
-                    drproudtid = dr["ProductID"].ToString();
+                    drproudtid = Convert.ToInt32(dr["ProductID"].ToString());
                     drbatch = dr["BatchNumber"].ToString();
                     drmrp = Convert.ToDouble(dr["MRP"].ToString());
-                    if ( drproudtid == ProductID && drbatch == batch && drmrp  == mrp)
+                    if (drproudtid == ProductID && drbatch == batch && drmrp == mrp)
                     {
 
                         double mamt = 0;
@@ -625,13 +625,13 @@ namespace EcoMart.Reporting.Controls
                         currentdr.Cells["Col_Amount"].Value = mamt.ToString("#0.00");
                         mtotamount += Convert.ToDouble(dr["Amount"].ToString());
                         mtotquantity += Convert.ToInt32(dr["Quantity"].ToString());
-                      }
+                    }
                 }
                 _RowIndex = dgvReportList.Rows.Add();
                 currentdr = dgvReportList.Rows[_RowIndex];
                 currentdr.DefaultCellStyle.BackColor = General.ReportTotalBackColor;
                 currentdr.DefaultCellStyle.ForeColor = General.ReportTotalForeColor;
-                currentdr.Cells["Col_ID"].Value = ProductID;              
+                currentdr.Cells["Col_ID"].Value = ProductID;
                 currentdr.Cells["Col_Batch"].Value = "Total";
                 currentdr.Cells["Col_Quantity"].Value = mtotquantity.ToString();
                 currentdr.Cells["Col_Amount"].Value = mtotamount.ToString("#0.00");
@@ -649,7 +649,7 @@ namespace EcoMart.Reporting.Controls
         {
             btnOKMultiSelectionClick();
         }
-       
+
 
         private void btnOKMultiSelectionClick()
         {
@@ -670,7 +670,7 @@ namespace EcoMart.Reporting.Controls
                         ToDt = General.GetDateInDateFormat(ToDt);
                         ShowpnlGO();
                         txtViewText.Text = mcbProduct.SeletedItem.ItemData[1];
-                        headerLabel1.Text = "Sale - PRODUCT-BATCHWISE " ;
+                        headerLabel1.Text = "Sale - PRODUCT-BATCHWISE ";
 
                         bool ifselected = false;
                         rowCollection = new List<DataGridViewRow>();
@@ -692,28 +692,28 @@ namespace EcoMart.Reporting.Controls
                         {
                             if (dgvReportList.Rows.Count > 0)
                                 dgvReportList.Rows.Clear();
-                            string mproductID = "";
+                            int mProductID = 0;
                             string mbatch = "";
                             foreach (DataGridViewRow row in rowCollection)
                             {
-                                mproductID = "";
+                                mProductID = 0;
                                 mbatch = "";
                                 double mmrp = 0;
                                 if (row.Cells["Col_ID"].Value != null)
-                                    mproductID = row.Cells["Col_ID"].Value.ToString();
+                                    mProductID = Convert.ToInt32(row.Cells["Col_ID"].Value.ToString());
                                 if (row.Cells["Col_Batch"].Value != null)
                                     mbatch = row.Cells["Col_Batch"].Value.ToString();
                                 if (row.Cells["Col_MRP"].Value != null)
                                     double.TryParse(row.Cells["Col_MRP"].Value.ToString(), out mmrp);
 
-                                if (mproductID != "")
+                                if (mProductID < 0)
                                 {
                                     GetBindingSource(mbatch, mmrp, _MFromDate, _MToDate);
 
 
                                     if (_BindingSource.Rows.Count > 0)
                                     {
-                                        FillAccountData(mproductID, mbatch, mmrp);
+                                        FillAccountData(mProductID, mbatch, mmrp);
                                     }
                                 }
                             }
@@ -738,18 +738,18 @@ namespace EcoMart.Reporting.Controls
         private void GetBindingSource(string batch, double mrp, string fromDate, string toDate)
         {
             DataTable dtable = new DataTable();
-            dtable =  _SaleList.GetSaleDataForGivenProductBatchMrp(mcbProduct.SelectedID, batch, mrp,fromDate,toDate);
+            dtable = _SaleList.GetSaleDataForGivenProductBatchMrp(Convert.ToInt32(mcbProduct.SelectedID), batch, mrp, fromDate, toDate);
             _BindingSource = dtable;
         }
         private void FillMultiSelectionGrid()
         {
 
             try
-            {              
+            {
                 RefreshSelectedRowCounter();
                 ConstructMultiSelectionGridColumns();
                 dgvMultiSelection.Columns["Col_ID"].Visible = false;
-                FillMultiSelectionData();               
+                FillMultiSelectionData();
             }
             catch (Exception ex)
             {
@@ -760,14 +760,14 @@ namespace EcoMart.Reporting.Controls
         {
             string strmessage = General.NoofRows(dgvReportList.Rows.Count);
             lblFooterMessage.Text = strmessage;
-        }       
+        }
         private void FillMultiSelectionData()
         {
             try
             {
                 if (mcbProduct.SelectedID != null && mcbProduct.SelectedID != "")
                 {
-                    DataTable dtable = _Stock.GetBatchListByProductIDForPurchaseBatchWise(mcbProduct.SelectedID);
+                    DataTable dtable = _Stock.GetBatchListByProductIDForPurchaseBatchWise(Convert.ToInt32(mcbProduct.SelectedID));
                     _BindingSourceMultiSelection = dtable;
                     dgvMultiSelection.DataSource = _BindingSourceMultiSelection;
                 }
@@ -798,7 +798,7 @@ namespace EcoMart.Reporting.Controls
             }
 
         }
-      
+
         private void FillReportData()
         {
             try
@@ -807,7 +807,7 @@ namespace EcoMart.Reporting.Controls
                 DataTable dtable = new DataTable();
                 if (mcbProduct.SelectedID != null)
                 {
-                    dtable = _SaleList.GetSaleDataForGivenProduct(mcbProduct.SelectedID);
+                    dtable = _SaleList.GetSaleDataForGivenProduct(Convert.ToInt32(mcbProduct.SelectedID));
                 }
                 _BindingSource = dtable;
             }
@@ -837,11 +837,11 @@ namespace EcoMart.Reporting.Controls
                 Log.WriteException(ex);
             }
         }
-     
+
         #endregion
 
-        # region Events
-       
+        #region Events
+
         private void mcbProduct_SeletectIndexChanged(object sender, EventArgs e)
         {
             try
@@ -860,14 +860,14 @@ namespace EcoMart.Reporting.Controls
 
                 Log.WriteException(Ex);
             }
-        } 
-       
+        }
+
 
         //private void mcbProduct_EnterKeyPressed(object sender, EventArgs e)
         //{           
         //    cbSelectAll.Focus();
         //}
-      
+
 
         private void fromDate1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -902,7 +902,7 @@ namespace EcoMart.Reporting.Controls
                     this.Cursor = Cursors.WaitCursor;
                     string selectedID = dgvReportList.SelectedRow.Cells[0].Value.ToString();
                     voutype = dgvReportList.SelectedRow.Cells[1].Value.ToString();
-                    vousubtype = dgvReportList.SelectedRow.Cells["Col_VoucherSubType"].Value.ToString();                   
+                    vousubtype = dgvReportList.SelectedRow.Cells["Col_VoucherSubType"].Value.ToString();
                     if (vousubtype == FixAccounts.SubTypeForRegularSale)
                         ViewControl = new UclDistributorSale("R");
                     ShowViewForm(selectedID, ViewMode.Current);
@@ -941,7 +941,7 @@ namespace EcoMart.Reporting.Controls
         }
         #endregion
 
-       
-     
+
+
     }
 }

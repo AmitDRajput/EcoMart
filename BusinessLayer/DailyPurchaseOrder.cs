@@ -35,7 +35,7 @@ namespace EcoMart.BusinessLayer
         private string _DSLMasterID;
         private string _DSLVoucherType;
         private int _DayofWeek;
-        private string _DSLProductID;
+        private int _DSLProductID;
         private int _DSLSchemeQuantity;
         #endregion
 
@@ -115,7 +115,7 @@ namespace EcoMart.BusinessLayer
             get { return _DSLID; }
             set { _DSLID = value; }
         }
-        public string DSLProductID
+        public int DSLProductID
         {
             get { return _DSLProductID; }
             set { _DSLProductID = value; }
@@ -263,7 +263,7 @@ namespace EcoMart.BusinessLayer
         {
             DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
             // return dpo.CreateOrder(DSLID, DSLAccountID, DSLQty, DSLIFSave,DSLOrderNumber,EndDay,DSLDailyShortList,DSLPurchaseRate, DSLMasterID, CreatedBy,CreatedDate,CreatedTime);
-            return dpo.CreateOrderForToday(DSLID, DSLAccountID, DSLQty, DSLIFSave, DSLOrderNumber, EndDay, DSLDailyShortList, DSLPurchaseRate, DSLMasterID, DSLProductID, DSLSchemeQuantity, CreatedBy, CreatedDate, CreatedTime, netrate);
+            return dpo.CreateOrderForToday(DSLID, DSLAccountID, DSLQty, DSLIFSave, DSLOrderNumber, EndDay, DSLDailyShortList, DSLPurchaseRate, DSLMasterID, DSLProductID.ToString(), DSLSchemeQuantity, CreatedBy, CreatedDate, CreatedTime, netrate);
         }
         public bool AddDetails()
         {
@@ -282,7 +282,7 @@ namespace EcoMart.BusinessLayer
                 _EndDay = " ";
                 _FromDaySaleToday = "";
                 _EndDaySaleToday = "";
-                _DSLProductID = "";
+                _DSLProductID = 0;
                 _DSLAccountID = null;
                 _DSLAccountName = "";
                 _DSLAddress1 = "";

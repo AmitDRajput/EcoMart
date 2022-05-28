@@ -14,7 +14,7 @@ namespace EcoMart.BusinessLayer
         private Int32  _DrugId;
         private string _DrugName;
         private string _ProductName;
-        private Int32  _ProductId;
+        private Int32  _ProductID;
         private Int32  _CurrentDrugId;
         # endregion
 
@@ -48,10 +48,10 @@ namespace EcoMart.BusinessLayer
             get { return _ProductName; }
             set { _ProductName = value; }
         }
-        public Int32  ProductId
+        public Int32  ProductID
         {
-            get { return _ProductId; }
-            set { _ProductId = value; }
+            get { return _ProductID; }
+            set { _ProductID = value; }
         }
         public Int32  CurrentDrugId
         {
@@ -70,7 +70,7 @@ namespace EcoMart.BusinessLayer
                 _DrugId = 0;
                 _DrugName = "";
                 _ProductName = "";
-                _ProductId = 0;
+                _ProductID = 0;
                 _CurrentDrugId = 0;
             }
             catch (Exception Ex)
@@ -88,7 +88,7 @@ namespace EcoMart.BusinessLayer
                 if (Id == null || Id == "")
                     ValidationMessages.Add("Please select the Drug");
                 int productCount;
-                int.TryParse(_ProductId.ToString(), out productCount);
+                int.TryParse(_ProductID.ToString(), out productCount);
                 if (productCount == 0)
                     ValidationMessages.Add("Please add atleast one Product.");            
             }
@@ -141,11 +141,11 @@ namespace EcoMart.BusinessLayer
             return dbDrugGrouping.GetOverviewProductDataY(prodID);
         }
 
-        public DataTable GetOverviewDrugData(string prodID)
+        public DataTable GetOverviewDrugData(int prodID)
         {
 
             DBDrugGrouping dbDrugGrouping = new DBDrugGrouping();
-            return dbDrugGrouping.GetOverviewDrugData(prodID);
+            return dbDrugGrouping.GetOverviewDrugData(prodID.ToString());
         }
     
         public DataTable IsDrugAlreadyLinked(string Id)
@@ -179,7 +179,7 @@ namespace EcoMart.BusinessLayer
         public bool AddDetails()
         {
             DBDrugGrouping dbDrugGrouping = new DBDrugGrouping();
-            return dbDrugGrouping.AddDetails(DrugId ,DetailIntID ,  ProductId, CreatedBy, CreatedDate, CreatedTime, ModifiedBy, ModifiedDate, ModifiedTime);
+            return dbDrugGrouping.AddDetails(DrugId ,DetailIntID ,  ProductID, CreatedBy, CreatedDate, CreatedTime, ModifiedBy, ModifiedDate, ModifiedTime);
         }
 
         public bool DeleteDetails()
@@ -202,7 +202,7 @@ namespace EcoMart.BusinessLayer
         public bool UpdateProductMaster()
         {
             DBDrugGrouping dbDrugGrouping = new DBDrugGrouping();
-            return dbDrugGrouping.UpdateProductMaster(DrugId ,ProductId);
+            return dbDrugGrouping.UpdateProductMaster(DrugId ,ProductID);
             
         }
         public Int32 GetIntID()

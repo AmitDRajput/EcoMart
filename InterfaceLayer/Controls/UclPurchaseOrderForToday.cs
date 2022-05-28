@@ -1086,7 +1086,7 @@ namespace EcoMart.InterfaceLayer
                     string preaccountid = "";
                     double mmpurrate = 0;
                     double mmamt = 0;
-                    string mmprodID = "";
+                    int mmprodID = 0;
 
 
                     preaccountid = rowCollectionmain[index].Cells["Col_ACCID"].Value.ToString().Trim();
@@ -1099,7 +1099,7 @@ namespace EcoMart.InterfaceLayer
                     mmamt = 0;
                     mmaccid = "";
                     mmordid = "";
-                    mmprodID = "";
+                    mmprodID = 0;
                     mmscmqty = 0;
 
                     _DailyPurchaseOrder.DSLMasterID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
@@ -1126,7 +1126,7 @@ namespace EcoMart.InterfaceLayer
                         int.TryParse(ddsr.Cells["Col_Quantity"].Value.ToString(), out mmqty);
                         int.TryParse(ddsr.Cells["Col_SchemeQuantity"].Value.ToString(), out mmscmqty);
                         mmaccid = ddsr.Cells["Col_ACCID"].Value.ToString();
-                        mmprodID = ddsr.Cells["Col_ProdID"].Value.ToString();
+                        mmprodID = Convert.ToInt32(ddsr.Cells["Col_ProdID"].Value.ToString());
                         mmordid = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         if (ddsr.Cells["Col_PurchaseRate"].Value != null)
                             double.TryParse(ddsr.Cells["Col_PurchaseRate"].Value.ToString(), out mmpurrate);
@@ -1423,7 +1423,7 @@ namespace EcoMart.InterfaceLayer
             }
             try
             {
-                dt = invss.GetPurchaseDetailsForPurchaseOrder(prodid.ToString());
+                dt = invss.GetPurchaseDetailsForPurchaseOrder(Convert.ToInt32(prodid));
                 //  dgvBatchGrid.DataSource = dt;
                 if (dt != null && dt.Rows.Count > 0)
                 {

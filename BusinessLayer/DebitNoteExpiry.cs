@@ -12,7 +12,7 @@ namespace EcoMart.BusinessLayer
     {
 
         #region Declaration
-        private string _ProductID;
+        private int _ProductID;
         private int _UOM;
         private string _Batchno;
         private double _Mrp;
@@ -75,7 +75,7 @@ namespace EcoMart.BusinessLayer
             set { _StockID = value; }
         }
 
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
@@ -294,7 +294,7 @@ namespace EcoMart.BusinessLayer
             _Expiry = "";
             _ExpiryDate = "";
             _Mrp = 0;
-            _ProductID = "";
+            _ProductID = 0;
             _UOM = 0;
             _PurchaseRate = 0;
             _Quantity = 0;
@@ -371,12 +371,12 @@ namespace EcoMart.BusinessLayer
              return dbcrdb.AddDetails(Id, AccountID , CrdbNarration, CrdbVouType, CrdbVouNo, CrdbVouDate, CrdbAmountNet,
                CrdbDiscPer, CrdbDiscAmt, CrdbTotalAmount, CrdbRoundAmount, CreatedBy, CreatedDate, CreatedTime);
         }
-        public int GetCurrentClosingStockFromMaster(string productID)
+        public int GetCurrentClosingStockFromMaster(int ProductID)
         {
             DataRow dr;
             int clstk = 0;
              DBDebitNoteExpiry dbcrdb = new DBDebitNoteExpiry();
-             dr =  dbcrdb.GetCurrentClosingStockFromMaster(productID);
+             dr =  dbcrdb.GetCurrentClosingStockFromMaster(ProductID);
              if (dr != null && dr["ProdClosingStock"] != DBNull.Value)
                  clstk = Convert.ToInt32(dr["ProdClosingStock"].ToString());
             return clstk;

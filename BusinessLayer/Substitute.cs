@@ -11,7 +11,7 @@ namespace EcoMart.BusinessLayer
     public class Substitute : BaseObject
     {
         # region Declaration
-        private string _ProductId;
+        private int _ProductID;
         private string _ProductName;
         private string _SubstituteName;
         private string _SubstituteId;
@@ -26,10 +26,10 @@ namespace EcoMart.BusinessLayer
         #endregion
 
         #region Properties
-        public string ProductId
+        public int ProductID
         {
-            get { return _ProductId; }
-            set { _ProductId = value; }
+            get { return _ProductID; }
+            set { _ProductID = value; }
         }
         public string ProductName
         {
@@ -60,7 +60,7 @@ namespace EcoMart.BusinessLayer
             try
             {
                 base.Initialise();
-                _ProductId = "";
+                _ProductID = 0;
                 _ProductName = "";
                 _SubstituteName = "";
                 _SubstituteId = "";

@@ -26,7 +26,7 @@ namespace EcoMart.BusinessLayer
         private string _ShortListID;
 
         private double _PurchaseRate;
-        private string _ProductID;
+        private int _ProductID;
         private int _Quantity;
         private double _SchemeQuantity;
         private bool _DuplicateProduct;
@@ -112,7 +112,7 @@ namespace EcoMart.BusinessLayer
             get { return _Narration; }
             set { _Narration = value; }
         }
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
@@ -177,7 +177,7 @@ namespace EcoMart.BusinessLayer
 
             _Quantity = 0;
             _SchemeQuantity = 0;
-            _ProductID = "";
+            _ProductID = 0;
             _DuplicateProduct = false;
             _NoofRows = 0;
             _IFSAVE = "Y";
@@ -410,10 +410,10 @@ namespace EcoMart.BusinessLayer
             return recoverqty;
         }
 
-        public void TransferProductTodaySale(string accountID, string productID, int mqty)
+        public void TransferProductTodaySale(string accountID, int ProductID, int mqty)
         {
             DBPurchaseOrder dbp = new DBPurchaseOrder();
-            dbp.TransferProductTodaySale(accountID, productID, mqty);
+            dbp.TransferProductTodaySale(accountID, ProductID, mqty);
         }
         public void TransferProductShortList(string accountID, string dslID, int mqty)
         {

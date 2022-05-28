@@ -616,7 +616,7 @@ namespace EcoMart.InterfaceLayer
                             _StockIn.SerialNumber += 1;
                             _StockIn.StockID = "";
                             _StockIn.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                            _StockIn.ProductID = prodrow.Cells["Col_ProductID"].Value.ToString();
+                            _StockIn.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString());
                             _StockIn.Batchno = prodrow.Cells["Col_BatchNumber"].Value.ToString();
                             _StockIn.Quantity = Convert.ToInt32(prodrow.Cells["Col_Quantity"].Value);
                             _StockIn.PurchaseRate = Convert.ToDouble(prodrow.Cells["Col_PurRate"].Value);
@@ -665,7 +665,7 @@ namespace EcoMart.InterfaceLayer
                     if (prodrow.Cells["Col_ProductName"].Value != null &&
                        Convert.ToDouble(prodrow.Cells["Col_Amount"].Value) > 0 && prodrow.Cells["Col_Code"].Value.ToString().Trim() == "S")
                     {
-                        _StockIn.ProductID = prodrow.Cells["Col_ProductID"].Value.ToString();
+                        _StockIn.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString());
                         _StockIn.Batchno = prodrow.Cells["Col_BatchNumber"].Value.ToString();
                         _StockIn.MRP = Convert.ToDouble(prodrow.Cells["Col_MRP"].Value);
                         _StockIn.Quantity = Convert.ToInt32(prodrow.Cells["Col_Quantity"].Value);
@@ -708,7 +708,7 @@ namespace EcoMart.InterfaceLayer
                        Convert.ToDouble(prodrow.Cells["Temp_Quantity"].Value) > 0 && prodrow.Cells["Temp_Code"].Value.ToString().Trim() != "")
                     {
                         _StockIn.StockID = prodrow.Cells["Temp_StockID"].Value.ToString();
-                        _StockIn.ProductID = prodrow.Cells["Temp_ProductID"].Value.ToString();
+                        _StockIn.ProductID = Convert.ToInt32(prodrow.Cells["Temp_ProductID"].Value.ToString());
                         _StockIn.Batchno = prodrow.Cells["Temp_BatchNumber"].Value.ToString();
                         _StockIn.MRP = Convert.ToDouble(prodrow.Cells["Temp_MRP"].Value);
                         _StockIn.Quantity = Convert.ToInt32(prodrow.Cells["Temp_Quantity"].Value);
@@ -734,7 +734,7 @@ namespace EcoMart.InterfaceLayer
         //        {
         //            if (prodrow.Cells["Col_ProductID"].Value != null && prodrow.Cells["Col_ProductID"].Value.ToString() != string.Empty)
         //            {
-        //                _StockIn.ProductID = prodrow.Cells["Col_ProductID"].Value.ToString();
+        //                _StockIn.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString());
         //                EcoMartCache.RefreshProductData(_StockIn.ProductID);
         //            }
         //        }
@@ -1596,7 +1596,7 @@ namespace EcoMart.InterfaceLayer
                        Convert.ToDouble(prodrow.Cells["Temp_Quantity"].Value) > 0 && prodrow.Cells["Temp_Code"].Value.ToString().Trim() == "S")
                     {
                         _StockIn.StockID = prodrow.Cells["Temp_StockID"].Value.ToString();
-                        _StockIn.ProductID = prodrow.Cells["Temp_ProductID"].Value.ToString();
+                        _StockIn.ProductID = Convert.ToInt32(prodrow.Cells["Temp_ProductID"].Value.ToString());
                         _StockIn.Batchno = prodrow.Cells["Temp_BatchNumber"].Value.ToString();
                         _StockIn.MRP = Convert.ToDouble(prodrow.Cells["Temp_MRP"].Value);
                         _StockIn.Quantity = Convert.ToInt32(prodrow.Cells["Temp_Quantity"].Value);
@@ -1732,7 +1732,7 @@ namespace EcoMart.InterfaceLayer
                         {
                             string ifproductexists = "N";
                             int currowindex = 0;
-                            string curproductid = mpPVC1.MainDataGridCurrentRow.Cells[0].Value.ToString();
+                            string curProductID = mpPVC1.MainDataGridCurrentRow.Cells[0].Value.ToString();
                             string curbatch = mpPVC1.MainDataGridCurrentRow.Cells[5].Value.ToString();
                             double curmrp = 0;
                             double.TryParse(mpPVC1.MainDataGridCurrentRow.Cells[8].Value.ToString(), out curmrp);
@@ -1742,13 +1742,13 @@ namespace EcoMart.InterfaceLayer
                             {
                                 if (dr.Index != mpPVC1.MainDataGridCurrentRow.Index)
                                 {
-                                    string drproductid = dr.Cells[0].Value.ToString();
+                                    string drProductID = dr.Cells[0].Value.ToString();
                                     string drbatch = dr.Cells[5].Value.ToString();
                                     double drmrp = 0;
                                     double.TryParse(dr.Cells[8].Value.ToString(), out drmrp);
                                     string drcode = dr.Cells[10].Value.ToString();
 
-                                    if (curproductid == drproductid && curbatch == drbatch && curmrp == drmrp && curcode == drcode)
+                                    if (curProductID == drProductID && curbatch == drbatch && curmrp == drmrp && curcode == drcode)
                                     {
                                         currowindex = dr.Index;
                                         ifproductexists = "Y";
@@ -2192,7 +2192,7 @@ namespace EcoMart.InterfaceLayer
                 dtTempStockIn.Columns.Add("SRate", typeof(double));
                 dtTempStockIn.Columns.Add("FormName", typeof(string));
                 dtTempStockIn.Columns.Add("StockID", typeof(string));
-                //productid, batch,mrp
+                //ProductID, batch,mrp
                 CacheObject.Add(dtTempStockIn, "TempCounterSale");
                 //DataRow[] drFormRows = dtTempPatientSale.Select("FormName");
 

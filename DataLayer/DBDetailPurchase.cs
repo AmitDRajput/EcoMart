@@ -22,7 +22,7 @@ namespace EcoMart.DataLayer
             return dtable;
         }
 
-        public bool AddDetails(string PurchaseId, string ProductID, string BatchNumber, double TradeRate, double PurchaseRate, double MRP, double SaleRate, string Expiry, string ExpiryDate, long Quantity, long SchemeQuantity, long ReplacementQuntity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercentage, double AmountSchemeDiscount, double PurchaseVATtPercent, double ProductVATPercent, double AmountPurchaseVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount)
+        public bool AddDetails(string PurchaseId, int ProductID, string BatchNumber, double TradeRate, double PurchaseRate, double MRP, double SaleRate, string Expiry, string ExpiryDate, long Quantity, long SchemeQuantity, long ReplacementQuntity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercentage, double AmountSchemeDiscount, double PurchaseVATtPercent, double ProductVATPercent, double AmountPurchaseVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount)
         {
             bool bRetValue = false;
             string strSql = GetInsertQuery(PurchaseId, ProductID, BatchNumber, TradeRate, PurchaseRate, MRP, SaleRate, Expiry, ExpiryDate, Quantity, SchemeQuantity,ReplacementQuntity, ItemDiscountPercent, AmountItemDiscount, SchemeDiscountPercentage, AmountSchemeDiscount, PurchaseVATtPercent, ProductVATPercent, AmountPurchaseVAT, CSTPercent, AmountCST, IfMRPInclusiveOfVAT, IfTradeRateInclusiveOfVAT, Amount);
@@ -34,7 +34,7 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool UpdateDetails(string PurchaseId, string ProductID, string BatchNumber, double TradeRate, double PurchaseRate, double MRP, double SaleRate, string Expiry, string ExpiryDate, long Quantity, long SchemeQuantity, long ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercentage, double AmountSchemeDiscount, double PurchaseVATtPercent, double ProductVATPercent, double AmountPurchaseVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount)
+        public bool UpdateDetails(string PurchaseId, int ProductID, string BatchNumber, double TradeRate, double PurchaseRate, double MRP, double SaleRate, string Expiry, string ExpiryDate, long Quantity, long SchemeQuantity, long ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercentage, double AmountSchemeDiscount, double PurchaseVATtPercent, double ProductVATPercent, double AmountPurchaseVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount)
         {
             bool returnVal = false;
             string strSql = GetUpdateQuery(PurchaseId, ProductID, BatchNumber, TradeRate, PurchaseRate, MRP, SaleRate, Expiry, ExpiryDate, Quantity, SchemeQuantity,ReplacementQuantity, ItemDiscountPercent, AmountItemDiscount, SchemeDiscountPercentage, AmountSchemeDiscount, PurchaseVATtPercent, ProductVATPercent, AmountPurchaseVAT, CSTPercent, AmountCST, IfMRPInclusiveOfVAT, IfTradeRateInclusiveOfVAT, Amount);
@@ -72,7 +72,7 @@ namespace EcoMart.DataLayer
             return sQuery.ToString();
         }
 
-        private string GetInsertQuery(string PurchaseId, string ProductID, string BatchNumber, double TradeRate, double PurchaseRate, double MRP, double SaleRate, string Expiry, string ExpiryDate, long Quantity, long SchemeQuantity, long ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercentage, double AmountSchemeDiscount, double PurchaseVATtPercent, double ProductVATPercent, double AmountPurchaseVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount)
+        private string GetInsertQuery(string PurchaseId, int ProductID, string BatchNumber, double TradeRate, double PurchaseRate, double MRP, double SaleRate, string Expiry, string ExpiryDate, long Quantity, long SchemeQuantity, long ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercentage, double AmountSchemeDiscount, double PurchaseVATtPercent, double ProductVATPercent, double AmountPurchaseVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount)
         {
             Query objQuery = new Query();
             objQuery.Table = "detailpurchase";
@@ -103,7 +103,7 @@ namespace EcoMart.DataLayer
             return objQuery.InsertQuery();
         }
 
-        private string GetUpdateQuery(string PurchaseId, string ProductID, string BatchNumber, double TradeRate, double PurchaseRate, double MRP, double SaleRate, string Expiry, string ExpiryDate, double Quantity, double SchemeQuantity, double ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercentage, double AmountSchemeDiscount, double PurchaseVATtPercent, double ProductVATPercent, double AmountPurchaseVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount)
+        private string GetUpdateQuery(string PurchaseId, int ProductID, string BatchNumber, double TradeRate, double PurchaseRate, double MRP, double SaleRate, string Expiry, string ExpiryDate, double Quantity, double SchemeQuantity, double ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercentage, double AmountSchemeDiscount, double PurchaseVATtPercent, double ProductVATPercent, double AmountPurchaseVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount)
         {
             Query objQuery = new Query();
             objQuery.Table = "detailpurchase";
@@ -162,11 +162,11 @@ namespace EcoMart.DataLayer
             return dtable;
         }
 
-        public DataRow GetPurchaseByProductIdAndBatchId(string productID, string batchID, string BatchMRP)
+        public DataRow GetPurchaseByProductIDAndBatchId(int ProductID, string batchID, string BatchMRP)
         {
             DataRow dRow = null;
             string strSql = "Select * from detailpurchase dp, voucherpurchase mp where mp.PurchaseId = dp.PurchaseId and ProductID='{0}' AND BatchNumber = '{1}' AND MRP='{2}'";
-            strSql = string.Format(strSql, productID, batchID, BatchMRP);
+            strSql = string.Format(strSql, ProductID, batchID, BatchMRP);
             dRow = DBInterface.SelectFirstRow(strSql);
             return dRow;
         }

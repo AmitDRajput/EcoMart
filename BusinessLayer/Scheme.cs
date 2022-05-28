@@ -11,7 +11,7 @@ namespace EcoMart.BusinessLayer
     public class Scheme : BaseObject
     {
         #region Declaration
-        private string _ProductID;
+        private int _ProductID;
         private string _Pack;
         private int _UOM;
         private string _Compshortname;
@@ -61,7 +61,7 @@ namespace EcoMart.BusinessLayer
         }
 
 
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
@@ -123,7 +123,7 @@ namespace EcoMart.BusinessLayer
         public override void Initialise()
         {
             base.Initialise();
-            _ProductID = "";
+            _ProductID = 0;
             _Compshortname = "";
             _Pack = "";
             _UOM = 0;
@@ -174,10 +174,10 @@ namespace EcoMart.BusinessLayer
             return dbscm.GetSchemeDataForSelectedCompany(mcompcode);
         }
 
-        public DataTable GetOverviewDataForSelectedProduct(string mproductID)
+        public DataTable GetOverviewDataForSelectedProduct(string mProductID)
         {
             DBScheme dbscm = new DBScheme();
-            return dbscm.GetOverviewDataForSelectedProduct(mproductID);
+            return dbscm.GetOverviewDataForSelectedProduct(mProductID);
         }
         public bool ReadDetailsByID()
         {
@@ -191,7 +191,7 @@ namespace EcoMart.BusinessLayer
                 if (drow != null)
                 {
                     Id = drow["Id"].ToString();
-                    ProductID = drow["ProductID"].ToString();
+                    ProductID = Convert.ToInt32(drow["ProductID"].ToString());
                     UOM = Convert.ToInt32(drow["ProdLoosePack"].ToString());
                     Pack = drow["ProdPack"].ToString();
                     CompanyShortName = drow["ProdCompShortName"].ToString();
@@ -226,7 +226,7 @@ namespace EcoMart.BusinessLayer
                 if (drow != null)
                 {
                     Id = drow["Id"].ToString();
-                    ProductID = drow["ProductID"].ToString();
+                    ProductID = Convert.ToInt32(drow["ProductID"].ToString());
                     if (drow["StartingDate"] != DBNull.Value)
                         StartDate = drow["StartingDate"].ToString();
                     if (drow["ClosingDate"] != DBNull.Value)

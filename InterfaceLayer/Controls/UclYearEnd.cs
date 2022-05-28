@@ -301,22 +301,22 @@ namespace EcoMart.InterfaceLayer
 
             DataTable dt = stk.GetStockFromtblStock();
 
-            string mprodID = "";
+            int mprodID = 0;
             int mopstk = 0;
             int mclstk = 0;
             foreach (DataRow dr in dt.Rows)
             {
-                mprodID = "";
+                mprodID = 0;
                 mopstk = 0;
                 mclstk = 0;
                 if (dr["ProductID"] != DBNull.Value)
-                    mprodID = dr["ProductID"].ToString();
+                    mprodID = Convert.ToInt32(dr["ProductID"].ToString());
                 if (dr["opstk"] != DBNull.Value && dr["opstk"].ToString() != string.Empty)
                     mopstk = Convert.ToInt32(dr["opstk"].ToString());
                 if (dr["clstk"] != DBNull.Value && dr["clstk"].ToString() != string.Empty)
                     mclstk = Convert.ToInt32(dr["clstk"].ToString());
-                if (mprodID != "")
-                    stk.UpdateStockInMasterProduct(mprodID, mopstk, mclstk);
+                if (mprodID != 0)
+                    stk.UpdateStockInMasterProduct(mprodID.ToString(), mopstk, mclstk);
             }
 
             this.Cursor = Cursors.Default;
@@ -366,7 +366,7 @@ namespace EcoMart.InterfaceLayer
             dtable = _YearEnd.GetCorrectionInRateForYearEnd(_MToDate);
             string moldstockid = "";
             string mnewstockid = "";
-            string mproductid = "";
+            int mProductID = 0;
             int mnewqty = 0;
             int moldqty = 0;          
             foreach (DataRow dr in dtable.Rows)
@@ -377,13 +377,13 @@ namespace EcoMart.InterfaceLayer
                     moldqty = 0;
                     moldstockid = "";
                     mnewstockid = "";
-                    mproductid = "";                   
+                    mProductID = 0;                   
                     if (dr["OldStockID"] != DBNull.Value)
                         moldstockid = dr["OldStockID"].ToString();
                     if (dr["NewStockID"] != DBNull.Value)
                         mnewstockid = dr["NewStockID"].ToString();
                     if (dr["ProductID"] != DBNull.Value)
-                        mproductid = dr["ProductID"].ToString();
+                        mProductID = Convert.ToInt32(dr["ProductID"].ToString());
 
                     if (dr["OldQuantity"] != DBNull.Value && dr["OldQuantity"].ToString() != "")
                         int.TryParse(dr["OldQuantity"].ToString(), out moldqty);
@@ -405,7 +405,7 @@ namespace EcoMart.InterfaceLayer
             DataTable dtable = new DataTable();          
             dtable = _YearEnd.GetDebitNoteStockOUTForCurrentYearForYearEnd(_MToDate);
             string mstockid = "";
-            string mproductid = "";
+            int mProductID = 0;
             int mqtyin = 0;
             int mscmqtyin = 0;
             int mloosepack = 1;
@@ -417,12 +417,12 @@ namespace EcoMart.InterfaceLayer
                     mqtyin = 0;
                     mscmqtyin = 0;
                     mstockid = "";
-                    mproductid = "";
+                    mProductID = 0;
                     mloosepack = 1;
                     if (dr["StockID"] != DBNull.Value)
                         mstockid = dr["StockID"].ToString();
                     if (dr["ProductID"] != DBNull.Value)
-                        mproductid = dr["ProductID"].ToString();
+                        mProductID = Convert.ToInt32(dr["ProductID"].ToString());
                     if (dr["ProdLoosePack"] != DBNull.Value)
                         mloosepack = Convert.ToInt32(dr["ProdLoosePack"].ToString());
                     if (dr["Quantity"] != DBNull.Value && dr["Quantity"].ToString() != "")
@@ -440,7 +440,7 @@ namespace EcoMart.InterfaceLayer
                   
                     Application.DoEvents();
                     //   DateTime start = DateTime.Now;
-                    //   retValue = _YearEnd.UpdateClosingStockForYearEnd(mproductid, mstockid, mclosingstock);
+                    //   retValue = _YearEnd.UpdateClosingStockForYearEnd(mProductID, mstockid, mclosingstock);
                     //  DateTime end = DateTime.Now;
                 }
                 catch (Exception Ex)
@@ -456,7 +456,7 @@ namespace EcoMart.InterfaceLayer
             DataTable dtable = new DataTable();          
             dtable = _YearEnd.GetCreditNoteStockInForCurrentYearForYearEnd(_MToDate);
             string mstockid = "";
-            string mproductid = "";
+            int mProductID = 0;
             int mqtyin = 0;
             int mscmqtyin = 0;
             ShowYearEndProgressInfo("Updating CreditNote Stock");
@@ -468,11 +468,11 @@ namespace EcoMart.InterfaceLayer
                     mqtyin = 0;
                     mscmqtyin = 0;
                     mstockid = "";
-                    mproductid = "";                    
+                    mProductID = 0;                    
                     if (dr["StockID"] != DBNull.Value)
                         mstockid = dr["StockID"].ToString();
                     if (dr["ProductID"] != DBNull.Value)
-                        mproductid = dr["ProductID"].ToString();
+                        mProductID = Convert.ToInt32(dr["ProductID"].ToString());
 
                     if (dr["Quantity"] != DBNull.Value && dr["Quantity"].ToString() != "")
                         int.TryParse(dr["Quantity"].ToString(), out mqtyin);
@@ -495,7 +495,7 @@ namespace EcoMart.InterfaceLayer
             DataTable dtable = new DataTable();          
             dtable = _YearEnd.GetSaleStockForCurrentYearForYearEnd(_MToDate);
             string mstockid = "";
-            string mproductid = "";
+            int mProductID = 0;
             int mqtyin = 0;
             int mscmqtyin = 0;
             ShowYearEndProgressInfo("Updating Sale Stock");
@@ -507,11 +507,11 @@ namespace EcoMart.InterfaceLayer
                     mqtyin = 0;
                     mscmqtyin = 0;
                     mstockid = "";
-                    mproductid = "";                  
+                    mProductID = 0;                  
                     if (dr["StockID"] != DBNull.Value)
                         mstockid = dr["StockID"].ToString();
                     if (dr["ProductID"] != DBNull.Value)
-                        mproductid = dr["ProductID"].ToString();
+                        mProductID = Convert.ToInt32(dr["ProductID"].ToString());
 
                     if (dr["Quantity"] != DBNull.Value && dr["Quantity"].ToString() != "")
                         int.TryParse(dr["Quantity"].ToString(), out mqtyin);
@@ -535,7 +535,7 @@ namespace EcoMart.InterfaceLayer
             DataTable dtable = new DataTable();         
             dtable = _YearEnd.GetPurchaseStockForCurrentYearForYearEnd(_MToDate);
             string mstockid = "";
-            string mproductid = "";
+            int mProductID = 0;
             int mqtyin = 0;
             int mscmqtyin = 0;
             int mclosingstock = 0;
@@ -547,12 +547,12 @@ namespace EcoMart.InterfaceLayer
                     mqtyin = 0;
                     mscmqtyin = 0;
                     mstockid = "";
-                    mproductid = "";
+                    mProductID = 0;
                     mclosingstock = 0;
                     if (dr["StockID"] != DBNull.Value)
                         mstockid = dr["StockID"].ToString();
                     if (dr["ProductID"] != DBNull.Value)
-                        mproductid = dr["ProductID"].ToString();
+                        mProductID = Convert.ToInt32(dr["ProductID"].ToString());
 
                     if (dr["Quantity"] != DBNull.Value && dr["Quantity"].ToString() != "")
                         int.TryParse(dr["Quantity"].ToString(), out mqtyin);
@@ -577,7 +577,7 @@ namespace EcoMart.InterfaceLayer
             DataTable dtable = new DataTable();          
             dtable = _YearEnd.GetOpeningStockForCurrentYear(_MToDate);          
             string mstockid = "";
-            string mproductid = "";
+            int mProductID = 0;
             int mqtyin = 0;           
             int mscmqtyin = 0;          
             foreach (DataRow dr in dtable.Rows)
@@ -587,11 +587,11 @@ namespace EcoMart.InterfaceLayer
                     mqtyin = 0;                   
                     mscmqtyin = 0;                  
                     mstockid = "";
-                    mproductid = "";                  
+                    mProductID = 0;                  
                     if (dr["StockID"] != DBNull.Value)
                         mstockid = dr["StockID"].ToString();
                     if (dr["ProductID"] != DBNull.Value)
-                        mproductid = dr["ProductID"].ToString();
+                        mProductID = Convert.ToInt32(dr["ProductID"].ToString());
                     if (dr["Quantity"] != DBNull.Value && dr["Quantity"].ToString() != "")
                         int.TryParse(dr["Quantity"].ToString(), out mqtyin);
                     if (dr["SchemeQuantity"] != DBNull.Value && dr["SchemeQuantity"].ToString() != "")

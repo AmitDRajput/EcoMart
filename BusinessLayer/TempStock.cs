@@ -12,7 +12,7 @@ namespace EcoMart.BusinessLayer
     {
         #region Declaration
         private string _TempStockId;
-        private string _ProductId;
+        private int _ProductID;
         private string _StockId;
         private int _SoldQuantity;
         private ModuleNumber _ModuleNumber;
@@ -28,10 +28,10 @@ namespace EcoMart.BusinessLayer
             set { _TempStockId = value; }
         }
 
-        public string ProductId
+        public int ProductID
         {
-            get { return _ProductId; }
-            set { _ProductId = value; }
+            get { return _ProductID; }
+            set { _ProductID = value; }
         }
         public string StockId
         {
@@ -72,7 +72,7 @@ namespace EcoMart.BusinessLayer
             {
                 base.Initialise();
                 _TempStockId = "";
-                _ProductId = "";
+                _ProductID = 0;
                 _StockId = "";
                 _SoldQuantity = 0;
                 _ModuleNumber = ModuleNumber.None;
@@ -95,7 +95,7 @@ namespace EcoMart.BusinessLayer
         //    return dbData.GetAllTempStockRows();
         //}
 
-        //public DataTable GetStockByProductID(string prodID, OperationMode mode)
+        //public DataTable GetStockByProductID(int prodID, OperationMode mode)
         //{
         //    DbTempStock dbData = new DbTempStock();
         //    return dbData.GetStockByProductID(prodID, (int)mode);
@@ -107,29 +107,29 @@ namespace EcoMart.BusinessLayer
         //    return dbData.GetStockByStockID(stockID, (int)moduleNumber, compName, (int)mode);
         //}
 
-        //public string GetStockByStockIDAndProductID(string stockID, string productID, ModuleNumber moduleNumber, string compName, OperationMode mode, int customerNumber)
+        //public string GetStockByStockIDAndProductID(string stockID, int ProductID, ModuleNumber moduleNumber, string compName, OperationMode mode, int customerNumber)
         //{
         //    DbTempStock dbData = new DbTempStock();
-        //    return dbData.GetStockByStockIDAndProductID(StockId, ProductId, (int)ModuleNumber, CompName, (int)Mode, customerNumber);
+        //    return dbData.GetStockByStockIDAndProductID(StockId, ProductID, (int)ModuleNumber, CompName, (int)Mode, customerNumber);
         //}
                
         //public bool AddDetails()
         //{
         //    DbTempStock dbData = new DbTempStock();
         //    TempStockId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-        //    return dbData.AddDetails(TempStockId, StockId, ProductId, SoldQuantity, (int)ModuleNumber, CompName, (int)Mode, CustomerNumber);
+        //    return dbData.AddDetails(TempStockId, StockId, ProductID, SoldQuantity, (int)ModuleNumber, CompName, (int)Mode, CustomerNumber);
         //}
 
         //public bool UpdateDetails()
         //{
         //    DbTempStock dbData = new DbTempStock();
-        //    return dbData.UpdateDetails(TempStockId, StockId, ProductId, SoldQuantity, (int)ModuleNumber, CompName, (int)Mode, CustomerNumber);
+        //    return dbData.UpdateDetails(TempStockId, StockId, ProductID, SoldQuantity, (int)ModuleNumber, CompName, (int)Mode, CustomerNumber);
         //}
 
         //public bool DeleteDetails()
         //{
         //    DbTempStock dbData = new DbTempStock();
-        //    return dbData.DeleteDetails(StockId, ProductId, SoldQuantity, (int)ModuleNumber, CompName, CustomerNumber);
+        //    return dbData.DeleteDetails(StockId, ProductID, SoldQuantity, (int)ModuleNumber, CompName, CustomerNumber);
         //}
 
         //public bool DeleteDetailsByModuleNumber(ModuleNumber moduleNumber)

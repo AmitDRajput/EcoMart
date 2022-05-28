@@ -66,7 +66,7 @@ namespace EcoMart.Reporting.Controls
                 _MFromDate = FromDate;
                 _MToDate = ToDate;
                 mcbProduct.SelectedID = ID;
-                _OpeningStock = _SsStock.GetOpendingStockByProductID(ID);
+                _OpeningStock = _SsStock.GetOpendingStockByProductID(Convert.ToInt32(ID));
                 ShowReportGrid();
 
             }
@@ -511,7 +511,7 @@ namespace EcoMart.Reporting.Controls
                 dtable = _SsStock.GetSaleDataForProductLedgerBatchWise(mcbProduct.SelectedID, _MToDate, _MStockID);
                 _BindingSource = dtable;
                 BindReportGrid();
-                _OpeningStock = _SsStock.GetOpeningStockForBatch(mcbProduct.SelectedID.ToString(), _MStockID);
+                _OpeningStock = _SsStock.GetOpeningStockForBatch(Convert.ToInt32(mcbProduct.SelectedID), _MStockID);
                 
                 GetSummaryInGrid();
                 
@@ -850,13 +850,13 @@ namespace EcoMart.Reporting.Controls
         private void mcbProduct_EnterKeyPressed(object sender, EventArgs e)
         {
             if (mcbProduct.SelectedID != null && mcbProduct.SelectedID != "")
-                FillBatchList(mcbProduct.SelectedID);
+                FillBatchList(Convert.ToInt32(mcbProduct.SelectedID));
         }
 
-        private void FillBatchList(string productID)
+        private void FillBatchList(int ProductID)
         {
             DataTable dt = null;
-            dt = _SsStock.GetBatchListForReport(productID);
+            dt = _SsStock.GetBatchListForReport(ProductID);
             lbBatch.Items.Clear();
             lbStockID.Items.Clear();
             if (dt != null && dt.Rows.Count > 0)

@@ -11,7 +11,7 @@ namespace EcoMart.BusinessLayer
     class ProductSchedulH1 : BaseObject
     {
         #region Declaration
-        private string _ProductID;
+        private int _ProductID;
         private bool _DuplicateProduct;
         #endregion
         #region Constructors, Destructors
@@ -35,7 +35,7 @@ namespace EcoMart.BusinessLayer
             set { _DuplicateProduct = value; }
         }
 
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
@@ -47,7 +47,7 @@ namespace EcoMart.BusinessLayer
         public override void Initialise()
         {
             base.Initialise();          
-            _ProductID = "";           
+            _ProductID = 0;           
             _DuplicateProduct = false;
         }
 
@@ -99,10 +99,10 @@ namespace EcoMart.BusinessLayer
              dbp.RemoveH1TagInProductMaster();
          }
 
-         public void SetProdScheduleCode(string productID)
+         public void SetProdScheduleCode(int ProductID)
          {
              DBProductScheduleH1 dbp = new DBProductScheduleH1();
-             dbp.SetProdScheduleCode(productID);
+             dbp.SetProdScheduleCode(ProductID);
          }
     }
 }

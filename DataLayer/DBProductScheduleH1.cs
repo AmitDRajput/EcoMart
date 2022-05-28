@@ -36,10 +36,10 @@ namespace EcoMart.DataLayer
 
         }
 
-        public void SetProdScheduleCode(string productID)
+        public void SetProdScheduleCode(int ProductID)
         {
             
-            string strSql = "Update masterproduct set ProdScheduleDrugCode = 'H1' where productID = '"+productID+"'";
+            string strSql = "Update masterproduct set ProdScheduleDrugCode = 'H1' where ProductID = '"+ProductID+"'";
             DBInterface.ExecuteQuery(strSql);
               
         }

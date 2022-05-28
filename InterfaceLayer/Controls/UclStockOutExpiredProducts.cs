@@ -169,7 +169,7 @@ namespace EcoMart.InterfaceLayer
                                     double.TryParse(mpMainSubViewControl.Rows[jindex].Cells["Col_Amount"].Value.ToString(), out mamount);
                                 totalamount += mamount;
                                 _StockOut.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                                _StockOut.ProductID = mpMainSubViewControl.Rows[jindex].Cells["Col_ProductID"].Value.ToString();
+                                _StockOut.ProductID = Convert.ToInt32(mpMainSubViewControl.Rows[jindex].Cells["Col_ProductID"].Value.ToString());
                                 int muom = 1;
                                 Int32.TryParse(mpMainSubViewControl.Rows[jindex].Cells["Col_UOM"].Value.ToString(), out  muom);
                               //  _StockOut.UOM = muom;

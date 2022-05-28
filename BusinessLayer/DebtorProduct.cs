@@ -11,7 +11,7 @@ namespace EcoMart.BusinessLayer
     class DebtorProduct : BaseObject
     {
         #region Declaration
-        private string _ProductID;
+        private int _ProductID;
         private int _Quantity;
         private string _AccountID;
         private bool _DuplicateProduct;
@@ -39,7 +39,7 @@ namespace EcoMart.BusinessLayer
             set { _DuplicateProduct = value; }
         } 
 
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
@@ -75,7 +75,7 @@ namespace EcoMart.BusinessLayer
             DBDebtorProduct dbdbprod = new DBDebtorProduct();
             return dbdbprod.GetOverviewProductDataY();
         }
-        public DataTable GetOverviewDebtorDataY(string prodID)
+        public DataTable GetOverviewDebtorDataY(int prodID)
         {
             DBDebtorProduct dbdbprod = new DBDebtorProduct();
             return dbdbprod.GetOverviewDebtorDataY(prodID);
@@ -94,7 +94,7 @@ namespace EcoMart.BusinessLayer
         {
             base.Initialise();
             _Quantity = 0;
-            _ProductID = "";
+            _ProductID = 0;
             _AccountID = "";
             _DuplicateProduct = false;
 

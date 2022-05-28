@@ -62,7 +62,7 @@ namespace EcoMart.Reporting.Controls
             {
                 _MFromDate = FromDate;
                 _MToDate = ToDate;
-                _OpeningStock = _SsStock.GetOpendingStockByProductID(ID);
+                _OpeningStock = _SsStock.GetOpendingStockByProductID(Convert.ToInt32(ID));
                 ShowReportGrid();
 
             }
@@ -343,7 +343,7 @@ namespace EcoMart.Reporting.Controls
                 DataGridViewTextBoxColumn column;
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_ID";
-                column.DataPropertyName = "ProductId";
+                column.DataPropertyName = "ProductID";
                 column.HeaderText = "ID";
                 column.Visible = false;
                 dgvReportList.Columns.Add(column);
@@ -548,8 +548,8 @@ namespace EcoMart.Reporting.Controls
                 //int mdbstk = 0;
                 //int mpurstk = 0;
                 //int mslstk = 0;
-                string mproductID = "";
-                string premproductID = "";
+                int mProductID = 0;
+                int premProductID = 0;
                 _RowIndex = dgvReportList.Rows.Add();
                 currentdr = dgvReportList.Rows[0];
                 foreach (DataRow dr in _BindingSource.Rows)
@@ -559,12 +559,12 @@ namespace EcoMart.Reporting.Controls
                     mqtyout = 0;
                     mscmqtyin = 0;
                     mscmqtyout = 0;
-                    mproductID = dr["ProductID"].ToString();
-                    if (mproductID != premproductID)
+                    mProductID = Convert.ToInt32(dr["ProductID"].ToString());
+                    if (mProductID != premProductID)
                     {
                         _RowIndex = dgvReportList.Rows.Add();
                         currentdr = dgvReportList.Rows[_RowIndex];
-                        premproductID = mproductID;
+                        premProductID = mProductID;
                         if (dr["ProdName"] != DBNull.Value)
                             currentdr.Cells["Col_ProductName"].Value = dr["ProdName"].ToString();
                         if (dr["ProdLoosePack"] != DBNull.Value)
@@ -653,7 +653,7 @@ namespace EcoMart.Reporting.Controls
         {
             try
             {
-                string ProductID = string.Empty;
+                int ProductID = 0;
                 int ClosingStock = 0;
                 int UOM = 0;
                 double ProdpurchaseRate = 0;

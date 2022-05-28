@@ -108,7 +108,7 @@ public class DBPurchase
             return bRetValue;
         }
 
-        public bool AddDetailsProductsSS(int Id, string ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
+        public bool AddDetailsProductsSS(int Id, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
                string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
                double AmountSchemeDiscount, double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double AmountProductVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
                string IfTradeRateInclusiveOfVAT, double Amount, double spldiscamt, double spldiscper, double AmountZeroVAT, double AmountCashDiscountperunit, int stockid, string mydetailpurchaseid,
@@ -130,7 +130,7 @@ public class DBPurchase
         }
 
 
-        public bool AddChangedDetailsProductsSS(string Id,string changedMasterID, string ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
+        public bool AddChangedDetailsProductsSS(string Id,string changedMasterID, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
              string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
              double AmountSchemeDiscount, double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double AmountProductVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
              string IfTradeRateInclusiveOfVAT, double Amount, double spldiscamt, double spldiscper, double AmountZeroVAT, double AmountCashDiscountperunit, string stockid, string mydetailpurchaseid, double productMargin, double productMargin2, int serialNumber)
@@ -148,7 +148,7 @@ public class DBPurchase
             return bRetValue;
         }
 
-        public bool AddDeletedDetailsProductsSS(string Id, string ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
+        public bool AddDeletedDetailsProductsSS(string Id, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
              string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
              double AmountSchemeDiscount, double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double AmountProductVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
              string IfTradeRateInclusiveOfVAT, double Amount, double spldiscamt, double spldiscper, double AmountZeroVAT, double AmountCashDiscountperunit, string stockid, string mydetailpurchaseid, double productMargin, double productMargin2, int serialNumber)
@@ -168,7 +168,7 @@ public class DBPurchase
 
 
 
-        public int AddProductDetailsInStockTable(string ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
+        public int AddProductDetailsInStockTable(int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
             string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double PurchaseVATPercent,
             double ProductVATPercent, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount,
             string accountId, string billnumber, string voutype, int vounumber, string voudate, int ProdLoosePack,string StockId,double productMargin,string purScanCode,double pricetoretailer,double profitpercent)
@@ -261,20 +261,20 @@ public class DBPurchase
             return bRetValue;
         }
 
-        public DataRow CheckProductInShortList(string productID)
+        public DataRow CheckProductInShortList(int ProductID)
         {
-            string strSql = string.Format("Select *  from tbldailyshortlist where ProductID = '{0}' AND  OrderNumber =  0", productID);
+            string strSql = string.Format("Select *  from tbldailyshortlist where ProductID = '{0}' AND  OrderNumber =  0", ProductID);
             return DBInterface.SelectFirstRow(strSql);
         }
-        public DataRow GetFirstAndSecondCreditor(string productID)
+        public DataRow GetFirstAndSecondCreditor(int ProductID)
         {
-            string strSql = string.Format("Select *  from masterproduct where ProductID = '{0}'", productID);
+            string strSql = string.Format("Select *  from masterproduct where ProductID = '{0}'", ProductID);
             return DBInterface.SelectFirstRow(strSql);
         }
-        public bool FillFirstCreditorInMasterProduct(string productId, string accountID)
+        public bool FillFirstCreditorInMasterProduct(int ProductID, string accountID)
         {
             bool returnVal = false;
-            string strSql = "Update masterproduct set prodpartyID_1 = '" + accountID + "' where  ProductID = '" + productId + "'";
+            string strSql = "Update masterproduct set prodpartyID_1 = '" + accountID + "' where  ProductID = '" + ProductID + "'";
             try
             {
                 if (DBInterface.ExecuteQuery(strSql) > 0)
@@ -289,10 +289,10 @@ public class DBPurchase
             }
             return returnVal;
         }
-        public bool FillSecondCreditorInMasterProduct(string productId, string accountID)
+        public bool FillSecondCreditorInMasterProduct(int ProductID, string accountID)
         {
             bool returnVal = false;
-            string strSql = "Update masterproduct set prodpartyID_2 = '" + accountID + "' where  ProductID = '" + productId + "'";
+            string strSql = "Update masterproduct set prodpartyID_2 = '" + accountID + "' where  ProductID = '" + ProductID + "'";
             try
             {
                 if (DBInterface.ExecuteQuery(strSql) > 0)
@@ -307,10 +307,10 @@ public class DBPurchase
             }
             return returnVal;
         }
-        public bool RemoveFromShortList(string productID)
+        public bool RemoveFromShortList(int ProductID)
         {
             bool returnVal = false;
-            string strSql = "Delete from tbldailyshortlist where ProductID = '" + productID + "' AND OrderNumber = 0";
+            string strSql = "Delete from tbldailyshortlist where ProductID = '" + ProductID + "' AND OrderNumber = 0";
             try
             {
                 DBInterface.ExecuteQuery(strSql);
@@ -647,7 +647,7 @@ public class DBPurchase
             return objQuery.InsertQuery();
         }
 
-        private string GetInsertQueryDetails(int Id, string ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
+        private string GetInsertQueryDetails(int Id, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
                string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
                double AmountSchemeDiscount, double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double AmountProductVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
                string IfTradeRateInclusiveOfVAT, double Amount, double amtspldisc, double spldiscper, double AmountZeroVAT, double Amountcashdiscperunit,int stockid,string mydetailpurchaseid, double productMargin,
@@ -701,7 +701,7 @@ public class DBPurchase
         }
 
 
-        private string GetInsertQueryChangedDetails(string Id, string changedMasterID, string ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
+        private string GetInsertQueryChangedDetails(string Id, string changedMasterID, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
               string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
               double AmountSchemeDiscount, double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double AmountProductVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
               string IfTradeRateInclusiveOfVAT, double Amount, double amtspldisc, double spldiscper, double AmountZeroVAT, double Amountcashdiscperunit, string stockid, string mydetailpurchaseid, double productMargin, double productMargin2, int serialNumber)
@@ -744,7 +744,7 @@ public class DBPurchase
             return objQuery.InsertQuery();
         }
 
-        private string GetInsertQueryDeletedDetails(string Id, string ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
+        private string GetInsertQueryDeletedDetails(string Id, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
               string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
               double AmountSchemeDiscount, double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double AmountProductVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
               string IfTradeRateInclusiveOfVAT, double Amount, double amtspldisc, double spldiscper, double AmountZeroVAT, double Amountcashdiscperunit, string stockid, string mydetailpurchaseid, double productMargin, double productMargin2, int serialNumber)
@@ -788,7 +788,7 @@ public class DBPurchase
 
 
 
-        private string GetInsertQueryDetailsInStockTable(string ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
+        private string GetInsertQueryDetailsInStockTable(int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
             string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double PurchaseVATPercent,
             double ProductVATPercent, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount,
             string accountId, string billnumber, string voutype, int vounumber, string voudate, int ProdLoosePack,string stockid,double productMargin,string purScanCode,double pricetoretailer,double profitpercent)
@@ -1112,40 +1112,40 @@ public class DBPurchase
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
-        public DataTable GetPurchaseDataProductWise(string productID)
+        public DataTable GetPurchaseDataProductWise(int ProductID)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.PurchaseID,a.ProductID,a.BatchNumber,a.Quantity ,a.SchemeQuantity,a.ReplacementQuantity,a.PurchaseRate,a.TradeRate, (a.TradeRate * a.Quantity) as TAmount, (a.PurchaseRate * a.Quantity) as PAmount, " +
                  "b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where  a.ProductID = '" + productID + "' order by VoucherNumber";
+                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where  a.ProductID = '" + ProductID + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
-        public DataTable GetPurchaseDataProductWiseWithScheme(string productID)
+        public DataTable GetPurchaseDataProductWiseWithScheme(int ProductID)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.PurchaseID,a.ProductID,a.BatchNumber,a.Quantity ,a.SchemeQuantity,a.ReplacementQuantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount, " +
                  "b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.SchemeQuantity > 0 AND  a.ProductID = '" +productID +"' order by VoucherNumber";
+                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.SchemeQuantity > 0 AND  a.ProductID = '" +ProductID +"' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
-        public DataTable GetOverviewDataForProductBatchList(string productid, string mbatchno, double mrp)
+        public DataTable GetOverviewDataForProductBatchList(int ProductID, string mbatchno, double mrp)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.PurchaseID,a.ProductID,a.MRP,a.BatchNumber,a.Quantity ,a.SchemeQuantity,a.ReplacementQuantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount, " +
                  "b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.ProductId = '" + productid + "' AND a.BatchNumber = '" + mbatchno + "' AND a.MRP = "+ mrp +"  order by VoucherNumber";
+                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.ProductID = '" + ProductID + "' AND a.BatchNumber = '" + mbatchno + "' AND a.MRP = "+ mrp +"  order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
 
-        public DataTable GetOverviewDataForPartyProductList(string partyid, string productid)
+        public DataTable GetOverviewDataForPartyProductList(string partyid, int ProductID)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.PurchaseID,a.ProductID,a.BatchNumber,a.Quantity ,a.SchemeQuantity,a.ReplacementQuantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount, " +
                  "b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where c.AccountID = '" + partyid + "' AND a.ProductId = '" + productid + "' order by VoucherNumber";
+                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where c.AccountID = '" + partyid + "' AND a.ProductID = '" + ProductID + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1195,7 +1195,7 @@ public class DBPurchase
         public DataTable GetOverviewDataCategory(string mfromdate, string mtodate)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select sum(a.Quantity *a.TradeRate) as AmountNet,a.ProductId, sum(a.AmountItemDiscount) as AmountItemDiscount, " +
+            string strSql = "Select sum(a.Quantity *a.TradeRate) as AmountNet,a.ProductID, sum(a.AmountItemDiscount) as AmountItemDiscount, " +
                  "sum(a.AmountSchemeDiscount) as AmountSchemeDiscount, " +
                  "sum(a.AmountCashDiscount) as AmountCashDiscount, b.ProductID,b.ProdCategoryID,c.ProductCategoryID,c.ProductCategoryName,d.voucherdate from detailpurchase a inner join masterproduct b on a.ProductID = b.ProductID inner join masterproductcategory c on b.ProdCategoryID = c.ProductCategoryID inner join voucherpurchase d on a.PurchaseID = d.PurchaseID  where d.voucherdate >= '" + mfromdate + "' AND d.voucherdate <= '"+ mtodate +"' group by c.ProductCategoryID order by c.ProductCategoryName ";
             dtable = DBInterface.SelectDataTable(strSql);
@@ -1207,7 +1207,7 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "Select a.purchaseID,a.ProductID,a.BatchNumber,a.Expiry,a.MRP,a.Quantity,(a.SchemeQuantity + a.ReplacementQuantity) as SchemeQuantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount,b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName, " +
                  " d.ProductID,d.ProdName,d.ProdLoosePack,d.ProdPack " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.purchaseID = b.purchaseID inner join masteraccount c on b.AccountID = c.AccountID inner join masterproduct d on a.productId = d.ProductID where d.ProdCompID = '" + companyid + "' AND b.Voucherdate >= '"+ mfromdate +"' AND b.Voucherdate <='"+ mtodate  + "' order by d.ProdName";
+                 "from detailpurchase a  inner join voucherpurchase b on a.purchaseID = b.purchaseID inner join masteraccount c on b.AccountID = c.AccountID inner join masterproduct d on a.ProductID = d.ProductID where d.ProdCompID = '" + companyid + "' AND b.Voucherdate >= '"+ mfromdate +"' AND b.Voucherdate <='"+ mtodate  + "' order by d.ProdName";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1217,17 +1217,17 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "Select a.purchaseID,a.ProductID,a.BatchNumber,a.Expiry,a.MRP,a.Quantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount,b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName, " +
                  " d.ProductID,d.ProdName,d.ProdLoosePack,d.ProdPack " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.purchaseID = b.purchaseID inner join masteraccount c on b.AccountID = c.AccountID inner join masterproduct d on a.productId = d.ProductID where  d.CreatedDate >= '"+ General.ShopDetail.Shopsy + "' AND  b.Voucherdate >= '"+ mfromdate +"' AND b.Voucherdate <='"+ mtodate  + "'  order by d.ProdName";
+                 "from detailpurchase a  inner join voucherpurchase b on a.purchaseID = b.purchaseID inner join masteraccount c on b.AccountID = c.AccountID inner join masterproduct d on a.ProductID = d.ProductID where  d.CreatedDate >= '"+ General.ShopDetail.Shopsy + "' AND  b.Voucherdate >= '"+ mfromdate +"' AND b.Voucherdate <='"+ mtodate  + "'  order by d.ProdName";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
 
-        public DataTable GetOverviewDataForLastPurchase(string productID)
+        public DataTable GetOverviewDataForLastPurchase(int ProductID)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.PurchaseID,a.ProductID,a.BatchNumber,a.Quantity ,a.SchemeQuantity,a.ReplacementQuantity,a.PurchaseRate,a.MRP,a.Margin ,a.MarginAfterDiscount," +
                  "b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.ProductID = '"+ productID+"' order by b.VoucherDate";
+                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.ProductID = '"+ ProductID+"' order by b.VoucherDate";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1356,8 +1356,8 @@ public class DBPurchase
                 string strsql = "select  a.ProductID, a.ProdName,a.Prodloosepack,a.prodpack,a.ProdClosingStock,a.ProdVATPercent,a.ProdCompShortName,a.ProdCompID,a.ProdIfOctroi,a.ProdShelfID,a.ProdIfBarCodeRequired,b.ProductID, " +
                 "b.StockID,b.PurchaseID,b.BatchNumber,b.MRP,b.PurchaseRate,b.SaleRate,b.TradeRate,b.Expiry,b.ExpiryDate,b.Quantity,b.AmountProdVAT," +
                 "b.PurchaseVATPercent,b.SchemeQuantity,b.ReplacementQuantity,b.AmountItemDiscount,b.ItemDiscountPercent,b.ProfitPercent," +
-                "b.AmountSchemeDiscount,b.SchemeDiscountPercent,b.AmountPurchaseVAT,b.AmountCreditNote,b.AmountCashDiscount,b.Quantity*b.TradeRate as Amount,b.Margin,b.MarginAfterDiscount, " +
-                "d.ClosingStock,d.ScanCode,e.ShelfCode from masterproduct a inner join  detailpurchase b  on a.ProductId = b.ProductID left outer join tblstock d on b.StockID = d.StockID  left outer join mastershelf e on  a.ProdShelfID = e.shelfID where b.PurchaseID = '{0}' order by b.SerialNumber";
+                "b.AmountSchemeDiscount,b.SchemeDiscountPercent,b.AmountPurchaseVAT,b.AmountCashDiscount,b.Quantity*b.TradeRate as Amount,b.Margin,b.MarginAfterDiscount, " +
+                "d.ClosingStock,d.ScanCode,e.ShelfCode from masterproduct a inner join  detailpurchase b  on a.ProductID = b.ProductID left outer join tblstock d on b.StockID = d.StockID  left outer join mastershelf e on  a.ProdShelfID = e.shelfID where b.PurchaseID = '{0}' order by b.SerialNumber";
                 strsql = string.Format(strsql, Id);
                 dt = DBInterface.SelectDataTable(strsql);
             }
@@ -1373,7 +1373,7 @@ public class DBPurchase
                 "b.StockID,b.PurchaseID,b.ChangedMasterID,b.BatchNumber,b.MRP,b.PurchaseRate,b.SaleRate,b.TradeRate,b.Expiry,b.ExpiryDate,b.Quantity,b.AmountProdVAT," +
                 "b.PurchaseVATPercent,b.SchemeQuantity,b.ReplacementQuantity,b.AmountItemDiscount,b.ItemDiscountPercent," +
                 "b.AmountSchemeDiscount,b.SchemeDiscountPercent,b.AmountPurchaseVAT,b.AmountCreditNote,b.AmountCashDiscount,b.Quantity*b.TradeRate as Amount,b.Margin,b.MarginAfterDiscount, b.scancode," +
-                "d.ClosingStock,e.ShelfCode from masterproduct a inner join  changeddetailpurchase b  on a.ProductId = b.ProductID left outer join tblstock d on b.StockID = d.StockID  left outer join mastershelf e on  a.ProdShelfID = e.shelfID where b.ChangedMasterID = '{0}' order by b.SerialNumber";
+                "d.ClosingStock,e.ShelfCode from masterproduct a inner join  changeddetailpurchase b  on a.ProductID = b.ProductID left outer join tblstock d on b.StockID = d.StockID  left outer join mastershelf e on  a.ProdShelfID = e.shelfID where b.ChangedMasterID = '{0}' order by b.SerialNumber";
                 strsql = string.Format(strsql, Id);
                 dt = DBInterface.SelectDataTable(strsql);
             }
@@ -1388,7 +1388,7 @@ public class DBPurchase
                 "b.StockID,b.PurchaseID,b.BatchNumber,b.MRP,b.PurchaseRate,b.SaleRate,b.TradeRate,b.Expiry,b.ExpiryDate,b.Quantity,b.AmountProdVAT," +
                 "b.PurchaseVATPercent,b.SchemeQuantity,b.ReplacementQuantity,b.AmountItemDiscount,b.ItemDiscountPercent," +
                 "b.AmountSchemeDiscount,b.SchemeDiscountPercent,b.AmountPurchaseVAT,b.AmountCreditNote,b.AmountCashDiscount,b.Quantity*b.TradeRate as Amount,b.Margin,b.MarginAfterDiscount, " +
-                "d.ClosingStock,e.ShelfCode from masterproduct a inner join  deleteddetailpurchase b  on a.ProductId = b.ProductID left outer join tblstock d on b.StockID = d.StockID  left outer join mastershelf e on  a.ProdShelfID = e.shelfID where b.PurchaseID = '{0}' order by b.SerialNumber";
+                "d.ClosingStock,e.ShelfCode from masterproduct a inner join  deleteddetailpurchase b  on a.ProductID = b.ProductID left outer join tblstock d on b.StockID = d.StockID  left outer join mastershelf e on  a.ProdShelfID = e.shelfID where b.PurchaseID = '{0}' order by b.SerialNumber";
                 strsql = string.Format(strsql, Id);
                 dt = DBInterface.SelectDataTable(strsql);
             }
@@ -1447,15 +1447,15 @@ public class DBPurchase
 
 
 
-        public DataTable GetAllBatchNumbersForScanCode(string productID)
+        public DataTable GetAllBatchNumbersForScanCode(int ProductID)
         {
             DataTable dt = null;
             try
             {
                 {
 
-                    string strSql = "select  scancode from  tblstock where productID = '{0}' order by scancode";
-                    strSql = string.Format(strSql, productID);
+                    string strSql = "select  scancode from  tblstock where ProductID = '{0}' order by scancode";
+                    strSql = string.Format(strSql, ProductID);
                     dt = DBInterface.SelectDataTable(strSql);
                 }
             }
@@ -1468,15 +1468,15 @@ public class DBPurchase
             return dt;
         }
 
-        public DataRow GetProductScancode(string productID)
+        public DataRow GetProductScancode(int ProductID)
         {
             DataRow dr = null;
             try
             {
                 {
 
-                    string strSql = "select  ScannedBarcode from masterproduct where productID = '{0}'";
-                    strSql = string.Format(strSql, productID);
+                    string strSql = "select  ScannedBarcode from masterproduct where ProductID = '{0}'";
+                    strSql = string.Format(strSql, ProductID);
                     dr = DBInterface.SelectFirstRow(strSql);
                 }
             }
@@ -1542,12 +1542,12 @@ public class DBPurchase
         }
 
 
-        public bool CheckforProductforDistributorID(string distributorID, string distributorproductID)
+        public bool CheckforProductforDistributorID(string distributorID, string distributorProductID)
         {
             bool retVal = true;
             string strSql = "";
             DataRow dr = null;
-            strSql = "select * from tblbillimportlink where DistributorID = '" + distributorID + "' AND DistributorProductID = '" + distributorproductID + "'";
+            strSql = "select * from tblbillimportlink where DistributorID = '" + distributorID + "' AND DistributorProductID = '" + distributorProductID + "'";
             dr = DBInterface.SelectFirstRow(strSql);
             if (dr == null)
             {
@@ -1557,24 +1557,24 @@ public class DBPurchase
             return retVal;
         }
 
-        public bool AddLinkIntblbillimportlink(string guid, string DistributorID, string distributorproductID, string retailerproductID)
+        public bool AddLinkIntblbillimportlink(string guid, string DistributorID, string distributorProductID, string retailerProductID)
         {
             bool retValue = false;
-            string strSql = GetInsertQueryForAddLinkIntblbillimportlink(guid, DistributorID, distributorproductID, retailerproductID);
+            string strSql = GetInsertQueryForAddLinkIntblbillimportlink(guid, DistributorID, distributorProductID, retailerProductID);
             if (DBInterface.ExecuteQuery(strSql) > 0)
                 retValue = true;
             return retValue;
         }
 
 
-        private string GetInsertQueryForAddLinkIntblbillimportlink(string guid, string DistributorID, string distributorproductID, string retailerproductID)
+        private string GetInsertQueryForAddLinkIntblbillimportlink(string guid, string DistributorID, string distributorProductID, string retailerProductID)
         {
             Query objQuery = new Query();
             objQuery.Table = "tblbillimportlink";
             objQuery.AddToQuery("ID", guid);
             objQuery.AddToQuery("DistributorID", DistributorID);
-            objQuery.AddToQuery("distributorproductID", distributorproductID);
-            objQuery.AddToQuery("retailerproductID", retailerproductID);
+            objQuery.AddToQuery("distributorProductID", distributorProductID);
+            objQuery.AddToQuery("retailerProductID", retailerProductID);
 
             return objQuery.InsertQuery();
         }

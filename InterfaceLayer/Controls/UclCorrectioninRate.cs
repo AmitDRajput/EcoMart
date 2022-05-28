@@ -27,7 +27,7 @@ namespace EcoMart.InterfaceLayer
             {
                 InitializeComponent();
                 _Correction = new Correction();
-                SearchControl = new UclCorrectioninRateSearch();               
+                SearchControl = new UclCorrectioninRateSearch();
             }
             catch (Exception Ex)
             {
@@ -79,10 +79,8 @@ namespace EcoMart.InterfaceLayer
                 tsBtnExit.Visible = true;
                 tsBtnSavenPrint.Visible = false;
                 mcbProduct.Focus();
-                if(string.IsNullOrEmpty(General.SubstituteProductID) == false)
-                {
-                    mcbProduct.SelectedID = General.SubstituteProductID;
-                }
+
+                mcbProduct.SelectedID = General.SubstituteProductID.ToString();
             }
             catch (Exception Ex)
             {
@@ -236,7 +234,7 @@ namespace EcoMart.InterfaceLayer
                     _Correction.ReadDetailsByID();
                     txtVouchernumber.Text = _Correction.VoucherNumber.ToString("#0");
                     txtVoucherSeries.Text = _Correction.VoucherSeries.ToString();
-                    mcbProduct.SelectedID = _Correction.ProductId;
+                    mcbProduct.SelectedID = _Correction.ProductID.ToString();
                     txtbatchno.Text = _Correction.BatchNo.ToString();
                     txtexpiry.Text = _Correction.Expiry.ToString();
                     txtMrp.Text = _Correction.Mrp.ToString("#0.00");
@@ -311,7 +309,7 @@ namespace EcoMart.InterfaceLayer
                         txtVouchernumber.Text = _Correction.VoucherNumber.ToString("#0");
                         if (_Correction.NewMrp != _Correction.Mrp || _Correction.NewBatchNo != _Correction.BatchNo)
                         {
-                            DataRow dr = _Correction.SearchForNewBatchAndMrpIntblStock(_Correction.ProductId, _Correction.NewBatchNo, _Correction.NewMrp);
+                            DataRow dr = _Correction.SearchForNewBatchAndMrpIntblStock(_Correction.ProductID, _Correction.NewBatchNo, _Correction.NewMrp);
                             if (dr != null)
                             {
                                 _Correction.NewStockId = dr["Stockid"].ToString();
@@ -322,7 +320,7 @@ namespace EcoMart.InterfaceLayer
                             else
                             {
                                 _Correction.NewStockId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                                retValue = _Correction.AddDetails(_Correction.NewStockId, _Correction.ProductId, _Correction.NewBatchNo, _Correction.NewExpiry,
+                                retValue = _Correction.AddDetails(_Correction.NewStockId, _Correction.ProductID, _Correction.NewBatchNo, _Correction.NewExpiry,
                                            _Correction.NewMrp, _Correction.NewPurchRate, _Correction.NewSaleRate, _Correction.NewQty, _Correction.TradeRate, _Correction.ExpiryDate, _Correction.ProductVATPercent, _Correction.PurchaseVATPercent, _Correction.LastPurchaseDate, _Correction.LastPurchaseAccountID, _Correction.NewDistributorRate);
 
                                 retValue = _Correction.UpdateOldDetails(_Correction.StockId, _Correction.NewQty);
@@ -544,8 +542,8 @@ namespace EcoMart.InterfaceLayer
         }
         private void FillBatchGird()
         {
-            _Correction.ProductId = mcbProduct.SelectedID;
-            DataTable dt = _Correction.GetStockByProductID(_Correction.ProductId);
+            _Correction.ProductID = Convert.ToInt32(mcbProduct.SelectedID);
+            DataTable dt = _Correction.GetStockByProductID(_Correction.ProductID);
             if (dt != null && dt.Rows.Count > 0)
             {
                 dgvBatchGrid.DataSource = dt;

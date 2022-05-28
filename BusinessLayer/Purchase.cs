@@ -29,7 +29,7 @@ public class Purchase : BaseObject
         private double _VAT5Percent;
         private double _VATOPercent;
         private double _VAT12point5Percent;
-        private string _ProductID;
+        private int _ProductID;
         private int _ProdLoosePack;
         private string _Batchno;
         private string _Pack;
@@ -567,7 +567,7 @@ public class Purchase : BaseObject
             get { return _ShelfID; }
             set { _ShelfID = value; }
         }
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
@@ -1184,7 +1184,7 @@ public class Purchase : BaseObject
             _Expiry = "";
             _ExpiryDate = "";
             _Mrp = 0;
-            _ProductID = "";
+            _ProductID = 0;
             _PurchaseRate = 0;
             _Quantity = 0;
             _NoofRows = 0;
@@ -1451,8 +1451,8 @@ public class Purchase : BaseObject
                     }
                     if (drow["AmountItemDiscount"] != DBNull.Value)
                         AmountItemDiscountS = Convert.ToDouble(drow["AmountItemDiscount"]);
-                    if (drow["AmountSpecialDiscount"] != DBNull.Value)
-                        AmountSpecialDiscountS = Convert.ToByte(drow["AmountSpecialDiscount"]);
+                    //if (drow["AmountSpecialDiscount"] != DBNull.Value)
+                    //    AmountSpecialDiscountS = Convert.ToByte(drow["AmountSpecialDiscount"]);
                     if (drow["AmountSchemeDiscount"] != DBNull.Value)
                         AmountSchemeDiscountS = Convert.ToDouble(drow["AmountSchemeDiscount"]);
                     if (drow["AmountCashDiscount"] != DBNull.Value)
@@ -1463,14 +1463,14 @@ public class Purchase : BaseObject
                         AmountFreightS = Convert.ToDouble(drow["AmountFreight"]);
                     if (drow["CashDiscountPercentage"] != DBNull.Value)
                         CashDiscountPercentageS = Convert.ToDouble(drow["CashDiscountPercentage"]);
-                    if (drow["SpecialDiscountPercentage"] != DBNull.Value)
-                        SpecialDiscountPercentS = Convert.ToDouble(drow["SpecialDiscountPercentage"]);
+                    //if (drow["SpecialDiscountPercentage"] != DBNull.Value)
+                    //    SpecialDiscountPercentS = Convert.ToDouble(drow["SpecialDiscountPercentage"]);
                     if (drow["AmountCreditNote"] != DBNull.Value)
                         AmountCreditNoteS = Convert.ToDouble(drow["AmountCreditNote"]);
                     if (drow["AmountDebitNote"] != DBNull.Value)
                         AmountDebitNoteS = Convert.ToDouble(drow["AmountDebitNote"]);
-                    if (drow["StatementNumber"] != DBNull.Value)
-                        StatementNumber = Convert.ToInt32(drow["StatementNumber"]);
+                    //if (drow["StatementNumber"] != DBNull.Value)
+                    //    StatementNumber = Convert.ToInt32(drow["StatementNumber"]);
                     if (drow["RoundUpAmount"] != DBNull.Value)
                         RoundUpAmountS = Convert.ToDouble(drow["RoundUpAmount"]);
                     //if (drow["OctroiPercentage"] != DBNull.Value)
@@ -1487,8 +1487,8 @@ public class Purchase : BaseObject
                     //    AmountVAT12point5PercentS = Convert.ToDouble(drow["AmountVAT12point5Percent"]);
                     //if (drow["AmountVATOPercent"] != DBNull.Value)
                     //    VATOPercent = Convert.ToDouble(drow["AmountVATOPercent"]);
-                    if (drow["NumberofChallans"] != DBNull.Value)
-                        NumberofChallans = Convert.ToInt32(drow["NumberofChallans"]);
+                    //if (drow["NumberofChallans"] != DBNull.Value)
+                    //    NumberofChallans = Convert.ToInt32(drow["NumberofChallans"]);
                     //if (drow["AmountPurchaseZeroVAT"] != DBNull.Value)
                     //    PurchaseAmountZeroVATS = Convert.ToDouble(drow["AmountPurchaseZeroVAT"]);
                     //if (drow["AmountPurchase12point5PercentVAT"] != DBNull.Value)
@@ -1544,8 +1544,8 @@ public class Purchase : BaseObject
                     preAmountClearS = AmountClearS;
                     preAmountBillS = AmountBillS;
                     preAmountItemDiscountS = AmountItemDiscountS;
-                    preAmountSpecialDiscountS = AmountSpecialDiscountS;
-                    preSpecialDiscountPercentS = SpecialDiscountPercentS;
+                    //preAmountSpecialDiscountS = AmountSpecialDiscountS;
+                    //preSpecialDiscountPercentS = SpecialDiscountPercentS;
                     preAmountCashDiscountS = AmountCashDiscountS;
                     preCreditNoteDiscountPercentS = 0;
                     preAmountSchemeDiscountS = AmountSchemeDiscountS;
@@ -1564,8 +1564,8 @@ public class Purchase : BaseObject
                     preAmountVAT12point5PercentS = AmountVAT12point5PercentS;
                     prePurchaseAmountZeroVATS = PurchaseAmountZeroVATS;
                     preDueDate = DueDate;
-                    preNumberofChallans = NumberofChallans;                   
-                    preStatementNumber = StatementNumber;
+                    //preNumberofChallans = NumberofChallans;                   
+                    //preStatementNumber = StatementNumber;
 
 
                 }
@@ -1616,8 +1616,8 @@ public class Purchase : BaseObject
                     }
                     if (drow["AmountItemDiscount"] != DBNull.Value)
                         AmountItemDiscountS = Convert.ToDouble(drow["AmountItemDiscount"]);
-                    if (drow["AmountSpecialDiscount"] != DBNull.Value)
-                        AmountSpecialDiscountS = Convert.ToByte(drow["AmountSpecialDiscount"]);
+                    //if (drow["AmountSpecialDiscount"] != DBNull.Value)
+                    //    AmountSpecialDiscountS = Convert.ToByte(drow["AmountSpecialDiscount"]);
                     if (drow["AmountSchemeDiscount"] != DBNull.Value)
                         AmountSchemeDiscountS = Convert.ToDouble(drow["AmountSchemeDiscount"]);
                     if (drow["AmountCashDiscount"] != DBNull.Value)
@@ -1628,14 +1628,14 @@ public class Purchase : BaseObject
                         AmountFreightS = Convert.ToDouble(drow["AmountFreight"]);
                     if (drow["CashDiscountPercentage"] != DBNull.Value)
                         CashDiscountPercentageS = Convert.ToDouble(drow["CashDiscountPercentage"]);
-                    if (drow["SpecialDiscountPercentage"] != DBNull.Value)
-                        SpecialDiscountPercentS = Convert.ToDouble(drow["SpecialDiscountPercentage"]);
+                    //if (drow["SpecialDiscountPercentage"] != DBNull.Value)
+                    //    SpecialDiscountPercentS = Convert.ToDouble(drow["SpecialDiscountPercentage"]);
                     if (drow["AmountCreditNote"] != DBNull.Value)
                         AmountCreditNoteS = Convert.ToDouble(drow["AmountCreditNote"]);
                     if (drow["AmountDebitNote"] != DBNull.Value)
                         AmountDebitNoteS = Convert.ToDouble(drow["AmountDebitNote"]);
-                    if (drow["StatementNumber"] != DBNull.Value)
-                        StatementNumber = Convert.ToInt32(drow["StatementNumber"]);
+                    //if (drow["StatementNumber"] != DBNull.Value)
+                    //    StatementNumber = Convert.ToInt32(drow["StatementNumber"]);
                     if (drow["RoundUpAmount"] != DBNull.Value)
                         RoundUpAmountS = Convert.ToDouble(drow["RoundUpAmount"]);
                     if (drow["OctroiPercentage"] != DBNull.Value)
@@ -1652,8 +1652,8 @@ public class Purchase : BaseObject
                         AmountVAT12point5PercentS = Convert.ToDouble(drow["AmountVAT12point5Percent"]);
                     if (drow["AmountVATOPercent"] != DBNull.Value)
                         VATOPercent = Convert.ToDouble(drow["AmountVATOPercent"]);
-                    if (drow["NumberofChallans"] != DBNull.Value)
-                        NumberofChallans = Convert.ToInt32(drow["NumberofChallans"]);
+                    //if (drow["NumberofChallans"] != DBNull.Value)
+                    //    NumberofChallans = Convert.ToInt32(drow["NumberofChallans"]);
                     if (drow["AmountPurchaseZeroVAT"] != DBNull.Value)
                         PurchaseAmountZeroVATS = Convert.ToDouble(drow["AmountPurchaseZeroVAT"]);
                     if (drow["AmountPurchase12point5PercentVAT"] != DBNull.Value)
@@ -1709,8 +1709,8 @@ public class Purchase : BaseObject
                     }
                     if (drow["AmountItemDiscount"] != DBNull.Value)
                         AmountItemDiscountS = Convert.ToDouble(drow["AmountItemDiscount"]);
-                    if (drow["AmountSpecialDiscount"] != DBNull.Value)
-                        AmountSpecialDiscountS = Convert.ToByte(drow["AmountSpecialDiscount"]);
+                    //if (drow["AmountSpecialDiscount"] != DBNull.Value)
+                    //    AmountSpecialDiscountS = Convert.ToByte(drow["AmountSpecialDiscount"]);
                     if (drow["AmountSchemeDiscount"] != DBNull.Value)
                         AmountSchemeDiscountS = Convert.ToDouble(drow["AmountSchemeDiscount"]);
                     if (drow["AmountCashDiscount"] != DBNull.Value)
@@ -1721,14 +1721,14 @@ public class Purchase : BaseObject
                         AmountFreightS = Convert.ToDouble(drow["AmountFreight"]);
                     if (drow["CashDiscountPercentage"] != DBNull.Value)
                         CashDiscountPercentageS = Convert.ToDouble(drow["CashDiscountPercentage"]);
-                    if (drow["SpecialDiscountPercentage"] != DBNull.Value)
-                        SpecialDiscountPercentS = Convert.ToDouble(drow["SpecialDiscountPercentage"]);
+                    //if (drow["SpecialDiscountPercentage"] != DBNull.Value)
+                    //    SpecialDiscountPercentS = Convert.ToDouble(drow["SpecialDiscountPercentage"]);
                     if (drow["AmountCreditNote"] != DBNull.Value)
                         AmountCreditNoteS = Convert.ToDouble(drow["AmountCreditNote"]);
                     if (drow["AmountDebitNote"] != DBNull.Value)
                         AmountDebitNoteS = Convert.ToDouble(drow["AmountDebitNote"]);
-                    if (drow["StatementNumber"] != DBNull.Value)
-                        StatementNumber = Convert.ToInt32(drow["StatementNumber"]);
+                    //if (drow["StatementNumber"] != DBNull.Value)
+                    //    StatementNumber = Convert.ToInt32(drow["StatementNumber"]);
                     if (drow["RoundUpAmount"] != DBNull.Value)
                         RoundUpAmountS = Convert.ToDouble(drow["RoundUpAmount"]);
                     if (drow["OctroiPercentage"] != DBNull.Value)
@@ -1745,8 +1745,8 @@ public class Purchase : BaseObject
                         AmountVAT12point5PercentS = Convert.ToDouble(drow["AmountVAT12point5Percent"]);
                     if (drow["AmountVATOPercent"] != DBNull.Value)
                         VATOPercent = Convert.ToDouble(drow["AmountVATOPercent"]);
-                    if (drow["NumberofChallans"] != DBNull.Value)
-                        NumberofChallans = Convert.ToInt32(drow["NumberofChallans"]);
+                    //if (drow["NumberofChallans"] != DBNull.Value)
+                    //    NumberofChallans = Convert.ToInt32(drow["NumberofChallans"]);
                     if (drow["AmountPurchaseZeroVAT"] != DBNull.Value)
                         PurchaseAmountZeroVATS = Convert.ToDouble(drow["AmountPurchaseZeroVAT"]);
                     if (drow["AmountPurchase12point5PercentVAT"] != DBNull.Value)
@@ -1813,8 +1813,8 @@ public class Purchase : BaseObject
                         }
                         if (drow["AmountItemDiscount"] != DBNull.Value)
                             AmountItemDiscountS = Convert.ToDouble(drow["AmountItemDiscount"]);
-                        if (drow["AmountSpecialDiscount"] != DBNull.Value)
-                            AmountSpecialDiscountS = Convert.ToByte(drow["AmountSpecialDiscount"]);
+                        //if (drow["AmountSpecialDiscount"] != DBNull.Value)
+                        //    AmountSpecialDiscountS = Convert.ToByte(drow["AmountSpecialDiscount"]);
                         if (drow["AmountSchemeDiscount"] != DBNull.Value)
                             AmountSchemeDiscountS = Convert.ToDouble(drow["AmountSchemeDiscount"]);
                         if (drow["AmountCashDiscount"] != DBNull.Value)
@@ -1829,8 +1829,8 @@ public class Purchase : BaseObject
                             AmountCreditNoteS = Convert.ToDouble(drow["AmountCreditNote"]);
                         if (drow["AmountDebitNote"] != DBNull.Value)
                             AmountDebitNoteS = Convert.ToDouble(drow["AmountDebitNote"]);
-                        if (drow["StatementNumber"] != DBNull.Value)
-                            StatementNumber = Convert.ToInt32(drow["StatementNumber"]);
+                        //if (drow["StatementNumber"] != DBNull.Value)
+                        //    StatementNumber = Convert.ToInt32(drow["StatementNumber"]);
                         if (drow["RoundUpAmount"] != DBNull.Value)
                             RoundUpAmountS = Convert.ToDouble(drow["RoundUpAmount"]);
                         if (drow["OctroiPercentage"] != DBNull.Value)
@@ -1847,8 +1847,8 @@ public class Purchase : BaseObject
                             AmountVAT12point5PercentS = Convert.ToDouble(drow["AmountVAT12point5Percent"]);
                         if (drow["AmountVATOPercent"] != DBNull.Value)
                             VATOPercent = Convert.ToDouble(drow["AmountVATOPercent"]);
-                        if (drow["NumberofChallans"] != DBNull.Value)
-                            NumberofChallans = Convert.ToInt32(drow["NumberofChallans"]);
+                        //if (drow["NumberofChallans"] != DBNull.Value)
+                        //    NumberofChallans = Convert.ToInt32(drow["NumberofChallans"]);
                         if (drow["AmountPurchaseZeroVAT"] != DBNull.Value)
                             PurchaseAmountZeroVATS = Convert.ToDouble(drow["AmountPurchaseZeroVAT"]);
                         if (drow["AmountPurchase12point5PercentVAT"] != DBNull.Value)
@@ -2383,7 +2383,7 @@ public class Purchase : BaseObject
         }
 
 
-        public DataRow GetDetailsForProduct(string prodID)
+        public DataRow GetDetailsForProduct(int prodID)
         {
             DataRow dr = null;
             try
@@ -2559,16 +2559,16 @@ public class Purchase : BaseObject
             return dbprod.UpdatePurchaseStockInmasterProductReduceFromTemp(ProductID, (Quantity + SchemeQuanity + ReplacementQuantity) * ProdLoosePack);
         }
 
-        public void RemoveFromShortList(string productID)
+        public void RemoveFromShortList(int ProductID)
         {
 
             DBPurchase dbpur = new DBPurchase();
             DataRow dr = null;
             try
             {
-                dr = dbpur.CheckProductInShortList(productID);
+                dr = dbpur.CheckProductInShortList(ProductID);
                 if (dr != null)
-                    dbpur.RemoveFromShortList(productID);
+                    dbpur.RemoveFromShortList(ProductID);
             }
             catch (Exception Ex)
             {
@@ -2576,7 +2576,7 @@ public class Purchase : BaseObject
             }
         }
 
-        public void GetFirstAndSecondCreditor(string productID)
+        public void GetFirstAndSecondCreditor(int ProductID)
         {
             string fcreditor = "";
             string screditor = "";
@@ -2584,7 +2584,7 @@ public class Purchase : BaseObject
             DataRow dr = null;
             try
             {
-                dr = dbpur.GetFirstAndSecondCreditor(productID);
+                dr = dbpur.GetFirstAndSecondCreditor(ProductID);
                 if (dr != null)
                 {
                     if (dr["ProdPartyID_1"] != DBNull.Value)
@@ -2709,10 +2709,10 @@ public class Purchase : BaseObject
             DBPurchase dbPur = new DBPurchase();
             return dbPur.GetOverviewDataForVATReportTIN(mfromdate, mtodate);
         }
-        public DataTable GetOverviewDataForLastPurchase(string productID)
+        public DataTable GetOverviewDataForLastPurchase(int ProductID)
         {
             DBPurchase dbPur = new DBPurchase();
-            return dbPur.GetOverviewDataForLastPurchase(productID);
+            return dbPur.GetOverviewDataForLastPurchase(ProductID);
         }
         public DataTable GetPurchase()
         {
@@ -2738,24 +2738,24 @@ public class Purchase : BaseObject
             return dbPur.GetOverviewDataForProductList();
         }
 
-        public DataTable GetPurchaseDataProductWise(string productID)
+        public DataTable GetPurchaseDataProductWise(int ProductID)
         {
             DBPurchase dbPur = new DBPurchase();
-            return dbPur.GetPurchaseDataProductWise(productID);
+            return dbPur.GetPurchaseDataProductWise(ProductID);
         }
 
-        public DataTable GetPurchaseDataProductWiseWithScheme(string productID)
+        public DataTable GetPurchaseDataProductWiseWithScheme(int ProductID)
         {
             DBPurchase dbPur = new DBPurchase();
-            return dbPur.GetPurchaseDataProductWiseWithScheme(productID);
+            return dbPur.GetPurchaseDataProductWiseWithScheme(ProductID);
         }
-        public DataTable GetOverviewDataForProductBatchList(string ProductID, string mbatch, double mrp)
+        public DataTable GetOverviewDataForProductBatchList(int ProductID, string mbatch, double mrp)
         {
             DBPurchase dbPur = new DBPurchase();
             return dbPur.GetOverviewDataForProductBatchList(ProductID, mbatch, mrp);
         }
 
-        public DataTable GetOverviewDataForPartyProductList(string PartyID, string ProductID)
+        public DataTable GetOverviewDataForPartyProductList(string PartyID, int ProductID)
         {
             DBPurchase dbPur = new DBPurchase();
             return dbPur.GetOverviewDataForPartyProductList(PartyID, ProductID);
@@ -3025,20 +3025,20 @@ public class Purchase : BaseObject
 
 
 
-        public string GetScanGodeForCurrentBatch(string productID)
+        public string GetScanGodeForCurrentBatch(int ProductID)
         {
             string mproductScancode = "";
             string mscancode = "";
             int iscancode = 0;
             DBPurchase dbp = new DBPurchase();
-            DataRow dr = dbp.GetProductScancode(productID);
+            DataRow dr = dbp.GetProductScancode(ProductID);
             if (dr != null)
             {
                 mproductScancode = dr["ScannedBarcode"].ToString();
             }
             if (mproductScancode != string.Empty)
             {
-                DataTable dt = dbp.GetAllBatchNumbersForScanCode(productID);
+                DataTable dt = dbp.GetAllBatchNumbersForScanCode(ProductID);
                 foreach (DataRow drr in dt.Rows)
                 {
                     if (drr["Scancode"] != DBNull.Value && drr["Scancode"].ToString() != string.Empty)
@@ -3061,14 +3061,14 @@ public class Purchase : BaseObject
             DBAccount dbac = new DBAccount();
             dbac.SavePartyAIOCDACodeInMasterAccount(ID, Code, alliedCode);
         }
-        public void SaveProductsintblbillimportlink(string guid, string DistributorID, string distributorproductID, string retailerproductID)
+        public void SaveProductsintblbillimportlink(string guid, string DistributorID, string distributorProductID, string retailerProductID)
         {
             bool retValue = false;
             DBPurchase dbp = new DBPurchase();
-            retValue = dbp.CheckforProductforDistributorID(DistributorID, distributorproductID);
+            retValue = dbp.CheckforProductforDistributorID(DistributorID, distributorProductID);
             if (retValue == false)
             {
-                dbp.AddLinkIntblbillimportlink(guid, DistributorID, distributorproductID, retailerproductID);
+                dbp.AddLinkIntblbillimportlink(guid, DistributorID, distributorProductID, retailerProductID);
             }
         }
         public void SavePurchaseBillformat()
@@ -3132,8 +3132,8 @@ public class Purchase : BaseObject
                         }
                         if (drow["AmountItemDiscount"] != DBNull.Value)
                             AmountItemDiscountS = Convert.ToDouble(drow["AmountItemDiscount"]);
-                        if (drow["AmountSpecialDiscount"] != DBNull.Value)
-                            AmountSpecialDiscountS = Convert.ToByte(drow["AmountSpecialDiscount"]);
+                        //if (drow["AmountSpecialDiscount"] != DBNull.Value)
+                        //    AmountSpecialDiscountS = Convert.ToByte(drow["AmountSpecialDiscount"]);
                         if (drow["AmountSchemeDiscount"] != DBNull.Value)
                             AmountSchemeDiscountS = Convert.ToDouble(drow["AmountSchemeDiscount"]);
                         if (drow["AmountCashDiscount"] != DBNull.Value)
@@ -3148,8 +3148,8 @@ public class Purchase : BaseObject
                             AmountCreditNoteS = Convert.ToDouble(drow["AmountCreditNote"]);
                         if (drow["AmountDebitNote"] != DBNull.Value)
                             AmountDebitNoteS = Convert.ToDouble(drow["AmountDebitNote"]);
-                        if (drow["StatementNumber"] != DBNull.Value)
-                            StatementNumber = Convert.ToInt32(drow["StatementNumber"]);
+                        //if (drow["StatementNumber"] != DBNull.Value)
+                        //    StatementNumber = Convert.ToInt32(drow["StatementNumber"]);
                         if (drow["RoundUpAmount"] != DBNull.Value)
                             RoundUpAmountS = Convert.ToDouble(drow["RoundUpAmount"]);
                         if (drow["OctroiPercentage"] != DBNull.Value)
@@ -3166,8 +3166,8 @@ public class Purchase : BaseObject
                             AmountVAT12point5PercentS = Convert.ToDouble(drow["AmountVAT12point5Percent"]);
                         if (drow["AmountVATOPercent"] != DBNull.Value)
                             VATOPercent = Convert.ToDouble(drow["AmountVATOPercent"]);
-                        if (drow["NumberofChallans"] != DBNull.Value)
-                            NumberofChallans = Convert.ToInt32(drow["NumberofChallans"]);
+                        //if (drow["NumberofChallans"] != DBNull.Value)
+                        //    NumberofChallans = Convert.ToInt32(drow["NumberofChallans"]);
                         if (drow["AmountPurchaseZeroVAT"] != DBNull.Value)
                             PurchaseAmountZeroVATS = Convert.ToDouble(drow["AmountPurchaseZeroVAT"]);
                         if (drow["AmountPurchase12point5PercentVAT"] != DBNull.Value)

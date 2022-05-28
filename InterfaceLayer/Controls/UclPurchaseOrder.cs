@@ -295,7 +295,7 @@ namespace EcoMart.InterfaceLayer
                 PrintBill.Rows.Add(row);
 
                 PrintRowPixel = PrintRowPixel + 17;
-                string myadd = (_PurchaseOrder.Address1.Trim().PadRight(30).Substring(0,30));
+                string myadd = (_PurchaseOrder.Address1.Trim().PadRight(30).Substring(0, 30));
                 row = new PrintRow(myadd + ",", PrintRowPixel, 10, fnt);
                 PrintBill.Rows.Add(row);
 
@@ -427,11 +427,11 @@ namespace EcoMart.InterfaceLayer
                     _PurchaseOrder.UpdateDetails();
                     _PurchaseOrder.DeletePreviousProducts();
                     retValue = saveproductsModified();
-                    if (retValue ==true)
+                    if (retValue == true)
                     {
                         MessageBox.Show("Information has been Updated successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                   
+
                 }
             }
             else
@@ -531,7 +531,7 @@ namespace EcoMart.InterfaceLayer
                     if (prodrow.Cells["Col_ID"].Value != null &&
                        Convert.ToInt32(prodrow.Cells["Col_Quantity"].Value) > 0)
                     {
-                        _PurchaseOrder.ProductID = prodrow.Cells["Col_ID"].Value.ToString();
+                        _PurchaseOrder.ProductID = Convert.ToInt32(prodrow.Cells["Col_ID"].Value.ToString());
                         _PurchaseOrder.SchemeQuantity = 0;
                         _PurchaseOrder.PurchaseRate = 0;
                         _PurchaseOrder.Quantity = Convert.ToInt32(prodrow.Cells["Col_Quantity"].Value.ToString());
@@ -558,7 +558,7 @@ namespace EcoMart.InterfaceLayer
                     if (prodrow.Cells["Col_ID"].Value != null &&
                        Convert.ToInt32(prodrow.Cells["Col_Quantity"].Value) > 0)
                     {
-                        _PurchaseOrder.ProductID = prodrow.Cells["Col_ID"].Value.ToString();
+                        _PurchaseOrder.ProductID = Convert.ToInt32(prodrow.Cells["Col_ID"].Value.ToString());
                         _PurchaseOrder.Quantity = Convert.ToInt32(prodrow.Cells["Col_Quantity"].Value.ToString());
                         _PurchaseOrder.SchemeQuantity = 0.00;
                         //if (prodrow.Cells["Col_SchemeQuantity"].Value != null && prodrow.Cells["Col_SchemeQuantity"].Value.ToString() != string.Empty)
@@ -570,14 +570,14 @@ namespace EcoMart.InterfaceLayer
                             _PurchaseOrder.ShortListDate = prodrow.Cells["Col_ShortListDate"].Value.ToString();
                         if (prodrow.Cells["Col_IfDailyShortList"].Value != null)
                             _PurchaseOrder.IfDalilyShortList = prodrow.Cells["Col_IfDailyShortList"].Value.ToString();
-                        if (prodrow.Cells["Col_CreatedBy"].Value!=null)
+                        if (prodrow.Cells["Col_CreatedBy"].Value != null)
                         {
-                        _PurchaseOrder.DSLCreatedBy = prodrow.Cells["Col_CreatedBy"].Value.ToString();
+                            _PurchaseOrder.DSLCreatedBy = prodrow.Cells["Col_CreatedBy"].Value.ToString();
                         }
-                        if(prodrow.Cells["Col_CreatedDate"].Value!=null)
-                        _PurchaseOrder.DSLCreatedDate = prodrow.Cells["Col_CreatedDate"].Value.ToString();
-                        if(prodrow.Cells["Col_CreatedTime"].Value!=null)
-                        _PurchaseOrder.DSLCreatedTime = prodrow.Cells["Col_CreatedTime"].Value.ToString();
+                        if (prodrow.Cells["Col_CreatedDate"].Value != null)
+                            _PurchaseOrder.DSLCreatedDate = prodrow.Cells["Col_CreatedDate"].Value.ToString();
+                        if (prodrow.Cells["Col_CreatedTime"].Value != null)
+                            _PurchaseOrder.DSLCreatedTime = prodrow.Cells["Col_CreatedTime"].Value.ToString();
 
                         returnVal = _PurchaseOrder.AddProductDetailsModified();
                     }
@@ -592,7 +592,7 @@ namespace EcoMart.InterfaceLayer
 
         private void ConstructMainColumns()
         {
-            if(mpMainSubViewControl.Rows.Count > 0)
+            if (mpMainSubViewControl.Rows.Count > 0)
             {
                 mpMainSubViewControl.Rows[0].Selected = false;
                 mpMainSubViewControl.dgMainGrid.EndEdit();
@@ -621,7 +621,7 @@ namespace EcoMart.InterfaceLayer
             column.DataPropertyName = "ProdLoosePack";
             column.HeaderText = "UOM";
             column.Width = 75;
-            column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;           
+            column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             column.ReadOnly = true;
             mpMainSubViewControl.ColumnsMain.Add(column);
 
@@ -908,7 +908,7 @@ namespace EcoMart.InterfaceLayer
             txtAmount.Text = Math.Round(TotalAmount, 2).ToString("#0.00");
             txtBillAmount.Text = Math.Round(TotalAmount, 2).ToString("#0.00");
         }
-     
+
 
         private void mpMainSubViewControl_OnCellValueChangeCommited(int colIndex)
         {
@@ -942,20 +942,20 @@ namespace EcoMart.InterfaceLayer
 
         private void mpMainSubViewControl_OnDetailsFilled(DataGridViewRow selectedRow)
         {
-            string mprodID = "";
+            int mprodID = 0;
             int mrowindex = 0;
             int mcindex = 0;
             _PurchaseOrder.DuplicateProduct = false;
             if (mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_ID"].Value != null)
             {
-                mprodID = mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_ID"].Value.ToString();
+                mprodID = Convert.ToInt32(mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_ID"].Value.ToString());
                 mrowindex = mpMainSubViewControl.MainDataGridCurrentRow.Index;
             }
             foreach (DataGridViewRow prodrow in mpMainSubViewControl.Rows)
             {
                 if (prodrow.Cells["Col_ID"].Value != null)
                 {
-                    _PurchaseOrder.ProductID = prodrow.Cells["Col_ID"].Value.ToString();
+                    _PurchaseOrder.ProductID = Convert.ToInt32(prodrow.Cells["Col_ID"].Value.ToString());
                     mcindex = prodrow.Index;
                     if (_PurchaseOrder.ProductID == mprodID && mrowindex != mcindex)
                     {
@@ -1146,8 +1146,8 @@ namespace EcoMart.InterfaceLayer
             double mamt = 0;
             double mprate = 0;
             double mqty = 0;
-            string drrproductid = "";
-            string productid = "";
+            int drrProductID = 0;
+            int ProductID = 0;
             bool found = false;
             int ordernumber = 0;
             try
@@ -1160,19 +1160,19 @@ namespace EcoMart.InterfaceLayer
                     found = false;
                     if (dr["ProductID"] != DBNull.Value)
                     {
-                        productid = dr["ProductID"].ToString();
+                        ProductID = Convert.ToInt32(dr["ProductID"].ToString());
                         ordernumber = Convert.ToInt32(dr["OrderNumber"].ToString());
                         if (ordernumber == lastordernumber)
                         {
                             foreach (DataGridViewRow drr in mpMainSubViewControl.Rows)
                             {
-                                drrproductid = "";
+                                drrProductID = 0;
 
                                 if (drr.Cells["Col_ID"].Value != null)
                                 {
-                                    drrproductid = drr.Cells["Col_ID"].Value.ToString();
+                                    drrProductID = Convert.ToInt32(drr.Cells["Col_ID"].Value.ToString());
 
-                                    if (drrproductid == productid)
+                                    if (drrProductID == ProductID)
                                     {
                                         found = true;
                                         drr.Cells["Col_ProdLastPurchaseRate"].Value = dr["ProdLastPurchaseRate"].ToString();
@@ -1322,7 +1322,7 @@ namespace EcoMart.InterfaceLayer
         private void mcbTransferProduct_EnterKeyPressed(object sender, EventArgs e)
         {
             string accountID = string.Empty;
-            string productID = string.Empty;
+            int ProductID = 0;
             string dslID = string.Empty;
             int mqty = 0;
             int mschemeqty = 0;
@@ -1330,7 +1330,7 @@ namespace EcoMart.InterfaceLayer
             if (mcbTransferProduct.SelectedID != null && mcbTransferProduct.SelectedID != string.Empty)
                 accountID = mcbTransferProduct.SelectedID;
             if (mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_ID"].Value != null && mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_ID"].Value.ToString() != string.Empty)
-                productID = mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_ID"].Value.ToString();
+                ProductID = Convert.ToInt32(mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_ID"].Value.ToString());
             if (mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_Quantity"].Value != null && mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_Quantity"].Value.ToString() != string.Empty)
                 mqty = Convert.ToInt32(mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_Quantity"].Value.ToString());
             if (mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_SchemeQuantity"].Value != null && mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_SchemeQuantity"].Value.ToString() != string.Empty)
@@ -1338,14 +1338,14 @@ namespace EcoMart.InterfaceLayer
             if (mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_DSLID"].Value != null)
                 dslID = mpMainSubViewControl.MainDataGridCurrentRow.Cells["Col_DSLID"].Value.ToString();
 
-            if (accountID != string.Empty && productID != string.Empty)
+            if (accountID != string.Empty && ProductID < 0)
             {
                 if (_Mode == OperationMode.Add)
                 {
                     if (rbtOnlyShortlist.Checked == true)
                         _PurchaseOrder.TransferProductShortList(accountID, dslID, mqty);
                     else if (rbtTodaySale.Checked == true)
-                        _PurchaseOrder.TransferProductTodaySale(accountID, productID, mqty);
+                        _PurchaseOrder.TransferProductTodaySale(accountID, ProductID, mqty);
                 }
 
                 mpMainSubViewControl.Rows.Remove(mpMainSubViewControl.MainDataGridCurrentRow);

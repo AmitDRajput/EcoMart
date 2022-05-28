@@ -8,7 +8,7 @@ namespace EcoMart.DataLayer
 {
     class DBDetailPatient
     {
-        public bool AddDetails(string PatientID, string ProductID, int Quantity, string CreatedDate, string CreatedUserID, string ModifyDate, string ModifyUserID)
+        public bool AddDetails(string PatientID, int ProductID, int Quantity, string CreatedDate, string CreatedUserID, string ModifyDate, string ModifyUserID)
         {
             bool ReturnVal = false;
             
@@ -30,7 +30,7 @@ namespace EcoMart.DataLayer
             return ReturnVal;
         }
 
-        public bool UpdateDetails(string PatientID, string ProductID, int Quantity, string CreatedDate, string CreatedUserID, string ModifyDate, string ModifyUserID)
+        public bool UpdateDetails(string PatientID, int ProductID, int Quantity, string CreatedDate, string CreatedUserID, string ModifyDate, string ModifyUserID)
         {
             bool ReturnVal = false;
             Query objQuery = new Query();
@@ -52,7 +52,7 @@ namespace EcoMart.DataLayer
             return ReturnVal;
         }
 
-        public bool DeleteDetail(string PatientID, string ProductID)
+        public bool DeleteDetail(string PatientID, int ProductID)
         {
             bool ReturnVal = false;
 
@@ -69,20 +69,20 @@ namespace EcoMart.DataLayer
             return ReturnVal;
         }
 
-        public DataRow ReadDetailById(string PatientID, string ProductID)
+        public DataRow ReadDetailById(string PatientID, int ProductID)
         {
-            string strSql = "SELECT dp.patientID,dp.productID,mp.ProdName,mp.ProdPack,mp.ProdLoosePack,dp.quantity,dp.CreatedDate,dp.CreatedUserID,dp.ModifyDate,dp.ModifyUserID,mp.ProdClosingStock, mp.ProdShelfID,mp.ProdIfSaleDisc" +
+            string strSql = "SELECT dp.patientID,dp.ProductID,mp.ProdName,mp.ProdPack,mp.ProdLoosePack,dp.quantity,dp.CreatedDate,dp.CreatedUserID,dp.ModifyDate,dp.ModifyUserID,mp.ProdClosingStock, mp.ProdShelfID,mp.ProdIfSaleDisc" +
                             "FROM linkpatientproduct dp, masterProduct mp" +
-                            "WHERE dp.productID = mp.ProductID" +
-                            " patientID='" + PatientID + "' AND productID='" + ProductID + "'";
+                            "WHERE dp.ProductID = mp.ProductID" +
+                            " patientID='" + PatientID + "' AND ProductID='" + ProductID + "'";
             return DBInterface.SelectFirstRow(strSql);
         }
 
         public DataTable ReadDetailsByPatientID(string PatientID)
         {
-            string strSql = "SELECT dp.patientID,dp.productID,mp.ProdName,mp.ProdPack,mp.ProdLoosePack,dp.quantity,dp.CreatedDate,dp.CreatedUserID,dp.ModifyDate,dp.ModifyUserID,mp.ProdClosingStock, mp.ProdShelfID,mp.ProdIfSaleDisc" +
+            string strSql = "SELECT dp.patientID,dp.ProductID,mp.ProdName,mp.ProdPack,mp.ProdLoosePack,dp.quantity,dp.CreatedDate,dp.CreatedUserID,dp.ModifyDate,dp.ModifyUserID,mp.ProdClosingStock, mp.ProdShelfID,mp.ProdIfSaleDisc" +
                             "FROM linkpatientproduct dp, masterProduct mp" +
-                            "WHERE dp.productID = mp.ProductID AND PatientID='" + PatientID + "'";
+                            "WHERE dp.ProductID = mp.ProductID AND PatientID='" + PatientID + "'";
             return DBInterface.SelectDataTable(strSql);
         }
     }

@@ -37,7 +37,7 @@ namespace EcoMart.DataLayer
         public DataTable GetOverviewDebtorData(string DD)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select distinct a.productID, a.ProdName ,a.ProdLoosePack,a.ProdPack,a.ProdCompShortName, b.ProductID, b.AccountID,b.Quantity from  masterproduct a ,linkdebtorproduct b   where   b.ProductID = a.ProductID  and b.AccountID = " + '"' + DD + '"' + " order by a.prodName";
+            string strSql = "Select distinct a.ProductID, a.ProdName ,a.ProdLoosePack,a.ProdPack,a.ProdCompShortName, b.ProductID, b.AccountID,b.Quantity from  masterproduct a ,linkdebtorproduct b   where   b.ProductID = a.ProductID  and b.AccountID = " + '"' + DD + '"' + " order by a.prodName";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -55,10 +55,10 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool UpdateMasterProductByProductId(string Id, string productID)
+        public bool UpdateMasterProductByProductID(string Id, int ProductID)
         {
             bool bRetValue = false;
-            string strSql = "Update masterproduct set prodshelfID = '"+  Id  + "' where ProductID = '" + productID + "'";
+            string strSql = "Update masterproduct set prodshelfID = '"+  Id  + "' where ProductID = '" + ProductID + "'";
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 bRetValue = true;

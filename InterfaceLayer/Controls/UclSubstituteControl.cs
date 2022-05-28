@@ -20,7 +20,7 @@ namespace EcoMart.InterfaceLayer.Controls
         private DataTable _BindingSource;
         public string _drugCode = "";
 
-        private Substitute _Substitute; public delegate void ProductSelected(string productID);
+        private Substitute _Substitute; public delegate void ProductSelected(int ProductID);
         public event ProductSelected OnProductSelected;
 
         #endregion
@@ -77,7 +77,7 @@ namespace EcoMart.InterfaceLayer.Controls
                 Product prod = new Product();
                 DataTable dtable = prod.GetOverviewData();
                 mcbProduct.FillData(dtable);
-                mcbProduct.SelectedID = General.SubstituteProductID; // [ansuman]
+                mcbProduct.SelectedID = General.SubstituteProductID.ToString(); // [ansuman]
             }
             catch (Exception ex)
             {
@@ -260,7 +260,7 @@ namespace EcoMart.InterfaceLayer.Controls
             {
                 Visible = false;
                 if (dgvSubstitute.SelectedRow != null)
-                    OnProductSelected(dgvSubstitute.SelectedRow.Cells["Col_ProductID"].Value.ToString());
+                    OnProductSelected(Convert.ToInt32(dgvSubstitute.SelectedRow.Cells["Col_ProductID"].Value.ToString()));
             }
         }
         private void btnCancel_Click(object sender, EventArgs e)

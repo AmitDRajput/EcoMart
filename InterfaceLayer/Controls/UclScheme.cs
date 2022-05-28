@@ -175,7 +175,7 @@ namespace EcoMart.InterfaceLayer
         {
             bool retValue = false;
             System.Text.StringBuilder _errorMessage;
-            _Scheme.ProductID = mcbProduct.SelectedID;
+            _Scheme.ProductID = Convert.ToInt32(mcbProduct.SelectedID);
             _Scheme.StartDate = datePickerStartDate.Value.Date.ToString("yyyyMMdd");
             _Scheme.ClosingDate = datePickerClosingDate.Value.Date.ToString("yyyyMMdd");
             if (txtQuantity1.Text != null && txtQuantity1.Text != "")
@@ -253,7 +253,7 @@ namespace EcoMart.InterfaceLayer
                 txtScheme1.Text = _Scheme.Scheme1.ToString("#0");
                 txtScheme2.Text = _Scheme.Scheme2.ToString("#0");
                 txtScheme3.Text = _Scheme.Scheme3.ToString("#0");
-                mcbProduct.SelectedID = _Scheme.ProductID;
+                mcbProduct.SelectedID = _Scheme.ProductID.ToString();
                 txtPack.Text = _Scheme.Pack.ToString();
                 txtUOM.Text = _Scheme.UOM.ToString();
                 txtcompanyShortName.Text = _Scheme.CompanyShortName;
@@ -343,7 +343,7 @@ namespace EcoMart.InterfaceLayer
         {
             if (mcbProduct.SelectedID != null && mcbProduct.SelectedID != "")
             {
-                _Scheme.ProductID = mcbProduct.SelectedID;
+                _Scheme.ProductID = Convert.ToInt32(mcbProduct.SelectedID);
                 _Scheme.ReadDetailsByProductID();
                 
                 FillSearchData(_Scheme.Id,"");

@@ -15,7 +15,7 @@ namespace EcoMart.BusinessLayer
     {
         #region Declaration
         private string _StockId;
-        private string _ProductId;
+        private int _ProductID;
         private string _ProdName;
         private string _BatchNo;
         private string _Expiry;
@@ -79,10 +79,10 @@ namespace EcoMart.BusinessLayer
 
         }
 
-        public string ProductId
+        public int ProductID
         {
-            get { return _ProductId; }
-            set { _ProductId = value; }
+            get { return _ProductID; }
+            set { _ProductID = value; }
 
         }
         public string ProdName
@@ -269,7 +269,7 @@ namespace EcoMart.BusinessLayer
             base.Initialise();
             _StockId = "";
             _NewStockId = "";
-            _ProductId = "";
+            _ProductID = 0;
             _ProdName = "";
             _BatchNo = "";
             _Expiry = "";
@@ -336,21 +336,21 @@ namespace EcoMart.BusinessLayer
 
         #region Public Methods
 
-        public  DataRow SearchForNewBatchAndMrpIntblStock(string productID, string NewBatch, double NewMrp)
+        public  DataRow SearchForNewBatchAndMrpIntblStock(int ProductID, string NewBatch, double NewMrp)
         {
             DBCorrection dbCorrection = new DBCorrection();
-            return dbCorrection.SearchForNewBatchAndMrpIntblStock(productID, NewBatch, NewMrp);
+            return dbCorrection.SearchForNewBatchAndMrpIntblStock(ProductID, NewBatch, NewMrp);
         }
-        public bool AddDetails(string stockID, string productid, string batchno, string expiry, double mrp, double purrate, double salerate, int newQty, double traderate, string expirydate, double productvat, double purchasevat, string lastpurchasedate, string lastpurchaseaccountid, double distributorRate)
+        public bool AddDetails(string stockID, int ProductID, string batchno, string expiry, double mrp, double purrate, double salerate, int newQty, double traderate, string expirydate, double productvat, double purchasevat, string lastpurchasedate, string lastpurchaseaccountid, double distributorRate)
         {
             DBCorrection dbCorrection = new DBCorrection();
-            return dbCorrection.AddDetails(stockID, productid, batchno, expiry, mrp, purrate, salerate, newQty,traderate,expirydate,productvat,purchasevat,lastpurchasedate,lastpurchaseaccountid,distributorRate);
+            return dbCorrection.AddDetails(stockID, ProductID, batchno, expiry, mrp, purrate, salerate, newQty,traderate,expirydate,productvat,purchasevat,lastpurchasedate,lastpurchaseaccountid,distributorRate);
         }
 
         public bool AddDetailsInVoucherCorrection()
         {
             DBCorrection dbCorrection = new DBCorrection();
-            return dbCorrection.AddDetailsInVoucherCorrection(Id, StockId, NewStockId,VoucherNumber,VoucherDate,  ProductId,  BatchNo, Expiry, Mrp, PurchaseRate, SaleRate, Qty, NewBatchNo, NewExpiry, NewMrp, NewPurchRate, NewSaleRate, NewQty,DistributorRate,NewDistributorRate, CreatedBy,CreatedDate,CreatedTime);
+            return dbCorrection.AddDetailsInVoucherCorrection(Id, StockId, NewStockId,VoucherNumber,VoucherDate,  ProductID,  BatchNo, Expiry, Mrp, PurchaseRate, SaleRate, Qty, NewBatchNo, NewExpiry, NewMrp, NewPurchRate, NewSaleRate, NewQty,DistributorRate,NewDistributorRate, CreatedBy,CreatedDate,CreatedTime);
             
         }
 
@@ -383,10 +383,10 @@ namespace EcoMart.BusinessLayer
             return dbCorrection.GetOverviewDataForSearch();
         }
 
-        public DataTable GetStockByProductID(string productID)
+        public DataTable GetStockByProductID(int ProductID)
         {
             DBCorrection dbData = new DBCorrection();
-            return dbData.GetStockByProductID(productID);
+            return dbData.GetStockByProductID(ProductID);
 
         }
         public bool ReadDetailsByStockID(string StockID)
@@ -401,8 +401,8 @@ namespace EcoMart.BusinessLayer
                 {
                     if (drow["StockID"] != DBNull.Value)
                         StockId = drow["StockID"].ToString();
-                    if (drow["ProductId"] != DBNull.Value)
-                        ProductId = Convert.ToString(drow["ProductId"]);
+                    if (drow["ProductID"] != DBNull.Value)
+                        ProductID = Convert.ToInt32(drow["ProductID"]);
                     if (drow["BatchNumber"] != DBNull.Value)
                         BatchNo = Convert.ToString(drow["BatchNumber"]);
                     if (drow["Expiry"] != DBNull.Value)
@@ -452,8 +452,8 @@ namespace EcoMart.BusinessLayer
                 {
                     if (drow["ID"] != DBNull.Value)
                         Id = drow["ID"].ToString();
-                    if (drow["ProductId"] != DBNull.Value)
-                        ProductId = Convert.ToString(drow["ProductId"]);
+                    if (drow["ProductID"] != DBNull.Value)
+                        ProductID = Convert.ToInt32(drow["ProductID"]);
                     if (drow["OldBatch"] != DBNull.Value)
                         BatchNo = Convert.ToString(drow["OldBatch"]);
                     if (drow["OldExpiry"] != DBNull.Value)
@@ -503,8 +503,8 @@ namespace EcoMart.BusinessLayer
                 {
                     if (drow["ID"] != DBNull.Value)
                         Id = drow["ID"].ToString();
-                    if (drow["ProductId"] != DBNull.Value)
-                        ProductId = Convert.ToString(drow["ProductId"]);
+                    if (drow["ProductID"] != DBNull.Value)
+                        ProductID = Convert.ToInt32(drow["ProductID"]);
                     if (drow["OldBatch"] != DBNull.Value)
                         BatchNo = Convert.ToString(drow["OldBatch"]);
                     if (drow["OldExpiry"] != DBNull.Value)

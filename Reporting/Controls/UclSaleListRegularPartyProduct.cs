@@ -827,14 +827,14 @@ namespace EcoMart.Reporting.Controls
             }
         }
 
-        private void GetSaleDataProductwise(string productID)
+        private void GetSaleDataProductwise(int ProductID)
         {
             DataTable dtable = new DataTable();
             string acccode = mcbCreditor.SeletedItem.ItemData[1].ToString();
             if (acccode == FixAccounts.AccCodeForDebtor)
-                dtable = _SaleList.GetOverviewDataForRegularPartyProductSale(mcbCreditor.SelectedID, productID,_MFromDate, _MToDate);
+                dtable = _SaleList.GetOverviewDataForRegularPartyProductSale(mcbCreditor.SelectedID, ProductID,_MFromDate, _MToDate);
             else
-                dtable = _SaleList.GetOverviewDataForRegularPartyProductSalePatient(mcbCreditor.SelectedID, productID, _MFromDate, _MToDate);
+                dtable = _SaleList.GetOverviewDataForRegularPartyProductSalePatient(mcbCreditor.SelectedID, ProductID, _MFromDate, _MToDate);
             _BindingSource = dtable;
         }
 
@@ -901,7 +901,7 @@ namespace EcoMart.Reporting.Controls
                 if (retValue)
                 {
                     this.Cursor = Cursors.WaitCursor;
-                    string mproductID = "";
+                    int mProductID = 0;
                     ShowpnlGO();
                     rowCollection = new List<DataGridViewRow>();
                     if (dgvSelected.Rows.Count > 0)
@@ -916,15 +916,15 @@ namespace EcoMart.Reporting.Controls
                     {
                         if (dgvReportList.Rows.Count > 0)
                             dgvReportList.Rows.Clear();
-                        mproductID = "";
+                        mProductID = 0;
                         foreach (DataGridViewRow row in rowCollection)
                         {
-                            mproductID = "";
+                            mProductID = 0;
                             if (row.Cells["Col_ID"].Value != null)
-                                mproductID = row.Cells["Col_ID"].Value.ToString();
-                            if (mproductID != "")
+                                mProductID = Convert.ToInt32(row.Cells["Col_ID"].Value.ToString());
+                            if (mProductID != 0)
                             {
-                                GetSaleDataProductwise(mproductID);
+                                GetSaleDataProductwise(mProductID);
                                 if (_BindingSource.Rows.Count > 0)
                                 {
                                     BindReportGrid(row.Cells["Col_ID"].Value.ToString(), row.Cells["Col_Name"].Value.ToString(), row.Cells["Col_UOM"].Value.ToString(),
@@ -936,8 +936,8 @@ namespace EcoMart.Reporting.Controls
 
                     else if (mcbProduct.SelectedID != null && mcbProduct.SelectedID != "")
                     {
-                        mproductID = mcbProduct.SelectedID.ToString();
-                        GetSaleDataProductwise(mproductID);
+                        mProductID = Convert.ToInt32(mcbProduct.SelectedID.ToString());
+                        GetSaleDataProductwise(mProductID);
                         if (_BindingSource.Rows.Count > 0)
                         {
                             BindReportGrid(mcbProduct.SeletedItem.ItemData[0].ToString(), mcbProduct.SeletedItem.ItemData[1].ToString(), mcbProduct.SeletedItem.ItemData[2].ToString(),

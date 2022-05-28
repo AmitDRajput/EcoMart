@@ -36,7 +36,7 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool AddDetailsProductsSS(string Id, string ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
+        public bool AddDetailsProductsSS(string Id, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
                string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
                double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
                string IfTradeRateInclusiveOfVAT, double Amount, double spldiscamt, double spldiscper,string stockid,string MyDetailOPStockID, int serialNumber)
@@ -54,7 +54,7 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool AddProductDetailsInStockTable(string ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
+        public bool AddProductDetailsInStockTable(int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
             string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double PurchaseVATPercent,
             double ProductVATPercent, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount,
             string accountId, string billnumber, string voutype, int vounumber, string voudate,string stockid,string ScanBarCode, int BeginningStock, string createdby, string createddate, string createdtime)
@@ -96,7 +96,7 @@ namespace EcoMart.DataLayer
         }
 
 
-        private string GetInsertQueryDetails(string Id, string ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
+        private string GetInsertQueryDetails(string Id, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
                string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
                double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
                string IfTradeRateInclusiveOfVAT, double Amount, double amtspldisc, double spldiscper, string stockid, string MyDetailOPStockID, int serialNumber)
@@ -128,7 +128,7 @@ namespace EcoMart.DataLayer
             return objQuery.InsertQuery();
         }
 
-        private string GetInsertQueryDetailsInStockTable(string ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
+        private string GetInsertQueryDetailsInStockTable(int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
             string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double PurchaseVATPercent,
             double ProductVATPercent, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount,
             string accountId, string billnumber, string voutype, int vounumber, string voudate,string stockid,string ScanBarCode,int BeginningStock, string createdby, string createddate, string createdtime)
@@ -181,12 +181,12 @@ namespace EcoMart.DataLayer
             return dtable;
         }
 
-        public DataTable GetOverviewDataForProductList(string productid)
+        public DataTable GetOverviewDataForProductList(int ProductID)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.MasterID,a.ProductID,a.BatchNumber,a.Quantity ,a.SchemeQuantity,a.ReplacementQuantity,a.PurchaseRate, a.MRP,(a.PurchaseRate * a.Quantity) as Amount, " +
                  "b.masterID,b.VoucherNumber,b.VoucherType,b.VoucherDate " +
-                 "from detailopstock a  inner join voucheropstock b on a.MasterID = b.MasterID  where a.ProductId = '" + productid + "' order by VoucherNumber";
+                 "from detailopstock a  inner join voucheropstock b on a.MasterID = b.MasterID  where a.ProductID = '" + ProductID + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -235,7 +235,7 @@ namespace EcoMart.DataLayer
                 "b.BatchNumber,b.MRP,b.PurchaseRate,b.SaleRate,b.TradeRate,b.Expiry,b.ExpiryDate,b.Quantity,b.AmountProdVAT," +
                 "b.PurchaseVATPercent,b.SchemeQuantity,b.ReplacementQuantity," +
                 "b.AmountPurchaseVAT,b.CSTPercent,b.AmountCST,b.Quantity*b.TradeRate as Amount," +
-                "b.StockID,d.stockID,d.ClosingStock,e.ShelfCode,e.ShelfID from masterproduct A inner join  detailopstock B  on A.ProductId = B.ProductID    left outer join tblstock D on B.StockID = D.StockID  left outer join mastershelf e on a.ProdShelfID = e.ShelfId  where B.MasterID = '{0}' order by b.SerialNumber";
+                "b.StockID,d.stockID,d.ClosingStock,e.ShelfCode,e.ShelfID from masterproduct A inner join  detailopstock B  on A.ProductID = B.ProductID    left outer join tblstock D on B.StockID = D.StockID  left outer join mastershelf e on a.ProdShelfID = e.ShelfId  where B.MasterID = '{0}' order by b.SerialNumber";
                 strsql = string.Format(strsql, Id);
                 dt = DBInterface.SelectDataTable(strsql);
             }

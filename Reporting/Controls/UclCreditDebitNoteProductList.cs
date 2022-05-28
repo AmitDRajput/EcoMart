@@ -547,7 +547,7 @@ namespace EcoMart.Reporting.Controls
             try
             {
                 if (mcbProduct.SelectedID != null && mcbProduct.SelectedID != "")
-                    _BindingSource = _CreditDebitNote.GetDebitCreditListProduct(mcbProduct.SelectedID, _MFromDate, _MToDate);
+                    _BindingSource = _CreditDebitNote.GetDebitCreditListProduct(Convert.ToInt32(mcbProduct.SelectedID), _MFromDate, _MToDate);
                 
             }
             catch (Exception ex)

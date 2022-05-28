@@ -36,7 +36,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
         public delegate void NewBatchClicked();
         public event NewBatchClicked OnNewBatchClicked;
 
-        public delegate void SelectedProductClosingStock(int closingStockValue, string productID);
+        public delegate void SelectedProductClosingStock(int closingStockValue, int ProductID);
         public event SelectedProductClosingStock OnSelectedProductClosingStock;
 
         public delegate DataRow OnProductBarCodeScan(string scanCode);
@@ -329,12 +329,12 @@ namespace EcoMart.InterfaceLayer.CommonControls
             pnlBatchGrid.Visible = false;
         }
 
-        public bool LoadProduct(string productID)
+        public bool LoadProduct(int ProductID)
         {
             bool retValue = false;
             if (dgMainGrid.IsFirstColumn())
             {
-                DoProductListFilterForProductID(productID);
+                DoProductListFilterForProductID(ProductID);
                 if (dgProductListGrid.Rows.Count > 0)
                     retValue = FillProductDetails();
                 else
@@ -411,17 +411,17 @@ namespace EcoMart.InterfaceLayer.CommonControls
             catch (Exception ex) { Log.WriteError(ex.ToString()); }
         }
 
-        private void FillGridBatchList(string productID)
+        private void FillGridBatchList(int ProductID)
         {
             try
             {
-                //  added productID in first DataSourceBatchList 13/2/2015 ss
+                //  added ProductID in first DataSourceBatchList 13/2/2015 ss
                 SsStock stock = new SsStock();
-                DataSourceBatchList = stock.GetStockByProductIDForDBCRNote("");             
+                DataSourceBatchList = stock.GetStockByProductIDForDBCRNote(0);             
                 dgBatchListGrid.DataSource = DataSourceBatchList;
                 // ss 12/6/2015
-               // DataSourceBatchList = stock.GetStockByProductIDForDBCRNote(productID);
-                DataSourceBatchList = stock.GetStockByProductIDForDBCRNote(productID);
+               // DataSourceBatchList = stock.GetStockByProductIDForDBCRNote(ProductID);
+                DataSourceBatchList = stock.GetStockByProductIDForDBCRNote(ProductID);
                 // ss 12/6/2015
                 // ss 12/11 2015
                 if (DataSourceBatchList != null && DataSourceBatchList.Rows.Count > 0)
@@ -449,7 +449,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                     //  RecalculateBatchQuantityForEditRow(DataSourceBatchList);
                     if (ShowBatchWithZeroStock == false)
                         DataSourceBatchList = RemoveNoStockBatchRows(DataSourceBatchList);
-                    DataSourceBatchList = AddCurrentStockRow(DataSourceBatchList,productID);
+                    DataSourceBatchList = AddCurrentStockRow(DataSourceBatchList,ProductID);
                     _BindingSourceBatchList.DataSource = DataSourceBatchList;                   
                     dgBatchListGrid.DataSource = _BindingSourceBatchList;
                 }
@@ -457,12 +457,12 @@ namespace EcoMart.InterfaceLayer.CommonControls
             catch (Exception ex) { Log.WriteError(ex.ToString()); }
         }
 
-        private DataTable AddCurrentStockRow(DataTable DataSourceBatchList, string productID)
+        private DataTable AddCurrentStockRow(DataTable DataSourceBatchList, int ProductID)
         {
             try
             {
                 // ss 8 jun 2016
-                if (MainDataGridCurrentRow.Cells[0].ToString() != "" && MainDataGridCurrentRow.Cells[0].ToString() == productID)
+                if (MainDataGridCurrentRow.Cells[0].ToString() != "" && Convert.ToInt32(MainDataGridCurrentRow.Cells[0].ToString()) == ProductID)
                 {
                     if (MainDataGridCurrentRow.Cells[_BatchGridIDColumnName].Value != null && MainDataGridCurrentRow.Cells[_BatchGridIDColumnName].Value.ToString() != string.Empty)
                     {
@@ -695,7 +695,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                         if (dgRow.Cells["Col_StockID"].Value != null && dgRow.Cells["Col_StockID"].Value.ToString() != string.Empty && dgRow.Cells[0].Value != null && dgRow.Cells[0].Value.ToString() != string.Empty)
                         {
                             tStock.StockId = dgRow.Cells["Col_StockID"].Value.ToString();
-                            tStock.ProductId = dgRow.Cells[0].Value.ToString();
+                            tStock.ProductID = Convert.ToInt32(dgRow.Cells[0].Value.ToString());
                             if (dgRow.Cells["Old_Quantity"].Value != null && dgRow.Cells["Old_Quantity"].Value.ToString() != string.Empty)
                             {
                                 tStock.SoldQuantity = Convert.ToInt32(dgRow.Cells["Col_Quantity"].Value.ToString()) - Convert.ToInt32(dgRow.Cells["Old_Quantity"].Value.ToString());
@@ -761,11 +761,11 @@ namespace EcoMart.InterfaceLayer.CommonControls
             }
         }
 
-        private void DoProductListFilterForProductID(string productID)
+        private void DoProductListFilterForProductID(int ProductID)
         {
             try
             {
-                ProductListFilter = GetFilterStringForProductID(productID);
+                ProductListFilter = GetFilterStringForProductID(ProductID);
                 _BindingSourceProductList.Filter = ProductListFilter;
                 if (dgProductListGrid.Rows.Count > 0)
                 {
@@ -780,7 +780,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
             }
         }
 
-        private string GetFilterStringForProductID(string productID)
+        private string GetFilterStringForProductID(int ProductID)
         {
             string strFilterString = "";
             string strFilterColumn = "";
@@ -793,12 +793,12 @@ namespace EcoMart.InterfaceLayer.CommonControls
                 if (DataSourceProductList.Columns[dgMainGrid.Columns[0].DataPropertyName].DataType == typeof(int))
                 {
                     strFilterString += strFilterColumn + " = ";
-                    strFilterString += productID + " ";
+                    strFilterString += ProductID + " ";
                 }
                 else if (DataSourceProductList.Columns[dgMainGrid.Columns[0].DataPropertyName].DataType == typeof(string))
                 {
                     strFilterString += strFilterColumn;
-                    strFilterString += " like '" + productID + "%' ";
+                    strFilterString += " like '" + ProductID + "%' ";
                 }
             }
             catch (Exception ex) { Log.WriteError(ex.ToString()); }
@@ -909,7 +909,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                 int closingStockValue = 0;
                 int mqty = 0;
                 // ss 12/6/2013
-                string productId = "";
+                int ProductID = 0;
                 // ss 12/6/2013
                 // Check for closing stock
                 if (!string.IsNullOrEmpty(ProductGridClosingStockColumnName))
@@ -917,7 +917,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                     if (_DataGridViewSelectedRow.Cells[ProductGridClosingStockColumnName].Value != null && _DataGridViewSelectedRow.Cells[ProductGridClosingStockColumnName].Value.ToString() != "")
                     {
                         closingStockValue = Convert.ToInt32(_DataGridViewSelectedRow.Cells[ProductGridClosingStockColumnName].Value.ToString());
-                        productId = _DataGridViewSelectedRow.Cells[0].Value.ToString();
+                        ProductID = Convert.ToInt32(_DataGridViewSelectedRow.Cells[0].Value.ToString());
 
                         //ss 2/10/2013
                         {
@@ -936,14 +936,14 @@ namespace EcoMart.InterfaceLayer.CommonControls
                     // ss 12/3/2015
                     if (IsClosingStockZero && General.CurrentSetting.MsetSaleAllowNegativeStock != "Y")
                     {
-                        productId = _DataGridViewSelectedRow.Cells[0].Value.ToString();
+                        ProductID = Convert.ToInt32(_DataGridViewSelectedRow.Cells[0].Value.ToString());
                         pnlProductListGrid.Visible = false;
                         dgMainGrid.CurrentCell.Value = "";
                         SetFocus(1);
                         dgMainGrid.Refresh();
                         if (OnSelectedProductClosingStock != null)
                         {
-                            OnSelectedProductClosingStock(closingStockValue, productId);
+                            OnSelectedProductClosingStock(closingStockValue, ProductID);
                         }
                         retValue = false;
                         return retValue;
@@ -958,7 +958,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                 try
                 {
                     pnlProductListGrid.Visible = false;                   
-                    FillGridBatchList(_DataGridViewSelectedRow.Cells[0].Value.ToString());
+                    FillGridBatchList(Convert.ToInt32(_DataGridViewSelectedRow.Cells[0].Value.ToString()));
                     if (dgBatchListGrid.Rows.Count > 0)
                     {
                         //if (dgBatchListGrid.Rows.Count == 1)

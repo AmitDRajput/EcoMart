@@ -124,8 +124,8 @@ namespace EcoMart.DataLayer
             DataTable dt = null;
             if (Id != "")
             {
-                string strsql = "Select a.ProductID, a.ProdName,a.Prodloosepack,a.prodpack,a.ProdCompShortName,a.ProdClosingStock,b.quantity,b.patientID,b.productID " +
-                                "from linkpatientproduct  b ,masterproduct a  where b.productID = a.ProductId  &&  " +
+                string strsql = "Select a.ProductID, a.ProdName,a.Prodloosepack,a.prodpack,a.ProdCompShortName,a.ProdClosingStock,b.quantity,b.patientID,b.ProductID " +
+                                "from linkpatientproduct  b ,masterproduct a  where b.ProductID = a.ProductID  &&  " +
                                   " b.patientID = '{0}'";
 
                 strsql = string.Format(strsql, Id);
@@ -185,7 +185,7 @@ namespace EcoMart.DataLayer
         //}
               
 
-        public bool AddProductDetails(string Id, string detailID, string ProductID, int Quantity)
+        public bool AddProductDetails(string Id, string detailID, int ProductID, int Quantity)
         {
 
             bool bRetValue = false;
@@ -251,13 +251,13 @@ namespace EcoMart.DataLayer
         //    return objQuery.InsertQuery();
         //}
 
-        private string GetInsertProductQuery(string Id, string detailID, string ProductID, int Quantity)
+        private string GetInsertProductQuery(string Id, string detailID, int ProductID, int Quantity)
         {
             Query objQuery = new Query();
             objQuery.Table = "linkpatientproduct";
             objQuery.AddToQuery("LinkPatientProductID", detailID);
             objQuery.AddToQuery("patientID", Id);
-            objQuery.AddToQuery("productID", ProductID);
+            objQuery.AddToQuery("ProductID", ProductID);
             objQuery.AddToQuery("quantity", Quantity);
             return objQuery.InsertQuery();
         }

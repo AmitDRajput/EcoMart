@@ -314,7 +314,7 @@ namespace EcoMart.Reporting.Controls
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_ProdID";
-                column.DataPropertyName = "ProductId";
+                column.DataPropertyName = "ProductID";
                 column.HeaderText = "ID";
                 column.Visible = false;
                 dgvReportList.Columns.Add(column);
@@ -391,7 +391,7 @@ namespace EcoMart.Reporting.Controls
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_ProdID";
-                column.DataPropertyName = "ProductId";
+                column.DataPropertyName = "ProductID";
                 column.HeaderText = "ID";
                 column.Visible = false;
                 dgvReportList.Columns.Add(column);
@@ -473,7 +473,7 @@ namespace EcoMart.Reporting.Controls
             {
                 DataTable dtable = new DataTable();
                 if (mcbProduct.SelectedID != null && mcbProduct.SelectedID != "")
-                    dtable = _CreditDebitNote.GetDebitCreditStockListProductByVouType(mvoutype, _MFromDate, _MToDate, mcbProduct.SelectedID);
+                    dtable = _CreditDebitNote.GetDebitCreditStockListProductByVouType(mvoutype, _MFromDate, _MToDate, Convert.ToInt32(mcbProduct.SelectedID));
                 else
                     dtable = _CreditDebitNote.GetDebitCreditStockListProductByVouType(mvoutype, _MFromDate, _MToDate);
                 _BindingSource = dtable;

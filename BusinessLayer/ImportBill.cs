@@ -302,12 +302,12 @@ namespace EcoMart.BusinessLayer
             return CreditorID;
         }
 
-        public string GetRetailerProductIDFromDistributorProductID(string distributorID, string distributorproductID)
+        public string GetRetailerProductIDFromDistributorProductID(string distributorID, string distributorProductID)
         {
             string retailerProductID = string.Empty;
             DataRow dr = null;
             DBImportBill dbimport = new DBImportBill();
-            dr = dbimport.GetRetailerProductIDFromDistributorProductID(distributorID, distributorproductID);
+            dr = dbimport.GetRetailerProductIDFromDistributorProductID(distributorID, distributorProductID);
             if (dr != null)
             {
                 if (dr["RetailerProductID"] != DBNull.Value && dr["RetailerProductID"].ToString() != string.Empty)
@@ -319,12 +319,12 @@ namespace EcoMart.BusinessLayer
             return retailerProductID;
         }
 
-        public bool CheckIFProductIDIsNOTLinked(string _DistributorID, string _DistProductID, string _productID)
+        public bool CheckIFProductIDIsNOTLinked(string _DistributorID, string _DistProductID, string _ProductID)
         {
             bool retValue = true;
             DataRow dr = null;
             DBImportBill dbimport = new DBImportBill();
-            dr = dbimport.CheckIFProductIDIsNOTLinked(_DistributorID,_DistProductID,_productID);
+            dr = dbimport.CheckIFProductIDIsNOTLinked(_DistributorID,_DistProductID,_ProductID);
             if (dr != null)
             {
                 

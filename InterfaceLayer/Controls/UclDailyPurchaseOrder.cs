@@ -1094,7 +1094,7 @@ namespace EcoMart.InterfaceLayer
                         {  
 
                             _DailyPurchaseOrder.DSLID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                            _DailyPurchaseOrder.DSLProductID = Convert.ToString(ddsr.Cells["Col_ProdID"].Value);
+                            _DailyPurchaseOrder.DSLProductID = Convert.ToInt32(ddsr.Cells["Col_ProdID"].Value);
                             returnVal = _DailyPurchaseOrder.CreateOrderForToday();
                         }
                         else

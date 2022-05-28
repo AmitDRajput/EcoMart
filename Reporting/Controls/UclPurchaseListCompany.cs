@@ -625,13 +625,13 @@ namespace EcoMart.Reporting.Controls
                     InitializeReportGrid();
                     ShowpnlGO();
                     lblFooterMessage.Text = "";
-                    string productid = "";                  
+                    int ProductID = 0;                  
                     txtViewText.Text = mcbCompany.SeletedItem.ItemData[1].ToString();
                     if (mcbCompany.SelectedID != null && mcbCompany.SelectedID != "")
                         _BindingSource = _Purchase.GetOverviewDataCompany(mcbCompany.SelectedID, _MFromDate, _MToDate);                   
                     if (_BindingSource.Rows.Count > 0)
                     {
-                        productid = _BindingSource.Rows[0]["ProductID"].ToString();
+                        ProductID = Convert.ToInt32(_BindingSource.Rows[0]["ProductID"].ToString());
                         FillReportHeadLine(_BindingSource.Rows[0]["ProductID"].ToString(), _BindingSource.Rows[0]["ProdName"].ToString(), _BindingSource.Rows[0]["ProdLoosePack"].ToString(),
                                        _BindingSource.Rows[0]["ProdPack"].ToString());
                     }
@@ -640,13 +640,13 @@ namespace EcoMart.Reporting.Controls
                         _MTotalAmount = 0;
                         _MTotalQuantity = 0;
                         _MTotalScheme = 0;
-                        string mproductID = "";
+                        int mProductID = 0;
                         foreach (DataRow dr in _BindingSource.Rows)
                         {
-                            mproductID = "";
+                            mProductID = 0;
                             if (dr["ProductID"] != DBNull.Value)
-                                mproductID = dr["ProductID"].ToString();
-                            if (mproductID != "" && mproductID == productid)
+                                mProductID = Convert.ToInt32(dr["ProductID"].ToString());
+                            if (mProductID == ProductID)
                             {
                                 FillReportRow(dr);
                             }
@@ -656,7 +656,7 @@ namespace EcoMart.Reporting.Controls
                                 _MTotalAmount = 0;
                                 _MTotalQuantity = 0;
                                 _MTotalScheme = 0;
-                                productid = dr["ProductID"].ToString();
+                                ProductID = Convert.ToInt32(dr["ProductID"].ToString());
                                 FillReportHeadLine(dr["ProductID"].ToString(), dr["ProdName"].ToString(), dr["ProdLoosePack"].ToString(),
                                    dr["ProdPack"].ToString());
                                 FillReportRow(dr);

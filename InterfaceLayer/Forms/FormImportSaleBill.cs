@@ -923,21 +923,21 @@ namespace EcoMart.InterfaceLayer
             else if (wrongFormat != "Y")
             {
                 int remainingproducts = 0;
-                string _distributorproductID = string.Empty;
-                string _retailerproductID = string.Empty;
+                string _distributorProductID = string.Empty;
+                string _retailerProductID = string.Empty;
                 ImportBill ib = new ImportBill();
 
                 foreach (DataGridViewRow dr in dgImpotProducts.Rows)
                 {
-                    _distributorproductID = string.Empty;
-                    _retailerproductID = string.Empty;
+                    _distributorProductID = string.Empty;
+                    _retailerProductID = string.Empty;
                     if (dr.Cells["Col_DistributorsProductID"].Value != null)
-                        _distributorproductID = dr.Cells["Col_DistributorsProductID"].Value.ToString();
-                    _retailerproductID = ib.GetRetailerProductIDFromDistributorProductID(ImportBillData.DistributorID, _distributorproductID);
-                    if (_retailerproductID != string.Empty)
+                        _distributorProductID = dr.Cells["Col_DistributorsProductID"].Value.ToString();
+                    _retailerProductID = ib.GetRetailerProductIDFromDistributorProductID(ImportBillData.DistributorID, _distributorProductID);
+                    if (_retailerProductID != string.Empty)
                     {
                         dr.Cells["Col_Check"].Value = true;
-                        dr.Cells["Col_ProductID"].Value = _retailerproductID;
+                        dr.Cells["Col_ProductID"].Value = _retailerProductID;
                     }
                     else
                         remainingproducts += 1;
@@ -1499,10 +1499,10 @@ namespace EcoMart.InterfaceLayer
             try
             {
                 bool retvalue = true;
-                string _productID = string.Empty;
+                string _ProductID = string.Empty;
                 string _DistProductID = string.Empty;
                 _DistProductID = dgImpotProducts.CurrentRow.Cells["Col_DistributorsProductID"].Value.ToString();
-                _productID = dgProduct.SelectedRow.Cells["Col_ID"].Value.ToString();
+                _ProductID = dgProduct.SelectedRow.Cells["Col_ID"].Value.ToString();
 
                 foreach (DataGridViewRow dr in dgImpotProducts.Rows)
                 {
@@ -1510,7 +1510,7 @@ namespace EcoMart.InterfaceLayer
                     if (dr.Cells["Col_ProductID"].Value != null)
                     {
                         string _gridProductID = dr.Cells["Col_ProductID"].Value.ToString();
-                        if (_productID == _gridProductID && dr.Cells["Col_DistributorsProductID"].Value.ToString() != _DistProductID)
+                        if (_ProductID == _gridProductID && dr.Cells["Col_DistributorsProductID"].Value.ToString() != _DistProductID)
                         {
                             retvalue = false;
                             break;
@@ -1519,7 +1519,7 @@ namespace EcoMart.InterfaceLayer
                 }
                 if (retvalue == true)
                 {
-                    retvalue = ImportBillData.CheckIFProductIDIsNOTLinked(ImportBillData.DistributorID, _DistProductID, _productID);
+                    retvalue = ImportBillData.CheckIFProductIDIsNOTLinked(ImportBillData.DistributorID, _DistProductID, _ProductID);
 
                 }
                 //if (retvalue == true)
@@ -1735,8 +1735,8 @@ namespace EcoMart.InterfaceLayer
                 {
                     foreach (DataGridViewRow dr in dgProduct.Rows)
                     {
-                        string dgproductID = dr.Cells["Col_ID"].Value.ToString();
-                        if (mcbID == dgproductID)
+                        string dgProductID = dr.Cells["Col_ID"].Value.ToString();
+                        if (mcbID == dgProductID)
                         {
                             currentRow = dr.Cells["Col_ID"].RowIndex;
                             dgProduct.Rows[currentRow].Selected = true;

@@ -133,7 +133,7 @@ namespace EcoMart.DataLayer
             string strSql = "select convert(a.ordernumber , char) as ordernumber,STR_TO_DATE( date_format(orderdate, '%d/%m/%y'),'%d/%m/%Y') as date,'RTTT00055' as supplierID,b.AIOCDACode as SupplierProductCode," +
                 " '' as UPC,b.ProductID as BuyerProductCode,b.ProdName as BuyerProductName,b.ProdPack as BuyerProductPack,"+
                 " a.OrderQuantity as Quantity, a.SchemeQuantity as FreeQuantity, a.Narration as Remarks,a.AccountID,"+
-                " a.DSLID,a.MasterID,c.AccName,d.Amount  from tbldailyshortlist a inner join masterproduct b on a.ProductID = b.ProductId inner join masteraccount c on a.AccountID = c.AccountID inner join masterorder d on a.MasterID = d.ID where ordernumber >= "+ firstNumber +" && ordernumber <= "+ lastNumber +"  order by a.ordernumber"; //&& AIOCDACode is not null && AIOCDACode != '' order by ordernumber";
+                " a.DSLID,a.MasterID,c.AccName,d.Amount  from tbldailyshortlist a inner join masterproduct b on a.ProductID = b.ProductID inner join masteraccount c on a.AccountID = c.AccountID inner join masterorder d on a.MasterID = d.ID where ordernumber >= "+ firstNumber +" && ordernumber <= "+ lastNumber +"  order by a.ordernumber"; //&& AIOCDACode is not null && AIOCDACode != '' order by ordernumber";
             dt = DBInterface.SelectDataTable(strSql);
             return dt;
         }
@@ -143,7 +143,7 @@ namespace EcoMart.DataLayer
             DataTable dt = null;
             string strSql = "select convert(a.ordernumber , char) as ordernumber,STR_TO_DATE( date_format(orderdate, '%d/%m/%y'),'%d/%m/%Y') as date,'RTTT00055' as supplierID,'' as SupplierProductCode," +
                 " b.AIOCDACode as UPC,'' as BuyerProductCode,b.ProdName as BuyerProductName,b.ProdPack as BuyerProductPack," +
-                " a.OrderQuantity as Quantity, a.SchemeQuantity as FreeQuantity, a.Narration as Remarks  from tbldailyshortlist a inner join masterproduct b on a.ProductID = b.ProductId inner join masteraccount c on a.AccountID = c.AccountID  where masterID = '"+ masterid+"'"; //&& AIOCDACode is not null && AIOCDACode != '' order by ordernumber";
+                " a.OrderQuantity as Quantity, a.SchemeQuantity as FreeQuantity, a.Narration as Remarks  from tbldailyshortlist a inner join masterproduct b on a.ProductID = b.ProductID inner join masteraccount c on a.AccountID = c.AccountID  where masterID = '"+ masterid+"'"; //&& AIOCDACode is not null && AIOCDACode != '' order by ordernumber";
             dt = DBInterface.SelectDataTable(strSql);
             return dt;
         }

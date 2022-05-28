@@ -30,7 +30,7 @@ namespace EcoMart.BusinessLayer
         private double _VAT5Percent;
         private double _VATOPercent;
         private double _VAT12point5Percent;
-        private string _ProductID;
+        private int _ProductID;
         private string _Batchno;
         private double _Mrp;
         private double _PurchaseRate;
@@ -90,7 +90,7 @@ namespace EcoMart.BusinessLayer
             get { return _ShelfID; }
             set { _ShelfID = value; }
         }
-        public string ProductID
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
@@ -338,7 +338,7 @@ namespace EcoMart.BusinessLayer
                 _Expiry = "";
                 _ExpiryDate = "";
                 _Mrp = 0;
-                _ProductID = "";
+                _ProductID = 0;
                 _PurchaseRate = 0;
                 _Quantity = 0;
                 _SaleRate = 0;
@@ -657,7 +657,7 @@ namespace EcoMart.BusinessLayer
             DBOPStock dbPur = new DBOPStock();
             return dbPur.GetProductPurchased(purchaseID);
         }
-        public DataTable GetOverviewDataForProductList(string ProductID)
+        public DataTable GetOverviewDataForProductList(int ProductID)
         {
             DBOPStock dbOPS = new DBOPStock();
             return dbOPS.GetOverviewDataForProductList(ProductID);
@@ -778,20 +778,20 @@ namespace EcoMart.BusinessLayer
             }
             return retValue;
         }
-        public string GetScanCodeForCurrentBatch(string productID)  // [10.02.2017]
+        public string GetScanCodeForCurrentBatch(int ProductID)  // [10.02.2017]
         {
             string mproductScancode = "";
             string mscancode = "";
             int iscancode = 0;
             DBPurchase dbp = new DBPurchase();
-            DataRow dr = dbp.GetProductScancode(productID);
+            DataRow dr = dbp.GetProductScancode(ProductID);
             if (dr != null)
             {
                 mproductScancode = dr["ProductNumberForBarcode"].ToString();
             }
             if (mproductScancode != string.Empty)
             {
-                DataTable dt = dbp.GetAllBatchNumbersForScanCode(productID);
+                DataTable dt = dbp.GetAllBatchNumbersForScanCode(ProductID);
                 foreach (DataRow drr in dt.Rows)
                 {
                     if (drr["Scancode"] != DBNull.Value && drr["Scancode"].ToString() != string.Empty)

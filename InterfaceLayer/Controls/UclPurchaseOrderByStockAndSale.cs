@@ -297,7 +297,7 @@ namespace EcoMart.InterfaceLayer
                     if (prodrow.Cells["Col_ID"].Value != null && prodrow.Cells["Col_OrderQuantity"].Value != null &&
                        Convert.ToInt32(prodrow.Cells["Col_OrderQuantity"].Value.ToString()) > 0)
                     {
-                        _PurchaseOrder.ProductID = prodrow.Cells["Col_ID"].Value.ToString();
+                        _PurchaseOrder.ProductID = Convert.ToInt32(prodrow.Cells["Col_ID"].Value.ToString());
                         _PurchaseOrder.Quantity = Convert.ToInt32(prodrow.Cells["Col_OrderQuantity"].Value.ToString());
                         //  if (prodrow.Cells["Col_ProdLastPurchaseRate"].Value != null)
                         //      _PurchaseOrder.PurchaseRate = Convert.ToDouble(prodrow.Cells["Col_ProdLastPurchaseRate"].Value.ToString());
@@ -564,7 +564,7 @@ namespace EcoMart.InterfaceLayer
             string _MFromDate = fromDate1.Value.Date.ToString("yyyyMMdd");
             string _MToDate = toDate1.Value.Date.ToString("yyyyMMdd");
             DataRow dtrow = null;
-            string curproduct = "";
+            int curproduct = 0;
             int mqty = 0;
             int mscm = 0;
             int mrepl = 0;
@@ -587,7 +587,7 @@ namespace EcoMart.InterfaceLayer
                 for (int i = 0; i < dtable.Rows.Count; i++)
                 {
                     dtrow = dtable.Rows[i];
-                    curproduct = dtrow["ProductID"].ToString();
+                    curproduct = Convert.ToInt32(dtrow["ProductID"].ToString());
                     mqty = 0;
                     int mpurqty = 0;
                     if (dtrow["OpeningStock"] != DBNull.Value)
@@ -599,7 +599,7 @@ namespace EcoMart.InterfaceLayer
                         dropstk = 0;
                         int drclstk = 0;
                        
-                        if (dr.Cells["Col_ID"] != null && dr.Cells["Col_ID"].Value.ToString() == curproduct)
+                        if (dr.Cells["Col_ID"] != null && Convert.ToInt32(dr.Cells["Col_ID"].Value.ToString()) == curproduct)
                         {
                             //if (curproduct == "6E93D14BC3D3419B869566E9265B8B16")
                             //    _IfShortCutOpen = true;
@@ -627,7 +627,7 @@ namespace EcoMart.InterfaceLayer
                     mscm = 0;
                     mrepl = 0;
                     dtrow = dtable.Rows[i];
-                    curproduct = dtrow["ProductID"].ToString();
+                    curproduct = Convert.ToInt32(dtrow["ProductID"].ToString());
                     if (dtrow["Quantity"] != DBNull.Value)
                         mqty = Convert.ToInt16(dtrow["Quantity"].ToString());
                     if (dtrow["SchemeQuantity"] != DBNull.Value)
@@ -640,7 +640,7 @@ namespace EcoMart.InterfaceLayer
                     {
                         dropstk = 0;
                         drpurstk = 0;
-                        if (dr.Cells["Col_ID"] != null && dr.Cells["Col_ID"].Value.ToString() == curproduct)
+                        if (dr.Cells["Col_ID"] != null && Convert.ToInt32(dr.Cells["Col_ID"].Value.ToString()) == curproduct)
                         {
                             
                             if (dr.Cells["Col_opstock"].Value != null)
@@ -672,7 +672,7 @@ namespace EcoMart.InterfaceLayer
                         mqty = 0;
                         mscm = 0;
                         dtrow = dtable.Rows[i];
-                        curproduct = dtrow["ProductID"].ToString();
+                        curproduct = Convert.ToInt32(dtrow["ProductID"].ToString());
                         if (dtrow["Quantity"] != DBNull.Value)
                             mqty = Convert.ToInt16(dtrow["Quantity"].ToString());
                         if (dtrow["SchemeQuantity"] != DBNull.Value)
@@ -684,7 +684,7 @@ namespace EcoMart.InterfaceLayer
                             dropstk = 0;
                             drsalestk = 0;
 
-                            if (dr.Cells["Col_ID"] != null && dr.Cells["Col_ID"].Value.ToString() == curproduct)
+                            if (dr.Cells["Col_ID"] != null && Convert.ToInt32(dr.Cells["Col_ID"].Value.ToString()) == curproduct)
                             {
                                 if (dr.Cells["Col_opstock"].Value != null)
                                     dropstk = Convert.ToInt16(dr.Cells["Col_opstock"].Value.ToString());
@@ -716,7 +716,7 @@ namespace EcoMart.InterfaceLayer
                         mqty = 0;
                         mscm = 0;
                         dtrow = dtable.Rows[i];
-                        curproduct = dtrow["ProductID"].ToString();
+                        curproduct = Convert.ToInt32(dtrow["ProductID"].ToString());
                         if (dtrow["Quantity"] != DBNull.Value)
                             mqty = Convert.ToInt16(dtrow["Quantity"].ToString());
                         if (dtrow["SchemeQuantity"] != DBNull.Value)
@@ -727,7 +727,7 @@ namespace EcoMart.InterfaceLayer
                         {
                             dropstk = 0;
                             drcrstk = 0;
-                            if (dr.Cells["Col_ID"] != null && dr.Cells["Col_ID"].Value.ToString() == curproduct)
+                            if (dr.Cells["Col_ID"] != null && Convert.ToInt32(dr.Cells["Col_ID"].Value.ToString()) == curproduct)
                             {
                                 if (dr.Cells["Col_opstock"].Value != null)
                                     dropstk = Convert.ToInt16(dr.Cells["Col_opstock"].Value.ToString());
@@ -756,14 +756,14 @@ namespace EcoMart.InterfaceLayer
                 {
                     if (dtable != null)
                     {
-                        string drproductid = "";
+                        int drProductID = 0;
                         for (int i = 0; i < dtable.Rows.Count; i++)
                         {
 
                             mqty = 0;
                             mscm = 0;
                             dtrow = dtable.Rows[i];
-                            curproduct = dtrow["ProductID"].ToString();
+                            curproduct = Convert.ToInt32(dtrow["ProductID"].ToString());
                             if (dtrow["Quantity"] != DBNull.Value)
                                 mqty = Convert.ToInt16(dtrow["Quantity"].ToString());
                             if (dtrow["SchemeQuantity"] != DBNull.Value)
@@ -777,8 +777,8 @@ namespace EcoMart.InterfaceLayer
                                     dropstk = 0;
                                     drdbstk = 0;
                                     if (dr.Cells["Col_ID"].Value != null)
-                                        drproductid = dr.Cells["Col_ID"].Value.ToString();
-                                    if (drproductid == curproduct)
+                                        drProductID = Convert.ToInt32(dr.Cells["Col_ID"].Value.ToString());
+                                    if (drProductID == curproduct)
                                     {
                                         if (dr.Cells["Col_opstock"].Value != null)
                                             dropstk = Convert.ToInt16(dr.Cells["Col_opstock"].Value.ToString());

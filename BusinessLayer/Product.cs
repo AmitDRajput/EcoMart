@@ -447,10 +447,10 @@ namespace EcoMart.BusinessLayer
             DBProduct dbProd = new DBProduct();
             return dbProd.GetVatPercent(vatper);
         }
-        public DataRow GetOverviewDataForProductIDForCache(string productID)
+        public DataRow GetOverviewDataForProductIDForCache(int ProductID)
         {
             DBProduct dbProd = new DBProduct();
-            return dbProd.GetOverviewDataForProductIDForCache(productID);
+            return dbProd.GetOverviewDataForProductIDForCache(ProductID);
         }
 
         public DataTable GetOverviewDataForClosingStockNotZero()
@@ -458,10 +458,10 @@ namespace EcoMart.BusinessLayer
             DBProduct dbProd = new DBProduct();
             return dbProd.GetOverviewDataForClosingStockNotZero();
         }
-        public DataTable GetOverviewDataForClosingStockNotZero(string productID)
+        public DataTable GetOverviewDataForClosingStockNotZero(int ProductID)
         {
             DBProduct dbProd = new DBProduct();
-            return dbProd.GetOverviewDataForClosingStockNotZero(productID);
+            return dbProd.GetOverviewDataForClosingStockNotZero(ProductID);
         }
         public DataTable GetOverviewDataForList()
         {
@@ -517,12 +517,12 @@ namespace EcoMart.BusinessLayer
             {
                 DataRow drow = null;
                 DBProduct dbProd = new DBProduct();
-                drow = dbProd.ReadDetailsByID(Id);
+                drow = dbProd.ReadDetailsByID(Convert.ToInt32(Id));
 
                 if (drow != null)
                 {
-                    if (drow["ProductId"] != DBNull.Value)
-                        Id = drow["ProductId"].ToString();
+                    if (drow["ProductID"] != DBNull.Value)
+                        Id = drow["ProductID"].ToString();
                     if (drow["ProdName"] != DBNull.Value)
                         Name = Convert.ToString(drow["ProdName"]);
                     if (drow["ProdCompID"] != DBNull.Value)
@@ -600,7 +600,7 @@ namespace EcoMart.BusinessLayer
             try
             {
                 DBProduct dbprod = new DBProduct();
-                dr = dbprod.ReadLastSaleByID(saleId);
+                dr = dbprod.ReadLastSaleByID(Convert.ToInt32(saleId));
             }
             catch (Exception Ex)
             {
@@ -614,7 +614,7 @@ namespace EcoMart.BusinessLayer
             try
             {
                 DBProduct dbprod = new DBProduct();
-                dr = dbprod.ReadLastPurchaseByID(purId);
+                dr = dbprod.ReadLastPurchaseByID(Convert.ToInt32(purId));
             }
             catch (Exception Ex)
             {
@@ -628,7 +628,7 @@ namespace EcoMart.BusinessLayer
             try
             {
                 DBProduct dbProd = new DBProduct();
-                dt = dbProd.ReadPatientProdDetailsByID(Id);
+                dt = dbProd.ReadPatientProdDetailsByID(Convert.ToInt32(Id));
             }
             catch (Exception Ex)
             {
@@ -662,7 +662,7 @@ namespace EcoMart.BusinessLayer
         public bool UpdateDetails()
         {
             DBProduct dbProd = new DBProduct();
-            return dbProd.UpdateDetails(Id, Name, ProdLoosePack, ProdPack, ProdPackType, ProdCompShortName,
+            return dbProd.UpdateDetails(Convert.ToInt32(Id), Name, ProdLoosePack, ProdPack, ProdPackType, ProdCompShortName,
                  ProdCompID, ProdVATPer, ProdCST, ProdGrade, ProdMinLevel, ProdMaxLevel, ProdBoxQty,
             ProdGenericID, ProdShelfID, ProdScheduleDrugCode,
              ProdProductCategoryID, ProdCreditor1ID, ProdCreditor2ID,
@@ -673,13 +673,13 @@ namespace EcoMart.BusinessLayer
         public bool UpdateDetailsBulk()  // [ansuman]
         {
             DBProduct dbProd = new DBProduct();
-            return dbProd.UpdateDetailsBulk(Id, Name, ProdCompID, ProdCompShortName, ProdLoosePack, ProdPack, ProdPackType,
+            return dbProd.UpdateDetailsBulk(Convert.ToInt32(Id), Name, ProdCompID, ProdCompShortName, ProdLoosePack, ProdPack, ProdPackType,
                  ProdVATPer, ProdCST, ProdMinLevel, ProdMaxLevel, ProdRequireColdStorage, ProdShelfID, ProdGenericID, ProdProductCategoryID,
                  ProdCreditor1ID, ProdCreditor2ID, ProdBoxQty, ProdIfShortList, ProdIfScheduledDrug, ProdScheduleDrugCode, ProdIfSaleDisc,
                  ProdGrade, ProdIfBarCodeRequired, ScannedBarcode,HSNNumber, ModifiedBy, ModifiedDate, ModifiedTime);
         }
 
-        public bool UpdateCreditNoteStockInmasterProduct(string ProductID, int Quantity)
+        public bool UpdateCreditNoteStockInmasterProduct(int ProductID, int Quantity)
         {
             //DBProduct dbProd = new DBProduct();
             //return dbProd.UpdateCreditNoteStockInmasterProduct(Id, Quantity);
@@ -701,19 +701,19 @@ namespace EcoMart.BusinessLayer
         public int GetClosingStock()
         {
             DBProduct dbprod = new DBProduct();
-            return dbprod.GetClosingStock(Id);
+            return dbprod.GetClosingStock(Convert.ToInt32(Id));
         }
 
         public bool DeleteDetails()
         {
             DBProduct dbProd = new DBProduct();
-            return dbProd.DeleteDetails(Id);
+            return dbProd.DeleteDetails(Convert.ToInt32(Id));
         }
 
         public bool UpdateClosingStock()
         {
             DBProduct dbProd = new DBProduct();
-            return dbProd.UpdateClosingStock(Id);
+            return dbProd.UpdateClosingStock(Convert.ToInt32(Id));
         }
         public bool UpdateProdSelfID()
         {
@@ -783,7 +783,7 @@ namespace EcoMart.BusinessLayer
             DBProduct dbprod = new DBProduct();
             return dbprod.GetFilteredProdByContentWise(DrugID);
         }
-        public bool RemoveEDEProductLink(string prodID, string partyID)
+        public bool RemoveEDEProductLink(int prodID, string partyID)
         {
             DBProduct dbprod = new DBProduct();
             return dbprod.RemoveEDEProductLink(prodID, partyID);

@@ -12,7 +12,7 @@ namespace EcoMart.BusinessLayer
     {
         #region Declaration
         private string _StockId;
-        private string _ProductId;
+        private int _ProductID;
         private string _ProdName;
         private string _BatchNo;
         private string _Expiry;
@@ -62,10 +62,10 @@ namespace EcoMart.BusinessLayer
 
         }
 
-        public string ProductId
+        public int ProductID
         {
-            get { return _ProductId; }
-            set { _ProductId = value; }
+            get { return _ProductID; }
+            set { _ProductID = value; }
 
         }
         public string ProdName
@@ -131,7 +131,7 @@ namespace EcoMart.BusinessLayer
         {
             base.Initialise();
             _StockId = "";
-            _ProductId = "";
+            _ProductID = 0;
             _ProdName = "";
             _BatchNo = "";
             _Expiry = "";
@@ -181,10 +181,10 @@ namespace EcoMart.BusinessLayer
             DBBarCode dbBarCode = new DBBarCode();
             return dbBarCode.GetProductData();
         }
-        public DataTable GetBatchData(string productID)
+        public DataTable GetBatchData(int ProductID)
         {
             DBBarCode dbBarCode = new DBBarCode();
-            return dbBarCode.GetBatchData(productID);
+            return dbBarCode.GetBatchData(ProductID.ToString());
         }
 
 
@@ -200,8 +200,8 @@ namespace EcoMart.BusinessLayer
                 {
                     if (drow["StockID"] != DBNull.Value)
                         StockId = drow["StockID"].ToString();
-                    if (drow["ProductId"] != DBNull.Value)
-                        ProductId = Convert.ToString(drow["ProductId"]);
+                    if (drow["ProductID"] != DBNull.Value)
+                        ProductID = Convert.ToInt32(drow["ProductID"]);
                     if (drow["BatchNumber"] != DBNull.Value)
                         BatchNo = Convert.ToString(drow["BatchNumber"]);
                     if (drow["Expiry"] != DBNull.Value)
@@ -257,7 +257,7 @@ namespace EcoMart.BusinessLayer
         public void FillBarCodeNumbers(int prodno)
         {
             bool retValue = false;
-            string mproductid = "";
+            int mProductID = 0;
             string mbarcode = "";
             string mstockid = "";
             LastBatchNumberForBarCode = 1001;
@@ -278,9 +278,9 @@ namespace EcoMart.BusinessLayer
                             if (dr["ProductID"] != DBNull.Value)
                             {
                                 LastBatchNumberForBarCode = 1001;
-                                mproductid = dr["ProductID"].ToString();
-                                retValue = dbData.FillBarCodeNumbers(mproductid, LastProductNumberForBarCode.ToString());
-                                dtstock = dbData.GetRowsFromtblStock(mproductid);
+                                mProductID = Convert.ToInt32(dr["ProductID"].ToString());
+                                retValue = dbData.FillBarCodeNumbers(mProductID, LastProductNumberForBarCode.ToString());
+                                dtstock = dbData.GetRowsFromtblStock(mProductID);
                                 if (dtstock != null && dtstock.Rows.Count > 0)
                                 {
                                     if (dtstock.Rows[0]["ScanCode"] != DBNull.Value && dtstock.Rows[0]["ScanCode"].ToString() != string.Empty)
@@ -352,10 +352,10 @@ namespace EcoMart.BusinessLayer
             dt = dbData.GetPurchaseData(mvoutype, mvouno);
             return dt;
         }
-        public DataTable GetStockByProductID(string productID)
+        public DataTable GetStockByProductID(int ProductID)
         {
             DBBarCode dbData = new DBBarCode();
-            return dbData.GetStockByProductID(productID);
+            return dbData.GetStockByProductID(ProductID);
         }
         public DataTable GetGivenProductData(string mstockID)
         {

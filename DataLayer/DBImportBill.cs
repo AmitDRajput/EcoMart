@@ -54,16 +54,16 @@ namespace EcoMart.DataLayer
             return dr;
         }
 
-        public DataRow GetRetailerProductIDFromDistributorProductID(string distributorID, string distributorproductID)
+        public DataRow GetRetailerProductIDFromDistributorProductID(string distributorID, string distributorProductID)
         {
             DataRow dr = null;
             string strSql = "Select RetailerProductID from tblbillimportlink where DistributorProductID ='{0}' && DistributorID = '{1}'";
-            strSql = string.Format(strSql, distributorproductID,distributorID);
+            strSql = string.Format(strSql, distributorProductID,distributorID);
             dr = DBInterface.SelectFirstRow(strSql);
             return dr;
         }
 
-        public DataRow CheckIFProductIDIsNOTLinked(string _DistributorID, string _DistProductID, string _productID)
+        public DataRow CheckIFProductIDIsNOTLinked(string _DistributorID, string _DistProductID, string _ProductID)
         {
             DataRow dr = null;
             string strSql = "Select * from tblbillimportlink where DistributorID = '{0}'  && DistributorProductID = '{1}'";
@@ -72,7 +72,7 @@ namespace EcoMart.DataLayer
             if (dr == null)
             {
                 strSql = "Select * from tblbillimportlink where DistributorID = '{0}'  && RetailerProductID = '{1}'";
-                strSql = string.Format(strSql, _DistributorID, _productID);
+                strSql = string.Format(strSql, _DistributorID, _ProductID);
                 dr = DBInterface.SelectFirstRow(strSql);                
             }
             return dr;
