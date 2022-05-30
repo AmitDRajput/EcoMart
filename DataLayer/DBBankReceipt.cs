@@ -535,7 +535,7 @@ namespace EcoMart.DataLayer
         {
             Query objQuery = new Query();
             objQuery.Table = "vouchercashbankreceipt";
-            //objQuery.AddToQuery("CBID", Id);
+            objQuery.AddToQuery("CBID", Id);
             objQuery.AddToQuery("AccountId", CreditorId);
             objQuery.AddToQuery("Narration", Narration);
             objQuery.AddToQuery("VoucherType", VouType);

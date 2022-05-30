@@ -470,7 +470,7 @@ namespace EcoMart.DataLayer
         {
             Query objQuery = new Query();
             objQuery.Table = "masteraccount";
-            objQuery.AddToQuery("AccountID", Id, true);
+            //objQuery.AddToQuery("AccountID", Id, true);
             objQuery.AddToQuery("AccCode", AccCode);
             objQuery.AddToQuery("AccName", AccName);
             objQuery.AddToQuery("AccGroupID", AccGroupID);
