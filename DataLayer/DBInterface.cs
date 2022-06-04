@@ -96,6 +96,7 @@ namespace EcoMart.DataLayer
             }
             catch (Exception ex)
             {
+            
                 Log.WriteException(ex);
                 dataSet = null;
                 CloseConnection(); 

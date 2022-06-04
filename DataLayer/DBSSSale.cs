@@ -344,7 +344,7 @@ namespace EcoMart.DataLayer
             {
                 string strsql = "select a.ProductID, a.ProdName,a.Prodloosepack,a.prodpack,a.ProdClosingStock,a.ProdClosingStock/a.ProdLoosePack as ProdClosingStockPack,a.ProdVATPercent,a.ProdCompShortName,a.ProdLastSaleStockID as LastStockID,a.ProdScheduleDrugCode,a.ProdBoxQuantity,a.ProdLastPurchaseRate,a.ProdIfShortListed,a.ProdMaxLevel,a.ProdCategoryID,ProdIfSaleDisc,b.ProductID, " +
                 "b.StockID,b.StockID as ProdLastSaleStockID, b.BatchNumber,b.MRP,b.PurchaseRate,b.SaleRate,b.TradeRate,b.Expiry,b.ExpiryDate,b.Quantity,b.Quantity as OldQuantity,b.VATAmount,b.Amount,b.ItemDiscountPer,b.ItemDiscountAmount,b.ProfitPercentBySaleRate,b.ProfitInRupees,b.ProfitPercentByPurchaseRate,b.CashDiscountAmount,b.SchemeQuantity,SchemeDiscountAmount,c.ShelfID,c.ShelfCode," +
-                "d.ClosingStock,e.GenericCategoryName from masterproduct A inner join  detailsale b  on A.ProductID = B.ProductID  left outer join mastershelf C on A.ProdShelfID = C.ShelfID   left outer join tblstock D on B.stockID = d.stockID left outer join mastergenericcategory e on a.ProdCategoryID = e.GenericCategoryID where B.MasterSaleID = '{0}' order by b.SerialNumber";
+                "b.GSTAmountZero,b.GSTSAmount,b.GSTCAmount,b.GSTIAmount,b.GSTS,b.GSTC,b.GSTI,b.ActualBatchNumber,b.ActualMRP,b.ActualSaleRate,d.ClosingStock,e.GenericCategoryName from masterproduct A inner join  detailsale b  on A.ProductID = B.ProductID  left outer join mastershelf C on A.ProdShelfID = C.ShelfID   left outer join tblstock D on B.stockID = d.stockID left outer join mastergenericcategory e on a.ProdCategoryID = e.GenericCategoryID where B.MasterSaleID = '{0}' order by b.SerialNumber";
                 strsql = string.Format(strsql, Id);
                 dt = DBInterface.SelectDataTable(strsql);
             }
@@ -1052,33 +1052,33 @@ namespace EcoMart.DataLayer
           //  objQuery.AddToQuery("AmountCashDiscount12point5", TotalDiscount12point5);
             objQuery.AddToQuery("AmountSchemeDiscount", SchemeTotalDiscount);
 
-            //objQuery.AddToQuery("AmountGST0", gstAmt0);
-            //objQuery.AddToQuery("AmountGSTS5", gstAmtS5);
-            //objQuery.AddToQuery("AmountGSTS12", gstAmtS12);
-            //objQuery.AddToQuery("AmountGSTS18", gstAmtS18);
-            //objQuery.AddToQuery("AmountGSTS28", gstAmtS28);
-            //objQuery.AddToQuery("AmountGSTC5", gstAmtC5);
-            //objQuery.AddToQuery("AmountGSTC12", gstAmtC12);
-            //objQuery.AddToQuery("AmountGSTC18", gstAmtC18);
-            //objQuery.AddToQuery("AmountGSTC28", gstAmtC28);
+            objQuery.AddToQuery("AmountGST0", gstAmt0);
+            objQuery.AddToQuery("AmountGSTS5", gstAmtS5);
+            objQuery.AddToQuery("AmountGSTS12", gstAmtS12);
+            objQuery.AddToQuery("AmountGSTS18", gstAmtS18);
+            objQuery.AddToQuery("AmountGSTS28", gstAmtS28);
+            objQuery.AddToQuery("AmountGSTC5", gstAmtC5);
+            objQuery.AddToQuery("AmountGSTC12", gstAmtC12);
+            objQuery.AddToQuery("AmountGSTC18", gstAmtC18);
+            objQuery.AddToQuery("AmountGSTC28", gstAmtC28);
 
-            //objQuery.AddToQuery("GSTS5", gsts5);
-            //objQuery.AddToQuery("GSTS12", gsts12);
-            //objQuery.AddToQuery("GSTS18", gsts18);
-            //objQuery.AddToQuery("GSTS28", gsts28);
-            //objQuery.AddToQuery("GSTC5", gstc5);
-            //objQuery.AddToQuery("GSTC12", gstc12);
-            //objQuery.AddToQuery("GSTC18", gstc18);
-            //objQuery.AddToQuery("GSTC28", gstc28);
+            objQuery.AddToQuery("GSTS5", gsts5);
+            objQuery.AddToQuery("GSTS12", gsts12);
+            objQuery.AddToQuery("GSTS18", gsts18);
+            objQuery.AddToQuery("GSTS28", gsts28);
+            objQuery.AddToQuery("GSTC5", gstc5);
+            objQuery.AddToQuery("GSTC12", gstc12);
+            objQuery.AddToQuery("GSTC18", gstc18);
+            objQuery.AddToQuery("GSTC28", gstc28);
 
-            //objQuery.AddToQuery("AmountGSTI5", gstAmtI5);
-            //objQuery.AddToQuery("AmountGSTI12", gstAmtI12);
-            //objQuery.AddToQuery("AmountGSTI18", gstAmtI18);
-            //objQuery.AddToQuery("AmountGSTI28", gstAmtI28);
-            //objQuery.AddToQuery("GSTI5", gstI5);
-            //objQuery.AddToQuery("GSTI12", gstI12);
-            //objQuery.AddToQuery("GSTI18", gstI18);
-            //objQuery.AddToQuery("GSTI28", gstI28);
+            objQuery.AddToQuery("AmountGSTI5", gstAmtI5);
+            objQuery.AddToQuery("AmountGSTI12", gstAmtI12);
+            objQuery.AddToQuery("AmountGSTI18", gstAmtI18);
+            objQuery.AddToQuery("AmountGSTI28", gstAmtI28);
+            objQuery.AddToQuery("GSTI5", gstI5);
+            objQuery.AddToQuery("GSTI12", gstI12);
+            objQuery.AddToQuery("GSTI18", gstI18);
+            objQuery.AddToQuery("GSTI28", gstI28);
             //  objQuery.AddToQuery("IfFullPayment", iffullpayment);
             //   objQuery.AddToQuery("CreditCardBankID", creditCardBankID);
             //   objQuery.AddToQuery("MobileNumberForSMS", MobileNumberForSMS);
@@ -1216,15 +1216,15 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("SchemeQuantity", schemeDiscountQuantity);
             objQuery.AddToQuery("VoucherDate", vouDate);
 
-            //objQuery.AddToQuery("GSTAmountZero", gstPurchaseAmountZero);
-            //objQuery.AddToQuery("GSTSAmount", gstSPurchaseAmount);
-            //objQuery.AddToQuery("GSTCAmount", gstCPurchaseAmount);
-            //objQuery.AddToQuery("GSTS", gstSAmount);
-            //objQuery.AddToQuery("GSTC", gstCAmount);
+            objQuery.AddToQuery("GSTAmountZero", gstPurchaseAmountZero);
+            objQuery.AddToQuery("GSTSAmount", gstSPurchaseAmount);
+            objQuery.AddToQuery("GSTCAmount", gstCPurchaseAmount);
+            objQuery.AddToQuery("GSTS", gstSAmount);
+            objQuery.AddToQuery("GSTC", gstCAmount);
 
-            //objQuery.AddToQuery("ActualBatchNumber", newbatchno);
-            //objQuery.AddToQuery("ActualMRP", newmrp);
-            //objQuery.AddToQuery("ActualSaleRate", newsalerate);
+            objQuery.AddToQuery("ActualBatchNumber", newbatchno);
+            objQuery.AddToQuery("ActualMRP", newmrp);
+            objQuery.AddToQuery("ActualSaleRate", newsalerate);
             //   objQuery.AddToQuery("VoucherNumber", vouNo);
             //  objQuery.AddToQuery("VoucherType", vouType);
             return objQuery.InsertQuery();
@@ -1399,36 +1399,36 @@ namespace EcoMart.DataLayer
          //   objQuery.AddToQuery("AmountCashDiscount5", TotalDiscount5);
        //     objQuery.AddToQuery("AmountCashDiscount12point5", TotalDiscount12point5);
             objQuery.AddToQuery("AmountSchemeDiscount", SchemeTotalDiscount);
-         //   objQuery.AddToQuery("IfFullPayment", iffullpayment);
-        //    objQuery.AddToQuery("NextVisitDate", nextVisitDate);
+            //   objQuery.AddToQuery("IfFullPayment", iffullpayment);
+            //    objQuery.AddToQuery("NextVisitDate", nextVisitDate);
 
-            //objQuery.AddToQuery("AmountGST0", gstAmt0);
-            //objQuery.AddToQuery("AmountGSTS5", gstAmtS5);
-            //objQuery.AddToQuery("AmountGSTS12", gstAmtS12);
-            //objQuery.AddToQuery("AmountGSTS18", gstAmtS18);
-            //objQuery.AddToQuery("AmountGSTS28", gstAmtS28);
-            //objQuery.AddToQuery("AmountGSTC5", gstAmtC5);
-            //objQuery.AddToQuery("AmountGSTC12", gstAmtC12);
-            //objQuery.AddToQuery("AmountGSTC18", gstAmtC18);
-            //objQuery.AddToQuery("AmountGSTC28", gstAmtC28);
+            objQuery.AddToQuery("AmountGST0", gstAmt0);
+            objQuery.AddToQuery("AmountGSTS5", gstAmtS5);
+            objQuery.AddToQuery("AmountGSTS12", gstAmtS12);
+            objQuery.AddToQuery("AmountGSTS18", gstAmtS18);
+            objQuery.AddToQuery("AmountGSTS28", gstAmtS28);
+            objQuery.AddToQuery("AmountGSTC5", gstAmtC5);
+            objQuery.AddToQuery("AmountGSTC12", gstAmtC12);
+            objQuery.AddToQuery("AmountGSTC18", gstAmtC18);
+            objQuery.AddToQuery("AmountGSTC28", gstAmtC28);
 
-            //objQuery.AddToQuery("GSTS5", gsts5);
-            //objQuery.AddToQuery("GSTS12", gsts12);
-            //objQuery.AddToQuery("GSTS18", gsts18);
-            //objQuery.AddToQuery("GSTS28", gsts28);
-            //objQuery.AddToQuery("GSTC5", gstc5);
-            //objQuery.AddToQuery("GSTC12", gstc12);
-            //objQuery.AddToQuery("GSTC18", gstc18);
-            //objQuery.AddToQuery("GSTC28", gstc28);
+            objQuery.AddToQuery("GSTS5", gsts5);
+            objQuery.AddToQuery("GSTS12", gsts12);
+            objQuery.AddToQuery("GSTS18", gsts18);
+            objQuery.AddToQuery("GSTS28", gsts28);
+            objQuery.AddToQuery("GSTC5", gstc5);
+            objQuery.AddToQuery("GSTC12", gstc12);
+            objQuery.AddToQuery("GSTC18", gstc18);
+            objQuery.AddToQuery("GSTC28", gstc28);
 
-            //objQuery.AddToQuery("AmountGSTI5", gstAmtI5);
-            //objQuery.AddToQuery("AmountGSTI12", gstAmtI12);
-            //objQuery.AddToQuery("AmountGSTI18", gstAmtI18);
-            //objQuery.AddToQuery("AmountGSTI28", gstAmtI28);
-            //objQuery.AddToQuery("GSTI5", gstI5);
-            //objQuery.AddToQuery("GSTI12", gstI12);
-            //objQuery.AddToQuery("GSTI18", gstI18);
-            //objQuery.AddToQuery("GSTI28", gstI28);
+            objQuery.AddToQuery("AmountGSTI5", gstAmtI5);
+            objQuery.AddToQuery("AmountGSTI12", gstAmtI12);
+            objQuery.AddToQuery("AmountGSTI18", gstAmtI18);
+            objQuery.AddToQuery("AmountGSTI28", gstAmtI28);
+            objQuery.AddToQuery("GSTI5", gstI5);
+            objQuery.AddToQuery("GSTI12", gstI12);
+            objQuery.AddToQuery("GSTI18", gstI18);
+            objQuery.AddToQuery("GSTI28", gstI28);
 
             objQuery.AddToQuery("ModifiedUserID", modifiedby);
             objQuery.AddToQuery("ModifiedDate", modifydate);
