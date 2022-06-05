@@ -450,6 +450,7 @@ namespace EcoMart.InterfaceLayer
         public override bool Cancel()
         {
             bool retValue = base.Cancel();
+            System.IO.File.Delete(General.GetPurchaseTempFile());
             pnlEditProduct.Visible = false;
             pnlProductDetail.Visible = false;
             pnlSummary.Visible = false;
@@ -466,7 +467,7 @@ namespace EcoMart.InterfaceLayer
         public override bool Exit()
         {
             bool retValue = false;
-            if (mpMSVC.Rows.Count < 2)
+            if (mpMSVC.Rows.Count > 0)
             {
                 retValue = base.Exit();
                 System.IO.File.Delete(General.GetPurchaseTempFile());
@@ -9779,5 +9780,14 @@ namespace EcoMart.InterfaceLayer
                 txtSaleRate.Text = ptr.ToString("#0.00");
         }
 
+        private void txtProfitPercentage_TextChanged(object sender, EventArgs e)
+        {
+            CalculatePurRateSaleRateAndAmount();
+        }
+
+        private void txtSaleRate_TextChanged(object sender, EventArgs e)
+        {
+            CalculatePurRateSaleRateAndAmount();
+        }
     }
 }

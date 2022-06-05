@@ -378,7 +378,7 @@ namespace EcoMart.InterfaceLayer
             this.MMBottomPanel.Controls.Add(this.btnSummary);
             this.MMBottomPanel.Controls.Add(this.lblAmountTotal);
             this.MMBottomPanel.Location = new System.Drawing.Point(0, 686);
-            this.MMBottomPanel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MMBottomPanel.Margin = new System.Windows.Forms.Padding(5);
             this.MMBottomPanel.Size = new System.Drawing.Size(1601, 77);
             this.MMBottomPanel.Controls.SetChildIndex(this.lblRightSideFooterMsg, 0);
             this.MMBottomPanel.Controls.SetChildIndex(this.lblAmountTotal, 0);
@@ -404,7 +404,7 @@ namespace EcoMart.InterfaceLayer
             this.MMMainPanel.Controls.Add(this.pnlSummary);
             this.MMMainPanel.Controls.Add(this.pnlEditProduct);
             this.MMMainPanel.Controls.Add(this.pnlEnterScheme);
-            this.MMMainPanel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MMMainPanel.Margin = new System.Windows.Forms.Padding(5);
             this.MMMainPanel.Size = new System.Drawing.Size(1601, 616);
             this.MMMainPanel.Controls.SetChildIndex(this.pnlEnterScheme, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.pnlEditProduct, 0);
@@ -456,7 +456,7 @@ namespace EcoMart.InterfaceLayer
             this.dgvLastPurchase.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLastPurchase.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvLastPurchase.Location = new System.Drawing.Point(32, 460);
-            this.dgvLastPurchase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvLastPurchase.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLastPurchase.Name = "dgvLastPurchase";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -477,7 +477,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.dgtemp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgtemp.Location = new System.Drawing.Point(4, 534);
-            this.dgtemp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgtemp.Margin = new System.Windows.Forms.Padding(4);
             this.dgtemp.Name = "dgtemp";
             this.dgtemp.RowHeadersWidth = 51;
             this.dgtemp.Size = new System.Drawing.Size(15, 34);
@@ -490,7 +490,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlPaymentDetails.Controls.Add(this.dgPaymentDetails);
             this.pnlPaymentDetails.Controls.Add(this.lblPaymentDetails);
             this.pnlPaymentDetails.Location = new System.Drawing.Point(435, 132);
-            this.pnlPaymentDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlPaymentDetails.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPaymentDetails.Name = "pnlPaymentDetails";
             this.pnlPaymentDetails.Size = new System.Drawing.Size(599, 206);
             this.pnlPaymentDetails.TabIndex = 1067;
@@ -567,7 +567,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlEditProduct.Controls.Add(this.lblProdName);
             this.pnlEditProduct.Controls.Add(this.lblEditProductTitle);
             this.pnlEditProduct.Location = new System.Drawing.Point(124, -130);
-            this.pnlEditProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlEditProduct.Margin = new System.Windows.Forms.Padding(4);
             this.pnlEditProduct.Name = "pnlEditProduct";
             this.pnlEditProduct.Size = new System.Drawing.Size(919, 184);
             this.pnlEditProduct.TabIndex = 1108;
@@ -637,7 +637,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtUOM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUOM.Location = new System.Drawing.Point(299, 89);
-            this.txtUOM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUOM.Margin = new System.Windows.Forms.Padding(4);
             this.txtUOM.Name = "txtUOM";
             this.txtUOM.Size = new System.Drawing.Size(97, 26);
             this.txtUOM.TabIndex = 4;
@@ -662,7 +662,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbProductCategory1.DisplayColumnNo = 1;
             this.mcbProductCategory1.DropDownHeight = 200;
             this.mcbProductCategory1.Location = new System.Drawing.Point(159, 146);
-            this.mcbProductCategory1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mcbProductCategory1.Margin = new System.Windows.Forms.Padding(5);
             this.mcbProductCategory1.Name = "mcbProductCategory1";
             this.mcbProductCategory1.SelectedID = "";
             this.mcbProductCategory1.SelectedIDtest = 0;
@@ -743,7 +743,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbGenCatOpStock.DisplayColumnNo = 1;
             this.mcbGenCatOpStock.DropDownHeight = 200;
             this.mcbGenCatOpStock.Location = new System.Drawing.Point(159, 117);
-            this.mcbGenCatOpStock.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mcbGenCatOpStock.Margin = new System.Windows.Forms.Padding(5);
             this.mcbGenCatOpStock.Name = "mcbGenCatOpStock";
             this.mcbGenCatOpStock.SelectedID = "";
             this.mcbGenCatOpStock.SelectedIDtest = 0;
@@ -763,7 +763,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCompShortName1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCompShortName1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCompShortName1.Location = new System.Drawing.Point(159, 89);
-            this.txtCompShortName1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCompShortName1.Margin = new System.Windows.Forms.Padding(4);
             this.txtCompShortName1.MaxLength = 3;
             this.txtCompShortName1.Name = "txtCompShortName1";
             this.txtCompShortName1.Size = new System.Drawing.Size(73, 27);
@@ -787,7 +787,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbSchedule1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mcbSchedule1.FormattingEnabled = true;
             this.mcbSchedule1.Location = new System.Drawing.Point(764, 89);
-            this.mcbSchedule1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mcbSchedule1.Margin = new System.Windows.Forms.Padding(4);
             this.mcbSchedule1.Name = "mcbSchedule1";
             this.mcbSchedule1.Size = new System.Drawing.Size(61, 27);
             this.mcbSchedule1.TabIndex = 10;
@@ -822,7 +822,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbShelfNoOpStock.DisplayColumnNo = 1;
             this.mcbShelfNoOpStock.DropDownHeight = 200;
             this.mcbShelfNoOpStock.Location = new System.Drawing.Point(764, 60);
-            this.mcbShelfNoOpStock.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mcbShelfNoOpStock.Margin = new System.Windows.Forms.Padding(5);
             this.mcbShelfNoOpStock.Name = "mcbShelfNoOpStock";
             this.mcbShelfNoOpStock.SelectedID = "";
             this.mcbShelfNoOpStock.SelectedIDtest = 0;
@@ -887,7 +887,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbCompany1.DisplayColumnNo = 1;
             this.mcbCompany1.DropDownHeight = 200;
             this.mcbCompany1.Location = new System.Drawing.Point(159, 60);
-            this.mcbCompany1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mcbCompany1.Margin = new System.Windows.Forms.Padding(5);
             this.mcbCompany1.Name = "mcbCompany1";
             this.mcbCompany1.SelectedID = "";
             this.mcbCompany1.SelectedIDtest = 0;
@@ -907,7 +907,7 @@ namespace EcoMart.InterfaceLayer
             this.txtIsDataOK.BackColor = System.Drawing.Color.Snow;
             this.txtIsDataOK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIsDataOK.Location = new System.Drawing.Point(764, 148);
-            this.txtIsDataOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIsDataOK.Margin = new System.Windows.Forms.Padding(4);
             this.txtIsDataOK.MaxLength = 1;
             this.txtIsDataOK.Name = "txtIsDataOK";
             this.txtIsDataOK.Size = new System.Drawing.Size(29, 28);
@@ -1080,7 +1080,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlProductDetail1.Controls.Add(this.lblProductDetails);
             this.pnlProductDetail1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlProductDetail1.Location = new System.Drawing.Point(0, 0);
-            this.pnlProductDetail1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlProductDetail1.Margin = new System.Windows.Forms.Padding(4);
             this.pnlProductDetail1.Name = "pnlProductDetail1";
             this.pnlProductDetail1.Size = new System.Drawing.Size(919, 470);
             this.pnlProductDetail1.TabIndex = 1072;
@@ -1091,7 +1091,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPTR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPTR.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPTR.Location = new System.Drawing.Point(185, 321);
-            this.txtPTR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPTR.Margin = new System.Windows.Forms.Padding(4);
             this.txtPTR.MaxLength = 50;
             this.txtPTR.Name = "txtPTR";
             this.txtPTR.Size = new System.Drawing.Size(122, 30);
@@ -1109,7 +1109,7 @@ namespace EcoMart.InterfaceLayer
             this.txtProfitPercentage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProfitPercentage.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProfitPercentage.Location = new System.Drawing.Point(185, 321);
-            this.txtProfitPercentage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProfitPercentage.Margin = new System.Windows.Forms.Padding(4);
             this.txtProfitPercentage.MaxLength = 50;
             this.txtProfitPercentage.Name = "txtProfitPercentage";
             this.txtProfitPercentage.Size = new System.Drawing.Size(122, 30);
@@ -1118,6 +1118,7 @@ namespace EcoMart.InterfaceLayer
             this.txtProfitPercentage.Tag = "0.00";
             this.txtProfitPercentage.Text = "0.00";
             this.txtProfitPercentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtProfitPercentage.TextChanged += new System.EventHandler(this.txtProfitPercentage_TextChanged);
             this.txtProfitPercentage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProfitPercentage_KeyDown);
             // 
             // lblProfitPercent
@@ -1150,7 +1151,7 @@ namespace EcoMart.InterfaceLayer
             this.lblpendingscheme.BackColor = System.Drawing.Color.Transparent;
             this.lblpendingscheme.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpendingscheme.Location = new System.Drawing.Point(495, 54);
-            this.lblpendingscheme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblpendingscheme.Margin = new System.Windows.Forms.Padding(4);
             this.lblpendingscheme.Name = "lblpendingscheme";
             this.lblpendingscheme.Size = new System.Drawing.Size(81, 44);
             this.lblpendingscheme.TabIndex = 1083;
@@ -1160,7 +1161,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtPendingScheme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPendingScheme.Location = new System.Drawing.Point(592, 63);
-            this.txtPendingScheme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPendingScheme.Margin = new System.Windows.Forms.Padding(4);
             this.txtPendingScheme.Name = "txtPendingScheme";
             this.txtPendingScheme.Size = new System.Drawing.Size(78, 26);
             this.txtPendingScheme.TabIndex = 1082;
@@ -1237,7 +1238,7 @@ namespace EcoMart.InterfaceLayer
             this.txtMargin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMargin.Enabled = false;
             this.txtMargin.Location = new System.Drawing.Point(373, 414);
-            this.txtMargin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMargin.Margin = new System.Windows.Forms.Padding(4);
             this.txtMargin.Name = "txtMargin";
             this.txtMargin.Size = new System.Drawing.Size(79, 26);
             this.txtMargin.TabIndex = 44;
@@ -1245,7 +1246,7 @@ namespace EcoMart.InterfaceLayer
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(695, 405);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 37);
             this.btnCancel.TabIndex = 15;
@@ -1260,7 +1261,7 @@ namespace EcoMart.InterfaceLayer
             this.txtMargin2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMargin2.Enabled = false;
             this.txtMargin2.Location = new System.Drawing.Point(484, 414);
-            this.txtMargin2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMargin2.Margin = new System.Windows.Forms.Padding(4);
             this.txtMargin2.Name = "txtMargin2";
             this.txtMargin2.Size = new System.Drawing.Size(79, 26);
             this.txtMargin2.TabIndex = 45;
@@ -1284,7 +1285,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCashDisountPerUnit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCashDisountPerUnit.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCashDisountPerUnit.Location = new System.Drawing.Point(840, 407);
-            this.txtCashDisountPerUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCashDisountPerUnit.Margin = new System.Windows.Forms.Padding(4);
             this.txtCashDisountPerUnit.MaxLength = 15;
             this.txtCashDisountPerUnit.Name = "txtCashDisountPerUnit";
             this.txtCashDisountPerUnit.Size = new System.Drawing.Size(13, 30);
@@ -1300,7 +1301,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSplDiscountPerUnit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSplDiscountPerUnit.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSplDiscountPerUnit.Location = new System.Drawing.Point(805, 407);
-            this.txtSplDiscountPerUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSplDiscountPerUnit.Margin = new System.Windows.Forms.Padding(4);
             this.txtSplDiscountPerUnit.MaxLength = 15;
             this.txtSplDiscountPerUnit.Name = "txtSplDiscountPerUnit";
             this.txtSplDiscountPerUnit.Size = new System.Drawing.Size(18, 30);
@@ -1313,7 +1314,7 @@ namespace EcoMart.InterfaceLayer
             // btnOK
             // 
             this.btnOK.Location = new System.Drawing.Point(588, 405);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(84, 38);
             this.btnOK.TabIndex = 14;
@@ -1330,7 +1331,7 @@ namespace EcoMart.InterfaceLayer
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(677, 69);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label4.Margin = new System.Windows.Forms.Padding(4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 22);
             this.label4.TabIndex = 1074;
@@ -1343,7 +1344,7 @@ namespace EcoMart.InterfaceLayer
             this.txtDiscountAmt.Enabled = false;
             this.txtDiscountAmt.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscountAmt.Location = new System.Drawing.Point(316, 223);
-            this.txtDiscountAmt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiscountAmt.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiscountAmt.MaxLength = 50;
             this.txtDiscountAmt.Name = "txtDiscountAmt";
             this.txtDiscountAmt.ReadOnly = true;
@@ -1384,7 +1385,7 @@ namespace EcoMart.InterfaceLayer
             this.lblFreeQuantity.BackColor = System.Drawing.Color.Transparent;
             this.lblFreeQuantity.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFreeQuantity.Location = new System.Drawing.Point(309, 69);
-            this.lblFreeQuantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblFreeQuantity.Margin = new System.Windows.Forms.Padding(4);
             this.lblFreeQuantity.Name = "lblFreeQuantity";
             this.lblFreeQuantity.Size = new System.Drawing.Size(80, 22);
             this.lblFreeQuantity.TabIndex = 135;
@@ -1395,7 +1396,7 @@ namespace EcoMart.InterfaceLayer
             this.txtExpiredDays.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtExpiredDays.Enabled = false;
             this.txtExpiredDays.Location = new System.Drawing.Point(471, 127);
-            this.txtExpiredDays.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtExpiredDays.Margin = new System.Windows.Forms.Padding(4);
             this.txtExpiredDays.Name = "txtExpiredDays";
             this.txtExpiredDays.ReadOnly = true;
             this.txtExpiredDays.Size = new System.Drawing.Size(117, 26);
@@ -1417,7 +1418,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtStockID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtStockID.Location = new System.Drawing.Point(879, 28);
-            this.txtStockID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStockID.Margin = new System.Windows.Forms.Padding(4);
             this.txtStockID.MaxLength = 50;
             this.txtStockID.Name = "txtStockID";
             this.txtStockID.Size = new System.Drawing.Size(25, 28);
@@ -1462,7 +1463,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtReplacement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtReplacement.Location = new System.Drawing.Point(879, 102);
-            this.txtReplacement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtReplacement.Margin = new System.Windows.Forms.Padding(4);
             this.txtReplacement.Name = "txtReplacement";
             this.txtReplacement.Size = new System.Drawing.Size(22, 26);
             this.txtReplacement.TabIndex = 28;
@@ -1485,7 +1486,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtSchemeQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSchemeQuantity.Location = new System.Drawing.Point(397, 65);
-            this.txtSchemeQuantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSchemeQuantity.Margin = new System.Windows.Forms.Padding(4);
             this.txtSchemeQuantity.Name = "txtSchemeQuantity";
             this.txtSchemeQuantity.Size = new System.Drawing.Size(93, 26);
             this.txtSchemeQuantity.TabIndex = 2;
@@ -1510,7 +1511,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbShelf.DisplayColumnNo = 1;
             this.mcbShelf.DropDownHeight = 200;
             this.mcbShelf.Location = new System.Drawing.Point(599, 358);
-            this.mcbShelf.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mcbShelf.Margin = new System.Windows.Forms.Padding(5);
             this.mcbShelf.Name = "mcbShelf";
             this.mcbShelf.SelectedID = "";
             this.mcbShelf.SelectedIDtest = 0;
@@ -1529,7 +1530,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtBatch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBatch.Location = new System.Drawing.Point(185, 95);
-            this.txtBatch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBatch.Margin = new System.Windows.Forms.Padding(4);
             this.txtBatch.MaxLength = 50;
             this.txtBatch.Name = "txtBatch";
             this.txtBatch.Size = new System.Drawing.Size(174, 28);
@@ -1542,7 +1543,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtExpiry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtExpiry.Location = new System.Drawing.Point(185, 126);
-            this.txtExpiry.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtExpiry.Margin = new System.Windows.Forms.Padding(4);
             this.txtExpiry.MaxLength = 4;
             this.txtExpiry.Name = "txtExpiry";
             this.txtExpiry.Size = new System.Drawing.Size(122, 28);
@@ -1556,7 +1557,7 @@ namespace EcoMart.InterfaceLayer
             this.txtTradeRate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTradeRate.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTradeRate.Location = new System.Drawing.Point(185, 190);
-            this.txtTradeRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTradeRate.Margin = new System.Windows.Forms.Padding(4);
             this.txtTradeRate.MaxLength = 50;
             this.txtTradeRate.Name = "txtTradeRate";
             this.txtTradeRate.Size = new System.Drawing.Size(122, 30);
@@ -1586,7 +1587,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPurchaseVATAmt.Enabled = false;
             this.txtPurchaseVATAmt.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurchaseVATAmt.Location = new System.Drawing.Point(316, 256);
-            this.txtPurchaseVATAmt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPurchaseVATAmt.Margin = new System.Windows.Forms.Padding(4);
             this.txtPurchaseVATAmt.MaxLength = 50;
             this.txtPurchaseVATAmt.Name = "txtPurchaseVATAmt";
             this.txtPurchaseVATAmt.ReadOnly = true;
@@ -1601,7 +1602,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtScanCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtScanCode.Location = new System.Drawing.Point(599, 324);
-            this.txtScanCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtScanCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtScanCode.MaxLength = 50;
             this.txtScanCode.Name = "txtScanCode";
             this.txtScanCode.Size = new System.Drawing.Size(251, 28);
@@ -1616,7 +1617,7 @@ namespace EcoMart.InterfaceLayer
             this.txtItemDiscountPer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtItemDiscountPer.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemDiscountPer.Location = new System.Drawing.Point(185, 223);
-            this.txtItemDiscountPer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtItemDiscountPer.Margin = new System.Windows.Forms.Padding(4);
             this.txtItemDiscountPer.MaxLength = 20;
             this.txtItemDiscountPer.Name = "txtItemDiscountPer";
             this.txtItemDiscountPer.Size = new System.Drawing.Size(122, 30);
@@ -1642,7 +1643,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQuantity.Location = new System.Drawing.Point(185, 65);
-            this.txtQuantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQuantity.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(118, 26);
             this.txtQuantity.TabIndex = 1;
@@ -1655,7 +1656,7 @@ namespace EcoMart.InterfaceLayer
             this.txtMasterVATPer.Enabled = false;
             this.txtMasterVATPer.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMasterVATPer.Location = new System.Drawing.Point(599, 256);
-            this.txtMasterVATPer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMasterVATPer.Margin = new System.Windows.Forms.Padding(4);
             this.txtMasterVATPer.MaxLength = 50;
             this.txtMasterVATPer.Name = "txtMasterVATPer";
             this.txtMasterVATPer.ReadOnly = true;
@@ -1671,7 +1672,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPurchaseVATPer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPurchaseVATPer.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurchaseVATPer.Location = new System.Drawing.Point(185, 256);
-            this.txtPurchaseVATPer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPurchaseVATPer.Margin = new System.Windows.Forms.Padding(4);
             this.txtPurchaseVATPer.MaxLength = 20;
             this.txtPurchaseVATPer.Name = "txtPurchaseVATPer";
             this.txtPurchaseVATPer.ReadOnly = true;
@@ -1689,7 +1690,7 @@ namespace EcoMart.InterfaceLayer
             this.txtMasterVATAmt.Enabled = false;
             this.txtMasterVATAmt.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMasterVATAmt.Location = new System.Drawing.Point(725, 256);
-            this.txtMasterVATAmt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMasterVATAmt.Margin = new System.Windows.Forms.Padding(4);
             this.txtMasterVATAmt.MaxLength = 50;
             this.txtMasterVATAmt.Name = "txtMasterVATAmt";
             this.txtMasterVATAmt.ReadOnly = true;
@@ -1705,7 +1706,7 @@ namespace EcoMart.InterfaceLayer
             this.txtMRP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMRP.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMRP.Location = new System.Drawing.Point(185, 156);
-            this.txtMRP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMRP.Margin = new System.Windows.Forms.Padding(4);
             this.txtMRP.MaxLength = 50;
             this.txtMRP.Name = "txtMRP";
             this.txtMRP.Size = new System.Drawing.Size(122, 30);
@@ -1746,7 +1747,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSchemePer.Enabled = false;
             this.txtSchemePer.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSchemePer.Location = new System.Drawing.Point(599, 223);
-            this.txtSchemePer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSchemePer.Margin = new System.Windows.Forms.Padding(4);
             this.txtSchemePer.MaxLength = 20;
             this.txtSchemePer.Name = "txtSchemePer";
             this.txtSchemePer.ReadOnly = true;
@@ -1773,7 +1774,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCSTAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCSTAmount.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCSTAmount.Location = new System.Drawing.Point(395, 170);
-            this.txtCSTAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCSTAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtCSTAmount.MaxLength = 50;
             this.txtCSTAmount.Name = "txtCSTAmount";
             this.txtCSTAmount.ReadOnly = true;
@@ -1789,7 +1790,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCSTPer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCSTPer.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCSTPer.Location = new System.Drawing.Point(365, 171);
-            this.txtCSTPer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCSTPer.Margin = new System.Windows.Forms.Padding(4);
             this.txtCSTPer.MaxLength = 20;
             this.txtCSTPer.Name = "txtCSTPer";
             this.txtCSTPer.Size = new System.Drawing.Size(21, 30);
@@ -1817,7 +1818,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSchemeAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSchemeAmount.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSchemeAmount.Location = new System.Drawing.Point(771, 63);
-            this.txtSchemeAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSchemeAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtSchemeAmount.MaxLength = 50;
             this.txtSchemeAmount.Name = "txtSchemeAmount";
             this.txtSchemeAmount.Size = new System.Drawing.Size(90, 30);
@@ -1845,7 +1846,7 @@ namespace EcoMart.InterfaceLayer
             this.txtExpiryDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtExpiryDate.Enabled = false;
             this.txtExpiryDate.Location = new System.Drawing.Point(725, 126);
-            this.txtExpiryDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtExpiryDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtExpiryDate.MaxLength = 50;
             this.txtExpiryDate.Name = "txtExpiryDate";
             this.txtExpiryDate.ReadOnly = true;
@@ -1884,7 +1885,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSaleRate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSaleRate.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSaleRate.Location = new System.Drawing.Point(185, 354);
-            this.txtSaleRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSaleRate.Margin = new System.Windows.Forms.Padding(4);
             this.txtSaleRate.MaxLength = 50;
             this.txtSaleRate.Name = "txtSaleRate";
             this.txtSaleRate.Size = new System.Drawing.Size(122, 30);
@@ -1893,6 +1894,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSaleRate.Tag = "0.00";
             this.txtSaleRate.Text = "0.00";
             this.txtSaleRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSaleRate.TextChanged += new System.EventHandler(this.txtSaleRate_TextChanged);
             this.txtSaleRate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSaleRate_KeyDown);
             // 
             // lblSchemeInRupees
@@ -1914,7 +1916,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPurchaseRate.Enabled = false;
             this.txtPurchaseRate.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurchaseRate.Location = new System.Drawing.Point(185, 289);
-            this.txtPurchaseRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPurchaseRate.Margin = new System.Windows.Forms.Padding(4);
             this.txtPurchaseRate.MaxLength = 50;
             this.txtPurchaseRate.Name = "txtPurchaseRate";
             this.txtPurchaseRate.ReadOnly = true;
@@ -1945,7 +1947,7 @@ namespace EcoMart.InterfaceLayer
             this.txtAmount.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount.ForeColor = System.Drawing.Color.DeepPink;
             this.txtAmount.Location = new System.Drawing.Point(185, 389);
-            this.txtAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtAmount.MaxLength = 50;
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.ReadOnly = true;
@@ -1987,7 +1989,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPurZeroVAT.Enabled = false;
             this.txtPurZeroVAT.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurZeroVAT.Location = new System.Drawing.Point(599, 289);
-            this.txtPurZeroVAT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPurZeroVAT.Margin = new System.Windows.Forms.Padding(4);
             this.txtPurZeroVAT.MaxLength = 50;
             this.txtPurZeroVAT.Name = "txtPurZeroVAT";
             this.txtPurZeroVAT.Size = new System.Drawing.Size(122, 30);
@@ -2017,7 +2019,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlDebitCreditNote.Controls.Add(this.btnCRDBOK);
             this.pnlDebitCreditNote.Controls.Add(this.lblDebitCreditNote);
             this.pnlDebitCreditNote.Location = new System.Drawing.Point(84, 374);
-            this.pnlDebitCreditNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDebitCreditNote.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDebitCreditNote.Name = "pnlDebitCreditNote";
             this.pnlDebitCreditNote.Size = new System.Drawing.Size(807, 224);
             this.pnlDebitCreditNote.TabIndex = 1012;
@@ -2031,7 +2033,7 @@ namespace EcoMart.InterfaceLayer
             this.dgCreditNote.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
             this.dgCreditNote.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCreditNote.Location = new System.Drawing.Point(9, 27);
-            this.dgCreditNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgCreditNote.Margin = new System.Windows.Forms.Padding(4);
             this.dgCreditNote.Name = "dgCreditNote";
             this.dgCreditNote.RowHeadersWidth = 51;
             this.dgCreditNote.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2042,7 +2044,7 @@ namespace EcoMart.InterfaceLayer
             // btnCRDBOK
             // 
             this.btnCRDBOK.Location = new System.Drawing.Point(723, 171);
-            this.btnCRDBOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCRDBOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnCRDBOK.Name = "btnCRDBOK";
             this.btnCRDBOK.Size = new System.Drawing.Size(69, 47);
             this.btnCRDBOK.TabIndex = 1013;
@@ -2078,7 +2080,7 @@ namespace EcoMart.InterfaceLayer
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBatchGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBatchGrid.Location = new System.Drawing.Point(105, 261);
-            this.dgvBatchGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvBatchGrid.Margin = new System.Windows.Forms.Padding(4);
             this.dgvBatchGrid.MultiSelect = false;
             this.dgvBatchGrid.Name = "dgvBatchGrid";
             this.dgvBatchGrid.ReadOnly = true;
@@ -2096,7 +2098,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlProductDetail.Controls.Add(this.pnlProductDetail2);
             this.pnlProductDetail.Controls.Add(this.pnlProductDetail1);
             this.pnlProductDetail.Location = new System.Drawing.Point(225, 210);
-            this.pnlProductDetail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlProductDetail.Margin = new System.Windows.Forms.Padding(4);
             this.pnlProductDetail.Name = "pnlProductDetail";
             this.pnlProductDetail.Size = new System.Drawing.Size(921, 448);
             this.pnlProductDetail.TabIndex = 1010;
@@ -2108,7 +2110,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlProductDetail2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlProductDetail2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlProductDetail2.Location = new System.Drawing.Point(0, 434);
-            this.pnlProductDetail2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlProductDetail2.Margin = new System.Windows.Forms.Padding(4);
             this.pnlProductDetail2.Name = "pnlProductDetail2";
             this.pnlProductDetail2.Size = new System.Drawing.Size(919, 12);
             this.pnlProductDetail2.TabIndex = 1073;
@@ -2153,7 +2155,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlSummary.Controls.Add(this.label11);
             this.pnlSummary.Controls.Add(this.textBox1);
             this.pnlSummary.Location = new System.Drawing.Point(412, 79);
-            this.pnlSummary.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSummary.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSummary.Name = "pnlSummary";
             this.pnlSummary.Size = new System.Drawing.Size(907, 477);
             this.pnlSummary.TabIndex = 1008;
@@ -2166,7 +2168,7 @@ namespace EcoMart.InterfaceLayer
             this.txtAmountS.Enabled = false;
             this.txtAmountS.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmountS.Location = new System.Drawing.Point(635, 389);
-            this.txtAmountS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAmountS.Margin = new System.Windows.Forms.Padding(4);
             this.txtAmountS.MaxLength = 15;
             this.txtAmountS.Name = "txtAmountS";
             this.txtAmountS.Size = new System.Drawing.Size(13, 26);
@@ -2181,7 +2183,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSpecialDiscountAmountS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSpecialDiscountAmountS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSpecialDiscountAmountS.Location = new System.Drawing.Point(228, 281);
-            this.txtSpecialDiscountAmountS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSpecialDiscountAmountS.Margin = new System.Windows.Forms.Padding(4);
             this.txtSpecialDiscountAmountS.MaxLength = 15;
             this.txtSpecialDiscountAmountS.Name = "txtSpecialDiscountAmountS";
             this.txtSpecialDiscountAmountS.ReadOnly = true;
@@ -2211,7 +2213,7 @@ namespace EcoMart.InterfaceLayer
             this.txtLessS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLessS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLessS.Location = new System.Drawing.Point(228, 217);
-            this.txtLessS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLessS.Margin = new System.Windows.Forms.Padding(4);
             this.txtLessS.MaxLength = 15;
             this.txtLessS.Name = "txtLessS";
             this.txtLessS.Size = new System.Drawing.Size(178, 30);
@@ -2238,7 +2240,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCashDiscountAmountS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCashDiscountAmountS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCashDiscountAmountS.Location = new System.Drawing.Point(228, 249);
-            this.txtCashDiscountAmountS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCashDiscountAmountS.Margin = new System.Windows.Forms.Padding(4);
             this.txtCashDiscountAmountS.MaxLength = 15;
             this.txtCashDiscountAmountS.Name = "txtCashDiscountAmountS";
             this.txtCashDiscountAmountS.ShortcutsEnabled = false;
@@ -2256,7 +2258,7 @@ namespace EcoMart.InterfaceLayer
             this.txtTotalS.Enabled = false;
             this.txtTotalS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalS.Location = new System.Drawing.Point(228, 314);
-            this.txtTotalS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotalS.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalS.MaxLength = 15;
             this.txtTotalS.Name = "txtTotalS";
             this.txtTotalS.Size = new System.Drawing.Size(178, 30);
@@ -2283,7 +2285,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPurchaseAmountVATZeroS.Enabled = false;
             this.txtPurchaseAmountVATZeroS.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurchaseAmountVATZeroS.Location = new System.Drawing.Point(576, 389);
-            this.txtPurchaseAmountVATZeroS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPurchaseAmountVATZeroS.Margin = new System.Windows.Forms.Padding(4);
             this.txtPurchaseAmountVATZeroS.MaxLength = 15;
             this.txtPurchaseAmountVATZeroS.Name = "txtPurchaseAmountVATZeroS";
             this.txtPurchaseAmountVATZeroS.Size = new System.Drawing.Size(13, 26);
@@ -2296,7 +2298,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.btnCRDBNote.BackColor = System.Drawing.Color.Transparent;
             this.btnCRDBNote.Location = new System.Drawing.Point(20, 139);
-            this.btnCRDBNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCRDBNote.Margin = new System.Windows.Forms.Padding(4);
             this.btnCRDBNote.Name = "btnCRDBNote";
             this.btnCRDBNote.Size = new System.Drawing.Size(48, 42);
             this.btnCRDBNote.TabIndex = 142;
@@ -2311,7 +2313,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPurchaseAmountVAT12point5S.Enabled = false;
             this.txtPurchaseAmountVAT12point5S.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurchaseAmountVAT12point5S.Location = new System.Drawing.Point(591, 389);
-            this.txtPurchaseAmountVAT12point5S.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPurchaseAmountVAT12point5S.Margin = new System.Windows.Forms.Padding(4);
             this.txtPurchaseAmountVAT12point5S.MaxLength = 15;
             this.txtPurchaseAmountVAT12point5S.Name = "txtPurchaseAmountVAT12point5S";
             this.txtPurchaseAmountVAT12point5S.Size = new System.Drawing.Size(13, 26);
@@ -2327,7 +2329,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPurchaseAmountVAT5S.Enabled = false;
             this.txtPurchaseAmountVAT5S.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPurchaseAmountVAT5S.Location = new System.Drawing.Point(605, 389);
-            this.txtPurchaseAmountVAT5S.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPurchaseAmountVAT5S.Margin = new System.Windows.Forms.Padding(4);
             this.txtPurchaseAmountVAT5S.MaxLength = 15;
             this.txtPurchaseAmountVAT5S.Name = "txtPurchaseAmountVAT5S";
             this.txtPurchaseAmountVAT5S.Size = new System.Drawing.Size(13, 26);
@@ -2343,7 +2345,7 @@ namespace EcoMart.InterfaceLayer
             this.txtNetAmountS.Enabled = false;
             this.txtNetAmountS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNetAmountS.Location = new System.Drawing.Point(228, 422);
-            this.txtNetAmountS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNetAmountS.Margin = new System.Windows.Forms.Padding(4);
             this.txtNetAmountS.MaxLength = 15;
             this.txtNetAmountS.Name = "txtNetAmountS";
             this.txtNetAmountS.Size = new System.Drawing.Size(178, 30);
@@ -2370,7 +2372,7 @@ namespace EcoMart.InterfaceLayer
             this.txtRoundUPS.Enabled = false;
             this.txtRoundUPS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoundUPS.Location = new System.Drawing.Point(228, 367);
-            this.txtRoundUPS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRoundUPS.Margin = new System.Windows.Forms.Padding(4);
             this.txtRoundUPS.MaxLength = 15;
             this.txtRoundUPS.Name = "txtRoundUPS";
             this.txtRoundUPS.Size = new System.Drawing.Size(90, 30);
@@ -2388,7 +2390,7 @@ namespace EcoMart.InterfaceLayer
             this.cbRound.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbRound.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbRound.Location = new System.Drawing.Point(65, 369);
-            this.cbRound.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbRound.Margin = new System.Windows.Forms.Padding(4);
             this.cbRound.Name = "cbRound";
             this.cbRound.Size = new System.Drawing.Size(115, 22);
             this.cbRound.TabIndex = 39;
@@ -2401,7 +2403,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.btnCancelS.BackColor = System.Drawing.Color.White;
             this.btnCancelS.Location = new System.Drawing.Point(704, 388);
-            this.btnCancelS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelS.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelS.Name = "btnCancelS";
             this.btnCancelS.Size = new System.Drawing.Size(100, 28);
             this.btnCancelS.TabIndex = 36;
@@ -2416,7 +2418,7 @@ namespace EcoMart.InterfaceLayer
             this.txtProfitPerS.Enabled = false;
             this.txtProfitPerS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProfitPerS.Location = new System.Drawing.Point(625, 293);
-            this.txtProfitPerS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProfitPerS.Margin = new System.Windows.Forms.Padding(4);
             this.txtProfitPerS.MaxLength = 15;
             this.txtProfitPerS.Name = "txtProfitPerS";
             this.txtProfitPerS.Size = new System.Drawing.Size(90, 30);
@@ -2429,7 +2431,7 @@ namespace EcoMart.InterfaceLayer
             this.txtDBAmountS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDBAmountS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDBAmountS.Location = new System.Drawing.Point(228, 153);
-            this.txtDBAmountS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDBAmountS.Margin = new System.Windows.Forms.Padding(4);
             this.txtDBAmountS.MaxLength = 15;
             this.txtDBAmountS.Name = "txtDBAmountS";
             this.txtDBAmountS.Size = new System.Drawing.Size(178, 30);
@@ -2443,7 +2445,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCRAmountS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCRAmountS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCRAmountS.Location = new System.Drawing.Point(228, 121);
-            this.txtCRAmountS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCRAmountS.Margin = new System.Windows.Forms.Padding(4);
             this.txtCRAmountS.MaxLength = 15;
             this.txtCRAmountS.Name = "txtCRAmountS";
             this.txtCRAmountS.Size = new System.Drawing.Size(178, 30);
@@ -2457,7 +2459,7 @@ namespace EcoMart.InterfaceLayer
             this.txtAddOnS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAddOnS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddOnS.Location = new System.Drawing.Point(228, 185);
-            this.txtAddOnS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddOnS.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddOnS.MaxLength = 15;
             this.txtAddOnS.Name = "txtAddOnS";
             this.txtAddOnS.Size = new System.Drawing.Size(178, 30);
@@ -2473,7 +2475,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSchemeDiscountS.Enabled = false;
             this.txtSchemeDiscountS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSchemeDiscountS.Location = new System.Drawing.Point(228, 57);
-            this.txtSchemeDiscountS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSchemeDiscountS.Margin = new System.Windows.Forms.Padding(4);
             this.txtSchemeDiscountS.MaxLength = 15;
             this.txtSchemeDiscountS.Name = "txtSchemeDiscountS";
             this.txtSchemeDiscountS.Size = new System.Drawing.Size(178, 30);
@@ -2488,7 +2490,7 @@ namespace EcoMart.InterfaceLayer
             this.txtItemDiscountS.Enabled = false;
             this.txtItemDiscountS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemDiscountS.Location = new System.Drawing.Point(228, 89);
-            this.txtItemDiscountS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtItemDiscountS.Margin = new System.Windows.Forms.Padding(4);
             this.txtItemDiscountS.MaxLength = 15;
             this.txtItemDiscountS.Name = "txtItemDiscountS";
             this.txtItemDiscountS.Size = new System.Drawing.Size(178, 30);
@@ -2503,7 +2505,7 @@ namespace EcoMart.InterfaceLayer
             this.txtBillAmountS.Enabled = false;
             this.txtBillAmountS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBillAmountS.Location = new System.Drawing.Point(228, 25);
-            this.txtBillAmountS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBillAmountS.Margin = new System.Windows.Forms.Padding(4);
             this.txtBillAmountS.MaxLength = 15;
             this.txtBillAmountS.Name = "txtBillAmountS";
             this.txtBillAmountS.Size = new System.Drawing.Size(178, 30);
@@ -2605,7 +2607,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlBank.Controls.Add(this.lblChqDate);
             this.pnlBank.Controls.Add(this.lblBankName);
             this.pnlBank.Location = new System.Drawing.Point(421, 44);
-            this.pnlBank.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlBank.Margin = new System.Windows.Forms.Padding(4);
             this.pnlBank.Name = "pnlBank";
             this.pnlBank.Size = new System.Drawing.Size(390, 184);
             this.pnlBank.TabIndex = 5;
@@ -2618,7 +2620,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbBank.DisplayColumnNo = 1;
             this.mcbBank.DropDownHeight = 200;
             this.mcbBank.Location = new System.Drawing.Point(5, 144);
-            this.mcbBank.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mcbBank.Margin = new System.Windows.Forms.Padding(5);
             this.mcbBank.Name = "mcbBank";
             this.mcbBank.SelectedID = "";
             this.mcbBank.SelectedIDtest = 0;
@@ -2637,7 +2639,7 @@ namespace EcoMart.InterfaceLayer
             this.datePickerChqDate.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePickerChqDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePickerChqDate.Location = new System.Drawing.Point(101, 74);
-            this.datePickerChqDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.datePickerChqDate.Margin = new System.Windows.Forms.Padding(4);
             this.datePickerChqDate.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.datePickerChqDate.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.datePickerChqDate.Name = "datePickerChqDate";
@@ -2662,7 +2664,7 @@ namespace EcoMart.InterfaceLayer
             this.txtChequeNumber.BackColor = System.Drawing.Color.GhostWhite;
             this.txtChequeNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtChequeNumber.Location = new System.Drawing.Point(101, 32);
-            this.txtChequeNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtChequeNumber.Margin = new System.Windows.Forms.Padding(4);
             this.txtChequeNumber.MaxLength = 50;
             this.txtChequeNumber.Name = "txtChequeNumber";
             this.txtChequeNumber.Size = new System.Drawing.Size(275, 28);
@@ -2711,7 +2713,7 @@ namespace EcoMart.InterfaceLayer
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(905, 24);
             this.textBox1.TabIndex = 1018;
@@ -2766,7 +2768,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.btnSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSummary.Location = new System.Drawing.Point(755, -1);
-            this.btnSummary.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSummary.Margin = new System.Windows.Forms.Padding(4);
             this.btnSummary.Name = "btnSummary";
             this.btnSummary.Size = new System.Drawing.Size(121, 28);
             this.btnSummary.TabIndex = 11;
@@ -2819,7 +2821,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlBillDetails.Controls.Add(this.dgBills);
             this.pnlBillDetails.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBillDetails.Location = new System.Drawing.Point(0, 0);
-            this.pnlBillDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlBillDetails.Margin = new System.Windows.Forms.Padding(4);
             this.pnlBillDetails.Name = "pnlBillDetails";
             this.pnlBillDetails.Size = new System.Drawing.Size(1599, 219);
             this.pnlBillDetails.TabIndex = 3;
@@ -2841,7 +2843,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.pnlType.Controls.Add(this.cbTransactionType);
             this.pnlType.Location = new System.Drawing.Point(67, 1);
-            this.pnlType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlType.Margin = new System.Windows.Forms.Padding(4);
             this.pnlType.Name = "pnlType";
             this.pnlType.Size = new System.Drawing.Size(229, 34);
             this.pnlType.TabIndex = 1108;
@@ -2857,7 +2859,7 @@ namespace EcoMart.InterfaceLayer
             this.cbTransactionType.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cbTransactionType.FormattingEnabled = true;
             this.cbTransactionType.Location = new System.Drawing.Point(4, 0);
-            this.cbTransactionType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTransactionType.Margin = new System.Windows.Forms.Padding(4);
             this.cbTransactionType.Name = "cbTransactionType";
             this.cbTransactionType.Size = new System.Drawing.Size(220, 33);
             this.cbTransactionType.TabIndex = 1097;
@@ -2865,7 +2867,7 @@ namespace EcoMart.InterfaceLayer
             // btnChallan
             // 
             this.btnChallan.Location = new System.Drawing.Point(971, -2);
-            this.btnChallan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChallan.Margin = new System.Windows.Forms.Padding(4);
             this.btnChallan.Name = "btnChallan";
             this.btnChallan.Size = new System.Drawing.Size(13, 34);
             this.btnChallan.TabIndex = 1107;
@@ -2878,7 +2880,7 @@ namespace EcoMart.InterfaceLayer
             // btnImport
             // 
             this.btnImport.Location = new System.Drawing.Point(783, 1);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(4);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(123, 34);
             this.btnImport.TabIndex = 1106;
@@ -2909,7 +2911,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlVou.Controls.Add(this.datePickerBillDate);
             this.pnlVou.Controls.Add(this.txtVouchernumber);
             this.pnlVou.Location = new System.Drawing.Point(999, 2);
-            this.pnlVou.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlVou.Margin = new System.Windows.Forms.Padding(4);
             this.pnlVou.Name = "pnlVou";
             this.pnlVou.Size = new System.Drawing.Size(288, 122);
             this.pnlVou.TabIndex = 1102;
@@ -2929,7 +2931,7 @@ namespace EcoMart.InterfaceLayer
             this.txtVoucherSeries.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVoucherSeries.IsNumericDataSet = false;
             this.txtVoucherSeries.Location = new System.Drawing.Point(124, 92);
-            this.txtVoucherSeries.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVoucherSeries.Margin = new System.Windows.Forms.Padding(4);
             this.txtVoucherSeries.Name = "txtVoucherSeries";
             this.txtVoucherSeries.Size = new System.Drawing.Size(133, 26);
             this.txtVoucherSeries.TabIndex = 1086;
@@ -2980,7 +2982,7 @@ namespace EcoMart.InterfaceLayer
             this.datePickerBillDate.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePickerBillDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePickerBillDate.Location = new System.Drawing.Point(124, 63);
-            this.datePickerBillDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.datePickerBillDate.Margin = new System.Windows.Forms.Padding(4);
             this.datePickerBillDate.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.datePickerBillDate.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.datePickerBillDate.Name = "datePickerBillDate";
@@ -2996,7 +2998,7 @@ namespace EcoMart.InterfaceLayer
             this.txtVouchernumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVouchernumber.Enabled = false;
             this.txtVouchernumber.Location = new System.Drawing.Point(124, 32);
-            this.txtVouchernumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVouchernumber.Margin = new System.Windows.Forms.Padding(4);
             this.txtVouchernumber.MaxLength = 50;
             this.txtVouchernumber.Name = "txtVouchernumber";
             this.txtVouchernumber.ReadOnly = true;
@@ -3011,7 +3013,7 @@ namespace EcoMart.InterfaceLayer
             this.btnPrintBarCode.BackColor = System.Drawing.Color.Snow;
             this.btnPrintBarCode.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintBarCode.Location = new System.Drawing.Point(803, 107);
-            this.btnPrintBarCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPrintBarCode.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrintBarCode.Name = "btnPrintBarCode";
             this.btnPrintBarCode.Size = new System.Drawing.Size(183, 28);
             this.btnPrintBarCode.TabIndex = 1096;
@@ -3036,7 +3038,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPendingCN.Enabled = false;
             this.txtPendingCN.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPendingCN.Location = new System.Drawing.Point(619, 79);
-            this.txtPendingCN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPendingCN.Margin = new System.Windows.Forms.Padding(4);
             this.txtPendingCN.MaxLength = 15;
             this.txtPendingCN.Name = "txtPendingCN";
             this.txtPendingCN.ShortcutsEnabled = false;
@@ -3074,7 +3076,7 @@ namespace EcoMart.InterfaceLayer
             this.txtViewVat12point5per.Enabled = false;
             this.txtViewVat12point5per.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtViewVat12point5per.Location = new System.Drawing.Point(801, 181);
-            this.txtViewVat12point5per.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtViewVat12point5per.Margin = new System.Windows.Forms.Padding(4);
             this.txtViewVat12point5per.MaxLength = 15;
             this.txtViewVat12point5per.Name = "txtViewVat12point5per";
             this.txtViewVat12point5per.ReadOnly = true;
@@ -3092,7 +3094,7 @@ namespace EcoMart.InterfaceLayer
             this.txtViewVat5per.Enabled = false;
             this.txtViewVat5per.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtViewVat5per.Location = new System.Drawing.Point(675, 181);
-            this.txtViewVat5per.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtViewVat5per.Margin = new System.Windows.Forms.Padding(4);
             this.txtViewVat5per.MaxLength = 15;
             this.txtViewVat5per.Name = "txtViewVat5per";
             this.txtViewVat5per.ReadOnly = true;
@@ -3110,7 +3112,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbCreditor.DisplayColumnNo = 1;
             this.mcbCreditor.DropDownHeight = 200;
             this.mcbCreditor.Location = new System.Drawing.Point(136, 39);
-            this.mcbCreditor.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mcbCreditor.Margin = new System.Windows.Forms.Padding(5);
             this.mcbCreditor.Name = "mcbCreditor";
             this.mcbCreditor.SelectedID = "";
             this.mcbCreditor.SelectedIDtest = 0;
@@ -3134,7 +3136,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPreCashDiscountAmountS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPreCashDiscountAmountS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPreCashDiscountAmountS.Location = new System.Drawing.Point(225, 181);
-            this.txtPreCashDiscountAmountS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPreCashDiscountAmountS.Margin = new System.Windows.Forms.Padding(4);
             this.txtPreCashDiscountAmountS.MaxLength = 15;
             this.txtPreCashDiscountAmountS.Name = "txtPreCashDiscountAmountS";
             this.txtPreCashDiscountAmountS.ShortcutsEnabled = false;
@@ -3152,7 +3154,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlAddress.Controls.Add(this.txtAddress2);
             this.pnlAddress.Enabled = false;
             this.pnlAddress.Location = new System.Drawing.Point(136, 71);
-            this.pnlAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlAddress.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAddress.Name = "pnlAddress";
             this.pnlAddress.Size = new System.Drawing.Size(430, 46);
             this.pnlAddress.TabIndex = 10;
@@ -3164,7 +3166,7 @@ namespace EcoMart.InterfaceLayer
             this.txtAddress1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAddress1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress1.Location = new System.Drawing.Point(1, 1);
-            this.txtAddress1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddress1.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.ReadOnly = true;
             this.txtAddress1.Size = new System.Drawing.Size(423, 20);
@@ -3177,7 +3179,7 @@ namespace EcoMart.InterfaceLayer
             this.txtAddress2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAddress2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress2.Location = new System.Drawing.Point(1, 21);
-            this.txtAddress2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddress2.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.ReadOnly = true;
             this.txtAddress2.Size = new System.Drawing.Size(423, 20);
@@ -3279,7 +3281,7 @@ namespace EcoMart.InterfaceLayer
             this.txtpuramount12point5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtpuramount12point5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpuramount12point5.Location = new System.Drawing.Point(1025, 130);
-            this.txtpuramount12point5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtpuramount12point5.Margin = new System.Windows.Forms.Padding(4);
             this.txtpuramount12point5.MaxLength = 15;
             this.txtpuramount12point5.Name = "txtpuramount12point5";
             this.txtpuramount12point5.ReadOnly = true;
@@ -3297,7 +3299,7 @@ namespace EcoMart.InterfaceLayer
             this.txtpuramount0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtpuramount0.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpuramount0.Location = new System.Drawing.Point(996, 130);
-            this.txtpuramount0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtpuramount0.Margin = new System.Windows.Forms.Padding(4);
             this.txtpuramount0.MaxLength = 15;
             this.txtpuramount0.Name = "txtpuramount0";
             this.txtpuramount0.ReadOnly = true;
@@ -3314,7 +3316,7 @@ namespace EcoMart.InterfaceLayer
             this.btnPaymentHistory.BackColor = System.Drawing.Color.Snow;
             this.btnPaymentHistory.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPaymentHistory.Location = new System.Drawing.Point(620, 107);
-            this.btnPaymentHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPaymentHistory.Margin = new System.Windows.Forms.Padding(4);
             this.btnPaymentHistory.Name = "btnPaymentHistory";
             this.btnPaymentHistory.Size = new System.Drawing.Size(183, 28);
             this.btnPaymentHistory.TabIndex = 1025;
@@ -3327,7 +3329,7 @@ namespace EcoMart.InterfaceLayer
             this.txtBillNumber.BackColor = System.Drawing.Color.White;
             this.txtBillNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBillNumber.Location = new System.Drawing.Point(136, 119);
-            this.txtBillNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBillNumber.Margin = new System.Windows.Forms.Padding(4);
             this.txtBillNumber.MaxLength = 18;
             this.txtBillNumber.Name = "txtBillNumber";
             this.txtBillNumber.Size = new System.Drawing.Size(274, 28);
@@ -3342,7 +3344,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPendingBalance.Enabled = false;
             this.txtPendingBalance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPendingBalance.Location = new System.Drawing.Point(803, 79);
-            this.txtPendingBalance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPendingBalance.Margin = new System.Windows.Forms.Padding(4);
             this.txtPendingBalance.MaxLength = 15;
             this.txtPendingBalance.Name = "txtPendingBalance";
             this.txtPendingBalance.ShortcutsEnabled = false;
@@ -3357,7 +3359,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCashDiscountPerS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCashDiscountPerS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCashDiscountPerS.Location = new System.Drawing.Point(136, 181);
-            this.txtCashDiscountPerS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCashDiscountPerS.Margin = new System.Windows.Forms.Padding(4);
             this.txtCashDiscountPerS.MaxLength = 15;
             this.txtCashDiscountPerS.Name = "txtCashDiscountPerS";
             this.txtCashDiscountPerS.Size = new System.Drawing.Size(87, 30);
@@ -3374,7 +3376,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSplDiscPerS.Enabled = false;
             this.txtSplDiscPerS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSplDiscPerS.Location = new System.Drawing.Point(455, 181);
-            this.txtSplDiscPerS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSplDiscPerS.Margin = new System.Windows.Forms.Padding(4);
             this.txtSplDiscPerS.MaxLength = 15;
             this.txtSplDiscPerS.Name = "txtSplDiscPerS";
             this.txtSplDiscPerS.ShortcutsEnabled = false;
@@ -3391,7 +3393,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSplDiscountS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSplDiscountS.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSplDiscountS.Location = new System.Drawing.Point(544, 181);
-            this.txtSplDiscountS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSplDiscountS.Margin = new System.Windows.Forms.Padding(4);
             this.txtSplDiscountS.MaxLength = 15;
             this.txtSplDiscountS.Name = "txtSplDiscountS";
             this.txtSplDiscountS.Size = new System.Drawing.Size(129, 30);
@@ -3399,9 +3401,9 @@ namespace EcoMart.InterfaceLayer
             this.txtSplDiscountS.Tag = "";
             this.txtSplDiscountS.Text = "0.00";
             this.txtSplDiscountS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSplDiscountS.Visible = false;
             this.txtSplDiscountS.TextChanged += new System.EventHandler(this.txtSplDiscountS_TextChanged);
             this.txtSplDiscountS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSpecialDiscountS_KeyDown);
-            this.txtSplDiscountS.Visible = false;
             // 
             // txtBillAmount
             // 
@@ -3410,7 +3412,7 @@ namespace EcoMart.InterfaceLayer
             this.txtBillAmount.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBillAmount.ForeColor = System.Drawing.Color.DeepPink;
             this.txtBillAmount.Location = new System.Drawing.Point(1019, 164);
-            this.txtBillAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBillAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtBillAmount.MaxLength = 15;
             this.txtBillAmount.Name = "txtBillAmount";
             this.txtBillAmount.ReadOnly = true;
@@ -3427,7 +3429,7 @@ namespace EcoMart.InterfaceLayer
             this.txtNarration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNarration.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNarration.Location = new System.Drawing.Point(136, 150);
-            this.txtNarration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNarration.Margin = new System.Windows.Forms.Padding(4);
             this.txtNarration.MaxLength = 50;
             this.txtNarration.Name = "txtNarration";
             this.txtNarration.Size = new System.Drawing.Size(535, 28);
@@ -3439,7 +3441,7 @@ namespace EcoMart.InterfaceLayer
             // btnDownLoad
             // 
             this.btnDownLoad.Location = new System.Drawing.Point(661, 1);
-            this.btnDownLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDownLoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnDownLoad.Name = "btnDownLoad";
             this.btnDownLoad.Size = new System.Drawing.Size(123, 34);
             this.btnDownLoad.TabIndex = 1104;
@@ -3453,7 +3455,7 @@ namespace EcoMart.InterfaceLayer
             this.txtpuramount5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtpuramount5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpuramount5.Location = new System.Drawing.Point(1009, 130);
-            this.txtpuramount5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtpuramount5.Margin = new System.Windows.Forms.Padding(4);
             this.txtpuramount5.MaxLength = 15;
             this.txtpuramount5.Name = "txtpuramount5";
             this.txtpuramount5.ReadOnly = true;
@@ -3473,7 +3475,7 @@ namespace EcoMart.InterfaceLayer
             this.dgBills.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
             this.dgBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgBills.Location = new System.Drawing.Point(12, 36);
-            this.dgBills.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgBills.Margin = new System.Windows.Forms.Padding(4);
             this.dgBills.Name = "dgBills";
             this.dgBills.RowHeadersWidth = 51;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3525,7 +3527,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlGST.Controls.Add(this.label18);
             this.pnlGST.Controls.Add(this.textBox2);
             this.pnlGST.Location = new System.Drawing.Point(8, 74);
-            this.pnlGST.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlGST.Margin = new System.Windows.Forms.Padding(4);
             this.pnlGST.Name = "pnlGST";
             this.pnlGST.Size = new System.Drawing.Size(597, 348);
             this.pnlGST.TabIndex = 1109;
@@ -3552,7 +3554,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlIGST.Controls.Add(this.label44);
             this.pnlIGST.Controls.Add(this.lblIGST5);
             this.pnlIGST.Location = new System.Drawing.Point(24, 150);
-            this.pnlIGST.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlIGST.Margin = new System.Windows.Forms.Padding(4);
             this.pnlIGST.Name = "pnlIGST";
             this.pnlIGST.Size = new System.Drawing.Size(436, 348);
             this.pnlIGST.TabIndex = 1110;
@@ -3563,7 +3565,7 @@ namespace EcoMart.InterfaceLayer
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(0, 0);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(436, 24);
             this.textBox3.TabIndex = 1065;
@@ -3575,7 +3577,7 @@ namespace EcoMart.InterfaceLayer
             this.txtIPUR28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIPUR28.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIPUR28.Location = new System.Drawing.Point(121, 310);
-            this.txtIPUR28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIPUR28.Margin = new System.Windows.Forms.Padding(4);
             this.txtIPUR28.MaxLength = 15;
             this.txtIPUR28.Name = "txtIPUR28";
             this.txtIPUR28.ShortcutsEnabled = false;
@@ -3591,7 +3593,7 @@ namespace EcoMart.InterfaceLayer
             this.txtIPUR18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIPUR18.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIPUR18.Location = new System.Drawing.Point(121, 278);
-            this.txtIPUR18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIPUR18.Margin = new System.Windows.Forms.Padding(4);
             this.txtIPUR18.MaxLength = 15;
             this.txtIPUR18.Name = "txtIPUR18";
             this.txtIPUR18.ShortcutsEnabled = false;
@@ -3607,7 +3609,7 @@ namespace EcoMart.InterfaceLayer
             this.txtIPUR12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIPUR12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIPUR12.Location = new System.Drawing.Point(121, 246);
-            this.txtIPUR12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIPUR12.Margin = new System.Windows.Forms.Padding(4);
             this.txtIPUR12.MaxLength = 15;
             this.txtIPUR12.Name = "txtIPUR12";
             this.txtIPUR12.ShortcutsEnabled = false;
@@ -3623,7 +3625,7 @@ namespace EcoMart.InterfaceLayer
             this.txtIPUR5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIPUR5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIPUR5.Location = new System.Drawing.Point(121, 214);
-            this.txtIPUR5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIPUR5.Margin = new System.Windows.Forms.Padding(4);
             this.txtIPUR5.MaxLength = 15;
             this.txtIPUR5.Name = "txtIPUR5";
             this.txtIPUR5.ShortcutsEnabled = false;
@@ -3639,7 +3641,7 @@ namespace EcoMart.InterfaceLayer
             this.txtIPUR0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIPUR0.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIPUR0.Location = new System.Drawing.Point(121, 176);
-            this.txtIPUR0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIPUR0.Margin = new System.Windows.Forms.Padding(4);
             this.txtIPUR0.MaxLength = 15;
             this.txtIPUR0.Name = "txtIPUR0";
             this.txtIPUR0.ShortcutsEnabled = false;
@@ -3655,7 +3657,7 @@ namespace EcoMart.InterfaceLayer
             this.txtIGST28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIGST28.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIGST28.Location = new System.Drawing.Point(121, 132);
-            this.txtIGST28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIGST28.Margin = new System.Windows.Forms.Padding(4);
             this.txtIGST28.MaxLength = 15;
             this.txtIGST28.Name = "txtIGST28";
             this.txtIGST28.ShortcutsEnabled = false;
@@ -3671,7 +3673,7 @@ namespace EcoMart.InterfaceLayer
             this.txtIGST18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIGST18.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIGST18.Location = new System.Drawing.Point(121, 98);
-            this.txtIGST18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIGST18.Margin = new System.Windows.Forms.Padding(4);
             this.txtIGST18.MaxLength = 15;
             this.txtIGST18.Name = "txtIGST18";
             this.txtIGST18.ShortcutsEnabled = false;
@@ -3687,7 +3689,7 @@ namespace EcoMart.InterfaceLayer
             this.txtIGST12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIGST12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIGST12.Location = new System.Drawing.Point(121, 68);
-            this.txtIGST12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIGST12.Margin = new System.Windows.Forms.Padding(4);
             this.txtIGST12.MaxLength = 15;
             this.txtIGST12.Name = "txtIGST12";
             this.txtIGST12.ReadOnly = true;
@@ -3705,7 +3707,7 @@ namespace EcoMart.InterfaceLayer
             this.txtIGST5.Enabled = false;
             this.txtIGST5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIGST5.Location = new System.Drawing.Point(121, 36);
-            this.txtIGST5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIGST5.Margin = new System.Windows.Forms.Padding(4);
             this.txtIGST5.MaxLength = 15;
             this.txtIGST5.Name = "txtIGST5";
             this.txtIGST5.ShortcutsEnabled = false;
@@ -3829,7 +3831,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCPUR28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCPUR28.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPUR28.Location = new System.Drawing.Point(425, 302);
-            this.txtCPUR28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCPUR28.Margin = new System.Windows.Forms.Padding(4);
             this.txtCPUR28.MaxLength = 15;
             this.txtCPUR28.Name = "txtCPUR28";
             this.txtCPUR28.ShortcutsEnabled = false;
@@ -3845,7 +3847,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCPUR18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCPUR18.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPUR18.Location = new System.Drawing.Point(425, 270);
-            this.txtCPUR18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCPUR18.Margin = new System.Windows.Forms.Padding(4);
             this.txtCPUR18.MaxLength = 15;
             this.txtCPUR18.Name = "txtCPUR18";
             this.txtCPUR18.ShortcutsEnabled = false;
@@ -3861,7 +3863,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCPUR12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCPUR12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPUR12.Location = new System.Drawing.Point(425, 238);
-            this.txtCPUR12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCPUR12.Margin = new System.Windows.Forms.Padding(4);
             this.txtCPUR12.MaxLength = 15;
             this.txtCPUR12.Name = "txtCPUR12";
             this.txtCPUR12.ShortcutsEnabled = false;
@@ -3877,7 +3879,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCPUR5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCPUR5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPUR5.Location = new System.Drawing.Point(425, 206);
-            this.txtCPUR5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCPUR5.Margin = new System.Windows.Forms.Padding(4);
             this.txtCPUR5.MaxLength = 15;
             this.txtCPUR5.Name = "txtCPUR5";
             this.txtCPUR5.ShortcutsEnabled = false;
@@ -3893,7 +3895,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCPUR0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCPUR0.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPUR0.Location = new System.Drawing.Point(567, 174);
-            this.txtCPUR0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCPUR0.Margin = new System.Windows.Forms.Padding(4);
             this.txtCPUR0.MaxLength = 15;
             this.txtCPUR0.Name = "txtCPUR0";
             this.txtCPUR0.ShortcutsEnabled = false;
@@ -3910,7 +3912,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCGST28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCGST28.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCGST28.Location = new System.Drawing.Point(425, 123);
-            this.txtCGST28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCGST28.Margin = new System.Windows.Forms.Padding(4);
             this.txtCGST28.MaxLength = 15;
             this.txtCGST28.Name = "txtCGST28";
             this.txtCGST28.ShortcutsEnabled = false;
@@ -3926,7 +3928,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCGST18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCGST18.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCGST18.Location = new System.Drawing.Point(425, 90);
-            this.txtCGST18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCGST18.Margin = new System.Windows.Forms.Padding(4);
             this.txtCGST18.MaxLength = 15;
             this.txtCGST18.Name = "txtCGST18";
             this.txtCGST18.ShortcutsEnabled = false;
@@ -3942,7 +3944,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCGST12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCGST12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCGST12.Location = new System.Drawing.Point(425, 59);
-            this.txtCGST12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCGST12.Margin = new System.Windows.Forms.Padding(4);
             this.txtCGST12.MaxLength = 15;
             this.txtCGST12.Name = "txtCGST12";
             this.txtCGST12.ShortcutsEnabled = false;
@@ -3958,7 +3960,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCGST5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCGST5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCGST5.Location = new System.Drawing.Point(425, 27);
-            this.txtCGST5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCGST5.Margin = new System.Windows.Forms.Padding(4);
             this.txtCGST5.MaxLength = 15;
             this.txtCGST5.Name = "txtCGST5";
             this.txtCGST5.ShortcutsEnabled = false;
@@ -3974,7 +3976,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSPUR28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSPUR28.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSPUR28.Location = new System.Drawing.Point(123, 303);
-            this.txtSPUR28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSPUR28.Margin = new System.Windows.Forms.Padding(4);
             this.txtSPUR28.MaxLength = 15;
             this.txtSPUR28.Name = "txtSPUR28";
             this.txtSPUR28.ShortcutsEnabled = false;
@@ -3990,7 +3992,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSPUR18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSPUR18.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSPUR18.Location = new System.Drawing.Point(123, 271);
-            this.txtSPUR18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSPUR18.Margin = new System.Windows.Forms.Padding(4);
             this.txtSPUR18.MaxLength = 15;
             this.txtSPUR18.Name = "txtSPUR18";
             this.txtSPUR18.ShortcutsEnabled = false;
@@ -4006,7 +4008,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSPUR12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSPUR12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSPUR12.Location = new System.Drawing.Point(123, 239);
-            this.txtSPUR12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSPUR12.Margin = new System.Windows.Forms.Padding(4);
             this.txtSPUR12.MaxLength = 15;
             this.txtSPUR12.Name = "txtSPUR12";
             this.txtSPUR12.ShortcutsEnabled = false;
@@ -4022,7 +4024,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSPUR5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSPUR5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSPUR5.Location = new System.Drawing.Point(123, 207);
-            this.txtSPUR5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSPUR5.Margin = new System.Windows.Forms.Padding(4);
             this.txtSPUR5.MaxLength = 15;
             this.txtSPUR5.Name = "txtSPUR5";
             this.txtSPUR5.ShortcutsEnabled = false;
@@ -4038,7 +4040,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSPUR0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSPUR0.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSPUR0.Location = new System.Drawing.Point(249, 175);
-            this.txtSPUR0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSPUR0.Margin = new System.Windows.Forms.Padding(4);
             this.txtSPUR0.MaxLength = 15;
             this.txtSPUR0.Name = "txtSPUR0";
             this.txtSPUR0.ShortcutsEnabled = false;
@@ -4054,7 +4056,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSGST28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSGST28.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSGST28.Location = new System.Drawing.Point(123, 124);
-            this.txtSGST28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSGST28.Margin = new System.Windows.Forms.Padding(4);
             this.txtSGST28.MaxLength = 15;
             this.txtSGST28.Name = "txtSGST28";
             this.txtSGST28.ShortcutsEnabled = false;
@@ -4070,7 +4072,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSGST18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSGST18.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSGST18.Location = new System.Drawing.Point(123, 91);
-            this.txtSGST18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSGST18.Margin = new System.Windows.Forms.Padding(4);
             this.txtSGST18.MaxLength = 15;
             this.txtSGST18.Name = "txtSGST18";
             this.txtSGST18.ShortcutsEnabled = false;
@@ -4086,7 +4088,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSGST12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSGST12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSGST12.Location = new System.Drawing.Point(123, 60);
-            this.txtSGST12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSGST12.Margin = new System.Windows.Forms.Padding(4);
             this.txtSGST12.MaxLength = 15;
             this.txtSGST12.Name = "txtSGST12";
             this.txtSGST12.ShortcutsEnabled = false;
@@ -4102,7 +4104,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSGST5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSGST5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSGST5.Location = new System.Drawing.Point(123, 28);
-            this.txtSGST5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSGST5.Margin = new System.Windows.Forms.Padding(4);
             this.txtSGST5.MaxLength = 15;
             this.txtSGST5.Name = "txtSGST5";
             this.txtSGST5.ShortcutsEnabled = false;
@@ -4335,7 +4337,7 @@ namespace EcoMart.InterfaceLayer
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(0, 0);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(597, 24);
             this.textBox2.TabIndex = 1019;
@@ -4400,7 +4402,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.dgvBarCode.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBarCode.Location = new System.Drawing.Point(181, 681);
-            this.dgvBarCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvBarCode.Margin = new System.Windows.Forms.Padding(4);
             this.dgvBarCode.Name = "dgvBarCode";
             this.dgvBarCode.RowHeadersWidth = 51;
             this.dgvBarCode.Size = new System.Drawing.Size(92, 34);
@@ -4415,7 +4417,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlPurchaseOrder.Controls.Add(this.btnPurchaseOrderOK);
             this.pnlPurchaseOrder.Controls.Add(this.label5);
             this.pnlPurchaseOrder.Location = new System.Drawing.Point(205, 288);
-            this.pnlPurchaseOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlPurchaseOrder.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPurchaseOrder.Name = "pnlPurchaseOrder";
             this.pnlPurchaseOrder.Size = new System.Drawing.Size(818, 230);
             this.pnlPurchaseOrder.TabIndex = 1105;
@@ -4426,7 +4428,7 @@ namespace EcoMart.InterfaceLayer
             this.dgPurchaseOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgPurchaseOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgPurchaseOrder.Location = new System.Drawing.Point(13, 48);
-            this.dgPurchaseOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgPurchaseOrder.Margin = new System.Windows.Forms.Padding(4);
             this.dgPurchaseOrder.Name = "dgPurchaseOrder";
             this.dgPurchaseOrder.RowHeadersWidth = 51;
             this.dgPurchaseOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -4440,7 +4442,7 @@ namespace EcoMart.InterfaceLayer
             // btnPurchaseOrderOK
             // 
             this.btnPurchaseOrderOK.Location = new System.Drawing.Point(696, 4);
-            this.btnPurchaseOrderOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPurchaseOrderOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnPurchaseOrderOK.Name = "btnPurchaseOrderOK";
             this.btnPurchaseOrderOK.Size = new System.Drawing.Size(92, 36);
             this.btnPurchaseOrderOK.TabIndex = 1026;
@@ -4488,7 +4490,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlEnterScheme.Controls.Add(this.lblQty1);
             this.pnlEnterScheme.Controls.Add(this.lblStar1);
             this.pnlEnterScheme.Location = new System.Drawing.Point(351, 126);
-            this.pnlEnterScheme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlEnterScheme.Margin = new System.Windows.Forms.Padding(4);
             this.pnlEnterScheme.Name = "pnlEnterScheme";
             this.pnlEnterScheme.Size = new System.Drawing.Size(917, 365);
             this.pnlEnterScheme.TabIndex = 1110;
@@ -4499,7 +4501,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSchemeProduct.Enabled = false;
             this.txtSchemeProduct.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSchemeProduct.Location = new System.Drawing.Point(333, 73);
-            this.txtSchemeProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSchemeProduct.Margin = new System.Windows.Forms.Padding(4);
             this.txtSchemeProduct.Name = "txtSchemeProduct";
             this.txtSchemeProduct.ReadOnly = true;
             this.txtSchemeProduct.Size = new System.Drawing.Size(541, 30);
@@ -4510,7 +4512,7 @@ namespace EcoMart.InterfaceLayer
             this.btnOKEnterScheme.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnOKEnterScheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOKEnterScheme.Location = new System.Drawing.Point(739, 290);
-            this.btnOKEnterScheme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOKEnterScheme.Margin = new System.Windows.Forms.Padding(4);
             this.btnOKEnterScheme.Name = "btnOKEnterScheme";
             this.btnOKEnterScheme.Size = new System.Drawing.Size(100, 54);
             this.btnOKEnterScheme.TabIndex = 174;
@@ -4523,7 +4525,7 @@ namespace EcoMart.InterfaceLayer
             this.txtEnterScheme.BackColor = System.Drawing.Color.Snow;
             this.txtEnterScheme.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEnterScheme.Location = new System.Drawing.Point(335, 15);
-            this.txtEnterScheme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEnterScheme.Margin = new System.Windows.Forms.Padding(4);
             this.txtEnterScheme.Name = "txtEnterScheme";
             this.txtEnterScheme.Size = new System.Drawing.Size(47, 36);
             this.txtEnterScheme.TabIndex = 173;
@@ -4624,7 +4626,7 @@ namespace EcoMart.InterfaceLayer
             this.txtScheme1.BackColor = System.Drawing.SystemColors.Window;
             this.txtScheme1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtScheme1.Location = new System.Drawing.Point(535, 238);
-            this.txtScheme1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtScheme1.Margin = new System.Windows.Forms.Padding(4);
             this.txtScheme1.MaxLength = 50;
             this.txtScheme1.Name = "txtScheme1";
             this.txtScheme1.Size = new System.Drawing.Size(106, 28);
@@ -4640,7 +4642,7 @@ namespace EcoMart.InterfaceLayer
             this.datePickerClosingDate.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePickerClosingDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePickerClosingDate.Location = new System.Drawing.Point(669, 196);
-            this.datePickerClosingDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.datePickerClosingDate.Margin = new System.Windows.Forms.Padding(4);
             this.datePickerClosingDate.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.datePickerClosingDate.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.datePickerClosingDate.Name = "datePickerClosingDate";
@@ -4655,7 +4657,7 @@ namespace EcoMart.InterfaceLayer
             this.datePickerStartDate.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePickerStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePickerStartDate.Location = new System.Drawing.Point(333, 193);
-            this.datePickerStartDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.datePickerStartDate.Margin = new System.Windows.Forms.Padding(4);
             this.datePickerStartDate.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.datePickerStartDate.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.datePickerStartDate.Name = "datePickerStartDate";
@@ -4668,7 +4670,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtScheme3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtScheme3.Location = new System.Drawing.Point(535, 305);
-            this.txtScheme3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtScheme3.Margin = new System.Windows.Forms.Padding(4);
             this.txtScheme3.Name = "txtScheme3";
             this.txtScheme3.Size = new System.Drawing.Size(105, 32);
             this.txtScheme3.TabIndex = 156;
@@ -4679,7 +4681,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtQuantity3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantity3.Location = new System.Drawing.Point(333, 305);
-            this.txtQuantity3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQuantity3.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuantity3.Name = "txtQuantity3";
             this.txtQuantity3.Size = new System.Drawing.Size(105, 32);
             this.txtQuantity3.TabIndex = 155;
@@ -4690,7 +4692,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtScheme2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtScheme2.Location = new System.Drawing.Point(535, 270);
-            this.txtScheme2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtScheme2.Margin = new System.Windows.Forms.Padding(4);
             this.txtScheme2.Name = "txtScheme2";
             this.txtScheme2.Size = new System.Drawing.Size(105, 32);
             this.txtScheme2.TabIndex = 154;
@@ -4701,7 +4703,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtQuantity2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantity2.Location = new System.Drawing.Point(333, 270);
-            this.txtQuantity2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQuantity2.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuantity2.Name = "txtQuantity2";
             this.txtQuantity2.Size = new System.Drawing.Size(105, 32);
             this.txtQuantity2.TabIndex = 153;
@@ -4712,7 +4714,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtQuantity1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantity1.Location = new System.Drawing.Point(333, 234);
-            this.txtQuantity1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQuantity1.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuantity1.Name = "txtQuantity1";
             this.txtQuantity1.Size = new System.Drawing.Size(105, 32);
             this.txtQuantity1.TabIndex = 151;
@@ -4725,7 +4727,7 @@ namespace EcoMart.InterfaceLayer
             this.txtcompanyShortName.Enabled = false;
             this.txtcompanyShortName.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcompanyShortName.Location = new System.Drawing.Point(333, 139);
-            this.txtcompanyShortName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtcompanyShortName.Margin = new System.Windows.Forms.Padding(4);
             this.txtcompanyShortName.Name = "txtcompanyShortName";
             this.txtcompanyShortName.ReadOnly = true;
             this.txtcompanyShortName.Size = new System.Drawing.Size(105, 30);
@@ -4737,7 +4739,7 @@ namespace EcoMart.InterfaceLayer
             this.txtSchemePack.Enabled = false;
             this.txtSchemePack.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSchemePack.Location = new System.Drawing.Point(333, 106);
-            this.txtSchemePack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSchemePack.Margin = new System.Windows.Forms.Padding(4);
             this.txtSchemePack.Name = "txtSchemePack";
             this.txtSchemePack.ReadOnly = true;
             this.txtSchemePack.Size = new System.Drawing.Size(133, 30);
@@ -4773,7 +4775,7 @@ namespace EcoMart.InterfaceLayer
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "UclPurchase";
             this.Size = new System.Drawing.Size(1601, 763);
             this.Load += new System.EventHandler(this.UclPurchase_Load);
