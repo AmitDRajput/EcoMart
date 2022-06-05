@@ -4560,9 +4560,6 @@ namespace EcoMart.InterfaceLayer
                 else
                     btnPrintBarCode.Visible = false;
                 _Purchase.VoucherSubType = "1";
-
-
-
             }
             catch (Exception Ex)
             {
@@ -5619,16 +5616,19 @@ namespace EcoMart.InterfaceLayer
                 }
                 if ((mqty + mscm + mrepl) <= 0)
                 {
+                    retValue = false;
                     lblFooterMessage.Text = "Enter Quantity or Scheme Quantity";
                     txtQuantity.Focus();
                 }
                 else if (mprate == 0)
                 {
+                    retValue = false;
                     lblFooterMessage.Text = "PurchaseRate should be > 0";
                     txtPurchaseRate.Focus();
                 }
                 else if (mtrate > mmrp)
                 {
+                    retValue = false;
                     lblFooterMessage.Text = "Trade Rate should be < MRP";
                     txtTradeRate.Focus();
                 }
@@ -5663,6 +5663,7 @@ namespace EcoMart.InterfaceLayer
                                         }
                                         else
                                         {
+                                            retValue = false;
                                             lblFooterMessage.Text = "Please Check Expiry Date";
                                             txtExpiry.Focus();
                                         }
@@ -5670,20 +5671,22 @@ namespace EcoMart.InterfaceLayer
                                     }
                                     else
                                     {
-                                        lblFooterMessage.Text = "Sale Rate > Trade Rate + Vat Amount";
-                                        txtTradeRate.Focus();
+                                        retValue = false;
+                                        lblFooterMessage.Text = "Sale Rate > Trade Rate";
+                                        txtSaleRate.Focus();
                                     }
                                 }
                                 else
                                 {
+                                    retValue = false;
                                     lblFooterMessage.Text = "Mrp > Trade Rate";
-
                                     txtTradeRate.Focus();
 
                                 }
                             }
                             else
                             {
+                                retValue = false;
                                 lblFooterMessage.Text = "Please Check Quantity,Scheme,Replacement";
                                 txtQuantity.Focus();
                             }
@@ -5692,6 +5695,7 @@ namespace EcoMart.InterfaceLayer
                         {
                             if (mqty == 0 && mscm == 0)
                             {
+                                retValue = false;
                                 lblFooterMessage.Text = "Please Check Quantity";
                                 txtQuantity.Focus();
                             }
@@ -5701,18 +5705,19 @@ namespace EcoMart.InterfaceLayer
 
                     }
                     int mvd = Convert.ToInt32(datePickerBillDate.Value.ToString("yyyyMMdd"));
-                    if (mvatper != 0 && mvatper != 5 && mvatper != 12 && mvatper != 18 && mvatper != 28)
+                    if (retValue)
                     {
-                        lblFooterMessage.Text = "Please Check GST Percent";
-                        retValue = false;
-                        tsBtnSave.Enabled = false;
+                        if (mvatper != 0 && mvatper != 5 && mvatper != 12 && mvatper != 18 && mvatper != 28)
+                        {
+                            lblFooterMessage.Text = "Please Check GST Percent";
+                            retValue = false;
+                            tsBtnSave.Enabled = false;
+                        }
+                        else
+                        {
+                            lblFooterMessage.Text = "";
+                        }
                     }
-                    else
-                    {
-                        retValue = true;
-                        lblFooterMessage.Text = "";
-                    }
-
                 }
 
             }
@@ -7552,7 +7557,8 @@ namespace EcoMart.InterfaceLayer
                     {
                         CalculatePurRateSaleRateAmountforFullGrid();
                     }
-                    txtSplDiscountS.Focus();
+                    if (mpMSVC.Rows.Count > 0)
+                        mpMSVC.SetFocus(mpMSVC.Rows.Count - 1, 1);
                 }
                 else if (e.KeyCode == Keys.Up)
                     txtNarration.Focus();
@@ -7602,7 +7608,8 @@ namespace EcoMart.InterfaceLayer
                     {
                         CalculatePurRateSaleRateAmountforFullGrid();
                     }
-                    txtSplDiscountS.Focus();
+                    if (mpMSVC.Rows.Count > 0)
+                        mpMSVC.SetFocus(mpMSVC.Rows.Count - 1, 1);
                 }
                 else if (e.KeyCode == Keys.Up)
                     txtCashDiscountPerS.Focus();
