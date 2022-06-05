@@ -95,7 +95,7 @@ namespace EcoMart.InterfaceLayer
                         General.PrintSettings = new EcoMart.Printing.PrintSettings();
                         if (General.ShopDetail.ShopDistributorSale == "Y")
                             General.PrintSettingsForDistributor = new EcoMart.Printing.PrintSettingsForDistributor();
-                        General.BackupPath.ReadBackupPath();
+                        //General.BackupPath.ReadBackupPath();
                         retvalue = true;
                     //}
                     string dd = (DateTime.Now.Date.ToString("yyyyMMdd"));

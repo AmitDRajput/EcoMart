@@ -13,17 +13,17 @@ namespace EcoMart.BusinessLayer
         #region Declaration
 
         private string _MsetPurchaseRounding;
-     //   private string _MsetPurchaseIfCreditStatementPurchase;
-      //  private string _MsetPurchaseAddVATInPurchaseRate;
-      //  private string _MsetPurchaseAddVATInSaleRate;
+        //   private string _MsetPurchaseIfCreditStatementPurchase;
+        //  private string _MsetPurchaseAddVATInPurchaseRate;
+        //  private string _MsetPurchaseAddVATInSaleRate;
         private string _MsetPurchaseReadPurchaseOrder;
-    //    private string _MsetPurchaseGetPendingScheme;
-   //     private string _MsetPurchaseIfProductWithOctroi;
-    //    private string _MsetPurchaseOctroionZeroVAT;
+        //    private string _MsetPurchaseGetPendingScheme;
+        //     private string _MsetPurchaseIfProductWithOctroi;
+        //    private string _MsetPurchaseOctroionZeroVAT;
         private string _MsetPurchaseChangeSaleRate;
-   //     private string _MsetPurchaseMarginByPurchaseRate;
+        //     private string _MsetPurchaseMarginByPurchaseRate;
         private string _MsetPurchaseAcceptExpriedItems;
-   //     private string _MsetPurchaseIncludeCreditPurchaseInStatements;
+        //     private string _MsetPurchaseIncludeCreditPurchaseInStatements;
         private string _MsetPurchaseUpdateVATInMaster;
         private string _MsetPurchaseCopyPurchaseOrder;
         private string _MsetPurchaseHold;
@@ -54,7 +54,7 @@ namespace EcoMart.BusinessLayer
         private string _MsetSaleCounterSaleSingleGrid;
 
         private string _MsetSaleTenderAmount;
-       
+
 
         private string _MsetSaleGetDelivaryBoy;
         private string _MsetSaleGetDoctor;
@@ -98,11 +98,11 @@ namespace EcoMart.BusinessLayer
         private string _MsetAskOperatorCashBankPayment;
 
         private int _MsetNumberOfLinesSaleBill;
-        private int _MsetNumberOfLinesPerPage; 
+        private int _MsetNumberOfLinesPerPage;
 
         private double _MsetGSTSPercent;
 
-        private string _SmsSetPatientSale; 
+        private string _SmsSetPatientSale;
         private string _SmsSetDebtorSale;
         private string _SmsSetCreditCardSale;
         private string _SmsSetInstitutionalSale;
@@ -110,7 +110,7 @@ namespace EcoMart.BusinessLayer
         private string _SmsSetBankReceiptSale;
         private string _SmsSetCashPaymentSale;
         private string _SmsSetCashReceiptSale;
-       
+
 
         private int _MsetNumberOfBillsAtaTime;
 
@@ -363,7 +363,7 @@ namespace EcoMart.BusinessLayer
             get { return _MsetSaleTenderAmount; }
             set { _MsetSaleTenderAmount = value; }
         }
-      
+
 
         public string MsetSaleGetDelivaryBoy
         {
@@ -382,13 +382,13 @@ namespace EcoMart.BusinessLayer
             get { return _MsetSaleGetOrderNumberDate; }
             set { _MsetSaleGetOrderNumberDate = value; }
         }
-        public string MsetCashBankShowDiscount   
+        public string MsetCashBankShowDiscount
         {
             get { return _MsetCashBankShowDiscount; }
             set { _MsetCashBankShowDiscount = value; }
         }
 
-        public string MsetAllowPrintMessage   
+        public string MsetAllowPrintMessage
         {
             get { return _MsetAllowPrintMessage; }
             set { _MsetAllowPrintMessage = value; }
@@ -588,7 +588,7 @@ namespace EcoMart.BusinessLayer
             get { return _SmsSetPatientSale; }
             set { _SmsSetPatientSale = value; }
         }
-        public string SmsSetDebtorSale  
+        public string SmsSetDebtorSale
         {
             get { return _SmsSetDebtorSale; }
             set { _SmsSetDebtorSale = value; }
@@ -782,7 +782,7 @@ namespace EcoMart.BusinessLayer
             //
             _MsetReportSaleDailySaleDoNotShowTotal = "N";
             _MsetReportSaleDailyProductsDoNotShowTotal = "N";
-            _MsetCashBankShowDiscount = "Y";    
+            _MsetCashBankShowDiscount = "Y";
 
             _SmsSetPatientSale = "N";
             _SmsSetDebtorSale = "N";
@@ -791,7 +791,7 @@ namespace EcoMart.BusinessLayer
             _SmsSetBankPaymentSale = "N";
             _SmsSetBankReceiptSale = "N";
             _SmsSetCashPaymentSale = "N";
-            _SmsSetCashReceiptSale = "N"; 
+            _SmsSetCashReceiptSale = "N";
 
             _MsetSortOrder = FixAccounts.SortByNone;
             _MsetProductNameWidthInSaleInvoice = 20;
@@ -817,132 +817,138 @@ namespace EcoMart.BusinessLayer
                         MsetPurchaseCopyPurchaseOrder = dr["setPurchaseCopyPurchaseOrder"].ToString();
                     if (dr["setPurchaseRounding"] != DBNull.Value)
                         MsetPurchaseRounding = dr["setPurchaseRounding"].ToString();
-                    if (dr["setPurchaseHold"] != DBNull.Value)
-                        MsetPurchaseHold = dr["setPurchaseHold"].ToString();
-                    if (dr["setPurchaseIfPTR"] != DBNull.Value)
-                        MsetPurchaseIfPTR = dr["setPurchaseIfPTR"].ToString();                   
                     if (dr["setPurchaseReadPurchaseOrder"] != DBNull.Value)
-                        MsetPurchaseReadPurchaseOrder = dr["setPurchaseReadPurchaseOrder"].ToString();                   
+                        MsetPurchaseReadPurchaseOrder = dr["setPurchaseReadPurchaseOrder"].ToString();
                     if (dr["setPurchaseChangeSaleRate"] != DBNull.Value)
                         MsetPurchaseChangeSaleRate = dr["setPurchaseChangeSaleRate"].ToString();
                     if (dr["setPurchaseAllowExpiredItems"] != DBNull.Value)
                         MsetPurchaseAcceptExpriedItems = dr["setPurchaseAllowExpiredItems"].ToString();
-                   // sale 
+                    if (dr["setPurchaseHold"] != DBNull.Value)
+                        MsetPurchaseHold = dr["setPurchaseHold"].ToString();
+                    if (dr["setPurchaseIfPTR"] != DBNull.Value)
+                        MsetPurchaseIfPTR = dr["setPurchaseIfPTR"].ToString();
+
+                    // sale 
                     if (dr["setSaleRoundOff"] != DBNull.Value)
                         MsetSaleRoundOff = dr["setSaleRoundOff"].ToString();
                     if (dr["setSaleCreditStatement"] != DBNull.Value)
-                        MsetSaleCreditSale = dr["setSaleCreditStatement"].ToString();
-                    if (dr["setSaleShowProfitInSaleBill"] != DBNull.Value)
-                        MsetSaleShowProfitInSaleBill = dr["setSaleShowProfitInSaleBill"].ToString(); 
+                        MsetSaleCreditSale = dr["setSaleCreditStatement"].ToString();                    
                     if (dr["setSaleAllowBackDate"] != DBNull.Value)
                         MsetSaleAllowBackDate = dr["setSaleAllowBackDate"].ToString();
-                    if (dr["setSaleMaxDiscount"] != DBNull.Value && dr["setSaleMaxDiscount"].ToString() != string.Empty)
-                        MsetSaleMaxDiscount = Convert.ToDouble(dr["setSaleMaxDiscount"].ToString());
                     if (dr["setSaleTenderAmount"] != DBNull.Value)
                         MsetSaleTenderAmount = dr["setSaleTenderAmount"].ToString();
+                    if (dr["setSaleShowProfitInSaleBill"] != DBNull.Value)
+                        MsetSaleShowProfitInSaleBill = dr["setSaleShowProfitInSaleBill"].ToString();
+                    if (dr["setSaleMaxDiscount"] != DBNull.Value && dr["setSaleMaxDiscount"].ToString() != string.Empty)
+                        MsetSaleMaxDiscount = Convert.ToDouble(dr["setSaleMaxDiscount"].ToString());
+
+                    if (dr["setSaleGetOrderNumberDate"] != DBNull.Value)
+                        MsetSaleGetOrderNumberDate = dr["setSaleGetOrderNumberDate"].ToString();
+                    if (dr["setSaleGetDoctor"] != DBNull.Value)
+                        MsetSaleGetDoctor = dr["setSaleGetDoctor"].ToString();
+                    if (dr["setSaleGetDelivaryBoy"] != DBNull.Value)
+                        MsetSaleGetDelivaryBoy = dr["setSaleGetDelivaryBoy"].ToString();
+
                     //cashbank
-                    if (dr["setCashBankShowDiscount"] != DBNull.Value) 
-                        MsetCashBankShowDiscount = dr["setCashBankShowDiscount"].ToString();
-                    //sms
-                    if (dr["SmsDebtorSaleSet"] != DBNull.Value)  
-                        SmsSetDebtorSale = dr["SmsDebtorSaleSet"].ToString();                  
-                    if (dr["SmsBankPaymentSet"] != DBNull.Value)  
-                        SmsSetBankPaymentSale = dr["SmsBankPaymentSet"].ToString();
-                    if (dr["SmsBankReceiptSet"] != DBNull.Value)  
-                        SmsSetBankReceiptSale = dr["SmsBankReceiptSet"].ToString();
-                    if (dr["SmsCashReceiptSet"] != DBNull.Value)  
-                        SmsSetCashReceiptSale  = dr["SmsCashReceiptSet"].ToString();
-                    if (dr["SmsCashPaymentSet"] != DBNull.Value)  
-                        SmsSetCashPaymentSale  = dr["SmsCashPaymentSet"].ToString();
+                    //if (dr["setCashBankShowDiscount"] != DBNull.Value)
+                    //    MsetCashBankShowDiscount = dr["setCashBankShowDiscount"].ToString();
+                    ////sms
+                    //if (dr["SmsDebtorSaleSet"] != DBNull.Value)
+                    //    SmsSetDebtorSale = dr["SmsDebtorSaleSet"].ToString();
+                    //if (dr["SmsBankPaymentSet"] != DBNull.Value)
+                    //    SmsSetBankPaymentSale = dr["SmsBankPaymentSet"].ToString();
+                    //if (dr["SmsBankReceiptSet"] != DBNull.Value)
+                    //    SmsSetBankReceiptSale = dr["SmsBankReceiptSet"].ToString();
+                    //if (dr["SmsCashReceiptSet"] != DBNull.Value)
+                    //    SmsSetCashReceiptSale = dr["SmsCashReceiptSet"].ToString();
+                    //if (dr["SmsCashPaymentSet"] != DBNull.Value)
+                    //    SmsSetCashPaymentSale = dr["SmsCashPaymentSet"].ToString();
 
-                   
+
                     //
-                    if (dr["setOpeningStockGetPercent"] != DBNull.Value && dr["setOpeningStockGetPercent"].ToString() != string.Empty)
-                        MsetOpeningStockGetPercent = Convert.ToDouble(dr["setOpeningStockGetPercent"].ToString());
-                    //general
-                   
-                    if (dr["setGeneralExpiryLast"] != DBNull.Value)
-                        MsetGeneralExpiryLast = dr["setGeneralExpiryLast"].ToString();
-                    if (dr["setGeneralBatchNumberRequired"] != DBNull.Value)
-                        MsetGeneralBatchNumberRequired = dr["setGeneralBatchNumberRequired"].ToString();
-                    if (dr["setGeneralExpiryDateRequired"] != DBNull.Value)
-                        MsetGeneralExpiryDateReuired = dr["setGeneralExpiryDateRequired"].ToString();
-                    if (dr["setGeneralAskDatesInSearch"] != DBNull.Value)
-                        MsetGeneralAskDatesInSearch = dr["setGeneralAskDatesInSearch"].ToString();
-                    if (dr["setGeneralAlphabetical"] != DBNull.Value)
-                        MsetGeneralAlphabetical = dr["setGeneralAlphabetical"].ToString();
-                    if (dr["setAskOperatorOtherThanVoucherSale"] != DBNull.Value)
-                        MsetAskOperatorOtherThanVoucherSale = dr["setAskOperatorOtherThanVoucherSale"].ToString();
-                    if (dr["setAskOperatorVoucherSale"] != DBNull.Value)
-                        MsetAskOperatorVoucherSale = dr["setAskOperatorVoucherSale"].ToString();
-                    if (dr["setScanBarCode"] != DBNull.Value)
-                        MsetScanBarCode = dr["setScanBarCode"].ToString();
+                    //if (dr["setOpeningStockGetPercent"] != DBNull.Value && dr["setOpeningStockGetPercent"].ToString() != string.Empty)
+                    //    MsetOpeningStockGetPercent = Convert.ToDouble(dr["setOpeningStockGetPercent"].ToString());
+                    ////general
 
-                    if (dr["setPrintSettingYesNo"] != DBNull.Value)
-                        _MsetAllowPrintMessage = dr["setPrintSettingYesNo"].ToString();
-                    if (dr["setPrintSaleBillPrintedPaper"] != DBNull.Value)
-                        MsetPrintSaleBill = dr["setPrintSaleBillPrintedPaper"].ToString();
-                    if (dr["setPrintCRDBNotePrintedPaper"] != DBNull.Value)
-                        MsetPrintCRDBNote = dr["setPrintCRDBNotePrintedPaper"].ToString();
-                    if (dr["setPrintCashBankVoucherPrintedPaper"] != DBNull.Value)
-                        MsetPrintCashBankVoucher = dr["setPrintCashBankVoucherPrintedPaper"].ToString();
-                    if (dr["setPrintPurchaseOrderPrintedPaper"] != DBNull.Value)
-                        MsetPrintPO = dr["setPrintPurchaseOrderPrintedPaper"].ToString();
-                    if (dr["setPrintFontName"] != DBNull.Value)
-                        MsetPrintFontName = dr["setPrintFontName"].ToString();
-                    if (dr["setPrintFontSize"] != DBNull.Value)
-                        _MsetPrintFontSize = dr["setPrintFontSize"].ToString();
-                    if (dr["setPrintFixNumberOfLines"] != DBNull.Value)
-                        _MsetPrintFixNumberOfLines = dr["setPrintFixNumberOfLines"].ToString();
-                    if (dr["setNumberOfLinesSaleBill"] != DBNull.Value)
-                        MsetNumberOfLinesSaleBill = Convert.ToInt32(dr["setNumberOfLinesSaleBill"].ToString());
-                    if (dr["setNumberOfBillsAtaTime"] != DBNull.Value)
-                        MsetNumberOfBillsAtaTime = Convert.ToInt32(dr["setNumberOfBillsAtaTime"].ToString());
-                    if (dr["setPrinterType"] != DBNull.Value)
-                        MsetPrinterType = Convert.ToInt32(dr["setPrinterType"].ToString());
-                    if (dr["setPrintFontName"] != DBNull.Value)
-                        MsetPrintFontName = dr["setPrintFontName"].ToString();
-                    if (dr["setPrintFontSize"] != DBNull.Value)
-                        MsetPrintFontSize = dr["setPrintFontSize"].ToString();
+                    //if (dr["setGeneralExpiryLast"] != DBNull.Value)
+                    //    MsetGeneralExpiryLast = dr["setGeneralExpiryLast"].ToString();
+                    //if (dr["setGeneralBatchNumberRequired"] != DBNull.Value)
+                    //    MsetGeneralBatchNumberRequired = dr["setGeneralBatchNumberRequired"].ToString();
+                    //if (dr["setGeneralExpiryDateRequired"] != DBNull.Value)
+                    //    MsetGeneralExpiryDateReuired = dr["setGeneralExpiryDateRequired"].ToString();
+                    //if (dr["setGeneralAskDatesInSearch"] != DBNull.Value)
+                    //    MsetGeneralAskDatesInSearch = dr["setGeneralAskDatesInSearch"].ToString();
+                    //if (dr["setGeneralAlphabetical"] != DBNull.Value)
+                    //    MsetGeneralAlphabetical = dr["setGeneralAlphabetical"].ToString();
+                    //if (dr["setAskOperatorOtherThanVoucherSale"] != DBNull.Value)
+                    //    MsetAskOperatorOtherThanVoucherSale = dr["setAskOperatorOtherThanVoucherSale"].ToString();
+                    //if (dr["setAskOperatorVoucherSale"] != DBNull.Value)
+                    //    MsetAskOperatorVoucherSale = dr["setAskOperatorVoucherSale"].ToString();
+                    //if (dr["setScanBarCode"] != DBNull.Value)
+                    //    MsetScanBarCode = dr["setScanBarCode"].ToString();
 
-                    if (dr["SpecialDiscount1"] != DBNull.Value)
-                        MsetSpecialDiscount1 = Convert.ToDouble(dr["SpecialDiscount1"].ToString());
-                    if (dr["SpecialDiscount2"] != DBNull.Value)
-                        MsetSpecialDiscount2 = Convert.ToDouble(dr["SpecialDiscount2"].ToString());
-                    if (dr["SpecialDiscount3"] != DBNull.Value)
-                        MsetSpecialDiscount3 = Convert.ToDouble(dr["SpecialDiscount3"].ToString());
+                    //if (dr["setPrintSettingYesNo"] != DBNull.Value)
+                    //    _MsetAllowPrintMessage = dr["setPrintSettingYesNo"].ToString();
+                    //if (dr["setPrintSaleBillPrintedPaper"] != DBNull.Value)
+                    //    MsetPrintSaleBill = dr["setPrintSaleBillPrintedPaper"].ToString();
+                    //if (dr["setPrintCRDBNotePrintedPaper"] != DBNull.Value)
+                    //    MsetPrintCRDBNote = dr["setPrintCRDBNotePrintedPaper"].ToString();
+                    //if (dr["setPrintCashBankVoucherPrintedPaper"] != DBNull.Value)
+                    //    MsetPrintCashBankVoucher = dr["setPrintCashBankVoucherPrintedPaper"].ToString();
+                    //if (dr["setPrintPurchaseOrderPrintedPaper"] != DBNull.Value)
+                    //    MsetPrintPO = dr["setPrintPurchaseOrderPrintedPaper"].ToString();
+                    //if (dr["setPrintFontName"] != DBNull.Value)
+                    //    MsetPrintFontName = dr["setPrintFontName"].ToString();
+                    //if (dr["setPrintFontSize"] != DBNull.Value)
+                    //    _MsetPrintFontSize = dr["setPrintFontSize"].ToString();
+                    //if (dr["setPrintFixNumberOfLines"] != DBNull.Value)
+                    //    _MsetPrintFixNumberOfLines = dr["setPrintFixNumberOfLines"].ToString();
+                    //if (dr["setNumberOfLinesSaleBill"] != DBNull.Value)
+                    //    MsetNumberOfLinesSaleBill = Convert.ToInt32(dr["setNumberOfLinesSaleBill"].ToString());
+                    //if (dr["setNumberOfBillsAtaTime"] != DBNull.Value)
+                    //    MsetNumberOfBillsAtaTime = Convert.ToInt32(dr["setNumberOfBillsAtaTime"].ToString());
+                    //if (dr["setPrinterType"] != DBNull.Value)
+                    //    MsetPrinterType = Convert.ToInt32(dr["setPrinterType"].ToString());
+                    //if (dr["setPrintFontName"] != DBNull.Value)
+                    //    MsetPrintFontName = dr["setPrintFontName"].ToString();
+                    //if (dr["setPrintFontSize"] != DBNull.Value)
+                    //    MsetPrintFontSize = dr["setPrintFontSize"].ToString();
 
-                    
+                    //if (dr["SpecialDiscount1"] != DBNull.Value)
+                    //    MsetSpecialDiscount1 = Convert.ToDouble(dr["SpecialDiscount1"].ToString());
+                    //if (dr["SpecialDiscount2"] != DBNull.Value)
+                    //    MsetSpecialDiscount2 = Convert.ToDouble(dr["SpecialDiscount2"].ToString());
+                    //if (dr["SpecialDiscount3"] != DBNull.Value)
+                    //    MsetSpecialDiscount3 = Convert.ToDouble(dr["SpecialDiscount3"].ToString());
 
-                    if (dr["setEmailID"] != DBNull.Value)
-                        MsetEmailID = dr["setEmailID"].ToString();
-                    if (dr["setEmailPassword"] != DBNull.Value)
-                        MsetEmailPassword = dr["setEmailPassword"].ToString();
-                    if (dr["SetEmailType"] != DBNull.Value)
-                        MsetEmailType = dr["SetEmailType"].ToString();
 
-                    if (dr["setFixedNarration"] != DBNull.Value)
-                        MsetFixedNarration = dr["setFixedNarration"].ToString();
 
-                    if (dr["setCreditNoteDefaultTransferToAccount"] != DBNull.Value)
-                        MsetCreditNoteDefaultTransferToAccount = dr["setCreditNoteDefaultTransferToAccount"].ToString();
-                    if (dr["setCreditNoteReturnRateDisable"] != DBNull.Value)
-                        MsetCreditNoteReturnRateDisable = dr["setCreditNoteReturnRateDisable"].ToString();
-                    if (dr["setCreditNoteDoNotShowPurchaseRate"] != DBNull.Value)
-                        MsetCreditNoteDoNotShowPurchaseRate = dr["setCreditNoteDoNotShowPurchaseRate"].ToString();
-                    // Report
-                    if (dr["setReportSaleDailySaleDoNotShowTotal"] != DBNull.Value)
-                        MsetReportSaleDailySaleDoNotShowTotal = dr["setReportSaleDailySaleDoNotShowTotal"].ToString();
-                    if (dr["setReportSaleDailyProductsDoNotShowTotal"] != DBNull.Value)
-                        MsetReportSaleDailyProductsDoNotShowTotal = dr["setReportSaleDailyProductsDoNotShowTotal"].ToString();
-                    if (dr["setProductNameWidthInSaleInvoice"] != DBNull.Value)
-                        MsetProductNameWidthInSaleInvoice = Convert.ToInt32(dr["setProductNameWidthInSaleInvoice"]);
+                    //if (dr["setEmailID"] != DBNull.Value)
+                    //    MsetEmailID = dr["setEmailID"].ToString();
+                    //if (dr["setEmailPassword"] != DBNull.Value)
+                    //    MsetEmailPassword = dr["setEmailPassword"].ToString();
+                    //if (dr["SetEmailType"] != DBNull.Value)
+                    //    MsetEmailType = dr["SetEmailType"].ToString();
 
-                    if (dr["setSortOrder"] != DBNull.Value)
-                        MsetSortOrder = dr["setSortOrder"].ToString();
+                    //if (dr["setFixedNarration"] != DBNull.Value)
+                    //    MsetFixedNarration = dr["setFixedNarration"].ToString();
 
-                   
-                 
+                    //if (dr["setCreditNoteDefaultTransferToAccount"] != DBNull.Value)
+                    //    MsetCreditNoteDefaultTransferToAccount = dr["setCreditNoteDefaultTransferToAccount"].ToString();
+                    //if (dr["setCreditNoteReturnRateDisable"] != DBNull.Value)
+                    //    MsetCreditNoteReturnRateDisable = dr["setCreditNoteReturnRateDisable"].ToString();
+                    //if (dr["setCreditNoteDoNotShowPurchaseRate"] != DBNull.Value)
+                    //    MsetCreditNoteDoNotShowPurchaseRate = dr["setCreditNoteDoNotShowPurchaseRate"].ToString();
+                    //// Report
+                    //if (dr["setReportSaleDailySaleDoNotShowTotal"] != DBNull.Value)
+                    //    MsetReportSaleDailySaleDoNotShowTotal = dr["setReportSaleDailySaleDoNotShowTotal"].ToString();
+                    //if (dr["setReportSaleDailyProductsDoNotShowTotal"] != DBNull.Value)
+                    //    MsetReportSaleDailyProductsDoNotShowTotal = dr["setReportSaleDailyProductsDoNotShowTotal"].ToString();
+                    //if (dr["setProductNameWidthInSaleInvoice"] != DBNull.Value)
+                    //    MsetProductNameWidthInSaleInvoice = Convert.ToInt32(dr["setProductNameWidthInSaleInvoice"]);
+
+                    //if (dr["setSortOrder"] != DBNull.Value)
+                    //    MsetSortOrder = dr["setSortOrder"].ToString();
                 }
             }
             catch (Exception Ex)
@@ -962,148 +968,143 @@ namespace EcoMart.BusinessLayer
                 dr = set.GetOverviewData(voucherseries);
                 if (dr != null)
                 {
+                    //purchase
                     if (dr["setPurchaseCopyPurchaseOrder"] != DBNull.Value)
                         MsetPurchaseCopyPurchaseOrder = dr["setPurchaseCopyPurchaseOrder"].ToString();
                     if (dr["setPurchaseRounding"] != DBNull.Value)
                         MsetPurchaseRounding = dr["setPurchaseRounding"].ToString();
+                    if (dr["setPurchaseReadPurchaseOrder"] != DBNull.Value)
+                        MsetPurchaseReadPurchaseOrder = dr["setPurchaseReadPurchaseOrder"].ToString();
+                    if (dr["setPurchaseChangeSaleRate"] != DBNull.Value)
+                        MsetPurchaseChangeSaleRate = dr["setPurchaseChangeSaleRate"].ToString();
+                    if (dr["setPurchaseAllowExpiredItems"] != DBNull.Value)
+                        MsetPurchaseAcceptExpriedItems = dr["setPurchaseAllowExpiredItems"].ToString();
                     if (dr["setPurchaseHold"] != DBNull.Value)
                         MsetPurchaseHold = dr["setPurchaseHold"].ToString();
                     if (dr["setPurchaseIfPTR"] != DBNull.Value)
                         MsetPurchaseIfPTR = dr["setPurchaseIfPTR"].ToString();
-                    //if (dr["setPurchaseIfCreditPurchase"] != DBNull.Value)
-                    //    MsetPurchaseIfCreditStatementPurchase = dr["setPurchaseIfCreditPurchase"].ToString();
-                    if (dr["setPurchaseReadPurchaseOrder"] != DBNull.Value)
-                        MsetPurchaseReadPurchaseOrder = dr["setPurchaseReadPurchaseOrder"].ToString();
-                    ////if (dr["setPurchaseGetPendingScheme"] != DBNull.Value)
-                    ////    MsetPurchaseGetPendingScheme = dr["setPurchaseGetPendingScheme"].ToString();
-                    //if (dr["setPurchaseIfProductWithOctroi"] != DBNull.Value)
-                    //    MsetPurchaseIfProductWithOctroi = dr["setPurchaseIfProductWithOctroi"].ToString();
-                    //if (dr["setPurchaseOctroionZeroVAT"] != DBNull.Value)
-                    //    MsetPurchaseOctroionZeroVAT = dr["setPurchaseOctroionZeroVAT"].ToString();
-                    if (dr["setPurchaseChangeSaleRate"] != DBNull.Value)
-                        MsetPurchaseChangeSaleRate = dr["setPurchaseChangeSaleRate"].ToString();
-                    //if (dr["setPurchaseMarginbyPurchaseRate"] != DBNull.Value)
-                    //    MsetPurchaseMarginByPurchaseRate = dr["setPurchaseMarginbyPurchaseRate"].ToString();
-                    if (dr["setPurchaseAllowExpiredItems"] != DBNull.Value)
-                        MsetPurchaseAcceptExpriedItems = dr["setPurchaseAllowExpiredItems"].ToString();
-                    //if (dr["setPurchaseIncludeCreditPurchaseInStatements"] != DBNull.Value)
-                    //    MsetPurchaseIncludeCreditPurchaseInStatements = dr["setPurchaseIncludeCreditPurchaseInStatements"].ToString();
-                    //if (dr["setPurchaseUpdateVATInMaster"] != DBNull.Value)
-                    //    MsetPurchaseUpdateVATInMaster = dr["setPurchaseUpdateVATInMaster"].ToString();
+
+                    // sale 
                     if (dr["setSaleRoundOff"] != DBNull.Value)
                         MsetSaleRoundOff = dr["setSaleRoundOff"].ToString();
                     if (dr["setSaleCreditStatement"] != DBNull.Value)
                         MsetSaleCreditSale = dr["setSaleCreditStatement"].ToString();
-                    //if (dr["setSaleAskDiscountinCounterSale"] != DBNull.Value)
-                    //    MsetSaleAskDiscountinCounterSale = dr["setSaleAskDiscountinCounterSale"].ToString();
-                    //if (dr["setSaleAskRoundinginSale"] != DBNull.Value)
-                    //    MsetSaleAskRoundinginSale = dr["setSaleAskRoundinginSale"].ToString();
-                    if (dr["setSaleShowProfitInSaleBill"] != DBNull.Value)
-                        MsetSaleShowProfitInSaleBill = dr["setSaleShowProfitInSaleBill"].ToString();
-                    //if (dr["setSaleIPDOPD"] != DBNull.Value)
-                    //    MsetSaleIPDOPD = dr["setSaleIPDOPD"].ToString();
-                    //if (dr["setSaleDiscountWithoutVAT"] != DBNull.Value)
-                    //    MsetSaleDiscountWithoutVAT = dr["setSaleDiscountWithoutVAT"].ToString();
-                    //if (dr["setSaleIncludeCreditsaleInStatements"] != DBNull.Value)
-                    //    MsetSaleIncludeCreditSaleInStatements = dr["setSaleIncludeCreditsaleInStatements"].ToString();
-                    //if (dr["setSaleSaveCustomerInMaster"] != DBNull.Value)
-                    //    MsetSaleSaveCustomerInMaster = dr["setSaleSaveCustomerInMaster"].ToString();
-                    //if (dr["setSaleShowOnlyMRPInCounterSale"] != DBNull.Value)
-                    //    MsetSaleShowOnlyMRPInCounterSale = dr["setSaleShowOnlyMRPInCounterSale"].ToString();
-                    //if (dr["setSaleAllowDistributorSale"] != DBNull.Value)
-                    //    MsetSaleAllowDistributorSale = dr["setSaleAllowDistributorSale"].ToString();
                     if (dr["setSaleAllowBackDate"] != DBNull.Value)
                         MsetSaleAllowBackDate = dr["setSaleAllowBackDate"].ToString();
-                    //if (dr["setSaleCounterSaleSingleGrid"] != DBNull.Value)
-                    //    MsetSaleCounterSaleSingleGrid = dr["setSaleCounterSaleSingleGrid"].ToString();
                     if (dr["setSaleTenderAmount"] != DBNull.Value)
                         MsetSaleTenderAmount = dr["setSaleTenderAmount"].ToString();
-                    if (dr["setCashBankShowDiscount"] != DBNull.Value)        
-                        MsetCashBankShowDiscount = dr["setCashBankShowDiscount"].ToString();
-                    if (dr["SmsPatientSaleSet"] != DBNull.Value) 
-                        SmsSetPatientSale = dr["SmsPatientSaleSet"].ToString();
-                    if (dr["SmsDebtorSaleSet"] != DBNull.Value)  
-                        SmsSetDebtorSale = dr["SmsDebtorSaleSet"].ToString();
-                    if (dr["SmsCreditCardSaleSet"] != DBNull.Value)  
-                        SmsSetCreditCardSale = dr["SmsCreditCardSaleSet"].ToString();
-                    if (dr["SmsInstitutionalSaleSet"] != DBNull.Value)  
-                        SmsSetInstitutionalSale = dr["SmsInstitutionalSaleSet"].ToString();
-                    if (dr["SmsBankPaymentSet"] != DBNull.Value)  
-                        SmsSetBankPaymentSale = dr["SmsBankPaymentSet"].ToString();
-                    if (dr["SmsBankReceiptSet"] != DBNull.Value)  
-                        SmsSetBankReceiptSale = dr["SmsBankReceiptSet"].ToString();
-                    if (dr["SmsCashReceiptSet"] != DBNull.Value) 
-                        SmsSetCashReceiptSale = dr["SmsCashReceiptSet"].ToString();
-                    if (dr["SmsCashPaymentSet"] != DBNull.Value)  
-                        SmsSetCashPaymentSale = dr["SmsCashPaymentSet"].ToString();
-                    if (dr["setPrintSettingYesNo"] != DBNull.Value) 
-                        MsetAllowPrintMessage = dr["setPrintSettingYesNo"].ToString();
-                   
-                    //if (dr["setSaleSelectVATPercent"] != DBNull.Value)
-                    //    MsetSaleSelectVATPercent = dr["setSaleSelectVATPercent"].ToString();
-                    //if (dr["setSaleProductRefreshInCounterSale"] != DBNull.Value)
-                    //    MsetSaleProductRefreshButton = dr["setSaleProductRefreshInCounterSale"].ToString();
+                    if (dr["setSaleShowProfitInSaleBill"] != DBNull.Value)
+                        MsetSaleShowProfitInSaleBill = dr["setSaleShowProfitInSaleBill"].ToString();
                     if (dr["setSaleMaxDiscount"] != DBNull.Value && dr["setSaleMaxDiscount"].ToString() != string.Empty)
                         MsetSaleMaxDiscount = Convert.ToDouble(dr["setSaleMaxDiscount"].ToString());
 
-                    if (dr["setOpeningStockGetPercent"] != DBNull.Value && dr["setOpeningStockGetPercent"].ToString() != string.Empty)
-                        MsetOpeningStockGetPercent = Convert.ToDouble(dr["setOpeningStockGetPercent"].ToString());
+                    if (dr["setSaleGetOrderNumberDate"] != DBNull.Value)
+                        MsetSaleGetOrderNumberDate = dr["setSaleGetOrderNumberDate"].ToString();
+                    if (dr["setSaleGetDoctor"] != DBNull.Value)
+                        MsetSaleGetDoctor = dr["setSaleGetDoctor"].ToString();
+                    if (dr["setSaleGetDelivaryBoy"] != DBNull.Value)
+                        MsetSaleGetDelivaryBoy = dr["setSaleGetDelivaryBoy"].ToString();
+
+                    //cashbank
+                    //if (dr["setCashBankShowDiscount"] != DBNull.Value)
+                    //    MsetCashBankShowDiscount = dr["setCashBankShowDiscount"].ToString();
+                    ////sms
+                    //if (dr["SmsDebtorSaleSet"] != DBNull.Value)
+                    //    SmsSetDebtorSale = dr["SmsDebtorSaleSet"].ToString();
+                    //if (dr["SmsBankPaymentSet"] != DBNull.Value)
+                    //    SmsSetBankPaymentSale = dr["SmsBankPaymentSet"].ToString();
+                    //if (dr["SmsBankReceiptSet"] != DBNull.Value)
+                    //    SmsSetBankReceiptSale = dr["SmsBankReceiptSet"].ToString();
+                    //if (dr["SmsCashReceiptSet"] != DBNull.Value)
+                    //    SmsSetCashReceiptSale = dr["SmsCashReceiptSet"].ToString();
+                    //if (dr["SmsCashPaymentSet"] != DBNull.Value)
+                    //    SmsSetCashPaymentSale = dr["SmsCashPaymentSet"].ToString();
 
 
-                    //if (dr["setSaleRoundingTo10Paise"] != DBNull.Value)
-                    //    MsetSaleRoundingTo10Paise = dr["setSaleRoundingTo10Paise"].ToString();
-                    //if (dr["setSaleRoundingToPreviousRupee"] != DBNull.Value)
-                    //    MsetSaleRoundingToPreviousRupee = dr["setSaleRoundingToPreviousRupee"].ToString();
-                    //if (dr["setSaleOnlyCashSaleInCounterSale"] != DBNull.Value)
-                    //    MsetSaleOnlyCashSaleInCounterSale = dr["setSaleOnlyCashSaleInCounterSale"].ToString();
-                    //if (dr["setSaleEditRateInCounterSale"] != DBNull.Value)
-                    //    MsetSaleEditRateInCounterSale = dr["setSaleEditRateInCounterSale"].ToString();
-                    //if (dr["setSaleAllowNegativeStock"] != DBNull.Value)
-                        //MsetSaleAllowNegativeStock = dr["setSaleAllowNegativeStock"].ToString();
-                    //if (dr["setGeneralProfitPercentageByPurchaseRate"] != DBNull.Value)
-                    //    MsetGeneralProfitPercentageByPurchaseRate = dr["setGeneralProfitPercentageByPurchaseRate"].ToString();
-                    if (dr["setGeneralExpiryLast"] != DBNull.Value)
-                        MsetGeneralExpiryLast = dr["setGeneralExpiryLast"].ToString();
-                    if (dr["setGeneralBatchNumberRequired"] != DBNull.Value)
-                        MsetGeneralBatchNumberRequired = dr["setGeneralBatchNumberRequired"].ToString();
-                    if (dr["setGeneralExpiryDateRequired"] != DBNull.Value)
-                        MsetGeneralExpiryDateReuired = dr["setGeneralExpiryDateRequired"].ToString();
-                    if (dr["setGeneralAskDatesInSearch"] != DBNull.Value)
-                        MsetGeneralAskDatesInSearch = dr["setGeneralAskDatesInSearch"].ToString();
-                    if (dr["setGeneralAlphabetical"] != DBNull.Value)
-                        MsetGeneralAlphabetical = dr["setGeneralAlphabetical"].ToString();
-                    if (dr["setAskOperatorOtherThanVoucherSale"] != DBNull.Value)
-                        MsetAskOperatorOtherThanVoucherSale = dr["setAskOperatorOtherThanVoucherSale"].ToString();
-                    if (dr["setAskOperatorVoucherSale"] != DBNull.Value)
-                        MsetAskOperatorVoucherSale = dr["setAskOperatorVoucherSale"].ToString();
-                    if (dr["setNumberOfLinesSaleBill"] != DBNull.Value)
-                        MsetNumberOfLinesSaleBill = Convert.ToInt32(dr["setNumberOfLinesSaleBill"].ToString());
-                    if (dr["setNumberOfBillsAtaTime"] != DBNull.Value)
-                        MsetNumberOfBillsAtaTime = Convert.ToInt32(dr["setNumberOfBillsAtaTime"].ToString());
-                    if (dr["setScanBarCode"] != DBNull.Value)
-                        MsetScanBarCode = dr["setScanBarCode"].ToString();
+                    //
+                    //if (dr["setOpeningStockGetPercent"] != DBNull.Value && dr["setOpeningStockGetPercent"].ToString() != string.Empty)
+                    //    MsetOpeningStockGetPercent = Convert.ToDouble(dr["setOpeningStockGetPercent"].ToString());
+                    ////general
 
-                    //if (dr["setCreditNoteRemoveCode"] != DBNull.Value)
-                    //    MsetRemoveCodeFromCreditNote = dr["setCreditNoteRemoveCode"].ToString();
-                    //if (dr["setSaleAllowPendingCashMemo"] != DBNull.Value)
-                    //    MsetAllowPendingCashMemo = dr["setSaleAllowPendingCashMemo"].ToString();
-                    if (dr["setFixedNarration"] != DBNull.Value)
-                        MsetFixedNarration = dr["setFixedNarration"].ToString();
+                    //if (dr["setGeneralExpiryLast"] != DBNull.Value)
+                    //    MsetGeneralExpiryLast = dr["setGeneralExpiryLast"].ToString();
+                    //if (dr["setGeneralBatchNumberRequired"] != DBNull.Value)
+                    //    MsetGeneralBatchNumberRequired = dr["setGeneralBatchNumberRequired"].ToString();
+                    //if (dr["setGeneralExpiryDateRequired"] != DBNull.Value)
+                    //    MsetGeneralExpiryDateReuired = dr["setGeneralExpiryDateRequired"].ToString();
+                    //if (dr["setGeneralAskDatesInSearch"] != DBNull.Value)
+                    //    MsetGeneralAskDatesInSearch = dr["setGeneralAskDatesInSearch"].ToString();
+                    //if (dr["setGeneralAlphabetical"] != DBNull.Value)
+                    //    MsetGeneralAlphabetical = dr["setGeneralAlphabetical"].ToString();
+                    //if (dr["setAskOperatorOtherThanVoucherSale"] != DBNull.Value)
+                    //    MsetAskOperatorOtherThanVoucherSale = dr["setAskOperatorOtherThanVoucherSale"].ToString();
+                    //if (dr["setAskOperatorVoucherSale"] != DBNull.Value)
+                    //    MsetAskOperatorVoucherSale = dr["setAskOperatorVoucherSale"].ToString();
+                    //if (dr["setScanBarCode"] != DBNull.Value)
+                    //    MsetScanBarCode = dr["setScanBarCode"].ToString();
 
-                    if (dr["setCreditNoteDefaultTransferToAccount"] != DBNull.Value)
-                        MsetCreditNoteDefaultTransferToAccount = dr["setCreditNoteDefaultTransferToAccount"].ToString();
-                    if (dr["setCreditNoteReturnRateDisable"] != DBNull.Value)
-                        MsetCreditNoteReturnRateDisable = dr["setCreditNoteReturnRateDisable"].ToString();
-                    if (dr["setCreditNoteDoNotShowPurchaseRate"] != DBNull.Value)
-                        MsetCreditNoteDoNotShowPurchaseRate = dr["setCreditNoteDoNotShowPurchaseRate"].ToString();
+                    //if (dr["setPrintSettingYesNo"] != DBNull.Value)
+                    //    _MsetAllowPrintMessage = dr["setPrintSettingYesNo"].ToString();
+                    //if (dr["setPrintSaleBillPrintedPaper"] != DBNull.Value)
+                    //    MsetPrintSaleBill = dr["setPrintSaleBillPrintedPaper"].ToString();
+                    //if (dr["setPrintCRDBNotePrintedPaper"] != DBNull.Value)
+                    //    MsetPrintCRDBNote = dr["setPrintCRDBNotePrintedPaper"].ToString();
+                    //if (dr["setPrintCashBankVoucherPrintedPaper"] != DBNull.Value)
+                    //    MsetPrintCashBankVoucher = dr["setPrintCashBankVoucherPrintedPaper"].ToString();
+                    //if (dr["setPrintPurchaseOrderPrintedPaper"] != DBNull.Value)
+                    //    MsetPrintPO = dr["setPrintPurchaseOrderPrintedPaper"].ToString();
+                    //if (dr["setPrintFontName"] != DBNull.Value)
+                    //    MsetPrintFontName = dr["setPrintFontName"].ToString();
+                    //if (dr["setPrintFontSize"] != DBNull.Value)
+                    //    _MsetPrintFontSize = dr["setPrintFontSize"].ToString();
+                    //if (dr["setPrintFixNumberOfLines"] != DBNull.Value)
+                    //    _MsetPrintFixNumberOfLines = dr["setPrintFixNumberOfLines"].ToString();
+                    //if (dr["setNumberOfLinesSaleBill"] != DBNull.Value)
+                    //    MsetNumberOfLinesSaleBill = Convert.ToInt32(dr["setNumberOfLinesSaleBill"].ToString());
+                    //if (dr["setNumberOfBillsAtaTime"] != DBNull.Value)
+                    //    MsetNumberOfBillsAtaTime = Convert.ToInt32(dr["setNumberOfBillsAtaTime"].ToString());
+                    //if (dr["setPrinterType"] != DBNull.Value)
+                    //    MsetPrinterType = Convert.ToInt32(dr["setPrinterType"].ToString());
+                    //if (dr["setPrintFontName"] != DBNull.Value)
+                    //    MsetPrintFontName = dr["setPrintFontName"].ToString();
+                    //if (dr["setPrintFontSize"] != DBNull.Value)
+                    //    MsetPrintFontSize = dr["setPrintFontSize"].ToString();
 
-                    // Reports
-                    if (dr["setReportSaleDailySaleDoNotShowTotal"] != DBNull.Value)
-                        MsetReportSaleDailySaleDoNotShowTotal = dr["setReportSaleDailySaleDoNotShowTotal"].ToString();
-                    if (dr["setReportSaleDailyProductsDoNotShowTotal"] != DBNull.Value)
-                        MsetReportSaleDailyProductsDoNotShowTotal = dr["setReportSaleDailyProductsDoNotShowTotal"].ToString();
-                    if (dr["setProductNameWidthInSaleInvoice"] != DBNull.Value)
-                        MsetProductNameWidthInSaleInvoice = Convert.ToInt32(dr["setProductNameWidthInSaleInvoice"]);
+                    //if (dr["SpecialDiscount1"] != DBNull.Value)
+                    //    MsetSpecialDiscount1 = Convert.ToDouble(dr["SpecialDiscount1"].ToString());
+                    //if (dr["SpecialDiscount2"] != DBNull.Value)
+                    //    MsetSpecialDiscount2 = Convert.ToDouble(dr["SpecialDiscount2"].ToString());
+                    //if (dr["SpecialDiscount3"] != DBNull.Value)
+                    //    MsetSpecialDiscount3 = Convert.ToDouble(dr["SpecialDiscount3"].ToString());
+
+
+
+                    //if (dr["setEmailID"] != DBNull.Value)
+                    //    MsetEmailID = dr["setEmailID"].ToString();
+                    //if (dr["setEmailPassword"] != DBNull.Value)
+                    //    MsetEmailPassword = dr["setEmailPassword"].ToString();
+                    //if (dr["SetEmailType"] != DBNull.Value)
+                    //    MsetEmailType = dr["SetEmailType"].ToString();
+
+                    //if (dr["setFixedNarration"] != DBNull.Value)
+                    //    MsetFixedNarration = dr["setFixedNarration"].ToString();
+
+                    //if (dr["setCreditNoteDefaultTransferToAccount"] != DBNull.Value)
+                    //    MsetCreditNoteDefaultTransferToAccount = dr["setCreditNoteDefaultTransferToAccount"].ToString();
+                    //if (dr["setCreditNoteReturnRateDisable"] != DBNull.Value)
+                    //    MsetCreditNoteReturnRateDisable = dr["setCreditNoteReturnRateDisable"].ToString();
+                    //if (dr["setCreditNoteDoNotShowPurchaseRate"] != DBNull.Value)
+                    //    MsetCreditNoteDoNotShowPurchaseRate = dr["setCreditNoteDoNotShowPurchaseRate"].ToString();
+                    //// Report
+                    //if (dr["setReportSaleDailySaleDoNotShowTotal"] != DBNull.Value)
+                    //    MsetReportSaleDailySaleDoNotShowTotal = dr["setReportSaleDailySaleDoNotShowTotal"].ToString();
+                    //if (dr["setReportSaleDailyProductsDoNotShowTotal"] != DBNull.Value)
+                    //    MsetReportSaleDailyProductsDoNotShowTotal = dr["setReportSaleDailyProductsDoNotShowTotal"].ToString();
+                    //if (dr["setProductNameWidthInSaleInvoice"] != DBNull.Value)
+                    //    MsetProductNameWidthInSaleInvoice = Convert.ToInt32(dr["setProductNameWidthInSaleInvoice"]);
+
+                    //if (dr["setSortOrder"] != DBNull.Value)
+                    //    MsetSortOrder = dr["setSortOrder"].ToString();
 
                     retValue = true;
                 }
@@ -1188,16 +1189,17 @@ namespace EcoMart.BusinessLayer
         {
             DBSettings dbset = new DBSettings();
             // ss 5/11
-            return dbset.AddDetails(MsetPurchaseCopyPurchaseOrder, MsetPurchaseRounding, MsetPurchaseHold,MsetPurchaseIfPTR, MsetPurchaseReadPurchaseOrder, MsetPurchaseChangeSaleRate, MsetPurchaseAcceptExpriedItems, MsetSaleRoundOff,
+            return dbset.AddDetails(MsetPurchaseCopyPurchaseOrder, MsetPurchaseRounding, MsetPurchaseHold, MsetPurchaseIfPTR, MsetPurchaseReadPurchaseOrder, MsetSaleRoundOff, MsetPurchaseChangeSaleRate, MsetPurchaseAcceptExpriedItems, MsetSaleRoundOff,
                     MsetSaleCreditSale, MsetSaleAskDiscountinCounterSale, MsetSaleAskRoundinginSale, MsetSaleShowProfitInSaleBill, MsetSaleIPDOPD, MsetSaleDiscountWithoutVAT,
                     MsetGeneralProfitPercentageByPurchaseRate, MsetGeneralExpiryLast, MsetGeneralBatchNumberRequired, MsetGeneralExpiryDateReuired, MsetAskOperatorVoucherSale,
                     MsetAskOperatorOtherThanVoucherSale, MsetAskOperatorPurchase, MsetAskOperatorCRDB, MsetAskOperatorOpeningStock, MsetAskOperatorCorrectionRate, MsetAskOperatorJV,
-                    MsetAskOperatorCashBankReceipt, MsetAskOperatorCashBankPayment, MsetScanBarCode,MsetPurchaseUpdateVATInMaster,
+                    MsetAskOperatorCashBankReceipt, MsetAskOperatorCashBankPayment, MsetScanBarCode, MsetPurchaseUpdateVATInMaster,
                     MsetSaleIncludeCreditSaleInStatements, MsetSaleSaveCustomerInMaster, MsetSaleShowOnlyMRPInCounterSale, MsetSaleAllowDistributorSale, MsetSaleOnlyCashSaleInCounterSale,
                     MsetSaleRoundingTo10Paise, MsetSaleRoundingToPreviousRupee, MsetSaleEditRateInCounterSale, MsetSaleAllowNegativeStock, MsetRemoveCodeFromCreditNote, MsetAllowPendingCashMemo,
                     MsetFixedNarration, MsetCreditNoteDefaultTransferToAccount, MsetCreditNoteReturnRateDisable, MsetSaleAllowBackDate, MsetSaleCounterSaleSingleGrid, MsetCreditNoteDoNotShowPurchaseRate, MsetSaleSelectVATPercent,
-                    MsetGeneralAskDatesInSearch, MsetGeneralAlphabetical, MsetSaleProductRefreshButton, MsetSaleMaxDiscount, MsetOpeningStockGetPercent, MsetSaleTenderAmount,MsetCashBankShowDiscount, MsetProductNameWidthInSaleInvoice, 
-                    SmsSetPatientSale, SmsSetDebtorSale, SmsSetCreditCardSale, SmsSetInstitutionalSale, SmsSetBankPaymentSale, SmsSetBankReceiptSale, SmsSetCashPaymentSale, SmsSetCashReceiptSale, _MsetAllowPrintMessage);
+                    MsetGeneralAskDatesInSearch, MsetGeneralAlphabetical, MsetSaleProductRefreshButton, MsetSaleMaxDiscount, MsetOpeningStockGetPercent, MsetSaleTenderAmount, MsetCashBankShowDiscount, MsetProductNameWidthInSaleInvoice,
+                    SmsSetPatientSale, SmsSetDebtorSale, SmsSetCreditCardSale, SmsSetInstitutionalSale, SmsSetBankPaymentSale, SmsSetBankReceiptSale, SmsSetCashPaymentSale, SmsSetCashReceiptSale, _MsetAllowPrintMessage,
+                    MsetSaleGetOrderNumberDate, MsetSaleGetDoctor, MsetSaleGetDelivaryBoy);
             // ss 5/11
         }
 
@@ -1205,18 +1207,18 @@ namespace EcoMart.BusinessLayer
         {
             DBSettings dbset = new DBSettings();
             // ss 5/11
-            return dbset.UpdateDetails(MsetPurchaseCopyPurchaseOrder, MsetPurchaseRounding, MsetPurchaseHold, MsetPurchaseIfPTR, MsetPurchaseReadPurchaseOrder,MsetPurchaseChangeSaleRate, MsetPurchaseAcceptExpriedItems, 
+            return dbset.UpdateDetails(MsetPurchaseCopyPurchaseOrder, MsetPurchaseRounding, MsetPurchaseHold, MsetPurchaseIfPTR, MsetPurchaseReadPurchaseOrder, MsetPurchaseChangeSaleRate, MsetPurchaseAcceptExpriedItems, MsetSaleRoundOff,
                     MsetSaleCreditSale, MsetSaleAskDiscountinCounterSale, MsetSaleAskRoundinginSale, MsetSaleShowProfitInSaleBill, MsetSaleIPDOPD,
-                    MsetSaleDiscountWithoutVAT,MsetGeneralProfitPercentageByPurchaseRate, MsetGeneralExpiryLast, MsetGeneralBatchNumberRequired, MsetGeneralExpiryDateReuired,
-                    MsetAskOperatorVoucherSale,MsetAskOperatorOtherThanVoucherSale, MsetAskOperatorPurchase, MsetAskOperatorCRDB, MsetAskOperatorOpeningStock, 
+                    MsetSaleDiscountWithoutVAT, MsetGeneralProfitPercentageByPurchaseRate, MsetGeneralExpiryLast, MsetGeneralBatchNumberRequired, MsetGeneralExpiryDateReuired,
+                    MsetAskOperatorVoucherSale, MsetAskOperatorOtherThanVoucherSale, MsetAskOperatorPurchase, MsetAskOperatorCRDB, MsetAskOperatorOpeningStock,
                     MsetAskOperatorCorrectionRate, MsetAskOperatorJV, MsetAskOperatorCashBankReceipt, MsetAskOperatorCashBankPayment, MsetScanBarCode,
                     MsetSaleIncludeCreditSaleInStatements, MsetSaleSaveCustomerInMaster, MsetSaleShowOnlyMRPInCounterSale, MsetSaleAllowDistributorSale,
-                    MsetSaleOnlyCashSaleInCounterSale,MsetSaleRoundingTo10Paise, MsetSaleRoundingToPreviousRupee, MsetSaleEditRateInCounterSale, MsetSaleAllowNegativeStock,
-                    MsetRemoveCodeFromCreditNote, MsetAllowPendingCashMemo,MsetFixedNarration, MsetCreditNoteDefaultTransferToAccount, MsetCreditNoteReturnRateDisable,
-                    MsetSaleAllowBackDate, MsetSaleCounterSaleSingleGrid, MsetCreditNoteDoNotShowPurchaseRate, MsetSaleSelectVATPercent,MsetGeneralAskDatesInSearch,
+                    MsetSaleOnlyCashSaleInCounterSale, MsetSaleRoundingTo10Paise, MsetSaleRoundingToPreviousRupee, MsetSaleEditRateInCounterSale, MsetSaleAllowNegativeStock,
+                    MsetRemoveCodeFromCreditNote, MsetAllowPendingCashMemo, MsetFixedNarration, MsetCreditNoteDefaultTransferToAccount, MsetCreditNoteReturnRateDisable,
+                    MsetSaleAllowBackDate, MsetSaleCounterSaleSingleGrid, MsetCreditNoteDoNotShowPurchaseRate, MsetSaleSelectVATPercent, MsetGeneralAskDatesInSearch,
                     MsetGeneralAlphabetical, MsetSaleProductRefreshButton, MsetSaleMaxDiscount, MsetOpeningStockGetPercent, MsetSaleTenderAmount,
-                    MsetCashBankShowDiscount, MsetProductNameWidthInSaleInvoice,SmsSetPatientSale, SmsSetDebtorSale,
-                    SmsSetCreditCardSale, SmsSetInstitutionalSale, SmsSetBankPaymentSale, SmsSetBankReceiptSale, SmsSetCashPaymentSale, SmsSetCashReceiptSale );
+                    MsetCashBankShowDiscount, MsetProductNameWidthInSaleInvoice, SmsSetPatientSale, SmsSetDebtorSale,
+                    SmsSetCreditCardSale, SmsSetInstitutionalSale, SmsSetBankPaymentSale, SmsSetBankReceiptSale, SmsSetCashPaymentSale, SmsSetCashReceiptSale, MsetSaleGetOrderNumberDate, MsetSaleGetDoctor, MsetSaleGetDelivaryBoy);
             // ss 5/11
         }
 
