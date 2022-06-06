@@ -271,51 +271,46 @@ namespace EcoMart.InterfaceLayer.CommonControls
         {
             try
             {
-                try
+                //Disable Sorting                    
+                foreach (DataGridViewColumn column in dgMainGrid.Columns)
                 {
-                    //Disable Sorting                    
-                    foreach (DataGridViewColumn column in dgMainGrid.Columns)
+                    column.SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
+                if (_DataTableMain != null)
+                {
+                    dgMainGrid.Rows.Clear();
+                    for (int index = 0; index < _DataTableMain.Rows.Count; index++)
                     {
-                        column.SortMode = DataGridViewColumnSortMode.NotSortable;
-                    }
-                    if (_DataTableMain != null)
-                    {
-                        dgMainGrid.Rows.Clear();
-                        for (int index = 0; index < _DataTableMain.Rows.Count; index++)
+                        int rowIndex = dgMainGrid.Rows.Add();
+                        DataGridViewRow dr = dgMainGrid.Rows[rowIndex];
+                        for (int colIndex = 0; colIndex < dgMainGrid.Columns.Count; colIndex++)
                         {
-                            int rowIndex = dgMainGrid.Rows.Add();
-                            DataGridViewRow dr = dgMainGrid.Rows[rowIndex];
-                            for (int colIndex = 0; colIndex < dgMainGrid.Columns.Count; colIndex++)
+                            DataGridViewColumn col = dgMainGrid.Columns[colIndex];
+                            if (col.DataPropertyName != null && col.DataPropertyName != "")
                             {
-                                DataGridViewColumn col = dgMainGrid.Columns[colIndex];
-                                if (!col.Visible)
+                                if (DoubleColumnNames != null && DoubleColumnNames.Contains(col.Name))
                                 {
-                                    continue;
+                                    dr.Cells[col.Name].Value = Convert.ToDouble(_DataTableMain.Rows[index][col.DataPropertyName]).ToString("#0.00");
                                 }
-                                if (col.DataPropertyName != null && col.DataPropertyName != "")
+                                else
                                 {
-                                    if (DoubleColumnNames != null && DoubleColumnNames.Contains(col.Name))
-                                    {
-                                        dr.Cells[col.Name].Value = Convert.ToDouble(_DataTableMain.Rows[index][col.DataPropertyName]).ToString("#0.00");
-                                    }
-                                    else
-                                    {
-                                        dr.Cells[col.Name].Value = _DataTableMain.Rows[index][col.DataPropertyName].ToString();
-                                    }
+                                    dr.Cells[col.Name].Value = _DataTableMain.Rows[index][col.DataPropertyName].ToString();
                                 }
-                                if (colIndex == 1)
-                                {
-                                    dr.Cells[1].ReadOnly = true;
-                                }
+                            }
+                            if (colIndex == 1)
+                            {
+                                dr.Cells[1].ReadOnly = true;
                             }
                         }
                     }
-                    if (IsAllowNewRow)
-                        dgMainGrid.Initialize();
                 }
-                catch (Exception ex) { Log.WriteError(ex.ToString()); }
+                if (IsAllowNewRow)
+                    dgMainGrid.Initialize();
             }
-            catch (Exception ex) { Log.WriteError(ex.ToString()); }
+            catch (Exception ex)
+            {
+                Log.WriteError(ex.ToString());
+            }
         }
 
         public void BindGridSub()

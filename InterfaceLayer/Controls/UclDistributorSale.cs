@@ -1351,7 +1351,7 @@ namespace EcoMart.InterfaceLayer
                         _SSSale.GSTCPurchaseAmount = 0;
 
 
-                        _SSSale.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                        //_SSSale.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         _SSSale.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString());
                         //if (MainSaleSubType != FixAccounts.SubTypeForSpecialSale)
                         //{
@@ -2601,12 +2601,12 @@ namespace EcoMart.InterfaceLayer
                 column.Visible = false;
                 mpMSVC.ColumnsMain.Add(column);
                 //49
-                column = new DataGridViewTextBoxColumn();
-                column.Name = "Col_HSN";
-                column.DataPropertyName = "HSNNumber";
-                column.Width = 80;
-                column.Visible = false;
-                mpMSVC.ColumnsMain.Add(column);
+                //column = new DataGridViewTextBoxColumn();
+                //column.Name = "Col_HSN";
+                //column.DataPropertyName = "HSNNumber";
+                //column.Width = 80;
+                //column.Visible = false;
+                //mpMSVC.ColumnsMain.Add(column);
 
 
             }

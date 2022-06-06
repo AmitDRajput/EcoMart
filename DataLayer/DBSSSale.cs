@@ -1447,8 +1447,8 @@ namespace EcoMart.DataLayer
             objQuery.Table = "DeletedVouchersale";
             objQuery.AddToQuery("ID", Id);
             objQuery.AddToQuery("AccountId", CreditorId);
-            objQuery.AddToQuery("Narration1", Narration1);
-            objQuery.AddToQuery("Narration2", Narration2);
+            objQuery.AddToQuery("Narration", Narration1);
+            //objQuery.AddToQuery("Narration2", Narration2);
             objQuery.AddToQuery("VoucherType", VouType);
             objQuery.AddToQuery("VoucherNumber", VouNo);
             objQuery.AddToQuery("VoucherDate", VouDate);
@@ -1509,8 +1509,8 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("ID", Id);
             objQuery.AddToQuery("ChangedID", ChangedID);
             objQuery.AddToQuery("AccountId", CreditorId);
-            objQuery.AddToQuery("Narration1", Narration1);
-            objQuery.AddToQuery("Narration2", Narration2);
+            objQuery.AddToQuery("Narration", Narration1);
+            //objQuery.AddToQuery("Narration2", Narration2);
             objQuery.AddToQuery("VoucherType", VouType);
             objQuery.AddToQuery("VoucherNumber", VouNo);
             objQuery.AddToQuery("VoucherDate", VouDate);
