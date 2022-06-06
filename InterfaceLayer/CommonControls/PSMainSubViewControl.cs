@@ -308,7 +308,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                     dgMainGrid.Initialize();
             }
             catch (Exception ex)
-            {
+            {                
                 Log.WriteError(ex.ToString());
             }
         }

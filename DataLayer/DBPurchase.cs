@@ -512,8 +512,8 @@ public class DBPurchase
             //objQuery.AddToQuery("AmountSpecialDiscount", AmountSpecialDiscount);
             objQuery.AddToQuery("AmountSchemeDiscount", AmountSchemeDiscount);
             objQuery.AddToQuery("AmountCashDiscount", AmountCashDiscount);
-            objQuery.AddToQuery("AmountAddOn", AmountAddOn);
-            objQuery.AddToQuery("AmountFreight", AmountFreight);
+            //objQuery.AddToQuery("AmountAddOn", AmountAddOn);
+            //objQuery.AddToQuery("AmountFreight", AmountFreight);
             objQuery.AddToQuery("CashDiscountPercentage", CashDiscountPercentage);
             //objQuery.AddToQuery("SpecialDiscountPercentage", SpecialDiscPer);
             objQuery.AddToQuery("AmountCreditNote", AmountCreditNote);
@@ -566,8 +566,8 @@ public class DBPurchase
             //objQuery.AddToQuery("AmountSpecialDiscount", AmountSpecialDiscount);
             objQuery.AddToQuery("AmountSchemeDiscount", AmountSchemeDiscount);
             objQuery.AddToQuery("AmountCashDiscount", AmountCashDiscount);
-            objQuery.AddToQuery("AmountAddOn", AmountAddOn);
-            objQuery.AddToQuery("AmountFreight", AmountFreight);
+            //objQuery.AddToQuery("AmountAddOn", AmountAddOn);
+            //objQuery.AddToQuery("AmountFreight", AmountFreight);
             objQuery.AddToQuery("CashDiscountPercentage", CashDiscountPercentage);
             //objQuery.AddToQuery("SpecialDiscountPercentage", SpecialDiscPer);
             objQuery.AddToQuery("AmountCreditNote", AmountCreditNote);
@@ -846,17 +846,18 @@ public class DBPurchase
             Query objQuery = new Query();
             objQuery.Table = "voucherpurchase";
             objQuery.AddToQuery("purchaseID", purchaseID, true);
-        //    objQuery.AddToQuery("EntryDate", EntryDate);
+            //  objQuery.AddToQuery("purchaseID", purchaseID);
+            //  objQuery.AddToQuery("EntryDate", EntryDate);
             objQuery.AddToQuery("VoucherSeries", General.ShopDetail.ShopVoucherSeries);
             objQuery.AddToQuery("VoucherType", VoucherType);
-            objQuery.AddToQuery("VoucherSubType", voucherSubType);
+            //objQuery.AddToQuery("VoucherSubType", voucherSubType);
             objQuery.AddToQuery("VoucherNumber", VoucherNumber);
             objQuery.AddToQuery("VoucherDate", VoucherDate);
             objQuery.AddToQuery("PurchaseBillNumber", PurchaseBillNumber);
             objQuery.AddToQuery("AccountID", accountID);
             objQuery.AddToQuery("AmountNet", AmountNet);
-            objQuery.AddToQuery("AmountClear", AmountClear);
             objQuery.AddToQuery("AmountBalance", AmountNet - AmountClear);
+            objQuery.AddToQuery("AmountClear", AmountClear);
             objQuery.AddToQuery("AmountGross", AmountGross);
             objQuery.AddToQuery("AmountItemDiscount", AmountItemDiscount);
             //objQuery.AddToQuery("AmountSpecialDiscount", AmountSpecialDiscount);
@@ -868,19 +869,23 @@ public class DBPurchase
             //objQuery.AddToQuery("SpecialDiscountPercentage", SpecialDiscPer);
             objQuery.AddToQuery("AmountCreditNote", AmountCreditNote);
             objQuery.AddToQuery("AmountDebitNote", AmountDebitNote);
-            objQuery.AddToQuery("RoundUpAmount", RoundUpAmount);
-            objQuery.AddToQuery("OctroiPercentage", OctroiPercentage);
-            objQuery.AddToQuery("AmountOctroi", AmountOctroi);          
-            objQuery.AddToQuery("Narration", Narration);
 
-            objQuery.AddToQuery("AmountVAT5Percent", AmountVAT5Percent);
-            objQuery.AddToQuery("AmountVAT12point5Percent", AmountVAT12Point5Percent);
-            objQuery.AddToQuery("AmountVATOPercent", AmtOtherPercentVAT);
-            objQuery.AddToQuery("AmountPurchaseZeroVAT", purchaseAmountZeroVat);
-            objQuery.AddToQuery("AmountPurchase12point5PercentVAT", PurchaseAmount12Point5PercentVAT);
-            objQuery.AddToQuery("AmountPurchase5PercentVAT", PurchaseAmount5PercentVAT);
-            objQuery.AddToQuery("NumberofChallans", NumberofChallans);
-            objQuery.AddToQuery("StatementNumber", statementNumber);
+            objQuery.AddToQuery("RoundUpAmount", RoundUpAmount);
+            //   objQuery.AddToQuery("OctroiPercentage", OctroiPercentage);
+            //    objQuery.AddToQuery("AmountOctroi", AmountOctroi);
+            //  objQuery.AddToQuery("DueDate", DueDate);
+            objQuery.AddToQuery("Narration", Narration);
+            //  objQuery.AddToQuery("AmountVAT5Percent", AmountVAT5Percent);
+            //   objQuery.AddToQuery("AmountVAT12point5Percent", AmountVAT12Point5Percent);
+            //  objQuery.AddToQuery("AmountVATOPercent", AmtOtherPercentVAT);
+
+
+            //  objQuery.AddToQuery("AmountPurchaseZeroVAT", PurchaseAmountZeroVATS);
+            //  objQuery.AddToQuery("AmountPurchase5PercentVAT", PurchaseAmount5PercentVAT);
+            //   objQuery.AddToQuery("AmountPurchase12point5PercentVAT", PurchaseAmount12Point5PercentVAT);
+            //  objQuery.AddToQuery("AmountPurchaseOPercentVAT", PurchaseAmount0PercentVAT);
+            //objQuery.AddToQuery("StatementNumber", StatementNumber);
+            //objQuery.AddToQuery("NumberofChallans", NumberofChallans);
 
             objQuery.AddToQuery("AmountGST0", gstAmt0);
             objQuery.AddToQuery("AmountGSTS5", gstAmtS5);
@@ -905,14 +910,10 @@ public class DBPurchase
             objQuery.AddToQuery("AmountGSTI12", gstAmtI12);
             objQuery.AddToQuery("AmountGSTI18", gstAmtI18);
             objQuery.AddToQuery("AmountGSTI28", gstAmtI28);
-            objQuery.AddToQuery("GSTI5", gstc5);
-            objQuery.AddToQuery("GSTI12", gstc12);
-            objQuery.AddToQuery("GSTI18", gstc18);
-            objQuery.AddToQuery("GSTI28", gstc28);
-
-            objQuery.AddToQuery("ModifiedUserID", modifiedby);
-            objQuery.AddToQuery("ModifiedDate", modifieddate);
-            objQuery.AddToQuery("ModifiedTime", modifiedtime);
+            objQuery.AddToQuery("GSTI5", gstI5);
+            objQuery.AddToQuery("GSTI12", gstI12);
+            objQuery.AddToQuery("GSTI18", gstI18);
+            objQuery.AddToQuery("GSTI28", gstI28);
             return objQuery.UpdateQuery();
         }
 
@@ -1357,7 +1358,7 @@ public class DBPurchase
                 "b.StockID,b.PurchaseID,b.BatchNumber,b.MRP,b.PurchaseRate,b.SaleRate,b.TradeRate,b.Expiry,b.ExpiryDate,b.Quantity,b.AmountProdVAT," +
                 "b.PurchaseVATPercent,b.SchemeQuantity,b.ReplacementQuantity,b.AmountItemDiscount,b.ItemDiscountPercent,b.ProfitPercent," +
                 "b.AmountSchemeDiscount,b.SchemeDiscountPercent,b.AmountPurchaseVAT,b.AmountCashDiscount,b.Quantity*b.TradeRate as Amount,b.Margin,b.MarginAfterDiscount, " +
-                "d.ClosingStock,d.ScanCode,e.ShelfCode from masterproduct a inner join  detailpurchase b  on a.ProductID = b.ProductID left outer join tblstock d on b.StockID = d.StockID  left outer join mastershelf e on  a.ProdShelfID = e.shelfID where b.PurchaseID = '{0}' order by b.SerialNumber";
+                "d.ClosingStock,d.ScanCode,e.ShelfCode, b.GSTAmountZero, b.GSTCAmount, b.GSTSAmount, b.GSTC, b.GSTS,  b.GSTIAmount, b.GSTI, b.PriceToRetailer,b.AmountCreditNote from masterproduct a inner join  detailpurchase b  on a.ProductID = b.ProductID left outer join tblstock d on b.StockID = d.StockID  left outer join mastershelf e on  a.ProdShelfID = e.shelfID where b.PurchaseID = '{0}' order by b.SerialNumber";
                 strsql = string.Format(strsql, Id);
                 dt = DBInterface.SelectDataTable(strsql);
             }

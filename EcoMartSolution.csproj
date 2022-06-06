@@ -3507,7 +3507,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DBScript\MySQL_0-1.sql" />
     <Content Include="bin\Debug\CommonLibrary.dll" />
     <Content Include="bin\Debug\CommonLibrary.pdb" />
     <Content Include="bin\Debug\ControlLib.dll" />

@@ -335,11 +335,11 @@ namespace EcoMart.InterfaceLayer
                             mpMSVC.Rows[currow].Cells["Col_ItemDiscountAmount"].Value = dr.Cells["Col_ItemDiscountAmount"].Value.ToString();
                         else
                             mpMSVC.Rows[currow].Cells["Col_ItemDiscountAmount"].Value = "0.00";
-                        mpMSVC.Rows[currow].Cells["Col_SplDiscountPer"].Value = "0.00";
-                        mpMSVC.Rows[currow].Cells["Col_SplDiscountAmount"].Value = "0.00";
+                        // mpMSVC.Rows[currow].Cells["Col_SplDiscountPer"].Value = "0.00";
+                        // mpMSVC.Rows[currow].Cells["Col_SplDiscountAmount"].Value = "0.00";
                         mpMSVC.Rows[currow].Cells["Col_VATAmountPurchase"].Value = "0.00";
-                        mpMSVC.Rows[currow].Cells["Col_CSTAmount"].Value = "0.00";
-                        mpMSVC.Rows[currow].Cells["Col_CSTPer"].Value = "0.00";
+                        //mpMSVC.Rows[currow].Cells["Col_CSTAmount"].Value = "0.00";
+                        //mpMSVC.Rows[currow].Cells["Col_CSTPer"].Value = "0.00";
                         //mpMSVC.Rows[currow].Cells["Col_ItemSCMDiscountAmount"].Value = "0.00";
                         //mpMSVC.Rows[currow].Cells["Col_ItemSCMDiscountAmountPerUnit"].Value = "0.00";
                         // mpMSVC.Rows[currow].Cells["Col_CSTPer"].Value = "0.00";
@@ -1918,14 +1918,14 @@ namespace EcoMart.InterfaceLayer
                             _Purchase.AmountItemDiscount = Convert.ToDouble(prodrow.Cells["Col_ItemDiscountAmount"].Value.ToString());
                         if (prodrow.Cells["Col_ItemSCMDiscountAmount"].Value != null)
                             _Purchase.AmountSchemeDiscount = Convert.ToDouble(prodrow.Cells["Col_ItemSCMDiscountAmount"].Value.ToString());
-                        if (prodrow.Cells["Col_CSTAmount"].Value != null)
-                            _Purchase.AmountCST = Convert.ToDouble(prodrow.Cells["Col_CSTAmount"].Value.ToString());
-                        if (prodrow.Cells["Col_CSTPer"].Value != null)
-                            _Purchase.CSTPercent = Convert.ToDouble(prodrow.Cells["Col_CSTPer"].Value.ToString());
-                        if (prodrow.Cells["Col_SplDiscountPer"].Value != null)
-                            _Purchase.SplDiscountPercent = Convert.ToDouble(prodrow.Cells["Col_SplDiscountPer"].Value.ToString());
-                        if (prodrow.Cells["Col_SplDiscountAmount"].Value != null)
-                            _Purchase.AmountSplDiscountPerUnit = Convert.ToDouble(prodrow.Cells["Col_SplDiscountAmount"].Value.ToString());
+                        //if (prodrow.Cells["Col_CSTAmount"].Value != null)
+                        //    _Purchase.AmountCST = Convert.ToDouble(prodrow.Cells["Col_CSTAmount"].Value.ToString());
+                        //if (prodrow.Cells["Col_CSTPer"].Value != null)
+                        //    _Purchase.CSTPercent = Convert.ToDouble(prodrow.Cells["Col_CSTPer"].Value.ToString());
+                        //if (prodrow.Cells["Col_SplDiscountPer"].Value != null)
+                        //    _Purchase.SplDiscountPercent = Convert.ToDouble(prodrow.Cells["Col_SplDiscountPer"].Value.ToString());
+                        //if (prodrow.Cells["Col_SplDiscountAmount"].Value != null)
+                        //    _Purchase.AmountSplDiscountPerUnit = Convert.ToDouble(prodrow.Cells["Col_SplDiscountAmount"].Value.ToString());
                         if (prodrow.Cells["Col_ShelfID"].Value != null)
                             _Purchase.ShelfID = prodrow.Cells["Col_ShelfID"].Value.ToString();
                         if (prodrow.Cells["Col_VATAmountPurchase"].Value != null)
@@ -2992,16 +2992,16 @@ namespace EcoMart.InterfaceLayer
                 column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 mpMSVC.ColumnsMain.Add(column);
 
-                column = new DataGridViewTextBoxColumn();
-                column.Name = "Col_CSTPer";
-                column.DataPropertyName = "CSTPercent";
-                column.HeaderText = "CST%";
-                column.Width = 50;
-                column.ReadOnly = true;
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                column.Visible = false;
-                mpMSVC.ColumnsMain.Add(column);
+                //column = new DataGridViewTextBoxColumn();
+                //column.Name = "Col_CSTPer";
+                //column.DataPropertyName = "CSTPercent";
+                //column.HeaderText = "CST%";
+                //column.Width = 50;
+                //column.ReadOnly = true;
+                //column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                //column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                //column.Visible = false;
+                //mpMSVC.ColumnsMain.Add(column);
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_Scheme";
@@ -3052,19 +3052,19 @@ namespace EcoMart.InterfaceLayer
                 column.Visible = false;
                 mpMSVC.ColumnsMain.Add(column);
 
-                column = new DataGridViewTextBoxColumn();
-                column.Name = "Col_SplDiscountPer";
-                column.DataPropertyName = "SpecialDiscountPercent";
-                column.Width = 80;
-                column.Visible = false;
-                mpMSVC.ColumnsMain.Add(column);
+                //column = new DataGridViewTextBoxColumn();
+                //column.Name = "Col_SplDiscountPer";
+                //column.DataPropertyName = "SpecialDiscountPercent";
+                //column.Width = 80;
+                //column.Visible = false;
+                //mpMSVC.ColumnsMain.Add(column);
 
-                column = new DataGridViewTextBoxColumn();
-                column.Name = "Col_SplDiscountAmount";
-                column.DataPropertyName = "AmountSpecialDiscount";
-                column.Width = 80;
-                column.Visible = false;
-                mpMSVC.ColumnsMain.Add(column);
+                //column = new DataGridViewTextBoxColumn();
+                //column.Name = "Col_SplDiscountAmount";
+                //column.DataPropertyName = "AmountSpecialDiscount";
+                //column.Width = 80;
+                //column.Visible = false;
+                //mpMSVC.ColumnsMain.Add(column);
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_VATAmountPurchase";
@@ -3073,12 +3073,12 @@ namespace EcoMart.InterfaceLayer
                 column.Visible = false;
                 mpMSVC.ColumnsMain.Add(column);
 
-                column = new DataGridViewTextBoxColumn();
-                column.Name = "Col_CSTAmount";
-                column.DataPropertyName = "AmountCST";
-                column.Width = 80;
-                column.Visible = false;
-                mpMSVC.ColumnsMain.Add(column);
+                //column = new DataGridViewTextBoxColumn();
+                //column.Name = "Col_CSTAmount";
+                //column.DataPropertyName = "AmountCST";
+                //column.Width = 80;
+                //column.Visible = false;
+                //mpMSVC.ColumnsMain.Add(column);
 
                 //column = new DataGridViewTextBoxColumn();
                 //column.Name = "Col_CSTPer";
@@ -3157,19 +3157,19 @@ namespace EcoMart.InterfaceLayer
                 column.Visible = false;
                 mpMSVC.ColumnsMain.Add(column);
 
-                column = new DataGridViewTextBoxColumn();
-                column.Name = "Col_DistributorSaleRate";
-                column.DataPropertyName = "DistributorSaleRate";
-                column.Width = 80;
-                column.Visible = false;
-                mpMSVC.ColumnsMain.Add(column);
+                //column = new DataGridViewTextBoxColumn();
+                //column.Name = "Col_DistributorSaleRate";
+                //column.DataPropertyName = "DistributorSaleRate";
+                //column.Width = 80;
+                //column.Visible = false;
+                //mpMSVC.ColumnsMain.Add(column);
 
-                column = new DataGridViewTextBoxColumn();
-                column.Name = "Col_DistributorSaleRatePer";
-                column.DataPropertyName = "DistributorSaleRatePer";
-                column.Width = 80;
-                column.Visible = false;
-                mpMSVC.ColumnsMain.Add(column);
+                //column = new DataGridViewTextBoxColumn();
+                //column.Name = "Col_DistributorSaleRatePer";
+                //column.DataPropertyName = "DistributorSaleRatePer";
+                //column.Width = 80;
+                //column.Visible = false;
+                //mpMSVC.ColumnsMain.Add(column);
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_ShelfCode";
@@ -3213,12 +3213,12 @@ namespace EcoMart.InterfaceLayer
                 column.Visible = false;
                 mpMSVC.ColumnsMain.Add(column);
 
-                column = new DataGridViewTextBoxColumn();
-                column.Name = "Col_PendingSchemeQuantity";
-                column.DataPropertyName = "PendingSchemeQuantity";
-                column.Width = 80;
-                column.Visible = false;
-                mpMSVC.ColumnsMain.Add(column);
+                //column = new DataGridViewTextBoxColumn();
+                //column.Name = "Col_PendingSchemeQuantity";
+                //column.DataPropertyName = "PendingSchemeQuantity";
+                //column.Width = 80;
+                //column.Visible = false;
+                //mpMSVC.ColumnsMain.Add(column);
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_StockID";
@@ -3248,6 +3248,7 @@ namespace EcoMart.InterfaceLayer
                 column.Width = 80;
                 column.Visible = false;
                 mpMSVC.ColumnsMain.Add(column);
+
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_GSTSAmount";
                 column.DataPropertyName = "GSTSAmount";
@@ -3261,6 +3262,7 @@ namespace EcoMart.InterfaceLayer
                 column.Width = 80;
                 column.Visible = false;
                 mpMSVC.ColumnsMain.Add(column);
+
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_GSTIAmount";
                 column.DataPropertyName = "GSTIAmount";
@@ -4836,10 +4838,10 @@ namespace EcoMart.InterfaceLayer
                     mshelfID = mpMSVC.MainDataGridCurrentRow.Cells["Col_ShelfID"].Value.ToString().Trim();
                 if (mpMSVC.MainDataGridCurrentRow.Cells["Col_Quantity"].Value != null)
                     mqty = Convert.ToInt32(mpMSVC.MainDataGridCurrentRow.Cells["Col_Quantity"].Value.ToString());
-                if (mpMSVC.MainDataGridCurrentRow.Cells["Col_PendingSchemeQuantity"].Value != null && mpMSVC.MainDataGridCurrentRow.Cells["Col_PendingSchemeQuantity"].Value.ToString() != "")
-                    mpendingschemequantity = Convert.ToInt32(mpMSVC.MainDataGridCurrentRow.Cells["Col_PendingSchemeQuantity"].Value.ToString());
-                else
-                    mpendingschemequantity = 0;
+                //if (mpMSVC.MainDataGridCurrentRow.Cells["Col_PendingSchemeQuantity"].Value != null && mpMSVC.MainDataGridCurrentRow.Cells["Col_PendingSchemeQuantity"].Value.ToString() != "")
+                //    mpendingschemequantity = Convert.ToInt32(mpMSVC.MainDataGridCurrentRow.Cells["Col_PendingSchemeQuantity"].Value.ToString());
+                //else
+                mpendingschemequantity = 0;
 
                 if (mpMSVC.MainDataGridCurrentRow.Cells["Col_Scheme"].Value != null)
                     mscm = Convert.ToInt32(mpMSVC.MainDataGridCurrentRow.Cells["Col_Scheme"].Value.ToString());
@@ -4862,10 +4864,10 @@ namespace EcoMart.InterfaceLayer
                     mtraderate = Convert.ToDouble(mpMSVC.MainDataGridCurrentRow.Cells["Col_TradeRate"].Value.ToString());
                 if (mpMSVC.MainDataGridCurrentRow.Cells["Col_SaleRate"].Value != null)
                     msalerate = Convert.ToDouble(mpMSVC.MainDataGridCurrentRow.Cells["Col_SaleRate"].Value.ToString());
-                if (mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTAmount"].Value != null)
-                    mcstamt = Convert.ToDouble(mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTAmount"].Value.ToString());
-                if (mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTPer"].Value != null && mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTPer"].Value.ToString() != "")
-                    mcstper = Convert.ToDouble(mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTPer"].Value.ToString());
+                //if (mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTAmount"].Value != null)
+                //    mcstamt = Convert.ToDouble(mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTAmount"].Value.ToString());
+                //if (mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTPer"].Value != null && mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTPer"].Value.ToString() != "")
+                //    mcstper = Convert.ToDouble(mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTPer"].Value.ToString());
                 if (mpMSVC.MainDataGridCurrentRow.Cells["Col_ItemSCMDiscountAmountPerUnit"].Value != null && mpMSVC.MainDataGridCurrentRow.Cells["Col_ItemSCMDiscountAmountPerUnit"].Value.ToString() != "")
                     mscmper = Convert.ToDouble(mpMSVC.MainDataGridCurrentRow.Cells["Col_ItemSCMDiscountAmountPerUnit"].Value.ToString());
                 if (mpMSVC.MainDataGridCurrentRow.Cells["Col_ItemSCMDiscountAmount"].Value != null)
@@ -5762,7 +5764,7 @@ namespace EcoMart.InterfaceLayer
                     if (string.IsNullOrEmpty(txtQuantity.Text.ToString()) == true)
                         txtQuantity.Text = "0";
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_Quantity"].Value = txtQuantity.Text.ToString();
-                    mpMSVC.MainDataGridCurrentRow.Cells["Col_PendingSchemeQuantity"].Value = txtPendingScheme.Text.ToString();
+                    //mpMSVC.MainDataGridCurrentRow.Cells["Col_PendingSchemeQuantity"].Value = txtPendingScheme.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_BatchNumber"].Value = txtBatch.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_Expiry"].Value = txtExpiry.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_ExpiryDate"].Value = txtExpiryDate.Text.ToString();
@@ -5778,18 +5780,17 @@ namespace EcoMart.InterfaceLayer
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_Amount"].Value = txtAmount.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_ItemDiscountAmount"].Value = txtDiscountAmt.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_ItemSCMDiscountAmount"].Value = txtSchemeAmount.Text.ToString();
-                    mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTPer"].Value = txtCSTPer.Text.ToString();
-                    mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTAmount"].Value = txtCSTAmount.Text.ToString();
+                    //mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTPer"].Value = txtCSTPer.Text.ToString();
+                    //mpMSVC.MainDataGridCurrentRow.Cells["Col_CSTAmount"].Value = txtCSTAmount.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_ProdVATPer"].Value = txtMasterVATPer.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_VATAmountSale"].Value = txtMasterVATAmt.Text.ToString();
-                    mpMSVC.MainDataGridCurrentRow.Cells["Col_SpldiscountPer"].Value = txtSplDiscPerS.Text.ToString();
-                    mpMSVC.MainDataGridCurrentRow.Cells["Col_SplDiscountAmount"].Value = txtSplDiscountPerUnit.Text.ToString();
+                    //mpMSVC.MainDataGridCurrentRow.Cells["Col_SpldiscountPer"].Value = txtSplDiscPerS.Text.ToString();
+                    //mpMSVC.MainDataGridCurrentRow.Cells["Col_SplDiscountAmount"].Value = txtSplDiscountPerUnit.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_CashDiscountAmount"].Value = txtCashDisountPerUnit.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_PriceToRetailer"].Value = txtPTR.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_ProfitPercent"].Value = txtProfitPercentage.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_Margin"].Value = txtMargin.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_Margin2"].Value = txtMargin2.Text.ToString();
-                    // mpMSVC.MainDataGridCurrentRow.Cells["Col_SplDiscountAmount"].Value = txtSplDiscountPerUnit.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_StockID"].Value = txtStockID.Text.ToString();
                     mpMSVC.MainDataGridCurrentRow.Cells["Col_ScanCode"].Value = txtScanCode.Text.ToString();
                     if (mcbShelf.SelectedID != null && mcbShelf.SelectedID != string.Empty)
@@ -6670,7 +6671,7 @@ namespace EcoMart.InterfaceLayer
                         dr.Cells["Col_VATAmountSale"].Value = msalevatamt.ToString("#0.0000");
                         dr.Cells["Col_Amount"].Value = mamt.ToString("#0.00");
                         dr.Cells["Col_SaleRate"].Value = msalerate.ToString("#0.00");
-                        dr.Cells["Col_SplDiscountPer"].Value = _Purchase.AmountSplDiscountPerUnit.ToString("0.00");
+                        // dr.Cells["Col_SplDiscountPer"].Value = _Purchase.AmountSplDiscountPerUnit.ToString("0.00");
                         dr.Cells["Col_CashDiscountAmount"].Value = _Purchase.AmountCashDiscountPerUnit.ToString("0.00");
                         dr.Cells["Col_PurchaseRate"].Value = mprate.ToString("#0.00");
                         dr.Cells["Col_Margin"].Value = mmargin.ToString("#0.00");
@@ -7011,14 +7012,12 @@ namespace EcoMart.InterfaceLayer
                         mtt1S = mtt1;
                         mtt1 = Math.Round(mtt1 / mqty, 2); //4
                         mtotalvat += mtt1;
-                        dr.Cells["Col_SplDiscountAmount"].Value = msplddx.ToString();
+                        //dr.Cells["Col_SplDiscountAmount"].Value = msplddx.ToString();
                         dr.Cells["Col_CreditNoteAmount"].Value = mcrddx.ToString();
                         dr.Cells["Col_CashDiscountAmount"].Value = mddx.ToString();
                         mtotcashdiscount += mddx;
                         dr.Cells["Col_VATAmountPurchase"].Value = mtt1.ToString();
-                        dr.Cells["Col_SplDiscountPer"].Value = _Purchase.SpecialDiscountPercentS.ToString();
-                        //   dr.Cells["Col_SplDiscountAmount"].Value = msplddx.ToString();
-
+                        //dr.Cells["Col_SplDiscountPer"].Value = _Purchase.SpecialDiscountPercentS.ToString();
 
                         if (mmstperpur == 0)
                         {
@@ -7386,14 +7385,14 @@ namespace EcoMart.InterfaceLayer
                                 puramt -= Math.Round(mamt, 2);
                             }
 
-                            mamt = 0;
-                            if (dr.Cells["Col_SplDiscountAmount"].Value != null && dr.Cells["Col_SplDiscountAmount"].Value.ToString() != "")
-                            {
-                                double.TryParse(dr.Cells["Col_SplDiscountAmount"].Value.ToString(), out mamt);
-                                mtotspldisc += mamt;
-                                puramt -= Math.Round(mamt * mqty, 2);
-                            }
-                            mamt = 0;
+                            //mamt = 0;
+                            //if (dr.Cells["Col_SplDiscountAmount"].Value != null && dr.Cells["Col_SplDiscountAmount"].Value.ToString() != "")
+                            //{
+                            //    double.TryParse(dr.Cells["Col_SplDiscountAmount"].Value.ToString(), out mamt);
+                            //    mtotspldisc += mamt;
+                            //    puramt -= Math.Round(mamt * mqty, 2);
+                            //}
+                            //mamt = 0;
                             //if (General.CurrentSetting.MsetPurchaseIfProductWithOctroi == "Y")
                             //{
                             //    if (dr.Cells["Col_IfOctroi"].Value != null && dr.Cells["Col_IfOctroi"].Value.ToString() == "Y")
