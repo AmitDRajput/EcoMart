@@ -385,50 +385,56 @@ namespace EcoMart.InterfaceLayer.CommonControls
         {
             try
             {
-                try
+                //Disable Sorting
+                foreach (DataGridViewColumn column in dgMainGrid.Columns)
                 {
-                    //Disable Sorting
-                    foreach (DataGridViewColumn column in dgMainGrid.Columns)
+                    column.SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
+                if (_DataTableMain != null)
+                {
+                    dgMainGrid.Rows.Clear();
+                    for (int index = 0; index < _DataTableMain.Rows.Count; index++)
                     {
-                        column.SortMode = DataGridViewColumnSortMode.NotSortable;
-                    }
-                    if (_DataTableMain != null)
-                    {
-                        dgMainGrid.Rows.Clear();
-                        for (int index = 0; index < _DataTableMain.Rows.Count; index++)
+                        if (_DataTableMain.Rows[index][0] != null && _DataTableMain.Rows[index][0].ToString() != "") // ss 9/8/2013
                         {
-                            if (_DataTableMain.Rows[index][0] != null && _DataTableMain.Rows[index][0].ToString() != "") // ss 9/8/2013
+                            int rowIndex = dgMainGrid.Rows.Add();
+                            DataGridViewRow dr = dgMainGrid.Rows[rowIndex];
+                            //pravin
+                            dr.ReadOnly = true;
+                            for (int colIndex = 0; colIndex < dgMainGrid.Columns.Count; colIndex++)
                             {
-                                int rowIndex = dgMainGrid.Rows.Add();
-                                DataGridViewRow dr = dgMainGrid.Rows[rowIndex];
-                                //pravin
-                                dr.ReadOnly = true;
-                                for (int colIndex = 0; colIndex < dgMainGrid.Columns.Count; colIndex++)
-                                {
-                                    DataGridViewColumn col = dgMainGrid.Columns[colIndex];
-                                    if (col.CellType == typeof(DataGridViewCheckBoxCell))  //Amar
-                                        dr.Cells[col.Name].ReadOnly = false;
+                                DataGridViewColumn col = dgMainGrid.Columns[colIndex];
+                                if (col.CellType == typeof(DataGridViewCheckBoxCell))  //Amar
+                                    dr.Cells[col.Name].ReadOnly = false;
 
-                                    if (col.DataPropertyName != null && col.DataPropertyName != "")
+                                if (col.DataPropertyName != null && col.DataPropertyName != "")
+                                {
+                                    if (DoubleColumnNames != null && DoubleColumnNames.Contains(col.Name))
                                     {
-                                        if (DoubleColumnNames != null && DoubleColumnNames.Contains(col.Name))
+                                        if (string.IsNullOrEmpty(_DataTableMain.Rows[index][col.DataPropertyName].ToString()))
                                         {
-                                            dr.Cells[col.Name].Value = Convert.ToDouble(_DataTableMain.Rows[index][col.DataPropertyName]).ToString("#0.00");
+                                            dr.Cells[col.Name].Value = "0.00";
                                         }
                                         else
                                         {
-                                            dr.Cells[col.Name].Value = _DataTableMain.Rows[index][col.DataPropertyName].ToString();
+                                            dr.Cells[col.Name].Value = Convert.ToDouble(_DataTableMain.Rows[index][col.DataPropertyName]).ToString("#0.00");
                                         }
+                                    }
+                                    else
+                                    {
+                                        dr.Cells[col.Name].Value = _DataTableMain.Rows[index][col.DataPropertyName].ToString();
                                     }
                                 }
                             }
                         }
                     }
-                    dgMainGrid.Initialize();
                 }
-                catch (Exception ex) { Log.WriteError(ex.ToString()); }
+                dgMainGrid.Initialize();
             }
-            catch (Exception ex) { Log.WriteError(ex.ToString()); }
+            catch (Exception ex)
+            {
+                Log.WriteError(ex.ToString());
+            }
         }
 
         public void BindGridProductList()
@@ -490,7 +496,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                         bool SetMultipleMRP = false;
                         foreach (DataRow dr in DataSourceBatchList.Rows)
                         {
-                           // string pdate = "";
+                            // string pdate = "";
                             if (SetMultipleMRP == false && string.IsNullOrEmpty(Convert.ToString(dr["MRP"])) == false
                                 && Convert.ToInt32(dr["ClosingStock"]) > 0 && pmrp != Convert.ToDouble(dr["MRP"]))
                             {
@@ -527,11 +533,11 @@ namespace EcoMart.InterfaceLayer.CommonControls
             DataTable dtbatchWiseProductGrid = new DataTable();
             try
             {
-                dtbatchWiseProductGrid.Columns.Add("ProductID", typeof(string));
+                dtbatchWiseProductGrid.Columns.Add("ProductID", typeof(int));
                 dtbatchWiseProductGrid.Columns.Add("BatchID", typeof(string));
                 dtbatchWiseProductGrid.Columns.Add("QTY", typeof(int));
-                dtbatchWiseProductGrid.Columns.Add("SRate", typeof(double));
-                dtbatchWiseProductGrid.Columns.Add("StockID", typeof(string));
+                dtbatchWiseProductGrid.Columns.Add("SRate", typeof(decimal));
+                dtbatchWiseProductGrid.Columns.Add("StockID", typeof(int));
 
                 for (int i = 0; i < dtTempCounterSale.Rows.Count; i++)
                 {
@@ -581,7 +587,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
             try
             {
                 // ss 8 jun 2016
-                if (Convert.ToInt32(MainDataGridCurrentRow.Cells[0]) == ProductID)
+                if (Convert.ToInt32(MainDataGridCurrentRow.Cells[0].Value) == ProductID)
                 {
                     if (MainDataGridCurrentRow.Cells[_BatchGridIDColumnName].Value != null && MainDataGridCurrentRow.Cells[_BatchGridIDColumnName].Value.ToString() != string.Empty)
                     {
@@ -981,7 +987,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                     { strFilterString += " like '%" + filterValue + "%' "; }
 
                     DataTable dtClosingStock = DBProduct.GetFilteredProductStock(strFilterString);
-                    
+
                     string Filterstr = string.Empty;
                     //check by batch name
                     if (dtClosingStock == null || dtClosingStock.Rows.Count == 0)
@@ -1012,7 +1018,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                         Filterstr = "MRP " + " = " + filterValue;
                         dtClosingStock = DBProduct.GetFilteredProductFromtbStock(Filterstr);
                     }
-                 
+
                     DataTable dtMergedProduct = DBProduct.GetMergedProductStock(DataSourceProductList, dtClosingStock, EditedTempDataList);
                     if (dtMergedProduct.Rows.Count > 0)
                         _BindingSourceProductList.DataSource = dtMergedProduct;
@@ -1159,31 +1165,31 @@ namespace EcoMart.InterfaceLayer.CommonControls
                             ////////End Amit
                             //////else
                             //////{
-                                pnlBatchGrid.Location = GetCurrentRowLocationforBatchGrid();
-                                dgBatchListGrid.Location = GetCurrentRowLocationforBatchGrid();
-                                pnlBatchGrid.Visible = true;
-                                pnlBatchGrid.BringToFront();
-                                dgBatchListGrid.Visible = true;
+                            pnlBatchGrid.Location = GetCurrentRowLocationforBatchGrid();
+                            dgBatchListGrid.Location = GetCurrentRowLocationforBatchGrid();
+                            pnlBatchGrid.Visible = true;
+                            pnlBatchGrid.BringToFront();
+                            dgBatchListGrid.Visible = true;
 
-                                foreach (DataGridViewColumn clm in dgBatchListGrid.Columns)  // [ansuman] [04.11.2016]
+                            foreach (DataGridViewColumn clm in dgBatchListGrid.Columns)  // [ansuman] [04.11.2016]
+                            {
+                                bool notAvailable = true;
+                                foreach (DataGridViewRow row in dgBatchListGrid.Rows)
                                 {
-                                    bool notAvailable = true;
-                                    foreach (DataGridViewRow row in dgBatchListGrid.Rows)
+                                    if (clm.Index > 0)
                                     {
-                                        if (clm.Index > 0)
+                                        if (row.Cells[clm.Index].Value != null)
                                         {
-                                            if (!string.IsNullOrEmpty(row.Cells[clm.Index].Value.ToString()))
-                                            {
-                                                notAvailable = false;
-                                                break;
-                                            }
+                                            notAvailable = false;
+                                            break;
                                         }
                                     }
-                                    if (notAvailable)
-                                    {
-                                        dgBatchListGrid.Columns[clm.Index].Visible = false;
-                                    }
                                 }
+                                if (notAvailable)
+                                {
+                                    dgBatchListGrid.Columns[clm.Index].Visible = false;
+                                }
+                            }
                             //}
                             FillExpBatchColor();
                         }
@@ -1458,17 +1464,23 @@ namespace EcoMart.InterfaceLayer.CommonControls
                     string expDate = string.Empty;
                     if (item.Cells["Col_ExpiryDate"].Value != DBNull.Value && item.Cells["Col_ExpiryDate"].Value.ToString() != string.Empty)
                     {
-                        expDate = General.GetDateInDateFormat(Convert.ToString(item.Cells["Col_ExpiryDate"].Value));
-                        DateTime exp = Convert.ToDateTime(expDate);
-                        if (DateTime.Compare(exp.Date, DateTime.Now.Date) < 0)
+                        //expDate = General.GetDateInDateFormat(Convert.ToString(item.Cells["Col_ExpiryDate"].Value));
+                        //DateTime exp = Convert.ToDateTime(expDate);
+                        if (DateTime.TryParse(Convert.ToString(item.Cells["Col_ExpiryDate"].Value), out DateTime exp))
                         {
-                            item.DefaultCellStyle.ForeColor = Color.Red;
-                            item.DefaultCellStyle.SelectionForeColor = Color.Red;
+                            if (DateTime.Compare(exp.Date, DateTime.Now.Date) < 0)
+                            {
+                                item.DefaultCellStyle.ForeColor = Color.Red;
+                                item.DefaultCellStyle.SelectionForeColor = Color.Red;
+                            }
                         }
                     }
                 }
             }
-            catch (Exception ex) { Log.WriteError(ex.ToString()); }
+            catch (Exception ex)
+            {
+                Log.WriteError(ex.ToString());
+            }
         }
 
         internal bool VisibleProductGrid()

@@ -5186,7 +5186,7 @@ namespace EcoMart.InterfaceLayer
                     string voudt = "";
                     double amtclear = 0;
                     DataGridViewRow currentdr = dgCreditNote.Rows[_RowIndex];
-                    currentdr.Cells["Col_CrdbID"].Value = dr["CRDBID"].ToString();
+                    currentdr.Cells["Col_CrdbID"].Value = dr["ID"].ToString();
                     currentdr.Cells["Col_VoucherType"].Value = dr["VoucherType"].ToString();
                     currentdr.Cells["Col_VoucherNumber"].Value = dr["VoucherNumber"].ToString();
                     if (dr["VoucherDate"] != DBNull.Value && dr["VoucherDate"].ToString() != "")
