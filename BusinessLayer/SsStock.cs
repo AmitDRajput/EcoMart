@@ -485,24 +485,25 @@ namespace EcoMart.BusinessLayer
                     {
                         var JoinResultCounter = (from p in dataSourceBatchList.AsEnumerable()
                                                  join t in dtTempCounterSale.AsEnumerable()
-                                                 on new { A = ProductID, B = p.Field<string>("BatchNumber"), C = p.Field<double?>("SaleRate"), D = p.Field<string>("StockID") } equals new { A = t.Field<int>("ProductID"), B = t.Field<string>("BatchID"), C = t.Field<double?>("SRate"), D = t.Field<string>("StockID") }
+                                                 on new { A = ProductID, B = p.Field<string>("BatchNumber"), C = p.Field<decimal?>("SaleRate"), D = p.Field<int>("StockID") } 
+                                                    equals new { A = t.Field<int>("ProductID"), B = t.Field<string>("BatchID"), C = t.Field<decimal?>("SRate"), D = t.Field<int>("StockID") }
                             into joinedtables
                                                  from stuff in joinedtables.DefaultIfEmpty()
                                                  select new
                                                  {
                                                      BatchNumber = p.Field<string>("BatchNumber"),
                                                      Expiry = p.Field<string>("Expiry"),
-                                                     MRP = p.Field<double?>("MRP"),
-                                                     PurchaseRate = p.Field<double?>("PurchaseRate"),
-                                                     SaleRate = p.Field<double?>("SaleRate"),
-                                                     DistributorSaleRate = p.Field<double?>("DistributorSaleRate"),
-                                                     Closingstock = p.Field<Int32>("Closingstock") - (stuff?.Field<Int32>("QTY") ?? 0),
-                                                     ClosingstockPack = p.Field<Int64>("ClosingstockPack"),
-                                                     ProductVatPercent = p.Field<double?>("ProductVatPercent"),
-                                                     ExpiryDate = p.Field<string>("ExpiryDate"),
-                                                     TradeRate = p.Field<double?>("TradeRate"),
-                                                     StockID = p.Field<string>("StockID"),
-                                                     LastPurchaseDate = p.Field<string>("LastPurchaseDate"),
+                                                     MRP = p.Field<decimal?>("MRP"),
+                                                     PurchaseRate = p.Field<decimal?>("PurchaseRate"),
+                                                     SaleRate = p.Field<decimal?>("SaleRate"),
+                                                     //DistributorSaleRate = p.Field<decimal?>("DistributorSaleRate"),
+                                                     Closingstock = p.Field<int>("Closingstock") - (stuff?.Field<int>("QTY") ?? 0),
+                                                     //ClosingstockPack = p.Field<int>("ClosingstockPack"),
+                                                     ProductVatPercent = p.Field<decimal?>("ProductVatPercent"),
+                                                     ExpiryDate = p.Field<DateTime>("ExpiryDate"),
+                                                     TradeRate = p.Field<decimal?>("TradeRate"),
+                                                     StockID = p.Field<int?>("StockID"),
+                                                     LastPurchaseDate = p.Field<DateTime>("LastPurchaseDate"),
                                                      PartyName = p.Field<string>("PartyName"),
                                                      BillNo = p.Field<string>("BillNo")
                                                      //ProdClosingStock = p.Field<Int32>("ProdClosingStock") - (stuff?.Field<Int32>("QTY") ?? 0)

@@ -161,7 +161,7 @@ namespace EcoMart.InterfaceLayer
                     Log.WriteException(ex);
                 }
             }
-            return retValue;            
+            return retValue;
         }
 
         public override bool Delete()
@@ -390,7 +390,6 @@ namespace EcoMart.InterfaceLayer
         }
         public override bool Save()
         {
-
             return SaveData(false);
         }
 
@@ -472,14 +471,15 @@ namespace EcoMart.InterfaceLayer
                             if (_Mode == OperationMode.Add || _Mode == OperationMode.OpenAsChild)
                             {
                                 General.BeginTransaction();
-                                _DNStock.Id = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                                //_DNStock.Id = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                                 _DNStock.CrdbVouNo = _DNStock.GetAndUpdateDNNumber(General.ShopDetail.ShopVoucherSeries);
                                 txtVouchernumber.Text = Convert.ToString(_DNStock.CrdbVouNo);
                                 _DNStock.CreatedBy = General.CurrentUser.Id;
                                 _DNStock.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
                                 _DNStock.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
 
-                                retValue = _DNStock.AddDetails();
+                                _DNStock.Id = _DNStock.AddDetails().ToString();
+                                retValue = Convert.ToInt32(_DNStock.Id) > 0;
                                 _SavedID = _DNStock.Id;
                                 if (retValue)
                                     retValue = SaveParticularsProductwise();
@@ -490,10 +490,10 @@ namespace EcoMart.InterfaceLayer
                                 {
                                     if (_DNStock.TrasferToAccount == "Y")
                                     {
-                                        _DNStock.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                                        //_DNStock.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                                         _DNStock.AddAccountDetailsIntbltrnacDebit();
 
-                                        _DNStock.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                                        //_DNStock.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                                         _DNStock.AddAccountDetailsIntbltrnacCredit();
                                     }
                                 }
@@ -609,7 +609,7 @@ namespace EcoMart.InterfaceLayer
                                 {
 
                                     General.BeginTransaction();
-                                    _DNStock.IDForSelected = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                                    //_DNStock.IDForSelected = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                                     _DNStock.CrdbVouNoForSelected = _DNStock.GetAndUpdateDNNumber(General.ShopDetail.ShopVoucherSeries);
                                     txtVouchernumber.Text = Convert.ToString(_DNStock.CrdbVouNo);
                                     _DNStock.CreatedBy = General.CurrentUser.Id;
@@ -627,7 +627,8 @@ namespace EcoMart.InterfaceLayer
 
 
 
-                                    retValue = _DNStock.AddDetailsForSelected();
+                                    _DNStock.Id = _DNStock.AddDetailsForSelected().ToString();
+                                    retValue = Convert.ToInt32(_DNStock.Id) > 0;
                                     _SavedID = _DNStock.Id;
                                     if (retValue)
                                         retValue = SaveParticularsProductwiseForSelected();
@@ -782,8 +783,10 @@ namespace EcoMart.InterfaceLayer
                     if (_DNStock.CrdbRoundAmount != 0)
                         txtRoundAmount.Text = _DNStock.CrdbRoundAmount.ToString("#0.00");
                     txtTotalAmount.Text = _DNStock.CrdbTotalAmount.ToString("#0.00");
-                    DateTime mydate = new DateTime(Convert.ToInt32(_DNStock.CrdbVouDate.Substring(0, 4)), Convert.ToInt32(_DNStock.CrdbVouDate.Substring(4, 2)), Convert.ToInt32(_DNStock.CrdbVouDate.Substring(6, 2)));
-                    datePickerBillDate.Value = mydate;
+                    if (DateTime.TryParse(_DNStock.CrdbVouDate, out DateTime mydate))
+                    {
+                        datePickerBillDate.Value = mydate;
+                    }
                     _IfAdjusted = "N";
                     if (_DNStock.ClearedIn != "")
                     {
@@ -914,11 +917,12 @@ namespace EcoMart.InterfaceLayer
                            Convert.ToDouble(prodrow.Cells["Col_Quantity"].Value) > 0)
                         {
                             _DNStock.SerialNumber += 1;
-                            _DNStock.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                            //_DNStock.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                             _DNStock.StockID = prodrow.Cells["Col_StockID"].Value.ToString();
                             _DNStock.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString());
                             mpakn = 1;
-                            mpakn = Convert.ToInt32(prodrow.Cells["Col_UOM"].Value.ToString());
+                            if (prodrow.Cells["Col_UOM"].Value != null && prodrow.Cells["Col_UOM"].Value.ToString() != "")
+                                mpakn = Convert.ToInt32(prodrow.Cells["Col_UOM"].Value.ToString());
                             _DNStock.Batchno = prodrow.Cells["Col_BatchNumber"].Value.ToString();
                             _DNStock.Quantity = 0;
                             if (prodrow.Cells["Col_Quantity"].Value != null && prodrow.Cells["Col_Quantity"].Value.ToString() != "")
@@ -1074,7 +1078,7 @@ namespace EcoMart.InterfaceLayer
                            Convert.ToDouble(prodrow.Cells["Col_Quantity"].Value) > 0 && (prodrow.Cells["Col_Check"].Value == null || Convert.ToBoolean(prodrow.Cells["Col_Check"].Value.ToString()) == false))
                         {
                             _DNStock.SerialNumber += 1;
-                            _DNStock.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                            //_DNStock.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                             _DNStock.StockID = prodrow.Cells["Col_StockID"].Value.ToString();
                             _DNStock.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString());
                             mpakn = 1;
@@ -1152,7 +1156,8 @@ namespace EcoMart.InterfaceLayer
                        Convert.ToDouble(prodrow.Cells["Col_Quantity"].Value) > 0)
                     {
                         mpakn = 1;
-                        mpakn = Convert.ToInt32(prodrow.Cells["Col_UOM"].Value.ToString());
+                        if (prodrow.Cells["Col_UOM"].Value != null && prodrow.Cells["Col_UOM"].Value.ToString() != "")
+                            mpakn = Convert.ToInt32(prodrow.Cells["Col_UOM"].Value.ToString());
                         _DNStock.ProdLoosePack = mpakn;
                         _DNStock.StockID = prodrow.Cells["Col_StockID"].Value.ToString();
                         _DNStock.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString());
@@ -3400,12 +3405,12 @@ namespace EcoMart.InterfaceLayer
             if (dtTempStockOut == null)
             {
                 dtTempStockOut = new DataTable();
-                dtTempStockOut.Columns.Add("ProductID", typeof(string));
+                dtTempStockOut.Columns.Add("ProductID", typeof(int));
                 dtTempStockOut.Columns.Add("BatchID", typeof(string));
                 dtTempStockOut.Columns.Add("QTY", typeof(int));
-                dtTempStockOut.Columns.Add("SRate", typeof(double));
+                dtTempStockOut.Columns.Add("SRate", typeof(decimal));
                 dtTempStockOut.Columns.Add("FormName", typeof(string));
-                dtTempStockOut.Columns.Add("StockID", typeof(string));
+                dtTempStockOut.Columns.Add("StockID", typeof(int));
                 //ProductID, batch,mrp
                 CacheObject.Add(dtTempStockOut, "TempCounterSale");
                 //DataRow[] drFormRows = dtTempPatientSale.Select("FormName");

@@ -85,7 +85,7 @@ namespace EcoMart.InterfaceLayer
                 DataGridViewTextBoxColumn column;
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_ID";
-                column.DataPropertyName = "CRDBID";
+                column.DataPropertyName = "ID";
                 column.HeaderText = "ID";
                 column.Visible = false;
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -178,8 +178,8 @@ namespace EcoMart.InterfaceLayer
                 FillSearchGridData();
                 dgvSearchList.DataSource = _BindingSource;
                 dgvSearchList.Bind();
-                dgvSearchList.DateColumnNames.Add("Col_VoucherDate");
-                dgvSearchList.DateColumnNames.Add("Col_CVoucherDate");  // [ansuman] [16.11.2016]
+                //dgvSearchList.DateColumnNames.Add("Col_VoucherDate");
+                //dgvSearchList.DateColumnNames.Add("Col_CVoucherDate");  // [ansuman] [16.11.2016]
                 //dgvSearchList.DateColumnNames.Add("Col_CBillNumber");   // [ansuman] [16.11.2016]
             }
             catch (Exception ex)

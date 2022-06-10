@@ -611,7 +611,7 @@ namespace EcoMart.BusinessLayer
                 drow = dbStock.ReadDetailsByVouNumber(vouno);
                 if (drow != null)
                 {
-                    Id = drow["CRDBID"].ToString();
+                    Id = drow["ID"].ToString();
                     CrdbId = drow["AccountId"].ToString();
                     CrdbVouDate = drow["VoucherDate"].ToString();
                     CrdbVouNo = Convert.ToInt32(drow["VoucherNumber"].ToString());
@@ -702,29 +702,29 @@ namespace EcoMart.BusinessLayer
             }
             return dt;
         }
-        public bool AddDetails()
+        public int AddDetails()
         {
             DBDebitNoteStock dbcrdb = new DBDebitNoteStock();
-            return dbcrdb.AddDetails(Id, CrdbId, CrdbNarration, CrdbVouType, CrdbVouNo, CrdbVouDate, CrdbAmountNet,
+            return dbcrdb.AddDetails(CrdbId, CrdbNarration, CrdbVouType, CrdbVouNo, CrdbVouDate, CrdbAmountNet,
                CrdbDiscPer, CrdbDiscAmt, CrdbTotalAmount, CrdbVat5, CrdbVat12point5, CrdbRoundAmount, CrdbAmountClear,CrdbVouSeries,ClearVouType, CreatedBy, CreatedDate, CreatedTime);
         }
-        public bool AddDetailsForSelected()
+        public int AddDetailsForSelected()
         {
             DBDebitNoteStock dbcrdb = new DBDebitNoteStock();
-            return dbcrdb.AddDetails(IDForSelected, CrdbId, CrdbNarration, CrdbVouType, CrdbVouNoForSelected, CrdbVouDate, CrdbBillAmountForSelected,
+            return dbcrdb.AddDetails(CrdbId, CrdbNarration, CrdbVouType, CrdbVouNoForSelected, CrdbVouDate, CrdbBillAmountForSelected,
                CrdbDiscPer, crdbDiscAmtForSelected, CrdbBillAmountForSelected, CrdbVat5ForSelected, CrdbVat12point5ForSelected, CrdbRoundAmount, 0, CrdbVouSeries, ClearVouType, CreatedBy, CreatedDate, CreatedTime);
         }
         public bool AddProductDetails()
         {
             DBDebitNoteStock dbcrdbp = new DBDebitNoteStock();
             return dbcrdbp.AddDetailsProducts(Id, StockID, ProductID, Batchno, Quantity, SchemeQuanity, PurchaseRate, MRP, SaleRate,
-                Expiry, ExpiryDate, ReasonCode, VATPer, Amount, CrdbVouType, CrdbVouNo, CrdbVouDate, DiscountPercent, DiscountAmount, TradeRate, VATAmount, IfAddVATInTradeRate, DetailId, SerialNumber);
+                Expiry, ExpiryDate, ReasonCode, VATPer, Amount, CrdbVouType, CrdbVouNo, CrdbVouDate, DiscountPercent, DiscountAmount, TradeRate, VATAmount, IfAddVATInTradeRate, DetailId, SerialNumber, CrdbVouSeries);
         }
         public bool AddProductDetailsForSelected()
         {
             DBDebitNoteStock dbcrdbp = new DBDebitNoteStock();
             return dbcrdbp.AddDetailsProducts(IDForSelected, StockID, ProductID, Batchno, Quantity, SchemeQuanity, PurchaseRate, MRP, SaleRate,
-                Expiry, ExpiryDate, ReasonCode, VATPer, Amount, CrdbVouType, CrdbVouNo, CrdbVouDate, DiscountPercent, DiscountAmount, TradeRate, VATAmount, IfAddVATInTradeRate, DetailIDForSelected, SerialNumber);
+                Expiry, ExpiryDate, ReasonCode, VATPer, Amount, CrdbVouType, CrdbVouNo, CrdbVouDate, DiscountPercent, DiscountAmount, TradeRate, VATAmount, IfAddVATInTradeRate, DetailIDForSelected, SerialNumber, CrdbVouSeries);
         }
         public bool UpdateDetails()
         {

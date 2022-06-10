@@ -1996,12 +1996,12 @@ namespace EcoMart.InterfaceLayer
             if (dtTempStockOut == null)
             {
                 dtTempStockOut = new DataTable();
-                dtTempStockOut.Columns.Add("ProductID", typeof(string));
+                dtTempStockOut.Columns.Add("ProductID", typeof(int));
                 dtTempStockOut.Columns.Add("BatchID", typeof(string));
                 dtTempStockOut.Columns.Add("QTY", typeof(int));
-                dtTempStockOut.Columns.Add("SRate", typeof(double));
+                dtTempStockOut.Columns.Add("SRate", typeof(decimal));
                 dtTempStockOut.Columns.Add("FormName", typeof(string));
-                dtTempStockOut.Columns.Add("StockID", typeof(string));
+                dtTempStockOut.Columns.Add("StockID", typeof(int));
                 //ProductID, batch,mrp
                 CacheObject.Add(dtTempStockOut, "TempCounterSale");
                 //DataRow[] drFormRows = dtTempPatientSale.Select("FormName");
