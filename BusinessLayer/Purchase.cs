@@ -10,7 +10,7 @@ using EcoMart.BusinessLayer;
 
 namespace EcoMart.BusinessLayer
 {
-public class Purchase : BaseObject
+    public class Purchase : BaseObject
     {
         #region Declaration
         private string _EntryDate;
@@ -68,8 +68,8 @@ public class Purchase : BaseObject
         private double _ProfitPercent;
         private double _PriceToRetailer;
         //
-    //    private double _ExciseInRs;
-      //  private double _ExcisePerUnit;
+        //    private double _ExciseInRs;
+        //  private double _ExcisePerUnit;
 
         private string _FirstCreditor;
         private string _SecondCreditor;
@@ -96,7 +96,7 @@ public class Purchase : BaseObject
         private double _AmountVAT0PercentS;
         private double _PurchaseAmountZeroVATS;
         private double _PurchaseAmount12point5PercentVATS;
-        private double _PurchaseAmount5PercentVATS;     
+        private double _PurchaseAmount5PercentVATS;
         private double _CreditNoteDiscountPercentS;
         private double _TotalAmountForOctroiS;
 
@@ -132,7 +132,7 @@ public class Purchase : BaseObject
 
         private string _PurchaseAccAccountID;
         private string _StockID;
-     //   private int _IntStockID = 0;
+        //   private int _IntStockID = 0;
 
         //private string _btnCashCreditChecked;
         //private string _btnCashChecked;
@@ -172,11 +172,11 @@ public class Purchase : BaseObject
         private double _prePurchaseAmount12point5PercentVATS;
         private double _preAmountVAT12point5PercentS;
 
-       
-      //  private double _preExcisePerUnit;
-      //  private double _preTotalAmountExciseS;
 
-    //    private double _prePurchaseAmount0PercentVATS;
+        //  private double _preExcisePerUnit;
+        //  private double _preTotalAmountExciseS;
+
+        //    private double _prePurchaseAmount0PercentVATS;
         private string _preDueDate;
         private int _preNumberofChallans;
         private double _prePurchaseAmountZeroVATS;
@@ -420,7 +420,7 @@ public class Purchase : BaseObject
             get { return _AmountLessS; }
             set { _AmountLessS = value; }
         }
-       public double AmountAddOnFreightS
+        public double AmountAddOnFreightS
         {
             get { return _AmountAddOnFreightS; }
             set { _AmountAddOnFreightS = value; }
@@ -579,7 +579,7 @@ public class Purchase : BaseObject
         }
         public string Pack
         {
-            get { return _Pack ; }
+            get { return _Pack; }
             set { _Pack = value; }
         }
         public double MRP
@@ -1120,7 +1120,7 @@ public class Purchase : BaseObject
             set { _prePurchaseAmount12point5PercentVATS = value; }
         }
 
-      
+
 
         public double preAmountVAT12point5PercentS
         {
@@ -1247,7 +1247,7 @@ public class Purchase : BaseObject
 
             _PurchaseAmount12point5PercentVATS = 0;
             _PurchaseAmount5PercentVATS = 0;
-         //   _PurchaseAmount0PercentVATS = 0;
+            //   _PurchaseAmount0PercentVATS = 0;
             _PurchaseAmountZeroVATS = 0;
 
 
@@ -1266,7 +1266,7 @@ public class Purchase : BaseObject
             _BankID = "";
             _PurchaseAccAccountID = "";
             _StockID = "";
-         //   _IntStockID = 0;
+            //   _IntStockID = 0;
 
             //_btnCashCreditChecked = "N";
             //_btnCashChecked = "N";
@@ -1306,7 +1306,7 @@ public class Purchase : BaseObject
             _preAmountVAT5PercentS = 0;
             _prePurchaseAmount12point5PercentVATS = 0;
             _preAmountVAT12point5PercentS = 0;
-         //   _prePurchaseAmount0PercentVATS = 0;
+            //   _prePurchaseAmount0PercentVATS = 0;
             _preDueDate = "";
             _preNumberofChallans = 0;
             _prePurchaseAmountZeroVATS = 0;
@@ -1373,14 +1373,14 @@ public class Purchase : BaseObject
 
                 if (Id == "")
                     retValue = CheckForUniqueBillNumberforNew(PurchaseBillNumber, AccountID);
-                else                   
+                else
                     retValue = CheckForUniqueBillNumberforEdit(Id, PurchaseBillNumber, AccountID);
                 if (retValue == false)
                 {
                     ValidationMessages.Add("Purchase Number Already Entered");
 
                 }
-                
+
 
 
                 //if (VoucherType == FixAccounts.VoucherTypeForCreditStatementPurchase)
@@ -1401,7 +1401,7 @@ public class Purchase : BaseObject
                         ValidationMessages.Add("Enter Cheque Number");
                     else
                         if (_ChequeNumber != "" && _BankID == "")
-                            ValidationMessages.Add("Select Bank");
+                        ValidationMessages.Add("Select Bank");
                 }
 
             }
@@ -1498,7 +1498,7 @@ public class Purchase : BaseObject
                     if (drow["GSTS5"] != DBNull.Value)
                         GSTS5 = Convert.ToInt32(drow["GSTS5"]);
                     if (drow["GSTC5"] != DBNull.Value)
-                       GSTC5 = Convert.ToInt32(drow["GSTC5"]);
+                        GSTC5 = Convert.ToInt32(drow["GSTC5"]);
                     if (drow["GSTS12"] != DBNull.Value)
                         GSTS12 = Convert.ToInt32(drow["GSTS12"]);
                     if (drow["GSTC12"] != DBNull.Value)
@@ -1529,7 +1529,7 @@ public class Purchase : BaseObject
                     if (drow["AmountGSTS28"] != DBNull.Value)
                         GSTAmtS28 = Convert.ToInt32(drow["AmountGSTS28"]);
                     if (drow["AmountGSTC28"] != DBNull.Value)
-                        GSTAmtC28 = Convert.ToInt32(drow["AmountGSTC28"]);               
+                        GSTAmtC28 = Convert.ToInt32(drow["AmountGSTC28"]);
 
 
                     preAccountID = AccountID;
@@ -1661,7 +1661,7 @@ public class Purchase : BaseObject
                     if (drow["AmountPurchase5PercentVAT"] != DBNull.Value)
                         PurchaseAmount5PercentVATS = Convert.ToDouble(drow["AmountPurchase5PercentVAT"]);
 
-                   
+
                 }
             }
             catch (Exception Ex)
@@ -1769,7 +1769,7 @@ public class Purchase : BaseObject
 
 
 
-        public bool ReadDetailsByVouNumber(int vouno, string voutype , string vouseries)
+        public bool ReadDetailsByVouNumber(int vouno, string voutype, string vouseries)
         {
             bool retValue = false;
             try
@@ -1936,8 +1936,8 @@ public class Purchase : BaseObject
         {
             DBSsStock dbssstk = new DBSsStock();
             return dbssstk.IfStockIDFoundInStockTable(stockID);
-            
-        }      
+
+        }
         public int GetAndUpdatePurchaseNumber(string vtype)
         {
             int vouno = 0;
@@ -1961,7 +1961,7 @@ public class Purchase : BaseObject
             {
                 dr = dbp.GetPendingAmount(accountid);
                 TotalDebit = 0;
-                TotalCredit = 0;             
+                TotalCredit = 0;
                 if (dr != null)
                 {
                     if (dr["Credit"] != DBNull.Value)
@@ -1986,11 +1986,11 @@ public class Purchase : BaseObject
             try
             {
                 dr = dbp.GetDNAmount(accountid);
-                
+
                 if (dr != null)
                 {
                     if (dr["AmountNet"] != DBNull.Value)
-                        totalDN = Convert.ToDouble(dr["AmountNet"].ToString());                    
+                        totalDN = Convert.ToDouble(dr["AmountNet"].ToString());
                 }
 
             }
@@ -2035,20 +2035,20 @@ public class Purchase : BaseObject
            SpecialDiscountPercentS, AmountCashDiscountS, CreditNoteDiscountPercentS, AmountSchemeDiscountS,
            AmountAddOnS, AmountFreightS, CashDiscountPercentageS, AmountCreditNoteS, AmountDebitNoteS, RoundUpAmountS,
            OctroiPercentageS, AmountOctroiS, PurchaseAmount5PercentVATS, AmountVAT0PercentS, AmountVAT5PercentS,
-           PurchaseAmount12point5PercentVATS, AmountVAT12point5PercentS, PurchaseAmountZeroVATS, DueDate, NumberofChallans, StatementNumber,VoucherSubType,
+           PurchaseAmount12point5PercentVATS, AmountVAT12point5PercentS, PurchaseAmountZeroVATS, DueDate, NumberofChallans, StatementNumber, VoucherSubType,
            GSTAmt0, GSTAmtS5, GSTAmtS12, GSTAmtS18, GSTAmtS28, GSTAmtC5, GSTAmtC12, GSTAmtC18, GSTAmtC28,
            GSTS5, GSTS12, GSTS18, GSTS28, GSTC5, GSTC12, GSTC18, GSTC28, GSTAmtI5, GSTAmtI12, GSTAmtI18, GSTAmtI28, GSTI5, GSTI12, GSTI18, GSTI28, CreatedBy, CreatedDate, CreatedTime);
         }
 
-        public Int32  AddChangedDetails()
+        public Int32 AddChangedDetails()
         {
             DBPurchase dbcrdb = new DBPurchase();
             return dbcrdb.AddChangedDetails(Id, ChangedID, preAccountID, preNarration, preEntryDate, preVoucherSeries, preVoucherType, preVoucherNumber, preVoucherDate,
            prePurchaseBillNumber, preAmountNetS, preAmountClearS, preAmountBillS, preAmountItemDiscountS, preAmountSpecialDiscountS,
            preSpecialDiscountPercentS, preAmountCashDiscountS, preCreditNoteDiscountPercentS, preAmountSchemeDiscountS,
-           preAmountAddOnS,preAmountFreightS, preCashDiscountPercentageS, preAmountCreditNoteS, preAmountDebitNoteS, preRoundUpAmountS,
+           preAmountAddOnS, preAmountFreightS, preCashDiscountPercentageS, preAmountCreditNoteS, preAmountDebitNoteS, preRoundUpAmountS,
            preOctroiPercentageS, preAmountOctroiS, prePurchaseAmount5PercentVATS, preAmountVAT0PercentS, preAmountVAT5PercentS,
-           prePurchaseAmount12point5PercentVATS, preAmountVAT12point5PercentS, prePurchaseAmountZeroVATS, preDueDate, preNumberofChallans, preStatementNumber, ModifiedBy, ModifiedDate,ModifiedTime);
+           prePurchaseAmount12point5PercentVATS, preAmountVAT12point5PercentS, prePurchaseAmountZeroVATS, preDueDate, preNumberofChallans, preStatementNumber, ModifiedBy, ModifiedDate, ModifiedTime);
         }
         public bool AddDeletedDetails()
         {
@@ -2056,18 +2056,19 @@ public class Purchase : BaseObject
             return dbcrdb.AddDeletedDetails(Id, preAccountID, preNarration, preEntryDate, preVoucherSeries, preVoucherType, preVoucherNumber, preVoucherDate,
            prePurchaseBillNumber, preAmountNetS, preAmountClearS, preAmountBillS, preAmountItemDiscountS, preAmountSpecialDiscountS,
            preSpecialDiscountPercentS, preAmountCashDiscountS, preCreditNoteDiscountPercentS, preAmountSchemeDiscountS,
-           preAmountAddOnS,preAmountFreightS, preCashDiscountPercentageS, preAmountCreditNoteS, preAmountDebitNoteS, preRoundUpAmountS,
+           preAmountAddOnS, preAmountFreightS, preCashDiscountPercentageS, preAmountCreditNoteS, preAmountDebitNoteS, preRoundUpAmountS,
            preOctroiPercentageS, preAmountOctroiS, prePurchaseAmount5PercentVATS, preAmountVAT0PercentS, preAmountVAT5PercentS,
            prePurchaseAmount12point5PercentVATS, preAmountVAT12point5PercentS, prePurchaseAmountZeroVATS, preDueDate, preNumberofChallans, preStatementNumber, ModifiedBy, ModifiedDate, ModifiedTime);
         }
         public bool AddProductDetailsSS()
         {
             DBPurchase dbpur = new DBPurchase();
-            return dbpur.AddDetailsProductsSS(IntID, ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
+            Id = String.IsNullOrEmpty(Id) ? "0" : Id;
+            return dbpur.AddDetailsProductsSS(Convert.ToInt32(Id), ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
                 Expiry, ExpiryDate, Quantity, SchemeQuanity, ReplacementQuantity, ItemDiscountPercent, AmountItemDiscount, SchemeDiscountPercent,
                 AmountSchemeDiscount, PurchaseVATPercent, ProductVATPercent, AmountPurchaseVAT, AmountProductVAT, CSTPercent, AmountCST, IfMRPInclusiveOfVAT,
-                IfTradeRateInclusiveOfVAT, Amount, AmountSplDiscountPerUnit, SplDiscountPercent, AmountZeroVAT, AmountCashDiscountPerUnit, IntStockID, DetailId, 
-                ProductMargin, ProductMargin2, SerialNumber,PurScanCode, GSTPurchaseAmountZero, GSTSPurchaseAmount, GSTCPurchaseAmount, GSTSAmount, GSTCAmount,PriceToRetailer,ProfitPercent);
+                IfTradeRateInclusiveOfVAT, Amount, AmountSplDiscountPerUnit, SplDiscountPercent, AmountZeroVAT, AmountCashDiscountPerUnit, IntStockID, DetailId,
+                ProductMargin, ProductMargin2, SerialNumber, PurScanCode, GSTPurchaseAmountZero, GSTSPurchaseAmount, GSTCPurchaseAmount, GSTSAmount, GSTCAmount, PriceToRetailer, ProfitPercent);
         }
 
         public bool AddChangedProductDetailsSS()
@@ -2091,15 +2092,15 @@ public class Purchase : BaseObject
             DBPurchase dbpur = new DBPurchase();
             int intstockid = 0;
             string stockid = "";
-            intstockid =  dbpur.AddProductDetailsInStockTable(ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
+            intstockid = dbpur.AddProductDetailsInStockTable(ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
                 Expiry, ExpiryDate, Quantity, SchemeQuanity, ReplacementQuantity, PurchaseVATPercent,
                 ProductVATPercent, IfMRPInclusiveOfVAT, IfTradeRateInclusiveOfVAT, Amount, AccountID, PurchaseBillNumber,
-                VoucherType, VoucherNumber, VoucherDate, ProdLoosePack, StockID, ProductMargin,PurScanCode,PriceToRetailer,ProfitPercent);
+                VoucherType, VoucherNumber, VoucherDate, ProdLoosePack, StockID, ProductMargin, PurScanCode, PriceToRetailer, ProfitPercent);
             stockid = Convert.ToString(intstockid);
             return stockid;
         }
 
-      
+
 
 
         public bool UpdateCreditDebitNoteAdjustedDetails(string crdbID, double mamtnet, string VouType, int VouNumber, string VouDate, string BillNumber, string puchaseid, string vouSeries)
@@ -2316,10 +2317,10 @@ public class Purchase : BaseObject
                 DBSsStock sstk = new DBSsStock();
                 DataRow drow = null;
                 drow = sstk.GetRecordByProductIDAndBatchNumberAndMRP(ProductID, Batchno, MRP);
-                if (drow != null) 
+                if (drow != null)
                 {
                     if (drow["StockID"] != DBNull.Value)
-                        stockID = drow["StockID"].ToString();                   
+                        stockID = drow["StockID"].ToString();
                 }
 
             }
@@ -2338,7 +2339,7 @@ public class Purchase : BaseObject
             {
                 DBSsStock sstk = new DBSsStock();
                 DataRow drow = null;
-                drow = sstk.GetRecordByProductIDAndBatchNumberAndMRPAndStockID(ProductID, Batchno, MRP,StockID);
+                drow = sstk.GetRecordByProductIDAndBatchNumberAndMRPAndStockID(ProductID, Batchno, MRP, StockID);
                 if (drow != null)
                 {
                     if (drow["StockID"] != DBNull.Value)
@@ -2353,13 +2354,13 @@ public class Purchase : BaseObject
             return stockID;
         }
 
-        public DataRow  IFRecordFoundInStockTable()
+        public DataRow IFRecordFoundInStockTable()
         {
-            DataRow dr = null;       
+            DataRow dr = null;
             try
             {
-                DBSsStock sstk = new DBSsStock();              
-                dr = sstk.GetRecordByProductIDAndBatchNumberAndMRP(ProductID, Batchno, MRP); 
+                DBSsStock sstk = new DBSsStock();
+                dr = sstk.GetRecordByProductIDAndBatchNumberAndMRP(ProductID, Batchno, MRP);
             }
             catch (Exception Ex)
             {
@@ -2400,7 +2401,7 @@ public class Purchase : BaseObject
 
 
         public int GetCurrentClosingStock(String thisStockID)
-        {           
+        {
             int thisclosingstock = 0;
             try
             {
@@ -2500,7 +2501,7 @@ public class Purchase : BaseObject
         public bool UpdatePurchaseIntblStock()
         {
             DBSsStock sstk = new DBSsStock();
-            return sstk.UpdatePurchaseStock(StockID, Quantity, SchemeQuanity, ReplacementQuantity, ProdLoosePack,0,0);
+            return sstk.UpdatePurchaseStock(StockID, Quantity, SchemeQuanity, ReplacementQuantity, ProdLoosePack, 0, 0);
 
         }
         public bool UpdateProductDetailsInStockTable()
@@ -2509,7 +2510,7 @@ public class Purchase : BaseObject
             return sstk.UpdateProductDetailsInStockTable(ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
                 Expiry, ExpiryDate, Quantity, SchemeQuanity, ReplacementQuantity, PurchaseVATPercent,
                 ProductVATPercent, IfMRPInclusiveOfVAT, IfTradeRateInclusiveOfVAT, Amount, AccountID, PurchaseBillNumber,
-                VoucherType, VoucherNumber, VoucherDate, ProdLoosePack, StockID, ProductMargin,ProdLoosePack,PriceToRetailer,ProfitPercent);
+                VoucherType, VoucherNumber, VoucherDate, ProdLoosePack, StockID, ProductMargin, ProdLoosePack, PriceToRetailer, ProfitPercent);
         }
 
         public bool UpdatePurchaseIntblStockReduceFromTemp()
@@ -2527,7 +2528,7 @@ public class Purchase : BaseObject
            SpecialDiscountPercentS, AmountCashDiscountS, CreditNoteDiscountPercentS, AmountSchemeDiscountS,
            AmountAddOnS, AmountFreightS, CashDiscountPercentageS, AmountCreditNoteS, AmountDebitNoteS, RoundUpAmountS,
            OctroiPercentageS, AmountOctroiS, PurchaseAmount5PercentVATS, AmountVAT0PercentS, AmountVAT5PercentS,
-           PurchaseAmount12point5PercentVATS, AmountVAT12point5PercentS, PurchaseAmountZeroVATS, DueDate, NumberofChallans,  StatementNumber, VoucherSubType,
+           PurchaseAmount12point5PercentVATS, AmountVAT12point5PercentS, PurchaseAmountZeroVATS, DueDate, NumberofChallans, StatementNumber, VoucherSubType,
            GSTAmt0, GSTAmtS5, GSTAmtS12, GSTAmtS18, GSTAmtS28, GSTAmtC5, GSTAmtC12, GSTAmtC18, GSTAmtC28,
            GSTS5, GSTS12, GSTS18, GSTS28, GSTC5, GSTC12, GSTC18, GSTC28, GSTAmtI5, GSTAmtI12, GSTAmtI18, GSTAmtI28, GSTI5, GSTI12, GSTI18, GSTI28, ModifiedBy, ModifiedDate, ModifiedTime);
         }
@@ -2540,7 +2541,7 @@ public class Purchase : BaseObject
         public bool UpdatePurchaseStockInMasterProduct()
         {
             DBProduct dbprod = new DBProduct();
-            return dbprod.UpdatePurchaseStockInmasterProduct(ProductID, (Quantity + SchemeQuanity + ReplacementQuantity) * ProdLoosePack, ProductMargin,0);
+            return dbprod.UpdatePurchaseStockInmasterProduct(ProductID, (Quantity + SchemeQuanity + ReplacementQuantity) * ProdLoosePack, ProductMargin, 0);
         }
 
         public bool UpdateLastPurhcaseDataInMasterProduct()
@@ -2549,7 +2550,7 @@ public class Purchase : BaseObject
             return dbprod.UpdatePurchaseDataInmasterProduct(ProductID, PurchaseBillNumber, VoucherDate, AccountID, VoucherType,
                 VoucherNumber, PurchaseRate, TradeRate, SaleRate, MRP, PurchaseVATPercent, CSTPercent, AmountCST, SchemeDiscountPercent,
             AmountSchemeDiscount, ItemDiscountPercent, Expiry, ExpiryDate, Batchno, ShelfID, StockID);
-           // return true;
+            // return true;
 
         }
 
@@ -2605,10 +2606,10 @@ public class Purchase : BaseObject
         public void FillFirstCreditorInMasterProduct()
         {
             DBPurchase dbpur = new DBPurchase();
-           
+
             try
             {
-                dbpur.FillFirstCreditorInMasterProduct(ProductID ,AccountID);               
+                dbpur.FillFirstCreditorInMasterProduct(ProductID, AccountID);
             }
             catch (Exception Ex)
             {
@@ -2764,7 +2765,7 @@ public class Purchase : BaseObject
         public DataTable GetOverviewDataForPartywiseBills(string PartyID, string fromDate, string toDate)
         {
             DBPurchase dbPur = new DBPurchase();
-            return dbPur.GetOverviewDataForPartywiseBills(PartyID,fromDate,toDate);
+            return dbPur.GetOverviewDataForPartywiseBills(PartyID, fromDate, toDate);
         }
 
         public DataTable GetOverviewDataForPartywiseBillsForStatements(string PartyID, string fromDate, string toDate)
@@ -2777,7 +2778,7 @@ public class Purchase : BaseObject
         {
             DBPurchase dbPur = new DBPurchase();
             return dbPur.GetOverviewDataForPartywiseStatementsView(statementNumber, voucherSeries);
-        }     
+        }
 
         public DataTable GetOverviewDataForDiscount()
         {
@@ -2878,10 +2879,10 @@ public class Purchase : BaseObject
         }
 
 
-        public void SavePartyMSCDACodeInMasterAccount(string ID,string Code, string alliedCode)
+        public void SavePartyMSCDACodeInMasterAccount(string ID, string Code, string alliedCode)
         {
             DBAccount dbac = new DBAccount();
-            dbac.SavePartyMSCDACodeInMasterAccount(ID,Code,alliedCode);
+            dbac.SavePartyMSCDACodeInMasterAccount(ID, Code, alliedCode);
         }
 
         public bool DeletePreviousRecordsFromtblBarCode()
@@ -2911,9 +2912,9 @@ public class Purchase : BaseObject
             return dbPur.GetOverviewDataForVATReportDATE(mfromdate, mtodate);
         }
 
-      
 
-        public string CheckForBatchMRPStockIDInStockTable_stock() 
+
+        public string CheckForBatchMRPStockIDInStockTable_stock()
         {
             string stockID = string.Empty;
             try
@@ -2935,7 +2936,7 @@ public class Purchase : BaseObject
             return stockID;
         }
 
-        public string oldaccountIDFind() 
+        public string oldaccountIDFind()
         {
             string stockID = string.Empty;
             try
@@ -2957,7 +2958,7 @@ public class Purchase : BaseObject
             return stockID;
         }
 
-        public DataRow GetDuplicateBarcode(string Barcode) 
+        public DataRow GetDuplicateBarcode(string Barcode)
         {
             DBPurchase dbprod = new DBPurchase();
             return dbprod.GetDuplicateBarcode(Barcode);
@@ -3210,6 +3211,6 @@ public class Purchase : BaseObject
             }
             return dt;
         }
-       
+
     }
 }

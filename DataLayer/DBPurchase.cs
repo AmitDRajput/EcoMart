@@ -496,7 +496,7 @@ public class DBPurchase
             Query objQuery = new Query();
             objQuery.Table = "changedvoucherpurchase";
             objQuery.AddToQuery("purchaseID", purchaseID);
-            objQuery.AddToQuery("ChangedID", changedID);
+            //objQuery.AddToQuery("ChangedID", changedID);
             objQuery.AddToQuery("EntryDate", EntryDate);
             objQuery.AddToQuery("VoucherSeries", General.ShopDetail.ShopVoucherSeries);
             objQuery.AddToQuery("VoucherType", VoucherType);

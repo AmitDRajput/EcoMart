@@ -1873,7 +1873,7 @@ namespace EcoMart.InterfaceLayer
                         //    _Purchase.DistributorSaleRatePercent = 0;
                         _Purchase.oldAccountId = "";
                         //_Purchase.AccountID = 0;
-                        _Purchase.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                        //_Purchase.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         _Purchase.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString());
                         _Purchase.Batchno = prodrow.Cells["Col_BatchNumber"].Value.ToString();
                         if (prodrow.Cells["Col_UnitOfMeasure"].Value != null && !String.IsNullOrEmpty(prodrow.Cells["Col_UnitOfMeasure"].Value.ToString()))
