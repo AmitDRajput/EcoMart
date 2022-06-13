@@ -32,7 +32,7 @@ namespace EcoMart.BusinessLayer
                 drow = dbEcoMart.Read();
                 if (drow != null)
                 {
-                    Id = drow["PharmaSYSDistributorPlusID"].ToString();
+                    Id = drow["EcoMartID"].ToString();
                     Data = drow["Data"].ToString();
                     retValue = true;
                 }
