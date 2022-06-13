@@ -1791,7 +1791,14 @@ namespace EcoMart.InterfaceLayer
             mpPVC2.ColumnsBatchList.Clear();
 
             try
-            {
+            {                
+                column = new DataGridViewTextBoxColumn();
+                column.Name = "Col_ProductID";
+                column.DataPropertyName = "ProductID";
+                column.HeaderText = "ProductID";
+                column.Width = 30;
+                mpPVC2.ColumnsBatchList.Add(column);
+
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_Batchno";
                 column.DataPropertyName = "BatchNumber";
