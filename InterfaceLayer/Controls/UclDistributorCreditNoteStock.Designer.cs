@@ -138,14 +138,16 @@
             // 
             // headerLabel1
             // 
-            this.headerLabel1.Size = new System.Drawing.Size(955, 24);
+            this.headerLabel1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.headerLabel1.Size = new System.Drawing.Size(1274, 31);
             // 
             // MMBottomPanel
             // 
             this.MMBottomPanel.Controls.Add(this.label21);
             this.MMBottomPanel.Controls.Add(this.txtNoOfRows);
-            this.MMBottomPanel.Location = new System.Drawing.Point(0, 570);
-            this.MMBottomPanel.Size = new System.Drawing.Size(957, 63);
+            this.MMBottomPanel.Location = new System.Drawing.Point(0, 702);
+            this.MMBottomPanel.Margin = new System.Windows.Forms.Padding(5);
+            this.MMBottomPanel.Size = new System.Drawing.Size(1276, 77);
             this.MMBottomPanel.Controls.SetChildIndex(this.lblRightSideFooterMsg, 0);
             this.MMBottomPanel.Controls.SetChildIndex(this.lblFooterMessage, 0);
             this.MMBottomPanel.Controls.SetChildIndex(this.txtNoOfRows, 0);
@@ -154,12 +156,14 @@
             // MMMainPanel
             // 
             this.MMMainPanel.Controls.Add(this.pnlGST);
-            this.MMMainPanel.Controls.Add(this.pnlIGST);
             this.MMMainPanel.Controls.Add(this.dgtemp);
             this.MMMainPanel.Controls.Add(this.mpPVC1);
             this.MMMainPanel.Controls.Add(this.pnlAmounts);
             this.MMMainPanel.Controls.Add(this.pnlVouTypeNo);
-            this.MMMainPanel.Size = new System.Drawing.Size(957, 507);
+            this.MMMainPanel.Controls.Add(this.pnlIGST);
+            this.MMMainPanel.Margin = new System.Windows.Forms.Padding(5);
+            this.MMMainPanel.Size = new System.Drawing.Size(1276, 632);
+            this.MMMainPanel.Controls.SetChildIndex(this.pnlIGST, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.ctrlUclSaleSummaryControl, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.pnlVouTypeNo, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.pnlAmounts, 0);
@@ -169,8 +173,9 @@
             // 
             // lblRightSideFooterMsg
             // 
-            this.lblRightSideFooterMsg.Location = new System.Drawing.Point(489, 0);
-            this.lblRightSideFooterMsg.Size = new System.Drawing.Size(466, 20);
+            this.lblRightSideFooterMsg.Location = new System.Drawing.Point(653, 0);
+            this.lblRightSideFooterMsg.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblRightSideFooterMsg.Size = new System.Drawing.Size(621, 25);
             // 
             // pnlVouTypeNo
             // 
@@ -186,8 +191,9 @@
             this.pnlVouTypeNo.Controls.Add(this.txtNarration);
             this.pnlVouTypeNo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlVouTypeNo.Location = new System.Drawing.Point(0, 0);
+            this.pnlVouTypeNo.Margin = new System.Windows.Forms.Padding(4);
             this.pnlVouTypeNo.Name = "pnlVouTypeNo";
-            this.pnlVouTypeNo.Size = new System.Drawing.Size(955, 117);
+            this.pnlVouTypeNo.Size = new System.Drawing.Size(1274, 144);
             this.pnlVouTypeNo.TabIndex = 132;
             // 
             // pnlVou
@@ -201,26 +207,29 @@
             this.pnlVou.Controls.Add(this.lblVouType);
             this.pnlVou.Controls.Add(this.datePickerBillDate);
             this.pnlVou.Controls.Add(this.txtVouchernumber);
-            this.pnlVou.Location = new System.Drawing.Point(737, 3);
+            this.pnlVou.Location = new System.Drawing.Point(983, 4);
+            this.pnlVou.Margin = new System.Windows.Forms.Padding(4);
             this.pnlVou.Name = "pnlVou";
-            this.pnlVou.Size = new System.Drawing.Size(216, 103);
+            this.pnlVou.Size = new System.Drawing.Size(288, 127);
             this.pnlVou.TabIndex = 1094;
             // 
             // txtVoucherSeries
             // 
             this.txtVoucherSeries.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVoucherSeries.IsNumericDataSet = false;
-            this.txtVoucherSeries.Location = new System.Drawing.Point(93, 76);
+            this.txtVoucherSeries.Location = new System.Drawing.Point(124, 94);
+            this.txtVoucherSeries.Margin = new System.Windows.Forms.Padding(4);
             this.txtVoucherSeries.Name = "txtVoucherSeries";
-            this.txtVoucherSeries.Size = new System.Drawing.Size(98, 22);
+            this.txtVoucherSeries.Size = new System.Drawing.Size(130, 26);
             this.txtVoucherSeries.TabIndex = 1086;
             // 
             // psLabel6
             // 
             this.psLabel6.AutoSize = true;
-            this.psLabel6.Location = new System.Drawing.Point(1, 77);
+            this.psLabel6.Location = new System.Drawing.Point(1, 95);
+            this.psLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.psLabel6.Name = "psLabel6";
-            this.psLabel6.Size = new System.Drawing.Size(70, 16);
+            this.psLabel6.Size = new System.Drawing.Size(83, 20);
             this.psLabel6.TabIndex = 1085;
             this.psLabel6.Text = "Vou Series";
             // 
@@ -228,9 +237,10 @@
             // 
             this.txtVouType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVouType.CausesValidation = false;
-            this.txtVouType.Location = new System.Drawing.Point(93, 3);
+            this.txtVouType.Location = new System.Drawing.Point(124, 4);
+            this.txtVouType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtVouType.Name = "txtVouType";
-            this.txtVouType.Size = new System.Drawing.Size(98, 23);
+            this.txtVouType.Size = new System.Drawing.Size(130, 28);
             this.txtVouType.TabIndex = 1084;
             this.txtVouType.Text = "label";
             this.txtVouType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -238,27 +248,30 @@
             // lblVouDate
             // 
             this.lblVouDate.AutoSize = true;
-            this.lblVouDate.Location = new System.Drawing.Point(10, 54);
+            this.lblVouDate.Location = new System.Drawing.Point(13, 66);
+            this.lblVouDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVouDate.Name = "lblVouDate";
-            this.lblVouDate.Size = new System.Drawing.Size(61, 16);
+            this.lblVouDate.Size = new System.Drawing.Size(73, 20);
             this.lblVouDate.TabIndex = 1083;
             this.lblVouDate.Text = "Vou &Date";
             // 
             // lblVouNumber
             // 
             this.lblVouNumber.AutoSize = true;
-            this.lblVouNumber.Location = new System.Drawing.Point(24, 29);
+            this.lblVouNumber.Location = new System.Drawing.Point(32, 36);
+            this.lblVouNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVouNumber.Name = "lblVouNumber";
-            this.lblVouNumber.Size = new System.Drawing.Size(50, 16);
+            this.lblVouNumber.Size = new System.Drawing.Size(61, 20);
             this.lblVouNumber.TabIndex = 1083;
             this.lblVouNumber.Text = "Vou No";
             // 
             // lblVouType
             // 
             this.lblVouType.AutoSize = true;
-            this.lblVouType.Location = new System.Drawing.Point(8, 4);
+            this.lblVouType.Location = new System.Drawing.Point(11, 5);
+            this.lblVouType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVouType.Name = "lblVouType";
-            this.lblVouType.Size = new System.Drawing.Size(63, 16);
+            this.lblVouType.Size = new System.Drawing.Size(76, 20);
             this.lblVouType.TabIndex = 1083;
             this.lblVouType.Text = "Vou Type";
             // 
@@ -267,11 +280,12 @@
             this.datePickerBillDate.CustomFormat = "dd/MM/yy";
             this.datePickerBillDate.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePickerBillDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePickerBillDate.Location = new System.Drawing.Point(93, 52);
+            this.datePickerBillDate.Location = new System.Drawing.Point(124, 64);
+            this.datePickerBillDate.Margin = new System.Windows.Forms.Padding(4);
             this.datePickerBillDate.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.datePickerBillDate.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.datePickerBillDate.Name = "datePickerBillDate";
-            this.datePickerBillDate.Size = new System.Drawing.Size(98, 22);
+            this.datePickerBillDate.Size = new System.Drawing.Size(129, 26);
             this.datePickerBillDate.TabIndex = 0;
             this.datePickerBillDate.Value = new System.DateTime(2010, 7, 4, 0, 0, 0, 0);
             // 
@@ -280,11 +294,12 @@
             this.txtVouchernumber.BackColor = System.Drawing.Color.Snow;
             this.txtVouchernumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVouchernumber.Enabled = false;
-            this.txtVouchernumber.Location = new System.Drawing.Point(93, 28);
+            this.txtVouchernumber.Location = new System.Drawing.Point(124, 34);
+            this.txtVouchernumber.Margin = new System.Windows.Forms.Padding(4);
             this.txtVouchernumber.MaxLength = 50;
             this.txtVouchernumber.Name = "txtVouchernumber";
             this.txtVouchernumber.ReadOnly = true;
-            this.txtVouchernumber.Size = new System.Drawing.Size(98, 24);
+            this.txtVouchernumber.Size = new System.Drawing.Size(130, 28);
             this.txtVouchernumber.TabIndex = 0;
             this.txtVouchernumber.TabStop = false;
             this.txtVouchernumber.TextTransform = PharmaSYSPlus.CommonLibrary.GeneralTextBox.TextTransformation.Default;
@@ -292,9 +307,10 @@
             // mPlbl12
             // 
             this.mPlbl12.AutoSize = true;
-            this.mPlbl12.Location = new System.Drawing.Point(605, 46);
+            this.mPlbl12.Location = new System.Drawing.Point(807, 57);
+            this.mPlbl12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl12.Name = "mPlbl12";
-            this.mPlbl12.Size = new System.Drawing.Size(91, 16);
+            this.mPlbl12.Size = new System.Drawing.Size(107, 20);
             this.mPlbl12.TabIndex = 1092;
             this.mPlbl12.Text = "Final Amount";
             // 
@@ -304,11 +320,12 @@
             this.txtBillAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBillAmount.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBillAmount.ForeColor = System.Drawing.Color.DeepPink;
-            this.txtBillAmount.Location = new System.Drawing.Point(532, 68);
+            this.txtBillAmount.Location = new System.Drawing.Point(709, 84);
+            this.txtBillAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtBillAmount.MaxLength = 15;
             this.txtBillAmount.Name = "txtBillAmount";
             this.txtBillAmount.ReadOnly = true;
-            this.txtBillAmount.Size = new System.Drawing.Size(186, 40);
+            this.txtBillAmount.Size = new System.Drawing.Size(247, 49);
             this.txtBillAmount.TabIndex = 1091;
             this.txtBillAmount.TabStop = false;
             this.txtBillAmount.Tag = "0.00";
@@ -318,9 +335,10 @@
             // mPlbl3
             // 
             this.mPlbl3.AutoSize = true;
-            this.mPlbl3.Location = new System.Drawing.Point(50, 80);
+            this.mPlbl3.Location = new System.Drawing.Point(67, 98);
+            this.mPlbl3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl3.Name = "mPlbl3";
-            this.mPlbl3.Size = new System.Drawing.Size(68, 16);
+            this.mPlbl3.Size = new System.Drawing.Size(80, 20);
             this.mPlbl3.TabIndex = 1090;
             this.mPlbl3.Text = "&Narration";
             // 
@@ -330,9 +348,10 @@
             this.pnlAddress.Controls.Add(this.txtAddress1);
             this.pnlAddress.Controls.Add(this.txtAddress2);
             this.pnlAddress.Enabled = false;
-            this.pnlAddress.Location = new System.Drawing.Point(143, 38);
+            this.pnlAddress.Location = new System.Drawing.Point(191, 47);
+            this.pnlAddress.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAddress.Name = "pnlAddress";
-            this.pnlAddress.Size = new System.Drawing.Size(323, 36);
+            this.pnlAddress.Size = new System.Drawing.Size(430, 44);
             this.pnlAddress.TabIndex = 1089;
             // 
             // txtAddress1
@@ -342,8 +361,9 @@
             this.txtAddress1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAddress1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress1.Location = new System.Drawing.Point(1, 2);
+            this.txtAddress1.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress1.Name = "txtAddress1";
-            this.txtAddress1.Size = new System.Drawing.Size(317, 15);
+            this.txtAddress1.Size = new System.Drawing.Size(423, 19);
             this.txtAddress1.TabIndex = 0;
             // 
             // txtAddress2
@@ -352,26 +372,29 @@
             this.txtAddress2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAddress2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAddress2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress2.Location = new System.Drawing.Point(1, 17);
+            this.txtAddress2.Location = new System.Drawing.Point(1, 21);
+            this.txtAddress2.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress2.Name = "txtAddress2";
-            this.txtAddress2.Size = new System.Drawing.Size(317, 15);
+            this.txtAddress2.Size = new System.Drawing.Size(423, 19);
             this.txtAddress2.TabIndex = 1;
             // 
             // mPlbl2
             // 
             this.mPlbl2.AutoSize = true;
-            this.mPlbl2.Location = new System.Drawing.Point(64, 48);
+            this.mPlbl2.Location = new System.Drawing.Point(85, 59);
+            this.mPlbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl2.Name = "mPlbl2";
-            this.mPlbl2.Size = new System.Drawing.Size(58, 16);
+            this.mPlbl2.Size = new System.Drawing.Size(67, 20);
             this.mPlbl2.TabIndex = 138;
             this.mPlbl2.Text = "Address";
             // 
             // mPlbl1
             // 
             this.mPlbl1.AutoSize = true;
-            this.mPlbl1.Location = new System.Drawing.Point(16, 12);
+            this.mPlbl1.Location = new System.Drawing.Point(21, 15);
+            this.mPlbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl1.Name = "mPlbl1";
-            this.mPlbl1.Size = new System.Drawing.Size(96, 16);
+            this.mPlbl1.Size = new System.Drawing.Size(115, 20);
             this.mPlbl1.TabIndex = 137;
             this.mPlbl1.Text = "&Account Name";
             // 
@@ -381,13 +404,14 @@
             this.mcbCreditor.DataSource = null;
             this.mcbCreditor.DisplayColumnNo = 1;
             this.mcbCreditor.DropDownHeight = 200;
-            this.mcbCreditor.Location = new System.Drawing.Point(143, 10);
-            this.mcbCreditor.Margin = new System.Windows.Forms.Padding(4);
+            this.mcbCreditor.Location = new System.Drawing.Point(191, 12);
+            this.mcbCreditor.Margin = new System.Windows.Forms.Padding(5);
             this.mcbCreditor.Name = "mcbCreditor";
             this.mcbCreditor.SelectedID = "";
             this.mcbCreditor.SelectedIDtest = 0;
+            this.mcbCreditor.SelectedIntID = 0;
             this.mcbCreditor.ShowNew = true;
-            this.mcbCreditor.Size = new System.Drawing.Size(323, 22);
+            this.mcbCreditor.Size = new System.Drawing.Size(431, 26);
             this.mcbCreditor.SourceDataString = null;
             this.mcbCreditor.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
             this.mcbCreditor.TabIndex = 135;
@@ -400,10 +424,11 @@
             // txtNarration
             // 
             this.txtNarration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNarration.Location = new System.Drawing.Point(142, 79);
+            this.txtNarration.Location = new System.Drawing.Point(189, 97);
+            this.txtNarration.Margin = new System.Windows.Forms.Padding(4);
             this.txtNarration.MaxLength = 50;
             this.txtNarration.Name = "txtNarration";
-            this.txtNarration.Size = new System.Drawing.Size(324, 24);
+            this.txtNarration.Size = new System.Drawing.Size(431, 28);
             this.txtNarration.TabIndex = 2;
             this.txtNarration.TextTransform = PharmaSYSPlus.CommonLibrary.GeneralTextBox.TextTransformation.Default;
             this.txtNarration.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNarration_KeyDown);
@@ -424,9 +449,10 @@
             this.pnlAmounts.Controls.Add(this.txtAmount);
             this.pnlAmounts.Controls.Add(this.txtDiscAmount);
             this.pnlAmounts.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlAmounts.Location = new System.Drawing.Point(0, 374);
+            this.pnlAmounts.Location = new System.Drawing.Point(0, 469);
+            this.pnlAmounts.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAmounts.Name = "pnlAmounts";
-            this.pnlAmounts.Size = new System.Drawing.Size(955, 131);
+            this.pnlAmounts.Size = new System.Drawing.Size(1274, 161);
             this.pnlAmounts.TabIndex = 135;
             // 
             // cbTransferToAccount
@@ -434,9 +460,10 @@
             this.cbTransferToAccount.AutoSize = true;
             this.cbTransferToAccount.BackColor = System.Drawing.SystemColors.Control;
             this.cbTransferToAccount.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTransferToAccount.Location = new System.Drawing.Point(327, 97);
+            this.cbTransferToAccount.Location = new System.Drawing.Point(436, 119);
+            this.cbTransferToAccount.Margin = new System.Windows.Forms.Padding(4);
             this.cbTransferToAccount.Name = "cbTransferToAccount";
-            this.cbTransferToAccount.Size = new System.Drawing.Size(177, 23);
+            this.cbTransferToAccount.Size = new System.Drawing.Size(215, 27);
             this.cbTransferToAccount.TabIndex = 1022;
             this.cbTransferToAccount.Text = "Transfer To Account";
             this.cbTransferToAccount.UseVisualStyleBackColor = false;
@@ -444,36 +471,40 @@
             // mPlbl7
             // 
             this.mPlbl7.AutoSize = true;
-            this.mPlbl7.Location = new System.Drawing.Point(689, 104);
+            this.mPlbl7.Location = new System.Drawing.Point(919, 128);
+            this.mPlbl7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl7.Name = "mPlbl7";
-            this.mPlbl7.Size = new System.Drawing.Size(91, 16);
+            this.mPlbl7.Size = new System.Drawing.Size(107, 20);
             this.mPlbl7.TabIndex = 1019;
             this.mPlbl7.Text = "Final Amount";
             // 
             // mPlbl6
             // 
             this.mPlbl6.AutoSize = true;
-            this.mPlbl6.Location = new System.Drawing.Point(731, 74);
+            this.mPlbl6.Location = new System.Drawing.Point(975, 91);
+            this.mPlbl6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl6.Name = "mPlbl6";
-            this.mPlbl6.Size = new System.Drawing.Size(57, 16);
+            this.mPlbl6.Size = new System.Drawing.Size(67, 20);
             this.mPlbl6.TabIndex = 1018;
             this.mPlbl6.Text = "Amount";
             // 
             // mPlbl5
             // 
             this.mPlbl5.AutoSize = true;
-            this.mPlbl5.Location = new System.Drawing.Point(662, 47);
+            this.mPlbl5.Location = new System.Drawing.Point(848, 58);
+            this.mPlbl5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl5.Name = "mPlbl5";
-            this.mPlbl5.Size = new System.Drawing.Size(47, 16);
+            this.mPlbl5.Size = new System.Drawing.Size(96, 20);
             this.mPlbl5.TabIndex = 1017;
-            this.mPlbl5.Text = "&Less%";
+            this.mPlbl5.Text = "&Return Rate";
             // 
             // mPlbl4
             // 
             this.mPlbl4.AutoSize = true;
-            this.mPlbl4.Location = new System.Drawing.Point(751, 16);
+            this.mPlbl4.Location = new System.Drawing.Point(1001, 20);
+            this.mPlbl4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl4.Name = "mPlbl4";
-            this.mPlbl4.Size = new System.Drawing.Size(38, 16);
+            this.mPlbl4.Size = new System.Drawing.Size(46, 20);
             this.mPlbl4.TabIndex = 1016;
             this.mPlbl4.Text = "Total";
             // 
@@ -482,11 +513,12 @@
             this.txtNetAmount.BackColor = System.Drawing.Color.White;
             this.txtNetAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNetAmount.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNetAmount.Location = new System.Drawing.Point(807, 99);
+            this.txtNetAmount.Location = new System.Drawing.Point(1076, 122);
+            this.txtNetAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtNetAmount.MaxLength = 15;
             this.txtNetAmount.Name = "txtNetAmount";
             this.txtNetAmount.ReadOnly = true;
-            this.txtNetAmount.Size = new System.Drawing.Size(146, 26);
+            this.txtNetAmount.Size = new System.Drawing.Size(194, 30);
             this.txtNetAmount.TabIndex = 1014;
             this.txtNetAmount.Tag = "0.00";
             this.txtNetAmount.Text = "0.00";
@@ -497,11 +529,12 @@
             this.txtTotalAmount.BackColor = System.Drawing.Color.White;
             this.txtTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTotalAmount.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalAmount.Location = new System.Drawing.Point(807, 70);
+            this.txtTotalAmount.Location = new System.Drawing.Point(1076, 86);
+            this.txtTotalAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalAmount.MaxLength = 15;
             this.txtTotalAmount.Name = "txtTotalAmount";
             this.txtTotalAmount.ReadOnly = true;
-            this.txtTotalAmount.Size = new System.Drawing.Size(146, 26);
+            this.txtTotalAmount.Size = new System.Drawing.Size(194, 30);
             this.txtTotalAmount.TabIndex = 29;
             this.txtTotalAmount.Tag = "0.00";
             this.txtTotalAmount.Text = "0.00";
@@ -511,10 +544,11 @@
             // 
             this.txtDiscPercent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDiscPercent.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscPercent.Location = new System.Drawing.Point(726, 43);
+            this.txtDiscPercent.Location = new System.Drawing.Point(968, 53);
+            this.txtDiscPercent.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiscPercent.MaxLength = 15;
             this.txtDiscPercent.Name = "txtDiscPercent";
-            this.txtDiscPercent.Size = new System.Drawing.Size(74, 26);
+            this.txtDiscPercent.Size = new System.Drawing.Size(98, 30);
             this.txtDiscPercent.TabIndex = 31;
             this.txtDiscPercent.Tag = "0.00";
             this.txtDiscPercent.Text = "0.00";
@@ -527,10 +561,11 @@
             this.txtRoundAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRoundAmount.Enabled = false;
             this.txtRoundAmount.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRoundAmount.Location = new System.Drawing.Point(606, 99);
+            this.txtRoundAmount.Location = new System.Drawing.Point(808, 122);
+            this.txtRoundAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtRoundAmount.MaxLength = 6;
             this.txtRoundAmount.Name = "txtRoundAmount";
-            this.txtRoundAmount.Size = new System.Drawing.Size(73, 26);
+            this.txtRoundAmount.Size = new System.Drawing.Size(97, 30);
             this.txtRoundAmount.TabIndex = 28;
             this.txtRoundAmount.TabStop = false;
             this.txtRoundAmount.Tag = "0.00";
@@ -544,9 +579,10 @@
             this.cbRound.Checked = true;
             this.cbRound.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbRound.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRound.Location = new System.Drawing.Point(531, 102);
+            this.cbRound.Location = new System.Drawing.Point(708, 126);
+            this.cbRound.Margin = new System.Windows.Forms.Padding(4);
             this.cbRound.Name = "cbRound";
-            this.cbRound.Size = new System.Drawing.Size(73, 21);
+            this.cbRound.Size = new System.Drawing.Size(89, 26);
             this.cbRound.TabIndex = 23;
             this.cbRound.Text = "Round";
             this.cbRound.UseVisualStyleBackColor = false;
@@ -556,11 +592,12 @@
             this.txtAmount.BackColor = System.Drawing.Color.White;
             this.txtAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAmount.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmount.Location = new System.Drawing.Point(806, 11);
+            this.txtAmount.Location = new System.Drawing.Point(1075, 14);
+            this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtAmount.MaxLength = 15;
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.ReadOnly = true;
-            this.txtAmount.Size = new System.Drawing.Size(146, 26);
+            this.txtAmount.Size = new System.Drawing.Size(194, 30);
             this.txtAmount.TabIndex = 10;
             this.txtAmount.TabStop = false;
             this.txtAmount.Tag = "0.00";
@@ -572,11 +609,12 @@
             this.txtDiscAmount.BackColor = System.Drawing.Color.White;
             this.txtDiscAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDiscAmount.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscAmount.Location = new System.Drawing.Point(807, 41);
+            this.txtDiscAmount.Location = new System.Drawing.Point(1076, 50);
+            this.txtDiscAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiscAmount.MaxLength = 15;
             this.txtDiscAmount.Name = "txtDiscAmount";
             this.txtDiscAmount.ReadOnly = true;
-            this.txtDiscAmount.Size = new System.Drawing.Size(146, 26);
+            this.txtDiscAmount.Size = new System.Drawing.Size(194, 30);
             this.txtDiscAmount.TabIndex = 3;
             this.txtDiscAmount.Tag = "0.00";
             this.txtDiscAmount.Text = "0.00";
@@ -585,9 +623,11 @@
             // dgtemp
             // 
             this.dgtemp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtemp.Location = new System.Drawing.Point(16, 360);
+            this.dgtemp.Location = new System.Drawing.Point(21, 443);
+            this.dgtemp.Margin = new System.Windows.Forms.Padding(4);
             this.dgtemp.Name = "dgtemp";
-            this.dgtemp.Size = new System.Drawing.Size(57, 28);
+            this.dgtemp.RowHeadersWidth = 51;
+            this.dgtemp.Size = new System.Drawing.Size(76, 34);
             this.dgtemp.TabIndex = 137;
             this.dgtemp.Visible = false;
             // 
@@ -597,7 +637,7 @@
             this.mpPVC1.AutoScroll = true;
             this.mpPVC1.BatchColumnName = "Col_BatchNumber";
             this.mpPVC1.BatchGridShowColumnName = null;
-            this.mpPVC1.BatchListGridWidth = 455;
+            this.mpPVC1.BatchListGridWidth = 219;
             this.mpPVC1.DataSourceBatchList = null;
             this.mpPVC1.DataSourceMain = null;
             this.mpPVC1.DataSourceProductList = null;
@@ -608,10 +648,10 @@
             this.mpPVC1.IsAllowDelete = true;
             this.mpPVC1.IsAllowNewRow = false;
             this.mpPVC1.IsFocusSameCell = false;
-            this.mpPVC1.Location = new System.Drawing.Point(0, 117);
+            this.mpPVC1.Location = new System.Drawing.Point(0, 144);
             this.mpPVC1.MainGridSoldQuantityColumnName = "";
-            this.mpPVC1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mpPVC1.MinimumSize = new System.Drawing.Size(312, 194);
+            this.mpPVC1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.mpPVC1.MinimumSize = new System.Drawing.Size(416, 239);
             this.mpPVC1.ModuleNumber = EcoMart.Common.ModuleNumber.None;
             this.mpPVC1.Name = "mpPVC1";
             this.mpPVC1.NewRowColumnName = null;
@@ -620,10 +660,10 @@
             this.mpPVC1.OperationMode = EcoMart.Common.OperationMode.None;
             this.mpPVC1.ProductGridClosingStockColumnName = "";
             this.mpPVC1.ProductListFilter = null;
-            this.mpPVC1.ProductListGridWidth = 500;
+            this.mpPVC1.ProductListGridWidth = 666;
             this.mpPVC1.ShowBatchWithZeroStock = false;
             this.mpPVC1.ShowProductContent = false;
-            this.mpPVC1.Size = new System.Drawing.Size(955, 257);
+            this.mpPVC1.Size = new System.Drawing.Size(1274, 325);
             this.mpPVC1.TabIndex = 136;
             this.mpPVC1.OnCellValueChangeCommited += new EcoMart.InterfaceLayer.CommonControls.PSProductViewControl.CellValueChangeCommited(this.mpPVC1_OnCellValueChangeCommited);
             this.mpPVC1.OnProductSelected += new EcoMart.InterfaceLayer.CommonControls.PSProductViewControl.ProductSelected(this.mpPVC1_OnProductSelected);
@@ -638,9 +678,10 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(412, 0);
+            this.label21.Location = new System.Drawing.Point(549, 0);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(74, 15);
+            this.label21.Size = new System.Drawing.Size(100, 20);
             this.label21.TabIndex = 1012;
             this.label21.Text = "No Of Rows";
             // 
@@ -649,10 +690,11 @@
             this.txtNoOfRows.BackColor = System.Drawing.Color.Snow;
             this.txtNoOfRows.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNoOfRows.Enabled = false;
-            this.txtNoOfRows.Location = new System.Drawing.Point(490, -3);
+            this.txtNoOfRows.Location = new System.Drawing.Point(653, -4);
+            this.txtNoOfRows.Margin = new System.Windows.Forms.Padding(4);
             this.txtNoOfRows.MaxLength = 5;
             this.txtNoOfRows.Name = "txtNoOfRows";
-            this.txtNoOfRows.Size = new System.Drawing.Size(53, 22);
+            this.txtNoOfRows.Size = new System.Drawing.Size(70, 26);
             this.txtNoOfRows.TabIndex = 1011;
             this.txtNoOfRows.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -677,9 +719,10 @@
             this.pnlIGST.Controls.Add(this.label43);
             this.pnlIGST.Controls.Add(this.label44);
             this.pnlIGST.Controls.Add(this.lblIGST5);
-            this.pnlIGST.Location = new System.Drawing.Point(18, 122);
+            this.pnlIGST.Location = new System.Drawing.Point(24, 150);
+            this.pnlIGST.Margin = new System.Windows.Forms.Padding(4);
             this.pnlIGST.Name = "pnlIGST";
-            this.pnlIGST.Size = new System.Drawing.Size(327, 283);
+            this.pnlIGST.Size = new System.Drawing.Size(436, 348);
             this.pnlIGST.TabIndex = 1110;
             // 
             // textBox3
@@ -688,8 +731,9 @@
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(0, 0);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(327, 21);
+            this.textBox3.Size = new System.Drawing.Size(436, 24);
             this.textBox3.TabIndex = 1065;
             this.textBox3.Text = "                               I GST Details                               ";
             // 
@@ -698,11 +742,12 @@
             this.txtIPUR28.BackColor = System.Drawing.Color.Snow;
             this.txtIPUR28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIPUR28.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPUR28.Location = new System.Drawing.Point(91, 252);
+            this.txtIPUR28.Location = new System.Drawing.Point(121, 310);
+            this.txtIPUR28.Margin = new System.Windows.Forms.Padding(4);
             this.txtIPUR28.MaxLength = 15;
             this.txtIPUR28.Name = "txtIPUR28";
             this.txtIPUR28.ShortcutsEnabled = false;
-            this.txtIPUR28.Size = new System.Drawing.Size(125, 26);
+            this.txtIPUR28.Size = new System.Drawing.Size(166, 30);
             this.txtIPUR28.TabIndex = 1064;
             this.txtIPUR28.Tag = "";
             this.txtIPUR28.Text = "0.00";
@@ -713,11 +758,12 @@
             this.txtIPUR18.BackColor = System.Drawing.Color.Snow;
             this.txtIPUR18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIPUR18.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPUR18.Location = new System.Drawing.Point(91, 226);
+            this.txtIPUR18.Location = new System.Drawing.Point(121, 278);
+            this.txtIPUR18.Margin = new System.Windows.Forms.Padding(4);
             this.txtIPUR18.MaxLength = 15;
             this.txtIPUR18.Name = "txtIPUR18";
             this.txtIPUR18.ShortcutsEnabled = false;
-            this.txtIPUR18.Size = new System.Drawing.Size(125, 26);
+            this.txtIPUR18.Size = new System.Drawing.Size(166, 30);
             this.txtIPUR18.TabIndex = 1063;
             this.txtIPUR18.Tag = "";
             this.txtIPUR18.Text = "0.00";
@@ -728,11 +774,12 @@
             this.txtIPUR12.BackColor = System.Drawing.Color.Snow;
             this.txtIPUR12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIPUR12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPUR12.Location = new System.Drawing.Point(91, 200);
+            this.txtIPUR12.Location = new System.Drawing.Point(121, 246);
+            this.txtIPUR12.Margin = new System.Windows.Forms.Padding(4);
             this.txtIPUR12.MaxLength = 15;
             this.txtIPUR12.Name = "txtIPUR12";
             this.txtIPUR12.ShortcutsEnabled = false;
-            this.txtIPUR12.Size = new System.Drawing.Size(125, 26);
+            this.txtIPUR12.Size = new System.Drawing.Size(166, 30);
             this.txtIPUR12.TabIndex = 1062;
             this.txtIPUR12.Tag = "";
             this.txtIPUR12.Text = "0.00";
@@ -743,11 +790,12 @@
             this.txtIPUR5.BackColor = System.Drawing.Color.Snow;
             this.txtIPUR5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIPUR5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPUR5.Location = new System.Drawing.Point(91, 174);
+            this.txtIPUR5.Location = new System.Drawing.Point(121, 214);
+            this.txtIPUR5.Margin = new System.Windows.Forms.Padding(4);
             this.txtIPUR5.MaxLength = 15;
             this.txtIPUR5.Name = "txtIPUR5";
             this.txtIPUR5.ShortcutsEnabled = false;
-            this.txtIPUR5.Size = new System.Drawing.Size(125, 26);
+            this.txtIPUR5.Size = new System.Drawing.Size(166, 30);
             this.txtIPUR5.TabIndex = 1061;
             this.txtIPUR5.Tag = "";
             this.txtIPUR5.Text = "0.00";
@@ -758,11 +806,12 @@
             this.txtIPUR0.BackColor = System.Drawing.Color.Snow;
             this.txtIPUR0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIPUR0.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIPUR0.Location = new System.Drawing.Point(91, 143);
+            this.txtIPUR0.Location = new System.Drawing.Point(121, 176);
+            this.txtIPUR0.Margin = new System.Windows.Forms.Padding(4);
             this.txtIPUR0.MaxLength = 15;
             this.txtIPUR0.Name = "txtIPUR0";
             this.txtIPUR0.ShortcutsEnabled = false;
-            this.txtIPUR0.Size = new System.Drawing.Size(125, 26);
+            this.txtIPUR0.Size = new System.Drawing.Size(166, 30);
             this.txtIPUR0.TabIndex = 1060;
             this.txtIPUR0.Tag = "";
             this.txtIPUR0.Text = "0.00";
@@ -773,11 +822,12 @@
             this.txtIGST28.BackColor = System.Drawing.Color.Snow;
             this.txtIGST28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIGST28.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIGST28.Location = new System.Drawing.Point(91, 107);
+            this.txtIGST28.Location = new System.Drawing.Point(121, 132);
+            this.txtIGST28.Margin = new System.Windows.Forms.Padding(4);
             this.txtIGST28.MaxLength = 15;
             this.txtIGST28.Name = "txtIGST28";
             this.txtIGST28.ShortcutsEnabled = false;
-            this.txtIGST28.Size = new System.Drawing.Size(125, 26);
+            this.txtIGST28.Size = new System.Drawing.Size(166, 30);
             this.txtIGST28.TabIndex = 1059;
             this.txtIGST28.Tag = "";
             this.txtIGST28.Text = "0.00";
@@ -788,11 +838,12 @@
             this.txtIGST18.BackColor = System.Drawing.Color.Snow;
             this.txtIGST18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIGST18.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIGST18.Location = new System.Drawing.Point(91, 80);
+            this.txtIGST18.Location = new System.Drawing.Point(121, 98);
+            this.txtIGST18.Margin = new System.Windows.Forms.Padding(4);
             this.txtIGST18.MaxLength = 15;
             this.txtIGST18.Name = "txtIGST18";
             this.txtIGST18.ShortcutsEnabled = false;
-            this.txtIGST18.Size = new System.Drawing.Size(125, 26);
+            this.txtIGST18.Size = new System.Drawing.Size(166, 30);
             this.txtIGST18.TabIndex = 1058;
             this.txtIGST18.Tag = "";
             this.txtIGST18.Text = "0.00";
@@ -803,12 +854,13 @@
             this.txtIGST12.BackColor = System.Drawing.Color.Snow;
             this.txtIGST12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIGST12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIGST12.Location = new System.Drawing.Point(91, 55);
+            this.txtIGST12.Location = new System.Drawing.Point(121, 68);
+            this.txtIGST12.Margin = new System.Windows.Forms.Padding(4);
             this.txtIGST12.MaxLength = 15;
             this.txtIGST12.Name = "txtIGST12";
             this.txtIGST12.ReadOnly = true;
             this.txtIGST12.ShortcutsEnabled = false;
-            this.txtIGST12.Size = new System.Drawing.Size(125, 26);
+            this.txtIGST12.Size = new System.Drawing.Size(166, 30);
             this.txtIGST12.TabIndex = 1057;
             this.txtIGST12.Tag = "";
             this.txtIGST12.Text = "0.00";
@@ -820,11 +872,12 @@
             this.txtIGST5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIGST5.Enabled = false;
             this.txtIGST5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIGST5.Location = new System.Drawing.Point(91, 29);
+            this.txtIGST5.Location = new System.Drawing.Point(121, 36);
+            this.txtIGST5.Margin = new System.Windows.Forms.Padding(4);
             this.txtIGST5.MaxLength = 15;
             this.txtIGST5.Name = "txtIGST5";
             this.txtIGST5.ShortcutsEnabled = false;
-            this.txtIGST5.Size = new System.Drawing.Size(125, 26);
+            this.txtIGST5.Size = new System.Drawing.Size(166, 30);
             this.txtIGST5.TabIndex = 1056;
             this.txtIGST5.Tag = "";
             this.txtIGST5.Text = "0.00";
@@ -835,9 +888,10 @@
             this.label37.AutoSize = true;
             this.label37.BackColor = System.Drawing.Color.Transparent;
             this.label37.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(11, 254);
+            this.label37.Location = new System.Drawing.Point(15, 313);
+            this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(79, 17);
+            this.label37.Size = new System.Drawing.Size(101, 22);
             this.label37.TabIndex = 1055;
             this.label37.Text = "IPUR28%:";
             // 
@@ -846,9 +900,10 @@
             this.label38.AutoSize = true;
             this.label38.BackColor = System.Drawing.Color.Transparent;
             this.label38.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(11, 228);
+            this.label38.Location = new System.Drawing.Point(15, 281);
+            this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(79, 17);
+            this.label38.Size = new System.Drawing.Size(101, 22);
             this.label38.TabIndex = 1054;
             this.label38.Text = "IPUR18%:";
             // 
@@ -857,9 +912,10 @@
             this.label39.AutoSize = true;
             this.label39.BackColor = System.Drawing.Color.Transparent;
             this.label39.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(11, 202);
+            this.label39.Location = new System.Drawing.Point(15, 249);
+            this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(79, 17);
+            this.label39.Size = new System.Drawing.Size(101, 22);
             this.label39.TabIndex = 1053;
             this.label39.Text = "IPUR12%:";
             // 
@@ -868,9 +924,10 @@
             this.label40.AutoSize = true;
             this.label40.BackColor = System.Drawing.Color.Transparent;
             this.label40.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(11, 177);
+            this.label40.Location = new System.Drawing.Point(15, 218);
+            this.label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(70, 17);
+            this.label40.Size = new System.Drawing.Size(90, 22);
             this.label40.TabIndex = 1052;
             this.label40.Text = "IPUR5%:";
             // 
@@ -879,9 +936,10 @@
             this.label41.AutoSize = true;
             this.label41.BackColor = System.Drawing.Color.Transparent;
             this.label41.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(15, 150);
+            this.label41.Location = new System.Drawing.Point(20, 185);
+            this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(65, 17);
+            this.label41.Size = new System.Drawing.Size(83, 22);
             this.label41.TabIndex = 1051;
             this.label41.Text = "PUR0%:";
             // 
@@ -890,9 +948,10 @@
             this.label42.AutoSize = true;
             this.label42.BackColor = System.Drawing.Color.Transparent;
             this.label42.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(11, 111);
+            this.label42.Location = new System.Drawing.Point(15, 137);
+            this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(78, 17);
+            this.label42.Size = new System.Drawing.Size(97, 22);
             this.label42.TabIndex = 1050;
             this.label42.Text = "IGST28%:";
             // 
@@ -901,9 +960,10 @@
             this.label43.AutoSize = true;
             this.label43.BackColor = System.Drawing.Color.Transparent;
             this.label43.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(11, 85);
+            this.label43.Location = new System.Drawing.Point(15, 105);
+            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(78, 17);
+            this.label43.Size = new System.Drawing.Size(97, 22);
             this.label43.TabIndex = 1049;
             this.label43.Text = "IGST18%:";
             // 
@@ -912,9 +972,10 @@
             this.label44.AutoSize = true;
             this.label44.BackColor = System.Drawing.Color.Transparent;
             this.label44.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(11, 60);
+            this.label44.Location = new System.Drawing.Point(15, 74);
+            this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(78, 17);
+            this.label44.Size = new System.Drawing.Size(97, 22);
             this.label44.TabIndex = 1048;
             this.label44.Text = "IGST12%:";
             // 
@@ -923,15 +984,16 @@
             this.lblIGST5.AutoSize = true;
             this.lblIGST5.BackColor = System.Drawing.Color.Transparent;
             this.lblIGST5.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIGST5.Location = new System.Drawing.Point(11, 33);
+            this.lblIGST5.Location = new System.Drawing.Point(15, 41);
+            this.lblIGST5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIGST5.Name = "lblIGST5";
-            this.lblIGST5.Size = new System.Drawing.Size(72, 17);
+            this.lblIGST5.Size = new System.Drawing.Size(90, 22);
             this.lblIGST5.TabIndex = 1047;
             this.lblIGST5.Text = "IGST5% :";
             // 
             // pnlGST
             // 
-            this.pnlGST.BackColor = System.Drawing.Color.DarkKhaki;           
+            this.pnlGST.BackColor = System.Drawing.Color.DarkKhaki;
             this.pnlGST.Controls.Add(this.txtCPUR28);
             this.pnlGST.Controls.Add(this.txtCPUR18);
             this.pnlGST.Controls.Add(this.txtCPUR12);
@@ -969,9 +1031,10 @@
             this.pnlGST.Controls.Add(this.label20);
             this.pnlGST.Controls.Add(this.label18);
             this.pnlGST.Controls.Add(this.textBox2);
-            this.pnlGST.Location = new System.Drawing.Point(19, 154);
+            this.pnlGST.Location = new System.Drawing.Point(25, 190);
+            this.pnlGST.Margin = new System.Windows.Forms.Padding(4);
             this.pnlGST.Name = "pnlGST";
-            this.pnlGST.Size = new System.Drawing.Size(448, 283);
+            this.pnlGST.Size = new System.Drawing.Size(597, 348);
             this.pnlGST.TabIndex = 1110;
             // 
             // txtCPUR28
@@ -979,11 +1042,12 @@
             this.txtCPUR28.BackColor = System.Drawing.Color.Snow;
             this.txtCPUR28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCPUR28.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPUR28.Location = new System.Drawing.Point(319, 245);
+            this.txtCPUR28.Location = new System.Drawing.Point(425, 302);
+            this.txtCPUR28.Margin = new System.Windows.Forms.Padding(4);
             this.txtCPUR28.MaxLength = 15;
             this.txtCPUR28.Name = "txtCPUR28";
             this.txtCPUR28.ShortcutsEnabled = false;
-            this.txtCPUR28.Size = new System.Drawing.Size(125, 26);
+            this.txtCPUR28.Size = new System.Drawing.Size(166, 30);
             this.txtCPUR28.TabIndex = 1055;
             this.txtCPUR28.Tag = "";
             this.txtCPUR28.Text = "0.00";
@@ -994,11 +1058,12 @@
             this.txtCPUR18.BackColor = System.Drawing.Color.Snow;
             this.txtCPUR18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCPUR18.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPUR18.Location = new System.Drawing.Point(319, 219);
+            this.txtCPUR18.Location = new System.Drawing.Point(425, 270);
+            this.txtCPUR18.Margin = new System.Windows.Forms.Padding(4);
             this.txtCPUR18.MaxLength = 15;
             this.txtCPUR18.Name = "txtCPUR18";
             this.txtCPUR18.ShortcutsEnabled = false;
-            this.txtCPUR18.Size = new System.Drawing.Size(125, 26);
+            this.txtCPUR18.Size = new System.Drawing.Size(166, 30);
             this.txtCPUR18.TabIndex = 1054;
             this.txtCPUR18.Tag = "";
             this.txtCPUR18.Text = "0.00";
@@ -1009,11 +1074,12 @@
             this.txtCPUR12.BackColor = System.Drawing.Color.Snow;
             this.txtCPUR12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCPUR12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPUR12.Location = new System.Drawing.Point(319, 193);
+            this.txtCPUR12.Location = new System.Drawing.Point(425, 238);
+            this.txtCPUR12.Margin = new System.Windows.Forms.Padding(4);
             this.txtCPUR12.MaxLength = 15;
             this.txtCPUR12.Name = "txtCPUR12";
             this.txtCPUR12.ShortcutsEnabled = false;
-            this.txtCPUR12.Size = new System.Drawing.Size(125, 26);
+            this.txtCPUR12.Size = new System.Drawing.Size(166, 30);
             this.txtCPUR12.TabIndex = 1053;
             this.txtCPUR12.Tag = "";
             this.txtCPUR12.Text = "0.00";
@@ -1024,11 +1090,12 @@
             this.txtCPUR5.BackColor = System.Drawing.Color.Snow;
             this.txtCPUR5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCPUR5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPUR5.Location = new System.Drawing.Point(319, 167);
+            this.txtCPUR5.Location = new System.Drawing.Point(425, 206);
+            this.txtCPUR5.Margin = new System.Windows.Forms.Padding(4);
             this.txtCPUR5.MaxLength = 15;
             this.txtCPUR5.Name = "txtCPUR5";
             this.txtCPUR5.ShortcutsEnabled = false;
-            this.txtCPUR5.Size = new System.Drawing.Size(125, 26);
+            this.txtCPUR5.Size = new System.Drawing.Size(166, 30);
             this.txtCPUR5.TabIndex = 1052;
             this.txtCPUR5.Tag = "";
             this.txtCPUR5.Text = "0.00";
@@ -1039,11 +1106,12 @@
             this.txtCPUR0.BackColor = System.Drawing.Color.Snow;
             this.txtCPUR0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCPUR0.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPUR0.Location = new System.Drawing.Point(425, 141);
+            this.txtCPUR0.Location = new System.Drawing.Point(567, 174);
+            this.txtCPUR0.Margin = new System.Windows.Forms.Padding(4);
             this.txtCPUR0.MaxLength = 15;
             this.txtCPUR0.Name = "txtCPUR0";
             this.txtCPUR0.ShortcutsEnabled = false;
-            this.txtCPUR0.Size = new System.Drawing.Size(15, 26);
+            this.txtCPUR0.Size = new System.Drawing.Size(19, 30);
             this.txtCPUR0.TabIndex = 1051;
             this.txtCPUR0.Tag = "";
             this.txtCPUR0.Text = "0.00";
@@ -1055,11 +1123,12 @@
             this.txtCGST28.BackColor = System.Drawing.Color.Snow;
             this.txtCGST28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCGST28.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCGST28.Location = new System.Drawing.Point(319, 100);
+            this.txtCGST28.Location = new System.Drawing.Point(425, 123);
+            this.txtCGST28.Margin = new System.Windows.Forms.Padding(4);
             this.txtCGST28.MaxLength = 15;
             this.txtCGST28.Name = "txtCGST28";
             this.txtCGST28.ShortcutsEnabled = false;
-            this.txtCGST28.Size = new System.Drawing.Size(125, 26);
+            this.txtCGST28.Size = new System.Drawing.Size(166, 30);
             this.txtCGST28.TabIndex = 1050;
             this.txtCGST28.Tag = "";
             this.txtCGST28.Text = "0.00";
@@ -1070,11 +1139,12 @@
             this.txtCGST18.BackColor = System.Drawing.Color.Snow;
             this.txtCGST18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCGST18.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCGST18.Location = new System.Drawing.Point(319, 73);
+            this.txtCGST18.Location = new System.Drawing.Point(425, 90);
+            this.txtCGST18.Margin = new System.Windows.Forms.Padding(4);
             this.txtCGST18.MaxLength = 15;
             this.txtCGST18.Name = "txtCGST18";
             this.txtCGST18.ShortcutsEnabled = false;
-            this.txtCGST18.Size = new System.Drawing.Size(125, 26);
+            this.txtCGST18.Size = new System.Drawing.Size(166, 30);
             this.txtCGST18.TabIndex = 1049;
             this.txtCGST18.Tag = "";
             this.txtCGST18.Text = "0.00";
@@ -1085,11 +1155,12 @@
             this.txtCGST12.BackColor = System.Drawing.Color.Snow;
             this.txtCGST12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCGST12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCGST12.Location = new System.Drawing.Point(319, 48);
+            this.txtCGST12.Location = new System.Drawing.Point(425, 59);
+            this.txtCGST12.Margin = new System.Windows.Forms.Padding(4);
             this.txtCGST12.MaxLength = 15;
             this.txtCGST12.Name = "txtCGST12";
             this.txtCGST12.ShortcutsEnabled = false;
-            this.txtCGST12.Size = new System.Drawing.Size(125, 26);
+            this.txtCGST12.Size = new System.Drawing.Size(166, 30);
             this.txtCGST12.TabIndex = 1048;
             this.txtCGST12.Tag = "";
             this.txtCGST12.Text = "0.00";
@@ -1100,11 +1171,12 @@
             this.txtCGST5.BackColor = System.Drawing.Color.Snow;
             this.txtCGST5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCGST5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCGST5.Location = new System.Drawing.Point(319, 22);
+            this.txtCGST5.Location = new System.Drawing.Point(425, 27);
+            this.txtCGST5.Margin = new System.Windows.Forms.Padding(4);
             this.txtCGST5.MaxLength = 15;
             this.txtCGST5.Name = "txtCGST5";
             this.txtCGST5.ShortcutsEnabled = false;
-            this.txtCGST5.Size = new System.Drawing.Size(125, 26);
+            this.txtCGST5.Size = new System.Drawing.Size(166, 30);
             this.txtCGST5.TabIndex = 1047;
             this.txtCGST5.Tag = "";
             this.txtCGST5.Text = "0.00";
@@ -1115,11 +1187,12 @@
             this.txtSPUR28.BackColor = System.Drawing.Color.Snow;
             this.txtSPUR28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSPUR28.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSPUR28.Location = new System.Drawing.Point(92, 246);
+            this.txtSPUR28.Location = new System.Drawing.Point(123, 303);
+            this.txtSPUR28.Margin = new System.Windows.Forms.Padding(4);
             this.txtSPUR28.MaxLength = 15;
             this.txtSPUR28.Name = "txtSPUR28";
             this.txtSPUR28.ShortcutsEnabled = false;
-            this.txtSPUR28.Size = new System.Drawing.Size(125, 26);
+            this.txtSPUR28.Size = new System.Drawing.Size(166, 30);
             this.txtSPUR28.TabIndex = 1046;
             this.txtSPUR28.Tag = "";
             this.txtSPUR28.Text = "0.00";
@@ -1130,11 +1203,12 @@
             this.txtSPUR18.BackColor = System.Drawing.Color.Snow;
             this.txtSPUR18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSPUR18.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSPUR18.Location = new System.Drawing.Point(92, 220);
+            this.txtSPUR18.Location = new System.Drawing.Point(123, 271);
+            this.txtSPUR18.Margin = new System.Windows.Forms.Padding(4);
             this.txtSPUR18.MaxLength = 15;
             this.txtSPUR18.Name = "txtSPUR18";
             this.txtSPUR18.ShortcutsEnabled = false;
-            this.txtSPUR18.Size = new System.Drawing.Size(125, 26);
+            this.txtSPUR18.Size = new System.Drawing.Size(166, 30);
             this.txtSPUR18.TabIndex = 1045;
             this.txtSPUR18.Tag = "";
             this.txtSPUR18.Text = "0.00";
@@ -1145,11 +1219,12 @@
             this.txtSPUR12.BackColor = System.Drawing.Color.Snow;
             this.txtSPUR12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSPUR12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSPUR12.Location = new System.Drawing.Point(92, 194);
+            this.txtSPUR12.Location = new System.Drawing.Point(123, 239);
+            this.txtSPUR12.Margin = new System.Windows.Forms.Padding(4);
             this.txtSPUR12.MaxLength = 15;
             this.txtSPUR12.Name = "txtSPUR12";
             this.txtSPUR12.ShortcutsEnabled = false;
-            this.txtSPUR12.Size = new System.Drawing.Size(125, 26);
+            this.txtSPUR12.Size = new System.Drawing.Size(166, 30);
             this.txtSPUR12.TabIndex = 1044;
             this.txtSPUR12.Tag = "";
             this.txtSPUR12.Text = "0.00";
@@ -1160,11 +1235,12 @@
             this.txtSPUR5.BackColor = System.Drawing.Color.Snow;
             this.txtSPUR5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSPUR5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSPUR5.Location = new System.Drawing.Point(92, 168);
+            this.txtSPUR5.Location = new System.Drawing.Point(123, 207);
+            this.txtSPUR5.Margin = new System.Windows.Forms.Padding(4);
             this.txtSPUR5.MaxLength = 15;
             this.txtSPUR5.Name = "txtSPUR5";
             this.txtSPUR5.ShortcutsEnabled = false;
-            this.txtSPUR5.Size = new System.Drawing.Size(125, 26);
+            this.txtSPUR5.Size = new System.Drawing.Size(166, 30);
             this.txtSPUR5.TabIndex = 1043;
             this.txtSPUR5.Tag = "";
             this.txtSPUR5.Text = "0.00";
@@ -1175,11 +1251,12 @@
             this.txtSPUR0.BackColor = System.Drawing.Color.Snow;
             this.txtSPUR0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSPUR0.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSPUR0.Location = new System.Drawing.Point(187, 142);
+            this.txtSPUR0.Location = new System.Drawing.Point(249, 175);
+            this.txtSPUR0.Margin = new System.Windows.Forms.Padding(4);
             this.txtSPUR0.MaxLength = 15;
             this.txtSPUR0.Name = "txtSPUR0";
             this.txtSPUR0.ShortcutsEnabled = false;
-            this.txtSPUR0.Size = new System.Drawing.Size(125, 26);
+            this.txtSPUR0.Size = new System.Drawing.Size(166, 30);
             this.txtSPUR0.TabIndex = 1042;
             this.txtSPUR0.Tag = "";
             this.txtSPUR0.Text = "0.00";
@@ -1190,11 +1267,12 @@
             this.txtSGST28.BackColor = System.Drawing.Color.Snow;
             this.txtSGST28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSGST28.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSGST28.Location = new System.Drawing.Point(92, 101);
+            this.txtSGST28.Location = new System.Drawing.Point(123, 124);
+            this.txtSGST28.Margin = new System.Windows.Forms.Padding(4);
             this.txtSGST28.MaxLength = 15;
             this.txtSGST28.Name = "txtSGST28";
             this.txtSGST28.ShortcutsEnabled = false;
-            this.txtSGST28.Size = new System.Drawing.Size(125, 26);
+            this.txtSGST28.Size = new System.Drawing.Size(166, 30);
             this.txtSGST28.TabIndex = 1041;
             this.txtSGST28.Tag = "";
             this.txtSGST28.Text = "0.00";
@@ -1205,11 +1283,12 @@
             this.txtSGST18.BackColor = System.Drawing.Color.Snow;
             this.txtSGST18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSGST18.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSGST18.Location = new System.Drawing.Point(92, 74);
+            this.txtSGST18.Location = new System.Drawing.Point(123, 91);
+            this.txtSGST18.Margin = new System.Windows.Forms.Padding(4);
             this.txtSGST18.MaxLength = 15;
             this.txtSGST18.Name = "txtSGST18";
             this.txtSGST18.ShortcutsEnabled = false;
-            this.txtSGST18.Size = new System.Drawing.Size(125, 26);
+            this.txtSGST18.Size = new System.Drawing.Size(166, 30);
             this.txtSGST18.TabIndex = 1040;
             this.txtSGST18.Tag = "";
             this.txtSGST18.Text = "0.00";
@@ -1220,11 +1299,12 @@
             this.txtSGST12.BackColor = System.Drawing.Color.Snow;
             this.txtSGST12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSGST12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSGST12.Location = new System.Drawing.Point(92, 49);
+            this.txtSGST12.Location = new System.Drawing.Point(123, 60);
+            this.txtSGST12.Margin = new System.Windows.Forms.Padding(4);
             this.txtSGST12.MaxLength = 15;
             this.txtSGST12.Name = "txtSGST12";
             this.txtSGST12.ShortcutsEnabled = false;
-            this.txtSGST12.Size = new System.Drawing.Size(125, 26);
+            this.txtSGST12.Size = new System.Drawing.Size(166, 30);
             this.txtSGST12.TabIndex = 1039;
             this.txtSGST12.Tag = "";
             this.txtSGST12.Text = "0.00";
@@ -1235,11 +1315,12 @@
             this.txtSGST5.BackColor = System.Drawing.Color.Snow;
             this.txtSGST5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSGST5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSGST5.Location = new System.Drawing.Point(92, 23);
+            this.txtSGST5.Location = new System.Drawing.Point(123, 28);
+            this.txtSGST5.Margin = new System.Windows.Forms.Padding(4);
             this.txtSGST5.MaxLength = 15;
             this.txtSGST5.Name = "txtSGST5";
             this.txtSGST5.ShortcutsEnabled = false;
-            this.txtSGST5.Size = new System.Drawing.Size(125, 26);
+            this.txtSGST5.Size = new System.Drawing.Size(166, 30);
             this.txtSGST5.TabIndex = 1038;
             this.txtSGST5.Tag = "";
             this.txtSGST5.Text = "0.00";
@@ -1250,9 +1331,10 @@
             this.label28.AutoSize = true;
             this.label28.BackColor = System.Drawing.Color.Transparent;
             this.label28.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(233, 246);
+            this.label28.Location = new System.Drawing.Point(311, 303);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(83, 17);
+            this.label28.Size = new System.Drawing.Size(105, 22);
             this.label28.TabIndex = 1037;
             this.label28.Text = "CPUR28%:";
             // 
@@ -1261,9 +1343,10 @@
             this.label29.AutoSize = true;
             this.label29.BackColor = System.Drawing.Color.Transparent;
             this.label29.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(233, 221);
+            this.label29.Location = new System.Drawing.Point(311, 272);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(83, 17);
+            this.label29.Size = new System.Drawing.Size(105, 22);
             this.label29.TabIndex = 1036;
             this.label29.Text = "CPUR18%:";
             // 
@@ -1272,9 +1355,10 @@
             this.label30.AutoSize = true;
             this.label30.BackColor = System.Drawing.Color.Transparent;
             this.label30.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(233, 195);
+            this.label30.Location = new System.Drawing.Point(311, 240);
+            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(83, 17);
+            this.label30.Size = new System.Drawing.Size(105, 22);
             this.label30.TabIndex = 1035;
             this.label30.Text = "CPUR12%:";
             // 
@@ -1283,9 +1367,10 @@
             this.label31.AutoSize = true;
             this.label31.BackColor = System.Drawing.Color.Transparent;
             this.label31.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(233, 170);
+            this.label31.Location = new System.Drawing.Point(311, 209);
+            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(74, 17);
+            this.label31.Size = new System.Drawing.Size(94, 22);
             this.label31.TabIndex = 1034;
             this.label31.Text = "CPUR5%:";
             // 
@@ -1294,9 +1379,10 @@
             this.label32.AutoSize = true;
             this.label32.BackColor = System.Drawing.Color.Transparent;
             this.label32.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(364, 145);
+            this.label32.Location = new System.Drawing.Point(485, 178);
+            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(74, 17);
+            this.label32.Size = new System.Drawing.Size(94, 22);
             this.label32.TabIndex = 1033;
             this.label32.Text = "CPUR0%:";
             this.label32.Visible = false;
@@ -1306,9 +1392,10 @@
             this.label33.AutoSize = true;
             this.label33.BackColor = System.Drawing.Color.Transparent;
             this.label33.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(233, 103);
+            this.label33.Location = new System.Drawing.Point(311, 127);
+            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(82, 17);
+            this.label33.Size = new System.Drawing.Size(101, 22);
             this.label33.TabIndex = 1032;
             this.label33.Text = "CGST28%:";
             // 
@@ -1317,9 +1404,10 @@
             this.label34.AutoSize = true;
             this.label34.BackColor = System.Drawing.Color.Transparent;
             this.label34.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(233, 77);
+            this.label34.Location = new System.Drawing.Point(311, 95);
+            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(82, 17);
+            this.label34.Size = new System.Drawing.Size(101, 22);
             this.label34.TabIndex = 1031;
             this.label34.Text = "CGST18%:";
             // 
@@ -1328,9 +1416,10 @@
             this.label35.AutoSize = true;
             this.label35.BackColor = System.Drawing.Color.Transparent;
             this.label35.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(233, 52);
+            this.label35.Location = new System.Drawing.Point(311, 64);
+            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(82, 17);
+            this.label35.Size = new System.Drawing.Size(101, 22);
             this.label35.TabIndex = 1030;
             this.label35.Text = "CGST12%:";
             // 
@@ -1339,9 +1428,10 @@
             this.label36.AutoSize = true;
             this.label36.BackColor = System.Drawing.Color.Transparent;
             this.label36.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(233, 27);
+            this.label36.Location = new System.Drawing.Point(311, 33);
+            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(76, 17);
+            this.label36.Size = new System.Drawing.Size(94, 22);
             this.label36.TabIndex = 1029;
             this.label36.Text = "CGST5% :";
             // 
@@ -1350,9 +1440,10 @@
             this.label27.AutoSize = true;
             this.label27.BackColor = System.Drawing.Color.Transparent;
             this.label27.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(12, 248);
+            this.label27.Location = new System.Drawing.Point(16, 305);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(82, 17);
+            this.label27.Size = new System.Drawing.Size(104, 22);
             this.label27.TabIndex = 1028;
             this.label27.Text = "SPUR28%:";
             // 
@@ -1361,9 +1452,10 @@
             this.label25.AutoSize = true;
             this.label25.BackColor = System.Drawing.Color.Transparent;
             this.label25.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(12, 222);
+            this.label25.Location = new System.Drawing.Point(16, 273);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(82, 17);
+            this.label25.Size = new System.Drawing.Size(104, 22);
             this.label25.TabIndex = 1027;
             this.label25.Text = "SPUR18%:";
             // 
@@ -1372,9 +1464,10 @@
             this.label26.AutoSize = true;
             this.label26.BackColor = System.Drawing.Color.Transparent;
             this.label26.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(12, 196);
+            this.label26.Location = new System.Drawing.Point(16, 241);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(82, 17);
+            this.label26.Size = new System.Drawing.Size(104, 22);
             this.label26.TabIndex = 1026;
             this.label26.Text = "SPUR12%:";
             // 
@@ -1383,9 +1476,10 @@
             this.label22.AutoSize = true;
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(12, 171);
+            this.label22.Location = new System.Drawing.Point(16, 210);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(73, 17);
+            this.label22.Size = new System.Drawing.Size(93, 22);
             this.label22.TabIndex = 1025;
             this.label22.Text = "SPUR5%:";
             // 
@@ -1394,9 +1488,10 @@
             this.label23.AutoSize = true;
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(107, 145);
+            this.label23.Location = new System.Drawing.Point(143, 178);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(65, 17);
+            this.label23.Size = new System.Drawing.Size(83, 22);
             this.label23.TabIndex = 1024;
             this.label23.Text = "PUR0%:";
             // 
@@ -1405,9 +1500,10 @@
             this.label24.AutoSize = true;
             this.label24.BackColor = System.Drawing.Color.Transparent;
             this.label24.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(12, 105);
+            this.label24.Location = new System.Drawing.Point(16, 129);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(81, 17);
+            this.label24.Size = new System.Drawing.Size(100, 22);
             this.label24.TabIndex = 1023;
             this.label24.Text = "SGST28%:";
             // 
@@ -1416,9 +1512,10 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 79);
+            this.label3.Location = new System.Drawing.Point(16, 97);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 17);
+            this.label3.Size = new System.Drawing.Size(100, 22);
             this.label3.TabIndex = 1022;
             this.label3.Text = "SGST18%:";
             // 
@@ -1427,9 +1524,10 @@
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(12, 54);
+            this.label20.Location = new System.Drawing.Point(16, 66);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(81, 17);
+            this.label20.Size = new System.Drawing.Size(100, 22);
             this.label20.TabIndex = 1021;
             this.label20.Text = "SGST12%:";
             // 
@@ -1438,9 +1536,10 @@
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(12, 27);
+            this.label18.Location = new System.Drawing.Point(16, 33);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(75, 17);
+            this.label18.Size = new System.Drawing.Size(93, 22);
             this.label18.TabIndex = 1020;
             this.label18.Text = "SGST5% :";
             // 
@@ -1450,18 +1549,20 @@
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(0, 0);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(448, 21);
+            this.textBox2.Size = new System.Drawing.Size(597, 24);
             this.textBox2.TabIndex = 1019;
             this.textBox2.Text = "                                         GST Details                             " +
     "  ";
             // 
             // UclDistributorCreditNoteStock
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "UclDistributorCreditNoteStock";
-            this.Size = new System.Drawing.Size(957, 633);
+            this.Size = new System.Drawing.Size(1276, 779);
             this.MMBottomPanel.ResumeLayout(false);
             this.MMBottomPanel.PerformLayout();
             this.MMMainPanel.ResumeLayout(false);

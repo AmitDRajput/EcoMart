@@ -55,7 +55,7 @@ namespace EcoMart.BusinessLayer
         private string _StockID;
         private string _TransferToAccount;
         private double _CrdbAmountClear;
-      //  private string _DetailID;
+        //  private string _DetailID;
 
         private string _SetExpiryFirst;
 
@@ -142,7 +142,7 @@ namespace EcoMart.BusinessLayer
         public double GSTIAmount
         {
             get { return _GSTIAmount; }
-            set { _GSTIAmount = value;  }
+            set { _GSTIAmount = value; }
         }
         public double GSTIPurchaseAmount
         {
@@ -303,7 +303,7 @@ namespace EcoMart.BusinessLayer
             get { return _StockID; }
             set { _StockID = value; }
         }
-        
+
         public int ProductID
         {
             get { return _ProductID; }
@@ -577,11 +577,9 @@ namespace EcoMart.BusinessLayer
             _CrdbAddress = "";
             _CrdbNarration = "";
             _CrdbVouType = FixAccounts.VoucherTypeForCreditNoteStock;
-          //  _CrdbVouTypeDistributor = FixAccounts.VoucherTypeForDistributorCreditNoteStock;
+            //  _CrdbVouTypeDistributor = FixAccounts.VoucherTypeForDistributorCreditNoteStock;
             _CrdbVouSeries = General.ShopDetail.ShopVoucherSeries;
             _CrdbVouNo = 0;
-            _CrdbVat5 = 0;
-            _CrdbVat12point5 = 0;
             _CrdbNoOfRows = 0;
             _CrdbAmount = 0;
             _CrdbDiscPer = 0;
@@ -663,7 +661,7 @@ namespace EcoMart.BusinessLayer
             bool bRetValue = true;
             return bRetValue;
         }
-  
+
         #endregion
 
         #region Public Methods
@@ -671,7 +669,7 @@ namespace EcoMart.BusinessLayer
         public DataTable GetOverviewDataCreditNotes(string fromDate, string toDate)
         {
             DBCreditNoteStock dbStock = new DBCreditNoteStock();
-            return dbStock.GetOverviewDataCreditNotes(fromDate,toDate);
+            return dbStock.GetOverviewDataCreditNotes(fromDate, toDate);
         }
 
         public DataTable GetOverviewData(string DbntType)
@@ -687,7 +685,7 @@ namespace EcoMart.BusinessLayer
         public DataTable GetOverviewDataForDebtorSale(string AccID, string ClearedInID)
         {
             DBCreditNoteStock dbStock = new DBCreditNoteStock();
-            return dbStock.GetOverviewDataForDebtorSale(AccID,ClearedInID);
+            return dbStock.GetOverviewDataForDebtorSale(AccID, ClearedInID);
         }
         public DataTable GetOverviewDataForPatientSale(string AccID, string ClearedInID)
         {
@@ -736,8 +734,8 @@ namespace EcoMart.BusinessLayer
                     CrdbDiscAmt = Convert.ToDouble(drow["DiscountAmount"].ToString());
                     CrdbDiscPer = Convert.ToDouble(drow["DiscountPer"].ToString());
                     CrdbRoundAmount = Convert.ToDouble(drow["RoundingAmount"].ToString());
-                  //  CrdbVat12point5 = Convert.ToDouble(drow["VAT12point5"].ToString());
-                 //   CrdbVat5 = Convert.ToDouble(drow["VAT5"].ToString());
+                    //  CrdbVat12point5 = Convert.ToDouble(drow["VAT12point5"].ToString());
+                    //   CrdbVat5 = Convert.ToDouble(drow["VAT5"].ToString());
                     CrdbTotalAmount = CrdbTotalAmount - CrdbDiscAmt;
                     CrdbAmountNet = Convert.ToDouble(drow["AmountNet"].ToString());
                     CrdbAmountClear = Convert.ToDouble(drow["AmountClear"].ToString());
@@ -819,12 +817,12 @@ namespace EcoMart.BusinessLayer
 
         public DataRow ReadDetailsByVouNumber(string voutype, int vouno)
         {
-           // bool retValue = false;
+            // bool retValue = false;
             DataRow drow = null;
             try
             {
                 DBCreditNoteStock dbStock = new DBCreditNoteStock();
-                drow = dbStock.ReadDetailsByVouNumber(voutype,vouno);
+                drow = dbStock.ReadDetailsByVouNumber(voutype, vouno);
 
                 if (drow != null)
                 {
@@ -837,11 +835,11 @@ namespace EcoMart.BusinessLayer
                     CrdbDiscAmt = Convert.ToDouble(drow["DiscountAmount"].ToString());
                     CrdbDiscPer = Convert.ToDouble(drow["DiscountPer"].ToString());
                     CrdbRoundAmount = Convert.ToDouble(drow["RoundingAmount"].ToString());
-                    CrdbVat12point5 = Convert.ToDouble(drow["VAT12point5"].ToString());
-                    CrdbVat5 = Convert.ToDouble(drow["VAT5"].ToString());
+                    //CrdbVat12point5 = Convert.ToDouble(drow["VAT12point5"].ToString());
+                    //CrdbVat5 = Convert.ToDouble(drow["VAT5"].ToString());
                     CrdbTotalAmount = CrdbAmount - CrdbDiscAmt;
                     CrdbAmountNet = Convert.ToDouble(drow["AmountNet"].ToString());
-                   // retValue = true;
+                    // retValue = true;
                 }
                 else
                 {
@@ -874,8 +872,8 @@ namespace EcoMart.BusinessLayer
                     CrdbDiscAmt = Convert.ToDouble(drow["DiscountAmount"].ToString());
                     CrdbDiscPer = Convert.ToDouble(drow["DiscountPer"].ToString());
                     CrdbRoundAmount = Convert.ToDouble(drow["RoundingAmount"].ToString());
-                    CrdbVat12point5 = Convert.ToDouble(drow["VAT12point5"].ToString());
-                    CrdbVat5 = Convert.ToDouble(drow["VAT5"].ToString());
+                    //CrdbVat12point5 = Convert.ToDouble(drow["VAT12point5"].ToString());
+                    //CrdbVat5 = Convert.ToDouble(drow["VAT5"].ToString());
                     CrdbTotalAmount = CrdbAmount - CrdbDiscAmt;
                     CrdbAmountNet = Convert.ToDouble(drow["AmountNet"].ToString());
                     retValue = true;
@@ -891,9 +889,9 @@ namespace EcoMart.BusinessLayer
             }
             return retValue;
         }
-        public DataTable  ReadProductDetailsByID()
+        public DataTable ReadProductDetailsByID()
         {
-           
+
             DataTable dt = new DataTable();
             dt = null;
             try
@@ -908,7 +906,7 @@ namespace EcoMart.BusinessLayer
             {
                 Log.WriteException(ex);
             }
-          
+
             return dt;
         }
 
@@ -964,23 +962,25 @@ namespace EcoMart.BusinessLayer
         {
             DBCreditNoteStock dbcrdb = new DBCreditNoteStock();
             return dbcrdb.AddDetails(Id, CrdbId, CrdbNarration, CrdbVouType, CrdbVouNo, CrdbVouDate, CrdbAmountNet,
-               CrdbDiscPer, CrdbDiscAmt, CrdbAmount, CrdbRoundAmount,  CrdbAmountClear, ClearVouType,
+               CrdbDiscPer, CrdbDiscAmt, CrdbAmount, CrdbRoundAmount, CrdbAmountClear, ClearVouType,
               GSTAmt0, GSTAmtS5, GSTAmtS12, GSTAmtS18, GSTAmtS28, GSTAmtC5, GSTAmtC12, GSTAmtC18, GSTAmtC28,
            GSTS5, GSTS12, GSTS18, GSTS28, GSTC5, GSTC12, GSTC18, GSTC28, GSTAmtI5, GSTAmtI12, GSTAmtI18, GSTAmtI28, GSTI5, GSTI12, GSTI18, GSTI28, CreatedBy, CreatedDate, CreatedTime);
         }
         public bool AddProductDetails()
         {
             DBCreditNoteStock dbcrdbp = new DBCreditNoteStock();
-            return dbcrdbp.AddDetailsProducts(IntID, StockID, ProductID, Batchno, Quantity, SchemeQuanity, PurchaseRate, MRP, SaleRate,
+            return dbcrdbp.AddDetailsProducts(Id, StockID, ProductID, Batchno, Quantity, SchemeQuanity, PurchaseRate, MRP, SaleRate,
                 Expiry, ExpiryDate, ReasonCode, VATPer, Amount, CrdbVouType, CrdbVouNo, CrdbVouDate, DiscountPercent, DiscountAmount, TradeRate,
-                ReturnRate, DetailId,SerialNumber, GSTPurchaseAmountZero, GSTSPurchaseAmount, GSTCPurchaseAmount, GSTIPurchaseAmount,  GSTSAmount, GSTCAmount, GSTIAmount);
+                ReturnRate, DetailId, SerialNumber, GSTPurchaseAmountZero, GSTSPurchaseAmount, GSTCPurchaseAmount, GSTIPurchaseAmount, GSTSAmount, GSTCAmount, GSTIAmount);
         }
 
         public bool UpdateDetails()
         {
             DBCreditNoteStock dbcrdb = new DBCreditNoteStock();
             return dbcrdb.UpdateDetails(Id, CrdbId, CrdbNarration, CrdbVouType, CrdbVouNo, CrdbVouDate, CrdbAmountNet,
-                CrdbDiscPer, CrdbDiscAmt, CrdbTotalAmount, CrdbVat5, CrdbVat12point5, CrdbRoundAmount,  CrdbAmountClear, ClearVouType, ModifiedBy,ModifiedDate,ModifiedTime);
+                CrdbDiscPer, CrdbDiscAmt, CrdbTotalAmount, CrdbRoundAmount, CrdbAmountClear, ClearVouType, ModifiedBy, ModifiedDate, ModifiedTime,
+                GSTAmt0, GSTAmtS5, GSTAmtS12, GSTAmtS18, GSTAmtS28, GSTAmtC5, GSTAmtC12, GSTAmtC18, GSTAmtC28,
+                GSTS5, GSTS12, GSTS18, GSTS28, GSTC5, GSTC12, GSTC18, GSTC28, GSTAmtI5, GSTAmtI12, GSTAmtI18, GSTAmtI28, GSTI5, GSTI12, GSTI18, GSTI28);
         }
 
         public bool DeleteDetails()
@@ -1006,7 +1006,7 @@ namespace EcoMart.BusinessLayer
                 drow = sstk.GetRecordByProductBatchMRP(ProductID, Batchno, MRP);
                 if (drow != null)
                     ifrowfound = (drow["stockID"].ToString());
-               
+
             }
             catch (Exception ex)
             {
@@ -1022,7 +1022,7 @@ namespace EcoMart.BusinessLayer
             DataRow drow = null;
             string ifrowfound = "N";
             try
-            {               
+            {
                 drow = sstk.GetRecordByProductIDAndBatchNumberAndMRP(StockID, Quantity);
                 if (drow != null)
                     ifrowfound = "Y";
@@ -1040,7 +1040,7 @@ namespace EcoMart.BusinessLayer
         {
             DBSsStock sstk = new DBSsStock();
             return sstk.UpdateCreditNoteStock(StockID, Quantity);
-            
+
         }
         public bool UpdateIntblStockForDistributor()
         {
@@ -1050,8 +1050,8 @@ namespace EcoMart.BusinessLayer
         }
         public bool InsertNewBatchIntblStock()
         {
-            DBSsStock sstk = new DBSsStock();   
-            return sstk.InsertCreditNoteStock( StockID,ProductID, Batchno, MRP, Quantity, Quantity, Expiry, VATPer, PurchaseRate, SaleRate, TradeRate,ExpiryDate);
+            DBSsStock sstk = new DBSsStock();
+            return sstk.InsertCreditNoteStock(StockID, ProductID, Batchno, MRP, Quantity, Quantity, Expiry, VATPer, PurchaseRate, SaleRate, TradeRate, ExpiryDate);
         }
 
         public bool UpdateCreditNoteStockInMasterProduct()
@@ -1075,12 +1075,12 @@ namespace EcoMart.BusinessLayer
             if (Closingstock == 0)
             {
                 DBProduct dbprod = new DBProduct();
-                return dbprod.UpdateCreditNoteStockInmasterProductForNULLClosingStock(ProductID, Quantity*ProdLoosePack);
+                return dbprod.UpdateCreditNoteStockInmasterProductForNULLClosingStock(ProductID, Quantity * ProdLoosePack);
             }
             else
             {
                 DBProduct dbprod = new DBProduct();
-                Closingstock += (Quantity*ProdLoosePack);
+                Closingstock += (Quantity * ProdLoosePack);
                 return dbprod.UpdateCreditNoteStockInmasterProduct(ProductID, Closingstock);
             }
         }
@@ -1099,8 +1099,8 @@ namespace EcoMart.BusinessLayer
         {
             DBCreditNoteStock dbpur = new DBCreditNoteStock();
             return dbpur.AddProductDetailsInStockTable(ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
-                Expiry, ExpiryDate, Quantity, SchemeQuanity, Amount, AccountID, ProdLoosePack,ScanCode, StockID);
-            
+                Expiry, ExpiryDate, Quantity, SchemeQuanity, Amount, AccountID, ProdLoosePack, ScanCode, StockID);
+
         }
         public string AddProductDetailsInStockTableForDistributor()
         {
@@ -1161,11 +1161,11 @@ namespace EcoMart.BusinessLayer
         public bool UpdateCreditNoteStockInMasterProductReduce()
         {
 
-             int Closingstock = GetClosingStock();
-           
-                DBProduct dbprod = new DBProduct();
-                Closingstock -= Quantity;
-                return dbprod.UpdateCreditNoteStockInmasterProductReduceFromTemp(ProductID, Closingstock); 
+            int Closingstock = GetClosingStock();
+
+            DBProduct dbprod = new DBProduct();
+            Closingstock -= Quantity;
+            return dbprod.UpdateCreditNoteStockInmasterProductReduceFromTemp(ProductID, Closingstock);
         }
         public bool UpdateCreditNoteStockInMasterProductReduceForDistributor()
         {

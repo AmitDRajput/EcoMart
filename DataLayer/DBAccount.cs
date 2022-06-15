@@ -61,7 +61,7 @@ namespace EcoMart.DataLayer
                 "AccShortName, AccBirthDay, AccBirthMonth, AccBirthYear, AccHistory, " +
                 "AccVATTin, AccEmailID, IPartyID, AccNumber, AccRemark1,AccRemark2, AccBankAccountNumber " +
                 ", AccCrVisitDays, AccShortName, AccDbVisitDay1, AccDbVisitDay2, AccDbVisitDay3 " +
-                ", AccDiscountOffered, AccVATTin, AccBankAccountNumber, AccDLN, AccTokenNumber from masteraccount where AccountID = '"+ FixAccounts.AccountCash +"' || AccCode = '"+ FixAccounts.AccCodeForBank +"' order by AccName";
+                ", AccDiscountOffered, AccVATTin, AccBankAccountNumber, AccDLN, AccTokenNumber from masteraccount where AccountID = '"+ FixAccounts.AccountCash +"' OR AccCode = '"+ FixAccounts.AccCodeForBank +"' order by AccName";
 
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
@@ -78,7 +78,7 @@ namespace EcoMart.DataLayer
                 "AccShortName, AccBirthDay, AccBirthMonth, AccBirthYear, AccHistory, " +
                 "AccVATTin, AccEmailID, IPartyID, AccNumber, AccRemark1,AccRemark2, AccBankAccountNumber " +
                 ", AccCrVisitDays, AccShortName, AccDbVisitDay1, AccDbVisitDay2, AccDbVisitDay3 " +
-                ", AccDiscountOffered, AccVATTin, AccBankAccountNumber, AccDLN, AccTokenNumber from masteraccount where AccountID != '"+ accountID +"' && (AccountID = '" + FixAccounts.AccountCash + "' || AccCode = '" + FixAccounts.AccCodeForBank + "') order by AccName";
+                ", AccDiscountOffered, AccVATTin, AccBankAccountNumber, AccDLN, AccTokenNumber from masteraccount where AccountID != '"+ accountID +"' AND (AccountID = '" + FixAccounts.AccountCash + "' OR AccCode = '" + FixAccounts.AccCodeForBank + "') order by AccName";
 
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
@@ -702,7 +702,7 @@ namespace EcoMart.DataLayer
         private string GetDataForUniqueForEdit(string Name, string Address, string Id)
         {
             StringBuilder sQuery = new StringBuilder();
-            sQuery.AppendFormat("Select AccountID from Masteraccount where AccName='{0}'&& AccAddress1 = '{1}'", Name, Address);
+            sQuery.AppendFormat("Select AccountID from Masteraccount where AccName='{0}'AND AccAddress1 = '{1}'", Name, Address);
             if (Id != "")
             {
                 sQuery.AppendFormat(" AND AccountID not in ('{0}')", Id);
@@ -731,7 +731,7 @@ namespace EcoMart.DataLayer
         public DataTable GetSSAccountHoldersListForGeneralLedger()
         {
             DataTable dtable = new DataTable();
-            string strSql = string.Format("SELECT AccName,AccountID,AccAddress1,AccAddress2,AccTransactionType,AccCode,AccDoctorID,AccDiscountOffered,AccTokenNumber,AccOpeningDebit,AccOpeningCredit,tag FROM masterAccount WHERE AccCode != 'C' && AccCode != 'D' && AccCode != 'H' && AccCode != 'B' order by AccName");
+            string strSql = string.Format("SELECT AccName,AccountID,AccAddress1,AccAddress2,AccTransactionType,AccCode,AccDoctorID,AccDiscountOffered,AccTokenNumber,AccOpeningDebit,AccOpeningCredit,tag FROM masterAccount WHERE AccCode != 'C' AND AccCode != 'D' AND AccCode != 'H' AND AccCode != 'B' order by AccName");
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
 
@@ -748,7 +748,7 @@ namespace EcoMart.DataLayer
         //public DataTable GetSSAccountHoldersListForMultiSelection()
         //{
         //    DataTable dtable = new DataTable();
-        //    string strSql = string.Format("SELECT AccountID,AccName,AccAddress1,AccOpeningDebit,AccOpeningCredit,Tag FROM masterAccount WHERE AccCode  != 'C' && AccCode != 'D' order by AccName");
+        //    string strSql = string.Format("SELECT AccountID,AccName,AccAddress1,AccOpeningDebit,AccOpeningCredit,Tag FROM masterAccount WHERE AccCode  != 'C' AND AccCode != 'D' order by AccName");
         //    dtable = DBInterface.SelectDataTable(strSql);
         //    return dtable;
 
@@ -756,7 +756,7 @@ namespace EcoMart.DataLayer
         public DataTable GetAccountsOtherThanDebtorCreditor()
         {
             DataTable dtable = new DataTable();
-            string strSql = string.Format("SELECT AccName,AccountID,AccAddress1,AccAddress2,AccTransactionType,AccCode,AccDoctorID,AccDiscountOffered FROM masterAccount WHERE AccCode  != 'C' && AccCode != 'D' order by AccName");
+            string strSql = string.Format("SELECT AccName,AccountID,AccAddress1,AccAddress2,AccTransactionType,AccCode,AccDoctorID,AccDiscountOffered FROM masterAccount WHERE AccCode  != 'C' AND AccCode != 'D' order by AccName");
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -787,7 +787,7 @@ namespace EcoMart.DataLayer
         public DataTable GetDebtorCreditorListForCashBankReceipt()//changes in current method remove masterpateintsale table from union query 
         {
             DataTable dtable = new DataTable();
-            string strSql = string.Format("SELECT AccName,AccountID,AccAddress1,AccAddress2,AccTransactionType,AccCode,AccOpeningDebit,AccClearedAmount,AccTelephone,AccBankID,AccBranchID, MobileNumberForSMS FROM masterAccount where accCode != 'B'  && accountID != '" + FixAccounts.AccountCash + "' order by AccName");
+            string strSql = string.Format("SELECT AccName,AccountID,AccAddress1,AccAddress2,AccTransactionType,AccCode,AccOpeningDebit,AccClearedAmount,AccTelephone,AccBankID,AccBranchID, MobileNumberForSMS FROM masterAccount where accCode != 'B'  AND accountID != '" + FixAccounts.AccountCash + "' order by AccName");
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
 
@@ -796,7 +796,7 @@ namespace EcoMart.DataLayer
         public DataTable GetDebtorCreditorPatientList()
         {
             DataTable dtable = new DataTable();
-            string strSql = string.Format("SELECT AccName,AccountID,AccAddress1,AccAddress2,AccTransactionType,AccCode,AccIfOms FROM masterAccount WHERE (AccCode = 'C' || AccCode = 'D' || AccountID = '"+ FixAccounts.AccountSalesReturn +"') order by AccName");
+            string strSql = string.Format("SELECT AccName,AccountID,AccAddress1,AccAddress2,AccTransactionType,AccCode,AccIfOms FROM masterAccount WHERE (AccCode = 'C' OR AccCode = 'D' OR AccountID = '"+ FixAccounts.AccountSalesReturn +"') order by AccName");
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
 
@@ -838,7 +838,7 @@ namespace EcoMart.DataLayer
         public DataRow GetDefaultBank()
         {
             DataRow dr;
-            string strSql = "Select AccountID from masteraccount where AccIfOctroi = 'Y' && AccCode = 'B'";
+            string strSql = "Select AccountID from masteraccount where AccIfOctroi = 'Y' AND AccCode = 'B'";
             dr = DBInterface.SelectFirstRow(strSql);
             return dr;
         }
@@ -862,7 +862,7 @@ namespace EcoMart.DataLayer
         private string GetQueryUnique(string AccName,string AccAddress1, string Id)
         {
             StringBuilder sQuery = new StringBuilder();
-            sQuery.AppendFormat("Select AccountID from masteraccount where AccName='{0}' && AccAddress1 = '{1}'", AccName,AccAddress1);          
+            sQuery.AppendFormat("Select AccountID from masteraccount where AccName='{0}' AND AccAddress1 = '{1}'", AccName,AccAddress1);          
             if (Id != "")
             {
                 sQuery.AppendFormat(" AND AccountID not in ('{0}')", Id);                

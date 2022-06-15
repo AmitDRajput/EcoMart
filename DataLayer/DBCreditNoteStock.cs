@@ -50,7 +50,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = new DataTable();
             string strSql = "Select distinct  a.ID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.AmountNet,a.Narration, " +
                             "a.AccountID,a.ClearedInVoucherType,a.ClearedInVoucherNumber,a.ClearedInVoucherDate, b.AccountID, b.AccName, b.AccAddress1,b.AccAddress2 from vouchercreditdebitnote a, masteraccount b " +
-                            "where a.AccountId = b.AccountId AND ( a.VoucherType = '"+FixAccounts.VoucherTypeForCreditNoteStock +"' OR a.VoucherType = '"+FixAccounts.VoucherTypeForCreditNoteAmount+"' order by a.vouchernumber ";
+                            "where a.AccountId = b.AccountId AND ( a.VoucherType = '" + FixAccounts.VoucherTypeForCreditNoteStock + "' OR a.VoucherType = '" + FixAccounts.VoucherTypeForCreditNoteAmount + "' order by a.vouchernumber ";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -71,7 +71,7 @@ namespace EcoMart.DataLayer
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
-      
+
         public DataTable GetOverviewDataCreditNotes(string fromDate, string toDate)
         {
             DataTable dtable = new DataTable();
@@ -99,7 +99,7 @@ namespace EcoMart.DataLayer
             DataRow dRow = null;
             if (vouno != 0)
             {
-                string strSql = "Select * from vouchercreditdebitnote where VoucherNumber ='{0}' AND voucherType = '" +  voutype  + "' ";
+                string strSql = "Select * from vouchercreditdebitnote where VoucherNumber ='{0}' AND voucherType = '" + voutype + "' ";
                 strSql = string.Format(strSql, vouno);
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
@@ -163,34 +163,34 @@ namespace EcoMart.DataLayer
             double gstAmtC5, double gstAmtC12, double gstAmtC18, double gstAmtC28, double gsts5, double gsts12, double gsts18, double gsts28,
             double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28, string createdby, string createddate, string createdtime)
         {
-            
+
             string strSql = GetInsertQuery(Id, CreditorId, Narration, VouType, VouNo,
                 VouDate, AmountNet, DiscPer, DiscAmt, Amt, rnd, clearAmount, ClearVouType,
             gstAmt0, gstAmtS5, gstAmtS12, gstAmtS18, gstAmtS28, gstAmtC5, gstAmtC12, gstAmtC18, gstAmtC28, gsts5,
                 gsts12, gsts18, gsts28, gstc5, gstc12, gstc18, gstc28, gstAmtI5, gstAmtI12, gstAmtI18, gstAmtI28, gstI5, gstI12, gstI18, gstI28, createdby, createddate, createdtime);
-            strSql += ";select last_insert_ID()";
+            //strSql += ";select last_insert_ID()";
             int ii = Convert.ToInt32(DBInterface.ExecuteScalar(strSql));
             return ii;
         }
 
-        public bool AddDetailsProducts(int Id, string StockID, int ProductID, string Batchno, int quantity, int SchemeQuantity,
-              double PurchaseRate, double MRP, double SaleRate, string Expiry, string ExpiryDate, string reasoncode, double VatPer, 
-              double Amount, string VouType, int VouNo, string VouDate , double discountpercent, double discountamount,double TradeRate, 
-              double ReturnRate, string MydbcrID, int serialNumber, double gstAmountZero, double gstSAmount, double gstCAmount,double gstIAmount,
+        public bool AddDetailsProducts(string Id, string StockID, int ProductID, string Batchno, int quantity, int SchemeQuantity,
+              double PurchaseRate, double MRP, double SaleRate, string Expiry, string ExpiryDate, string reasoncode, double VatPer,
+              double Amount, string VouType, int VouNo, string VouDate, double discountpercent, double discountamount, double TradeRate,
+              double ReturnRate, string MydbcrID, int serialNumber, double gstAmountZero, double gstSAmount, double gstCAmount, double gstIAmount,
                double gstS, double gstC, double gstI)
         {
             bool bRetValue = false;
             string strSql = GetInsertQueryProducts(Id, StockID, ProductID, Batchno, quantity, SchemeQuantity, PurchaseRate, MRP, SaleRate,
                 Expiry, ExpiryDate, reasoncode, VatPer, Amount, VouType, VouNo, VouDate, discountpercent, discountamount, TradeRate,
-                ReturnRate, MydbcrID, serialNumber, gstAmountZero, gstSAmount, gstCAmount, gstIAmount, gstS, gstC, gstI); 
+                ReturnRate, MydbcrID, serialNumber, gstAmountZero, gstSAmount, gstCAmount, gstIAmount, gstS, gstC, gstI);
 
-                if (DBInterface.ExecuteQuery(strSql) > 0)
+            if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 bRetValue = true;
             }
             return bRetValue;
         }
-    //
+        //
         public bool AddVoucherIntblTrnac(int Id, int debitAccount, int creditAccount, string Narration, string VouType, int VouNo,
        string VouDate, double debitamount, double creditamount, string detailID, string createdby, string createddate, string createdtime)
         {
@@ -209,7 +209,7 @@ namespace EcoMart.DataLayer
         {
             Query objQuery = new Query();
             objQuery.Table = "tbltrnac";
-          //  objQuery.AddToQuery("tblTrnacID", DetailId);
+            //  objQuery.AddToQuery("tblTrnacID", DetailId);
             objQuery.AddToQuery("VoucherID", Id);
             objQuery.AddToQuery("AccountId", debitaccount);
             objQuery.AddToQuery("Debit", debitamount);
@@ -219,7 +219,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("VoucherType", VouType);
             objQuery.AddToQuery("ReferenceVoucherId", "");
             objQuery.AddToQuery("Narration", Narration);
-            objQuery.AddToQuery("VoucherNumber", VouNo);           
+            objQuery.AddToQuery("VoucherNumber", VouNo);
             //objQuery.AddToQuery("VoucherDate", VouDate);
             //objQuery.AddToQuery("VoucherSeries", General.ShopDetail.ShopVoucherSeries);
             //objQuery.AddToQuery("AmountNet", Amt);
@@ -234,13 +234,13 @@ namespace EcoMart.DataLayer
         //      double ProductVATPercent, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount,
         //      string accountId, string billnumber, string voutype, int vounumber, string voudate, int ProdLoosePack, string StockId, double productMargin)
         public bool AddProductDetailsInStockTable(int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
-              string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity,  double Amount,
-              string accountId,int ProdLoosePack, string scanCode, string StockId)
+              string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, double Amount,
+              string accountId, int ProdLoosePack, string scanCode, string StockId)
         {
-            bool bRetValue = false;          
+            bool bRetValue = false;
             string strSql = GetInsertQueryDetailsInStockTable(ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
-                    Expiry, ExpiryDate, Quantity, SchemeQuantity,  Amount,
-                    accountId,  ProdLoosePack,scanCode, StockId);
+                    Expiry, ExpiryDate, Quantity, SchemeQuantity, Amount,
+                    accountId, ProdLoosePack, scanCode, StockId);
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 bRetValue = true;
@@ -252,22 +252,27 @@ namespace EcoMart.DataLayer
         public int AddProductDetailsInStockTableForDistributor(int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
             string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, double Amount,
             string accountId, int ProdLoosePack, string scanCode, string StockId)
-        {           
+        {
             string strSql = GetInsertQueryDetailsInStockTable(ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
-                    Expiry, ExpiryDate, Quantity*ProdLoosePack, SchemeQuantity*ProdLoosePack, Amount,
+                    Expiry, ExpiryDate, Quantity * ProdLoosePack, SchemeQuantity * ProdLoosePack, Amount,
                     accountId, ProdLoosePack, scanCode, StockId);
             strSql += ";select last_insert_ID()";
             int ii = Convert.ToInt32(DBInterface.ExecuteScalar(strSql));
-            return ii;           
+            return ii;
         }
 
         //
         public bool UpdateDetails(string Id, string CreditorId, string Narration, string VouType, int VouNo,
-           string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5, double Vat12, double rnd, double clearAmount, string ClearVouType, string modifiedby, string modifieddate, string modifiedtime)
+           string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double rnd, double clearAmount, string ClearVouType, string modifiedby, string modifieddate, string modifiedtime,
+           double gstAmt0, double gstAmtS5, double gstAmtS12, double gstAmtS18, double gstAmtS28,
+            double gstAmtC5, double gstAmtC12, double gstAmtC18, double gstAmtC28, double gsts5, double gsts12, double gsts18, double gsts28,
+            double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28)
         {
             bool bRetValue = false;
             string strSql = GetUpdateQuery(Id, CreditorId, Narration, VouType, VouNo,
-                VouDate, AmountNet, DiscPer, DiscAmt, Amt, Vat5, Vat12, rnd, clearAmount, ClearVouType, modifiedby,modifieddate,modifiedtime);
+                VouDate, AmountNet, DiscPer, DiscAmt, Amt, rnd, clearAmount, ClearVouType, modifiedby, modifieddate, modifiedtime,
+                gstAmt0, gstAmtS5, gstAmtS12, gstAmtS18, gstAmtS28, gstAmtC5, gstAmtC12, gstAmtC18, gstAmtC28, gsts5,
+                gsts12, gsts18, gsts28, gstc5, gstc12, gstc18, gstc28, gstAmtI5, gstAmtI12, gstAmtI18, gstAmtI28, gstI5, gstI12, gstI18, gstI28);
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 bRetValue = true;
@@ -286,7 +291,7 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-         public bool DeleteProductsByMasterID(string Id)
+        public bool DeleteProductsByMasterID(string Id)
         {
             bool bRetValue = false;
             string strSql = GetDeleteQueryProducts(Id);
@@ -296,16 +301,16 @@ namespace EcoMart.DataLayer
             }
             return bRetValue;
         }
-         public bool DeleteFromtblTrnac(string Id)
-         {
-             bool bRetValue = false;
-             string strSql = "Delete from tblTrnac where voucherID = '"+ Id +"'";
-             if (DBInterface.ExecuteQuery(strSql) > 0)
-             {
-                 bRetValue = true;
-             }
-             return bRetValue;
-         }
+        public bool DeleteFromtblTrnac(string Id)
+        {
+            bool bRetValue = false;
+            string strSql = "Delete from tblTrnac where voucherID = '" + Id + "'";
+            if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                bRetValue = true;
+            }
+            return bRetValue;
+        }
         #endregion
 
         #region validations
@@ -326,7 +331,7 @@ namespace EcoMart.DataLayer
         {
             Query objQuery = new Query();
             objQuery.Table = "vouchercreditdebitnote";
-          //  objQuery.AddToQuery("CRDBID", Id);
+            //  objQuery.AddToQuery("CRDBID", Id);
             objQuery.AddToQuery("AccountId", CreditorId);
             objQuery.AddToQuery("Narration", Narration);
             objQuery.AddToQuery("VoucherType", VouType);
@@ -337,8 +342,8 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("DiscountPer", DiscPer);
             objQuery.AddToQuery("DiscountAmount", DiscAmt);
             objQuery.AddToQuery("Amount", Amt);
-           // objQuery.AddToQuery("VAT5", Vat5);
-          //  objQuery.AddToQuery("VAT12point5", Vat12);
+            // objQuery.AddToQuery("VAT5", Vat5);
+            //  objQuery.AddToQuery("VAT12point5", Vat12);
             objQuery.AddToQuery("RoundingAmount", rnd);
             objQuery.AddToQuery("AmountClear", clearAmount);
             objQuery.AddToQuery("ClearedInVoucherType", ClearVouType);
@@ -377,7 +382,7 @@ namespace EcoMart.DataLayer
             return objQuery.InsertQuery();
         }
 
-        private string GetInsertQueryProducts(int Id,string stockid, int ProductID, string Batchno, int quantity, int SchemeQuantity,
+        private string GetInsertQueryProducts(string Id, string stockid, int ProductID, string Batchno, int quantity, int SchemeQuantity,
               double PurchaseRate, double MRP, double SaleRate, string Expiry, string ExpiryDate, string reasoncode, double VatPer, double Amount,
               string VouType, int VouNo, string VouDate, double discountpercent, double discountamount, double TradeRate, double ReturnRate, string MydbcrID,
               int serialNumber, double gstAmountZero, double gstSAmount, double gstCAmount, double gstIAmount,
@@ -391,7 +396,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("BatchNumber", Batchno);
             objQuery.AddToQuery("Quantity", quantity);
             objQuery.AddToQuery("SchemeQuantity", SchemeQuantity);
-         //   objQuery.AddToQuery("SaleRate",SaleRate);
+            //   objQuery.AddToQuery("SaleRate",SaleRate);
             objQuery.AddToQuery("PurchaseRate", PurchaseRate);
             objQuery.AddToQuery("MRP", MRP);
             objQuery.AddToQuery("SaleRate", SaleRate);
@@ -399,12 +404,12 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("ExpiryDate", ExpiryDate);
             objQuery.AddToQuery("ReasonCode", reasoncode);
             objQuery.AddToQuery("VATPer", VatPer);
-            objQuery.AddToQuery("Amount", Amount);          
+            objQuery.AddToQuery("Amount", Amount);
             objQuery.AddToQuery("DiscountPercent", discountpercent);
             objQuery.AddToQuery("DiscountAmount", discountamount);
             objQuery.AddToQuery("TradeRate", TradeRate);
             objQuery.AddToQuery("ReturnRate", ReturnRate);
-         //   objQuery.AddToQuery("DetailCreditDebitNoteStockID", MydbcrID);
+            //   objQuery.AddToQuery("DetailCreditDebitNoteStockID", MydbcrID);
             objQuery.AddToQuery("SerialNumber", serialNumber);
 
             objQuery.AddToQuery("GSTAmountZero", gstAmountZero);
@@ -418,11 +423,14 @@ namespace EcoMart.DataLayer
         }
 
         private string GetUpdateQuery(string Id, string CreditorId, string Narration, string VouType, int VouNo,
-             string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5, double Vat12, double rnd, double clearAmount, string ClearVouType, string modifiedby, string modifieddate, string modifiedtime)
+             string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double rnd, double clearAmount, string ClearVouType, string modifiedby, string modifieddate, string modifiedtime,
+             double gstAmt0, double gstAmtS5, double gstAmtS12, double gstAmtS18, double gstAmtS28,
+            double gstAmtC5, double gstAmtC12, double gstAmtC18, double gstAmtC28, double gsts5, double gsts12, double gsts18, double gsts28,
+            double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28)
         {
             Query objQuery = new Query();
             objQuery.Table = "vouchercreditdebitnote";
-            objQuery.AddToQuery("ID", Id,true);
+            objQuery.AddToQuery("ID", Id, true);
             objQuery.AddToQuery("AccountId", CreditorId);
             objQuery.AddToQuery("Narration", Narration);
             objQuery.AddToQuery("VoucherType", VouType);
@@ -433,14 +441,42 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("DiscountPer", DiscPer);
             objQuery.AddToQuery("DiscountAmount", DiscAmt);
             objQuery.AddToQuery("Amount", Amt);
-            objQuery.AddToQuery("VAT5", Vat5);
-            objQuery.AddToQuery("VAT12point5", Vat12);
+            //objQuery.AddToQuery("VAT5", Vat5);
+            //objQuery.AddToQuery("VAT12point5", Vat12);
             objQuery.AddToQuery("RoundingAmount", rnd);
             objQuery.AddToQuery("AmountClear", clearAmount);
             objQuery.AddToQuery("ClearedInVoucherType", ClearVouType);
             objQuery.AddToQuery("ModifiedUserID", modifiedby);
             objQuery.AddToQuery("ModifiedDate", modifieddate);
             objQuery.AddToQuery("ModifiedTime", modifiedtime);
+
+            objQuery.AddToQuery("AmountGST0", gstAmt0);
+            objQuery.AddToQuery("AmountGSTS5", gstAmtS5);
+            objQuery.AddToQuery("AmountGSTS12", gstAmtS12);
+            objQuery.AddToQuery("AmountGSTS18", gstAmtS18);
+            objQuery.AddToQuery("AmountGSTS28", gstAmtS28);
+            objQuery.AddToQuery("AmountGSTC5", gstAmtC5);
+            objQuery.AddToQuery("AmountGSTC12", gstAmtC12);
+            objQuery.AddToQuery("AmountGSTC18", gstAmtC18);
+            objQuery.AddToQuery("AmountGSTC28", gstAmtC28);
+
+            objQuery.AddToQuery("GSTS5", gsts5);
+            objQuery.AddToQuery("GSTS12", gsts12);
+            objQuery.AddToQuery("GSTS18", gsts18);
+            objQuery.AddToQuery("GSTS28", gsts28);
+            objQuery.AddToQuery("GSTC5", gstc5);
+            objQuery.AddToQuery("GSTC12", gstc12);
+            objQuery.AddToQuery("GSTC18", gstc18);
+            objQuery.AddToQuery("GSTC28", gstc28);
+
+            objQuery.AddToQuery("AmountGSTI5", gstAmtI5);
+            objQuery.AddToQuery("AmountGSTI12", gstAmtI12);
+            objQuery.AddToQuery("AmountGSTI18", gstAmtI18);
+            objQuery.AddToQuery("AmountGSTI28", gstAmtI28);
+            objQuery.AddToQuery("GSTI5", gstI5);
+            objQuery.AddToQuery("GSTI12", gstI12);
+            objQuery.AddToQuery("GSTI18", gstI18);
+            objQuery.AddToQuery("GSTI28", gstI28);
             return objQuery.UpdateQuery();
         }
 
@@ -459,13 +495,13 @@ namespace EcoMart.DataLayer
             string strSql = "";
             Query objQuery = new Query();
             objQuery.Table = "detailcreditdebitnotestock";
-            objQuery.AddToQuery("MasterID", Id, true);          
+            objQuery.AddToQuery("MasterID", Id, true);
             strSql = objQuery.DeleteQuery();
             return strSql;
         }
 
         private string GetInsertQueryDetailsInStockTable(int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
-             string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity,  double Amount,
+             string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, double Amount,
              string accountId, int ProdLoosePack, string scanCode, string StockId)
         {
             Query objQuery = new Query();
@@ -474,14 +510,14 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("BatchNumber", Batchno);
             objQuery.AddToQuery("TradeRate", TradeRate);
             objQuery.AddToQuery("PurchaseRate", PurchaseRate);
-       //     objQuery.AddToQuery("DistributorSaleRate", PurchaseRate);
+            //     objQuery.AddToQuery("DistributorSaleRate", PurchaseRate);
             objQuery.AddToQuery("MRP", MRP);
             objQuery.AddToQuery("SaleRate", SaleRate);
             objQuery.AddToQuery("Expiry", Expiry);
             objQuery.AddToQuery("ExpiryDate", ExpiryDate);
-            objQuery.AddToQuery("ClosingStock", (Quantity + SchemeQuantity) );
+            objQuery.AddToQuery("ClosingStock", (Quantity + SchemeQuantity));
             objQuery.AddToQuery("CreditNoteStock", (Quantity + SchemeQuantity));
-          //  objQuery.AddToQuery("PurchaseSchemeStock", (SchemeQuantity));
+            //  objQuery.AddToQuery("PurchaseSchemeStock", (SchemeQuantity));
             //objQuery.AddToQuery("PurchaseReplacementStock", (ReplacementQuantity) * ProdLoosePack);
             //objQuery.AddToQuery("PurchaseVATPercent", PurchaseVATPercent);
             //objQuery.AddToQuery("ProductVATPercent", ProductVATPercent);
@@ -500,13 +536,13 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("TransferOutStock", 0);
             objQuery.AddToQuery("DebitNoteStock", 0);
             objQuery.AddToQuery("SaleSchemeStock", 0);
-         //   objQuery.AddToQuery("StockID", StockId);
+            //   objQuery.AddToQuery("StockID", StockId);
             //objQuery.AddToQuery("Margin", productMargin);
 
             return objQuery.InsertQuery();
-        }       
-        #endregion 
-    
+        }
+        #endregion
+
         public DataRow GetLastRecord(string CrdbVouType, string CrdbVouSeries)
         {
             DataRow dRow = null;
