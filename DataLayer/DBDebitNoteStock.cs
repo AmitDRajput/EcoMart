@@ -20,7 +20,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
             string strSql = "Select distinct A.ID, a.VoucherSeries,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.AccountId,a.AmountNet,a.AmountClear,a.DiscountPer,a.DiscountAmount," +
-                "a.RoundingAmount,a.VAT5,a.VAT12point5,a.Amount,a.Narration,a.ClearedInID,a.ClearedInVoucherSeries,a.ClearedInVoucherType,a.ClearedInVoucherNumber,a.ClearedInVoucherDate," +
+                "a.RoundingAmount,a.Amount,a.Narration,a.ClearedInID,a.ClearedInVoucherSeries,a.ClearedInVoucherType,a.ClearedInVoucherNumber,a.ClearedInVoucherDate," +
                 "a.ClearedInPurchaseBillNumber,a.OperatorID,a.Uploaded,a.CreatedDate,a.CreatedTime,a.CreatedUserID,a.ModifiedDate,a.ModifiedTime,a.ModifiedUserID,a.ModifiedOperatorID," +
                 "a.IsHold,a.TransferToAcc, b.AccountID, b.AccName, b.AccAddress1,b.AccAddress2 from vouchercreditdebitnote a INNER JOIN masteraccount b ON a.AccountId = b.AccountId " +
                  "where a.VoucherType = " + "'" + DbntType + "' AND a.VoucherDate >= '" + General.ShopDetail.Shopsy + "' AND a.VoucherDate <= '" + General.ShopDetail.Shopey + "'  order by a.voucherdate ,a.vouchernumber desc ";
@@ -31,7 +31,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
             string strSql = "Select distinct a.VoucherSeries,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.AccountId,a.AmountNet,a.AmountClear,a.DiscountPer,a.DiscountAmount," +
-                            "a.RoundingAmount,a.VAT5,a.VAT12point5,a.Amount,a.Narration,a.ClearedInID,a.ClearedInVoucherSeries,a.ClearedInVoucherType,a.ClearedInVoucherNumber,a.ClearedInVoucherDate," +
+                            "a.RoundingAmount,a.Amount,a.Narration,a.ClearedInID,a.ClearedInVoucherSeries,a.ClearedInVoucherType,a.ClearedInVoucherNumber,a.ClearedInVoucherDate," +
                             "a.ClearedInPurchaseBillNumber,a.OperatorID,a.Uploaded,a.CreatedDate,a.CreatedTime,a.CreatedUserID,a.ModifiedDate,a.ModifiedTime,a.ModifiedUserID,a.ModifiedOperatorID," +
                             "a.IsHold,a.TransferToAcc, b.AccountID, b.AccName, b.AccAddress1,b.AccAddress2 from vouchercreditdebitnote a INNER JOIN masteraccount b ON a.AccountId = b.AccountId " +
                             "where a.VoucherType = " + "'" + DbntType + "' AND a.VoucherDate <= '" + General.ShopDetail.Shopey + "'  order by a.voucherdate desc,a.vouchernumber desc";
@@ -128,11 +128,11 @@ namespace EcoMart.DataLayer
         }
 
         public bool UpdateDetails(string Id, string CreditorId, string Narration, string VouType, int VouNo,
-           string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5, double Vat12, double rnd, double amountClear, string voucherseries, string ClearVouType, string modifiedby, string modifieddate, string modifiedtime)
+           string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double rnd, double amountClear, string voucherseries, string ClearVouType, string modifiedby, string modifieddate, string modifiedtime)
         {
             bool bRetValue = false;
             string strSql = GetUpdateQuery(Id, CreditorId, Narration, VouType, VouNo,
-                VouDate, AmountNet, DiscPer, DiscAmt, Amt, Vat5, Vat12, rnd, amountClear, voucherseries, ClearVouType, modifiedby, modifieddate, modifiedtime);
+                VouDate, AmountNet, DiscPer, DiscAmt, Amt, rnd, amountClear, voucherseries, ClearVouType, modifiedby, modifieddate, modifiedtime);
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 bRetValue = true;
@@ -189,8 +189,8 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("DiscountPer", DiscPer);
             objQuery.AddToQuery("DiscountAmount", DiscAmt);
             objQuery.AddToQuery("Amount", Amt);
-            objQuery.AddToQuery("VAT5", Vat5);
-            objQuery.AddToQuery("VAT12point5", Vat12);
+            //objQuery.AddToQuery("VAT5", Vat5);
+            //objQuery.AddToQuery("VAT12point5", Vat12);
             objQuery.AddToQuery("RoundingAmount", rnd);
             objQuery.AddToQuery("AmountClear", amountClear);
             objQuery.AddToQuery("ClearedInVoucherType", ClearVouType);
@@ -231,11 +231,19 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("VoucherDate", VouDate);
             objQuery.AddToQuery("VoucherSeries", voucherseries);
             objQuery.AddToQuery("SerialNumber", serialNumber);
+
+            //objQuery.AddToQuery("GSTAmountZero", gstAmountZero);
+            //objQuery.AddToQuery("GSTSAmount", gstSAmount);
+            //objQuery.AddToQuery("GSTCAmount", gstCAmount);
+            //objQuery.AddToQuery("GSTIAmount", gstIAmount);
+            //objQuery.AddToQuery("GSTS", gstS);
+            //objQuery.AddToQuery("GSTC", gstC);
+            //objQuery.AddToQuery("GSTI", gstI);
             return objQuery.InsertQuery();
         }
 
         private string GetUpdateQuery(string Id, string CreditorId, string Narration, string VouType, int VouNo,
-             string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5, double Vat12, double rnd, double amountClear, string voucherseries, string ClearVouType, string modifiedby, string modifieddate, string modifiedtime)
+             string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double rnd, double amountClear, string voucherseries, string ClearVouType, string modifiedby, string modifieddate, string modifiedtime)
         {
             Query objQuery = new Query();
             objQuery.Table = "vouchercreditdebitnote";
@@ -250,8 +258,8 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("DiscountPer", DiscPer);
             objQuery.AddToQuery("DiscountAmount", DiscAmt);
             objQuery.AddToQuery("Amount", Amt);
-            objQuery.AddToQuery("VAT5", Vat5);
-            objQuery.AddToQuery("VAT12point5", Vat12);
+            //objQuery.AddToQuery("VAT5", Vat5);
+            //objQuery.AddToQuery("VAT12point5", Vat12);
             objQuery.AddToQuery("RoundingAmount", rnd);
             objQuery.AddToQuery("AmountClear", amountClear);
             objQuery.AddToQuery("ClearedInVoucherType", ClearVouType);

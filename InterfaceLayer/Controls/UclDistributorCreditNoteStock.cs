@@ -333,8 +333,8 @@ namespace EcoMart.InterfaceLayer
             bool retValue = false;
             if (_Mode != OperationMode.View && _Mode != OperationMode.ReportView)
             {
-              //  double mdiscamount = 0;              
-             //   double mdiscper = 0;
+                //  double mdiscamount = 0;              
+                //   double mdiscper = 0;
                 double mbillamount = 0;
                 double mamount = 0;
                 double mround = 0;
@@ -356,11 +356,11 @@ namespace EcoMart.InterfaceLayer
                     _CNStock.CrdbVouTypeDistributor = FixAccounts.VoucherTypeForCreditNoteStock;
                     if (txtVouchernumber.Text.Trim() != "" && txtVouchernumber.Text.Trim() != null)
                         _CNStock.CrdbVouNo = Convert.ToInt32(txtVouchernumber.Text.Trim());
-                    _CNStock.CrdbVouDate = datePickerBillDate.Value.Date.ToString("yyyyMMdd"); 
-               //     double.TryParse(txtDiscPercent.Text, out mdiscper);
-                //    _CNStock.CrdbDiscPer = mdiscper;
-               //     double.TryParse(txtDiscAmount.Text, out mdiscamount);
-               //     _CNStock.CrdbDiscAmt = mdiscamount;
+                    _CNStock.CrdbVouDate = datePickerBillDate.Value.Date.ToString("yyyyMMdd");
+                    //     double.TryParse(txtDiscPercent.Text, out mdiscper);
+                    //    _CNStock.CrdbDiscPer = mdiscper;
+                    //     double.TryParse(txtDiscAmount.Text, out mdiscamount);
+                    //     _CNStock.CrdbDiscAmt = mdiscamount;
                     double.TryParse(txtBillAmount.Text, out mbillamount);
                     _CNStock.CrdbAmountNet = mbillamount;
                     double.TryParse(txtAmount.Text, out mamount);
@@ -386,13 +386,14 @@ namespace EcoMart.InterfaceLayer
                         if (_Mode == OperationMode.Add || _Mode == OperationMode.OpenAsChild)
                         {
                             General.BeginTransaction();
-                         //   _CNStock.Id = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                            //   _CNStock.Id = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                             _CNStock.CrdbVouNo = _CNStock.GetAndUpdateCNNumber(General.ShopDetail.ShopVoucherSeries);
                             txtVouchernumber.Text = Convert.ToString(_CNStock.CrdbVouNo);
                             _CNStock.CreatedBy = General.CurrentUser.Id;
                             _CNStock.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
                             _CNStock.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
-                             _CNStock.IntID = _CNStock.AddDetails();
+                            _CNStock.IntID = _CNStock.AddDetails();
+                            _CNStock.Id = _CNStock.IntID.ToString();
                             //   _SavedID = _CNStock.Id;
                             if (_CNStock.IntID > 0)
                                 retValue = true;
@@ -605,7 +606,7 @@ namespace EcoMart.InterfaceLayer
                     txtNarration.Text = _CNStock.CrdbNarration.ToString();
                     txtVouType.Text = FixAccounts.VoucherTypeForCreditNoteStock;
                     txtVouchernumber.Text = _CNStock.CrdbVouNo.ToString().Trim();
-                   
+
                     if (_CNStock.CrdbDiscPer >= 0)
                         txtDiscPercent.Text = _CNStock.CrdbDiscPer.ToString("#0.00");
                     if (_CNStock.CrdbDiscAmt > 0)
@@ -615,16 +616,18 @@ namespace EcoMart.InterfaceLayer
                     txtNetAmount.Text = txtBillAmount.Text.ToString();
                     txtAmount.Text = _CNStock.CrdbAmount.ToString("#0.00");
                     if (_CNStock.CrdbRoundAmount != 0)
-                        txtRoundAmount.Text =  _CNStock.CrdbRoundAmount.ToString("#0.00");
-                    double  mtotgst = _CNStock.GSTS5 + _CNStock.GSTS12 + _CNStock.GSTS18 + _CNStock.GSTS28 +
+                        txtRoundAmount.Text = _CNStock.CrdbRoundAmount.ToString("#0.00");
+                    double mtotgst = _CNStock.GSTS5 + _CNStock.GSTS12 + _CNStock.GSTS18 + _CNStock.GSTS28 +
                               _CNStock.GSTC5 + _CNStock.GSTC12 + _CNStock.GSTC18 + _CNStock.GSTC28 + _CNStock.GSTI5 + _CNStock.GSTI12 + _CNStock.GSTI18 + _CNStock.GSTI28;
 
-                   double  mtotgstamt = _CNStock.GSTAmt0 + _CNStock.GSTAmtS5 + _CNStock.GSTAmtS12 + _CNStock.GSTAmtS18 + _CNStock.GSTAmtS28 +
-                                                 _CNStock.GSTAmtC5 + _CNStock.GSTAmtC12 + _CNStock.GSTAmtC18 + _CNStock.GSTAmtC28 + _CNStock.GSTAmtI5 +
-                                                 _CNStock.GSTAmtI12 + _CNStock.GSTAmtI18 + _CNStock.GSTAmtI18 + _CNStock.GSTI28;
-                    txtTotalAmount.Text = Math.Round( mtotgstamt + mtotgst ,2).ToString("#0.00");
-                    DateTime mydate = new DateTime(Convert.ToInt32(_CNStock.CrdbVouDate.Substring(0, 4)), Convert.ToInt32(_CNStock.CrdbVouDate.Substring(4, 2)), Convert.ToInt32(_CNStock.CrdbVouDate.Substring(6, 2)));
-                    datePickerBillDate.Value = mydate;
+                    double mtotgstamt = _CNStock.GSTAmt0 + _CNStock.GSTAmtS5 + _CNStock.GSTAmtS12 + _CNStock.GSTAmtS18 + _CNStock.GSTAmtS28 +
+                                                  _CNStock.GSTAmtC5 + _CNStock.GSTAmtC12 + _CNStock.GSTAmtC18 + _CNStock.GSTAmtC28 + _CNStock.GSTAmtI5 +
+                                                  _CNStock.GSTAmtI12 + _CNStock.GSTAmtI18 + _CNStock.GSTAmtI18 + _CNStock.GSTI28;
+                    txtTotalAmount.Text = Math.Round(mtotgstamt + mtotgst, 2).ToString("#0.00");
+                    if (DateTime.TryParse(_CNStock.CrdbVouDate, out DateTime mydate))
+                    {
+                        datePickerBillDate.Value = mydate;
+                    }
                     pnlGST.Visible = false;
                     pnlIGST.Visible = false;
                     FillGSTpnl();
@@ -872,18 +875,19 @@ namespace EcoMart.InterfaceLayer
                         {
                             _CNStock.SerialNumber += 1;
                             string mexpdate = "";
-                         //   _CNStock.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                            _CNStock.StockID = "";
+                            //   _CNStock.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                            _CNStock.StockID = prodrow.Cells["Col_StockID"].Value.ToString();
                             _CNStock.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString());
                             _CNStock.Batchno = prodrow.Cells["Col_BatchNumber"].Value.ToString();
-                            _CNStock.ProdLoosePack = Convert.ToInt32(prodrow.Cells["Col_UOM"].Value.ToString());
+                            if (prodrow.Cells["Col_UOM"].Value != null)
+                                _CNStock.ProdLoosePack = Convert.ToInt32(prodrow.Cells["Col_UOM"].Value.ToString());
                             _CNStock.Quantity = Convert.ToInt32(prodrow.Cells["Col_Quantity"].Value.ToString());
                             _CNStock.PurchaseRate = Convert.ToDouble(prodrow.Cells["Col_PurRate"].Value.ToString());
                             //  _CNStock.ReturnRate = Convert.ToDouble(prodrow.Cells["Col_ReturnRate"].Value);
                             _CNStock.TradeRate = _CNStock.PurchaseRate;
                             _CNStock.MRP = Convert.ToDouble(prodrow.Cells["Col_MRP"].Value.ToString());
                             if (prodrow.Cells["Col_SaleRate"].Value != null && prodrow.Cells["Col_SaleRate"].Value.ToString() != string.Empty)
-                            _CNStock.SaleRate = Convert.ToDouble(prodrow.Cells["Col_SaleRate"].Value.ToString());
+                                _CNStock.SaleRate = Convert.ToDouble(prodrow.Cells["Col_SaleRate"].Value.ToString());
                             _CNStock.DiscountPercent = 0;
                             _CNStock.GSTPurchaseAmountZero = 0;
                             _CNStock.GSTSAmount = 0;
@@ -933,17 +937,17 @@ namespace EcoMart.InterfaceLayer
                                 else
                                 {
                                     // check ss 18-10
-                                   ThisStockID = _CNStock.CheckForBatchMRPInStockTable();
-                                    if (ThisStockID != "" )
+                                    ThisStockID = _CNStock.CheckForBatchMRPInStockTable();
+                                    if (ThisStockID != "")
                                         CurrentClosingStock = _CNStock.GetCurrentClosingStock(ThisStockID);
                                     if (ThisStockID == _CNStock.StockID)
                                     {
                                         oldTempStock = GetOldStockFromTempGrid(_CNStock.StockID);
                                         //if (General.CurrentSetting.MsetSaleAllowNegativeStock == "Y")
-                                         //   returnVal = _CNStock.UpdateIntblStockForDistributor();
-                                       if ((CurrentClosingStock - (oldTempStock * _CNStock.ProdLoosePack) + ((_CNStock.Quantity + _CNStock.SchemeQuanity) )) >= 0)
+                                        //   returnVal = _CNStock.UpdateIntblStockForDistributor();
+                                        if ((CurrentClosingStock - (oldTempStock * _CNStock.ProdLoosePack) + ((_CNStock.Quantity + _CNStock.SchemeQuanity))) >= 0)
                                         {
-                                            returnVal =_CNStock.UpdateIntblStockForDistributor();
+                                            returnVal = _CNStock.UpdateIntblStockForDistributor();
                                         }
                                         else
                                         {
@@ -953,8 +957,8 @@ namespace EcoMart.InterfaceLayer
                                     }
                                     else
                                     {
-                 ////check ss 18-10
-                                        if (ThisStockID != "" )
+                                        ////check ss 18-10
+                                        if (ThisStockID != "")
                                         {
                                             oldTempStock = GetOldStockFromTempGrid(ThisStockID);
                                             returnVal = _CNStock.UpdateProductDetailsInStockTable();
@@ -962,15 +966,15 @@ namespace EcoMart.InterfaceLayer
                                         else
                                         {
 
-                                            if (ThisStockID == "" ) // && _CNStock.IntStockID != 0)
+                                            if (ThisStockID == "") // && _CNStock.IntStockID != 0)
                                             {
                                                 oldTempStock = GetOldStockFromTempGrid(_CNStock.StockID);
                                                 CurrentClosingStock = _CNStock.GetCurrentClosingStock(_CNStock.StockID);
                                                 if ((CurrentClosingStock - oldTempStock) > 0)
                                                 {
 
-                                                  //  _CNStock.StockID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                                                      _CNStock.StockID  = _CNStock.AddProductDetailsInStockTableForDistributor();
+                                                    //  _CNStock.StockID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                                                    _CNStock.StockID = _CNStock.AddProductDetailsInStockTableForDistributor();
                                                     if (_CNStock.StockID != "")
                                                         returnVal = true;
                                                 }
@@ -1025,7 +1029,7 @@ namespace EcoMart.InterfaceLayer
         private Point GetpnlGSTLocation()
         {
             Point pt = new Point();
-          //  int difference = pnlSummary.Size.Height - mpPVC1.Size.Height;
+            //  int difference = pnlSummary.Size.Height - mpPVC1.Size.Height;
 
             try
             {
@@ -1085,7 +1089,7 @@ namespace EcoMart.InterfaceLayer
                         if (prodrow.Cells["Col_StockID"].Value != null)
                             _CNStock.StockID = prodrow.Cells["Col_StockID"].Value.ToString();
 
-                         string ifRecordFound = "";
+                        string ifRecordFound = "";
                         ifRecordFound = _CNStock.CheckForBatchMRPInStockTable();
                         if (ifRecordFound == "")
                         {
@@ -1131,7 +1135,7 @@ namespace EcoMart.InterfaceLayer
 
                         string ifRecordFound = "";
                         ifRecordFound = _CNStock.CheckForBatchMRPInStockTable();
-                        if (ifRecordFound ==  _CNStock.StockID)
+                        if (ifRecordFound == _CNStock.StockID)
                             returnVal = _CNStock.UpdateIntblStockReduceForDistributor();
                         if (returnVal)
                         {
@@ -1363,7 +1367,7 @@ namespace EcoMart.InterfaceLayer
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_ClosingStock";
                 column.DataPropertyName = "ProdClosingStock";
-                column.Width = 50;               
+                column.Width = 50;
                 column.Visible = false;
                 mpPVC1.ColumnsMain.Add(column);
                 //13       
@@ -1537,7 +1541,7 @@ namespace EcoMart.InterfaceLayer
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Temp_VATPer";
-                column.DataPropertyName = "VATPer";             
+                column.DataPropertyName = "VATPer";
                 column.Width = 50;
                 column.ReadOnly = true;
                 dgtemp.Columns.Add(column);
@@ -1717,7 +1721,14 @@ namespace EcoMart.InterfaceLayer
             {
                 DataGridViewTextBoxColumn column;
                 mpPVC1.ColumnsBatchList.Clear();
-               
+                column = new DataGridViewTextBoxColumn();
+                column.Name = "Col_ProductId";
+                column.DataPropertyName = "ProductId";
+                column.HeaderText = "ProductId";
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                column.Width = 100;
+                mpPVC1.ColumnsBatchList.Add(column);
+
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_Batchno";
                 column.DataPropertyName = "BatchNumber";
@@ -1741,9 +1752,9 @@ namespace EcoMart.InterfaceLayer
                 column.Width = 50;
                 column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                column.DefaultCellStyle.Format = "N2";               
+                column.DefaultCellStyle.Format = "N2";
                 mpPVC1.ColumnsBatchList.Add(column);
-                
+
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_MRP";
                 column.DataPropertyName = "MRP";
@@ -1796,7 +1807,7 @@ namespace EcoMart.InterfaceLayer
                 column.Name = "Col_SaleRate";
                 column.DataPropertyName = "SaleRate";
                 column.HeaderText = "SaleRate";
-                column.Width = 80;               
+                column.Width = 80;
                 column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                 column.DefaultCellStyle.Format = "N2";
@@ -1832,7 +1843,7 @@ namespace EcoMart.InterfaceLayer
                 column.DataPropertyName = "StockID";
                 column.Visible = false;
                 mpPVC1.ColumnsBatchList.Add(column);
-               
+
             }
             catch (Exception Ex)
             {
@@ -1924,7 +1935,7 @@ namespace EcoMart.InterfaceLayer
 
                 mpPVC1.BatchGridShowColumnName = "Col_UOM";
                 mpPVC1.NumericColumnNames.Add("Col_Quantity");
-              
+
                 //mpPVC1.DoubleColumnNames.Add("Col_VATPer");
                 //mpPVC1.DoubleColumnNames.Add("Col_MRP");
                 //mpPVC1.DoubleColumnNames.Add("Col_PurRate");
@@ -1979,7 +1990,7 @@ namespace EcoMart.InterfaceLayer
                 txtNetAmount.Text = "0.00";
                 txtAmount.Text = "0.00";
                 txtDiscAmount.Text = "0.00";
-                txtDiscPercent.Text = "0.00";               
+                txtDiscPercent.Text = "0.00";
                 txtTotalAmount.Text = "0.00";
                 txtRoundAmount.Text = "0.00";
                 mcbCreditor.SelectedID = "";
@@ -2019,8 +2030,8 @@ namespace EcoMart.InterfaceLayer
             try
             {
                 mcbCreditor.SelectedID = null;
-                mcbCreditor.SourceDataString = new string[6] { "AccountID", "AccCode", "AccName", "AccAddress1", "AccAddress2","AccIFOMS" };
-                mcbCreditor.ColumnWidth = new string[6] { "0", "20", "200", "200", "0" , "0" };
+                mcbCreditor.SourceDataString = new string[6] { "AccountID", "AccCode", "AccName", "AccAddress1", "AccAddress2", "AccIFOMS" };
+                mcbCreditor.ColumnWidth = new string[6] { "0", "20", "200", "200", "0", "0" };
                 mcbCreditor.DisplayColumnNo = 2;
                 mcbCreditor.ValueColumnNo = 0;
                 mcbCreditor.UserControlToShow = new UclAccount();
@@ -2482,8 +2493,8 @@ namespace EcoMart.InterfaceLayer
         }
         private void CalculateAmount(int deletedrowindex)
         {
-           
-            double mamt = 0;           
+
+            double mamt = 0;
             int itemCount = 0;
 
             _CNStock.GSTAmt0 = 0;
@@ -2520,8 +2531,8 @@ namespace EcoMart.InterfaceLayer
 
             double TotalAmount = 0;
             double mvatamt = 0;
-          //  double VatAmount12Point5 = 0;
-            double lessm = 0;          
+            //  double VatAmount12Point5 = 0;
+            double lessm = 0;
             _CNStock.CrdbDiscPer = 0;
             _CNStock.CrdbDiscAmt = 0;
             if (txtDiscPercent.Text != null && txtDiscPercent.Text.ToString() != string.Empty)
@@ -2551,9 +2562,9 @@ namespace EcoMart.InterfaceLayer
                             //       if (double.Parse(dr.Cells["Col_VATPer"].Value.ToString()) == 13.50)
                             //          VatAmount12Point5 += Math.Round((mamt * mvatper) / (100 + mvatper), 4);
                             //   }
-                            mtta = mamt- lessm;
-                       //     dr.Cells["Col_Amount"].Value = (mamt).ToString("#0.00");
-                          //  mvatper = Convert.ToDouble(dr.Cells["Col_VATPer"].Value.ToString());
+                            mtta = mamt - lessm;
+                            //     dr.Cells["Col_Amount"].Value = (mamt).ToString("#0.00");
+                            //  mvatper = Convert.ToDouble(dr.Cells["Col_VATPer"].Value.ToString());
                             //double mtt1S = Math.Round((mamt * mvatper) / (100 + mvatper), 4);                           
                             //mtta = mamt - mtt1S;
                             double mtt1S = mvatamt;
@@ -2600,9 +2611,9 @@ namespace EcoMart.InterfaceLayer
                                     if (_CNStock.IFOMS != "Y")
                                     {
                                         _CNStock.GSTAmtS12 += mgstamts;
-                                    _CNStock.GSTAmtC12 += mgstamtc;
-                                    _CNStock.GSTS12 += mgsts;
-                                    _CNStock.GSTC12 += mgstc;
+                                        _CNStock.GSTAmtC12 += mgstamtc;
+                                        _CNStock.GSTS12 += mgsts;
+                                        _CNStock.GSTC12 += mgstc;
                                     }
                                     else
                                     {
@@ -2615,9 +2626,9 @@ namespace EcoMart.InterfaceLayer
                                     if (_CNStock.IFOMS != "Y")
                                     {
                                         _CNStock.GSTAmtS18 += mgstamts;
-                                    _CNStock.GSTAmtC18 += mgstamtc;
-                                    _CNStock.GSTS18 += mgsts;
-                                    _CNStock.GSTC18 += mgstc;
+                                        _CNStock.GSTAmtC18 += mgstamtc;
+                                        _CNStock.GSTS18 += mgsts;
+                                        _CNStock.GSTC18 += mgstc;
                                     }
                                     else
                                     {
@@ -2630,9 +2641,9 @@ namespace EcoMart.InterfaceLayer
                                     if (_CNStock.IFOMS != "Y")
                                     {
                                         _CNStock.GSTAmtS28 += mgstamts;
-                                    _CNStock.GSTAmtC28 += mgstamtc;
-                                    _CNStock.GSTS28 += mgsts;
-                                    _CNStock.GSTC28 += mgstc;
+                                        _CNStock.GSTAmtC28 += mgstamtc;
+                                        _CNStock.GSTS28 += mgsts;
+                                        _CNStock.GSTC28 += mgstc;
                                     }
                                     else
                                     {
@@ -2642,16 +2653,16 @@ namespace EcoMart.InterfaceLayer
                                 }
                                 dr.Cells["Col_GSTAmountZero"].Value = mgstamt0;
                                 if (_CNStock.IFOMS != "Y")
-                                {                                   
-                                dr.Cells["Col_GSTSAmount"].Value = mgstamts.ToString();
-                                dr.Cells["Col_GSTCAmount"].Value = mgstamtc.ToString();
-                                dr.Cells["Col_GSTS"].Value = mgsts.ToString();
-                                dr.Cells["Col_GSTC"].Value = mgstc.ToString();
+                                {
+                                    dr.Cells["Col_GSTSAmount"].Value = mgstamts.ToString();
+                                    dr.Cells["Col_GSTCAmount"].Value = mgstamtc.ToString();
+                                    dr.Cells["Col_GSTS"].Value = mgsts.ToString();
+                                    dr.Cells["Col_GSTC"].Value = mgstc.ToString();
                                 }
                                 else
                                 {
-                                    dr.Cells["Col_GSTIAmount"].Value = (mgstamts+ mgstamtc).ToString();
-                                    dr.Cells["Col_GSTI"].Value = (mgsts+ mgstc).ToString();
+                                    dr.Cells["Col_GSTIAmount"].Value = (mgstamts + mgstamtc).ToString();
+                                    dr.Cells["Col_GSTI"].Value = (mgsts + mgstc).ToString();
                                 }
                                 TotalAmount += double.Parse(dr.Cells["Col_Amount"].Value.ToString());
                                 itemCount += 1;
@@ -2664,8 +2675,8 @@ namespace EcoMart.InterfaceLayer
                 txtNoOfRows.Text = itemCount.ToString().Trim();
                 double gstamt = _CNStock.GSTAmtS5 + _CNStock.GSTAmtS12 + _CNStock.GSTAmtS18 + _CNStock.GSTAmtS28 + _CNStock.GSTAmtC5 + _CNStock.GSTAmtC12 + _CNStock.GSTAmtC18 + _CNStock.GSTAmtC28 + _CNStock.GSTAmtI5 + _CNStock.GSTAmtI12 + _CNStock.GSTAmtI18 + _CNStock.GSTAmtI28;
                 double gst = _CNStock.GSTS5 + _CNStock.GSTS12 + _CNStock.GSTS18 + _CNStock.GSTS28 + _CNStock.GSTC5 + _CNStock.GSTC12 + _CNStock.GSTC18 + _CNStock.GSTC28 + _CNStock.GSTI5 + _CNStock.GSTI12 + _CNStock.GSTI18 + _CNStock.GSTI28;
-                double  mtotamt = Math.Round(_CNStock.GSTAmt0 + gstamt + gst, 2);               
-                txtTotalAmount.Text = Math.Round(mtotamt - _CNStock.DiscountAmount , 2).ToString("#0.00");
+                double mtotamt = Math.Round(_CNStock.GSTAmt0 + gstamt + gst, 2);
+                txtTotalAmount.Text = Math.Round(mtotamt - _CNStock.DiscountAmount, 2).ToString("#0.00");
                 txtAmount.Text = Math.Round(TotalAmount, 2).ToString("#0.00");
                 //  CalculateAllAmounts();
                 if (cbRound.Checked == true)
@@ -2734,7 +2745,7 @@ namespace EcoMart.InterfaceLayer
         //        }
 
         //        //   txtNoOfRows.Text = itemCount.ToString().Trim();
-              
+
         //        txtAmount.Text = Math.Round(TotalAmount, 2).ToString("#0.00");
 
         //        CalculateAllAmounts();
@@ -2779,7 +2790,7 @@ namespace EcoMart.InterfaceLayer
         private void CalculateAllAmounts()
         {
             double mdblAmount;
-            double.TryParse(txtAmount.Text, out mdblAmount);          
+            double.TryParse(txtAmount.Text, out mdblAmount);
             double mdblDiscPer;
             double.TryParse(txtDiscPercent.Text, out mdblDiscPer);
             double mdblDiscAmount;
@@ -2854,7 +2865,7 @@ namespace EcoMart.InterfaceLayer
         private void CalculateFinalVAT()
         {
 
-           _CNStock.GSTAmt0 = 0;
+            _CNStock.GSTAmt0 = 0;
             _CNStock.GSTAmtS5 = 0;
             _CNStock.GSTAmtC5 = 0;
             _CNStock.GSTAmtI5 = 0;
@@ -2949,12 +2960,12 @@ namespace EcoMart.InterfaceLayer
                         mtt1S = mtt1;
                         mtt1 = Math.Round(mtt1 / mqty, 2); //4
                         mtotalvat += mtt1;
-                     //   dr.Cells["Col_SplDiscountAmount"].Value = msplddx.ToString();
-                    //    dr.Cells["Col_CreditNoteAmount"].Value = mcrddx.ToString();
+                        //   dr.Cells["Col_SplDiscountAmount"].Value = msplddx.ToString();
+                        //    dr.Cells["Col_CreditNoteAmount"].Value = mcrddx.ToString();
                         dr.Cells["Col_CashDiscountAmount"].Value = mddx.ToString();
                         mtotcashdiscount += mddx;
                         dr.Cells["Col_VATAmountPurchase"].Value = mtt1.ToString();
-                    //    dr.Cells["Col_SplDiscountPer"].Value = _Purchase.SpecialDiscountPercentS.ToString();
+                        //    dr.Cells["Col_SplDiscountPer"].Value = _Purchase.SpecialDiscountPercentS.ToString();
                         //   dr.Cells["Col_SplDiscountAmount"].Value = msplddx.ToString();
 
 
@@ -3020,9 +3031,9 @@ namespace EcoMart.InterfaceLayer
 
 
                 }
-               txtDiscAmount.Text = mtotcashdiscount.ToString("#0.00");
-           //     txtPreCashDiscountAmountS.Text = mtotcashdiscount.ToString("#0.00");
-               txtNetAmount.Text = mtotamt.ToString("#0.00");
+                txtDiscAmount.Text = mtotcashdiscount.ToString("#0.00");
+                //     txtPreCashDiscountAmountS.Text = mtotcashdiscount.ToString("#0.00");
+                txtNetAmount.Text = mtotamt.ToString("#0.00");
                 FillGSTpnl();
 
 
@@ -3073,7 +3084,7 @@ namespace EcoMart.InterfaceLayer
             {
                 DataGridViewRow deletedrow = (DataGridViewRow)sender;
                 int deletedrowindex = deletedrow.Index;
-                CalculateAmount(deletedrowindex);             
+                CalculateAmount(deletedrowindex);
                 lblFooterMessage.Text = "";
                 if (!General.CheckForBlankRowInTheGrid(mpPVC1))
                     mpPVC1.Rows.Add();
@@ -3091,8 +3102,8 @@ namespace EcoMart.InterfaceLayer
         }
         private void PnlGSTVisible()
         {
-         //   GetpnlGSTLocation();
-        //    pnlGST.BringToFront();
+            //   GetpnlGSTLocation();
+            //    pnlGST.BringToFront();
             if (_CNStock.IFOMS != "Y")
             {
                 pnlGST.Location = GetpnlGSTLocation();

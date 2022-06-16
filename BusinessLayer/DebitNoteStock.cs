@@ -571,8 +571,8 @@ namespace EcoMart.BusinessLayer
                     CrdbDiscPer = Convert.ToDouble(drow["DiscountPer"].ToString());
                     CrdbRoundAmount = Convert.ToDouble(drow["RoundingAmount"].ToString());
 
-                    CrdbVat12point5 = Convert.ToDouble(drow["VAT12point5"].ToString());
-                    CrdbVat5 = Convert.ToDouble(drow["VAT5"].ToString());
+                    //CrdbVat12point5 = Convert.ToDouble(drow["VAT12point5"].ToString());
+                    //CrdbVat5 = Convert.ToDouble(drow["VAT5"].ToString());
                   
                     CrdbAmountNet = Convert.ToDouble(drow["AmountNet"].ToString());
                     CrdbAmount = CrdbAmountNet + CrdbRoundAmount;
@@ -620,8 +620,8 @@ namespace EcoMart.BusinessLayer
                     CrdbDiscAmt = Convert.ToDouble(drow["DiscountAmount"].ToString());
                     CrdbDiscPer = Convert.ToDouble(drow["DiscountPer"].ToString());
                     CrdbRoundAmount = Convert.ToDouble(drow["RoundingAmount"].ToString());
-                    CrdbVat12point5 = Convert.ToDouble(drow["VAT12point5"].ToString());
-                    CrdbVat5 = Convert.ToDouble(drow["VAT5"].ToString());
+                    //CrdbVat12point5 = Convert.ToDouble(drow["VAT12point5"].ToString());
+                    //CrdbVat5 = Convert.ToDouble(drow["VAT5"].ToString());
                     CrdbAmount = CrdbTotalAmount - CrdbDiscAmt;
                     CrdbAmountNet = Convert.ToDouble(drow["AmountNet"].ToString());
                     if (drow["ClearedInVoucherNumber"] != DBNull.Value)
@@ -730,7 +730,7 @@ namespace EcoMart.BusinessLayer
         {
             DBDebitNoteStock dbcrdb = new DBDebitNoteStock();
             return dbcrdb.UpdateDetails(Id, CrdbId, CrdbNarration, CrdbVouType, CrdbVouNo, CrdbVouDate, CrdbAmountNet,
-                CrdbDiscPer, CrdbDiscAmt, CrdbTotalAmount, CrdbVat5, CrdbVat12point5, CrdbRoundAmount, CrdbAmountClear, CrdbVouSeries, ClearVouType, ModifiedBy, ModifiedDate, ModifiedTime);
+                CrdbDiscPer, CrdbDiscAmt, CrdbTotalAmount, CrdbRoundAmount, CrdbAmountClear, CrdbVouSeries, ClearVouType, ModifiedBy, ModifiedDate, ModifiedTime);
         }
 
         public bool DeleteDetails()
