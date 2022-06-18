@@ -51,7 +51,7 @@
             this.mPlbl1 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mcbCreditor = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
             this.txtNarration = new PharmaSYSPlus.CommonLibrary.GeneralTextBox();
-            this.mpProductGrid = new EcoMart.InterfaceLayer.CommonControls.PSMainSubViewControl();
+            this.mpProductGrid = new EcoMart.InterfaceLayer.CommonControls.PSMainGridView();
             this.pnlAmounts = new System.Windows.Forms.Panel();
             this.mPlbl7 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl6 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
@@ -77,19 +77,23 @@
             this.pnlVouTypeNo.SuspendLayout();
             this.pnlVou.SuspendLayout();
             this.pnlAddress.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mpProductGrid)).BeginInit();
             this.pnlAmounts.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // headerLabel1
             // 
-            this.headerLabel1.Size = new System.Drawing.Size(973, 24);
+            this.headerLabel1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.headerLabel1.Size = new System.Drawing.Size(1298, 31);
             // 
             // MMBottomPanel
             // 
             this.MMBottomPanel.Controls.Add(this.pnlBottom);
-            this.MMBottomPanel.Location = new System.Drawing.Point(0, 641);
-            this.MMBottomPanel.Size = new System.Drawing.Size(975, 63);
+            this.MMBottomPanel.Location = new System.Drawing.Point(0, 789);
+            this.MMBottomPanel.Margin = new System.Windows.Forms.Padding(5);
+            this.MMBottomPanel.Size = new System.Drawing.Size(1300, 77);
+            this.MMBottomPanel.Controls.SetChildIndex(this.lblRightSideFooterMsg, 0);
             this.MMBottomPanel.Controls.SetChildIndex(this.pnlBottom, 0);
             this.MMBottomPanel.Controls.SetChildIndex(this.lblFooterMessage, 0);
             // 
@@ -98,10 +102,17 @@
             this.MMMainPanel.Controls.Add(this.mpProductGrid);
             this.MMMainPanel.Controls.Add(this.pnlAmounts);
             this.MMMainPanel.Controls.Add(this.pnlVouTypeNo);
-            this.MMMainPanel.Size = new System.Drawing.Size(975, 578);
+            this.MMMainPanel.Margin = new System.Windows.Forms.Padding(5);
+            this.MMMainPanel.Size = new System.Drawing.Size(1300, 719);
+            this.MMMainPanel.Controls.SetChildIndex(this.ctrlUclSaleSummaryControl, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.pnlVouTypeNo, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.pnlAmounts, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.mpProductGrid, 0);
+            // 
+            // lblRightSideFooterMsg
+            // 
+            this.lblRightSideFooterMsg.Location = new System.Drawing.Point(677, 0);
+            this.lblRightSideFooterMsg.Size = new System.Drawing.Size(621, 25);
             // 
             // ttDBNAmount
             // 
@@ -126,8 +137,9 @@
             this.pnlVouTypeNo.Controls.Add(this.txtNarration);
             this.pnlVouTypeNo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlVouTypeNo.Location = new System.Drawing.Point(0, 0);
+            this.pnlVouTypeNo.Margin = new System.Windows.Forms.Padding(4);
             this.pnlVouTypeNo.Name = "pnlVouTypeNo";
-            this.pnlVouTypeNo.Size = new System.Drawing.Size(973, 119);
+            this.pnlVouTypeNo.Size = new System.Drawing.Size(1298, 146);
             this.pnlVouTypeNo.TabIndex = 133;
             // 
             // pnlVou
@@ -141,61 +153,69 @@
             this.pnlVou.Controls.Add(this.lblVouType);
             this.pnlVou.Controls.Add(this.datePickerBillDate);
             this.pnlVou.Controls.Add(this.txtVouchernumber);
-            this.pnlVou.Location = new System.Drawing.Point(752, 4);
+            this.pnlVou.Location = new System.Drawing.Point(1003, 5);
+            this.pnlVou.Margin = new System.Windows.Forms.Padding(4);
             this.pnlVou.Name = "pnlVou";
-            this.pnlVou.Size = new System.Drawing.Size(216, 99);
+            this.pnlVou.Size = new System.Drawing.Size(288, 122);
             this.pnlVou.TabIndex = 1102;
             // 
             // txtVouType
             // 
             this.txtVouType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtVouType.Location = new System.Drawing.Point(93, 2);
+            this.txtVouType.Location = new System.Drawing.Point(124, 2);
+            this.txtVouType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtVouType.Name = "txtVouType";
-            this.txtVouType.Size = new System.Drawing.Size(100, 23);
+            this.txtVouType.Size = new System.Drawing.Size(133, 28);
             this.txtVouType.TabIndex = 1087;
             this.txtVouType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtVoucherSeries
             // 
             this.txtVoucherSeries.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtVoucherSeries.Location = new System.Drawing.Point(93, 75);
+            this.txtVoucherSeries.IsNumericDataSet = false;
+            this.txtVoucherSeries.Location = new System.Drawing.Point(124, 92);
+            this.txtVoucherSeries.Margin = new System.Windows.Forms.Padding(4);
             this.txtVoucherSeries.Name = "txtVoucherSeries";
-            this.txtVoucherSeries.Size = new System.Drawing.Size(100, 22);
+            this.txtVoucherSeries.Size = new System.Drawing.Size(133, 26);
             this.txtVoucherSeries.TabIndex = 1086;
             // 
             // psLabel8
             // 
             this.psLabel8.AutoSize = true;
-            this.psLabel8.Location = new System.Drawing.Point(1, 74);
+            this.psLabel8.Location = new System.Drawing.Point(1, 91);
+            this.psLabel8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.psLabel8.Name = "psLabel8";
-            this.psLabel8.Size = new System.Drawing.Size(70, 17);
+            this.psLabel8.Size = new System.Drawing.Size(83, 20);
             this.psLabel8.TabIndex = 1085;
             this.psLabel8.Text = "Vou Series";
             // 
             // lblVouDate
             // 
             this.lblVouDate.AutoSize = true;
-            this.lblVouDate.Location = new System.Drawing.Point(10, 54);
+            this.lblVouDate.Location = new System.Drawing.Point(13, 66);
+            this.lblVouDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVouDate.Name = "lblVouDate";
-            this.lblVouDate.Size = new System.Drawing.Size(61, 17);
+            this.lblVouDate.Size = new System.Drawing.Size(73, 20);
             this.lblVouDate.TabIndex = 1083;
             this.lblVouDate.Text = "Vou &Date";
             // 
             // lblVouNumber
             // 
             this.lblVouNumber.AutoSize = true;
-            this.lblVouNumber.Location = new System.Drawing.Point(24, 29);
+            this.lblVouNumber.Location = new System.Drawing.Point(32, 36);
+            this.lblVouNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVouNumber.Name = "lblVouNumber";
-            this.lblVouNumber.Size = new System.Drawing.Size(50, 17);
+            this.lblVouNumber.Size = new System.Drawing.Size(61, 20);
             this.lblVouNumber.TabIndex = 1083;
             this.lblVouNumber.Text = "Vou No";
             // 
             // lblVouType
             // 
             this.lblVouType.AutoSize = true;
-            this.lblVouType.Location = new System.Drawing.Point(8, 4);
+            this.lblVouType.Location = new System.Drawing.Point(11, 5);
+            this.lblVouType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVouType.Name = "lblVouType";
-            this.lblVouType.Size = new System.Drawing.Size(63, 17);
+            this.lblVouType.Size = new System.Drawing.Size(76, 20);
             this.lblVouType.TabIndex = 1083;
             this.lblVouType.Text = "Vou Type";
             // 
@@ -204,11 +224,12 @@
             this.datePickerBillDate.CustomFormat = "dd/MM/yyyy";
             this.datePickerBillDate.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePickerBillDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePickerBillDate.Location = new System.Drawing.Point(93, 51);
+            this.datePickerBillDate.Location = new System.Drawing.Point(124, 63);
+            this.datePickerBillDate.Margin = new System.Windows.Forms.Padding(4);
             this.datePickerBillDate.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.datePickerBillDate.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.datePickerBillDate.Name = "datePickerBillDate";
-            this.datePickerBillDate.Size = new System.Drawing.Size(100, 22);
+            this.datePickerBillDate.Size = new System.Drawing.Size(132, 26);
             this.datePickerBillDate.TabIndex = 0;
             this.datePickerBillDate.Value = new System.DateTime(2010, 7, 4, 0, 0, 0, 0);
             // 
@@ -217,11 +238,12 @@
             this.txtVouchernumber.BackColor = System.Drawing.Color.Snow;
             this.txtVouchernumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVouchernumber.Enabled = false;
-            this.txtVouchernumber.Location = new System.Drawing.Point(93, 26);
+            this.txtVouchernumber.Location = new System.Drawing.Point(124, 32);
+            this.txtVouchernumber.Margin = new System.Windows.Forms.Padding(4);
             this.txtVouchernumber.MaxLength = 50;
             this.txtVouchernumber.Name = "txtVouchernumber";
             this.txtVouchernumber.ReadOnly = true;
-            this.txtVouchernumber.Size = new System.Drawing.Size(100, 24);
+            this.txtVouchernumber.Size = new System.Drawing.Size(133, 28);
             this.txtVouchernumber.TabIndex = 0;
             this.txtVouchernumber.TabStop = false;
             this.txtVouchernumber.TextTransform = PharmaSYSPlus.CommonLibrary.GeneralTextBox.TextTransformation.Default;
@@ -230,9 +252,10 @@
             // mPlbl12
             // 
             this.mPlbl12.AutoSize = true;
-            this.mPlbl12.Location = new System.Drawing.Point(575, 32);
+            this.mPlbl12.Location = new System.Drawing.Point(767, 39);
+            this.mPlbl12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl12.Name = "mPlbl12";
-            this.mPlbl12.Size = new System.Drawing.Size(91, 17);
+            this.mPlbl12.Size = new System.Drawing.Size(107, 20);
             this.mPlbl12.TabIndex = 1092;
             this.mPlbl12.Text = "Final Amount";
             // 
@@ -242,11 +265,12 @@
             this.txtBillAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBillAmount.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBillAmount.ForeColor = System.Drawing.Color.DeepPink;
-            this.txtBillAmount.Location = new System.Drawing.Point(498, 56);
+            this.txtBillAmount.Location = new System.Drawing.Point(664, 69);
+            this.txtBillAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtBillAmount.MaxLength = 15;
             this.txtBillAmount.Name = "txtBillAmount";
             this.txtBillAmount.ReadOnly = true;
-            this.txtBillAmount.Size = new System.Drawing.Size(243, 40);
+            this.txtBillAmount.Size = new System.Drawing.Size(323, 49);
             this.txtBillAmount.TabIndex = 1090;
             this.txtBillAmount.TabStop = false;
             this.txtBillAmount.Tag = "0.00";
@@ -259,9 +283,10 @@
             this.pnlAddress.Controls.Add(this.txtAddress1);
             this.pnlAddress.Controls.Add(this.txtAddress2);
             this.pnlAddress.Enabled = false;
-            this.pnlAddress.Location = new System.Drawing.Point(134, 35);
+            this.pnlAddress.Location = new System.Drawing.Point(179, 43);
+            this.pnlAddress.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAddress.Name = "pnlAddress";
-            this.pnlAddress.Size = new System.Drawing.Size(323, 36);
+            this.pnlAddress.Size = new System.Drawing.Size(430, 44);
             this.pnlAddress.TabIndex = 1089;
             // 
             // txtAddress1
@@ -271,8 +296,9 @@
             this.txtAddress1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAddress1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress1.Location = new System.Drawing.Point(1, 2);
+            this.txtAddress1.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress1.Name = "txtAddress1";
-            this.txtAddress1.Size = new System.Drawing.Size(317, 15);
+            this.txtAddress1.Size = new System.Drawing.Size(423, 19);
             this.txtAddress1.TabIndex = 0;
             // 
             // txtAddress2
@@ -281,35 +307,39 @@
             this.txtAddress2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAddress2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAddress2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress2.Location = new System.Drawing.Point(1, 17);
+            this.txtAddress2.Location = new System.Drawing.Point(1, 21);
+            this.txtAddress2.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress2.Name = "txtAddress2";
-            this.txtAddress2.Size = new System.Drawing.Size(317, 15);
+            this.txtAddress2.Size = new System.Drawing.Size(423, 19);
             this.txtAddress2.TabIndex = 1;
             // 
             // mPlbl3
             // 
             this.mPlbl3.AutoSize = true;
-            this.mPlbl3.Location = new System.Drawing.Point(59, 77);
+            this.mPlbl3.Location = new System.Drawing.Point(79, 95);
+            this.mPlbl3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl3.Name = "mPlbl3";
-            this.mPlbl3.Size = new System.Drawing.Size(68, 17);
+            this.mPlbl3.Size = new System.Drawing.Size(80, 20);
             this.mPlbl3.TabIndex = 141;
             this.mPlbl3.Text = "&Narration";
             // 
             // mPlbl2
             // 
             this.mPlbl2.AutoSize = true;
-            this.mPlbl2.Location = new System.Drawing.Point(67, 41);
+            this.mPlbl2.Location = new System.Drawing.Point(89, 50);
+            this.mPlbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl2.Name = "mPlbl2";
-            this.mPlbl2.Size = new System.Drawing.Size(58, 17);
+            this.mPlbl2.Size = new System.Drawing.Size(67, 20);
             this.mPlbl2.TabIndex = 140;
             this.mPlbl2.Text = "Address";
             // 
             // mPlbl1
             // 
             this.mPlbl1.AutoSize = true;
-            this.mPlbl1.Location = new System.Drawing.Point(34, 13);
+            this.mPlbl1.Location = new System.Drawing.Point(45, 16);
+            this.mPlbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl1.Name = "mPlbl1";
-            this.mPlbl1.Size = new System.Drawing.Size(96, 17);
+            this.mPlbl1.Size = new System.Drawing.Size(115, 20);
             this.mPlbl1.TabIndex = 139;
             this.mPlbl1.Text = "&Account Name";
             // 
@@ -319,12 +349,14 @@
             this.mcbCreditor.DataSource = null;
             this.mcbCreditor.DisplayColumnNo = 1;
             this.mcbCreditor.DropDownHeight = 200;
-            this.mcbCreditor.Location = new System.Drawing.Point(135, 12);
-            this.mcbCreditor.Margin = new System.Windows.Forms.Padding(4);
+            this.mcbCreditor.Location = new System.Drawing.Point(180, 15);
+            this.mcbCreditor.Margin = new System.Windows.Forms.Padding(5);
             this.mcbCreditor.Name = "mcbCreditor";
-            this.mcbCreditor.SelectedID = null;
+            this.mcbCreditor.SelectedID = "";
+            this.mcbCreditor.SelectedIDtest = 0;
+            this.mcbCreditor.SelectedIntID = 0;
             this.mcbCreditor.ShowNew = true;
-            this.mcbCreditor.Size = new System.Drawing.Size(322, 22);
+            this.mcbCreditor.Size = new System.Drawing.Size(429, 26);
             this.mcbCreditor.SourceDataString = null;
             this.mcbCreditor.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
             this.mcbCreditor.TabIndex = 135;
@@ -337,36 +369,37 @@
             // txtNarration
             // 
             this.txtNarration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNarration.Location = new System.Drawing.Point(133, 72);
+            this.txtNarration.Location = new System.Drawing.Point(177, 89);
+            this.txtNarration.Margin = new System.Windows.Forms.Padding(4);
             this.txtNarration.MaxLength = 50;
             this.txtNarration.Name = "txtNarration";
-            this.txtNarration.Size = new System.Drawing.Size(324, 24);
+            this.txtNarration.Size = new System.Drawing.Size(431, 28);
             this.txtNarration.TabIndex = 2;
             this.txtNarration.TextTransform = PharmaSYSPlus.CommonLibrary.GeneralTextBox.TextTransformation.Default;
             this.txtNarration.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNarration_KeyDown);
             // 
             // mpProductGrid
             // 
-            this.mpProductGrid.AutoScroll = true;
-            this.mpProductGrid.DataSource = null;
-            this.mpProductGrid.DataSourceMain = null;
+            this.mpProductGrid.AllowUserToAddRows = false;
+            this.mpProductGrid.AllowUserToOrderColumns = true;
+            this.mpProductGrid.ColumnHeadersHeight = 29;
             this.mpProductGrid.DateColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpProductGrid.DateColumnNames")));
             this.mpProductGrid.DoubleColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpProductGrid.DoubleColumnNames")));
-            this.mpProductGrid.Filter = null;
             this.mpProductGrid.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mpProductGrid.IsAllowDelete = true;
             this.mpProductGrid.IsAllowNewRow = true;
-            this.mpProductGrid.Location = new System.Drawing.Point(138, 125);
-            this.mpProductGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.mpProductGrid.MinimumSize = new System.Drawing.Size(439, 297);
+            this.mpProductGrid.Location = new System.Drawing.Point(184, 154);
+            this.mpProductGrid.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.mpProductGrid.MinimumSize = new System.Drawing.Size(585, 366);
+            this.mpProductGrid.MultiSelect = false;
             this.mpProductGrid.Name = "mpProductGrid";
             this.mpProductGrid.NextRowColumn = 0;
             this.mpProductGrid.NumericColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpProductGrid.NumericColumnNames")));
-            this.mpProductGrid.Size = new System.Drawing.Size(513, 297);
-            this.mpProductGrid.SubGridWidth = 380;
+            this.mpProductGrid.RowHeadersWidth = 51;
+            this.mpProductGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.mpProductGrid.Size = new System.Drawing.Size(684, 366);
             this.mpProductGrid.TabIndex = 0;
-            this.mpProductGrid.ViewControl = null;
-            this.mpProductGrid.OnCellValueChangeCommited += new EcoMart.InterfaceLayer.CommonControls.PSMainSubViewControl.CellValueChangeCommited(this.mpProductGrid_OnCellValueChangeCommited);
+            this.mpProductGrid.OnCellValueChangeCommited += new EcoMart.InterfaceLayer.CommonControls.PSMainGridView.CellValueChangeCommited(this.mpProductGrid_OnCellValueChangeCommited);
             this.mpProductGrid.OnRowDeleted += new System.EventHandler(this.mpProductGrid_OnRowDeleted);
             this.mpProductGrid.OnTABKeyPressed += new System.EventHandler(this.mpProductGrid_OnTABKeyPressed);
             // 
@@ -388,44 +421,49 @@
             this.pnlAmounts.Controls.Add(this.txtVatInput5per);
             this.pnlAmounts.Controls.Add(this.txtDiscAmount);
             this.pnlAmounts.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlAmounts.Location = new System.Drawing.Point(0, 456);
+            this.pnlAmounts.Location = new System.Drawing.Point(0, 570);
+            this.pnlAmounts.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAmounts.Name = "pnlAmounts";
-            this.pnlAmounts.Size = new System.Drawing.Size(973, 120);
+            this.pnlAmounts.Size = new System.Drawing.Size(1298, 147);
             this.pnlAmounts.TabIndex = 135;
             // 
             // mPlbl7
             // 
             this.mPlbl7.AutoSize = true;
-            this.mPlbl7.Location = new System.Drawing.Point(672, 94);
+            this.mPlbl7.Location = new System.Drawing.Point(896, 116);
+            this.mPlbl7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl7.Name = "mPlbl7";
-            this.mPlbl7.Size = new System.Drawing.Size(91, 17);
+            this.mPlbl7.Size = new System.Drawing.Size(107, 20);
             this.mPlbl7.TabIndex = 1020;
             this.mPlbl7.Text = "Final Amount";
             // 
             // mPlbl6
             // 
             this.mPlbl6.AutoSize = true;
-            this.mPlbl6.Location = new System.Drawing.Point(714, 67);
+            this.mPlbl6.Location = new System.Drawing.Point(952, 82);
+            this.mPlbl6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl6.Name = "mPlbl6";
-            this.mPlbl6.Size = new System.Drawing.Size(57, 17);
+            this.mPlbl6.Size = new System.Drawing.Size(67, 20);
             this.mPlbl6.TabIndex = 1019;
             this.mPlbl6.Text = "Amount";
             // 
             // mPlbl5
             // 
             this.mPlbl5.AutoSize = true;
-            this.mPlbl5.Location = new System.Drawing.Point(650, 40);
+            this.mPlbl5.Location = new System.Drawing.Point(867, 49);
+            this.mPlbl5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl5.Name = "mPlbl5";
-            this.mPlbl5.Size = new System.Drawing.Size(47, 17);
+            this.mPlbl5.Size = new System.Drawing.Size(55, 20);
             this.mPlbl5.TabIndex = 1018;
             this.mPlbl5.Text = "&Less%";
             // 
             // mPlbl4
             // 
             this.mPlbl4.AutoSize = true;
-            this.mPlbl4.Location = new System.Drawing.Point(734, 10);
+            this.mPlbl4.Location = new System.Drawing.Point(979, 12);
+            this.mPlbl4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mPlbl4.Name = "mPlbl4";
-            this.mPlbl4.Size = new System.Drawing.Size(38, 17);
+            this.mPlbl4.Size = new System.Drawing.Size(46, 20);
             this.mPlbl4.TabIndex = 1017;
             this.mPlbl4.Text = "Total";
             // 
@@ -434,11 +472,12 @@
             this.txtNetAmount.BackColor = System.Drawing.Color.White;
             this.txtNetAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNetAmount.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNetAmount.Location = new System.Drawing.Point(790, 90);
+            this.txtNetAmount.Location = new System.Drawing.Point(1053, 111);
+            this.txtNetAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtNetAmount.MaxLength = 15;
             this.txtNetAmount.Name = "txtNetAmount";
             this.txtNetAmount.ReadOnly = true;
-            this.txtNetAmount.Size = new System.Drawing.Size(169, 26);
+            this.txtNetAmount.Size = new System.Drawing.Size(225, 30);
             this.txtNetAmount.TabIndex = 1014;
             this.txtNetAmount.TabStop = false;
             this.txtNetAmount.Tag = "0.00";
@@ -449,10 +488,11 @@
             // 
             this.txtDiscPercent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDiscPercent.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscPercent.Location = new System.Drawing.Point(709, 36);
+            this.txtDiscPercent.Location = new System.Drawing.Point(945, 44);
+            this.txtDiscPercent.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiscPercent.MaxLength = 15;
             this.txtDiscPercent.Name = "txtDiscPercent";
-            this.txtDiscPercent.Size = new System.Drawing.Size(74, 26);
+            this.txtDiscPercent.Size = new System.Drawing.Size(98, 30);
             this.txtDiscPercent.TabIndex = 31;
             this.txtDiscPercent.Tag = "0.00";
             this.txtDiscPercent.Text = "0.00";
@@ -464,11 +504,12 @@
             this.txtAmount.BackColor = System.Drawing.Color.White;
             this.txtAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAmount.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmount.Location = new System.Drawing.Point(789, 6);
+            this.txtAmount.Location = new System.Drawing.Point(1052, 7);
+            this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtAmount.MaxLength = 15;
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.ReadOnly = true;
-            this.txtAmount.Size = new System.Drawing.Size(169, 26);
+            this.txtAmount.Size = new System.Drawing.Size(225, 30);
             this.txtAmount.TabIndex = 10;
             this.txtAmount.TabStop = false;
             this.txtAmount.Tag = "0.00";
@@ -480,11 +521,12 @@
             this.txtTotalAmount.BackColor = System.Drawing.Color.White;
             this.txtTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTotalAmount.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalAmount.Location = new System.Drawing.Point(789, 62);
+            this.txtTotalAmount.Location = new System.Drawing.Point(1052, 76);
+            this.txtTotalAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalAmount.MaxLength = 15;
             this.txtTotalAmount.Name = "txtTotalAmount";
             this.txtTotalAmount.ReadOnly = true;
-            this.txtTotalAmount.Size = new System.Drawing.Size(169, 26);
+            this.txtTotalAmount.Size = new System.Drawing.Size(225, 30);
             this.txtTotalAmount.TabIndex = 29;
             this.txtTotalAmount.Tag = "0.00";
             this.txtTotalAmount.Text = "0.00";
@@ -496,10 +538,11 @@
             this.txtRoundAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRoundAmount.Enabled = false;
             this.txtRoundAmount.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRoundAmount.Location = new System.Drawing.Point(577, 82);
+            this.txtRoundAmount.Location = new System.Drawing.Point(769, 101);
+            this.txtRoundAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtRoundAmount.MaxLength = 6;
             this.txtRoundAmount.Name = "txtRoundAmount";
-            this.txtRoundAmount.Size = new System.Drawing.Size(73, 26);
+            this.txtRoundAmount.Size = new System.Drawing.Size(97, 30);
             this.txtRoundAmount.TabIndex = 28;
             this.txtRoundAmount.TabStop = false;
             this.txtRoundAmount.Tag = "0.00";
@@ -513,9 +556,10 @@
             this.cbRound.Checked = true;
             this.cbRound.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbRound.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRound.Location = new System.Drawing.Point(498, 84);
+            this.cbRound.Location = new System.Drawing.Point(664, 103);
+            this.cbRound.Margin = new System.Windows.Forms.Padding(4);
             this.cbRound.Name = "cbRound";
-            this.cbRound.Size = new System.Drawing.Size(73, 22);
+            this.cbRound.Size = new System.Drawing.Size(89, 26);
             this.cbRound.TabIndex = 23;
             this.cbRound.Text = "Round";
             this.cbRound.UseVisualStyleBackColor = false;
@@ -526,10 +570,11 @@
             this.txtVatInput12point5per.BackColor = System.Drawing.Color.White;
             this.txtVatInput12point5per.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVatInput12point5per.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVatInput12point5per.Location = new System.Drawing.Point(159, 58);
+            this.txtVatInput12point5per.Location = new System.Drawing.Point(212, 71);
+            this.txtVatInput12point5per.Margin = new System.Windows.Forms.Padding(4);
             this.txtVatInput12point5per.MaxLength = 15;
             this.txtVatInput12point5per.Name = "txtVatInput12point5per";
-            this.txtVatInput12point5per.Size = new System.Drawing.Size(126, 26);
+            this.txtVatInput12point5per.Size = new System.Drawing.Size(167, 30);
             this.txtVatInput12point5per.TabIndex = 1;
             this.txtVatInput12point5per.TabStop = false;
             this.txtVatInput12point5per.Tag = "0.00";
@@ -542,10 +587,11 @@
             this.txtVatInput5per.BackColor = System.Drawing.Color.White;
             this.txtVatInput5per.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVatInput5per.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVatInput5per.Location = new System.Drawing.Point(159, 23);
+            this.txtVatInput5per.Location = new System.Drawing.Point(212, 28);
+            this.txtVatInput5per.Margin = new System.Windows.Forms.Padding(4);
             this.txtVatInput5per.MaxLength = 15;
             this.txtVatInput5per.Name = "txtVatInput5per";
-            this.txtVatInput5per.Size = new System.Drawing.Size(120, 26);
+            this.txtVatInput5per.Size = new System.Drawing.Size(159, 30);
             this.txtVatInput5per.TabIndex = 0;
             this.txtVatInput5per.TabStop = false;
             this.txtVatInput5per.Tag = "0.00";
@@ -558,10 +604,11 @@
             this.txtDiscAmount.BackColor = System.Drawing.Color.White;
             this.txtDiscAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDiscAmount.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscAmount.Location = new System.Drawing.Point(789, 34);
+            this.txtDiscAmount.Location = new System.Drawing.Point(1052, 42);
+            this.txtDiscAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiscAmount.MaxLength = 15;
             this.txtDiscAmount.Name = "txtDiscAmount";
-            this.txtDiscAmount.Size = new System.Drawing.Size(169, 26);
+            this.txtDiscAmount.Size = new System.Drawing.Size(225, 30);
             this.txtDiscAmount.TabIndex = 3;
             this.txtDiscAmount.Tag = "0.00";
             this.txtDiscAmount.Text = "0.00";
@@ -595,10 +642,11 @@
             this.txtNoOfRows.BackColor = System.Drawing.Color.Snow;
             this.txtNoOfRows.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNoOfRows.Enabled = false;
-            this.txtNoOfRows.Location = new System.Drawing.Point(577, 1);
+            this.txtNoOfRows.Location = new System.Drawing.Point(769, 1);
+            this.txtNoOfRows.Margin = new System.Windows.Forms.Padding(4);
             this.txtNoOfRows.MaxLength = 5;
             this.txtNoOfRows.Name = "txtNoOfRows";
-            this.txtNoOfRows.Size = new System.Drawing.Size(73, 22);
+            this.txtNoOfRows.Size = new System.Drawing.Size(97, 26);
             this.txtNoOfRows.TabIndex = 27;
             this.txtNoOfRows.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -609,18 +657,20 @@
             this.pnlBottom.Controls.Add(this.label21);
             this.pnlBottom.Controls.Add(this.lblMessage);
             this.pnlBottom.Controls.Add(this.txtNoOfRows);
-            this.pnlBottom.Location = new System.Drawing.Point(0, 584);
+            this.pnlBottom.Location = new System.Drawing.Point(0, 719);
+            this.pnlBottom.Margin = new System.Windows.Forms.Padding(4);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(975, 27);
+            this.pnlBottom.Size = new System.Drawing.Size(1299, 33);
             this.pnlBottom.TabIndex = 1012;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(482, 7);
+            this.label21.Location = new System.Drawing.Point(643, 9);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(79, 13);
+            this.label21.Size = new System.Drawing.Size(100, 17);
             this.label21.TabIndex = 1010;
             this.label21.Text = "No Of Rows";
             // 
@@ -630,19 +680,21 @@
             this.lblMessage.BackColor = System.Drawing.Color.Yellow;
             this.lblMessage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblMessage.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.Location = new System.Drawing.Point(5, 5);
+            this.lblMessage.Location = new System.Drawing.Point(7, 6);
+            this.lblMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(67, 16);
+            this.lblMessage.Size = new System.Drawing.Size(84, 20);
             this.lblMessage.TabIndex = 1009;
             this.lblMessage.Text = "message";
             // 
             // UclDebitNoteAmount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.BackColor = System.Drawing.Color.LightGray;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "UclDebitNoteAmount";
-            this.Size = new System.Drawing.Size(975, 704);
+            this.Size = new System.Drawing.Size(1300, 866);
             this.MMBottomPanel.ResumeLayout(false);
             this.MMBottomPanel.PerformLayout();
             this.MMMainPanel.ResumeLayout(false);
@@ -653,6 +705,7 @@
             this.pnlVou.PerformLayout();
             this.pnlAddress.ResumeLayout(false);
             this.pnlAddress.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mpProductGrid)).EndInit();
             this.pnlAmounts.ResumeLayout(false);
             this.pnlAmounts.PerformLayout();
             this.pnlBottom.ResumeLayout(false);
@@ -667,7 +720,7 @@
         private System.Windows.Forms.ToolTip ttDBNAmount;
         private System.Windows.Forms.Panel pnlVouTypeNo;
         private PharmaSYSPlus.CommonLibrary.GeneralTextBox txtNarration;
-        private EcoMart.InterfaceLayer.CommonControls.PSMainSubViewControl mpProductGrid;
+        private EcoMart.InterfaceLayer.CommonControls.PSMainGridView mpProductGrid;
         private System.Windows.Forms.Panel pnlAmounts;
         private PharmaSYSPlus.CommonLibrary.DecimalTextBox txtDiscPercent;
         private PharmaSYSPlus.CommonLibrary.DecimalTextBox txtTotalAmount;
