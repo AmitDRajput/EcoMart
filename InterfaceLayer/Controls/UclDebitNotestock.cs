@@ -1345,7 +1345,7 @@ namespace EcoMart.InterfaceLayer
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_VATPer";
                 column.DataPropertyName = "VATPer";
-                column.HeaderText = "VAT%";
+                column.HeaderText = "GST%";
                 column.Width = 50;
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 column.ReadOnly = true;
@@ -1609,7 +1609,7 @@ namespace EcoMart.InterfaceLayer
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Temp_VATPer";
                 column.DataPropertyName = "VATPer";
-                column.HeaderText = "VAT%";
+                column.HeaderText = "GST%";
                 column.Width = 50;
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 column.ReadOnly = true;
@@ -1980,6 +1980,7 @@ namespace EcoMart.InterfaceLayer
                 }
                 if (_Mode == OperationMode.View || _Mode == OperationMode.Delete || _Mode == OperationMode.ReportView)
                 {
+                    txtVouchernumber.Enabled = false;
                     mpPVC2.ColumnsMain[1].ReadOnly = true;
                     mpPVC2.ColumnsMain[2].ReadOnly = true;
                     mpPVC2.ColumnsMain[3].ReadOnly = true;
@@ -2068,7 +2069,7 @@ namespace EcoMart.InterfaceLayer
                     txtNarration.Enabled = true;
                     pnlAmounts.Enabled = true;
                     pnlVouTypeNo.Enabled = true;
-                    txtVouchernumber.Enabled = false;
+                    txtVouchernumber.Enabled = true;
                     mcbCreditor.Focus();
                 }
                 else
@@ -2077,7 +2078,7 @@ namespace EcoMart.InterfaceLayer
                     txtNarration.Enabled = false;
                     pnlAmounts.Enabled = false;
                     pnlVouTypeNo.Enabled = true;
-                    txtVouchernumber.Enabled = true;
+                    txtVouchernumber.Enabled = false;
                     txtVouchernumber.ReadOnly = false;
                     txtVouchernumber.Focus();
                 }
