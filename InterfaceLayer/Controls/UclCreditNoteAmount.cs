@@ -63,7 +63,8 @@ namespace EcoMart.InterfaceLayer
         public override bool Edit()
         {
             bool retValue = base.Edit();
-            ClearData();      
+            ClearData();
+            InitializeMainSubViewControl();
             AddToolTip();
             headerLabel1.Text = "CREDIT NOTE AMOUNT -> EDIT";
             FillPartyCombo();
@@ -83,7 +84,8 @@ namespace EcoMart.InterfaceLayer
             bool retValue = base.Delete();
             headerLabel1.Text = "CREDIT NOTE AMOUNT -> DELETE";
             FillPartyCombo();
-            ClearData();         
+            ClearData();
+            InitializeMainSubViewControl();
             txtVouchernumber.Focus();
             return true;
         }
@@ -153,7 +155,7 @@ namespace EcoMart.InterfaceLayer
                 }
             }
             txtVouchernumber.Focus();
-          //  GetLastRecord();
+            //  GetLastRecord();
             return retValue;
         }
         private void GetLastRecord()
@@ -180,7 +182,7 @@ namespace EcoMart.InterfaceLayer
             ClearData();
             return retValue;
         }
-        
+
         private void PrintData()
         {
             PrintRow row;
@@ -210,7 +212,7 @@ namespace EcoMart.InterfaceLayer
                             //////////PrintBill.Rows.Add(row);
                             PrintBill.Print_Bill();
                             PrintBill.Rows.Clear();
-                            PrintRowPixel = 0;                          
+                            PrintRowPixel = 0;
                             PrintHeader(totalpages, rowcount, fnt);
 
                             rowcount = 0;
@@ -254,7 +256,7 @@ namespace EcoMart.InterfaceLayer
             PrintRow row;
             try
             {
-                string billtype = "Credit Note";               
+                string billtype = "Credit Note";
 
                 PrintRowPixel = PrintRowPixel + 37;
                 row = new PrintRow(billtype, PrintRowPixel, 250, fnt);
@@ -263,7 +265,7 @@ namespace EcoMart.InterfaceLayer
                 row = new PrintRow(_CNAmount.CrdbVouNo.ToString(), PrintRowPixel, 400, fnt);
                 PrintBill.Rows.Add(row);
                 PrintRowPixel = PrintRowPixel + 36;
-                PrintRowPixel = PrintRowPixel + 34;  
+                PrintRowPixel = PrintRowPixel + 34;
                 row = new PrintRow(DateTime.Now.TimeOfDay.ToString().Substring(0, 5), PrintRowPixel, 520, fnt);
                 PrintBill.Rows.Add(row);
                 row = new PrintRow(_CNAmount.CrdbVouDate, PrintRowPixel, 680, fnt);
@@ -415,7 +417,6 @@ namespace EcoMart.InterfaceLayer
                     if (_Mode == OperationMode.Add || _Mode == OperationMode.OpenAsChild)
                     {
                         General.BeginTransaction();
-                        //_CNAmount.Id = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         _CNAmount.CrdbVouNo = _CNAmount.GetAndUpdateCNNumber(General.ShopDetail.ShopVoucherSeries);
                         _CNAmount.CreatedBy = General.CurrentUser.Id;
                         _CNAmount.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
@@ -424,9 +425,11 @@ namespace EcoMart.InterfaceLayer
 
                         _CNAmount.IntID = 0;
                         _CNAmount.IntID = _CNAmount.AddDetails();
-                        //retValue = _CNAmount.AddDetails();
                         if (_CNAmount.IntID > 0)
+                        {
                             retValue = true;
+                            _CNAmount.Id = _CNAmount.IntID.ToString();
+                        }
                         else
                             retValue = false;
                         _SavedID = _CNAmount.Id;
@@ -556,8 +559,10 @@ namespace EcoMart.InterfaceLayer
                 if (_CNAmount.CrdbRoundAmount != 0)
                     txtRoundAmount.Text = _CNAmount.CrdbRoundAmount.ToString("#0.00");
                 txtTotalAmount.Text = _CNAmount.CrdbTotalAmount.ToString("#0.00");
-                DateTime mydate = new DateTime(Convert.ToInt32(_CNAmount.CrdbVouDate.Substring(0, 4)), Convert.ToInt32(_CNAmount.CrdbVouDate.Substring(4, 2)), Convert.ToInt32(_CNAmount.CrdbVouDate.Substring(6, 2)));
-                datePickerBillDate.Value = mydate;
+                if (DateTime.TryParse(_CNAmount.CrdbVouDate.ToString(), out DateTime mydate))
+                {
+                    datePickerBillDate.Value = mydate;
+                }
                 CalculateAllAmounts();
                 if (_Mode == OperationMode.Edit)
                 {
@@ -610,7 +615,7 @@ namespace EcoMart.InterfaceLayer
 
         private bool DeletePreviousRows()
         {
-            bool returnVal = false;
+            bool returnVal;
             try
             {
                 returnVal = _CNAmount.DeletePreviousRecords();
@@ -632,7 +637,7 @@ namespace EcoMart.InterfaceLayer
                            Convert.ToDouble(prodrow.Cells["Col_Amount"].Value) >= 0)
                         {
                             _CNAmount.SerialNumber += 1;
-                            _CNAmount.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                            //_CNAmount.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                             _CNAmount.Particulars = prodrow.Cells["Col_Particulars"].Value.ToString();
                             _CNAmount.Amount = Convert.ToDouble(prodrow.Cells["Col_Amount"].Value);
                             returnVal = _CNAmount.AddParticularsDetails();
@@ -763,11 +768,11 @@ namespace EcoMart.InterfaceLayer
             {
                 if (mpProductGrid.Rows.Count > 0)
                 {
-                    mpProductGrid.dgMainGrid.EndEdit();
+                    mpProductGrid.EndEdit();
                 }
                 DataGridViewTextBoxColumn column;
                 mpProductGrid.Rows.Clear();
-                mpProductGrid.ColumnsMain.Clear();
+                mpProductGrid.Columns.Clear();
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_Particulars";
@@ -775,7 +780,7 @@ namespace EcoMart.InterfaceLayer
                 column.HeaderText = "Particulars";
                 column.Visible = true;
                 column.Width = 300;
-                mpProductGrid.ColumnsMain.Add(column);
+                mpProductGrid.Columns.Add(column);
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_Amount";
@@ -786,7 +791,7 @@ namespace EcoMart.InterfaceLayer
                 column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
                 column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 column.MaxInputLength = 14;
-                mpProductGrid.ColumnsMain.Add(column);
+                mpProductGrid.Columns.Add(column);
             }
             catch (Exception Ex)
             {
@@ -803,8 +808,8 @@ namespace EcoMart.InterfaceLayer
                 dtable = _CNAmount.ReadParticularsByID();
 
                 mpProductGrid.DoubleColumnNames.Add("Col_Amount");
-                mpProductGrid.DataSourceMain = dtable;
-                mpProductGrid.Bind();
+                BindGrid(dtable);
+                InitializeGrid();
             }
             catch (Exception Ex)
             {
@@ -819,7 +824,7 @@ namespace EcoMart.InterfaceLayer
         {
             mcbCreditor.SelectedID = null;
             mcbCreditor.SourceDataString = new string[5] { "AccountID", "AccCode", "AccName", "AccAddress1", "AccAddress1" };
-            mcbCreditor.ColumnWidth = new string[5] { "0", "20", "200", "200" ,"0"};
+            mcbCreditor.ColumnWidth = new string[5] { "0", "20", "200", "200", "0" };
             mcbCreditor.DisplayColumnNo = 2;
             mcbCreditor.ValueColumnNo = 0;
             mcbCreditor.UserControlToShow = new UclAccount();
@@ -878,7 +883,7 @@ namespace EcoMart.InterfaceLayer
                     }
                 }
             }
-            if (colIndex == 1) 
+            if (colIndex == 1)
             {
                 double totamt = 0;
 
@@ -976,7 +981,7 @@ namespace EcoMart.InterfaceLayer
 
             if (txtAmount.Text != null)
                 txtTotalAmount.Text = Math.Round(mdblAmount - mdblDiscAmount, 2).ToString("#0.00");
-          
+
 
             if (cbRound.Checked == true)
             {
@@ -993,15 +998,15 @@ namespace EcoMart.InterfaceLayer
 
         }
 
-      
-       
+
+
 
         private void cbRound_CheckedChanged(object sender, EventArgs e)
         {
             CalculateAllAmounts();
         }
 
-       
+
 
         private void txtDiscPercent_KeyDown(object sender, KeyEventArgs e)
         {
@@ -1049,10 +1054,16 @@ namespace EcoMart.InterfaceLayer
         }
         private void txtNarration_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            try
             {
-                mpProductGrid.SetFocus(0);
+                if (e.KeyCode == Keys.Enter)
+                {
+                    if (mpProductGrid.Rows.Count > 0)
+                        mpProductGrid.SetCurrentCell(mpProductGrid.CurrentRow.Index, 1);
+                }
             }
+            catch (Exception ex) { Log.WriteError(ex.ToString()); }
+
         }
 
         private void mpProductGrid_OnTABKeyPressed(object sender, EventArgs e)
@@ -1074,6 +1085,77 @@ namespace EcoMart.InterfaceLayer
         {
 
         }
+
+        private void BindGrid(DataTable dtTable)
+        {
+            try
+            {
+                foreach (DataGridViewColumn column in mpProductGrid.Columns)
+                {
+                    column.SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
+                if (dtTable != null)
+                {
+                    mpProductGrid.Rows.Clear();
+                    for (int index = 0; index < dtTable.Rows.Count; index++)
+                    {
+                        int rowIndex = mpProductGrid.Rows.Add();
+                        DataGridViewRow dr = mpProductGrid.Rows[rowIndex];
+                        for (int colIndex = 0; colIndex < mpProductGrid.Columns.Count; colIndex++)
+                        {
+                            DataGridViewColumn col = mpProductGrid.Columns[colIndex];
+                            if (col.DataPropertyName != null && col.DataPropertyName != "")
+                            {
+                                if (mpProductGrid.DoubleColumnNames != null && mpProductGrid.DoubleColumnNames.Contains(col.Name))
+                                {
+                                    dr.Cells[col.Name].Value = Convert.ToDouble(dtTable.Rows[index][col.DataPropertyName]).ToString("#0.00");
+                                }
+                                else
+                                {
+                                    dr.Cells[col.Name].Value = dtTable.Rows[index][col.DataPropertyName].ToString();
+                                }
+                            }
+                            //if (colIndex == 1)
+                            //{
+                            //    dr.Cells[1].ReadOnly = true;
+                            //}
+                        }
+                    }
+                }
+                mpProductGrid.Initialize();
+            }
+            catch (Exception ex)
+            {
+                Log.WriteError(ex.ToString());
+            }
+        }
+
+        private void InitializeGrid()
+        {
+            if (_Mode == OperationMode.Edit)
+            {
+                if (mpProductGrid.Rows.Count == 0 || !(General.CheckForBlankRowInTheGrid(mpProductGrid)))
+                {
+                    mpProductGrid.Rows.Add();
+                    txtVouchernumber.Enabled = false;
+                    mpProductGrid.ClearSelection();
+                }
+
+                //mpProductGrid.Foc(mpProductGrid.Rows.Count, 1);
+                txtVouchernumber.Enabled = true;
+            }
+            if (_Mode == OperationMode.View || _Mode == OperationMode.Delete || _Mode == OperationMode.ReportView)
+            {
+                mpProductGrid.Columns[0].ReadOnly = true;
+                mpProductGrid.Columns[1].ReadOnly = true;
+                if (_Mode == OperationMode.ReportView)
+                    tsBtnFifth.Visible = false;
+
+                txtVouchernumber.Enabled = false;
+            }
+            if (_Mode != OperationMode.Edit)
+                mpProductGrid.ClearSelection();
+        }
         # endregion
 
         # region ToolTip
@@ -1082,7 +1164,7 @@ namespace EcoMart.InterfaceLayer
             ttToolTip.SetToolTip(txtVatInput12point5per, "Write VAT Amount for 13.5%");
         }
 
-        # endregion
-     
+        #endregion
+
     }
 }

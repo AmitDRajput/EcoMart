@@ -40,7 +40,7 @@ namespace EcoMart.BusinessLayer
 
         #region Constructors
         public CreditNoteAmount()
-        {  
+        {
         }
         #endregion
 
@@ -303,10 +303,10 @@ namespace EcoMart.BusinessLayer
                         CrdbDiscPer = Convert.ToDouble(drow["DiscountPer"].ToString());
                     if (drow["RoundingAmount"] != DBNull.Value)
                         CrdbRoundAmount = Convert.ToDouble(drow["RoundingAmount"].ToString());
-                    if (drow["Vat5"] != DBNull.Value)
-                        CrdbVat5 = Convert.ToDouble(drow["Vat5"].ToString());
-                    if (drow["Vat12point5"] != DBNull.Value)
-                        CrdbVat12point5 = Convert.ToDouble(drow["Vat12point5"].ToString());
+                    //if (drow["Vat5"] != DBNull.Value)
+                    //    CrdbVat5 = Convert.ToDouble(drow["Vat5"].ToString());
+                    //if (drow["Vat12point5"] != DBNull.Value)
+                    //    CrdbVat12point5 = Convert.ToDouble(drow["Vat12point5"].ToString());
                     if (drow["AccountId"] != DBNull.Value)
                         AccountID = drow["AccountId"].ToString();
                     if (drow["ClearedInVoucherNumber"] != DBNull.Value)
@@ -328,7 +328,7 @@ namespace EcoMart.BusinessLayer
 
         public DataRow ReadDetailsByVouNumber(int vouno)
         {
-           
+
             DataRow drow = null;
             try
             {
@@ -399,14 +399,14 @@ namespace EcoMart.BusinessLayer
         {
             DBCreditNoteAmount dbcrdb = new DBCreditNoteAmount();
             return dbcrdb.AddDetails(Id, CrdbId, CrdbNarration, CrdbVouType, CrdbVouNo, CrdbVouDate, CrdbAmountNet,
-               CrdbDiscPer, CrdbDiscAmt, CrdbAmount, CrdbVat5, CrdbVat12point5, CrdbRoundAmount,CreatedBy,CreatedDate,CreatedTime);
+               CrdbDiscPer, CrdbDiscAmt, CrdbAmount, CrdbVat5, CrdbVat12point5, CrdbRoundAmount, CreatedBy, CreatedDate, CreatedTime);
         }
 
         public bool UpdateDetails()
         {
             DBCreditNoteAmount dbcrdb = new DBCreditNoteAmount();
-            return dbcrdb.UpdateDetails(IntID, CBAccountIDINT, CrdbNarration, CrdbVouType, CrdbVouNo, CrdbVouDate, CrdbAmountNet,
-                CrdbDiscPer, CrdbDiscAmt, CrdbAmount, CrdbVat5, CrdbVat12point5, CrdbRoundAmount, ModifiedBy,ModifiedDate,ModifiedTime);
+            return dbcrdb.UpdateDetails(Convert.ToInt32(Id), Convert.ToInt32(CrdbId), CrdbNarration, CrdbVouType, CrdbVouNo, CrdbVouDate, CrdbAmountNet,
+                CrdbDiscPer, CrdbDiscAmt, CrdbAmount, CrdbVat5, CrdbVat12point5, CrdbRoundAmount, ModifiedBy, ModifiedDate, ModifiedTime);
         }
 
         public bool DeleteDetails()
@@ -414,13 +414,13 @@ namespace EcoMart.BusinessLayer
             DBCreditNoteAmount dbcrdb = new DBCreditNoteAmount();
             return dbcrdb.DeleteDetails(Id);
         }
-     
+
         #endregion
 
         public bool AddParticularsDetails()
         {
             DBCreditNoteAmount dbamt = new DBCreditNoteAmount();
-            return dbamt.AddParticularsDetails(IntID, Particulars, Amount, DetailId,SerialNumber);
+            return dbamt.AddParticularsDetails(Convert.ToInt32(Id), Particulars, Amount, DetailId, SerialNumber);
         }
 
         public bool DeleteParticulars()
@@ -438,9 +438,7 @@ namespace EcoMart.BusinessLayer
                 dr = dbs.GetLastRecord(CrdbVouType, CrdbVouSeries);
                 if (dr != null && dr["CRDBID"] != null)
                 {
-
                     Id = dr["CRDBID"].ToString();
-
                 }
 
             }
@@ -461,9 +459,7 @@ namespace EcoMart.BusinessLayer
                 dr = dbs.GetLastVoucherNumber(vouType, vouSeries);
                 if (dr != null)
                 {
-
                     lastvouno = Convert.ToInt32(dr["VoucherNumber"].ToString());
-
                 }
 
             }

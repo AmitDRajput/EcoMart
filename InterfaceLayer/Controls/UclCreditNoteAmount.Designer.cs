@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UclCreditNoteAmount));
-            this.mpProductGrid = new EcoMart.InterfaceLayer.CommonControls.PSMainSubViewControl();
+            this.mpProductGrid = new EcoMart.InterfaceLayer.CommonControls.PSMainGridView();
             this.txtNoOfRows = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
             this.pnlVouTypeNo = new System.Windows.Forms.Panel();
             this.pnlVou = new System.Windows.Forms.Panel();
@@ -109,28 +109,29 @@
             // 
             // mpProductGrid
             // 
-            this.mpProductGrid.AutoScroll = true;
-            this.mpProductGrid.DataSource = null;
-            this.mpProductGrid.DataSourceMain = null;
+            this.mpProductGrid.AllowUserToAddRows = false;
+            this.mpProductGrid.AllowUserToOrderColumns = true;
+            this.mpProductGrid.ColumnHeadersHeight = 29;
             this.mpProductGrid.DateColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpProductGrid.DateColumnNames")));
             this.mpProductGrid.DoubleColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpProductGrid.DoubleColumnNames")));
-            this.mpProductGrid.Filter = null;
             this.mpProductGrid.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mpProductGrid.IsAllowDelete = true;
             this.mpProductGrid.IsAllowNewRow = true;
-            this.mpProductGrid.Location = new System.Drawing.Point(192, 116);
-            this.mpProductGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.mpProductGrid.MinimumSize = new System.Drawing.Size(439, 297);
+            this.mpProductGrid.Location = new System.Drawing.Point(184, 154);
+            this.mpProductGrid.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.mpProductGrid.MinimumSize = new System.Drawing.Size(585, 366);
+            this.mpProductGrid.MultiSelect = false;
             this.mpProductGrid.Name = "mpProductGrid";
             this.mpProductGrid.NextRowColumn = 0;
             this.mpProductGrid.NumericColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpProductGrid.NumericColumnNames")));
-            this.mpProductGrid.Size = new System.Drawing.Size(552, 297);
-            this.mpProductGrid.SubGridWidth = 380;
+            this.mpProductGrid.RowHeadersWidth = 51;
+            this.mpProductGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.mpProductGrid.Size = new System.Drawing.Size(684, 366);
             this.mpProductGrid.TabIndex = 0;
-            this.mpProductGrid.ViewControl = null;
-            this.mpProductGrid.OnCellValueChangeCommited += new EcoMart.InterfaceLayer.CommonControls.PSMainSubViewControl.CellValueChangeCommited(this.mpProductGrid_OnCellValueChangeCommited);
+            this.mpProductGrid.OnCellValueChangeCommited += new EcoMart.InterfaceLayer.CommonControls.PSMainGridView.CellValueChangeCommited(this.mpProductGrid_OnCellValueChangeCommited);
             this.mpProductGrid.OnRowDeleted += new System.EventHandler(this.mpProductGrid_OnRowDeleted);
             this.mpProductGrid.OnTABKeyPressed += new System.EventHandler(this.mpProductGrid_OnTABKeyPressed);
+
             // 
             // txtNoOfRows
             // 
@@ -672,7 +673,7 @@
 
         #endregion
 
-        private EcoMart.InterfaceLayer.CommonControls.PSMainSubViewControl mpProductGrid;
+        private EcoMart.InterfaceLayer.CommonControls.PSMainGridView mpProductGrid;
         private PharmaSYSPlus.CommonLibrary.NumericTextBox txtNoOfRows;
         private System.Windows.Forms.Panel pnlVouTypeNo;
         private System.Windows.Forms.Label label21;
