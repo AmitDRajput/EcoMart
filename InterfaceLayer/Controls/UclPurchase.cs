@@ -718,7 +718,10 @@ namespace EcoMart.InterfaceLayer
                                 _Purchase.IntID = 0;
                                 _Purchase.IntID = _Purchase.AddDetails();
                                 if (_Purchase.IntID > 0)
+                                {
+                                    _Purchase.Id = _Purchase.IntID.ToString();
                                     retValue = true;
+                                }
                                 else
                                     retValue = false;
                                 _SavedID = _Purchase.Id;
@@ -1763,8 +1766,8 @@ namespace EcoMart.InterfaceLayer
                                 _Purchase.ReplacementQuantity = Convert.ToInt32(temprow.Cells["Temp_Replacement"].Value.ToString());
                             if (temprow.Cells["Temp_Quantity"].Value != null)
                                 _Purchase.Quantity = Convert.ToInt32(temprow.Cells["Temp_Quantity"].Value.ToString());
-                            if (temprow.Cells["Temp_UnitOfMeasure"].Value != null)
-                                _Purchase.ProdLoosePack = Convert.ToInt16(temprow.Cells["Temp_UnitOfMeasure"].Value.ToString());
+                            //if (temprow.Cells["Temp_UnitOfMeasure"].Value != null)
+                            _Purchase.ProdLoosePack = 1;// Convert.ToInt16(temprow.Cells["Temp_UnitOfMeasure"].Value.ToString());
                             CurrentClosingStock = _Purchase.GetCurrentClosingStock(_Purchase.StockID);
                             if (CurrentClosingStock < (_Purchase.Quantity + _Purchase.SchemeQuanity + _Purchase.ReplacementQuantity))
                             {
@@ -1831,7 +1834,7 @@ namespace EcoMart.InterfaceLayer
                         _Purchase.SerialNumber += 1;
                         _Purchase.ProductID = 0;
                         _Purchase.Batchno = "";
-                        _Purchase.ProdLoosePack = 0;
+                        _Purchase.ProdLoosePack = 1;
                         _Purchase.MRP = 0;
                         _Purchase.Expiry = "";
                         _Purchase.ExpiryDate = "";
@@ -1876,8 +1879,8 @@ namespace EcoMart.InterfaceLayer
                         //_Purchase.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         _Purchase.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString());
                         _Purchase.Batchno = prodrow.Cells["Col_BatchNumber"].Value.ToString();
-                        if (prodrow.Cells["Col_UnitOfMeasure"].Value != null && !String.IsNullOrEmpty(prodrow.Cells["Col_UnitOfMeasure"].Value.ToString()))
-                            _Purchase.ProdLoosePack = Convert.ToInt32(prodrow.Cells["Col_UnitOfMeasure"].Value.ToString());
+                        //if (prodrow.Cells["Col_UnitOfMeasure"].Value != null && !String.IsNullOrEmpty(prodrow.Cells["Col_UnitOfMeasure"].Value.ToString()))
+                        _Purchase.ProdLoosePack = 1;// Convert.ToInt32(prodrow.Cells["Col_UnitOfMeasure"].Value.ToString());
                         if (prodrow.Cells["Col_MRP"].Value != null)
                             _Purchase.MRP = Convert.ToDouble(prodrow.Cells["Col_MRP"].Value.ToString());
                         if (prodrow.Cells["Col_Pack"].Value != null)
@@ -1986,13 +1989,15 @@ namespace EcoMart.InterfaceLayer
                         if (General.CurrentSetting.MsetPurchaseHold != "Y")
                         {
                             // ThisStockID = _Purchase.CheckForBatchMRPStockIDInStockTable_stock(); //ss18/10
-                            ThisStockID = _Purchase.CheckForBatchMRPStockIDInStockTable();
+                            //ThisStockID = _Purchase.CheckForBatchMRPStockIDInStockTable();
+                            ThisStockID = _Purchase.CheckForPurchaseIdStockIDInStockTable();
                             oldAccountId = _Purchase.oldaccountIDFind();
                             _Purchase.oldAccountId = oldAccountId;
 
                             if (ThisStockID != "")
                             {
                                 _Purchase.IntStockID = Convert.ToInt32(ThisStockID);
+                                _Purchase.StockID = ThisStockID;
                                 CurrentClosingStock = _Purchase.GetCurrentClosingStock(ThisStockID);
 
                                 if (_Mode == OperationMode.Edit)
@@ -2520,7 +2525,7 @@ namespace EcoMart.InterfaceLayer
                         _Purchase.SerialNumber += 1;
                         _Purchase.ProductID = 0;
                         _Purchase.Batchno = "";
-                        _Purchase.ProdLoosePack = 0;
+                        _Purchase.ProdLoosePack = 1;
                         _Purchase.MRP = 0;
                         _Purchase.Expiry = "";
                         _Purchase.ExpiryDate = "";
@@ -2549,8 +2554,8 @@ namespace EcoMart.InterfaceLayer
                         _Purchase.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         _Purchase.ProductID = Convert.ToInt32(prodrow.Cells["Temp_ProductID"].Value.ToString());
                         _Purchase.Batchno = prodrow.Cells["Temp_BatchNumber"].Value.ToString();
-                        if (prodrow.Cells["Temp_UnitOfMeasure"].Value != null)
-                            _Purchase.ProdLoosePack = Convert.ToInt32(prodrow.Cells["Temp_UnitOfMeasure"].Value.ToString());
+                        //if (prodrow.Cells["Temp_UnitOfMeasure"].Value != null)
+                        _Purchase.ProdLoosePack = 1;// Convert.ToInt32(prodrow.Cells["Temp_UnitOfMeasure"].Value.ToString());
                         if (prodrow.Cells["Temp_MRP"].Value != null)
                             _Purchase.MRP = Convert.ToDouble(prodrow.Cells["Temp_MRP"].Value.ToString());
                         if (prodrow.Cells["Temp_Expiry"].Value != null)
@@ -2634,7 +2639,7 @@ namespace EcoMart.InterfaceLayer
                         _Purchase.SerialNumber += 1;
                         _Purchase.ProductID = 0;
                         _Purchase.Batchno = "";
-                        _Purchase.ProdLoosePack = 0;
+                        _Purchase.ProdLoosePack = 1;
                         _Purchase.MRP = 0;
                         _Purchase.Expiry = "";
                         _Purchase.ExpiryDate = "";
@@ -2660,11 +2665,11 @@ namespace EcoMart.InterfaceLayer
                         _Purchase.ProductMargin = 0;
                         _Purchase.ProductMargin2 = 0;
 
-                        _Purchase.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                        //_Purchase.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         _Purchase.ProductID = Convert.ToInt32(prodrow.Cells["Temp_ProductID"].Value.ToString());
                         _Purchase.Batchno = prodrow.Cells["Temp_BatchNumber"].Value.ToString();
-                        if (prodrow.Cells["Temp_UnitOfMeasure"].Value != null)
-                            _Purchase.ProdLoosePack = Convert.ToInt32(prodrow.Cells["Temp_UnitOfMeasure"].Value.ToString());
+                        //if (prodrow.Cells["Temp_UnitOfMeasure"].Value != null)
+                        _Purchase.ProdLoosePack = 1;// Convert.ToInt32(prodrow.Cells["Temp_UnitOfMeasure"].Value.ToString());
                         if (prodrow.Cells["Temp_MRP"].Value != null)
                             _Purchase.MRP = Convert.ToDouble(prodrow.Cells["Temp_MRP"].Value.ToString());
                         if (prodrow.Cells["Temp_Expiry"].Value != null)
@@ -2755,7 +2760,7 @@ namespace EcoMart.InterfaceLayer
                         _Purchase.Quantity = Convert.ToInt32(prodrow.Cells["Temp_Quantity"].Value);
                         _Purchase.SchemeQuanity = Convert.ToInt32(prodrow.Cells["Temp_Scheme"].Value);
                         _Purchase.ReplacementQuantity = Convert.ToInt32(prodrow.Cells["Temp_Replacement"].Value.ToString());
-                        _Purchase.ProdLoosePack = Convert.ToInt32(prodrow.Cells["Temp_UnitOfMeasure"].Value.ToString());
+                        _Purchase.ProdLoosePack = 1;// Convert.ToInt32(prodrow.Cells["Temp_UnitOfMeasure"].Value.ToString());
                         _Purchase.PurchaseRate = Convert.ToDouble(prodrow.Cells["Temp_PurchaseRate"].Value.ToString());
                         DataRow dr = _Purchase.IfStockIDFoundInStockTable(_Purchase.StockID);
                         if (dr != null)
@@ -2799,7 +2804,7 @@ namespace EcoMart.InterfaceLayer
                         _Purchase.Quantity = Convert.ToInt32(prodrow.Cells["Temp_Quantity"].Value);
                         _Purchase.SchemeQuanity = Convert.ToInt32(prodrow.Cells["Temp_Scheme"].Value);
                         _Purchase.ReplacementQuantity = Convert.ToInt32(prodrow.Cells["Temp_Replacement"].Value.ToString());
-                        _Purchase.ProdLoosePack = Convert.ToInt32(prodrow.Cells["Temp_UnitOfMeasure"].Value.ToString());
+                        _Purchase.ProdLoosePack = 1;// Convert.ToInt32(prodrow.Cells["Temp_UnitOfMeasure"].Value.ToString());
                         string ifmatchfound = "N";
                         foreach (DataGridViewRow gridrow in mpMSVC.Rows)
                         {
@@ -8403,7 +8408,7 @@ namespace EcoMart.InterfaceLayer
                                 mpMSVC.Rows[_RowIndex].Cells["Col_ProductID"].Value = dr["ProductID"].ToString();
                                 mpMSVC.Rows[_RowIndex].Cells["Col_ProductName"].Value = dr["ProdName"].ToString();
                                 mpMSVC.MainDataGridCurrentRow.Cells["Col_ProductName"].ReadOnly = true;
-                                mpMSVC.Rows[_RowIndex].Cells["Col_UnitOfMeasure"].Value = dr["ProdLoosePack"].ToString();
+                                mpMSVC.Rows[_RowIndex].Cells["Col_UnitOfMeasure"].Value = 1;// dr["ProdLoosePack"].ToString();
                                 mpMSVC.Rows[_RowIndex].Cells["Col_Pack"].Value = dr["ProdPack"].ToString();
                                 mpMSVC.Rows[_RowIndex].Cells["Col_Company"].Value = dr["ProdCompShortName"].ToString();
                                 mpMSVC.Rows[_RowIndex].Cells["Col_Box1"].Value = "0";

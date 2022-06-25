@@ -116,10 +116,19 @@ namespace EcoMart.DataLayer
             dataRow = DBInterface.SelectFirstRow(strSql);
             return dataRow;
         }
+        
         public DataRow GetRecordByProductIDAndBatchNumberAndMRPAndStockID(int ProductID, string batchID, double mrp, string stockID)
         {
             DataRow dataRow = null;
             string strSql = string.Format("Select * from tblstock where ProductID = '{0}' AND BatchNumber = '{1}' AND MRP = {2} AND StockID = '{3}'", ProductID, batchID, mrp, stockID);
+            dataRow = DBInterface.SelectFirstRow(strSql);
+            return dataRow;
+        }
+
+        public DataRow GetRecordByProductIDAndPurchaseIdAndStockID(int ProductID, string stockID, string purchaseId)
+        {
+            DataRow dataRow = null;
+            string strSql = string.Format("Select * from tblstock where ProductID = '{0}' AND StockID = '{1}' AND PurchaseId= '{2}'", ProductID, stockID, purchaseId);
             dataRow = DBInterface.SelectFirstRow(strSql);
             return dataRow;
         }

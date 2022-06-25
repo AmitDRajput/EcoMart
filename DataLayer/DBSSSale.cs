@@ -1525,7 +1525,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("AmountBalance", balamt);
             objQuery.AddToQuery("DoctorID", docId);
             objQuery.AddToQuery("DoctorShortName", docshortname);
-            objQuery.AddToQuery("DoctorAddress", docAddress);
+            //objQuery.AddToQuery("DoctorAddress", docAddress);
             objQuery.AddToQuery("Telephone", telephone);
             objQuery.AddToQuery("AddOnFreight", addon);
             objQuery.AddToQuery("VoucherSubType", vousubtype);
@@ -1540,7 +1540,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("PatientAddress1", patientaddress1);
             objQuery.AddToQuery("PatientAddress2", patientaddress2);
             objQuery.AddToQuery("PatientShortName", patientshortname);
-            objQuery.AddToQuery("PatientShortAddress", patientShortAddress);
+            //objQuery.AddToQuery("PatientShortAddress", patientShortAddress);
             objQuery.AddToQuery("AmountForZeroVAT", amountforzerovat);
             objQuery.AddToQuery("OperatorID", operatorid);
             objQuery.AddToQuery("AmountVAT12Point5Per", AmountVat12);

@@ -168,7 +168,7 @@ namespace EcoMart.DataLayer
         {
             Query objQuery = new Query();
             objQuery.Table = "vouchercreditdebitnote";
-            objQuery.AddToQuery("CRDBID", crdbid, true);
+            objQuery.AddToQuery("Id", crdbid, true);
             objQuery.AddToQuery("AmountClear", mamtnet);
             objQuery.AddToQuery("ClearedInVoucherType", voutype);
             objQuery.AddToQuery("ClearedInVoucherNumber", vounumber);

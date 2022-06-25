@@ -45,6 +45,7 @@ namespace EcoMart.BusinessLayer
         private string _CreatedUserId;
         private string _ModifyDate;
         private string _ModifyUserId;
+        private int _PurchaseId;
         #endregion
 
         #region Properties
@@ -278,6 +279,13 @@ namespace EcoMart.BusinessLayer
             get { return this._PurchaseReplacementStock; }
             set { this._PurchaseReplacementStock = value; }
         }
+
+        public int PurchaseId
+        {
+            get { return this._PurchaseId; }
+            set { this._PurchaseId = value; }
+        }
+
         #endregion
 
         #region Internal Methods
@@ -317,6 +325,7 @@ namespace EcoMart.BusinessLayer
             _CreatedUserId = "";
             _ModifyDate = "";
             _ModifyUserId = "";
+            _PurchaseId = 0;
         }
 
         public override void DoValidate()
@@ -379,6 +388,8 @@ namespace EcoMart.BusinessLayer
                     ValidationMessages.Add("Please enter the  LastPurchaseVoucherNumber");
                 if (ScanCode == "")
                     ValidationMessages.Add("Please enter the  ScanCode");
+                if (PurchaseId == 0)
+                    ValidationMessages.Add("Please enter the  PurchaseId");
             }
             catch (Exception Ex)
             {
@@ -496,7 +507,9 @@ namespace EcoMart.BusinessLayer
                     if (drow["ModifiedDate"] != DBNull.Value)
                         ModifyDate = Convert.ToString(drow["ModifiedDate"]);
                     if (drow["ModifiedUserId"] != DBNull.Value)
-                        ModifyUserId = Convert.ToString(drow["ModifiedUserId"]);
+                        ModifyUserId = Convert.ToString(drow["ModifiedUserId"]); 
+                    if (drow["PurchaseId"] != DBNull.Value)
+                        ModifyUserId = Convert.ToString(drow["PurchaseId"]);
                 }
             }
             catch (Exception Ex)
@@ -522,13 +535,13 @@ namespace EcoMart.BusinessLayer
             {
                 Log.WriteException(Ex);
             }
-            return dbData.AddDetails(ProductID, BatchNumber, Expiry, ExpiryDate, TradeRate, PurchaseRate, MRP, SaleRate, OpeningStock, ClosingStock, PurchaseStock, TransferInStock, CreditNoteStock, SaleStock, TransferOutStock, DebitNoteStock, PurchaseSchemeStock, PurchaseReplacementStock, SaleSchemeStock, IfRateCorrection, ProductVATPercent, PurchaseVATPercent, ProdCST, CompanyId, LastPurchaseAccountId, LastPurchasePartyShortName, LastPurchaseBillNumber, LastPurchaseDate, LastPurchaseVoucherNumber, LastPurchaseVoucherType, ScanCode, CreatedDate, CreatedUserId, ModifyDate, ModifyUserId);
+            return dbData.AddDetails(ProductID, BatchNumber, Expiry, ExpiryDate, TradeRate, PurchaseRate, MRP, SaleRate, OpeningStock, ClosingStock, PurchaseStock, TransferInStock, CreditNoteStock, SaleStock, TransferOutStock, DebitNoteStock, PurchaseSchemeStock, PurchaseReplacementStock, SaleSchemeStock, IfRateCorrection, ProductVATPercent, PurchaseVATPercent, ProdCST, CompanyId, LastPurchaseAccountId, LastPurchasePartyShortName, LastPurchaseBillNumber, LastPurchaseDate, LastPurchaseVoucherNumber, LastPurchaseVoucherType, ScanCode, CreatedDate, CreatedUserId, ModifyDate, ModifyUserId, PurchaseId);
         }
 
         public bool UpdateDetails()
         {
             DBStock dbData = new DBStock();
-            return dbData.UpdateDetails(ProductID, BatchNumber, Expiry, ExpiryDate, TradeRate, PurchaseRate, MRP, SaleRate, OpeningStock, ClosingStock, PurchaseStock, TransferInStock, CreditNoteStock, SaleStock, TransferOutStock, DebitNoteStock, PurchaseSchemeStock, PurchaseReplacementStock, SaleSchemeStock, IfRateCorrection, ProductVATPercent, PurchaseVATPercent, ProdCST, CompanyId, LastPurchaseAccountId, LastPurchasePartyShortName, LastPurchaseBillNumber, LastPurchaseDate, LastPurchaseVoucherNumber, LastPurchaseVoucherType, ScanCode, CreatedDate, CreatedUserId, ModifyDate, ModifyUserId);
+            return dbData.UpdateDetails(ProductID, BatchNumber, Expiry, ExpiryDate, TradeRate, PurchaseRate, MRP, SaleRate, OpeningStock, ClosingStock, PurchaseStock, TransferInStock, CreditNoteStock, SaleStock, TransferOutStock, DebitNoteStock, PurchaseSchemeStock, PurchaseReplacementStock, SaleSchemeStock, IfRateCorrection, ProductVATPercent, PurchaseVATPercent, ProdCST, CompanyId, LastPurchaseAccountId, LastPurchasePartyShortName, LastPurchaseBillNumber, LastPurchaseDate, LastPurchaseVoucherNumber, LastPurchaseVoucherType, ScanCode, CreatedDate, CreatedUserId, ModifyDate, ModifyUserId, PurchaseId);
         }
 
         public bool DeleteDetails()
@@ -615,7 +628,8 @@ namespace EcoMart.BusinessLayer
                         ModifyDate = Convert.ToString(drow["ModifiedDate"]);
                     if (drow["ModifiedUserId"] != DBNull.Value)
                         ModifyUserId = Convert.ToString(drow["ModifiedUserId"]);
-
+                    if (drow["PurchaseId"] != DBNull.Value)
+                        ModifyUserId = Convert.ToString(drow["PurchaseId"]);
                     retValue = true;
                 }
 
@@ -705,7 +719,8 @@ namespace EcoMart.BusinessLayer
                         ModifyDate = Convert.ToString(drow["ModifiedDate"]);
                     if (drow["ModifiedUserId"] != DBNull.Value)
                         ModifyUserId = Convert.ToString(drow["ModifiedUserId"]);
-
+                    if (drow["PurchaseId"] != DBNull.Value)
+                        ModifyUserId = Convert.ToString(drow["PurchaseId"]);
                     retValue = true;
                 }
 
