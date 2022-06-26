@@ -28,6 +28,12 @@ namespace EcoMart.Common.Classes
                 {
                     retValue = true;
                     retValue = CheckLicense(retValue);
+                     Thread thr = new Thread(dataSyncThread);
+
+                    thr.Name = "Syncthread";
+                    thr.Start();
+
+                    thr.IsBackground = true;
                 }                
                 if (retValue && IsFullLicense())
                    retValue = IsLicenseAssociated();
@@ -41,6 +47,29 @@ namespace EcoMart.Common.Classes
             return retValue;
         }
 
+         public void dataSyncThread()
+        {
+            try
+            {
+                if (NetworkInterface.GetIsNetworkAvailable())//check if internet connection is available
+                {
+                    AzureConnectionInfo connInfo = new AzureConnectionInfo();
+                    connInfo.Initialize();
+                    if (connInfo.IsDBConnected)
+                    {
+                        DataSync dbSync = new DataSync();
+                        dbSync.GetDataToSync();
+                    }
+                }
+                //MessageBox.Show("Completed thread is: {0}",
+                //                  Thread.CurrentThread.Name);
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+            }
+        }
+        
         private bool IsLicenseAssociated()
         {
             bool IsLicAssociated = false;
