@@ -41,4 +41,35 @@ namespace EcoMart.Common
             }
         }
     }
+    
+    public class AzureConnectionInfo
+    {
+        public AzureConnectionInfo()
+        {
+        }
+
+        public bool IsDBConnected
+        {
+            get { return AzureDBInterface.IsDbConnected; }
+        }
+
+        public void Initialize()
+        {
+            string connStr;
+            try
+            {
+                //connStr = "DSN=EcoMartConnector";
+                connStr = ConfigurationManager.ConnectionStrings["EcoMartAzureConnectionString"].ConnectionString;
+                connStr = EcoMartLicenseLib.Common.Decrypt(connStr);
+                AzureDBInterface.ConnectionString = connStr;
+                //MessageBox.Show("CONNECTION String: " + DBInterface.ConnectionString);
+                AzureDBInterface.Initialize();
+
+            }
+            catch (Exception ex)
+            {
+                Log.WriteError(ex.ToString());
+            }
+        }
+    }
 }
