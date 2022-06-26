@@ -176,7 +176,7 @@ namespace EcoMart.InterfaceLayer
                     datetimepickerTo.Focus();
                     retValue = true;
                 }
-              
+
                 if (keyPressed == Keys.Escape)
                 {
                     retValue = Exit();
@@ -448,7 +448,7 @@ namespace EcoMart.InterfaceLayer
             column.HeaderText = "Amount";
             column.DefaultCellStyle.Format = "N2";
             column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
-            column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;     
+            column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             column.Width = 100;
             mdgOrderSummary.Columns.Add(column);
         }
@@ -516,7 +516,7 @@ namespace EcoMart.InterfaceLayer
             column.HeaderText = "Amount";
             column.DefaultCellStyle.Format = "N2";
             column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
-            column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;     
+            column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             column.Width = 100;
             mdgOrderDetail.Columns.Add(column);
         }
@@ -617,7 +617,7 @@ namespace EcoMart.InterfaceLayer
 
         private void PrintData()
         {
-            
+
             try
             {
                 PrintFactory.SendReverseLineFeed(General.PrintSettings.SaleBillPrintSettingsPrePrintedPaper.GeneralSettings.ReverseLineFeed);
@@ -726,7 +726,7 @@ namespace EcoMart.InterfaceLayer
                             //double mamt = Convert.ToDouble(dr.Cells["Col_Amount"].Value.ToString());
                             //row = new PrintRow(mamt.ToString("#0.00"), PrintRowPixel, 700, fnt);
                             //PrintBill.Rows.Add(row);
-                        }                       
+                        }
 
                     }
                     PrintFooter(fnt);
@@ -738,10 +738,10 @@ namespace EcoMart.InterfaceLayer
                     _DailyPurchaseOrder.DSLFirstOrderNumber += 1;
 
                     PrintBill.Print_Bill(600, 400);
-                  
-                 //   PrintBill.Rows.Clear();
+
+                    //   PrintBill.Rows.Clear();
                     rowCollection = new List<DataGridViewRow>();
-                   
+
                 }
                 PrintFactory.SendLineFeed(General.PrintSettings.SaleBillPrintSettingsPrePrintedPaper.GeneralSettings.LineFeed);
             }
@@ -760,7 +760,7 @@ namespace EcoMart.InterfaceLayer
             List<int> Headerlist = new List<int>(2);
             try
             {
-                
+
                 PrintRowPixel = PrintRowPixel + 37;
 
                 Font mfnt = new Font("Arial", 8, FontStyle.Bold);
@@ -825,7 +825,7 @@ namespace EcoMart.InterfaceLayer
             Headerlist.Add(Rowcount);
             Headerlist.Add(PrintRowPixel);
             return Headerlist;
-            
+
         }
 
         private int PrintFooter(Font fnt)
@@ -842,7 +842,7 @@ namespace EcoMart.InterfaceLayer
                 row = new PrintRow("Drug Lic.No.: " + General.ShopDetail.ShopDLN, PrintRowPixel, 10, fnt);
                 PrintBill.Rows.Add(row);
 
-                row = new PrintRow("For: "+ General.ShopDetail.ShopName, PrintRowPixel, 370, fnt);
+                row = new PrintRow("For: " + General.ShopDetail.ShopName, PrintRowPixel, 370, fnt);
                 PrintBill.Rows.Add(row);
                 PrintRowPixel += 14;
                 row = new PrintRow(FixAccounts.DashLine60Normal, PrintRowPixel, 10, fnt);
@@ -853,7 +853,7 @@ namespace EcoMart.InterfaceLayer
             {
                 Log.WriteException(ex);
             }
-            
+
             return PrintRowPixel;
         }
 
@@ -1022,20 +1022,20 @@ namespace EcoMart.InterfaceLayer
             DBGetVouNumbers getno = new DBGetVouNumbers();
             try
             {
-                for (int index = 0; index <  rowCollectionmain.Count; index++)
+                for (int index = 0; index < rowCollectionmain.Count; index++)
                 {
                     rowCollection = new List<DataGridViewRow>();
-                  
+
                     int mordno = 0;
                     int mmqty = 0;
-                 
+
                     string mmaccid = "";
                     string mmordid = "";
                     string preaccountid = "";
                     double mmpurrate = 0;
                     double mmamt = 0;
                     int mmscmqty = 0;
-                   
+
                     preaccountid = rowCollectionmain[index].Cells["Col_ACCID"].Value.ToString().Trim();
                     mordno = getno.GetPurchaseOrder(General.ShopDetail.ShopVoucherSeries);
                     if (_DailyPurchaseOrder.DSLFirstOrderNumber == 0)
@@ -1047,24 +1047,20 @@ namespace EcoMart.InterfaceLayer
                     mmamt = 0;
                     mmaccid = "";
                     mmordid = "";
-                 
-                    _DailyPurchaseOrder.DSLMasterID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                    _DailyPurchaseOrder.DSLAmount = 0;
 
+                    //_DailyPurchaseOrder.DSLMasterID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                    _DailyPurchaseOrder.DSLAmount = 0;
 
                     preaccountid = rowCollectionmain[index].Cells["Col_ACCID"].Value.ToString().Trim();
                     foreach (DataGridViewRow dr in rowCollectionmain)
                     {
                         mmaccid = dr.Cells["Col_ACCID"].Value.ToString().Trim();
-                     
+
                         if (preaccountid == mmaccid)
                         {
                             index++;
                             rowCollection.Add(dr);
                         }
-                       
-
-
                     }
                     foreach (DataGridViewRow ddsr in rowCollection)
                     {
@@ -1079,7 +1075,7 @@ namespace EcoMart.InterfaceLayer
                         mmamt = mmqty * mmpurrate;
 
 
-                        _DailyPurchaseOrder.DSLID = mmordid;
+                        // _DailyPurchaseOrder.DSLID = mmordid;
                         _DailyPurchaseOrder.DSLOrderNumber = mordno;
                         _DailyPurchaseOrder.DSLAccountID = mmaccid;
                         _DailyPurchaseOrder.DSLQty = mmqty;
@@ -1091,27 +1087,26 @@ namespace EcoMart.InterfaceLayer
                         _DailyPurchaseOrder.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
                         _DailyPurchaseOrder.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
                         if (mmordid == "0")
-                        {  
-
+                        {
                             _DailyPurchaseOrder.DSLID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                             _DailyPurchaseOrder.DSLProductID = Convert.ToInt32(ddsr.Cells["Col_ProdID"].Value);
-                            returnVal = _DailyPurchaseOrder.CreateOrderForToday();
+                            int id = _DailyPurchaseOrder.CreateOrderForToday();
+                            _DailyPurchaseOrder.DSLID = id.ToString();
+                            returnVal = id > 0;
                         }
                         else
-                        returnVal = _DailyPurchaseOrder.CreateOrder();
+                            returnVal = _DailyPurchaseOrder.CreateOrder();
                     }
 
                     if (rowCollection.Count > 0)
                     {
-                        returnVal = _DailyPurchaseOrder.AddDetails();
+                        int id = _DailyPurchaseOrder.AddDetails();
+                        _DailyPurchaseOrder.DSLMasterID = id.ToString();
+                        returnVal = id > 0;
                         index--;
                     }
-
-
                 }
-
             }
-
             catch (Exception ex)
             {
                 Log.WriteError(ex.ToString());
@@ -1284,6 +1279,6 @@ namespace EcoMart.InterfaceLayer
         }
         #endregion Events
 
-       
+
     }
 }

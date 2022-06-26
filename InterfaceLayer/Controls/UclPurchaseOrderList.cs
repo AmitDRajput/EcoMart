@@ -1191,7 +1191,7 @@ namespace EcoMart.InterfaceLayer
                     mmordid = "";
                     mmprodID = 0;
 
-                    _DailyPurchaseOrder.DSLMasterID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                    //_DailyPurchaseOrder.DSLMasterID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                     _DailyPurchaseOrder.DSLAmount = 0;
 
 
@@ -1216,13 +1216,13 @@ namespace EcoMart.InterfaceLayer
                         mmaccid = ddsr.Cells["Col_ACCID"].Value.ToString();
                         mmprodID = Convert.ToInt32(ddsr.Cells["Col_ProdID"].Value.ToString());
                         netrate = ddsr.Cells["Col_NetRate"].Value.ToString();
-                        mmordid = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                        //mmordid = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         if (ddsr.Cells["Col_PurchaseRate"].Value != null)
                             double.TryParse(ddsr.Cells["Col_PurchaseRate"].Value.ToString(), out mmpurrate);
                         mmamt = mmqty * mmpurrate;
 
 
-                        _DailyPurchaseOrder.DSLID = mmordid;
+                        //_DailyPurchaseOrder.DSLID = mmordid;
                         _DailyPurchaseOrder.DSLOrderNumber = mordno;
                         _DailyPurchaseOrder.DSLAccountID = mmaccid;
                         _DailyPurchaseOrder.DSLProductID = mmprodID;
@@ -1235,14 +1235,16 @@ namespace EcoMart.InterfaceLayer
                         _DailyPurchaseOrder.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
                         _DailyPurchaseOrder.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
                         _DailyPurchaseOrder.netrate = netrate;
-                        returnVal = _DailyPurchaseOrder.CreateOrderForToday();
-
-
+                        int id = _DailyPurchaseOrder.CreateOrderForToday();
+                        _DailyPurchaseOrder.DSLID = id.ToString();
+                        returnVal = id > 0;
                     }
 
                     if (rowCollection.Count > 0)
                     {
-                        returnVal = _DailyPurchaseOrder.AddDetails();
+                        int id = _DailyPurchaseOrder.AddDetails();
+                        _DailyPurchaseOrder.DSLMasterID = id.ToString();
+                        returnVal = id > 0;
                         index--;
                     }
 

@@ -259,16 +259,15 @@ namespace EcoMart.BusinessLayer
           
         }
 
-        public bool CreateOrderForToday()
+        public int CreateOrderForToday()
         {
             DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
-            // return dpo.CreateOrder(DSLID, DSLAccountID, DSLQty, DSLIFSave,DSLOrderNumber,EndDay,DSLDailyShortList,DSLPurchaseRate, DSLMasterID, CreatedBy,CreatedDate,CreatedTime);
-            return dpo.CreateOrderForToday(DSLID, DSLAccountID, DSLQty, DSLIFSave, DSLOrderNumber, EndDay, DSLDailyShortList, DSLPurchaseRate, DSLMasterID, DSLProductID.ToString(), DSLSchemeQuantity, CreatedBy, CreatedDate, CreatedTime, netrate);
+            return dpo.CreateOrderForToday(DSLAccountID, DSLQty, DSLIFSave, DSLOrderNumber, EndDay, DSLDailyShortList, DSLPurchaseRate, DSLMasterID, DSLProductID.ToString(), DSLSchemeQuantity, CreatedBy, CreatedDate, CreatedTime, netrate);
         }
-        public bool AddDetails()
+        public int AddDetails()
         {
             DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
-            return dpo.AddDetails(DSLMasterID,General.ShopDetail.ShopVoucherSeries,DSLVoucherType, DSLOrderNumber, EndDay, DSLAccountID,  DSLAmount, CreatedBy, CreatedDate, CreatedTime);
+            return dpo.AddDetails(General.ShopDetail.ShopVoucherSeries,DSLVoucherType, DSLOrderNumber, EndDay, DSLAccountID,  DSLAmount, CreatedBy, CreatedDate, CreatedTime);
         }
         #endregion Properties
 

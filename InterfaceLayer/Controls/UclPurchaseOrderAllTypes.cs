@@ -67,7 +67,7 @@ namespace EcoMart.InterfaceLayer
                 ClearData();
                 lblFooterMessage.Text = "Press TAB To See PurchaseDetails and Press Enter to Select Party or Press Escape";
                 headerLabel1.Text = "DAILY PURCHASE ORDER -> NEW";
-              //  pnlDate.Enabled = true;
+                //  pnlDate.Enabled = true;
                 pnlSummary.SendToBack();
                 pnlSummary.Visible = false;
                 mpMainSubViewControl1.ClearSelection();
@@ -180,7 +180,7 @@ namespace EcoMart.InterfaceLayer
                 }
                 if (keyPressed == Keys.O && modifier == Keys.Alt)
                 {
-                 //   btnCreateOrder.Focus();
+                    //   btnCreateOrder.Focus();
                     retValue = true;
                 }
                 if (keyPressed == Keys.V && modifier == Keys.Alt)
@@ -230,7 +230,7 @@ namespace EcoMart.InterfaceLayer
                 if (retValue == false)
                 {
                     retValue = base.HandleShortcutAction(keyPressed, modifier);
-                }               
+                }
             }
             catch (Exception Ex)
             {
@@ -322,8 +322,8 @@ namespace EcoMart.InterfaceLayer
             column.Width = 40;
             column.ReadOnly = true;
             mpMainSubViewControl1.ColumnsMain.Add(column);
-                                
-                            
+
+
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_ShortListID";
             //    column.DataPropertyName = "DSLID";
@@ -338,7 +338,7 @@ namespace EcoMart.InterfaceLayer
             column.Visible = false;
             mpMainSubViewControl1.ColumnsMain.Add(column);
 
-            
+
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_UOM";
@@ -490,7 +490,7 @@ namespace EcoMart.InterfaceLayer
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_SchemeQuantity";
             column.DataPropertyName = "SchemeQuantity";
-           column.HeaderText = "Scm Qty";
+            column.HeaderText = "Scm Qty";
             column.Width = 70;
             column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             mpMainSubViewControl1.ColumnsMain.Add(column);
@@ -608,7 +608,7 @@ namespace EcoMart.InterfaceLayer
             column.Name = "Col_ProdName";
             column.DataPropertyName = "ProdName";
             column.HeaderText = "Product";
-          //  column.Width = 200;
+            //  column.Width = 200;
             column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             mdgOrderDetail.Columns.Add(column);
 
@@ -687,7 +687,7 @@ namespace EcoMart.InterfaceLayer
                 Account acc = new Account();
                 DataTable dt = acc.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
                 mpMainSubViewControl1.DataSource = dt;
-                              
+
             }
             catch (Exception Ex)
             {
@@ -899,7 +899,7 @@ namespace EcoMart.InterfaceLayer
             {
                 Font mfnt = new Font("Arial", 8, FontStyle.Bold);
                 PrintRowPixel = PrintRowPixel + 37;
-                
+
                 Font mfnt1 = new Font("Arial", 9, FontStyle.Bold);
                 row = new PrintRow(General.ShopDetail.ShopName.ToUpper(), PrintRowPixel, 10, mfnt1);
                 PrintBill.Rows.Add(row);
@@ -1076,7 +1076,7 @@ namespace EcoMart.InterfaceLayer
                     preaccountid = dr.Cells["Col_ACCID"].Value.ToString().Trim();
                     int.TryParse(dr.Cells["Col_Quantity"].Value.ToString(), out mqty);
                     int.TryParse(dr.Cells["Col_SchemeQuantity"].Value.ToString(), out mscmqty);
-                                       
+
                     if (preaccountid != "" && mqty > 0 && mmordno == 0)
                     {
                         rowCollectionmain.Add(dr);
@@ -1202,9 +1202,9 @@ namespace EcoMart.InterfaceLayer
         //}
         public void FixsizeOrdersummery()
         {
-            mdgOrderDetail.Columns[0].Width =2;
-            mdgOrderDetail.Columns[1].Width =200;
-            mdgOrderDetail.Columns[2].Width =70;
+            mdgOrderDetail.Columns[0].Width = 2;
+            mdgOrderDetail.Columns[1].Width = 200;
+            mdgOrderDetail.Columns[2].Width = 70;
             mdgOrderDetail.Columns[3].Width = 70;
             mdgOrderDetail.Columns[4].Width = 70;
             mdgOrderDetail.Columns[5].Width = 70;
@@ -1311,7 +1311,7 @@ namespace EcoMart.InterfaceLayer
                     mmordid = "";
                     mmprodID = 0;
 
-                    _DailyPurchaseOrder.DSLMasterID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                    //_DailyPurchaseOrder.DSLMasterID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                     _DailyPurchaseOrder.DSLAmount = 0;
 
 
@@ -1336,13 +1336,13 @@ namespace EcoMart.InterfaceLayer
                         mmaccid = ddsr.Cells["Col_ACCID"].Value.ToString();
                         mmprodID = Convert.ToInt32(ddsr.Cells["Col_ProdID"].Value.ToString());
                         netrate = ddsr.Cells["Col_NetRate"].Value.ToString();
-                        mmordid = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                        //mmordid = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         if (ddsr.Cells["Col_PurchaseRate"].Value != null)
                             double.TryParse(ddsr.Cells["Col_PurchaseRate"].Value.ToString(), out mmpurrate);
                         mmamt = mmqty * mmpurrate;
 
 
-                        _DailyPurchaseOrder.DSLID = mmordid;
+                        //_DailyPurchaseOrder.DSLID = mmordid;
                         _DailyPurchaseOrder.DSLOrderNumber = mordno;
                         _DailyPurchaseOrder.DSLAccountID = mmaccid;
                         _DailyPurchaseOrder.DSLProductID = mmprodID;
@@ -1355,22 +1355,20 @@ namespace EcoMart.InterfaceLayer
                         _DailyPurchaseOrder.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
                         _DailyPurchaseOrder.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
                         _DailyPurchaseOrder.netrate = netrate;
-                        returnVal = _DailyPurchaseOrder.CreateOrderForToday();
-
-
+                        int id = _DailyPurchaseOrder.CreateOrderForToday();
+                        _DailyPurchaseOrder.DSLID = id.ToString();
+                        returnVal = id > 0;
                     }
 
                     if (rowCollection.Count > 0)
                     {
-                        returnVal = _DailyPurchaseOrder.AddDetails();
+                        int id = _DailyPurchaseOrder.AddDetails();
+                        _DailyPurchaseOrder.DSLMasterID = id.ToString();
+                        returnVal = id > 0;
                         index--;
                     }
-
-
                 }
-
             }
-
             catch (Exception ex)
             {
                 Log.WriteError(ex.ToString());
@@ -1440,7 +1438,7 @@ namespace EcoMart.InterfaceLayer
             sizefix();
 
         }
-        
+
         public void sortcolumn()
         {
             mpMainSubViewControl1.dgMainGrid.Columns["Col_ProductName"].SortMode = DataGridViewColumnSortMode.Automatic;
@@ -1579,7 +1577,7 @@ namespace EcoMart.InterfaceLayer
         {
             //mpMainSubViewControl1.Rows.Clear();
             bool retValue = true;
-          //  ConstructMainColumns();
+            //  ConstructMainColumns();
             int rowindex = 0;
             int tempSrNo = 1;
             double mamt = 0;
@@ -1596,7 +1594,7 @@ namespace EcoMart.InterfaceLayer
                     mprate = 0;
                     mqty = 0;
                     decimal orderqty = 0;
-                    decimal  unit = 0;
+                    decimal unit = 0;
                     found = false;
                     if (dr["ProductID"] != DBNull.Value)
                     {
@@ -1646,7 +1644,7 @@ namespace EcoMart.InterfaceLayer
                         {
                             try
                             {
-                               
+
                                 rowindex = mpMainSubViewControl1.Rows.Add();
                                 unit = 0;
                                 orderqty = 0;
@@ -1656,14 +1654,14 @@ namespace EcoMart.InterfaceLayer
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_ProdID"].Value = dr["ProductID"].ToString();
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_ProductName"].Value = dr["ProdName"].ToString();
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_UOM"].Value = dr["ProdLoosePack"].ToString();
-                                unit = Convert.ToDecimal  (dr["ProdLoosePack"].ToString());
+                                unit = Convert.ToDecimal(dr["ProdLoosePack"].ToString());
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_Pack"].Value = dr["ProdPack"].ToString();
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_ProdCompShortName"].Value = dr["ProdCompShortName"].ToString();
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_BoxQty"].Value = dr["ProdBoxQuantity"].ToString();
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_ClosingStock"].Value = Convert.ToInt32(dr["ProdClosingStock"].ToString());
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_PurchaseRate"].Value = dr["ProdLastPurchaseRate"].ToString();
-                                orderqty = Convert.ToDecimal (dr["Quantity"].ToString());
-                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_Quantity"].Value = Math.Round(orderqty/unit);
+                                orderqty = Convert.ToDecimal(dr["Quantity"].ToString());
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_Quantity"].Value = Math.Round(orderqty / unit);
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_SchemeQuantity"].Value = 0;
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_NetRate"].Value = "N";
                                 if (dr["ProdLastPurchaseRate"] != DBNull.Value)
@@ -1683,9 +1681,9 @@ namespace EcoMart.InterfaceLayer
                                 else if (mselection == 4)
                                     mpMainSubViewControl1.Rows[rowindex].DefaultCellStyle.BackColor = rbtLastOrderRemainingProducts.BackColor;
                                 tempSrNo += 1;
-                                                              
-                               
-                              }
+
+
+                            }
                             catch (Exception Ex)
                             {
                                 Log.WriteException(Ex);
@@ -1747,7 +1745,7 @@ namespace EcoMart.InterfaceLayer
                                         if (dr["OrderQuantity"] != DBNull.Value)
                                             mqty = Convert.ToDouble(dr["OrderQuantity"].ToString());
                                         mamt = mprate * mqty;
-                                    //    drr.Cells["Col_Amount"].Value = mamt.ToString("#0.00");
+                                        //    drr.Cells["Col_Amount"].Value = mamt.ToString("#0.00");
                                         drr.DefaultCellStyle.BackColor = Color.LightBlue;
                                         break;
                                     }
@@ -2128,13 +2126,13 @@ namespace EcoMart.InterfaceLayer
                     ToDateShortList.Focus();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString()); 
+                MessageBox.Show(ex.ToString());
             }
 
-           
-            }
+
+        }
 
         private void ToDateShortList_KeyDown(object sender, KeyEventArgs e)
         {
@@ -2209,7 +2207,7 @@ namespace EcoMart.InterfaceLayer
             {
                 switch (e.KeyCode)
                 {
-                    case Keys.Enter:                       
+                    case Keys.Enter:
                         rbtLastOrderAllProducts.Focus();
                         break;
                     case Keys.Down:
@@ -2219,7 +2217,7 @@ namespace EcoMart.InterfaceLayer
                         psRadioButton2.Focus();
                         break;
                 }
-            
+
             }
             catch (Exception ex)
             {
@@ -2284,13 +2282,13 @@ namespace EcoMart.InterfaceLayer
                 switch (e.KeyCode)
                 {
                     case Keys.Enter:
-                        rbtMinMax .Focus();
+                        rbtMinMax.Focus();
                         break;
                     case Keys.Down:
-                        rbtExpiry .Focus();
+                        rbtExpiry.Focus();
                         break;
                     case Keys.Up:
-                        psRadioButton1 .Focus();
+                        psRadioButton1.Focus();
                         break;
 
                 }
@@ -2426,7 +2424,7 @@ namespace EcoMart.InterfaceLayer
         {
             try
             {
-               switch (e.KeyCode)
+                switch (e.KeyCode)
                 {
                     case Keys.Enter:
                         //GetLastSale();
@@ -2461,22 +2459,22 @@ namespace EcoMart.InterfaceLayer
             //  mpMainSubViewControl.ColumnsMain["Col_Sale"].ReadOnly = false;
             //if (txtSaleDays.Text != null && txtSaleDays.Text.ToString() != string.Empty)
             //{
-                foreach (DataGridViewRow dr in mpMainSubViewControl1.Rows)
-                {
-                    mprod = string.Empty;
+            foreach (DataGridViewRow dr in mpMainSubViewControl1.Rows)
+            {
+                mprod = string.Empty;
                 //string fromdate = "";
                 //string Todate = "";
                 //fromdate = FromDateSaleToday.Date.ToString("yyyyMMdd");
                 //Todate = ToDateSaleToday.Date.ToString("yyyyMMdd");
                 lastsoldstock = 0;
-                    if (dr.Cells["Col_ProdID"].Value != null)
-                        mprod = dr.Cells["Col_ProdID"].Value.ToString();
+                if (dr.Cells["Col_ProdID"].Value != null)
+                    mprod = dr.Cells["Col_ProdID"].Value.ToString();
                 if (mprod != string.Empty)
-                    lastsoldstock = _PurchaseOrder.GetRecoverQuantity(mprod, FromDateSaleToday.Value .ToString ("yyyyMMdd"), ToDateSaleToday.Value .ToString ("yyyyMMdd"));
+                    lastsoldstock = _PurchaseOrder.GetRecoverQuantity(mprod, FromDateSaleToday.Value.ToString("yyyyMMdd"), ToDateSaleToday.Value.ToString("yyyyMMdd"));
                 //lastsoldqty = _PurchaseOrder.GetSaleDataForLastSoldDays(mprod, lastdate);
                 dr.Cells["Col_Quantity"].Value = lastsoldstock.ToString("#0");
 
-                }
+            }
 
             //}
         }
@@ -2492,7 +2490,7 @@ namespace EcoMart.InterfaceLayer
             //   DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)mpMainSubViewControl1.Rows[colIndex].Cells["Col_NetRate"];
             //    if (cell!= null )
             //    {
-                    
+
             //    }
             //}
             //catch(Exception ex)
@@ -2500,7 +2498,7 @@ namespace EcoMart.InterfaceLayer
             //    MessageBox.Show(ex.ToString());
             //}
         }
-     
+
         private void mdgOrderSummary_SelectedRowChanged_1(object sender, EventArgs e)
         {
             try
@@ -2562,5 +2560,15 @@ namespace EcoMart.InterfaceLayer
             //}
         }
 
+        private void UclPurchaseOrderAllTypes_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.HasChildren && this.Visible)
+            {
+                btnGoClick();
+                InitializeMainSubViewControl();
+                sortcolumn();
+                sizefix();
+            }
+        }
     }
 }

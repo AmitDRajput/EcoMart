@@ -1013,14 +1013,16 @@ namespace EcoMart.InterfaceLayer
                         _DailyPurchaseOrder.CreatedBy = General.CurrentUser.Id;
                         _DailyPurchaseOrder.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
                         _DailyPurchaseOrder.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
-                        returnVal = _DailyPurchaseOrder.CreateOrderForToday();
-
-
+                        int id = _DailyPurchaseOrder.CreateOrderForToday();
+                        _DailyPurchaseOrder.DSLID = id.ToString();
+                        returnVal = id > 0;
                     }
 
                     if (rowCollection.Count > 0)
                     {
-                        returnVal = _DailyPurchaseOrder.AddDetails();
+                        int id = _DailyPurchaseOrder.AddDetails();
+                        _DailyPurchaseOrder.DSLMasterID = id.ToString();
+                        returnVal = id > 0;
                         index--;
                     }
 
@@ -1356,7 +1358,7 @@ namespace EcoMart.InterfaceLayer
                 dgvBatchGrid.Visible = false;
                 mpMainSubViewControl1.Focus();
             }
-        }      
-         
+        }
+
     }
 }
