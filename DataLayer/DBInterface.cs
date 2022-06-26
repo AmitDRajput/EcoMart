@@ -429,4 +429,333 @@ namespace EcoMart.DataLayer
         #endregion Private Method(s)
     }
     
+     internal static class AzureDBInterface
+    {
+        #region Declaration
+        private static string _ConnectionString;
+        private static bool _IsDbConnected;
+
+        //private static MySqlCommand _Command;
+        private static SqlConnection _Connection;
+        //private static DbProviderFactory _DBFactory;
+        private static SqlTransaction _Transaction = null;
+        #endregion 
+
+        #region Property(s)
+        internal static string ConnectionString
+        {
+            get { return _ConnectionString; }
+            set { _ConnectionString = value; }
+        }
+
+
+
+        internal static bool IsDbConnected
+        {
+            get { return _IsDbConnected; }
+        }
+        #endregion Property(s)
+
+        #region Internal Method(s)
+        internal static void Initialize()
+        {
+            //  string strProviderString = "";
+            try
+            {
+                _IsDbConnected = false;
+                if (ConnectionString.Length > 0)
+                {
+                    //strProviderString = GetProviderString();
+                    //_DBFactory = DbProviderFactories.GetFactory(strProviderString);
+                    _Connection = new SqlConnection(ConnectionString);
+                    //_Connection.ConnectionString = ConnectionString;
+                    //MySqlCommand _Command = new MySqlCommand();
+                    //_Command.Connection = _Connection;
+                    //_Command.Transaction = _Transaction;
+                    OpenConnection();
+                    _IsDbConnected = true;
+                    CloseConnection();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == "No such host is known")
+                    Log.WriteInfo("Unable to connect to Ecomart for live product updates");
+
+                Log.WriteException(ex);
+                _IsDbConnected = false;
+                CloseConnection();
+            }
+        }
+
+        internal static DataSet SelectDataSet(string strQuery)
+        {
+            DataSet dataSet = null;
+            SqlDataAdapter adapter;
+
+            try
+            {
+                if (IsDbConnected)
+                {
+                    dataSet = new DataSet();
+                    //  dataSet = null;
+                    adapter = new SqlDataAdapter();
+
+                    SqlCommand _Command = new SqlCommand();
+                    _Command.CommandText = strQuery;
+
+                    OpenConnection();
+
+                    _Command.Connection = _Connection;
+                    _Command.Transaction = _Transaction;
+                    adapter.SelectCommand = _Command;
+
+                    // ss 12/5/2014
+                    if (dataSet != null && dataSet.ToString().Trim() != string.Empty && dataSet.ToString() != "")
+                        adapter.Fill(dataSet);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+                dataSet = null;
+                CloseConnection();
+            }
+            return dataSet;
+        }
+
+        internal static DataTable SelectDataTable(string strQuery)
+        {
+            DataSet dataSet = null;
+            DataTable table = null;
+            try
+            {
+                dataSet = SelectDataSet(strQuery);
+                // ss 12/5/2014
+                if (dataSet != null && dataSet.Tables.Count > 0)
+                    table = dataSet.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                Log.WriteError("DBInterface.SelectDataTable>> " + ex.Message);
+            }
+            return table;
+        }
+
+        internal static DataRow SelectFirstRow(string strQuery)
+        {
+            DataSet dataSet = null;
+            DataRow dataRow = null;
+            try
+            {
+                dataSet = SelectDataSet(strQuery);
+                // ss 12/11/2013 check for null
+                if (dataSet != null && dataSet.Tables.Count > 0)
+                {
+                    if (dataSet.Tables[0].Rows.Count > 0)
+                        dataRow = dataSet.Tables[0].Rows[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteError("DBInterface.SelectFirstRow >> " + ex.Message);
+            }
+            return dataRow;
+        }
+        internal static string GetSingleFieldData(string strQuery)
+        {
+            DataSet dataSet = null;
+            DataRow dataRow = null;
+            string dataStr = string.Empty;
+            try
+            {
+                dataSet = SelectDataSet(strQuery);
+                // ss 12/11/2013 check for null
+                if (dataSet != null && dataSet.Tables.Count > 0)
+                {
+                    if (dataSet.Tables[0].Rows.Count > 0)
+                        dataRow = dataSet.Tables[0].Rows[0];
+                }
+                if (dataRow != null && dataRow.Table.Columns.Count == 1)
+                    dataStr = Convert.ToString(dataRow[0]);
+                else dataStr = "No Rec Found";
+            }
+            catch (Exception ex)
+            {
+                Log.WriteError("DBInterface.GetSingleFieldData >> " + ex.Message);
+            }
+            return dataStr;
+        }
+        internal static int ExecuteQuery(string strSql)
+        {
+            int iReturnValue = 0;
+            try
+            {
+                if (IsDbConnected)
+                {
+                    SqlCommand _Command = new SqlCommand();
+                    _Command.CommandText = strSql;
+                    _Command.CommandTimeout = 60;
+                    OpenConnection();
+
+                    _Command.Connection = _Connection;
+                    _Command.Transaction = _Transaction;
+                    iReturnValue = _Command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+                //CloseConnection();
+            }
+            return iReturnValue;
+        }
+        internal static int ExecuteScalar(string strSql)
+        {
+            int iReturnValue = 0;
+            try
+            {
+                if (IsDbConnected)
+                {
+                    SqlCommand _Command = new SqlCommand();
+                    _Command.CommandText = strSql;
+                    _Command.CommandTimeout = 60;
+                    OpenConnection();
+
+                    _Command.Connection = _Connection;
+                    _Command.Transaction = _Transaction;
+                    iReturnValue = Convert.ToInt32(_Command.ExecuteScalar());
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+                //CloseConnection();
+            }
+            return iReturnValue;
+        }
+
+
+        internal static void BeginTransaction()
+        {
+            try
+            {
+                if (_Connection != null)
+                {
+                    _Transaction = _Connection.BeginTransaction();
+                }
+                else
+                {
+                    MessageBox.Show("DataBase Not Connected", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    General.DisposeConnection();
+                    Environment.Exit(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+                RollbackTransaction();
+            }
+        }
+
+        internal static void CommitTransaction()
+        {
+            try
+            {
+                if (_Connection != null)
+                {
+                    if (_Transaction != null)
+                    {
+                        _Transaction.Commit();
+                        _Transaction = null;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("DataBase Not Connected", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    General.DisposeConnection();
+                    Environment.Exit(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+                //RollbackTransaction();
+            }
+        }
+
+        internal static void RollbackTransaction()
+        {
+            try
+            {
+                if (_Connection.State == ConnectionState.Closed)
+                    _Connection.Open();
+                if (_Connection != null && _Transaction != null)
+                {
+                    _Transaction.Rollback();
+                    _Transaction = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+            }
+        }
+
+        internal static void ExecuteScriptFromFile(string FilePath)
+        {
+            try
+            {
+                string script = File.ReadAllText(FilePath);
+                // split script on GO command
+                IEnumerable<string> commandStrings = Regex.Split(script, @"^\s*GO\s*$",
+                RegexOptions.Multiline | RegexOptions.IgnoreCase);
+                _Connection.Open();
+                foreach (string commandString in commandStrings)
+                {
+                    if (commandString.Trim() != "")
+                    {
+                        using (var command = new SqlCommand(commandString, _Connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                }
+                _Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+            }
+        }
+
+        public static void Dispose()
+        {
+            CloseConnection();
+            //_Command = null;
+            _Connection = null;
+        }
+        #endregion 
+
+        #region Private Method(s)
+        private static void OpenConnection()
+        {
+            if (_Connection.State == ConnectionState.Closed)
+                _Connection.Open();
+        }
+
+        private static void CloseConnection()
+        {
+            if (_Connection.State == ConnectionState.Open)
+                _Connection.Close();
+        }
+
+        //private static string GetProviderString()
+        //{            
+        //    string providerString = "System.Data.Odbc";
+        //    return providerString;
+        //}
+        #endregion Private Method(s)
+    }
+    
 }
