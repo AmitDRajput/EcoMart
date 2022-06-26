@@ -83,10 +83,17 @@ namespace EcoMart.InterfaceLayer
             dgvSearchList.Columns.Clear();
             try
             {
+                //DataGridViewTextBoxColumn column;
+                //column = new DataGridViewTextBoxColumn();
+                //column.Name = "Col_ID";
+                //column.DataPropertyName = "ID";
+                //column.HeaderText = "ID";
+                //column.Visible = false;
+                //dgvSearchList.Columns.Add(column);
                 DataGridViewTextBoxColumn column;
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_ID";
-                column.DataPropertyName = "ID";
+                column.DataPropertyName = "CBID";
                 column.HeaderText = "ID";
                 column.Visible = false;
                 dgvSearchList.Columns.Add(column);
@@ -143,7 +150,7 @@ namespace EcoMart.InterfaceLayer
         {
             try
             {
-                dgvSearchList.DateColumnNames.Add("Col_VoucherDate");
+               // dgvSearchList.DateColumnNames.Add("Col_VoucherDate");
                 dgvSearchList.DoubleColumnNames.Add("Col_Amount");
 
                 FillSearchGridData();

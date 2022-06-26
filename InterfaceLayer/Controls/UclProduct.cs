@@ -249,24 +249,25 @@ namespace EcoMart.InterfaceLayer
                 _Product.ProdBoxQty = Convert.ToInt32(txtBoxQty.Text.Trim());
             if (mcbGenericCategory.SeletedItem != null)
                 _Product.ProdGenericID = Convert.ToInt32(mcbGenericCategory.SeletedItem.Value.Trim());
-            if (mcbShelfCode.SelectedID != null)
+            
+            if (mcbShelfCode.SelectedID != "" && mcbShelfCode.SelectedID != null)
                 _Product.ProdShelfID = Convert.ToInt32(mcbShelfCode.SelectedID.Trim());
             if (mcbProductCategory.SelectedID != null)
                 _Product.ProdProductCategoryID = Convert.ToInt32(mcbProductCategory.SelectedID.Trim());
-            if (mcbFirstCreditor.SelectedID != null)
-                _Product.ProdCreditor1ID = Convert.ToInt32(mcbFirstCreditor.SelectedID.Trim());
-            if (mcbSecondCreditor.SelectedID != null)
-                _Product.ProdCreditor2ID = Convert.ToInt32(mcbSecondCreditor.SelectedID.Trim());
-            if (cbSchedule.SelectedItem != null)
-                _Product.ProdScheduleDrugCode = cbSchedule.SelectedItem.ToString();
-            _Product.ProdGrade = cbGrade.Text.Trim();
-            _Product.ProdIfAddOctroi = txtAddOctroi.Text.ToString();
-            _Product.ProdIfSaleDisc = txtSaleDiscount.Text.ToString();
-            _Product.ProdIfShortList = txtShowInShortList.Text.ToString();
-            _Product.ProdIfScheduledDrug = txtIfScheduledDrug.Text.ToString();
+            //if (mcbFirstCreditor.SelectedID != null)
+            //    _Product.ProdCreditor1ID = Convert.ToInt32(mcbFirstCreditor.SelectedID.Trim());
+            //if (mcbSecondCreditor.SelectedID != null)
+            //    _Product.ProdCreditor2ID = Convert.ToInt32(mcbSecondCreditor.SelectedID.Trim());
+            //if (cbSchedule.SelectedItem != null)
+            //    _Product.ProdScheduleDrugCode = cbSchedule.SelectedItem.ToString();
+            //_Product.ProdGrade = cbGrade.Text.Trim();
+            //_Product.ProdIfAddOctroi = txtAddOctroi.Text.ToString();
+            //_Product.ProdIfSaleDisc = txtSaleDiscount.Text.ToString();
+            //_Product.ProdIfShortList = txtShowInShortList.Text.ToString();
+            //_Product.ProdIfScheduledDrug = txtIfScheduledDrug.Text.ToString();
             _Product.ProdRequireColdStorage = txtRequireColdStorage.Text.ToString();
-            _Product.ProdIfBarCodeRequired = txtIfBarCodeRequired.Text.ToString();
-            _Product.ScannedBarcode = txtProductBarcode.Text.ToString();
+            //_Product.ProdIfBarCodeRequired = txtIfBarCodeRequired.Text.ToString();
+            //_Product.ScannedBarcode = txtProductBarcode.Text.ToString();
             _Product.HSNNumber = Convert.ToInt32(txtHSNNumber.Text.ToString());
             if (_Mode == OperationMode.Edit)
                 _Product.IFEdit = "Y";
@@ -300,14 +301,14 @@ namespace EcoMart.InterfaceLayer
                     _Product.CreatedBy = General.CurrentUser.Id;
                     _Product.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
                     _Product.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
-                    retValue = _Product.AddDetails();
+                    _Product.IntID  = _Product.AddDetails();
 
                     if (_Product.IfNewPack != "" && _Product.IfNewPack == "Y")
                         retValue = _Product.AddPack();
                     if (_Product.IfNewPackType != "" && _Product.IfNewPackType == "Y")
                         retValue = _Product.AddPackType();
 
-                    retValue = _Product.RemoveProductDrugLink();
+                    //retValue = _Product.RemoveProductDrugLink();
                     //SS
                     _Product.ProdLinkDrugId = _Product.GetIntID(); /* Guid.NewGuid().ToString().ToUpper().Replace("-", "");*/
                     if (_Product.ProdGenericID.ToString() != null && _Product.ProdGenericID.ToString() != string.Empty && _Product.ProdGenericID != 0)
@@ -318,7 +319,7 @@ namespace EcoMart.InterfaceLayer
                     _Product.IfNewPack = "N";
                     _Product.IfNewPackType = "N";
 
-                    AddInLinkPartyCompany();
+                    //AddInLinkPartyCompany();
 
                     MessageBox.Show("Product information has been saved successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _SavedID = _Product.Id;
@@ -334,13 +335,13 @@ namespace EcoMart.InterfaceLayer
                     _Product.ModifiedTime = DateTime.Now.ToString("HH:mm:ss");
                     retValue = _Product.UpdateDetails();
 
-                    retValue = _Product.RemoveProductDrugLink();
+                    //retValue = _Product.RemoveProductDrugLink();
                     //SS
                     _Product.ProdLinkDrugId = _Product.GetIntID(); /* Guid.NewGuid().ToString().ToUpper().Replace("-", "");*/
                     if (_Product.ProdGenericID.ToString () != null && _Product.ProdGenericID != 0)
                         retValue = _Product.SaveProductDrugLink();
                     // General.NotifyProductListRefill();
-                    AddInLinkPartyCompany();
+                    //AddInLinkPartyCompany();
                     MessageBox.Show("Product information has been updated successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _SavedID = _Product.Id;
                     //   ClearControls();
@@ -369,10 +370,10 @@ namespace EcoMart.InterfaceLayer
         private bool AddInLinkPartyCompany() // [ansuman- 13.04.2017]
         {
             List<PSComboBoxNew> Creditorlist = new List<PSComboBoxNew>();
-            Creditorlist.Add(mcbFirstCreditor);
-            Creditorlist.Add(mcbSecondCreditor);
-            Creditorlist.Add(mcbThirdCreditor);
-            Creditorlist.Add(mcbFourthCreditor);
+            //Creditorlist.Add(mcbFirstCreditor);
+            //Creditorlist.Add(mcbSecondCreditor);
+            //Creditorlist.Add(mcbThirdCreditor);
+            //Creditorlist.Add(mcbFourthCreditor);
 
             foreach (PSComboBoxNew items in Creditorlist)
             {
@@ -456,25 +457,25 @@ namespace EcoMart.InterfaceLayer
                 //txtCST.Text = _Product.ProdCST.ToString("#0.00");
                 mcbCompany.SelectedIntID  = Convert.ToInt32 ( _Product.ProdCompID);
                 //FillCompanyCombo();
-                FillCreditorList();  // [ansuman]
+                //FillCreditorList();  // [ansuman]
 
                 //mcbFirstCreditor.SelectedID = _Product.ProdCreditor1ID.Trim();  // [ansuman]
                 mcbGenericCategory.SelectedIntID = _Product.ProdGenericID;
                 mcbProductCategory.SelectedIntID = _Product.ProdProductCategoryID;
                 //mcbSecondCreditor.SelectedID = _Product.ProdCreditor2ID.Trim(); // [ansuman]
                 mcbShelfCode.SelectedIntID = _Product.ProdShelfID;
-                if (_Product.ProdScheduleDrugCode != null && _Product.ProdScheduleDrugCode.ToString() != string.Empty)
-                {
-                    cbSchedule.Text = _Product.ProdScheduleDrugCode;
-                    cbSchedule.SelectedIndex = cbSchedule.Items.IndexOf(_Product.ProdScheduleDrugCode);
-                }
-                cbGrade.Text = _Product.ProdGrade;
-                txtAddOctroi.Text = _Product.ProdIfAddOctroi.ToString();
-                txtSaleDiscount.Text = _Product.ProdIfSaleDisc.ToString();
-                txtShowInShortList.Text = _Product.ProdIfShortList;
-                txtIfScheduledDrug.Text = _Product.ProdIfScheduledDrug.ToString();
-                txtRequireColdStorage.Text = _Product.ProdRequireColdStorage.ToString();
-                txtProductBarcode.Text = _Product.ScannedBarcode.ToString();
+                //if (_Product.ProdScheduleDrugCode != null && _Product.ProdScheduleDrugCode.ToString() != string.Empty)
+                //{
+                //    cbSchedule.Text = _Product.ProdScheduleDrugCode;
+                //    cbSchedule.SelectedIndex = cbSchedule.Items.IndexOf(_Product.ProdScheduleDrugCode);
+                //}
+                //cbGrade.Text = _Product.ProdGrade;
+                //txtAddOctroi.Text = _Product.ProdIfAddOctroi.ToString();
+                //txtSaleDiscount.Text = _Product.ProdIfSaleDisc.ToString();
+                //txtShowInShortList.Text = _Product.ProdIfShortList;
+                //txtIfScheduledDrug.Text = _Product.ProdIfScheduledDrug.ToString();
+                //txtRequireColdStorage.Text = _Product.ProdRequireColdStorage.ToString();
+                //txtProductBarcode.Text = _Product.ScannedBarcode.ToString();
 
                 txtHSNNumber.Text = Convert.ToString(_Product.HSNNumber);
                 txtName.Focus();
@@ -500,15 +501,15 @@ namespace EcoMart.InterfaceLayer
                 FillShelfCombo();
             else if (closedControl is UclProdCategory)
                 FillProdCategoryCombo();
-            else if (closedControl is UclAccount)
-            {
-                FillFirstCreditorCombo();
-                FillSecondCreditorCombo();
-                FillThirdCreditorCombo();
-                FillFourthCreditorCombo();
-            }
+            //else if (closedControl is UclAccount)
+            //{
+            //    FillFirstCreditorCombo();
+            //    FillSecondCreditorCombo();
+            //    FillThirdCreditorCombo();
+            //    FillFourthCreditorCombo();
+            //}
 
-            FillScheduleDrugCombo();
+            //FillScheduleDrugCombo();
             //  FilltxtName();
             FillPack();
             FillPackType();
@@ -553,11 +554,11 @@ namespace EcoMart.InterfaceLayer
                 txtPack.Focus();
                 retValue = true;
             }
-            if (keyPressed == Keys.G && modifier == Keys.Alt)
-            {
-                cbGrade.Focus();
-                retValue = true;
-            }
+            //if (keyPressed == Keys.G && modifier == Keys.Alt)
+            //{
+            //    cbGrade.Focus();
+            //    retValue = true;
+            //}
             if (keyPressed == Keys.V && modifier == Keys.Alt)
             {
                 txtVAT.Focus();
@@ -568,11 +569,11 @@ namespace EcoMart.InterfaceLayer
             //    txtCST.Focus();
             //    retValue = true;
             //}
-            if (keyPressed == Keys.H && modifier == Keys.Alt)
-            {
-                cbSchedule.Focus();
-                retValue = true;
-            }
+            //if (keyPressed == Keys.H && modifier == Keys.Alt)
+            //{
+            //    cbSchedule.Focus();
+            //    retValue = true;
+            //}
             if (keyPressed == Keys.I && modifier == Keys.Alt)
             {
                 txtMinLevel.Focus();
@@ -604,31 +605,31 @@ namespace EcoMart.InterfaceLayer
                 mcbProductCategory.Focus();
                 retValue = true;
             }
-            if (keyPressed == Keys.R && modifier == Keys.Alt)
-            {
-                mcbFirstCreditor.Focus();
-                retValue = true;
-            }
-            if (keyPressed == Keys.E && modifier == Keys.Alt)
-            {
-                mcbSecondCreditor.Focus();
-                retValue = true;
-            }
-            if (keyPressed == Keys.O && modifier == Keys.Alt)
-            {
-                txtShowInShortList.Focus();
-                retValue = true;
-            }
-            if (keyPressed == Keys.D && modifier == Keys.Alt)
-            {
-                txtSaleDiscount.Focus();
-                retValue = true;
-            }
-            if (keyPressed == Keys.A && modifier == Keys.Alt)
-            {
-                txtAddOctroi.Focus();
-                retValue = true;
-            }
+            //if (keyPressed == Keys.R && modifier == Keys.Alt)
+            //{
+            //    mcbFirstCreditor.Focus();
+            //    retValue = true;
+            //}
+            //if (keyPressed == Keys.E && modifier == Keys.Alt)
+            //{
+            //    mcbSecondCreditor.Focus();
+            //    retValue = true;
+            //}
+            //if (keyPressed == Keys.O && modifier == Keys.Alt)
+            //{
+            //    txtShowInShortList.Focus();
+            //    retValue = true;
+            //}
+            //if (keyPressed == Keys.D && modifier == Keys.Alt)
+            //{
+            //    txtSaleDiscount.Focus();
+            //    retValue = true;
+            //}
+            //if (keyPressed == Keys.A && modifier == Keys.Alt)
+            //{
+            //    txtAddOctroi.Focus();
+            //    retValue = true;
+            //}
             if (keyPressed == Keys.Escape)
             {
                 retValue = Exit();
@@ -657,7 +658,7 @@ namespace EcoMart.InterfaceLayer
             txtName.SelectedID = "";
             txtCompShortName.Text = "";
             txtVAT.Text = "12.0";
-            txtCST.Text = "";
+            //txtCST.Text = "";
             txtLoosePack.Text = "";
             txtPack.Text = "";
             txtPackType.Text = "";
@@ -667,30 +668,30 @@ namespace EcoMart.InterfaceLayer
             txtCompShortName.Text = "";
             Clearmcb();
             lblMessage.Text = "";
-            txtIfScheduledDrug.Text = "Y";
-            txtSaleDiscount.Text = "Y";
-            txtShowInShortList.Text = "Y";
-            txtAddOctroi.Text = "N";
+            //txtIfScheduledDrug.Text = "Y";
+            //txtSaleDiscount.Text = "Y";
+            //txtShowInShortList.Text = "Y";
+            //txtAddOctroi.Text = "N";
             txtRequireColdStorage.Text = "N";
-            txtIfBarCodeRequired.Text = "N";
-            mcbFirstCreditor.Enabled = true;
-            mcbSecondCreditor.Enabled = true;
+            //txtIfBarCodeRequired.Text = "N";
+            //mcbFirstCreditor.Enabled = true;
+            //mcbSecondCreditor.Enabled = true;
             panel2.Enabled = true;
-            FillScheduleDrugCombo();
+            //FillScheduleDrugCombo();
             tsBtnFifth.Visible = false;
             tsBtnPrint.Visible = false;
             tsBtnSavenPrint.Visible = false;
-            txtProductBarcode.Text = string.Empty;
+            //txtProductBarcode.Text = string.Empty;
         }
 
         private void Clearmcb()
         {
             txtName.SelectedID = "";
             mcbCompany.SelectedID = "";
-            mcbFirstCreditor.SelectedID = "";
+            //mcbFirstCreditor.SelectedID = "";
             mcbGenericCategory.SelectedID = "";
             mcbProductCategory.SelectedID = "";
-            mcbSecondCreditor.SelectedID = "";
+            //mcbSecondCreditor.SelectedID = "";
             mcbShelfCode.SelectedID = "";
         }
 
@@ -712,11 +713,11 @@ namespace EcoMart.InterfaceLayer
             FillGenericCategoryCombo();
             FillShelfCombo();
             FillProdCategoryCombo();
-            FillFirstCreditorCombo();
-            FillSecondCreditorCombo();
-            FillThirdCreditorCombo();
-            FillFourthCreditorCombo();
-            FillScheduleDrugCombo();
+            //FillFirstCreditorCombo();
+            //FillSecondCreditorCombo();
+            //FillThirdCreditorCombo();
+            //FillFourthCreditorCombo();
+            //FillScheduleDrugCombo();
         }
         private void FillCompanyCombo()
         {
@@ -755,28 +756,28 @@ namespace EcoMart.InterfaceLayer
 
         }
 
-        private void FillScheduleDrugCombo()
-        {
-            cbSchedule.Items.Clear();
-            Schedule _Schedule = new Schedule();
-            DataTable dtable = _Schedule.GetOverviewData();
-            if (dtable != null)
-            {
-                foreach (DataRow dr in dtable.Rows)
-                {
-                    if (dr["ScheduleCode"] != DBNull.Value)
-                    {
-                        cbSchedule.Items.Add(dr["ScheduleCode"].ToString());
-                    }
-                }
-                foreach (DataRow dr in dtable.Rows)
-                {
-                    cbSchedule.Text = dr["ScheduleCode"].ToString();
-                    cbSchedule.SelectedIndex = cbSchedule.Text.IndexOf(dr["ScheduleCode"].ToString());
-                    break;
-                }
-            }
-        }
+        //private void FillScheduleDrugCombo()
+        //{
+        //    cbSchedule.Items.Clear();
+        //    Schedule _Schedule = new Schedule();
+        //    DataTable dtable = _Schedule.GetOverviewData();
+        //    if (dtable != null)
+        //    {
+        //        foreach (DataRow dr in dtable.Rows)
+        //        {
+        //            if (dr["ScheduleCode"] != DBNull.Value)
+        //            {
+        //                cbSchedule.Items.Add(dr["ScheduleCode"].ToString());
+        //            }
+        //        }
+        //        foreach (DataRow dr in dtable.Rows)
+        //        {
+        //            cbSchedule.Text = dr["ScheduleCode"].ToString();
+        //            cbSchedule.SelectedIndex = cbSchedule.Text.IndexOf(dr["ScheduleCode"].ToString());
+        //            break;
+        //        }
+        //    }
+        //}
 
         private void FillPack()
         {
@@ -808,53 +809,53 @@ namespace EcoMart.InterfaceLayer
             mcbProductCategory.FillData(dtable);
         }
 
-        private void FillFirstCreditorCombo()
-        {
-            mcbFirstCreditor.SelectedID = null;
-            mcbFirstCreditor.SourceDataString = new string[2] { "AccountID", "AccName", };
-            mcbFirstCreditor.ColumnWidth = new string[2] { "0", "300" };  // kiran
-            mcbFirstCreditor.ValueColumnNo = 0;
-            mcbFirstCreditor.UserControlToShow = new UclAccount();
-            Account _Account = new Account();
-            DataTable dtable = _Account.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
-            mcbFirstCreditor.FillData(dtable);
-        }
+        //private void FillFirstCreditorCombo()
+        //{
+        //    mcbFirstCreditor.SelectedID = null;
+        //    mcbFirstCreditor.SourceDataString = new string[2] { "AccountID", "AccName", };
+        //    mcbFirstCreditor.ColumnWidth = new string[2] { "0", "300" };  // kiran
+        //    mcbFirstCreditor.ValueColumnNo = 0;
+        //    mcbFirstCreditor.UserControlToShow = new UclAccount();
+        //    Account _Account = new Account();
+        //    DataTable dtable = _Account.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
+        //    mcbFirstCreditor.FillData(dtable);
+        //}
 
-        private void FillSecondCreditorCombo()
-        {
-            mcbSecondCreditor.SelectedID = null;
-            mcbSecondCreditor.SourceDataString = new string[2] { "AccountID", "AccName", };
-            mcbSecondCreditor.ColumnWidth = new string[2] { "0", "300" };   // kiran
-            mcbSecondCreditor.ValueColumnNo = 0;
-            mcbSecondCreditor.UserControlToShow = new UclAccount();
-            Account _Account = new Account();
-            DataTable dtable = _Account.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
-            mcbSecondCreditor.FillData(dtable);
-        }
+        //private void FillSecondCreditorCombo()
+        //{
+        //    mcbSecondCreditor.SelectedID = null;
+        //    mcbSecondCreditor.SourceDataString = new string[2] { "AccountID", "AccName", };
+        //    mcbSecondCreditor.ColumnWidth = new string[2] { "0", "300" };   // kiran
+        //    mcbSecondCreditor.ValueColumnNo = 0;
+        //    mcbSecondCreditor.UserControlToShow = new UclAccount();
+        //    Account _Account = new Account();
+        //    DataTable dtable = _Account.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
+        //    mcbSecondCreditor.FillData(dtable);
+        //}
 
-        private void FillThirdCreditorCombo()
-        {
-            mcbThirdCreditor.SelectedID = null;
-            mcbThirdCreditor.SourceDataString = new string[2] { "AccountID", "AccName", };
-            mcbThirdCreditor.ColumnWidth = new string[2] { "0", "300" };   // kiran
-            mcbThirdCreditor.ValueColumnNo = 0;
-            mcbThirdCreditor.UserControlToShow = new UclAccount();
-            Account _Account = new Account();
-            DataTable dtable = _Account.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
-            mcbThirdCreditor.FillData(dtable);
-        }
+        //private void FillThirdCreditorCombo()
+        //{
+        //    mcbThirdCreditor.SelectedID = null;
+        //    mcbThirdCreditor.SourceDataString = new string[2] { "AccountID", "AccName", };
+        //    mcbThirdCreditor.ColumnWidth = new string[2] { "0", "300" };   // kiran
+        //    mcbThirdCreditor.ValueColumnNo = 0;
+        //    mcbThirdCreditor.UserControlToShow = new UclAccount();
+        //    Account _Account = new Account();
+        //    DataTable dtable = _Account.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
+        //    mcbThirdCreditor.FillData(dtable);
+        //}
 
-        private void FillFourthCreditorCombo()
-        {
-            mcbFourthCreditor.SelectedID = null;
-            mcbFourthCreditor.SourceDataString = new string[2] { "AccountID", "AccName", };
-            mcbFourthCreditor.ColumnWidth = new string[2] { "0", "300" };   // kiran
-            mcbFourthCreditor.ValueColumnNo = 0;
-            mcbFourthCreditor.UserControlToShow = new UclAccount();
-            Account _Account = new Account();
-            DataTable dtable = _Account.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
-            mcbFourthCreditor.FillData(dtable);
-        }
+        //private void FillFourthCreditorCombo()
+        //{
+        //    mcbFourthCreditor.SelectedID = null;
+        //    mcbFourthCreditor.SourceDataString = new string[2] { "AccountID", "AccName", };
+        //    mcbFourthCreditor.ColumnWidth = new string[2] { "0", "300" };   // kiran
+        //    mcbFourthCreditor.ValueColumnNo = 0;
+        //    mcbFourthCreditor.UserControlToShow = new UclAccount();
+        //    Account _Account = new Account();
+        //    DataTable dtable = _Account.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
+        //    mcbFourthCreditor.FillData(dtable);
+        //}
 
         #endregion
 
@@ -1019,25 +1020,25 @@ namespace EcoMart.InterfaceLayer
             }
         }
 
-        private void txtBoxQty_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Enter:
-                    txtShowInShortList.Focus();
-                    break;
-                case Keys.Down:
-                    txtShowInShortList.Focus();
-                    break;
-                case Keys.Up:
-                    mcbSecondCreditor.Focus();
+        //private void txtBoxQty_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    switch (e.KeyCode)
+        //    {
+        //        case Keys.Enter:
+        //            txtShowInShortList.Focus();
+        //            break;
+        //        case Keys.Down:
+        //            txtShowInShortList.Focus();
+        //            break;
+        //        case Keys.Up:
+        //            mcbSecondCreditor.Focus();
 
-                    break;
-                case Keys.Left:
-                    mcbSecondCreditor.Focus();
-                    break;
-            }
-        }
+        //            break;
+        //        case Keys.Left:
+        //            mcbSecondCreditor.Focus();
+        //            break;
+        //    }
+        //}
         private void mcbGeneric_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -1076,21 +1077,21 @@ namespace EcoMart.InterfaceLayer
                     mcbCompany.SelectedID = mcbCompany.SeletedItem.ItemData[0];
                     _Product.ProdCompShortName = mcbCompany.SeletedItem.ItemData[2];
                     txtCompShortName.Text = _Product.ProdCompShortName.ToString();
-                    if (mcbCompany.SeletedItem.ItemData[3] != null && mcbCompany.SeletedItem.ItemData[3].ToString() != string.Empty)
-                    {
-                        _Product.ProdCreditor1ID = Convert.ToInt32(mcbCompany.SeletedItem.ItemData[3].ToString());
-                        mcbFirstCreditor.SelectedIntID  = _Product.ProdCreditor1ID;
-                        mcbFirstCreditor.Enabled = false;
-                    }
+                    //if (mcbCompany.SeletedItem.ItemData[3] != null && mcbCompany.SeletedItem.ItemData[3].ToString() != string.Empty)
+                    //{
+                    //    _Product.ProdCreditor1ID = Convert.ToInt32(mcbCompany.SeletedItem.ItemData[3].ToString());
+                    //    mcbFirstCreditor.SelectedIntID  = _Product.ProdCreditor1ID;
+                    //    mcbFirstCreditor.Enabled = false;
+                    //}
 
-                    if (mcbCompany.SeletedItem.ItemData[4] != null && mcbCompany.SeletedItem.ItemData[4].ToString() != string.Empty)
-                    {
-                        _Product.ProdCreditor2ID = Convert.ToInt32 ( mcbCompany.SeletedItem.ItemData[4].ToString());
-                        mcbSecondCreditor.SelectedIntID = _Product.ProdCreditor2ID;
-                        mcbSecondCreditor.Enabled = false;
-                    }
+                    //if (mcbCompany.SeletedItem.ItemData[4] != null && mcbCompany.SeletedItem.ItemData[4].ToString() != string.Empty)
+                    //{
+                    //    _Product.ProdCreditor2ID = Convert.ToInt32 ( mcbCompany.SeletedItem.ItemData[4].ToString());
+                    //    mcbSecondCreditor.SelectedIntID = _Product.ProdCreditor2ID;
+                    //    mcbSecondCreditor.Enabled = false;
+                    //}
 
-                    FillCreditorList(); // ansuman
+                    //FillCreditorList(); // ansuman
 
                 }
                 if (Mode == OperationMode.Add || Mode == OperationMode.Edit)
@@ -1116,29 +1117,29 @@ namespace EcoMart.InterfaceLayer
             }
         }
 
-        private void FillCreditorList()
-        {
-            DataTable Dt1 = pc.GetPartyByCompID(mcbCompany.SelectedID);
-            if (Dt1 != null)
-            {
-                DataRow[] dr = Dt1.Select("CompID ='" + mcbCompany.SelectedID + "'");
-                if (dr.Length > 0)
-                    mcbFirstCreditor.SelectedID = dr[0]["AccountID"].ToString();
-                if (dr.Length > 1)
-                    mcbSecondCreditor.SelectedID = dr[1]["AccountID"].ToString();
-                if (dr.Length > 2)
-                    mcbThirdCreditor.SelectedID = dr[2]["AccountID"].ToString();
-                if (dr.Length > 3)
-                    mcbFourthCreditor.SelectedID = dr[3]["AccountID"].ToString();
-                if (dr.Length == 0)
-                {
-                    mcbFirstCreditor.SelectedID = "";
-                    mcbSecondCreditor.SelectedID = "";
-                    mcbThirdCreditor.SelectedID = "";
-                    mcbFourthCreditor.SelectedID = "";
-                }
-            }
-        }
+        //private void FillCreditorList()
+        //{
+        //    DataTable Dt1 = pc.GetPartyByCompID(mcbCompany.SelectedID);
+        //    if (Dt1 != null)
+        //    {
+        //        DataRow[] dr = Dt1.Select("CompID ='" + mcbCompany.SelectedID + "'");
+        //        if (dr.Length > 0)
+        //            mcbFirstCreditor.SelectedID = dr[0]["AccountID"].ToString();
+        //        if (dr.Length > 1)
+        //            mcbSecondCreditor.SelectedID = dr[1]["AccountID"].ToString();
+        //        if (dr.Length > 2)
+        //            mcbThirdCreditor.SelectedID = dr[2]["AccountID"].ToString();
+        //        if (dr.Length > 3)
+        //            mcbFourthCreditor.SelectedID = dr[3]["AccountID"].ToString();
+        //        if (dr.Length == 0)
+        //        {
+        //            mcbFirstCreditor.SelectedID = "";
+        //            mcbSecondCreditor.SelectedID = "";
+        //            mcbThirdCreditor.SelectedID = "";
+        //            mcbFourthCreditor.SelectedID = "";
+        //        }
+        //    }
+        //}
         private void mcbCompany_SeletectIndexChanged(object sender, EventArgs e)
         {
             if (mcbCompany.SeletedItem != null)
@@ -1159,17 +1160,17 @@ namespace EcoMart.InterfaceLayer
                 mcbCompany.SelectedID = selectedId;
                 _Product.ProdCompShortName = mcbCompany.SeletedItem.ItemData[2];
                 txtCompShortName.Text = _Product.ProdCompShortName.ToString();
-                if (mcbCompany.SeletedItem.ItemData[3] != null && mcbCompany.SeletedItem.ItemData[3].ToString() != string.Empty)
-                {
-                    _Product.ProdCreditor1ID = Convert.ToInt32( mcbCompany.SeletedItem.ItemData[3].ToString());
-                    mcbFirstCreditor.SelectedIntID  = _Product.ProdCreditor1ID;
-                }
+                //if (mcbCompany.SeletedItem.ItemData[3] != null && mcbCompany.SeletedItem.ItemData[3].ToString() != string.Empty)
+                //{
+                //    _Product.ProdCreditor1ID = Convert.ToInt32( mcbCompany.SeletedItem.ItemData[3].ToString());
+                //    mcbFirstCreditor.SelectedIntID  = _Product.ProdCreditor1ID;
+                //}
 
-                if (mcbCompany.SeletedItem.ItemData[4] != null && mcbCompany.SeletedItem.ItemData[4].ToString() != string.Empty)
-                {
-                    _Product.ProdCreditor2ID = Convert.ToInt32 ( mcbCompany.SeletedItem.ItemData[4].ToString());
-                    mcbSecondCreditor.SelectedIntID  = _Product.ProdCreditor2ID;
-                }
+                //if (mcbCompany.SeletedItem.ItemData[4] != null && mcbCompany.SeletedItem.ItemData[4].ToString() != string.Empty)
+                //{
+                //    _Product.ProdCreditor2ID = Convert.ToInt32 ( mcbCompany.SeletedItem.ItemData[4].ToString());
+                //    mcbSecondCreditor.SelectedIntID  = _Product.ProdCreditor2ID;
+                //}
                 txtCompShortName.Focus();
             }
 
@@ -1202,23 +1203,23 @@ namespace EcoMart.InterfaceLayer
                     _Product.ProdIfSaleDisc = mcbProductCategory.SeletedItem.ItemData[2];
                 if (_Product.ProdIfSaleDisc == string.Empty || _Product.ProdIfSaleDisc == " ")
                     _Product.ProdIfSaleDisc = "N";
-                txtSaleDiscount.Text = _Product.ProdIfSaleDisc;
+                //txtSaleDiscount.Text = _Product.ProdIfSaleDisc;
             }
         }
 
-        private void mcbFirstCreditor_ItemAddedEdited(object sender, EventArgs e)
-        {
-            string selectedId = mcbFirstCreditor.SelectedID;
-            FillFirstCreditorCombo();
-            mcbFirstCreditor.SelectedID = selectedId;
-        }
+        //private void mcbFirstCreditor_ItemAddedEdited(object sender, EventArgs e)
+        //{
+        //    string selectedId = mcbFirstCreditor.SelectedID;
+        //    FillFirstCreditorCombo();
+        //    mcbFirstCreditor.SelectedID = selectedId;
+        //}
 
-        private void mcbSecondCreditor_ItemAddedEdited(object sender, EventArgs e)
-        {
-            string selectedId = mcbSecondCreditor.SelectedID;
-            FillSecondCreditorCombo();
-            mcbSecondCreditor.SelectedID = selectedId;
-        }
+        //private void mcbSecondCreditor_ItemAddedEdited(object sender, EventArgs e)
+        //{
+        //    string selectedId = mcbSecondCreditor.SelectedID;
+        //    FillSecondCreditorCombo();
+        //    mcbSecondCreditor.SelectedID = selectedId;
+        //}
 
         private void txtMaxLevel_KeyUp(object sender, KeyEventArgs e)
         {
@@ -1260,26 +1261,26 @@ namespace EcoMart.InterfaceLayer
                 lblMessage.Text = "";
         }
 
-        private void cbGrade_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                txtProductBarcode.Focus();
-            else if (e.KeyCode == Keys.Up)
-                cbSchedule.Focus();
-        }
+        //private void cbGrade_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Enter)
+        //        txtProductBarcode.Focus();
+        //    else if (e.KeyCode == Keys.Up)
+        //        cbSchedule.Focus();
+        //}
 
-        private void mcbScheduleDrug_EnterKeyPressed(object sender, EventArgs e)
-        {
-            txtShowInShortList.Focus();
-        }
+        //private void mcbScheduleDrug_EnterKeyPressed(object sender, EventArgs e)
+        //{
+        //    txtShowInShortList.Focus();
+        //}
 
-        private void mcbScheduleDrug_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Left)
-                txtIfScheduledDrug.Focus();
-            else if (e.KeyCode == Keys.Down)
-                txtSaleDiscount.Focus();
-        }
+        //private void mcbScheduleDrug_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Left)
+        //        txtIfScheduledDrug.Focus();
+        //    else if (e.KeyCode == Keys.Down)
+        //        txtSaleDiscount.Focus();
+        //}
 
 
         private void txtRequireColdStorage_KeyDown(object sender, KeyEventArgs e)
@@ -1320,25 +1321,25 @@ namespace EcoMart.InterfaceLayer
                 }
 
             }
-            txtSaleDiscount.Text = _Product.ProdIfSaleDisc;
+            //txtSaleDiscount.Text = _Product.ProdIfSaleDisc;
             if ((_Mode == OperationMode.Add || _Mode == OperationMode.Edit || _Mode == OperationMode.OpenAsChild) && mcbProductCategory.SeletedItem != null && ValidateEmptyorNullData(mcbProductCategory.SeletedItem.Text.Trim(), "Please Enter Product Category.") == true)
                 mcbProductCategory.Focus();
             else if (mcbProductCategory.SeletedItem == null && ValidateEmptyorNullData(string.Empty, "Please Enter Product Category.") == true)
                 mcbProductCategory.Focus();
-            else mcbFirstCreditor.Focus();
+            else txtBoxQty.Focus();
 
         }
 
-        private void mcbFirstCreditor_EnterKeyPressed(object sender, EventArgs e)
-        {
-            mcbSecondCreditor.Focus();
-        }
+        //private void mcbFirstCreditor_EnterKeyPressed(object sender, EventArgs e)
+        //{
+        //    mcbSecondCreditor.Focus();
+        //}
 
-        private void mcbSecondCreditor_EnterKeyPressed(object sender, EventArgs e)
-        {
-            mcbThirdCreditor.Focus();
-            //txtBoxQty.Focus();
-        }
+        //private void mcbSecondCreditor_EnterKeyPressed(object sender, EventArgs e)
+        //{
+        //    mcbThirdCreditor.Focus();
+        //    //txtBoxQty.Focus();
+        //}
 
 
 
@@ -1353,7 +1354,7 @@ namespace EcoMart.InterfaceLayer
             ttproduct.SetToolTip(txtLoosePack, "Quantity per pack if sold in loose quantity and NOT by pack. Enter 1 if sold by pack");
             ttproduct.SetToolTip(txtName, "A-Z,0-9,space only");
             ttproduct.SetToolTip(txtPack, "TAB,CAP,NO,VIAL etc Max Characters 6 (Six)");
-            ttproduct.SetToolTip(cbGrade, "Grade according to Sale or Rate or Availability ");
+            //ttproduct.SetToolTip(cbGrade, "Grade according to Sale or Rate or Availability ");
             ttproduct.SetToolTip(txtVAT, "GST % = 0.00 5.0, 12.00, 18.00,28.00");
          //   ttproduct.SetToolTip(txtCST, "CST in Rupees");
             mcbProductCategory.SetToolTip(ttproduct, "Fill Product Category");
@@ -1395,98 +1396,98 @@ namespace EcoMart.InterfaceLayer
             else if (SetBtnFocus == false)
                 mcbCompany.Focus();
         }
-        private void chkIfScheduledDrug_KeyDown(object sender, KeyEventArgs e)
-        {
-            cbSchedule.Focus();
-        }
+        //private void chkIfScheduledDrug_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    cbSchedule.Focus();
+        //}
         private void mcbGenericCategory_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up)
                 txtBoxQty.Focus();
         }
 
-        private void txtIfScheduledDrug_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Up:
-                    txtShowInShortList.Focus();
-                    break;
-                case Keys.Down:
-                    txtSaleDiscount.Focus();
-                    break;
-                case Keys.Enter:
-                    txtSaleDiscount.Focus();
-                    break;
-            }
-        }
-        private void cbSchedule_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Up:
-                    txtSaleDiscount.Focus();
-                    break;
-                case Keys.Enter:
-                    cbGrade.Focus();
-                    cbGrade.DroppedDown = true;
-                    break;
-            }
-        }
-        private void txtShowInShortList_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Enter:
-                    txtIfScheduledDrug.Focus();
-                    break;
-                case Keys.Down:
-                    txtIfScheduledDrug.Focus();
-                    break;
-                case Keys.Up:
-                    txtBoxQty.Focus();
-                    break;
-            }
-        }
+        //private void txtIfScheduledDrug_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    switch (e.KeyCode)
+        //    {
+        //        case Keys.Up:
+        //            txtShowInShortList.Focus();
+        //            break;
+        //        case Keys.Down:
+        //            txtSaleDiscount.Focus();
+        //            break;
+        //        case Keys.Enter:
+        //            txtSaleDiscount.Focus();
+        //            break;
+        //    }
+        //}
+        //private void cbSchedule_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    switch (e.KeyCode)
+        //    {
+        //        case Keys.Up:
+        //            txtSaleDiscount.Focus();
+        //            break;
+        //        case Keys.Enter:
+        //            cbGrade.Focus();
+        //            cbGrade.DroppedDown = true;
+        //            break;
+        //    }
+        //}
+        //private void txtShowInShortList_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    switch (e.KeyCode)
+        //    {
+        //        case Keys.Enter:
+        //            txtIfScheduledDrug.Focus();
+        //            break;
+        //        case Keys.Down:
+        //            txtIfScheduledDrug.Focus();
+        //            break;
+        //        case Keys.Up:
+        //            txtBoxQty.Focus();
+        //            break;
+        //    }
+        //}
 
-        private void txtSaleDiscount_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Up:
-                    txtIfScheduledDrug.Focus();
-                    break;
-                case Keys.Enter:
-                    cbSchedule.Focus();
-                    cbSchedule.DroppedDown = true;
-                    break;
-                case Keys.Down:
-                    cbSchedule.Focus();
-                    cbSchedule.DroppedDown = true;
-                    break;
-            }
-        }
-        private void txtIfBarCodeRequired_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Up:
-                    txtProductBarcode.Focus();
-                    break;
-                case Keys.Enter:
-                    MainToolStrip.Select();
-                    tsBtnSave.Select();
-                    break;
-                    //case Keys.Down:
-                    //    txtAddOctroi.Focus();
-                    //    break;
-            }
-        }
-        private void txtAddOctroi_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Up)
-                txtIfBarCodeRequired.Focus();
-        }
+        //private void txtSaleDiscount_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    switch (e.KeyCode)
+        //    {
+        //        case Keys.Up:
+        //            txtIfScheduledDrug.Focus();
+        //            break;
+        //        case Keys.Enter:
+        //            cbSchedule.Focus();
+        //            cbSchedule.DroppedDown = true;
+        //            break;
+        //        case Keys.Down:
+        //            cbSchedule.Focus();
+        //            cbSchedule.DroppedDown = true;
+        //            break;
+        //    }
+        //}
+        //private void txtIfBarCodeRequired_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    switch (e.KeyCode)
+        //    {
+        //        case Keys.Up:
+        //            txtProductBarcode.Focus();
+        //            break;
+        //        case Keys.Enter:
+        //            MainToolStrip.Select();
+        //            tsBtnSave.Select();
+        //            break;
+        //            //case Keys.Down:
+        //            //    txtAddOctroi.Focus();
+        //            //    break;
+        //    }
+        //}
+        //private void txtAddOctroi_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Up)
+        //        txtIfBarCodeRequired.Focus();
+        //}
 
         private void mcbShelfCode_UpArrowPressed(object sender, EventArgs e)
         {
@@ -1509,10 +1510,10 @@ namespace EcoMart.InterfaceLayer
         {
             mcbProductCategory.Focus();
         }
-        private void mcbSecondCreditor_UpArrowPressed(object sender, EventArgs e)
-        {
-            mcbFirstCreditor.Focus();
-        }
+        //private void mcbSecondCreditor_UpArrowPressed(object sender, EventArgs e)
+        //{
+        //    mcbFirstCreditor.Focus();
+        //}
 
         private void txtPackType_UpArrowKeyPressed(object sender, EventArgs e)
         {
@@ -1540,52 +1541,52 @@ namespace EcoMart.InterfaceLayer
             if (e.KeyCode == Keys.Up)
                 txtPack.Focus();
         }
-        private void txtProductBarcode_KeyDown(object sender, KeyEventArgs e) // [09.02.2017]
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (txtProductBarcode.Text == null || txtProductBarcode.Text.ToString() == string.Empty || txtProductBarcode.Text.ToString() == "")
-                {
-                    txtIfBarCodeRequired.Enabled = true;
-                    txtIfBarCodeRequired.Focus();
-                }
-                else
-                {
-                    txtIfBarCodeRequired.Text = "N";
-                    txtIfBarCodeRequired.Enabled = false;
-                    DataRow dr = _Product.GetDuplicateBarcode(txtProductBarcode.Text);
-                    if (dr != null)
-                    {
-                        PSMessageBox.Show("Duplicate Barcode Found", "Invalid Barcode", PSMessageBoxButtons.OK, PSMessageBoxIcon.Warning, PSMessageBoxButtons.OK);
-                        txtProductBarcode.Focus();
-                        return;
-                    }
-                }
-            }
-            else if (e.KeyCode == Keys.Up)
-            {
-                cbGrade.Focus();
-                cbGrade.DroppedDown = true;
-            }
-        }
-        private void mcbThirdCreditor_ItemAddedEdited(object sender, EventArgs e)
-        {
-            string selectedId = mcbThirdCreditor.SelectedID;
-            FillThirdCreditorCombo();
-            mcbThirdCreditor.SelectedID = selectedId;
-        }
+        //private void txtProductBarcode_KeyDown(object sender, KeyEventArgs e) // [09.02.2017]
+        //{
+        //    if (e.KeyCode == Keys.Enter)
+        //    {
+        //        if (txtProductBarcode.Text == null || txtProductBarcode.Text.ToString() == string.Empty || txtProductBarcode.Text.ToString() == "")
+        //        {
+        //            txtIfBarCodeRequired.Enabled = true;
+        //            txtIfBarCodeRequired.Focus();
+        //        }
+        //        else
+        //        {
+        //            txtIfBarCodeRequired.Text = "N";
+        //            txtIfBarCodeRequired.Enabled = false;
+        //            DataRow dr = _Product.GetDuplicateBarcode(txtProductBarcode.Text);
+        //            if (dr != null)
+        //            {
+        //                PSMessageBox.Show("Duplicate Barcode Found", "Invalid Barcode", PSMessageBoxButtons.OK, PSMessageBoxIcon.Warning, PSMessageBoxButtons.OK);
+        //                txtProductBarcode.Focus();
+        //                return;
+        //            }
+        //        }
+        //    }
+        //    else if (e.KeyCode == Keys.Up)
+        //    {
+        //        cbGrade.Focus();
+        //        cbGrade.DroppedDown = true;
+        //    }
+        //}
+        //private void mcbThirdCreditor_ItemAddedEdited(object sender, EventArgs e)
+        //{
+        //    string selectedId = mcbThirdCreditor.SelectedID;
+        //    FillThirdCreditorCombo();
+        //    mcbThirdCreditor.SelectedID = selectedId;
+        //}
 
-        private void mcbFourthCreditor_ItemAddedEdited(object sender, EventArgs e)
-        {
-            string selectedId = mcbFourthCreditor.SelectedID;
-            FillFourthCreditorCombo();
-            mcbFourthCreditor.SelectedID = selectedId;
-        }
+        //private void mcbFourthCreditor_ItemAddedEdited(object sender, EventArgs e)
+        //{
+        //    string selectedId = mcbFourthCreditor.SelectedID;
+        //    FillFourthCreditorCombo();
+        //    mcbFourthCreditor.SelectedID = selectedId;
+        //}
 
-        private void mcbThirdCreditor_EnterKeyPressed(object sender, EventArgs e)
-        {
-            mcbFourthCreditor.Focus();
-        }
+        //private void mcbThirdCreditor_EnterKeyPressed(object sender, EventArgs e)
+        //{
+        //    mcbFourthCreditor.Focus();
+        //}
 
         private void mcbFourthCreditor_EnterKeyPressed(object sender, EventArgs e)
         {
@@ -1608,8 +1609,10 @@ namespace EcoMart.InterfaceLayer
         }
 
 
+
+
         #endregion ValidateData
 
-      
+        
     }
 }

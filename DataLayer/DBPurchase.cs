@@ -10,7 +10,7 @@ using EcoMart.DataLayer;
 namespace EcoMart.DataLayer
 {
 
-public class DBPurchase
+    public class DBPurchase
     {
         public DBPurchase()
         {
@@ -35,7 +35,7 @@ public class DBPurchase
         public DataRow GetDNAmount(string accountid)
         {
             DataRow dr;
-            string strSql = "Select sum(AmountNet) as AmountNet from vouchercreditdebitnote where AmountClear = 0 AND (VoucherType = '"+ FixAccounts.VoucherTypeForDebitNoteAmount +"' OR VoucherType = '"+ FixAccounts.VoucherTypeForDebitNoteStock +"')  AND AccountID = '" + accountid + "'";
+            string strSql = "Select sum(AmountNet) as AmountNet from vouchercreditdebitnote where AmountClear = 0 AND (VoucherType = '" + FixAccounts.VoucherTypeForDebitNoteAmount + "' OR VoucherType = '" + FixAccounts.VoucherTypeForDebitNoteStock + "')  AND AccountID = '" + accountid + "'";
             dr = DBInterface.SelectFirstRow(strSql);
             return dr;
         }
@@ -52,14 +52,14 @@ public class DBPurchase
             //bool bRetValue = false;
             string strSql = GetInsertQuery(purchaseID, accountID, Narration, EntryDate, VoucherSeries, VoucherType, VoucherNumber, VoucherDate,
                 PurchaseBillNumber, AmountNet, AmountClear, AmountGross, AmountItemDiscount, AmountSpecialDiscount,
-                SpecialDiscPer , AmountCashDiscount, CRNoteDiscPer, AmountSchemeDiscount,
-                AmountAddOn,AmountFreight, CashDiscountPercentage, AmountCreditNote, AmountDebitNote, RoundUpAmount,
+                SpecialDiscPer, AmountCashDiscount, CRNoteDiscPer, AmountSchemeDiscount,
+                AmountAddOn, AmountFreight, CashDiscountPercentage, AmountCreditNote, AmountDebitNote, RoundUpAmount,
                 OctroiPercentage, AmountOctroi, PurchaseAmount5PercentVAT, AmtOtherPercentVAT, AmountVAT5Percent,
                 PurchaseAmount12Point5PercentVAT, AmountVAT12Point5Percent, PurchaseAmountZeroVATS, DueDate, NumberofChallans, StatementNumber, voucherSubType,
                  gstAmt0, gstAmtS5, gstAmtS12, gstAmtS18, gstAmtS28, gstAmtC5, gstAmtC12, gstAmtC18, gstAmtC28, gsts5,
                 gsts12, gsts18, gsts28, gstc5, gstc12, gstc18, gstc28, gstAmtI5, gstAmtI12, gstAmtI18, gstAmtI28, gstI5, gstI12, gstI18, gstI28, createdby, createddate, createdtime);
             //strSql += ";select last_insert_ID()";
-            int ii = Convert.ToInt32(DBInterface.ExecuteScalar(strSql)) ;                     
+            int ii = Convert.ToInt32(DBInterface.ExecuteScalar(strSql));
             return ii;
         }
 
@@ -71,7 +71,7 @@ public class DBPurchase
            double PurchaseAmount12Point5PercentVAT, double AmountVAT12Point5Percent, double PurchaseAmountZeroVATS, string DueDate, int NumberofChallans, int StatementNumber, string modifiedby, string modifieddate, string modifiedtime)
         {
             int iRetValue = 0;
-            string strSql = GetInsertQueryChanged(purchaseID,changedID,accountID, Narration, EntryDate, VoucherSeries, VoucherType, VoucherNumber, VoucherDate,
+            string strSql = GetInsertQueryChanged(purchaseID, changedID, accountID, Narration, EntryDate, VoucherSeries, VoucherType, VoucherNumber, VoucherDate,
                 PurchaseBillNumber, AmountNet, AmountClear, AmountGross, AmountItemDiscount, AmountSpecialDiscount,
                 SpecialDiscPer, AmountCashDiscount, CRNoteDiscPer, AmountSchemeDiscount,
                 AmountAddOn, AmountFreight, CashDiscountPercentage, AmountCreditNote, AmountDebitNote, RoundUpAmount,
@@ -89,7 +89,7 @@ public class DBPurchase
         public bool AddDeletedDetails(string purchaseID, string accountID, string Narration, string EntryDate, string VoucherSeries, string VoucherType, int VoucherNumber, string VoucherDate,
            string PurchaseBillNumber, double AmountNet, double AmountClear, double AmountGross, double AmountItemDiscount, double AmountSpecialDiscount,
            double SpecialDiscPer, double AmountCashDiscount, double CRNoteDiscPer, double AmountSchemeDiscount,
-           double AmountAddOn,double AmountFreight, double CashDiscountPercentage, double AmountCreditNote, double AmountDebitNote, double RoundUpAmount,
+           double AmountAddOn, double AmountFreight, double CashDiscountPercentage, double AmountCreditNote, double AmountDebitNote, double RoundUpAmount,
            double OctroiPercentage, double AmountOctroi, double PurchaseAmount5PercentVAT, double AmtOtherPercentVAT, double AmountVAT5Percent,
            double PurchaseAmount12Point5PercentVAT, double AmountVAT12Point5Percent, double PurchaseAmountZeroVATS, string DueDate, int NumberofChallans, int StatementNumber, string createdby, string createddate, string createdtime)
         {
@@ -111,16 +111,16 @@ public class DBPurchase
         public bool AddDetailsProductsSS(int Id, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
                string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
                double AmountSchemeDiscount, double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double AmountProductVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
-               string IfTradeRateInclusiveOfVAT, double Amount, double spldiscamt, double spldiscper, double AmountZeroVAT, double AmountCashDiscountperunit, int stockid, string mydetailpurchaseid,
-               double productMargin,double productMargin2,int serialNumber,string scancode, double gstPurchaseAmountZero, double gstSPurchaseAmount, double gstCPurchaseAmount,
-               double gstSAmount, double gstCAmount,double pricetoretailer,double profitpercent)
+               string IfTradeRateInclusiveOfVAT, double Amount, double spldiscamt, double spldiscper, double AmountZeroVAT, double AmountCashDiscountperunit, int stockid,
+               double productMargin, double productMargin2, int serialNumber, string scancode, double gstPurchaseAmountZero, double gstSPurchaseAmount, double gstCPurchaseAmount,
+               double gstSAmount, double gstCAmount, double pricetoretailer, double profitpercent)
         {
             bool bRetValue = false;
             string strSql = GetInsertQueryDetails(Id, ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
                     Expiry, ExpiryDate, Quantity, SchemeQuantity, ReplacementQuantity, ItemDiscountPercent, AmountItemDiscount, SchemeDiscountPercent,
                     AmountSchemeDiscount, PurchaseVATPercent, ProductVATPercent, AmountPurchaseVAT, AmountProductVAT, CSTPercent, AmountCST, IfMRPInclusiveOfVAT,
-                    IfTradeRateInclusiveOfVAT, Amount, spldiscamt, spldiscper, AmountZeroVAT, AmountCashDiscountperunit,stockid,mydetailpurchaseid,productMargin,productMargin2,
-                    serialNumber,scancode, gstPurchaseAmountZero,gstSPurchaseAmount, gstCPurchaseAmount, gstSAmount, gstCAmount,pricetoretailer,profitpercent);
+                    IfTradeRateInclusiveOfVAT, Amount, spldiscamt, spldiscper, AmountZeroVAT, AmountCashDiscountperunit, stockid, productMargin, productMargin2,
+                    serialNumber, scancode, gstPurchaseAmountZero, gstSPurchaseAmount, gstCPurchaseAmount, gstSAmount, gstCAmount, pricetoretailer, profitpercent);
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 bRetValue = true;
@@ -130,16 +130,16 @@ public class DBPurchase
         }
 
 
-        public bool AddChangedDetailsProductsSS(string Id,string changedMasterID, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
+        public bool AddChangedDetailsProductsSS(string Id, string changedMasterID, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
              string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
              double AmountSchemeDiscount, double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double AmountProductVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
-             string IfTradeRateInclusiveOfVAT, double Amount, double spldiscamt, double spldiscper, double AmountZeroVAT, double AmountCashDiscountperunit, string stockid, string mydetailpurchaseid, double productMargin, double productMargin2, int serialNumber)
+             string IfTradeRateInclusiveOfVAT, double Amount, double spldiscamt, double spldiscper, double AmountZeroVAT, double AmountCashDiscountperunit, string stockid, double productMargin, double productMargin2, int serialNumber)
         {
             bool bRetValue = false;
             string strSql = GetInsertQueryChangedDetails(Id, changedMasterID, ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
                     Expiry, ExpiryDate, Quantity, SchemeQuantity, ReplacementQuantity, ItemDiscountPercent, AmountItemDiscount, SchemeDiscountPercent,
                     AmountSchemeDiscount, PurchaseVATPercent, ProductVATPercent, AmountPurchaseVAT, AmountProductVAT, CSTPercent, AmountCST, IfMRPInclusiveOfVAT,
-                    IfTradeRateInclusiveOfVAT, Amount, spldiscamt, spldiscper, AmountZeroVAT, AmountCashDiscountperunit, stockid, mydetailpurchaseid, productMargin, productMargin2, serialNumber);
+                    IfTradeRateInclusiveOfVAT, Amount, spldiscamt, spldiscper, AmountZeroVAT, AmountCashDiscountperunit, stockid, productMargin, productMargin2, serialNumber);
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 bRetValue = true;
@@ -151,13 +151,13 @@ public class DBPurchase
         public bool AddDeletedDetailsProductsSS(string Id, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
              string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
              double AmountSchemeDiscount, double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double AmountProductVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
-             string IfTradeRateInclusiveOfVAT, double Amount, double spldiscamt, double spldiscper, double AmountZeroVAT, double AmountCashDiscountperunit, string stockid, string mydetailpurchaseid, double productMargin, double productMargin2, int serialNumber)
+             string IfTradeRateInclusiveOfVAT, double Amount, double spldiscamt, double spldiscper, double AmountZeroVAT, double AmountCashDiscountperunit, string stockid, double productMargin, double productMargin2, int serialNumber)
         {
             bool bRetValue = false;
             string strSql = GetInsertQueryDeletedDetails(Id, ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
                     Expiry, ExpiryDate, Quantity, SchemeQuantity, ReplacementQuantity, ItemDiscountPercent, AmountItemDiscount, SchemeDiscountPercent,
                     AmountSchemeDiscount, PurchaseVATPercent, ProductVATPercent, AmountPurchaseVAT, AmountProductVAT, CSTPercent, AmountCST, IfMRPInclusiveOfVAT,
-                    IfTradeRateInclusiveOfVAT, Amount, spldiscamt, spldiscper, AmountZeroVAT, AmountCashDiscountperunit, stockid, mydetailpurchaseid, productMargin, productMargin2, serialNumber);
+                    IfTradeRateInclusiveOfVAT, Amount, spldiscamt, spldiscper, AmountZeroVAT, AmountCashDiscountperunit, stockid, productMargin, productMargin2, serialNumber);
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 bRetValue = true;
@@ -171,13 +171,13 @@ public class DBPurchase
         public int AddProductDetailsInStockTable(int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
             string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double PurchaseVATPercent,
             double ProductVATPercent, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount,
-            string accountId, string billnumber, string voutype, int vounumber, string voudate, int ProdLoosePack,string StockId,double productMargin,string purScanCode,double pricetoretailer,double profitpercent)
+            string accountId, string billnumber, string voutype, int vounumber, string voudate, int ProdLoosePack, string StockId, double productMargin, string purScanCode, double pricetoretailer, double profitpercent, int PurchaseId)
         {
             //bool bRetValue = false;
             string strSql = GetInsertQueryDetailsInStockTable(ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
                     Expiry, ExpiryDate, Quantity, SchemeQuantity, ReplacementQuantity, PurchaseVATPercent,
                     ProductVATPercent, IfMRPInclusiveOfVAT, IfTradeRateInclusiveOfVAT, Amount,
-                    accountId, billnumber, voutype, vounumber, voudate, ProdLoosePack,StockId, productMargin,purScanCode,pricetoretailer,profitpercent);
+                    accountId, billnumber, voutype, vounumber, voudate, ProdLoosePack, StockId, productMargin, purScanCode, pricetoretailer, profitpercent, PurchaseId);
             //strSql += "; select last_insert_ID()";
             int iid = Convert.ToInt32(DBInterface.ExecuteScalar(strSql));
             //if (iid > 0)
@@ -187,7 +187,7 @@ public class DBPurchase
             return iid;
         }
 
-      
+
 
         public bool AddCashEntry(string CBId, string CBVouType, int CBVouNo, string VoucherDate, string AccountID, string Narration, double Amount, string createdby, string createddate, string createdtime)
         {
@@ -209,7 +209,7 @@ public class DBPurchase
         public bool AddBankEntry(string CBId, string CBVouType, int CBVouNo, string VoucherDate, string AccountID, string Narration, double Amount, string chequenumber, string chequedate, string bankid, string createdby, string createddate, string createdtime)
         {
             bool retValue = false;
-            string strSql = GetInsertQueryForBankPayment(CBId, CBVouType, CBVouNo, VoucherDate, AccountID, Narration, Amount, chequenumber,chequedate,bankid, createdby, createddate, createdtime);
+            string strSql = GetInsertQueryForBankPayment(CBId, CBVouType, CBVouNo, VoucherDate, AccountID, Narration, Amount, chequenumber, chequedate, bankid, createdby, createddate, createdtime);
             if (DBInterface.ExecuteQuery(strSql) > 0)
                 retValue = true;
             return retValue;
@@ -236,9 +236,9 @@ public class DBPurchase
             string strSql = GetUpdateQuery(purchaseID, accountID, Narration, EntryDate, VoucherSeries, VoucherType, VoucherNumber, VoucherDate,
                 PurchaseBillNumber, AmountNet, AmountClear, AmountGross, AmountItemDiscount, AmountSpecialDiscount,
                 SpecialDiscPer, AmountCashDiscount, CRNoteDiscPer, AmountSchemeDiscount,
-                AmountAddOn,AmountFreight, CashDiscountPercentage, AmountCreditNote, AmountDebitNote, RoundUpAmount,
+                AmountAddOn, AmountFreight, CashDiscountPercentage, AmountCreditNote, AmountDebitNote, RoundUpAmount,
                 OctroiPercentage, AmountOctroi, AmountPurchase5PercentVAT, AmtOtherPercentVAT, AmountVAT5Percent,
-                PurchaseAmount12Point5PercentVAT, AmountVAT12Point5Percent, PurchaseAmountZeroVAT, DueDate, NumberofChallans,statementNumber,voucherSubType,
+                PurchaseAmount12Point5PercentVAT, AmountVAT12Point5Percent, PurchaseAmountZeroVAT, DueDate, NumberofChallans, statementNumber, voucherSubType,
                 gstAmt0, gstAmtS5, gstAmtS12, gstAmtS18, gstAmtS28, gstAmtC5, gstAmtC12, gstAmtC18, gstAmtC28, gsts5,
                 gsts12, gsts18, gsts28, gstc5, gstc12, gstc18, gstc28, gstAmtI5, gstAmtI12, gstAmtI18, gstAmtI28, gstI5, gstI12, gstI18, gstI28, modifiedby, modifieddate, modifiedtime);
             if (DBInterface.ExecuteQuery(strSql) > 0)
@@ -404,16 +404,16 @@ public class DBPurchase
             double SpecialDiscPer, double AmountCashDiscount, double CRNoteDiscPer, double AmountSchemeDiscount,
             double AmountAddOn, double AmountFreight, double CashDiscountPercentage, double AmountCreditNote, double AmountDebitNote, double RoundUpAmount,
             double OctroiPercentage, double AmountOctroi, double PurchaseAmount5PercentVAT, double AmtOtherPercentVAT, double AmountVAT5Percent,
-            double PurchaseAmount12Point5PercentVAT, double AmountVAT12Point5Percent, double PurchaseAmountZeroVATS, string DueDate, int NumberofChallans,  int StatementNumber, string voucherSubType,
+            double PurchaseAmount12Point5PercentVAT, double AmountVAT12Point5Percent, double PurchaseAmountZeroVATS, string DueDate, int NumberofChallans, int StatementNumber, string voucherSubType,
             double gstAmt0, double gstAmtS5, double gstAmtS12, double gstAmtS18, double gstAmtS28,
             double gstAmtC5, double gstAmtC12, double gstAmtC18, double gstAmtC28, double gsts5, double gsts12, double gsts18, double gsts28,
             double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28, string createdby, string createddate, string createdtime)
         {
             Query objQuery = new Query();
             objQuery.Table = "voucherpurchase";
-          //  objQuery.AddToQuery("purchaseID", purchaseID);
-          //  objQuery.AddToQuery("EntryDate", EntryDate);
-            objQuery.AddToQuery("VoucherSeries", General.ShopDetail.ShopVoucherSeries );
+            //  objQuery.AddToQuery("purchaseID", purchaseID);
+            //  objQuery.AddToQuery("EntryDate", EntryDate);
+            objQuery.AddToQuery("VoucherSeries", General.ShopDetail.ShopVoucherSeries);
             objQuery.AddToQuery("VoucherType", VoucherType);
             //objQuery.AddToQuery("VoucherSubType", voucherSubType);
             objQuery.AddToQuery("VoucherNumber", VoucherNumber);
@@ -421,7 +421,7 @@ public class DBPurchase
             objQuery.AddToQuery("PurchaseBillNumber", PurchaseBillNumber);
             objQuery.AddToQuery("AccountID", accountID);
             objQuery.AddToQuery("AmountNet", AmountNet);
-            objQuery.AddToQuery("AmountBalance", AmountNet-AmountClear);
+            objQuery.AddToQuery("AmountBalance", AmountNet - AmountClear);
             objQuery.AddToQuery("AmountClear", AmountClear);
             objQuery.AddToQuery("AmountGross", AmountGross);
             objQuery.AddToQuery("AmountItemDiscount", AmountItemDiscount);
@@ -436,19 +436,19 @@ public class DBPurchase
             objQuery.AddToQuery("AmountDebitNote", AmountDebitNote);
 
             objQuery.AddToQuery("RoundUpAmount", RoundUpAmount);
-         //   objQuery.AddToQuery("OctroiPercentage", OctroiPercentage);
-        //    objQuery.AddToQuery("AmountOctroi", AmountOctroi);
-          //  objQuery.AddToQuery("DueDate", DueDate);
+            //   objQuery.AddToQuery("OctroiPercentage", OctroiPercentage);
+            //    objQuery.AddToQuery("AmountOctroi", AmountOctroi);
+            //  objQuery.AddToQuery("DueDate", DueDate);
             objQuery.AddToQuery("Narration", Narration);
-          //  objQuery.AddToQuery("AmountVAT5Percent", AmountVAT5Percent);
-         //   objQuery.AddToQuery("AmountVAT12point5Percent", AmountVAT12Point5Percent);
-          //  objQuery.AddToQuery("AmountVATOPercent", AmtOtherPercentVAT);
+            //  objQuery.AddToQuery("AmountVAT5Percent", AmountVAT5Percent);
+            //   objQuery.AddToQuery("AmountVAT12point5Percent", AmountVAT12Point5Percent);
+            //  objQuery.AddToQuery("AmountVATOPercent", AmtOtherPercentVAT);
 
 
-          //  objQuery.AddToQuery("AmountPurchaseZeroVAT", PurchaseAmountZeroVATS);
-          //  objQuery.AddToQuery("AmountPurchase5PercentVAT", PurchaseAmount5PercentVAT);
-         //   objQuery.AddToQuery("AmountPurchase12point5PercentVAT", PurchaseAmount12Point5PercentVAT);
-          //  objQuery.AddToQuery("AmountPurchaseOPercentVAT", PurchaseAmount0PercentVAT);
+            //  objQuery.AddToQuery("AmountPurchaseZeroVAT", PurchaseAmountZeroVATS);
+            //  objQuery.AddToQuery("AmountPurchase5PercentVAT", PurchaseAmount5PercentVAT);
+            //   objQuery.AddToQuery("AmountPurchase12point5PercentVAT", PurchaseAmount12Point5PercentVAT);
+            //  objQuery.AddToQuery("AmountPurchaseOPercentVAT", PurchaseAmount0PercentVAT);
             //objQuery.AddToQuery("StatementNumber", StatementNumber);
             //objQuery.AddToQuery("NumberofChallans", NumberofChallans);
 
@@ -532,7 +532,7 @@ public class DBPurchase
             objQuery.AddToQuery("AmountPurchaseZeroVAT", PurchaseAmountZeroVATS);
             objQuery.AddToQuery("AmountPurchase5PercentVAT", PurchaseAmount5PercentVAT);
             objQuery.AddToQuery("AmountPurchase12point5PercentVAT", PurchaseAmount12Point5PercentVAT);
-          //  objQuery.AddToQuery("AmountPurchaseOPercentVAT", PurchaseAmount0PercentVAT);
+            //  objQuery.AddToQuery("AmountPurchaseOPercentVAT", PurchaseAmount0PercentVAT);
             objQuery.AddToQuery("StatementNumber", StatementNumber);
             objQuery.AddToQuery("NumberofChallans", NumberofChallans);
             objQuery.AddToQuery("ModifiedUserID", modifiedby);
@@ -546,7 +546,7 @@ public class DBPurchase
                    double SpecialDiscPer, double AmountCashDiscount, double CRNoteDiscPer, double AmountSchemeDiscount,
                    double AmountAddOn, double AmountFreight, double CashDiscountPercentage, double AmountCreditNote, double AmountDebitNote, double RoundUpAmount,
                    double OctroiPercentage, double AmountOctroi, double PurchaseAmount5PercentVAT, double AmtOtherPercentVAT, double AmountVAT5Percent,
-                   double PurchaseAmount12Point5PercentVAT, double AmountVAT12Point5Percent, double PurchaseAmountZeroVATS, string DueDate, int NumberofChallans,  int StatementNumber, string modifiedby, string modifieddate, string modifiedtime)
+                   double PurchaseAmount12Point5PercentVAT, double AmountVAT12Point5Percent, double PurchaseAmountZeroVATS, string DueDate, int NumberofChallans, int StatementNumber, string modifiedby, string modifieddate, string modifiedtime)
         {
             Query objQuery = new Query();
             objQuery.Table = "deletedvoucherpurchase";
@@ -586,7 +586,7 @@ public class DBPurchase
             objQuery.AddToQuery("AmountPurchaseZeroVAT", PurchaseAmountZeroVATS);
             objQuery.AddToQuery("AmountPurchase5PercentVAT", PurchaseAmount5PercentVAT);
             objQuery.AddToQuery("AmountPurchase12point5PercentVAT", PurchaseAmount12Point5PercentVAT);
-          //  objQuery.AddToQuery("AmountPurchaseOPercentVAT", PurchaseAmount0PercentVAT);
+            //  objQuery.AddToQuery("AmountPurchaseOPercentVAT", PurchaseAmount0PercentVAT);
             objQuery.AddToQuery("StatementNumber", StatementNumber);
             objQuery.AddToQuery("NumberofChallans", NumberofChallans);
             objQuery.AddToQuery("ModifiedUserID", modifiedby);
@@ -643,16 +643,16 @@ public class DBPurchase
             objQuery.AddToQuery("BillDate", puchaseVouDate);
             objQuery.AddToQuery("BillAmount", Amount);
             objQuery.AddToQuery("BalanceAmount", Amount);
-            objQuery.AddToQuery("ClearAmount", Amount);           
+            objQuery.AddToQuery("ClearAmount", Amount);
             return objQuery.InsertQuery();
         }
 
         private string GetInsertQueryDetails(int Id, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
                string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
                double AmountSchemeDiscount, double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double AmountProductVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
-               string IfTradeRateInclusiveOfVAT, double Amount, double amtspldisc, double spldiscper, double AmountZeroVAT, double Amountcashdiscperunit,int stockid,string mydetailpurchaseid, double productMargin,
-               double productMargin2, int serialNumber,string scancode, double gstPurchaseAmountZero, double gstSPurchaseAmount, double gstCPurchaseAmount,
-               double gstSAmount, double gstCAmount,double pricetoretailer,double profitpercent)
+               string IfTradeRateInclusiveOfVAT, double Amount, double amtspldisc, double spldiscper, double AmountZeroVAT, double Amountcashdiscperunit, int stockid, double productMargin,
+               double productMargin2, int serialNumber, string scancode, double gstPurchaseAmountZero, double gstSPurchaseAmount, double gstCPurchaseAmount,
+               double gstSAmount, double gstCAmount, double pricetoretailer, double profitpercent)
         {
             Query objQuery = new Query();
             objQuery.Table = "detailpurchase";
@@ -684,7 +684,7 @@ public class DBPurchase
             //objQuery.AddToQuery("SpecialDiscountPercent", spldiscper);      
             objQuery.AddToQuery("AmountCashDiscount", Amountcashdiscperunit);
             objQuery.AddToQuery("StockID", stockid);
-         //   objQuery.AddToQuery("DetailPurchaseID", mydetailpurchaseid);
+            //   objQuery.AddToQuery("DetailPurchaseID", mydetailpurchaseid);
             objQuery.AddToQuery("Margin", productMargin);
             objQuery.AddToQuery("MarginAfterDiscount", productMargin2);
             objQuery.AddToQuery("SerialNumber", serialNumber);
@@ -704,7 +704,7 @@ public class DBPurchase
         private string GetInsertQueryChangedDetails(string Id, string changedMasterID, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
               string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
               double AmountSchemeDiscount, double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double AmountProductVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
-              string IfTradeRateInclusiveOfVAT, double Amount, double amtspldisc, double spldiscper, double AmountZeroVAT, double Amountcashdiscperunit, string stockid, string mydetailpurchaseid, double productMargin, double productMargin2, int serialNumber)
+              string IfTradeRateInclusiveOfVAT, double Amount, double amtspldisc, double spldiscper, double AmountZeroVAT, double Amountcashdiscperunit, string stockid, double productMargin, double productMargin2, int serialNumber)
         {
             Query objQuery = new Query();
             objQuery.Table = "changeddetailpurchase";
@@ -737,7 +737,7 @@ public class DBPurchase
             //objQuery.AddToQuery("SpecialDiscountPercent", spldiscper);
             objQuery.AddToQuery("AmountCashDiscount", Amountcashdiscperunit);
             objQuery.AddToQuery("StockID", stockid);
-            objQuery.AddToQuery("DetailPurchaseID", mydetailpurchaseid);
+            //objQuery.AddToQuery("DetailPurchaseID", mydetailpurchaseid);
             objQuery.AddToQuery("Margin", productMargin);
             objQuery.AddToQuery("MarginAfterDiscount", productMargin2);
             objQuery.AddToQuery("SerialNumber", serialNumber);
@@ -747,7 +747,7 @@ public class DBPurchase
         private string GetInsertQueryDeletedDetails(string Id, int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
               string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double ItemDiscountPercent, double AmountItemDiscount, double SchemeDiscountPercent,
               double AmountSchemeDiscount, double PurchaseVATPercent, double ProductVATPercent, double AmountPurchaseVAT, double AmountProductVAT, double CSTPercent, double AmountCST, string IfMRPInclusiveOfVAT,
-              string IfTradeRateInclusiveOfVAT, double Amount, double amtspldisc, double spldiscper, double AmountZeroVAT, double Amountcashdiscperunit, string stockid, string mydetailpurchaseid, double productMargin, double productMargin2, int serialNumber)
+              string IfTradeRateInclusiveOfVAT, double Amount, double amtspldisc, double spldiscper, double AmountZeroVAT, double Amountcashdiscperunit, string stockid, double productMargin, double productMargin2, int serialNumber)
         {
             Query objQuery = new Query();
             objQuery.Table = "deleteddetailpurchase";
@@ -779,7 +779,7 @@ public class DBPurchase
             //objQuery.AddToQuery("SpecialDiscountPercent", spldiscper);
             objQuery.AddToQuery("AmountCashDiscount", Amountcashdiscperunit);
             objQuery.AddToQuery("StockID", stockid);
-            objQuery.AddToQuery("DetailPurchaseID", mydetailpurchaseid);
+            //objQuery.AddToQuery("DetailPurchaseID", mydetailpurchaseid);
             objQuery.AddToQuery("Margin", productMargin);
             objQuery.AddToQuery("MarginAfterDiscount", productMargin2);
             objQuery.AddToQuery("SerialNumber", serialNumber);
@@ -791,10 +791,10 @@ public class DBPurchase
         private string GetInsertQueryDetailsInStockTable(int ProductID, string Batchno, double TradeRate, double PurchaseRate, double MRP, double SaleRate,
             string Expiry, string ExpiryDate, int Quantity, int SchemeQuantity, int ReplacementQuantity, double PurchaseVATPercent,
             double ProductVATPercent, string IfMRPInclusiveOfVAT, string IfTradeRateInclusiveOfVAT, double Amount,
-            string accountId, string billnumber, string voutype, int vounumber, string voudate, int ProdLoosePack,string stockid,double productMargin,string purScanCode,double pricetoretailer,double profitpercent)
+            string accountId, string billnumber, string voutype, int vounumber, string voudate, int ProdLoosePack, string stockid, double productMargin, string purScanCode, double pricetoretailer, double profitpercent, int PurchaseId)
         {
             Query objQuery = new Query();
-            objQuery.Table = "tblstock";          
+            objQuery.Table = "tblstock";
             objQuery.AddToQuery("ProductID", ProductID);
             objQuery.AddToQuery("BatchNumber", Batchno);
             objQuery.AddToQuery("TradeRate", TradeRate);
@@ -825,12 +825,13 @@ public class DBPurchase
             objQuery.AddToQuery("DebitNoteStock", 0);
             objQuery.AddToQuery("SaleSchemeStock", 0);
             objQuery.AddToQuery("PriceToRetailer", pricetoretailer);
-            objQuery.AddToQuery("ProfitPercent", profitpercent);               
-         //   objQuery.AddToQuery("StockID",stockid);
+            objQuery.AddToQuery("ProfitPercent", profitpercent);
+            //   objQuery.AddToQuery("StockID",stockid);
             objQuery.AddToQuery("Margin", productMargin);
+            objQuery.AddToQuery("PurchaseId", PurchaseId);
 
             return objQuery.InsertQuery();
-        }       
+        }
 
 
         private string GetUpdateQuery(string purchaseID, string accountID, string Narration, string EntryDate, string VoucherSeries, string VoucherType, int VoucherNumber, string VoucherDate,
@@ -838,7 +839,7 @@ public class DBPurchase
           double SpecialDiscPer, double AmountCashDiscount, double CRNoteDiscPer, double AmountSchemeDiscount,
           double AmountAddOn, double AmountFreight, double CashDiscountPercentage, double AmountCreditNote, double AmountDebitNote, double RoundUpAmount,
           double OctroiPercentage, double AmountOctroi, double PurchaseAmount5PercentVAT, double AmtOtherPercentVAT, double AmountVAT5Percent,
-          double PurchaseAmount12Point5PercentVAT, double AmountVAT12Point5Percent, double purchaseAmountZeroVat, string DueDate, int NumberofChallans, int statementNumber,string voucherSubType,
+          double PurchaseAmount12Point5PercentVAT, double AmountVAT12Point5Percent, double purchaseAmountZeroVat, string DueDate, int NumberofChallans, int statementNumber, string voucherSubType,
            double gstAmt0, double gstAmtS5, double gstAmtS12, double gstAmtS18, double gstAmtS28,
             double gstAmtC5, double gstAmtC12, double gstAmtC18, double gstAmtC28, double gsts5, double gsts12, double gsts18, double gsts28,
             double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28, string modifiedby, string modifieddate, string modifiedtime)
@@ -917,7 +918,7 @@ public class DBPurchase
             return objQuery.UpdateQuery();
         }
 
-          private string GetUpdateQueryForTypeChange(string purchaseID, string  VoucherType, int VoucherNumber, string modifiedby, string modifieddate, string modifiedtime)
+        private string GetUpdateQueryForTypeChange(string purchaseID, string VoucherType, int VoucherNumber, string modifiedby, string modifieddate, string modifiedtime)
         {
             Query objQuery = new Query();
             objQuery.Table = "voucherpurchase";
@@ -1070,7 +1071,7 @@ public class DBPurchase
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
-      
+
 
         public DataTable GetOverviewDataForVATReportMONTH(string mfromdate, string mtodate)
         {
@@ -1088,10 +1089,10 @@ public class DBPurchase
             return dtable;
         }
 
-        public DataTable GetOverviewDataForVATReportTIN(string mfromdate, string mtodate )
+        public DataTable GetOverviewDataForVATReportTIN(string mfromdate, string mtodate)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select a.VoucherDate,sum(a.AmountPurchase5PercentVAT + a.AmountPurchase12point5PercentVAT) as TotalAmount,sum(a.AmountVAT5Percent + a.AmountVAT12Point5Percent) as TotalVAT,b.AccountID,b.AccName,b.AccAddress1,b.AccVATTIN  from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.VoucherDate >= '"+ mfromdate  +"' AND a.VoucherDate <= '"+ mtodate  +"'  group by b.AccountID  order by TotalVAT desc";
+            string strSql = "Select a.VoucherDate,sum(a.AmountPurchase5PercentVAT + a.AmountPurchase12point5PercentVAT) as TotalAmount,sum(a.AmountVAT5Percent + a.AmountVAT12Point5Percent) as TotalVAT,b.AccountID,b.AccName,b.AccAddress1,b.AccVATTIN  from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.VoucherDate >= '" + mfromdate + "' AND a.VoucherDate <= '" + mtodate + "'  group by b.AccountID  order by TotalVAT desc";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1127,7 +1128,7 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "Select a.PurchaseID,a.ProductID,a.BatchNumber,a.Quantity ,a.SchemeQuantity,a.ReplacementQuantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount, " +
                  "b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.SchemeQuantity > 0 AND  a.ProductID = '" +ProductID +"' order by VoucherNumber";
+                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.SchemeQuantity > 0 AND  a.ProductID = '" + ProductID + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1136,7 +1137,7 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "Select a.PurchaseID,a.ProductID,a.MRP,a.BatchNumber,a.Quantity ,a.SchemeQuantity,a.ReplacementQuantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount, " +
                  "b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.ProductID = '" + ProductID + "' AND a.BatchNumber = '" + mbatchno + "' AND a.MRP = "+ mrp +"  order by VoucherNumber";
+                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.ProductID = '" + ProductID + "' AND a.BatchNumber = '" + mbatchno + "' AND a.MRP = " + mrp + "  order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1172,11 +1173,11 @@ public class DBPurchase
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.PurchaseBillNumber,a.VoucherDate ,a.AmountNet , a.AmountVAT5Percent,a.AmountVAT12point5Percent " +
-                 "from voucherpurchase a inner join masteraccount c on a.Accountid = c.AccountID where a.statementnumber = "+ statementNumber +" AND voucherseries = '"+ voucherSeries + "' order by VoucherType, VoucherNumber";
+                 "from voucherpurchase a inner join masteraccount c on a.Accountid = c.AccountID where a.statementnumber = " + statementNumber + " AND voucherseries = '" + voucherSeries + "' order by VoucherType, VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
-      
+
         public DataTable GetOverviewDataForDiscount()
         {
             DataTable dtable = new DataTable();
@@ -1198,7 +1199,7 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "Select sum(a.Quantity *a.TradeRate) as AmountNet,a.ProductID, sum(a.AmountItemDiscount) as AmountItemDiscount, " +
                  "sum(a.AmountSchemeDiscount) as AmountSchemeDiscount, " +
-                 "sum(a.AmountCashDiscount) as AmountCashDiscount, b.ProductID,b.ProdCategoryID,c.ProductCategoryID,c.ProductCategoryName,d.voucherdate from detailpurchase a inner join masterproduct b on a.ProductID = b.ProductID inner join masterproductcategory c on b.ProdCategoryID = c.ProductCategoryID inner join voucherpurchase d on a.PurchaseID = d.PurchaseID  where d.voucherdate >= '" + mfromdate + "' AND d.voucherdate <= '"+ mtodate +"' group by c.ProductCategoryID order by c.ProductCategoryName ";
+                 "sum(a.AmountCashDiscount) as AmountCashDiscount, b.ProductID,b.ProdCategoryID,c.ProductCategoryID,c.ProductCategoryName,d.voucherdate from detailpurchase a inner join masterproduct b on a.ProductID = b.ProductID inner join masterproductcategory c on b.ProdCategoryID = c.ProductCategoryID inner join voucherpurchase d on a.PurchaseID = d.PurchaseID  where d.voucherdate >= '" + mfromdate + "' AND d.voucherdate <= '" + mtodate + "' group by c.ProductCategoryID order by c.ProductCategoryName ";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1208,17 +1209,17 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "Select a.purchaseID,a.ProductID,a.BatchNumber,a.Expiry,a.MRP,a.Quantity,(a.SchemeQuantity + a.ReplacementQuantity) as SchemeQuantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount,b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName, " +
                  " d.ProductID,d.ProdName,d.ProdLoosePack,d.ProdPack " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.purchaseID = b.purchaseID inner join masteraccount c on b.AccountID = c.AccountID inner join masterproduct d on a.ProductID = d.ProductID where d.ProdCompID = '" + companyid + "' AND b.Voucherdate >= '"+ mfromdate +"' AND b.Voucherdate <='"+ mtodate  + "' order by d.ProdName";
+                 "from detailpurchase a  inner join voucherpurchase b on a.purchaseID = b.purchaseID inner join masteraccount c on b.AccountID = c.AccountID inner join masterproduct d on a.ProductID = d.ProductID where d.ProdCompID = '" + companyid + "' AND b.Voucherdate >= '" + mfromdate + "' AND b.Voucherdate <='" + mtodate + "' order by d.ProdName";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
 
-        public DataTable GetOverviewDataNewProducts(string mfromdate, string mtodate )
+        public DataTable GetOverviewDataNewProducts(string mfromdate, string mtodate)
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.purchaseID,a.ProductID,a.BatchNumber,a.Expiry,a.MRP,a.Quantity,a.PurchaseRate, (a.PurchaseRate * a.Quantity) as Amount,b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName, " +
                  " d.ProductID,d.ProdName,d.ProdLoosePack,d.ProdPack " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.purchaseID = b.purchaseID inner join masteraccount c on b.AccountID = c.AccountID inner join masterproduct d on a.ProductID = d.ProductID where  d.CreatedDate >= '"+ General.ShopDetail.Shopsy + "' AND  b.Voucherdate >= '"+ mfromdate +"' AND b.Voucherdate <='"+ mtodate  + "'  order by d.ProdName";
+                 "from detailpurchase a  inner join voucherpurchase b on a.purchaseID = b.purchaseID inner join masteraccount c on b.AccountID = c.AccountID inner join masterproduct d on a.ProductID = d.ProductID where  d.CreatedDate >= '" + General.ShopDetail.Shopsy + "' AND  b.Voucherdate >= '" + mfromdate + "' AND b.Voucherdate <='" + mtodate + "'  order by d.ProdName";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1228,7 +1229,7 @@ public class DBPurchase
             DataTable dtable = new DataTable();
             string strSql = "Select a.PurchaseID,a.ProductID,a.BatchNumber,a.Quantity ,a.SchemeQuantity,a.ReplacementQuantity,a.PurchaseRate,a.MRP,a.Margin ,a.MarginAfterDiscount," +
                  "b.purchaseID,b.VoucherNumber,b.VoucherType,b.PurchaseBillNumber,b.VoucherDate,b.AccountID,c.AccountID,c.AccName " +
-                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.ProductID = '"+ ProductID+"' order by b.VoucherDate";
+                 "from detailpurchase a  inner join voucherpurchase b on a.PurchaseID = b.purchaseID inner join masteraccount c on b.Accountid = c.AccountID where a.ProductID = '" + ProductID + "' order by b.VoucherDate";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1328,11 +1329,11 @@ public class DBPurchase
         public DataRow ReadDetailsByVouNumber(int vouno, string voutype)
         {
             DataRow dRow = null;
-            
-           
-                string strSql = "Select * from voucherpurchase where VoucherNumber = " + vouno + " AND VoucherType = '" + voutype + "'";
-                dRow = DBInterface.SelectFirstRow(strSql);
-           
+
+
+            string strSql = "Select * from voucherpurchase where VoucherNumber = " + vouno + " AND VoucherType = '" + voutype + "'";
+            dRow = DBInterface.SelectFirstRow(strSql);
+
             return dRow;
         }
 
@@ -1427,7 +1428,7 @@ public class DBPurchase
             bool retVal = true;
             string strSql = "";
             DataTable dt = new DataTable();
-            strSql = "select * from voucherpurchase where voucherDate >= '"+ VoucherDate + "' AND voucherDate <= '" + VoucherDate + "' AND statementnumber > 0";
+            strSql = "select * from voucherpurchase where voucherDate >= '" + VoucherDate + "' AND voucherDate <= '" + VoucherDate + "' AND statementnumber > 0";
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 retVal = false;
@@ -1510,14 +1511,14 @@ public class DBPurchase
             }
             return dRow;
         }
-        public DataRow GetDuplicateBarcode(string Barcode) 
+        public DataRow GetDuplicateBarcode(string Barcode)
         {
             DataRow dr;
             string strsql = "select PurchaseID,StockID,ProductID,scancode from detailpurchase where scancode = '" + Barcode + "'";
             dr = DBInterface.SelectFirstRow(strsql);
             return dr;
         }
-      
+
 
 
         public DataRow GetLastVoucherNumber(string vouType, string vouSubType, string vouSeries)
@@ -1595,6 +1596,6 @@ public class DBPurchase
             return dt;
         }
 
-       
+
     }
 }

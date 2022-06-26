@@ -167,8 +167,8 @@ namespace EcoMart.InterfaceLayer
                     tsBtnEdit.Visible = false;
                 }
             }
-            txtVouchernumber.Focus();          
-          //  GetLastRecord();
+            txtVouchernumber.Focus();
+            //  GetLastRecord();
             return retValue;
         }
         private void GetLastRecord()
@@ -445,7 +445,10 @@ namespace EcoMart.InterfaceLayer
                         _DNAmount.IntID = _DNAmount.AddDetails();
                         //retValue = _CNAmount.AddDetails();
                         if (_DNAmount.IntID > 0)
+                        {
                             retValue = true;
+                            _DNAmount.Id = _DNAmount.IntID.ToString();
+                        }
                         else
                             retValue = false;
 
@@ -569,7 +572,7 @@ namespace EcoMart.InterfaceLayer
                         else
                             General.RollbackTransaction();
                         LockTable.UnLockTables();
-                        return returnVal; 
+                        return returnVal;
                     }
 
                 }
@@ -603,61 +606,63 @@ namespace EcoMart.InterfaceLayer
                 {
                     ifAdjusted = "Y";
                     lblFooterMessage.Text = "Debit Note Cleared in Purchase Voucher:" + _DNAmount.ClearVouType + " " + _DNAmount.ClearVouNo.ToString();
-                    
-                }
-                
-                    FillData();
-                    NumberofRows();
-                    AddToolTip();
-                    mcbCreditor.Focus();
-                    txtNarration.Text = _DNAmount.CrdbNarration.ToString();
-                    txtVouchernumber.Text = _DNAmount.CrdbVouNo.ToString().Trim();
-                    //  _DNAmount.CrdbVouDate = datePickerBillDate.Text.Trim();
-                    if (_DNAmount.CrdbVat5 >= 0)
-                        txtVatInput5per.Text = _DNAmount.CrdbVat5.ToString("#0.00");
-                    if (_DNAmount.CrdbVat12point5 >= 0)
-                        txtVatInput12point5per.Text = _DNAmount.CrdbVat12point5.ToString("#0.00");
-                    if (_DNAmount.CrdbDiscPer >= 0)
-                        txtDiscPercent.Text = _DNAmount.CrdbDiscPer.ToString("#0.00");
-                    if (_DNAmount.CrdbDiscAmt > 0)
-                        txtDiscAmount.Text = _DNAmount.CrdbDiscAmt.ToString("#0.00");
 
-                    txtBillAmount.Text = _DNAmount.CrdbAmountNet.ToString("#0.00");
-                    txtNetAmount.Text = txtBillAmount.Text.ToString();
-                    txtAmount.Text = _DNAmount.CrdbAmount.ToString("#0.00");
-                    if (_DNAmount.CrdbRoundAmount != 0)
-                        txtRoundAmount.Text = _DNAmount.CrdbRoundAmount.ToString("#0.00");
-                    txtTotalAmount.Text = _DNAmount.CrdbTotalAmount.ToString("#0.00");
-                    DateTime mydate = new DateTime(Convert.ToInt32(_DNAmount.CrdbVouDate.Substring(0, 4)), Convert.ToInt32(_DNAmount.CrdbVouDate.Substring(4, 2)), Convert.ToInt32(_DNAmount.CrdbVouDate.Substring(6, 2)));
+                }
+
+                FillData();
+                NumberofRows();
+                AddToolTip();
+                mcbCreditor.Focus();
+                txtNarration.Text = _DNAmount.CrdbNarration.ToString();
+                txtVouchernumber.Text = _DNAmount.CrdbVouNo.ToString().Trim();
+                //  _DNAmount.CrdbVouDate = datePickerBillDate.Text.Trim();
+                if (_DNAmount.CrdbVat5 >= 0)
+                    txtVatInput5per.Text = _DNAmount.CrdbVat5.ToString("#0.00");
+                if (_DNAmount.CrdbVat12point5 >= 0)
+                    txtVatInput12point5per.Text = _DNAmount.CrdbVat12point5.ToString("#0.00");
+                if (_DNAmount.CrdbDiscPer >= 0)
+                    txtDiscPercent.Text = _DNAmount.CrdbDiscPer.ToString("#0.00");
+                if (_DNAmount.CrdbDiscAmt > 0)
+                    txtDiscAmount.Text = _DNAmount.CrdbDiscAmt.ToString("#0.00");
+
+                txtBillAmount.Text = _DNAmount.CrdbAmountNet.ToString("#0.00");
+                txtNetAmount.Text = txtBillAmount.Text.ToString();
+                txtAmount.Text = _DNAmount.CrdbAmount.ToString("#0.00");
+                if (_DNAmount.CrdbRoundAmount != 0)
+                    txtRoundAmount.Text = _DNAmount.CrdbRoundAmount.ToString("#0.00");
+                txtTotalAmount.Text = _DNAmount.CrdbTotalAmount.ToString("#0.00");
+                if (DateTime.TryParse(_DNAmount.CrdbVouDate.ToString(), out DateTime mydate))
+                {
                     datePickerBillDate.Value = mydate;
-                    CalculateAllAmounts();
-                    if (_Mode == OperationMode.Edit )
+                }
+                CalculateAllAmounts();
+                if (_Mode == OperationMode.Edit)
+                {
+                    if (ifAdjusted != "Y")
                     {
-                        if (ifAdjusted != "Y")
-                        {
-                            pnlVouTypeNo.Enabled = true;
-                            pnlAmounts.Enabled = true;
-                            mcbCreditor.Enabled = true;
-                            txtNarration.Enabled = true;
-                            txtVouchernumber.Enabled = false;
-                            txtVouchernumber.Enabled = true;
-                            mcbCreditor.Select();
-                            mcbCreditor.Focus();
-                            
-                        }
-                        else
-                        {
-                            pnlVouTypeNo.Enabled = false;
-                            pnlAmounts.Enabled = false;
-                            mcbCreditor.Enabled = false;
-                            txtNarration.Enabled = false;
-                        }
+                        pnlVouTypeNo.Enabled = true;
+                        pnlAmounts.Enabled = true;
+                        mcbCreditor.Enabled = true;
+                        txtNarration.Enabled = true;
+                        txtVouchernumber.Enabled = false;
+                        txtVouchernumber.Enabled = true;
+                        mcbCreditor.Select();
+                        mcbCreditor.Focus();
+
                     }
                     else
                     {
-                        mpProductGrid.Enabled = false;
+                        pnlVouTypeNo.Enabled = false;
+                        pnlAmounts.Enabled = false;
+                        mcbCreditor.Enabled = false;
+                        txtNarration.Enabled = false;
                     }
-                
+                }
+                else
+                {
+                    mpProductGrid.Enabled = false;
+                }
+
             }
             return true;
         }
@@ -691,7 +696,7 @@ namespace EcoMart.InterfaceLayer
 
         private bool DeletePreviousRows()
         {
-            bool returnVal = false;
+            bool returnVal;
             try
             {
                 returnVal = _DNAmount.DeletePreviousRecords();
@@ -713,7 +718,7 @@ namespace EcoMart.InterfaceLayer
                            Convert.ToDouble(prodrow.Cells["Col_Amount"].Value) >= 0)
                         {
                             _DNAmount.SerialNumber += 1;
-                            _DNAmount.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                            //_DNAmount.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                             _DNAmount.Particulars = prodrow.Cells["Col_Particulars"].Value.ToString();
                             _DNAmount.Amount = Convert.ToDouble(prodrow.Cells["Col_Amount"].Value);
                             returnVal = _DNAmount.AddParticularsDetails();
@@ -725,7 +730,7 @@ namespace EcoMart.InterfaceLayer
             }
         }
 
-      
+
 
         #endregion
 
@@ -830,23 +835,19 @@ namespace EcoMart.InterfaceLayer
         {
             try
             {
-                if(mpProductGrid.Rows.Count > 0 )
+                if (mpProductGrid.Rows.Count > 0)
                 {
-                    mpProductGrid.dgMainGrid.EndEdit();
+                    mpProductGrid.EndEdit();
                 }
-                mpProductGrid.ColumnsMain.Clear();
+                mpProductGrid.Columns.Clear();
                 DataGridViewTextBoxColumn column;
-
-
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_Particulars";
                 column.DataPropertyName = "Particulars";
                 column.HeaderText = "Particulars";
                 column.Visible = true;
                 column.Width = 300;
-                mpProductGrid.ColumnsMain.Add(column);
-
-
+                mpProductGrid.Columns.Add(column);
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_Amount";
@@ -857,7 +858,7 @@ namespace EcoMart.InterfaceLayer
                 column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
                 column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 column.MaxInputLength = 14;
-                mpProductGrid.ColumnsMain.Add(column);
+                mpProductGrid.Columns.Add(column);
             }
             catch (Exception Ex)
             {
@@ -876,8 +877,8 @@ namespace EcoMart.InterfaceLayer
         {
             DataTable dtable = new DataTable();
             dtable = _DNAmount.ReadParticularsByID();
-            mpProductGrid.DataSourceMain = dtable;
-            mpProductGrid.Bind();
+            BindGrid(dtable);
+            InitializeGrid();
         }
         #endregion
 
@@ -927,8 +928,6 @@ namespace EcoMart.InterfaceLayer
 
             if (colIndex == 1) //Amount Column
             {
-                
-
                 foreach (DataGridViewRow prodrow in mpProductGrid.Rows)
                 {
 
@@ -937,7 +936,7 @@ namespace EcoMart.InterfaceLayer
                     {
                         prodrow.Cells["Col_Amount"].Value = 0;
                     }
-                }               
+                }
             }
 
             if (colIndex == 1) //Amount Column
@@ -946,7 +945,7 @@ namespace EcoMart.InterfaceLayer
 
                 foreach (DataGridViewRow prodrow in mpProductGrid.Rows)
                 {
-                   
+
                     if (prodrow.Cells["Col_Amount"].Value != null &&
                        Convert.ToDouble(prodrow.Cells["Col_Amount"].Value) > 0)
                     {
@@ -972,7 +971,6 @@ namespace EcoMart.InterfaceLayer
             {
                 if (dr.Cells["Col_Amount"].Value != null && dr.Cells["Col_Amount"].Value.ToString() != "")
                 {
-
                     TotalAmount += double.Parse(dr.Cells["Col_Amount"].Value.ToString());
                     itemCount += 1;
                 }
@@ -1080,10 +1078,15 @@ namespace EcoMart.InterfaceLayer
 
         private void txtNarration_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            try
             {
-                mpProductGrid.SetFocus(0);
+                if (e.KeyCode == Keys.Enter)
+                {
+                    if (mpProductGrid.Rows.Count > 0)
+                        mpProductGrid.SetCurrentCell(mpProductGrid.CurrentRow.Index, 1);
+                }
             }
+            catch (Exception ex) { Log.WriteError(ex.ToString()); }
         }
 
 
@@ -1117,12 +1120,83 @@ namespace EcoMart.InterfaceLayer
 
         }
 
+        private void BindGrid(DataTable dtTable)
+        {
+            try
+            {                  
+                foreach (DataGridViewColumn column in mpProductGrid.Columns)
+                {
+                    column.SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
+                if (dtTable != null)
+                {
+                    mpProductGrid.Rows.Clear();
+                    for (int index = 0; index < dtTable.Rows.Count; index++)
+                    {
+                        int rowIndex = mpProductGrid.Rows.Add();
+                        DataGridViewRow dr = mpProductGrid.Rows[rowIndex];
+                        for (int colIndex = 0; colIndex < mpProductGrid.Columns.Count; colIndex++)
+                        {
+                            DataGridViewColumn col = mpProductGrid.Columns[colIndex];
+                            if (col.DataPropertyName != null && col.DataPropertyName != "")
+                            {
+                                if (mpProductGrid.DoubleColumnNames != null && mpProductGrid.DoubleColumnNames.Contains(col.Name))
+                                {
+                                    dr.Cells[col.Name].Value = Convert.ToDouble(dtTable.Rows[index][col.DataPropertyName]).ToString("#0.00");
+                                }
+                                else
+                                {
+                                    dr.Cells[col.Name].Value = dtTable.Rows[index][col.DataPropertyName].ToString();
+                                }
+                            }
+                            //if (colIndex == 1)
+                            //{
+                            //    dr.Cells[1].ReadOnly = true;
+                            //}
+                        }
+                    }
+                }
+                mpProductGrid.Initialize();
+            }
+            catch (Exception ex)
+            {
+                Log.WriteError(ex.ToString());
+            }
+        }
+
+        private void InitializeGrid()
+        {
+            if (_Mode == OperationMode.Edit)
+            {
+                if (mpProductGrid.Rows.Count == 0 || !(General.CheckForBlankRowInTheGrid(mpProductGrid)))
+                {
+                    mpProductGrid.Rows.Add();
+                    txtVouchernumber.Enabled = false;
+                    mpProductGrid.ClearSelection();
+                }
+
+                //mpProductGrid.Foc(mpProductGrid.Rows.Count, 1);
+                txtVouchernumber.Enabled = true;
+            }
+            if (_Mode == OperationMode.View || _Mode == OperationMode.Delete || _Mode == OperationMode.ReportView)
+            {
+                mpProductGrid.Columns[0].ReadOnly = true;
+                mpProductGrid.Columns[1].ReadOnly = true;
+                if (_Mode == OperationMode.ReportView)
+                    tsBtnFifth.Visible = false;
+
+                txtVouchernumber.Enabled = false;
+            }
+            if (_Mode != OperationMode.Edit)
+                mpProductGrid.ClearSelection();
+        }
+
         # endregion
 
         # region ToolTip
         private void AddToolTip()
         {
-           
+
         }
 
         # endregion

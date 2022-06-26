@@ -68,7 +68,7 @@
             this.txtUser.PasswordChar = '*';
             this.txtUser.Size = new System.Drawing.Size(187, 20);
             this.txtUser.TabIndex = 9;
-            this.txtUser.Text = "root";
+            this.txtUser.Text = "sa";
             // 
             // txtPassword
             // 
@@ -77,7 +77,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(187, 20);
             this.txtPassword.TabIndex = 11;
-            this.txtPassword.Text = "root";
+            this.txtPassword.Text = "ecomart@1234";
             // 
             // btnTestConnection
             // 
@@ -95,7 +95,7 @@
             this.txtDatabase.Name = "txtDatabase";
             this.txtDatabase.Size = new System.Drawing.Size(187, 20);
             this.txtDatabase.TabIndex = 7;
-            this.txtDatabase.Text = "EcoMart";
+            this.txtDatabase.Text = "EcoMartDB";
             // 
             // label5
             // 
@@ -123,7 +123,7 @@
             this.cmbServers.Name = "cmbServers";
             this.cmbServers.Size = new System.Drawing.Size(187, 21);
             this.cmbServers.TabIndex = 5;
-            this.cmbServers.Text = "localhost";
+            this.cmbServers.Text = "LAPTOP-HRIBAM33\\MSSQLSERVER01";
             // 
             // label7
             // 

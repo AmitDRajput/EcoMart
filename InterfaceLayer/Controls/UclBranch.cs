@@ -134,7 +134,7 @@ namespace EcoMart.InterfaceLayer
             bool retValue = false;
             try
             {
-                _Branch.Id = txtName.SelectedID;
+                //_Branch.Id = txtName.SelectedID;
                 if (_Branch.Id != null && _Branch.Id != "")
                 {
                     retValue = _Branch.CanBeDeleted();

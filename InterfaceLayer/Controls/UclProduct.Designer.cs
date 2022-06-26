@@ -33,15 +33,12 @@ namespace EcoMart.InterfaceLayer
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.psLabel5 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.psLabel4 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.mcbFourthCreditor = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
-            this.mcbThirdCreditor = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
+            this.txtHSNNumber = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
+            this.psLabel6 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.mcbGenericCategory = new PaperlessPharmaRetail.InterfaceLayer.CommonControls.PSGenericCategoryComboBoxNew();
-            this.psLabel3 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.txtProductBarcode = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,23 +46,11 @@ namespace EcoMart.InterfaceLayer
             this.label7 = new System.Windows.Forms.Label();
             this.psLabel2 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.txtPackType = new EcoMart.InterfaceLayer.CommonControls.PSAutoSuggestTextBox();
-            this.psLabel1 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.txtIfBarCodeRequired = new System.Windows.Forms.TextBox();
-            this.cbSchedule = new System.Windows.Forms.ComboBox();
             this.lblColdStorage = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.txtRequireColdStorage = new System.Windows.Forms.TextBox();
             this.mPlbl21 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.mPlbl20 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl19 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.mPlbl18 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl17 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.mPlbl16 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.mPlbl15 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.mPlbl14 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.mPlbl13 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.mPlbl12 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.mPlbl11 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.mPlbl10 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl9 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl8 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl7 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
@@ -75,31 +60,20 @@ namespace EcoMart.InterfaceLayer
             this.mPlbl3 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl2 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl1 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.txtAddOctroi = new System.Windows.Forms.TextBox();
-            this.txtSaleDiscount = new System.Windows.Forms.TextBox();
-            this.txtShowInShortList = new System.Windows.Forms.TextBox();
-            this.txtIfScheduledDrug = new System.Windows.Forms.TextBox();
-            this.txtCST = new PharmaSYSPlus.CommonLibrary.DecimalTextBox();
             this.txtName = new EcoMart.InterfaceLayer.CommonControls.PSAutoSuggestTextBox();
             this.mcbProductCategory = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
             this.mcbShelfCode = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
             this.mcbCompany = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
-            this.mcbSecondCreditor = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
-            this.mcbFirstCreditor = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
             this.txtPack = new EcoMart.InterfaceLayer.CommonControls.PSAutoSuggestTextBox();
             this.txtMaxLevel = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
             this.txtMinLevel = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
             this.txtLoosePack = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
             this.txtBoxQty = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
             this.txtVAT = new PharmaSYSPlus.CommonLibrary.DecimalTextBox();
-            this.cbGrade = new System.Windows.Forms.ComboBox();
             this.txtCompShortName = new System.Windows.Forms.TextBox();
             this.ttproduct = new System.Windows.Forms.ToolTip(this.components);
             this.lblMessage = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.psLabel6 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.txtHSNNumber = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
             this.MMBottomPanel.SuspendLayout();
             this.MMMainPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -151,15 +125,9 @@ namespace EcoMart.InterfaceLayer
             this.panel2.Controls.Add(this.txtHSNNumber);
             this.panel2.Controls.Add(this.psLabel6);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.psLabel5);
-            this.panel2.Controls.Add(this.psLabel4);
-            this.panel2.Controls.Add(this.mcbFourthCreditor);
-            this.panel2.Controls.Add(this.mcbThirdCreditor);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.mcbGenericCategory);
-            this.panel2.Controls.Add(this.psLabel3);
-            this.panel2.Controls.Add(this.txtProductBarcode);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
@@ -167,23 +135,11 @@ namespace EcoMart.InterfaceLayer
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.psLabel2);
             this.panel2.Controls.Add(this.txtPackType);
-            this.panel2.Controls.Add(this.psLabel1);
-            this.panel2.Controls.Add(this.txtIfBarCodeRequired);
-            this.panel2.Controls.Add(this.cbSchedule);
             this.panel2.Controls.Add(this.lblColdStorage);
             this.panel2.Controls.Add(this.txtRequireColdStorage);
             this.panel2.Controls.Add(this.mPlbl21);
-            this.panel2.Controls.Add(this.mPlbl20);
             this.panel2.Controls.Add(this.mPlbl19);
-            this.panel2.Controls.Add(this.mPlbl18);
             this.panel2.Controls.Add(this.mPlbl17);
-            this.panel2.Controls.Add(this.mPlbl16);
-            this.panel2.Controls.Add(this.mPlbl15);
-            this.panel2.Controls.Add(this.mPlbl14);
-            this.panel2.Controls.Add(this.mPlbl13);
-            this.panel2.Controls.Add(this.mPlbl12);
-            this.panel2.Controls.Add(this.mPlbl11);
-            this.panel2.Controls.Add(this.mPlbl10);
             this.panel2.Controls.Add(this.mPlbl9);
             this.panel2.Controls.Add(this.mPlbl8);
             this.panel2.Controls.Add(this.mPlbl7);
@@ -193,24 +149,16 @@ namespace EcoMart.InterfaceLayer
             this.panel2.Controls.Add(this.mPlbl3);
             this.panel2.Controls.Add(this.mPlbl2);
             this.panel2.Controls.Add(this.mPlbl1);
-            this.panel2.Controls.Add(this.txtAddOctroi);
-            this.panel2.Controls.Add(this.txtSaleDiscount);
-            this.panel2.Controls.Add(this.txtShowInShortList);
-            this.panel2.Controls.Add(this.txtIfScheduledDrug);
-            this.panel2.Controls.Add(this.txtCST);
             this.panel2.Controls.Add(this.txtName);
             this.panel2.Controls.Add(this.mcbProductCategory);
             this.panel2.Controls.Add(this.mcbShelfCode);
             this.panel2.Controls.Add(this.mcbCompany);
-            this.panel2.Controls.Add(this.mcbSecondCreditor);
-            this.panel2.Controls.Add(this.mcbFirstCreditor);
             this.panel2.Controls.Add(this.txtPack);
             this.panel2.Controls.Add(this.txtMaxLevel);
             this.panel2.Controls.Add(this.txtMinLevel);
             this.panel2.Controls.Add(this.txtLoosePack);
             this.panel2.Controls.Add(this.txtBoxQty);
             this.panel2.Controls.Add(this.txtVAT);
-            this.panel2.Controls.Add(this.cbGrade);
             this.panel2.Controls.Add(this.txtCompShortName);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -218,63 +166,36 @@ namespace EcoMart.InterfaceLayer
             this.panel2.Size = new System.Drawing.Size(899, 557);
             this.panel2.TabIndex = 0;
             // 
-            // psLabel5
+            // txtHSNNumber
             // 
-            this.psLabel5.AutoSize = true;
-            this.psLabel5.Location = new System.Drawing.Point(121, 339);
-            this.psLabel5.Name = "psLabel5";
-            this.psLabel5.Size = new System.Drawing.Size(103, 16);
-            this.psLabel5.TabIndex = 63;
-            this.psLabel5.Text = "&Fourth Creditor";
+            this.txtHSNNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHSNNumber.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtHSNNumber.Location = new System.Drawing.Point(448, 157);
+            this.txtHSNNumber.Name = "txtHSNNumber";
+            this.txtHSNNumber.Size = new System.Drawing.Size(221, 22);
+            this.txtHSNNumber.TabIndex = 66;
+            this.txtHSNNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtHSNNumber_KeyDown);
             // 
-            // psLabel4
+            // psLabel6
             // 
-            this.psLabel4.AutoSize = true;
-            this.psLabel4.Location = new System.Drawing.Point(128, 316);
-            this.psLabel4.Name = "psLabel4";
-            this.psLabel4.Size = new System.Drawing.Size(96, 16);
-            this.psLabel4.TabIndex = 62;
-            this.psLabel4.Text = "&Third Creditor";
+            this.psLabel6.AutoSize = true;
+            this.psLabel6.Location = new System.Drawing.Point(353, 159);
+            this.psLabel6.Name = "psLabel6";
+            this.psLabel6.Size = new System.Drawing.Size(89, 16);
+            this.psLabel6.TabIndex = 65;
+            this.psLabel6.Text = "HSN Number";
             // 
-            // mcbFourthCreditor
+            // label10
             // 
-            this.mcbFourthCreditor.ColumnWidth = null;
-            this.mcbFourthCreditor.DataSource = null;
-            this.mcbFourthCreditor.DisplayColumnNo = 1;
-            this.mcbFourthCreditor.DropDownHeight = 200;
-            this.mcbFourthCreditor.Location = new System.Drawing.Point(259, 336);
-            this.mcbFourthCreditor.Margin = new System.Windows.Forms.Padding(4);
-            this.mcbFourthCreditor.Name = "mcbFourthCreditor";
-            this.mcbFourthCreditor.SelectedID = "";
-            this.mcbFourthCreditor.ShowNew = true;
-            this.mcbFourthCreditor.Size = new System.Drawing.Size(337, 22);
-            this.mcbFourthCreditor.SourceDataString = null;
-            this.mcbFourthCreditor.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
-            this.mcbFourthCreditor.TabIndex = 60;
-            this.mcbFourthCreditor.UserControlToShow = null;
-            this.mcbFourthCreditor.ValueColumnNo = 0;
-            this.mcbFourthCreditor.EnterKeyPressed += new System.EventHandler(this.mcbFourthCreditor_EnterKeyPressed);
-            this.mcbFourthCreditor.ItemAddedEdited += new System.EventHandler(this.mcbFourthCreditor_ItemAddedEdited);
-            // 
-            // mcbThirdCreditor
-            // 
-            this.mcbThirdCreditor.ColumnWidth = null;
-            this.mcbThirdCreditor.DataSource = null;
-            this.mcbThirdCreditor.DisplayColumnNo = 1;
-            this.mcbThirdCreditor.DropDownHeight = 200;
-            this.mcbThirdCreditor.Location = new System.Drawing.Point(259, 313);
-            this.mcbThirdCreditor.Margin = new System.Windows.Forms.Padding(4);
-            this.mcbThirdCreditor.Name = "mcbThirdCreditor";
-            this.mcbThirdCreditor.SelectedID = "";
-            this.mcbThirdCreditor.ShowNew = true;
-            this.mcbThirdCreditor.Size = new System.Drawing.Size(337, 22);
-            this.mcbThirdCreditor.SourceDataString = null;
-            this.mcbThirdCreditor.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
-            this.mcbThirdCreditor.TabIndex = 61;
-            this.mcbThirdCreditor.UserControlToShow = null;
-            this.mcbThirdCreditor.ValueColumnNo = 0;
-            this.mcbThirdCreditor.EnterKeyPressed += new System.EventHandler(this.mcbThirdCreditor_EnterKeyPressed);
-            this.mcbThirdCreditor.ItemAddedEdited += new System.EventHandler(this.mcbThirdCreditor_ItemAddedEdited);
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(241, 158);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(16, 14);
+            this.label10.TabIndex = 64;
+            this.label10.Text = "*";
             // 
             // label9
             // 
@@ -282,7 +203,7 @@ namespace EcoMart.InterfaceLayer
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(565, 101);
+            this.label9.Location = new System.Drawing.Point(565, 134);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(16, 14);
             this.label9.TabIndex = 59;
@@ -294,7 +215,7 @@ namespace EcoMart.InterfaceLayer
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(241, 48);
+            this.label8.Location = new System.Drawing.Point(241, 81);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(16, 14);
             this.label8.TabIndex = 58;
@@ -306,12 +227,13 @@ namespace EcoMart.InterfaceLayer
             this.mcbGenericCategory.DataSource = null;
             this.mcbGenericCategory.DisplayColumnNo = 1;
             this.mcbGenericCategory.DropDownHeight = 200;
-            this.mcbGenericCategory.Location = new System.Drawing.Point(259, 220);
+            this.mcbGenericCategory.Location = new System.Drawing.Point(259, 253);
             this.mcbGenericCategory.Margin = new System.Windows.Forms.Padding(2);
             this.mcbGenericCategory.Name = "mcbGenericCategory";
             this.mcbGenericCategory.SelectedID = null;
+            this.mcbGenericCategory.SelectedIntID = 0;
             this.mcbGenericCategory.ShowNew = true;
-            this.mcbGenericCategory.Size = new System.Drawing.Size(337, 23);
+            this.mcbGenericCategory.Size = new System.Drawing.Size(530, 23);
             this.mcbGenericCategory.SourceDataString = null;
             this.mcbGenericCategory.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
             this.mcbGenericCategory.TabIndex = 57;
@@ -322,34 +244,13 @@ namespace EcoMart.InterfaceLayer
             this.mcbGenericCategory.UpArrowPressed += new System.EventHandler(this.mcbGenericCategory_UpArrowPressed);
             this.mcbGenericCategory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mcbGenericCategory_KeyDown);
             // 
-            // psLabel3
-            // 
-            this.psLabel3.AutoSize = true;
-            this.psLabel3.Location = new System.Drawing.Point(113, 439);
-            this.psLabel3.Name = "psLabel3";
-            this.psLabel3.Size = new System.Drawing.Size(109, 16);
-            this.psLabel3.TabIndex = 56;
-            this.psLabel3.Text = "Product Barcode";
-            // 
-            // txtProductBarcode
-            // 
-            this.txtProductBarcode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtProductBarcode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtProductBarcode.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductBarcode.Location = new System.Drawing.Point(259, 436);
-            this.txtProductBarcode.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.txtProductBarcode.Name = "txtProductBarcode";
-            this.txtProductBarcode.Size = new System.Drawing.Size(363, 26);
-            this.txtProductBarcode.TabIndex = 55;
-            this.txtProductBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProductBarcode_KeyDown);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(241, 245);
+            this.label6.Location = new System.Drawing.Point(241, 278);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(16, 14);
             this.label6.TabIndex = 54;
@@ -361,7 +262,7 @@ namespace EcoMart.InterfaceLayer
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(387, 101);
+            this.label5.Location = new System.Drawing.Point(387, 134);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(16, 14);
             this.label5.TabIndex = 53;
@@ -373,7 +274,7 @@ namespace EcoMart.InterfaceLayer
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(241, 101);
+            this.label4.Location = new System.Drawing.Point(241, 134);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(16, 14);
             this.label4.TabIndex = 52;
@@ -385,7 +286,7 @@ namespace EcoMart.InterfaceLayer
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(241, 83);
+            this.label3.Location = new System.Drawing.Point(241, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(16, 14);
             this.label3.TabIndex = 51;
@@ -397,7 +298,7 @@ namespace EcoMart.InterfaceLayer
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(241, 29);
+            this.label7.Location = new System.Drawing.Point(241, 62);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(16, 14);
             this.label7.TabIndex = 49;
@@ -406,7 +307,7 @@ namespace EcoMart.InterfaceLayer
             // psLabel2
             // 
             this.psLabel2.AutoSize = true;
-            this.psLabel2.Location = new System.Drawing.Point(494, 101);
+            this.psLabel2.Location = new System.Drawing.Point(494, 134);
             this.psLabel2.Name = "psLabel2";
             this.psLabel2.Size = new System.Drawing.Size(69, 16);
             this.psLabel2.TabIndex = 48;
@@ -421,7 +322,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPackType.DisplayColumnNo = 1;
             this.txtPackType.DropDownHeight = 200;
             this.txtPackType.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPackType.Location = new System.Drawing.Point(583, 98);
+            this.txtPackType.Location = new System.Drawing.Point(583, 131);
             this.txtPackType.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtPackType.Name = "txtPackType";
             this.txtPackType.ReadOnly = false;
@@ -436,41 +337,10 @@ namespace EcoMart.InterfaceLayer
             this.txtPackType.UpArrowKeyPressed += new System.EventHandler(this.txtPackType_UpArrowKeyPressed);
             this.txtPackType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPackType_KeyDown);
             // 
-            // psLabel1
-            // 
-            this.psLabel1.AutoSize = true;
-            this.psLabel1.Location = new System.Drawing.Point(90, 468);
-            this.psLabel1.Name = "psLabel1";
-            this.psLabel1.Size = new System.Drawing.Size(132, 16);
-            this.psLabel1.TabIndex = 46;
-            this.psLabel1.Text = "If BarCode Required";
-            // 
-            // txtIfBarCodeRequired
-            // 
-            this.txtIfBarCodeRequired.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIfBarCodeRequired.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtIfBarCodeRequired.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIfBarCodeRequired.Location = new System.Drawing.Point(259, 463);
-            this.txtIfBarCodeRequired.Name = "txtIfBarCodeRequired";
-            this.txtIfBarCodeRequired.Size = new System.Drawing.Size(37, 23);
-            this.txtIfBarCodeRequired.TabIndex = 45;
-            this.txtIfBarCodeRequired.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIfBarCodeRequired_KeyDown);
-            // 
-            // cbSchedule
-            // 
-            this.cbSchedule.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSchedule.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold);
-            this.cbSchedule.FormattingEnabled = true;
-            this.cbSchedule.Location = new System.Drawing.Point(259, 408);
-            this.cbSchedule.Name = "cbSchedule";
-            this.cbSchedule.Size = new System.Drawing.Size(64, 26);
-            this.cbSchedule.TabIndex = 44;
-            this.cbSchedule.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbSchedule_KeyDown);
-            // 
             // lblColdStorage
             // 
             this.lblColdStorage.AutoSize = true;
-            this.lblColdStorage.Location = new System.Drawing.Point(88, 176);
+            this.lblColdStorage.Location = new System.Drawing.Point(88, 209);
             this.lblColdStorage.Name = "lblColdStorage";
             this.lblColdStorage.Size = new System.Drawing.Size(136, 16);
             this.lblColdStorage.TabIndex = 42;
@@ -481,7 +351,7 @@ namespace EcoMart.InterfaceLayer
             this.txtRequireColdStorage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRequireColdStorage.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRequireColdStorage.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtRequireColdStorage.Location = new System.Drawing.Point(259, 171);
+            this.txtRequireColdStorage.Location = new System.Drawing.Point(259, 204);
             this.txtRequireColdStorage.Name = "txtRequireColdStorage";
             this.txtRequireColdStorage.Size = new System.Drawing.Size(37, 26);
             this.txtRequireColdStorage.TabIndex = 43;
@@ -490,117 +360,34 @@ namespace EcoMart.InterfaceLayer
             // mPlbl21
             // 
             this.mPlbl21.AutoSize = true;
-            this.mPlbl21.Location = new System.Drawing.Point(137, 364);
+            this.mPlbl21.Location = new System.Drawing.Point(137, 303);
             this.mPlbl21.Name = "mPlbl21";
             this.mPlbl21.Size = new System.Drawing.Size(87, 16);
             this.mPlbl21.TabIndex = 20;
             this.mPlbl21.Text = "Box &Quantity";
             // 
-            // mPlbl20
-            // 
-            this.mPlbl20.AutoSize = true;
-            this.mPlbl20.Location = new System.Drawing.Point(502, 415);
-            this.mPlbl20.Name = "mPlbl20";
-            this.mPlbl20.Size = new System.Drawing.Size(45, 16);
-            this.mPlbl20.TabIndex = 10;
-            this.mPlbl20.Text = "&Grade";
-            // 
             // mPlbl19
             // 
             this.mPlbl19.AutoSize = true;
-            this.mPlbl19.Location = new System.Drawing.Point(350, 101);
+            this.mPlbl19.Location = new System.Drawing.Point(350, 134);
             this.mPlbl19.Name = "mPlbl19";
             this.mPlbl19.Size = new System.Drawing.Size(36, 16);
             this.mPlbl19.TabIndex = 8;
             this.mPlbl19.Text = "Pac&k";
             // 
-            // mPlbl18
-            // 
-            this.mPlbl18.AutoSize = true;
-            this.mPlbl18.Location = new System.Drawing.Point(673, 512);
-            this.mPlbl18.Name = "mPlbl18";
-            this.mPlbl18.Size = new System.Drawing.Size(59, 16);
-            this.mPlbl18.TabIndex = 14;
-            this.mPlbl18.Text = "CS&T (Rs)";
-            this.mPlbl18.Visible = false;
-            // 
             // mPlbl17
             // 
             this.mPlbl17.AutoSize = true;
-            this.mPlbl17.Location = new System.Drawing.Point(456, 153);
+            this.mPlbl17.Location = new System.Drawing.Point(456, 186);
             this.mPlbl17.Name = "mPlbl17";
             this.mPlbl17.Size = new System.Drawing.Size(105, 16);
             this.mPlbl17.TabIndex = 18;
             this.mPlbl17.Text = "Ma&ximum Level";
             // 
-            // mPlbl16
-            // 
-            this.mPlbl16.AutoSize = true;
-            this.mPlbl16.Location = new System.Drawing.Point(106, 413);
-            this.mPlbl16.Name = "mPlbl16";
-            this.mPlbl16.Size = new System.Drawing.Size(116, 16);
-            this.mPlbl16.TabIndex = 34;
-            this.mPlbl16.Text = "Sc&hedule[H/K/N]";
-            // 
-            // mPlbl15
-            // 
-            this.mPlbl15.AutoSize = true;
-            this.mPlbl15.Location = new System.Drawing.Point(521, 517);
-            this.mPlbl15.Name = "mPlbl15";
-            this.mPlbl15.Size = new System.Drawing.Size(73, 16);
-            this.mPlbl15.TabIndex = 40;
-            this.mPlbl15.Text = "Add Octroi";
-            this.mPlbl15.Visible = false;
-            // 
-            // mPlbl14
-            // 
-            this.mPlbl14.AutoSize = true;
-            this.mPlbl14.Location = new System.Drawing.Point(457, 389);
-            this.mPlbl14.Name = "mPlbl14";
-            this.mPlbl14.Size = new System.Drawing.Size(89, 16);
-            this.mPlbl14.TabIndex = 38;
-            this.mPlbl14.Text = "Sale Discount";
-            // 
-            // mPlbl13
-            // 
-            this.mPlbl13.AutoSize = true;
-            this.mPlbl13.Location = new System.Drawing.Point(430, 362);
-            this.mPlbl13.Name = "mPlbl13";
-            this.mPlbl13.Size = new System.Drawing.Size(116, 16);
-            this.mPlbl13.TabIndex = 36;
-            this.mPlbl13.Text = "Show In ShortList";
-            // 
-            // mPlbl12
-            // 
-            this.mPlbl12.AutoSize = true;
-            this.mPlbl12.Location = new System.Drawing.Point(108, 386);
-            this.mPlbl12.Name = "mPlbl12";
-            this.mPlbl12.Size = new System.Drawing.Size(116, 16);
-            this.mPlbl12.TabIndex = 32;
-            this.mPlbl12.Text = "If Scheduled Drug";
-            // 
-            // mPlbl11
-            // 
-            this.mPlbl11.AutoSize = true;
-            this.mPlbl11.Location = new System.Drawing.Point(119, 293);
-            this.mPlbl11.Name = "mPlbl11";
-            this.mPlbl11.Size = new System.Drawing.Size(105, 16);
-            this.mPlbl11.TabIndex = 30;
-            this.mPlbl11.Text = "S&econd Creditor";
-            // 
-            // mPlbl10
-            // 
-            this.mPlbl10.AutoSize = true;
-            this.mPlbl10.Location = new System.Drawing.Point(133, 270);
-            this.mPlbl10.Name = "mPlbl10";
-            this.mPlbl10.Size = new System.Drawing.Size(91, 16);
-            this.mPlbl10.TabIndex = 28;
-            this.mPlbl10.Text = "Fi&rst Creditor";
-            // 
             // mPlbl9
             // 
             this.mPlbl9.AutoSize = true;
-            this.mPlbl9.Location = new System.Drawing.Point(111, 247);
+            this.mPlbl9.Location = new System.Drawing.Point(111, 280);
             this.mPlbl9.Name = "mPlbl9";
             this.mPlbl9.Size = new System.Drawing.Size(113, 16);
             this.mPlbl9.TabIndex = 26;
@@ -609,7 +396,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl8
             // 
             this.mPlbl8.AutoSize = true;
-            this.mPlbl8.Location = new System.Drawing.Point(153, 201);
+            this.mPlbl8.Location = new System.Drawing.Point(153, 234);
             this.mPlbl8.Name = "mPlbl8";
             this.mPlbl8.Size = new System.Drawing.Size(71, 16);
             this.mPlbl8.TabIndex = 24;
@@ -618,7 +405,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl7
             // 
             this.mPlbl7.AutoSize = true;
-            this.mPlbl7.Location = new System.Drawing.Point(112, 224);
+            this.mPlbl7.Location = new System.Drawing.Point(112, 257);
             this.mPlbl7.Name = "mPlbl7";
             this.mPlbl7.Size = new System.Drawing.Size(112, 16);
             this.mPlbl7.TabIndex = 22;
@@ -627,7 +414,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl6
             // 
             this.mPlbl6.AutoSize = true;
-            this.mPlbl6.Location = new System.Drawing.Point(121, 153);
+            this.mPlbl6.Location = new System.Drawing.Point(121, 186);
             this.mPlbl6.Name = "mPlbl6";
             this.mPlbl6.Size = new System.Drawing.Size(103, 16);
             this.mPlbl6.TabIndex = 16;
@@ -636,7 +423,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl5
             // 
             this.mPlbl5.AutoSize = true;
-            this.mPlbl5.Location = new System.Drawing.Point(177, 126);
+            this.mPlbl5.Location = new System.Drawing.Point(177, 159);
             this.mPlbl5.Name = "mPlbl5";
             this.mPlbl5.Size = new System.Drawing.Size(47, 16);
             this.mPlbl5.TabIndex = 12;
@@ -645,7 +432,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl4
             // 
             this.mPlbl4.AutoSize = true;
-            this.mPlbl4.Location = new System.Drawing.Point(121, 101);
+            this.mPlbl4.Location = new System.Drawing.Point(121, 134);
             this.mPlbl4.Name = "mPlbl4";
             this.mPlbl4.Size = new System.Drawing.Size(103, 16);
             this.mPlbl4.TabIndex = 6;
@@ -654,7 +441,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl3
             // 
             this.mPlbl3.AutoSize = true;
-            this.mPlbl3.Location = new System.Drawing.Point(84, 76);
+            this.mPlbl3.Location = new System.Drawing.Point(84, 109);
             this.mPlbl3.Name = "mPlbl3";
             this.mPlbl3.Size = new System.Drawing.Size(140, 16);
             this.mPlbl3.TabIndex = 4;
@@ -663,7 +450,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl2
             // 
             this.mPlbl2.AutoSize = true;
-            this.mPlbl2.Location = new System.Drawing.Point(159, 51);
+            this.mPlbl2.Location = new System.Drawing.Point(159, 84);
             this.mPlbl2.Name = "mPlbl2";
             this.mPlbl2.Size = new System.Drawing.Size(65, 16);
             this.mPlbl2.TabIndex = 2;
@@ -672,71 +459,11 @@ namespace EcoMart.InterfaceLayer
             // mPlbl1
             // 
             this.mPlbl1.AutoSize = true;
-            this.mPlbl1.Location = new System.Drawing.Point(129, 28);
+            this.mPlbl1.Location = new System.Drawing.Point(129, 61);
             this.mPlbl1.Name = "mPlbl1";
             this.mPlbl1.Size = new System.Drawing.Size(95, 16);
             this.mPlbl1.TabIndex = 0;
             this.mPlbl1.Text = "Product &Name";
-            // 
-            // txtAddOctroi
-            // 
-            this.txtAddOctroi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddOctroi.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtAddOctroi.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddOctroi.Location = new System.Drawing.Point(594, 512);
-            this.txtAddOctroi.Name = "txtAddOctroi";
-            this.txtAddOctroi.Size = new System.Drawing.Size(37, 23);
-            this.txtAddOctroi.TabIndex = 41;
-            this.txtAddOctroi.Visible = false;
-            this.txtAddOctroi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAddOctroi_KeyDown);
-            // 
-            // txtSaleDiscount
-            // 
-            this.txtSaleDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSaleDiscount.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSaleDiscount.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSaleDiscount.Location = new System.Drawing.Point(556, 385);
-            this.txtSaleDiscount.Name = "txtSaleDiscount";
-            this.txtSaleDiscount.Size = new System.Drawing.Size(37, 23);
-            this.txtSaleDiscount.TabIndex = 39;
-            this.txtSaleDiscount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSaleDiscount_KeyDown);
-            // 
-            // txtShowInShortList
-            // 
-            this.txtShowInShortList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtShowInShortList.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtShowInShortList.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtShowInShortList.Location = new System.Drawing.Point(556, 360);
-            this.txtShowInShortList.Name = "txtShowInShortList";
-            this.txtShowInShortList.Size = new System.Drawing.Size(37, 23);
-            this.txtShowInShortList.TabIndex = 37;
-            this.txtShowInShortList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShowInShortList_KeyDown);
-            // 
-            // txtIfScheduledDrug
-            // 
-            this.txtIfScheduledDrug.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIfScheduledDrug.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtIfScheduledDrug.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIfScheduledDrug.Location = new System.Drawing.Point(259, 384);
-            this.txtIfScheduledDrug.Name = "txtIfScheduledDrug";
-            this.txtIfScheduledDrug.Size = new System.Drawing.Size(37, 23);
-            this.txtIfScheduledDrug.TabIndex = 33;
-            this.txtIfScheduledDrug.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIfScheduledDrug_KeyDown);
-            // 
-            // txtCST
-            // 
-            this.txtCST.BackColor = System.Drawing.Color.White;
-            this.txtCST.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCST.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCST.Location = new System.Drawing.Point(756, 512);
-            this.txtCST.MaxLength = 15;
-            this.txtCST.Name = "txtCST";
-            this.txtCST.Size = new System.Drawing.Size(86, 26);
-            this.txtCST.TabIndex = 15;
-            this.txtCST.Tag = "";
-            this.txtCST.Text = "0.00";
-            this.txtCST.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtCST.Visible = false;          
             // 
             // txtName
             // 
@@ -747,7 +474,7 @@ namespace EcoMart.InterfaceLayer
             this.txtName.DisplayColumnNo = 1;
             this.txtName.DropDownHeight = 200;
             this.txtName.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(259, 25);
+            this.txtName.Location = new System.Drawing.Point(259, 58);
             this.txtName.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = false;
@@ -766,10 +493,12 @@ namespace EcoMart.InterfaceLayer
             this.mcbProductCategory.DataSource = null;
             this.mcbProductCategory.DisplayColumnNo = 1;
             this.mcbProductCategory.DropDownHeight = 200;
-            this.mcbProductCategory.Location = new System.Drawing.Point(259, 244);
+            this.mcbProductCategory.Location = new System.Drawing.Point(259, 277);
             this.mcbProductCategory.Margin = new System.Windows.Forms.Padding(4);
             this.mcbProductCategory.Name = "mcbProductCategory";
             this.mcbProductCategory.SelectedID = "";
+            this.mcbProductCategory.SelectedIDtest = 0;
+            this.mcbProductCategory.SelectedIntID = 0;
             this.mcbProductCategory.ShowNew = true;
             this.mcbProductCategory.Size = new System.Drawing.Size(337, 22);
             this.mcbProductCategory.SourceDataString = null;
@@ -779,7 +508,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbProductCategory.ValueColumnNo = 0;
             this.mcbProductCategory.EnterKeyPressed += new System.EventHandler(this.mcbProductCategory_EnterKeyPressed);
             this.mcbProductCategory.ItemAddedEdited += new System.EventHandler(this.mcbProductCategory_ItemAddedEdited);
-            this.mcbProductCategory.UpArrowPressed += new System.EventHandler(this.mcbProductCategory_UpArrowPressed);
+            this.mcbProductCategory.UpArrowPressed += new System.EventHandler(this.mcbProductCategory_UpArrowPressed);           
             // 
             // mcbShelfCode
             // 
@@ -787,10 +516,12 @@ namespace EcoMart.InterfaceLayer
             this.mcbShelfCode.DataSource = null;
             this.mcbShelfCode.DisplayColumnNo = 1;
             this.mcbShelfCode.DropDownHeight = 200;
-            this.mcbShelfCode.Location = new System.Drawing.Point(259, 198);
+            this.mcbShelfCode.Location = new System.Drawing.Point(259, 231);
             this.mcbShelfCode.Margin = new System.Windows.Forms.Padding(4);
             this.mcbShelfCode.Name = "mcbShelfCode";
             this.mcbShelfCode.SelectedID = "";
+            this.mcbShelfCode.SelectedIDtest = 0;
+            this.mcbShelfCode.SelectedIntID = 0;
             this.mcbShelfCode.ShowNew = true;
             this.mcbShelfCode.Size = new System.Drawing.Size(337, 22);
             this.mcbShelfCode.SourceDataString = null;
@@ -808,10 +539,12 @@ namespace EcoMart.InterfaceLayer
             this.mcbCompany.DataSource = null;
             this.mcbCompany.DisplayColumnNo = 1;
             this.mcbCompany.DropDownHeight = 200;
-            this.mcbCompany.Location = new System.Drawing.Point(259, 48);
+            this.mcbCompany.Location = new System.Drawing.Point(259, 81);
             this.mcbCompany.Margin = new System.Windows.Forms.Padding(4);
             this.mcbCompany.Name = "mcbCompany";
             this.mcbCompany.SelectedID = "";
+            this.mcbCompany.SelectedIDtest = 0;
+            this.mcbCompany.SelectedIntID = 0;
             this.mcbCompany.ShowNew = true;
             this.mcbCompany.Size = new System.Drawing.Size(496, 22);
             this.mcbCompany.SourceDataString = null;
@@ -825,48 +558,6 @@ namespace EcoMart.InterfaceLayer
             this.mcbCompany.UpArrowPressed += new System.EventHandler(this.mcbCompany_UpArrowPressed);
             this.mcbCompany.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mcbCompany_KeyDown);
             // 
-            // mcbSecondCreditor
-            // 
-            this.mcbSecondCreditor.ColumnWidth = null;
-            this.mcbSecondCreditor.DataSource = null;
-            this.mcbSecondCreditor.DisplayColumnNo = 1;
-            this.mcbSecondCreditor.DropDownHeight = 200;
-            this.mcbSecondCreditor.Location = new System.Drawing.Point(259, 290);
-            this.mcbSecondCreditor.Margin = new System.Windows.Forms.Padding(4);
-            this.mcbSecondCreditor.Name = "mcbSecondCreditor";
-            this.mcbSecondCreditor.SelectedID = "";
-            this.mcbSecondCreditor.ShowNew = true;
-            this.mcbSecondCreditor.Size = new System.Drawing.Size(337, 22);
-            this.mcbSecondCreditor.SourceDataString = null;
-            this.mcbSecondCreditor.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
-            this.mcbSecondCreditor.TabIndex = 20;
-            this.mcbSecondCreditor.UserControlToShow = null;
-            this.mcbSecondCreditor.ValueColumnNo = 0;
-            this.mcbSecondCreditor.EnterKeyPressed += new System.EventHandler(this.mcbSecondCreditor_EnterKeyPressed);
-            this.mcbSecondCreditor.ItemAddedEdited += new System.EventHandler(this.mcbSecondCreditor_ItemAddedEdited);
-            this.mcbSecondCreditor.UpArrowPressed += new System.EventHandler(this.mcbSecondCreditor_UpArrowPressed);
-            // 
-            // mcbFirstCreditor
-            // 
-            this.mcbFirstCreditor.ColumnWidth = null;
-            this.mcbFirstCreditor.DataSource = null;
-            this.mcbFirstCreditor.DisplayColumnNo = 1;
-            this.mcbFirstCreditor.DropDownHeight = 200;
-            this.mcbFirstCreditor.Location = new System.Drawing.Point(259, 267);
-            this.mcbFirstCreditor.Margin = new System.Windows.Forms.Padding(4);
-            this.mcbFirstCreditor.Name = "mcbFirstCreditor";
-            this.mcbFirstCreditor.SelectedID = "";
-            this.mcbFirstCreditor.ShowNew = true;
-            this.mcbFirstCreditor.Size = new System.Drawing.Size(337, 22);
-            this.mcbFirstCreditor.SourceDataString = null;
-            this.mcbFirstCreditor.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
-            this.mcbFirstCreditor.TabIndex = 29;
-            this.mcbFirstCreditor.UserControlToShow = null;
-            this.mcbFirstCreditor.ValueColumnNo = 0;
-            this.mcbFirstCreditor.EnterKeyPressed += new System.EventHandler(this.mcbFirstCreditor_EnterKeyPressed);
-            this.mcbFirstCreditor.ItemAddedEdited += new System.EventHandler(this.mcbFirstCreditor_ItemAddedEdited);
-            this.mcbFirstCreditor.UpArrowPressed += new System.EventHandler(this.mcbFirstCreditor_UpArrowPressed);
-            // 
             // txtPack
             // 
             this.txtPack.AlphabeticalList = true;
@@ -876,7 +567,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPack.DisplayColumnNo = 1;
             this.txtPack.DropDownHeight = 200;
             this.txtPack.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPack.Location = new System.Drawing.Point(408, 98);
+            this.txtPack.Location = new System.Drawing.Point(408, 131);
             this.txtPack.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtPack.Name = "txtPack";
             this.txtPack.ReadOnly = false;
@@ -893,7 +584,7 @@ namespace EcoMart.InterfaceLayer
             // txtMaxLevel
             // 
             this.txtMaxLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaxLevel.Location = new System.Drawing.Point(583, 148);
+            this.txtMaxLevel.Location = new System.Drawing.Point(583, 185);
             this.txtMaxLevel.Name = "txtMaxLevel";
             this.txtMaxLevel.Size = new System.Drawing.Size(86, 22);
             this.txtMaxLevel.TabIndex = 19;
@@ -902,7 +593,7 @@ namespace EcoMart.InterfaceLayer
             // txtMinLevel
             // 
             this.txtMinLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMinLevel.Location = new System.Drawing.Point(259, 148);
+            this.txtMinLevel.Location = new System.Drawing.Point(259, 181);
             this.txtMinLevel.Name = "txtMinLevel";
             this.txtMinLevel.Size = new System.Drawing.Size(86, 22);
             this.txtMinLevel.TabIndex = 17;
@@ -912,7 +603,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtLoosePack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLoosePack.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtLoosePack.Location = new System.Drawing.Point(259, 98);
+            this.txtLoosePack.Location = new System.Drawing.Point(259, 131);
             this.txtLoosePack.Name = "txtLoosePack";
             this.txtLoosePack.Size = new System.Drawing.Size(86, 22);
             this.txtLoosePack.TabIndex = 7;
@@ -921,17 +612,16 @@ namespace EcoMart.InterfaceLayer
             // txtBoxQty
             // 
             this.txtBoxQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBoxQty.Location = new System.Drawing.Point(259, 361);
+            this.txtBoxQty.Location = new System.Drawing.Point(259, 300);
             this.txtBoxQty.Name = "txtBoxQty";
             this.txtBoxQty.Size = new System.Drawing.Size(86, 22);
             this.txtBoxQty.TabIndex = 21;
-            this.txtBoxQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxQty_KeyDown);
             // 
             // txtVAT
             // 
             this.txtVAT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVAT.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVAT.Location = new System.Drawing.Point(259, 121);
+            this.txtVAT.Location = new System.Drawing.Point(259, 154);
             this.txtVAT.MaxLength = 15;
             this.txtVAT.Name = "txtVAT";
             this.txtVAT.Size = new System.Drawing.Size(86, 26);
@@ -942,29 +632,12 @@ namespace EcoMart.InterfaceLayer
             this.txtVAT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtVAT_KeyDown);
             this.txtVAT.Validating += new System.ComponentModel.CancelEventHandler(this.txtVAT_Validating);
             // 
-            // cbGrade
-            // 
-            this.cbGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGrade.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbGrade.FormattingEnabled = true;
-            this.cbGrade.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "Z"});
-            this.cbGrade.Location = new System.Drawing.Point(556, 410);
-            this.cbGrade.Name = "cbGrade";
-            this.cbGrade.Size = new System.Drawing.Size(37, 24);
-            this.cbGrade.TabIndex = 11;
-            this.cbGrade.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbGrade_KeyDown);
-            // 
             // txtCompShortName
             // 
             this.txtCompShortName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCompShortName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCompShortName.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCompShortName.Location = new System.Drawing.Point(259, 71);
+            this.txtCompShortName.Location = new System.Drawing.Point(259, 104);
             this.txtCompShortName.MaxLength = 3;
             this.txtCompShortName.Name = "txtCompShortName";
             this.txtCompShortName.Size = new System.Drawing.Size(86, 26);
@@ -1002,37 +675,6 @@ namespace EcoMart.InterfaceLayer
             this.label2.TabIndex = 50;
             this.label2.Text = "*";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(241, 125);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(16, 14);
-            this.label10.TabIndex = 64;
-            this.label10.Text = "*";
-            // 
-            // psLabel6
-            // 
-            this.psLabel6.AutoSize = true;
-            this.psLabel6.Location = new System.Drawing.Point(353, 126);
-            this.psLabel6.Name = "psLabel6";
-            this.psLabel6.Size = new System.Drawing.Size(89, 16);
-            this.psLabel6.TabIndex = 65;
-            this.psLabel6.Text = "HSN Number";
-            // 
-            // txtHSNNumber
-            // 
-            this.txtHSNNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtHSNNumber.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtHSNNumber.Location = new System.Drawing.Point(448, 124);
-            this.txtHSNNumber.Name = "txtHSNNumber";
-            this.txtHSNNumber.Size = new System.Drawing.Size(221, 22);
-            this.txtHSNNumber.TabIndex = 66;
-            this.txtHSNNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtHSNNumber_KeyDown);
-            // 
             // UclProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1058,7 +700,6 @@ namespace EcoMart.InterfaceLayer
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private DecimalTextBox txtVAT;
-        private System.Windows.Forms.ComboBox cbGrade;
         private System.Windows.Forms.TextBox txtCompShortName;
         private NumericTextBox txtBoxQty;
         private NumericTextBox txtLoosePack;
@@ -1067,25 +708,11 @@ namespace EcoMart.InterfaceLayer
         private System.Windows.Forms.ToolTip ttproduct;
 
         private EcoMart.InterfaceLayer.CommonControls.PSAutoSuggestTextBox txtPack;
-        private EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew mcbFirstCreditor;
-        private EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew mcbSecondCreditor;
         private EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew mcbCompany;
         private EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew mcbProductCategory;
         private EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew mcbShelfCode;
         private EcoMart.InterfaceLayer.CommonControls.PSAutoSuggestTextBox txtName;
-        private DecimalTextBox txtCST;
         private System.Windows.Forms.Label lblMessage;
-        private System.Windows.Forms.TextBox txtIfScheduledDrug;
-        private System.Windows.Forms.TextBox txtAddOctroi;
-        private System.Windows.Forms.TextBox txtSaleDiscount;
-        private System.Windows.Forms.TextBox txtShowInShortList;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl16;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl15;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl14;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl13;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl12;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl11;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl10;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl9;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl8;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl7;
@@ -1096,15 +723,10 @@ namespace EcoMart.InterfaceLayer
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl2;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl1;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl19;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl18;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl17;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl21;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl20;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel lblColdStorage;
         private System.Windows.Forms.TextBox txtRequireColdStorage;
-        private System.Windows.Forms.ComboBox cbSchedule;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel psLabel1;
-        private System.Windows.Forms.TextBox txtIfBarCodeRequired;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel psLabel2;
         private EcoMart.InterfaceLayer.CommonControls.PSAutoSuggestTextBox txtPackType;
         private System.Windows.Forms.Label label7;
@@ -1113,15 +735,9 @@ namespace EcoMart.InterfaceLayer
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private CommonControls.PSLabel psLabel3;
-        private System.Windows.Forms.TextBox txtProductBarcode;
         private PaperlessPharmaRetail.InterfaceLayer.CommonControls.PSGenericCategoryComboBoxNew mcbGenericCategory;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private CommonControls.PSLabel psLabel5;
-        private CommonControls.PSLabel psLabel4;
-        private CommonControls.PSComboBoxNew mcbFourthCreditor;
-        private CommonControls.PSComboBoxNew mcbThirdCreditor;
         private System.Windows.Forms.Label label10;
         private NumericTextBox txtHSNNumber;
         private CommonControls.PSLabel psLabel6;

@@ -653,7 +653,7 @@ namespace EcoMart.Reporting.Controls
         {
             try
             {
-                int ProductID = 0;
+                //int ProductID = 0;
                 int ClosingStock = 0;
                 int UOM = 0;
                 double ProdpurchaseRate = 0;

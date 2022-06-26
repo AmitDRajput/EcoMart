@@ -14,7 +14,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = new DataTable();
             string strSql = "Select distinct  a.ID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.AmountNet, " +
                             "a.AccountID, b.AccountID, b.AccName, b.AccAddress1,b.AccAddress2 from vouchercreditdebitnote a, masteraccount b " +
-                            "where a.AccountId = b.AccountId and a.VoucherType = " + "'" + DbntType + "' && a.VoucherDate >= '" + General.ShopDetail.Shopsy + "' && a.VoucherDate <= '" + General.ShopDetail.Shopey + "'  order by a.voucherdate desc ";
+                            "where a.AccountId = b.AccountId and a.VoucherType = " + "'" + DbntType + "' AND a.VoucherDate >= '" + General.ShopDetail.Shopsy + "' AND a.VoucherDate <= '" + General.ShopDetail.Shopey + "'  order by a.voucherdate desc ";
 
             dtable = DBInterface.SelectDataTable(strSql);
 
@@ -38,7 +38,7 @@ namespace EcoMart.DataLayer
             DataRow dRow = null;
             if (vouno != 0)
             {
-                string strSql = "Select * from vouchercreditdebitnote where VoucherNumber='{0}' && ( VoucherType = '"+FixAccounts.VoucherTypeForCreditNoteStock +"' || VoucherType = '"+FixAccounts.VoucherTypeForCreditNoteAmount+"') ";
+                string strSql = "Select * from vouchercreditdebitnote where VoucherNumber='{0}' AND ( VoucherType = '"+FixAccounts.VoucherTypeForCreditNoteStock +"' OR VoucherType = '"+FixAccounts.VoucherTypeForCreditNoteAmount+"') ";
                 strSql = string.Format(strSql, vouno);
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
@@ -50,7 +50,7 @@ namespace EcoMart.DataLayer
             DataTable dt = null;
             if (Id != "")
             {
-                string strsql = "Select ID,Particulars, Amount from detailcreditdebitnoteamount where ID = '{0}' order by SerialNumber";
+                string strsql = "Select DetailCreditDebitNoteAmountId, ID,Particulars, Amount from detailcreditdebitnoteamount where ID = '{0}' order by SerialNumber";
 
                 strsql = string.Format(strsql, Id);
                 dt = DBInterface.SelectDataTable(strsql);
@@ -64,21 +64,10 @@ namespace EcoMart.DataLayer
             string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5,
             double Vat12, double rnd, string createdby, string createddate, string createdtime)
         {
-          //  bool bRetValue = false;
             string strSql = GetInsertQuery(Id, CreditorId, Narration, VouType, VouNo,
                 VouDate, AmountNet, DiscPer, DiscAmt, Amt, Vat5, Vat12, rnd, createdby,createddate,createdtime);
 
-
-            bool ii = (DBInterface.ExecuteQuery(strSql) > 0);
-            strSql = "select last_insert_ID()";
-            int iid = DBInterface.ExecuteScalar(strSql);
-
-            return iid;
-            //if (DBInterface.ExecuteQuery(strSql) > 0)
-            //{
-            //    bRetValue = true;
-            //}
-            //return bRetValue;
+            return DBInterface.ExecuteScalar(strSql);
         }
 
         public bool AddParticularsDetails(int Id, string Particulars, double Amount, string MyDBAmtID,int serialNumber)
@@ -167,8 +156,8 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("DiscountPer", DiscPer);
             objQuery.AddToQuery("DiscountAmount", DiscAmt);
             objQuery.AddToQuery("Amount", Amt);
-            objQuery.AddToQuery("VAT5", Vat5);
-            objQuery.AddToQuery("VAT12point5", Vat12);
+            //objQuery.AddToQuery("VAT5", Vat5);
+            //objQuery.AddToQuery("VAT12point5", Vat12);
             objQuery.AddToQuery("RoundingAmount", rnd);
             objQuery.AddToQuery("AmountClear", 0);
             objQuery.AddToQuery("ClearedInVoucherNumber", 0);
@@ -194,8 +183,8 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("DiscountPer", DiscPer);
             objQuery.AddToQuery("DiscountAmount", DiscAmt);
             objQuery.AddToQuery("Amount", Amt);
-            objQuery.AddToQuery("VAT5", Vat5);
-            objQuery.AddToQuery("VAT12point5", Vat12);
+            //objQuery.AddToQuery("VAT5", Vat5);
+            //objQuery.AddToQuery("VAT12point5", Vat12);
             objQuery.AddToQuery("RoundingAmount", rnd);
             objQuery.AddToQuery("ModifiedUserID", modifiedby);
             objQuery.AddToQuery("ModifiedDate", modifieddate);
@@ -231,7 +220,7 @@ namespace EcoMart.DataLayer
         {
             DataRow dRow = null;
 
-            string strSql = "Select * from vouchercreditdebitnote where voucherType = '" + CrdbVouType + "' && voucherSeries = '" + CrdbVouSeries + "' order by vouchernumber desc";
+            string strSql = "Select * from vouchercreditdebitnote where voucherType = '" + CrdbVouType + "' AND voucherSeries = '" + CrdbVouSeries + "' order by vouchernumber desc";
 
             dRow = DBInterface.SelectFirstRow(strSql);
 
@@ -242,7 +231,7 @@ namespace EcoMart.DataLayer
         {
             DataRow dRow = null;
             {
-                string strSql = "Select Vouchernumber from vouchercreditdebitnote where  VoucherType =  '" + vouType + "'  &&  VoucherSeries = '" + vouSeries + "' order by Vouchernumber desc ";
+                string strSql = "Select Vouchernumber from vouchercreditdebitnote where  VoucherType =  '" + vouType + "'  AND  VoucherSeries = '" + vouSeries + "' order by Vouchernumber desc ";
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
             return dRow;
@@ -252,7 +241,7 @@ namespace EcoMart.DataLayer
         {
             DataRow dRow = null;
 
-            string strSql = "Select * from vouchercreditdebitnote where voucherType = '" + CrdbVouType + "' && voucherSeries = '" + CrdbVouSeries + "' order by vouchernumber ";
+            string strSql = "Select * from vouchercreditdebitnote where voucherType = '" + CrdbVouType + "' AND voucherSeries = '" + CrdbVouSeries + "' order by vouchernumber ";
 
             dRow = DBInterface.SelectFirstRow(strSql);
 

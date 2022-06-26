@@ -135,7 +135,8 @@ namespace EcoMart.InterfaceLayer
             bool retValue = false;
             try
             {
-                _Bank.Id = txtName.SelectedID;
+                //    _Bank.Id = txtName.SelectedID;
+                _Bank.IntID = Convert.ToInt32(txtName.SelectedID);
                 if (_Bank.Id != null && _Bank.Id != "")
                 {
                     retValue = _Bank.CanBeDeleted();

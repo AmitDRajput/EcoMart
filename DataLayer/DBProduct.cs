@@ -77,7 +77,7 @@ namespace EcoMart.DataLayer
         {
             bool retValue = false;
             DataRow dr;
-            string strsql = "Select * from mastervatpercent where vatpercent = " + vatper;
+            string strsql = "Select * from tblvat where vatpercentage = " + vatper;
             dr = DBInterface.SelectFirstRow(strsql);
             if (dr == null)
                 retValue = false;
@@ -1031,7 +1031,7 @@ namespace EcoMart.DataLayer
 
         #region For Product
 
-        public bool AddDetails(int Id, string ProdName,
+        public int AddDetails(int Id, string ProdName,
            int ProdLoosePack, string ProdPack, string ProdPackType, string ProdCompShortName,
             Int32 ProdCompID, double ProdVATPercent, double ProdCST, string ProdGrade,
             int ProdMinLevel, int ProdMaxLevel, int ProdBoxQty,
@@ -1042,7 +1042,7 @@ namespace EcoMart.DataLayer
            string prodifscheduleddrug, string prodrequirecoldstorage, string prodIfBarCodeRequired, string ScannedBarcode, int hsnnumber,
            string createdby, string createddate, string createdtime)
         {
-            bool returnVal = false;
+            int iRetValue = 0;
             string strSql = GetInsertQuery(Id, ProdName,
            ProdLoosePack, ProdPack, ProdPackType, ProdCompShortName,
              ProdCompID, ProdVATPercent, ProdCST, ProdGrade,
@@ -1054,12 +1054,9 @@ namespace EcoMart.DataLayer
             prodclosingstock, prodifscheduleddrug, prodrequirecoldstorage, prodIfBarCodeRequired, ScannedBarcode, hsnnumber,
             createdby, createddate, createdtime);
 
-            if (DBInterface.ExecuteQuery(strSql) > 0)
-            {
-                returnVal = true;
-            }
-
-            return returnVal;
+            iRetValue = DBInterface.ExecuteScalar(strSql);
+            return iRetValue;
+           
         }
         public bool AddPack(Int32 Id, string Pack)
         {
@@ -1146,7 +1143,7 @@ namespace EcoMart.DataLayer
         {
             Query objQuery = new Query();
             objQuery.Table = "masterproduct";
-            objQuery.AddToQuery("ProductID", Id);
+            //objQuery.AddToQuery("ProductID", Id);
             objQuery.AddToQuery("ProdName", ProdName);
             objQuery.AddToQuery("ProdLoosePack", ProdLoosePack);
             objQuery.AddToQuery("ProdPack", ProdPack);
@@ -1251,7 +1248,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("ProdIfSchedule", prodifscheduleddrug);
             objQuery.AddToQuery("ProdRequireColdStorage", prodrequirecoldstorage);
             objQuery.AddToQuery("ProdIfBarCodeRequired", prodIfBarCodeRequired);
-            objQuery.AddToQuery("ScannedBarcode", ScannedBarcode);
+            //objQuery.AddToQuery("ScannedBarcode", ScannedBarcode);
             objQuery.AddToQuery("HSNNumber", hsnnumber);
             objQuery.AddToQuery("ModifiedUserID", modifiedby);
             objQuery.AddToQuery("ModifiedDate", modifydate);
@@ -1350,30 +1347,79 @@ namespace EcoMart.DataLayer
             }
             return bRetValue;
         }
+       
+       
 
-        public bool IsNameUniqueForAdd(string ProdName, int loosepack, string pack, Int32 compcode, Int32 Id)
+       
+
+       
+        //public bool IsNameUniqueForEdit(string Name, string Id)
+        //{
+        //    int ifdup = GetDataForUniqueForAdd(Name, Id);
+        //    bool bRetValue = false;
+        //    if (ifdup > 0)
+        //    {
+        //        bRetValue = true;
+        //    }
+        //    return bRetValue;
+        //}
+        public int IsNameUniqueForEdit(string ProdName, int loosepack, string pack, int compcode, string Id)
         {
-            bool bRetValue = false;
+            //bool bRetValue = false;
             string strSql = GetQueryUniqueForAdd(ProdName, loosepack, pack, compcode, Id);
             DataRow drow = DBInterface.SelectFirstRow(strSql);
-            if (drow != null)
+            if (drow == null)
             {
-                bRetValue = true;
+                return 0;
             }
-            return bRetValue;
+            else
+                return 1;
         }
-
-        public bool IsNameUniqueForEdit(string ProdName, int loosepack, string pack, int compcode, int Id)
+        public int IsNameUniqueForAdd(string ProdName, int loosepack, string pack, Int32 compcode, string Id)
         {
-            bool bRetValue = false;
-            string strSql = GetQueryUniqueForEdit(ProdName, loosepack, pack, compcode, Id);
+            //bool bRetValue = false;
+            string strSql = GetQueryUniqueForAdd(ProdName, loosepack, pack, compcode, Id);
             DataRow drow = DBInterface.SelectFirstRow(strSql);
-            if (drow != null)
+            if (drow == null)
             {
-                bRetValue = true;
+                return 0;
             }
-            return bRetValue;
+            else
+                return 1;
+           
         }
+        private string GetQueryUniqueForAdd(string ProdName, int loosepack, string pack, Int32 compcode, string Id)
+        {
+            int iId = 0;
+            if (Id == "")
+                iId = 0;
+            else
+                iId = Convert.ToInt32(Id);
+            StringBuilder sQuery = new StringBuilder();
+            sQuery.AppendFormat("Select ProductID from masterproduct where ProdName='{0}'", ProdName);
+            sQuery.AppendFormat(" AND ProductID = ({0})", iId);
+            sQuery.AppendFormat(" AND ProdLoosePack =  ('{0}')", loosepack);
+            sQuery.AppendFormat(" AND ProdPack =  ('{0}')", pack);
+            sQuery.AppendFormat(" AND ProdCompID =  ({0})", compcode);
+
+            return sQuery.ToString();
+        }
+        //private int GetDataForUniqueForAdd(string Name, string Id)
+        //{
+        //    StringBuilder sQuery = new StringBuilder();
+        //    DataRow dRow = null;
+        //    string strSql = "Select BankId from masterbank where BankName= '" + Name + "'";
+        //    dRow = DBInterface.SelectFirstRow(strSql);
+        //    if (dRow == null)
+        //    {
+        //        return 0;
+        //    }
+        //    else
+        //    {
+        //        return 1;
+        //    }
+
+        //}
         public string SearchForProdPack(string pack)
         {
             string mpackID = "";
@@ -1404,29 +1450,19 @@ namespace EcoMart.DataLayer
         }
         #region Query Building Functions
 
-        private string GetQueryUniqueForAdd(string ProdName, int loosepack, string pack, Int32 compcode, Int32 Id)
-        {
-            StringBuilder sQuery = new StringBuilder();
-            sQuery.AppendFormat("Select ProductID from masterproduct where ProdName='{0}'", ProdName);
-            sQuery.AppendFormat(" AND ProductID = ({0})", Id);
-            sQuery.AppendFormat(" AND ProdLoosePack =  ('{0}')", loosepack);
-            sQuery.AppendFormat(" AND ProdPack =  ('{0}')", pack);
-            sQuery.AppendFormat(" AND ProdCompID =  ({0})", compcode);
+        
 
-            return sQuery.ToString();
-        }
+        //private string GetQueryUniqueForEdit(string ProdName, int loosepack, string pack, int compId, Int32 Id)
+        //{
+        //    StringBuilder sQuery = new StringBuilder();
+        //    sQuery.AppendFormat("Select ProductID from masterproduct where ProdName='{0}'", ProdName);
+        //    sQuery.AppendFormat(" AND ProductID != ({0})", Id);
+        //    sQuery.AppendFormat(" AND ProdLoosePack =  ('{0}')", loosepack);
+        //    sQuery.AppendFormat(" AND ProdPack =  ('{0}')", pack);
+        //    sQuery.AppendFormat(" AND ProdCompID =  ({0})", compId);
 
-        private string GetQueryUniqueForEdit(string ProdName, int loosepack, string pack, int compId, Int32 Id)
-        {
-            StringBuilder sQuery = new StringBuilder();
-            sQuery.AppendFormat("Select ProductID from masterproduct where ProdName='{0}'", ProdName);
-            sQuery.AppendFormat(" AND ProductID != ({0})", Id);
-            sQuery.AppendFormat(" AND ProdLoosePack =  ('{0}')", loosepack);
-            sQuery.AppendFormat(" AND ProdPack =  ('{0}')", pack);
-            sQuery.AppendFormat(" AND ProdCompID =  ({0})", compId);
-
-            return sQuery.ToString();
-        }
+        //    return sQuery.ToString();
+        //}
         private string GetDeleteQuery(int Id)
         {
             string strSql = "";

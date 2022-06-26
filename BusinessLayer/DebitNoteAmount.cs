@@ -17,10 +17,10 @@ namespace EcoMart.BusinessLayer
         private string _CrdbAddress;
         private string _CrdbNarration;
         private string _CrdbVouType;
-        private int  _CrdbVouNo;
+        private int _CrdbVouNo;
         private string _CrdbVouDate;
         private string _CrdbVouSeries;
-        private int  _CrdbNoOfRows;
+        private int _CrdbNoOfRows;
         private double _CrdbVat5;
         private double _CrdbVat12point5;
         private double _CrdbAmount;
@@ -31,7 +31,7 @@ namespace EcoMart.BusinessLayer
         private double _CrdbTotalAmount;
         private string _Particulars;
         private double _Amount;
-        private  int _ClearVouNo;
+        private int _ClearVouNo;
         private string _ClearVouType;
         private double _BillAmounti;
         private double _BillAmountd;
@@ -42,7 +42,7 @@ namespace EcoMart.BusinessLayer
         private string _IDForSelected;
         private int _CrdbVouNoForSelected;
         private double _CrdbBillAmountForSelected;
-        private string  _CrdbTextForSelected;
+        private string _CrdbTextForSelected;
         private int _IDForSelectedDNA;
         #endregion
 
@@ -53,8 +53,8 @@ namespace EcoMart.BusinessLayer
         }
         #endregion
 
-         # region properties
-      
+        #region properties
+
         public int ClearVouNo
         {
             get { return _ClearVouNo; }
@@ -91,12 +91,12 @@ namespace EcoMart.BusinessLayer
 
         public string CrdbVouDate
         {
-             get { return _CrdbVouDate;}
-            set { _CrdbVouDate = value;}
+            get { return _CrdbVouDate; }
+            set { _CrdbVouDate = value; }
         }
 
         public string CrdbId
-      
+
         {
             get { return _CrdbId; }
             set { _CrdbId = value; }
@@ -139,7 +139,7 @@ namespace EcoMart.BusinessLayer
         }
         public double CrdbVat12point5
         {
-            get {return _CrdbVat12point5;}
+            get { return _CrdbVat12point5; }
             set { _CrdbVat12point5 = value; }
         }
         public double CrdbAmount
@@ -150,7 +150,7 @@ namespace EcoMart.BusinessLayer
         public double CrdbDiscPer
         {
             get { return _CrdbDiscPer; }
-            set { _CrdbDiscPer = value;}
+            set { _CrdbDiscPer = value; }
         }
         public double CrdbDiscAmt
         {
@@ -228,7 +228,7 @@ namespace EcoMart.BusinessLayer
         }
         #endregion
 
-         #region Internal Methods
+        #region Internal Methods
         public override void Initialise()
         {
             base.Initialise();
@@ -259,7 +259,7 @@ namespace EcoMart.BusinessLayer
             _CrdbBillAmountForSelected = 0;
             _CrdbTextForSelected = "";
         }
-         public override void DoValidate()
+        public override void DoValidate()
         {
             try
             {
@@ -277,102 +277,102 @@ namespace EcoMart.BusinessLayer
             {
                 Log.WriteException(ex);
             }
-         
+
         }
 
-         public override bool CanBeDeleted()
-         {
-             bool bRetValue = true;
-             try
-             {
-                 if (_ClearVouNo != 0)
-                     bRetValue = false;
-             }
-             catch (Exception ex)
-             {
-                 Log.WriteException(ex);
-             }             
-             return bRetValue;
-         }
+        public override bool CanBeDeleted()
+        {
+            bool bRetValue = true;
+            try
+            {
+                if (_ClearVouNo != 0)
+                    bRetValue = false;
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+            }
+            return bRetValue;
+        }
 
 
         #endregion
 
-         #region Public Methods
-         public DataTable GetOverviewData()
-         {
-             DBDebitNoteAmount dbnote = new DBDebitNoteAmount();
-             return dbnote.GetOverviewData(_CrdbVouType);
-         }
+        #region Public Methods
+        public DataTable GetOverviewData()
+        {
+            DBDebitNoteAmount dbnote = new DBDebitNoteAmount();
+            return dbnote.GetOverviewData(_CrdbVouType);
+        }
 
-         public int GetAndUpdateDNNumber(string voucherseries)
-         {
-             int vouno = 0;
-             try
-             {
-                 DBGetVouNumbers dbno = new DBGetVouNumbers();
-                 vouno = dbno.GetDebitNote(voucherseries);
-             }
-             catch (Exception ex)
-             {
-                 Log.WriteException(ex);
-             }
-             return vouno;
-         }
+        public int GetAndUpdateDNNumber(string voucherseries)
+        {
+            int vouno = 0;
+            try
+            {
+                DBGetVouNumbers dbno = new DBGetVouNumbers();
+                vouno = dbno.GetDebitNote(voucherseries);
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+            }
+            return vouno;
+        }
 
-         public bool ReadDetailsByID()
-         {
-             bool retValue = false;
-             DataRow drow = null;
-             try
-             {
-                 DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
-                 drow = dbcrdb.ReadDetailsByID(Id);
+        public bool ReadDetailsByID()
+        {
+            bool retValue = false;
+            DataRow drow = null;
+            try
+            {
+                DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
+                drow = dbcrdb.ReadDetailsByID(Id);
 
-                 if (drow != null)
-                 {
+                if (drow != null)
+                {
 
-                     CrdbId = drow["ID"].ToString();                 
-                     if (drow["VoucherNumber"] != DBNull.Value)
-                         CrdbVouNo = Convert.ToInt32(drow["VoucherNumber"].ToString());
-                     if (drow["VoucherDate"] != DBNull.Value)
-                         CrdbVouDate = drow["VoucherDate"].ToString();
-                     if (drow["Narration"] != DBNull.Value)
-                         CrdbNarration = drow["Narration"].ToString();
-                     if (drow["AmountNet"] != DBNull.Value)
-                         CrdbAmountNet = Convert.ToDouble(drow["AmountNet"].ToString());
-                     if (drow["Amount"] != DBNull.Value)
-                         CrdbAmount = Convert.ToDouble(drow["Amount"].ToString());
-                     if (drow["DiscountAmount"] != DBNull.Value)
-                         CrdbDiscAmt = Convert.ToDouble(drow["DiscountAmount"].ToString());
-                     if (drow["DiscountPer"] != DBNull.Value)
-                         CrdbDiscPer = Convert.ToDouble(drow["DiscountPer"].ToString());
-                     if (drow["RoundingAmount"] != DBNull.Value)
-                         CrdbRoundAmount = Convert.ToDouble(drow["RoundingAmount"].ToString());
-                     if (drow["Vat5"] != DBNull.Value)
-                         CrdbVat5 = Convert.ToDouble(drow["Vat5"].ToString());
-                     if (drow["Vat12point5"] != DBNull.Value)
-                         CrdbVat12point5 = Convert.ToDouble(drow["Vat12point5"].ToString());
-                     if (drow["AccountID"] != DBNull.Value)
-                         AccountID = drow["AccountID"].ToString();
-                     if (drow["ClearedInVoucherNumber"] != DBNull.Value)
-                     {
-                         ClearVouNo = Convert.ToInt32(drow["ClearedInVoucherNumber"].ToString());
-                         ClearVouType = drow["ClearedInVoucherType"].ToString();
-                     }
+                    CrdbId = drow["ID"].ToString();
+                    if (drow["VoucherNumber"] != DBNull.Value)
+                        CrdbVouNo = Convert.ToInt32(drow["VoucherNumber"].ToString());
+                    if (drow["VoucherDate"] != DBNull.Value)
+                        CrdbVouDate = drow["VoucherDate"].ToString();
+                    if (drow["Narration"] != DBNull.Value)
+                        CrdbNarration = drow["Narration"].ToString();
+                    if (drow["AmountNet"] != DBNull.Value)
+                        CrdbAmountNet = Convert.ToDouble(drow["AmountNet"].ToString());
+                    if (drow["Amount"] != DBNull.Value)
+                        CrdbAmount = Convert.ToDouble(drow["Amount"].ToString());
+                    if (drow["DiscountAmount"] != DBNull.Value)
+                        CrdbDiscAmt = Convert.ToDouble(drow["DiscountAmount"].ToString());
+                    if (drow["DiscountPer"] != DBNull.Value)
+                        CrdbDiscPer = Convert.ToDouble(drow["DiscountPer"].ToString());
+                    if (drow["RoundingAmount"] != DBNull.Value)
+                        CrdbRoundAmount = Convert.ToDouble(drow["RoundingAmount"].ToString());
+                    //if (drow["Vat5"] != DBNull.Value)
+                    //    CrdbVat5 = Convert.ToDouble(drow["Vat5"].ToString());
+                    //if (drow["Vat12point5"] != DBNull.Value)
+                    //    CrdbVat12point5 = Convert.ToDouble(drow["Vat12point5"].ToString());
+                    if (drow["AccountID"] != DBNull.Value)
+                        AccountID = drow["AccountID"].ToString();
+                    if (drow["ClearedInVoucherNumber"] != DBNull.Value)
+                    {
+                        ClearVouNo = Convert.ToInt32(drow["ClearedInVoucherNumber"].ToString());
+                        ClearVouType = drow["ClearedInVoucherType"].ToString();
+                    }
 
-                 }
-             }
-             catch (Exception ex)
-             {
-                 Log.WriteException(ex);
-             }                
-                 return retValue; 
-         }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+            }
+            return retValue;
+        }
 
         public DataRow ReadDetailsByVouNumber(int vouno)
         {
-           
+
             DataRow drow = null;
             try
             {
@@ -383,7 +383,7 @@ namespace EcoMart.BusinessLayer
                 {
 
                     CrdbId = drow["CRDBID"].ToString();
-                    Id = CrdbId;                 
+                    Id = CrdbId;
                     if (drow["VoucherNumber"] != DBNull.Value)
                         CrdbVouNo = Convert.ToInt32(drow["VoucherNumber"].ToString());
                     if (drow["VoucherDate"] != DBNull.Value)
@@ -424,71 +424,71 @@ namespace EcoMart.BusinessLayer
 
         }
 
-         public  DataTable ReadParticularsByID()
-         {
-             DataTable dt = null;
-             try
-             {
-                 DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
-                 dt = dbcrdb.ReadParticularById(_CrdbId);
-             }
-             catch (Exception ex)
-             {
-                 Log.WriteException(ex);
-             }
-             return dt;
+        public DataTable ReadParticularsByID()
+        {
+            DataTable dt = null;
+            try
+            {
+                DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
+                dt = dbcrdb.ReadParticularById(_CrdbId);
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+            }
+            return dt;
 
-         }
+        }
 
-         public int AddDetails()
-         {
-             DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
-              return dbcrdb.AddDetails(Id,CrdbId,CrdbNarration,CrdbVouType,CrdbVouNo,CrdbVouDate,CrdbAmountNet,
-                 CrdbDiscPer,CrdbDiscAmt,CrdbAmount,CrdbVat5,CrdbVat12point5,CrdbRoundAmount,CreatedBy,CreatedDate,CreatedTime);
-         }
-          public int AddDetailsForSelected()
-         {
-             DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
-              return dbcrdb.AddDetails(IDForSelected ,CrdbId,CrdbNarration,CrdbVouType,CrdbVouNoForSelected ,CrdbVouDate,CrdbBillAmountForSelected,
-                 0, 0, CrdbBillAmountForSelected, 0,0,0, CreatedBy, CreatedDate, CreatedTime);
-         }
-         public bool UpdateDetails()
-         {
-             DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
-             return dbcrdb.UpdateDetails(Id, CrdbId, CrdbNarration, CrdbVouType, CrdbVouNo, CrdbVouDate, CrdbAmountNet,
-                 CrdbDiscPer, CrdbDiscAmt, CrdbAmount, CrdbVat5, CrdbVat12point5, CrdbRoundAmount,ModifiedBy,ModifiedDate,ModifiedTime);
-         }
+        public int AddDetails()
+        {
+            DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
+            return dbcrdb.AddDetails(Id, CrdbId, CrdbNarration, CrdbVouType, CrdbVouNo, CrdbVouDate, CrdbAmountNet,
+               CrdbDiscPer, CrdbDiscAmt, CrdbAmount, CrdbVat5, CrdbVat12point5, CrdbRoundAmount, CreatedBy, CreatedDate, CreatedTime);
+        }
+        public int AddDetailsForSelected()
+        {
+            DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
+            return dbcrdb.AddDetails(IDForSelected, CrdbId, CrdbNarration, CrdbVouType, CrdbVouNoForSelected, CrdbVouDate, CrdbBillAmountForSelected,
+               0, 0, CrdbBillAmountForSelected, 0, 0, 0, CreatedBy, CreatedDate, CreatedTime);
+        }
+        public bool UpdateDetails()
+        {
+            DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
+            return dbcrdb.UpdateDetails(Id, CrdbId, CrdbNarration, CrdbVouType, CrdbVouNo, CrdbVouDate, CrdbAmountNet,
+                CrdbDiscPer, CrdbDiscAmt, CrdbAmount, CrdbVat5, CrdbVat12point5, CrdbRoundAmount, ModifiedBy, ModifiedDate, ModifiedTime);
+        }
 
-         public bool DeleteDetails()
-         {
-             DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
-             return dbcrdb.DeleteDetails(Id);
-         }       
-         public bool DeletePreviousRecords()
-         {
-             DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
-             return dbcrdb.DeleteParticulars(Id);
-         }
+        public bool DeleteDetails()
+        {
+            DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
+            return dbcrdb.DeleteDetails(Id);
+        }
+        public bool DeletePreviousRecords()
+        {
+            DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
+            return dbcrdb.DeleteParticulars(Id);
+        }
 
-         #endregion
+        #endregion
 
 
 
         public bool AddParticularsDetails()
-         {
-             DBDebitNoteAmount dbamt = new DBDebitNoteAmount();
-             return dbamt.AddParticularsDetails(IntID, Particulars, Amount, DetailId,SerialNumber);
-         }
+        {
+            DBDebitNoteAmount dbamt = new DBDebitNoteAmount();
+            return dbamt.AddParticularsDetails(Convert.ToInt32(Id), Particulars, Amount, DetailId, SerialNumber);
+        }
         public bool AddParticularsDetailsForSelected()
         {
             DBDebitNoteAmount dbamt = new DBDebitNoteAmount();
             return dbamt.AddParticularsDetails(IDForSelectedDNA, Particulars, CrdbBillAmountForSelected, DetailId, SerialNumber);
         }
         public bool DeleteParticulars()
-         {
-             DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
-             return dbcrdb.DeleteParticulars(Id);
-         }
+        {
+            DBDebitNoteAmount dbcrdb = new DBDebitNoteAmount();
+            return dbcrdb.DeleteParticulars(Id);
+        }
         public void GetLastRecord()
         {
             DataRow dr;

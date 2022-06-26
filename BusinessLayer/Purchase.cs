@@ -2067,7 +2067,7 @@ namespace EcoMart.BusinessLayer
             return dbpur.AddDetailsProductsSS(Convert.ToInt32(Id), ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
                 Expiry, ExpiryDate, Quantity, SchemeQuanity, ReplacementQuantity, ItemDiscountPercent, AmountItemDiscount, SchemeDiscountPercent,
                 AmountSchemeDiscount, PurchaseVATPercent, ProductVATPercent, AmountPurchaseVAT, AmountProductVAT, CSTPercent, AmountCST, IfMRPInclusiveOfVAT,
-                IfTradeRateInclusiveOfVAT, Amount, AmountSplDiscountPerUnit, SplDiscountPercent, AmountZeroVAT, AmountCashDiscountPerUnit, IntStockID, DetailId,
+                IfTradeRateInclusiveOfVAT, Amount, AmountSplDiscountPerUnit, SplDiscountPercent, AmountZeroVAT, AmountCashDiscountPerUnit, IntStockID,
                 ProductMargin, ProductMargin2, SerialNumber, PurScanCode, GSTPurchaseAmountZero, GSTSPurchaseAmount, GSTCPurchaseAmount, GSTSAmount, GSTCAmount, PriceToRetailer, ProfitPercent);
         }
 
@@ -2077,7 +2077,7 @@ namespace EcoMart.BusinessLayer
             return dbpur.AddChangedDetailsProductsSS(Id, ChangedID, ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
                 Expiry, ExpiryDate, Quantity, SchemeQuanity, ReplacementQuantity, ItemDiscountPercent, AmountItemDiscount, SchemeDiscountPercent,
                 AmountSchemeDiscount, PurchaseVATPercent, ProductVATPercent, AmountPurchaseVAT, AmountProductVAT, CSTPercent, AmountCST, IfMRPInclusiveOfVAT,
-                IfTradeRateInclusiveOfVAT, Amount, AmountSplDiscountPerUnit, SplDiscountPercent, AmountZeroVAT, AmountCashDiscountPerUnit, StockID, DetailId, ProductMargin, ProductMargin2, SerialNumber);
+                IfTradeRateInclusiveOfVAT, Amount, AmountSplDiscountPerUnit, SplDiscountPercent, AmountZeroVAT, AmountCashDiscountPerUnit, StockID, ProductMargin, ProductMargin2, SerialNumber);
         }
         public bool AddDeletedProductDetailsSS()
         {
@@ -2085,7 +2085,7 @@ namespace EcoMart.BusinessLayer
             return dbpur.AddDeletedDetailsProductsSS(Id, ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
                 Expiry, ExpiryDate, Quantity, SchemeQuanity, ReplacementQuantity, ItemDiscountPercent, AmountItemDiscount, SchemeDiscountPercent,
                 AmountSchemeDiscount, PurchaseVATPercent, ProductVATPercent, AmountPurchaseVAT, AmountProductVAT, CSTPercent, AmountCST, IfMRPInclusiveOfVAT,
-                IfTradeRateInclusiveOfVAT, Amount, AmountSplDiscountPerUnit, SplDiscountPercent, AmountZeroVAT, AmountCashDiscountPerUnit, StockID, DetailId, ProductMargin, ProductMargin2, SerialNumber);
+                IfTradeRateInclusiveOfVAT, Amount, AmountSplDiscountPerUnit, SplDiscountPercent, AmountZeroVAT, AmountCashDiscountPerUnit, StockID, ProductMargin, ProductMargin2, SerialNumber);
         }
         public string AddProductDetailsInStockTable()
         {
@@ -2095,7 +2095,7 @@ namespace EcoMart.BusinessLayer
             intstockid = dbpur.AddProductDetailsInStockTable(ProductID, Batchno, TradeRate, PurchaseRate, MRP, SaleRate,
                 Expiry, ExpiryDate, Quantity, SchemeQuanity, ReplacementQuantity, PurchaseVATPercent,
                 ProductVATPercent, IfMRPInclusiveOfVAT, IfTradeRateInclusiveOfVAT, Amount, AccountID, PurchaseBillNumber,
-                VoucherType, VoucherNumber, VoucherDate, ProdLoosePack, StockID, ProductMargin, PurScanCode, PriceToRetailer, ProfitPercent);
+                VoucherType, VoucherNumber, VoucherDate, ProdLoosePack, StockID, ProductMargin, PurScanCode, PriceToRetailer, ProfitPercent, Convert.ToInt32(Id));
             stockid = Convert.ToString(intstockid);
             return stockid;
         }
@@ -2346,6 +2346,27 @@ namespace EcoMart.BusinessLayer
                         stockID = drow["StockID"].ToString();
                 }
 
+            }
+            catch (Exception Ex)
+            {
+                Log.WriteException(Ex);
+            }
+            return stockID;
+        }
+
+        public string CheckForPurchaseIdStockIDInStockTable()
+        {
+            string stockID = "";
+            try
+            {
+                DBSsStock sstk = new DBSsStock();
+                DataRow drow = null;
+                drow = sstk.GetRecordByProductIDAndPurchaseIdAndStockID(ProductID, StockID, Id);
+                if (drow != null)
+                {
+                    if (drow["StockID"] != DBNull.Value)
+                        stockID = drow["StockID"].ToString();
+                }
             }
             catch (Exception Ex)
             {

@@ -17,7 +17,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = new DataTable();
             string strSql = "Select distinct  a.CBID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.AmountNet, " +
                             "a.AccountID,a.ChequeNumber, a.ChequeDate, b.AccountID, b.AccName, b.AccAddress1, b.AccAddress2 from vouchercashbankreceipt a, masteraccount b " +
-                            "where a.AccountId = b.AccountId && a.VoucherType = " + "'" + DbntType + "' && a.VoucherDate >= '" + General.ShopDetail.Shopsy + "' && a.VoucherDate <= '" + General.ShopDetail.Shopey + "'  order by a.voucherdate desc ";
+                            "where a.AccountId = b.AccountId AND  a.VoucherType = " + "'" + DbntType + "' AND a.VoucherDate >= '" + General.ShopDetail.Shopsy + "' AND a.VoucherDate <= '" + General.ShopDetail.Shopey + "'  order by a.voucherdate desc ";
 
             dtable = DBInterface.SelectDataTable(strSql);
 
@@ -28,7 +28,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = new DataTable();
             string strSql = "Select distinct  a.CBID,a.VoucherType,a.IFchequereturn,a.VoucherNumber,a.VoucherDate,a.AmountNet, " +
                             "a.AccountID,a.ChequeNumber, a.ChequeDate, b.AccountID, b.AccName, b.AccAddress1, b.AccAddress2 from vouchercashbankreceipt a, masteraccount b " +
-                            "where  a.IFchequereturn = 'N' && a.AccountId = b.AccountId and a.VoucherType = " + "'" + DbntType + "'" + "  order by a.vouchernumber ";
+                            "where  a.IFchequereturn = 'N' AND  a.AccountId = b.AccountId and a.VoucherType = " + "'" + DbntType + "'" + "  order by a.vouchernumber ";
 
             dtable = DBInterface.SelectDataTable(strSql);
 
@@ -39,7 +39,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = new DataTable();
             string strSql = "Select distinct  a.CBID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.AmountNet, " +
                             "a.AccountID,a.ChequeNumber, a.ChequeDate, b.AccountID, b.AccName, b.AccAddress1, b.AccAddress2 from vouchercashbankreceipt a, masteraccount b " +
-                            "where a.AccountId = b.AccountId && a.VoucherType = " + "'" + vouType + "' && a.VoucherDate >= '" + fromDate + "'  && a.VoucherDate <= '" + toDate + "' && ChequeDepositedBankID = '"+ bankID +"'  order by a.vouchernumber ";
+                            "where a.AccountId = b.AccountId AND a.VoucherType = " + "'" + vouType + "' AND  a.VoucherDate >= '" + fromDate + "'  AND a.VoucherDate <= '" + toDate + "' AND ChequeDepositedBankID = '"+ bankID +"'  order by a.vouchernumber ";
 
             dtable = DBInterface.SelectDataTable(strSql);
 
@@ -51,13 +51,13 @@ namespace EcoMart.DataLayer
             DataTable dtable = new DataTable();
             string strSql = "Select distinct  a.CBID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.AmountNet, " +
                             "a.AccountID,a.ChequeNumber, a.ChequeDate, b.AccountID, b.AccName, b.AccAddress1, b.AccAddress2 from vouchercashbankreceipt a, masteraccount b " +
-                            "where a.AccountId = b.AccountId && a.VoucherType = " + "'" + vouType + "' && a.VoucherDate >= '" + fromDate + "'  && a.VoucherDate <= '" + toDate + "' && ChequeDepositedBankID = '" + bankID + "' && (ClearedDate is null || ClearedDate = '' || ClearedDate <= '" + toDate + "')  order by a.vouchernumber ";
+                            "where a.AccountId = b.AccountId AND a.VoucherType = " + "'" + vouType + "' AND  a.VoucherDate >= '" + fromDate + "'  AND  a.VoucherDate <= '" + toDate + "' AND  ChequeDepositedBankID = '" + bankID + "' AND (ClearedDate is null OR ClearedDate = '' OR ClearedDate <= '" + toDate + "')  order by a.vouchernumber ";
 
             dtable = DBInterface.SelectDataTable(strSql);
 
             return dtable;
         }    
-
+        
         public DataRow ReadDetailsByID(string Id)
         {
             DataRow dRow = null;
@@ -96,7 +96,7 @@ namespace EcoMart.DataLayer
             DataRow dRow = null;
             if (vouno != 0)
             {
-                string strSql = "Select a.CBID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.AccountID,a.AmountNet,a.Narration,a.OnaccountAmount,a.ChequeNumber, a.ChequeDate,a.CustomerBankID,a.CustomerBranchID,a.ChequeDepositedBankID,b.AccName,b.AccAddress1,b.AccAddress2 from vouchercashbankreceipt a inner join masteraccount b on a.AccountID = b.AccountID where VoucherNumber= " + vouno + " && VoucherType = '" + FixAccounts.VoucherTypeForBankReceipt + "'";
+                string strSql = "Select a.CBID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.AccountID,a.AmountNet,a.Narration,a.OnaccountAmount,a.ChequeNumber, a.ChequeDate,a.CustomerBankID,a.CustomerBranchID,a.ChequeDepositedBankID,b.AccName,b.AccAddress1,b.AccAddress2 from vouchercashbankreceipt a inner join masteraccount b on a.AccountID = b.AccountID where VoucherNumber= " + vouno + " OR VoucherType = '" + FixAccounts.VoucherTypeForBankReceipt + "'";
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
             return dRow;
@@ -105,7 +105,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
             string strSql = "Select ID,VoucherSeries,VoucherType,VoucherNumber,VoucherDate,VoucherSubType,AmountNet,AmountClear,AmountBalance,PatientShortName, 0 as discountamount,"
-                + "AccountID,ID as MasterID,null as MasterSaleID  from vouchersale where AccountId =  " + "'" + acId + "'" + " && VoucherType = '" + FixAccounts.VoucherTypeForCreditSale + "' && AmountBalance > 0  order by vouchertype, vouchernumber";
+                + "AccountID,ID as MasterID,null as MasterSaleID  from vouchersale where AccountId =  " + "'" + acId + "'" + " AND  VoucherType = '" + FixAccounts.VoucherTypeForCreditSale + "' AND AmountBalance > 0  order by vouchertype, vouchernumber";
             dtable = DBInterface.SelectDataTable(strSql);
 
             return dtable;
@@ -114,7 +114,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
             string strSql = "Select ID,VoucherSeries,VoucherType,VoucherNumber,VoucherDate,VoucherSubType,AmountNet,AmountClear,AmountBalance,PatientShortName, 0 as discountamount,"
-                + "AccountID,ID as MasterID,null as MasterSaleID  from vouchersale where voucherdate >= '" + fromDate + "' && voucherdate <= '" + toDate + "' &&  AccountId =  " + "'" + acId + "'" + " && (VoucherType = '" + FixAccounts.VoucherTypeForCreditSale + "' && AmountBalance > 0  order by vouchertype, vouchernumber";
+                + "AccountID,ID as MasterID,null as MasterSaleID  from vouchersale where voucherdate >= '" + fromDate + "' AND voucherdate <= '" + toDate + "' AND  AccountId =  " + "'" + acId + "'" + " AND (VoucherType = '" + FixAccounts.VoucherTypeForCreditSale + "') AND AmountBalance > 0 order by vouchertype, vouchernumber";
             dtable = DBInterface.SelectDataTable(strSql);
 
             return dtable;
@@ -123,7 +123,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
             string strSql = "select a.ID , a.VoucherSeries, a.VoucherType,a.VoucherNumber,a.VoucherDate,'' as VoucherSubType,  a.AmountNet,a.AmountClear,a.AmountBalance, 0 as discountamount," +
-                          "a.AccountID,'' as MasterID,'' as MasterSaleID,d.AccName as PatientshortName from voucherstatement a inner join masteraccount d on a.AccountID = d.AccountID where a.AccountID = '" + acId + "'  &&  a.AmountBalance > 0 && (a.VoucherType = '" + FixAccounts.VoucherTypeForStatementSale + "' || a.Vouchertype = '" + FixAccounts.VoucherTypeForStatementHospital + "') order by a.vouchertype ,a.vouchernumber";
+                          "a.AccountID,'' as MasterID,'' as MasterSaleID,d.AccName as PatientshortName from voucherstatement a inner join masteraccount d on a.AccountID = d.AccountID where a.AccountID = '" + acId + "'  AND  a.AmountBalance > 0 AND (a.VoucherType = '" + FixAccounts.VoucherTypeForStatementSale + "' OR a.Vouchertype = '" + FixAccounts.VoucherTypeForStatementHospital + "') order by a.vouchertype ,a.vouchernumber";
             dtable = DBInterface.SelectDataTable(strSql);
 
             return dtable;
@@ -135,7 +135,7 @@ namespace EcoMart.DataLayer
             //string strSql = "Select a.ID ,a.VoucherSeries,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.VoucherSubType,a.AmountNet,a.Amountclear,a.AmountBalance,"
             //             + "a.AccountID,a.PatientShortName,b.MasterID,b.MasterSaleID  from vouchersale a  inner join detailcashbankreceipt b on a.ID = b.MastersaleID && b.MasterID = '" + id + "'  order by  VoucherType,VoucherNumber";
             string strSql = "Select a.ID ,a.VoucherSeries,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.VoucherSubType,a.AmountNet,a.Amountclear,a.AmountBalance,b.DiscountAmount,"
-                           + "a.AccountID,a.PatientShortName,b.MasterID,b.MasterSaleID  from vouchersale a  inner join detailcashbankreceipt b on a.ID = b.MastersaleID && b.MasterID = '" + id + "'  order by  VoucherType,VoucherNumber";
+                           + "a.AccountID,a.PatientShortName,b.MasterID,b.MasterSaleID  from vouchersale a  inner join detailcashbankreceipt b on a.ID = b.MastersaleID AND b.MasterID = '" + id + "'  order by  VoucherType,VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
 
             return dtable;
@@ -145,7 +145,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = new DataTable();
 
             string strSql = "Select a.ID ,a.VoucherSeries,a.VoucherType,a.VoucherNumber,a.ToDate as VoucherDate, '' as VoucherSubType,a.AmountNet,a.Amountclear,a.AmountBalance,b.DiscountAmount,"
-                + "a.AccountID,c.AccName as PatientShortName,b.MasterID,b.MasterSaleID  from voucherstatement a  inner join detailcashbankreceipt b on a.ID = b.MastersaleID inner join masteraccount c on a.AccountID = c.AccountId  &&  b.MasterID = '" + id + "'  order by  VoucherType,VoucherNumber";
+                + "a.AccountID,c.AccName as PatientShortName,b.MasterID,b.MasterSaleID  from voucherstatement a  inner join detailcashbankreceipt b on a.ID = b.MastersaleID inner join masteraccount c on a.AccountID = c.AccountId  AND  b.MasterID = '" + id + "'  order by  VoucherType,VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
 
             return dtable;
@@ -167,8 +167,8 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
             string strSql = "Select distinct a.MasterSaleID as ID,a.MasterID, a.MasterSaleID,a.BillSeries as VoucherSeries,a.BillType as VoucherType,a.BillNumber as VoucherNumber,a.BillDate as VoucherDate,a.BillSubType as VoucherSubType,a.BillAmount as AmountNet,a.BalanceAmount as AmountBalance," +
-                                   "a.ClearAmount as AmountClear,a.DiscountAmount,a.FromDate,a.ToDate,b.AccountID,c.PatientShortName " +
-                            " from detailcashbankreceipt a inner join vouchercashbankreceipt b  on a.MasterId = b.CBId  left outer join vouchersale c on a.MasterSaleID = c.ID where  a.MasterID =  " + "'" + Id + "' and b.AccountID = '" + accid + "' order by a.SerialNumber";
+                                   "a.ClearAmount as AmountClear,a.DiscountAmount,a.FromDate,a.ToDate,b.AccountID,c.PatientShortName ,a.SerialNumber " +
+                            " from detailcashbankreceipt a inner join vouchercashbankreceipt b  on a.MasterId = b.CBId  left outer join vouchersale c on a.MasterSaleID = c.ID where  a.MasterID =  " + "'" + Id + "' and b.AccountID = '" + accid + "' order by a.SerialNumber desc";
 
             dtable = DBInterface.SelectDataTable(strSql);
 
@@ -228,10 +228,12 @@ namespace EcoMart.DataLayer
             string strSql = GetInsertQuery(Id, CreditorId, Narration, VouType, VouNo,
                 VouDate, Amt,bankaccount,bank,branch,chqno,chqdate,onaccountamount, totalDiscount, jvno, jvID, createdby,createddate,createdtime);
 
-            bool ii = (DBInterface.ExecuteQuery(strSql) > 0);
-            strSql = "select last_insert_ID()";
-            int iid = DBInterface.ExecuteScalar(strSql);
-            return iid;
+            //bool ii = (DBInterface.ExecuteQuery(strSql) > 0);
+            //strSql = "select last_insert_ID()";
+            //int iid = DBInterface.ExecuteScalar(strSql);
+            //return iid;
+            int ii = Convert.ToInt32(DBInterface.ExecuteScalar(strSql));
+            return ii;
         }
         public bool AddChangedDetails(string Id,string changedID, string CreditorId, string Narration, string VouType, int VouNo,
            string VouDate, double Amt, string bankaccount, string bank, string branch, string chqno, string chqdate, double onaccountamount, string createdby, string createddate, string createdtime)
@@ -535,7 +537,7 @@ namespace EcoMart.DataLayer
         {
             Query objQuery = new Query();
             objQuery.Table = "vouchercashbankreceipt";
-            objQuery.AddToQuery("CBID", Id);
+            //objQuery.AddToQuery("CBID", Id);
             objQuery.AddToQuery("AccountId", CreditorId);
             objQuery.AddToQuery("Narration", Narration);
             objQuery.AddToQuery("VoucherType", VouType);
@@ -651,7 +653,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("BillSeries", RSeries);
             objQuery.AddToQuery("BillType", RType);
             objQuery.AddToQuery("BillNumber", RNumber);
-            objQuery.AddToQuery("BillDate", RDate);
+            //objQuery.AddToQuery("BillDate", RDate);
             objQuery.AddToQuery("BillSubType", RSubType);
             objQuery.AddToQuery("BillAmount", RBillAmount);
             objQuery.AddToQuery("ClearAmount", RClearedAmount);
@@ -787,7 +789,7 @@ namespace EcoMart.DataLayer
         {
             DataRow dRow = null;
 
-            string strSql = "Select a.CBID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.AccountID,a.AmountNet,a.Narration,a.OnaccountAmount,b.AccName,b.AccAddress1,b.AccAddress2 from vouchercashbankreceipt a inner join masteraccount b on a.AccountID = b.AccountID  where voucherType = '" + vouType + "' && voucherSeries = '" + vouSeries + "' order by vouchernumber desc";
+            string strSql = "Select a.CBID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.AccountID,a.AmountNet,a.Narration,a.OnaccountAmount,b.AccName,b.AccAddress1,b.AccAddress2 from vouchercashbankreceipt a inner join masteraccount b on a.AccountID = b.AccountID  where voucherType = '" + vouType + "' AND voucherSeries = '" + vouSeries + "' order by vouchernumber desc";
 
             //string strSql = "Select * from vouchercreditdebitnote where voucherType = '" + CrdbVouType + "' && voucherSeries = '" + CrdbVouSeries + "' order by vouchernumber desc";
 
@@ -800,7 +802,7 @@ namespace EcoMart.DataLayer
         {
             DataRow dRow = null;
             {
-                string strSql = "Select VoucherNumber from vouchercashbankreceipt  where voucherType = '" + vouType + "' && voucherSeries = '" + vouSeries + "' order by vouchernumber desc";
+                string strSql = "Select VoucherNumber from vouchercashbankreceipt  where voucherType = '" + vouType + "' AND voucherSeries = '" + vouSeries + "' order by vouchernumber desc";
 
                 // string strSql = "Select Vouchernumber from vouchercreditdebitnote where  VoucherType =  '" + vouType + "'  &&  VoucherSeries = '" + vouSeries + "' order by Vouchernumber desc ";
                 dRow = DBInterface.SelectFirstRow(strSql);
@@ -811,7 +813,7 @@ namespace EcoMart.DataLayer
         public DataRow GetFirstRecord(string vouType, string vouSeries)
         {
             DataRow dRow = null;
-            string strSql = "Select a.CBID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.AccountID,a.AmountNet,a.Narration,a.OnaccountAmount,b.AccName,b.AccAddress1,b.AccAddress2 from vouchercashbankreceipt a inner join masteraccount b on a.AccountID = b.AccountID where VoucherType= " + vouType + " && VoucherSeries = '" + vouSeries + "' ";
+            string strSql = "Select a.CBID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.AccountID,a.AmountNet,a.Narration,a.OnaccountAmount,b.AccName,b.AccAddress1,b.AccAddress2 from vouchercashbankreceipt a inner join masteraccount b on a.AccountID = b.AccountID where VoucherType= " + vouType + " AND VoucherSeries = '" + vouSeries + "' ";
             // string strSql = "Select * from vouchercreditdebitnote where voucherType = '" + CrdbVouType + "' && voucherSeries = '" + CrdbVouSeries + "' order by vouchernumber ";
 
             dRow = DBInterface.SelectFirstRow(strSql);

@@ -3245,9 +3245,9 @@ namespace EcoMart
                 _SubMenuItem.Name = "Sale";
 
                 AddRegularSaleItem(_Band, _SubMenuItem);
-                AddSpecialSaleItem(_Band, _SubMenuItem);
-                AddPTSSaleItem(_Band, _SubMenuItem);
-                AddRegularSale2Item(_Band, _SubMenuItem);
+                //AddSpecialSaleItem(_Band, _SubMenuItem);
+                //AddPTSSaleItem(_Band, _SubMenuItem);
+                //AddRegularSale2Item(_Band, _SubMenuItem);
                 if (_Band.Items.Count == 0)
                 {
                     _Band.Visible = false;
@@ -3285,12 +3285,12 @@ namespace EcoMart
                 _SubMenuItem = new ToolStripMenuItem("PurchaseOrder");
                 _SubMenuItem.Name = "PurchaseOrder";
 
-                AddDailyPurchaseOrderItem(_Band, _SubMenuItem);
-                AddPurchaseOrderItem(_Band, _SubMenuItem);
-                AddPurchaseOrderForTodayItem(_Band, _SubMenuItem);
-                AddPurchaseOrderByStockAndSaleItem(_Band, _SubMenuItem);
+                //AddDailyPurchaseOrderItem(_Band, _SubMenuItem);
+                //AddPurchaseOrderItem(_Band, _SubMenuItem);
+                //AddPurchaseOrderForTodayItem(_Band, _SubMenuItem);
+                //AddPurchaseOrderByStockAndSaleItem(_Band, _SubMenuItem);
                 AddPurchaseOrderAllTypesItem(_Band, _SubMenuItem);
-                AddPurchaseOrderList(_Band, _SubMenuItem);
+                //AddPurchaseOrderList(_Band, _SubMenuItem);
 
                 if (_Band.Items.Count == 0)
                 {
@@ -3311,8 +3311,8 @@ namespace EcoMart
                 AddDebitNoteStockItem(_Band, _SubMenuItem);
                 AddDebitNoteAmountItem(_Band, _SubMenuItem);
                 AddDebitNoteExpiryItem(_Band, _SubMenuItem);
-                AddStockOutItem(_Band, _SubMenuItem);
-                AddStockOutExpiredProductsItem(_Band, _SubMenuItem);
+                //AddStockOutItem(_Band, _SubMenuItem);
+                //AddStockOutExpiredProductsItem(_Band, _SubMenuItem);
                 if (_Band.Items.Count == 0)
                 {
                     _Band.Visible = false;
@@ -3411,17 +3411,17 @@ namespace EcoMart
                 _SubMenuItem = new ToolStripMenuItem("Other");
                 _SubMenuItem.Name = "Other";
 
-                AddOpeningStockItem(_Band, _SubMenuItem);
-                AddCorrectionInRateItem(_Band, _SubMenuItem);
+                //AddOpeningStockItem(_Band, _SubMenuItem);
+                //AddCorrectionInRateItem(_Band, _SubMenuItem);
                 AddUsersItem(_Band, _SubMenuItem);
                 AddUserRightsItem(_Band, _SubMenuItem);
 
                 //AddSettingsSaleItem(_Band, _SubMenuItem);
                 //  AddSettingsForPrintItem(_Band, _SubMenuItem);
-                AddSubstituteItem(_Band, _SubMenuItem);
+                //AddSubstituteItem(_Band, _SubMenuItem);
                 AddOperatorItem(_Band, _SubMenuItem);
               //  AddSpecialSaleItem(_Band, _SubMenuItem);
-                AddBulkSaleBillPrint(_Band, _SubMenuItem);
+                //AddBulkSaleBillPrint(_Band, _SubMenuItem);
                 //AddChallanPurchaseItem(_Band, _SubMenuItem);
                 //  AddBarCodePrintItem(_Band, _SubMenuItem);
                 //  AddStockReProcessItem(_Band, _SubMenuItem);
@@ -3443,12 +3443,12 @@ namespace EcoMart
                 _SubMenuItem = new ToolStripMenuItem("Statements");
                 _SubMenuItem.Name = "Statements";
 
-                AddSaleStatementItem(_Band, _SubMenuItem);
-                AddPurchaseStatement15DaysItem(_Band, _SubMenuItem);
-                //  AddPurchaseStatement7DaysItem(_Band, _SubMenuItem);
-                //   AddStatementHospitalItem(_Band, _SubMenuItem);
-                AddSaleStatementPartywiseItem(_Band, _SubMenuItem);
-                AddPurchaseStatementPartywiseItem(_Band, _SubMenuItem);
+                //AddSaleStatementItem(_Band, _SubMenuItem);
+                //AddPurchaseStatement15DaysItem(_Band, _SubMenuItem);
+                ////  AddPurchaseStatement7DaysItem(_Band, _SubMenuItem);
+                ////   AddStatementHospitalItem(_Band, _SubMenuItem);
+                //AddSaleStatementPartywiseItem(_Band, _SubMenuItem);
+                //AddPurchaseStatementPartywiseItem(_Band, _SubMenuItem);
 
                 if (_Band.Items.Count == 0)
                 {
@@ -3522,11 +3522,11 @@ namespace EcoMart
                 _SubMenuItem = new ToolStripMenuItem("Links");
                 _SubMenuItem.Name = "Links";
 
-                AddDebtorProductItem(_Band, _SubMenuItem);
-                AddDrugGroupingItem(_Band, _SubMenuItem);
-                AddPartyCompanyItem(_Band, _SubMenuItem);
+                //AddDebtorProductItem(_Band, _SubMenuItem);
+                //AddDrugGroupingItem(_Band, _SubMenuItem);
+                //AddPartyCompanyItem(_Band, _SubMenuItem);
                 AddShelfProductItem(_Band, _SubMenuItem);
-                AddProductScheduleH1Item(_Band, _SubMenuItem);
+                //AddProductScheduleH1Item(_Band, _SubMenuItem);
                 if (_Band.Items.Count == 0)
                 {
                     _Band.Visible = false;
@@ -3633,7 +3633,7 @@ namespace EcoMart
                 AddTodaysChequesListReportItem(_SubMenuItem);
                 AddOperatorListReportItem(_SubMenuItem);
                 AddTodaysChequesListTobeDepositedReportItem(_SubMenuItem);
-                AddListNextVisitDateReportItem(_SubMenuItem);
+                //AddListNextVisitDateReportItem(_SubMenuItem);
 
                 tsmenuReports.DropDownItems.Add(_SubMenuItem);
                 # endregion List
@@ -3649,8 +3649,8 @@ namespace EcoMart
                 AddChequePaidReportItem(_SubMenuItem);
                 AddBankExpensesReportItem(_SubMenuItem);
                 AddChequeReturnListReportItem(_SubMenuItem);
-                AddStatementPurchaseReportItem(_SubMenuItem);
-                AddStatementSaleReportItem(_SubMenuItem);
+                //AddStatementPurchaseReportItem(_SubMenuItem);
+                //AddStatementSaleReportItem(_SubMenuItem);
                 AddChequeReceivedButNotClearedReportItem(_SubMenuItem);
                 AddChequePaidButNotClearedReportItem(_SubMenuItem);
 
@@ -3719,11 +3719,11 @@ namespace EcoMart
                 AddPurchaseNewProductListReportItem(_SubMenuItem);
                 AddPurchasePartyProductListReportItem(_SubMenuItem);
                 AddPurchasePartyBillsListReportItem(_SubMenuItem);
-                AddPurchaseDiscountListReportItem(_SubMenuItem);
-                AddPurchaseAllPartySummaryListReportItem(_SubMenuItem);
+                //AddPurchaseDiscountListReportItem(_SubMenuItem);
+                //AddPurchaseAllPartySummaryListReportItem(_SubMenuItem);
                 AddPurchaseCategoryListReportItem(_SubMenuItem);
                 AddPurchaseCompanyListReportItem(_SubMenuItem);
-                AddPurchasePartyWistOutStandingListReportItem(_SubMenuItem);
+                //AddPurchasePartyWistOutStandingListReportItem(_SubMenuItem);
 
                 tsmenuReports.DropDownItems.Add(_SubMenuItem);
                 #endregion Purchase
@@ -3737,14 +3737,14 @@ namespace EcoMart
                 AddSaleProductListReportItem(_SubMenuItem);
                 AddSalePartySummaryListReportItem(_SubMenuItem);
                 AddSaleRegularPartyProductListReportItem(_SubMenuItem);
-                AddSaleScheduledDrugListReportItem(_SubMenuItem);
-                AddSalePatientListReportItem(_SubMenuItem);
-                AddSaleDoctorListReportItem(_SubMenuItem);
-                AddSaleCategoryListReportItem(_SubMenuItem);
-                //AddSalePartyProductListReportItem(_SubMenuItem);
-                AddSaleDoctorCompanyListReportItem(_SubMenuItem);
+                //AddSaleScheduledDrugListReportItem(_SubMenuItem);
+                //AddSalePatientListReportItem(_SubMenuItem);
+                //AddSaleDoctorListReportItem(_SubMenuItem);
+                //AddSaleCategoryListReportItem(_SubMenuItem);
+                ////AddSalePartyProductListReportItem(_SubMenuItem);
+                //AddSaleDoctorCompanyListReportItem(_SubMenuItem);
                 AddSaleDaywiseProductSummaryListReportItem(_SubMenuItem);
-                AddSaleOperatorListReportItem(_SubMenuItem);
+                //AddSaleOperatorListReportItem(_SubMenuItem);
                 AddSaleDailyProductsReportItem(_SubMenuItem);
                 AddSalePartywiseBillsListReportItem(_SubMenuItem);
                 AddSalePartywiseOutstandingListReportItem(_SubMenuItem);
@@ -3776,7 +3776,7 @@ namespace EcoMart
                 AddStockProductLedgerListReportItem(_SubMenuItem);
                 AddStockCategorySummaryListReportItem(_SubMenuItem);
                 AddStockCompanySummaryListReportItem(_SubMenuItem);
-                AddStockPatientListReportItem(_SubMenuItem);
+                //AddStockPatientListReportItem(_SubMenuItem);
                 AddStockAllBatchWiseListReportItem(_SubMenuItem);
                 AddStockProductLedgerBatchWiseListReportItem(_SubMenuItem);
                 AddStockClosingStockAsOnListReportItem(_SubMenuItem);

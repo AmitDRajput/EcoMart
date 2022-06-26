@@ -45,6 +45,7 @@ namespace EcoMart.DataLayer
             try
             {
                 _IsDbConnected = false;
+                
                 if (ConnectionString.Length > 0)
                 {
                     //strProviderString = GetProviderString();
