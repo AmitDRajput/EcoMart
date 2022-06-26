@@ -80,8 +80,9 @@
     <Reference Include="ControlLibBase">
       <HintPath>..\ControlLib\bin\Debug\ControlLibBase.dll</HintPath>
     </Reference>
-    <Reference Include="EcoMartLicenseLib">
-      <HintPath>C:\EcomartConfidentials\dist\EcoMartLicenseLib\bin\Debug\EcoMartLicenseLib.dll</HintPath>
+    <Reference Include="EcoMartLicenseLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLLs\EcoMartLicenseLib.dll</HintPath>
     </Reference>
     <Reference Include="Ionic.Zip">
       <HintPath>..\DLLs\Ionic.Zip.dll</HintPath>
@@ -2666,6 +2667,11 @@
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
+    <None Include="Licenses\LicenseCNF1.lic" />
+    <None Include="Licenses\LicenseCNF2.lic" />
+    <None Include="Licenses\LicenseEcoMart.lic" />
+    <None Include="Licenses\LicenseStockist1.lic" />
+    <None Include="Licenses\LicenseStockist2.lic" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -3511,6 +3517,8 @@
     <Content Include="bin\Debug\CommonLibrary.pdb" />
     <Content Include="bin\Debug\ControlLib.dll" />
     <Content Include="bin\Debug\ControlLibBase.dll" />
+    <Content Include="DLLs\EcoMartLicenseLib.dll" />
+    <Content Include="DLLs\EcoMartLicenseLib.pdb" />
     <Content Include="PrintSettingsForDistributor.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
