@@ -69,7 +69,7 @@ namespace EcoMart.DataLayer
             _Key.Add(key);
         }
 
-        internal string InsertQuery()
+       internal string InsertQuery(bool identityInsertOn = false)
         {
             string sql = "", fields = "", values = "";
             try
@@ -78,9 +78,16 @@ namespace EcoMart.DataLayer
                 fields = "(" + fields + ")";
                 values = string.Join(",", _Values.ToArray());
                 values = "(" + values + ")";
-                sql = "Insert into " + _Table;
+
+                if (identityInsertOn)
+                    sql = "SET IDENTITY_INSERT " + _Table + " ON;";
+
+                sql += "Insert into " + _Table;
                 sql = sql + " " + fields + " Values" + values;
-                sql = sql + ";  select scope_identity();"; 
+                sql = sql + ";  select scope_identity();";
+
+                if (identityInsertOn)
+                    sql += "SET IDENTITY_INSERT " + _Table + " OFF;";
             }
             catch (Exception ex)
             {
