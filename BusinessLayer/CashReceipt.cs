@@ -495,7 +495,7 @@ namespace EcoMart.BusinessLayer
                         CBJVNo = Convert.ToInt32(drow["JVNumber"].ToString());
 
                     preAccountID = CBAccountID;
-                    preName = CBName;                  
+                    preName = CBName;
                     preVouNo = CBVouNo;
                     preVouDate = CBVouDate;
                     preNarration = CBNarration;
@@ -661,11 +661,11 @@ namespace EcoMart.BusinessLayer
             DBCashReceipt CR = new DBCashReceipt();
             return CR.RevertPreviousStatementBalance(nSaleID, nClearedAmount);
         }
-
+        //Remove identity from string id //
         public int AddDetails()
         {
             DBCashReceipt CBtran = new DBCashReceipt();
-            return CBtran.AddDetails(Id, CBAccountID, CBNarration, CBVouType, CBVouNo, CBVouDate,CBAmount,CBTotalDiscount, CBJVNo, CBJVIDpay, CBOnAccountAmount, CreatedBy,CreatedDate,CreatedTime);
+            return CBtran.AddDetails(Id, CBAccountID, CBNarration, CBVouType, CBVouNo, CBVouDate, CBAmount, CBTotalDiscount, CBJVNo, CBJVIDpay, CBOnAccountAmount, CreatedBy, CreatedDate, CreatedTime);
         }
 
         public bool AddChangedDetails()

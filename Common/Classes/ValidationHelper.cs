@@ -148,7 +148,8 @@ namespace EcoMart.Common.Classes
 
         public bool IsFullLicense()
         {
-            return General.EcoMartLicense.LicenseType != EcoMartLicenseLib.LicenseTypes.Trial;
+            return true;
+            //return General.EcoMartLicense.LicenseType != EcoMartLicenseLib.LicenseTypes.Trial;
         }
 
         public bool IsTrialLicense()

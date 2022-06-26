@@ -6587,7 +6587,7 @@ namespace EcoMart.InterfaceLayer
                         double mmrp = 0;
                         double mmargin = 0;
                         double mmargin2 = 0;
-                        double mpurrate = 0;
+                        //double mpurrate = 0;
 
                         double.TryParse(dr.Cells["Col_TradeRate"].Value.ToString(), out mtraderate);
                         double.TryParse(dr.Cells["Col_MRP"].Value.ToString(), out mmrp);
@@ -7309,7 +7309,7 @@ namespace EcoMart.InterfaceLayer
                 //     double mtotvatzeroamt = 0;
                 //    double moctroiamt = 0;
                 _Purchase.AmountCashDiscountS = 0;
-                double mtotspldisc = 0;
+                //double mtotspldisc = 0;
                 //   double mpuramount0 = 0;
                 //double mpuramount5 = 0;
                 //double mpuramount12point5 = 0;
@@ -9286,19 +9286,19 @@ namespace EcoMart.InterfaceLayer
                     pobj.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
                     pobj.IFEdit = "N";
                     pobj.Validate();
-                    if (pobj.IsValid)
-                        IsProductCreateOrUpdate = pobj.AddDetails();
-                    else // Show Validation Messages
-                    {
-                        _errorMessage = new System.Text.StringBuilder();
-                        _errorMessage.Append("Error while validating the input" + Environment.NewLine);
-                        foreach (string _message in pobj.ValidationMessages)
-                        {
-                            _errorMessage.AppendFormat("- {0}" + Environment.NewLine, _message);
-                        }
-                        MessageBox.Show(_errorMessage.ToString(), General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        IsProductCreateOrUpdate = false;
-                    }
+                    //if (pobj.IsValid)
+                    //    IsProductCreateOrUpdate = pobj.AddDetails();
+                    //else // Show Validation Messages
+                    //{
+                    //    _errorMessage = new System.Text.StringBuilder();
+                    //    _errorMessage.Append("Error while validating the input" + Environment.NewLine);
+                    //    foreach (string _message in pobj.ValidationMessages)
+                    //    {
+                    //        _errorMessage.AppendFormat("- {0}" + Environment.NewLine, _message);
+                    //    }
+                    //    MessageBox.Show(_errorMessage.ToString(), General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    IsProductCreateOrUpdate = false;
+                    //}
                     if (IsProductCreateOrUpdate)
                         FillBatchGrid();
                 }

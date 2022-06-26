@@ -117,6 +117,7 @@
             this.MMMainPanel.Controls.Add(this.mpMSCSale);
             this.MMMainPanel.Location = new System.Drawing.Point(0, 217);
             this.MMMainPanel.Size = new System.Drawing.Size(971, 356);
+            this.MMMainPanel.Controls.SetChildIndex(this.ctrlUclSaleSummaryControl, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.mpMSCSale, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.mpMSVC, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.dgClearOpeningBalance, 0);
@@ -244,6 +245,8 @@
             this.mcbCreditor.Margin = new System.Windows.Forms.Padding(4);
             this.mcbCreditor.Name = "mcbCreditor";
             this.mcbCreditor.SelectedID = "";
+            this.mcbCreditor.SelectedIDtest = 0;
+            this.mcbCreditor.SelectedIntID = 0;
             this.mcbCreditor.ShowNew = true;
             this.mcbCreditor.Size = new System.Drawing.Size(388, 22);
             this.mcbCreditor.SourceDataString = null;
@@ -291,7 +294,7 @@
             this.lblToDate.AutoSize = true;
             this.lblToDate.Location = new System.Drawing.Point(269, 79);
             this.lblToDate.Name = "lblToDate";
-            this.lblToDate.Size = new System.Drawing.Size(53, 16);
+            this.lblToDate.Size = new System.Drawing.Size(52, 16);
             this.lblToDate.TabIndex = 1116;
             this.lblToDate.Text = "To Date";
             // 
@@ -315,7 +318,7 @@
             this.lblFromDate.AutoSize = true;
             this.lblFromDate.Location = new System.Drawing.Point(70, 79);
             this.lblFromDate.Name = "lblFromDate";
-            this.lblFromDate.Size = new System.Drawing.Size(72, 16);
+            this.lblFromDate.Size = new System.Drawing.Size(71, 16);
             this.lblFromDate.TabIndex = 1114;
             this.lblFromDate.Text = "From Date";
             // 
@@ -362,6 +365,7 @@
             this.btnClearOpeningBalance.TabIndex = 1110;
             this.btnClearOpeningBalance.Text = "Clear OP Bal.";
             this.btnClearOpeningBalance.UseVisualStyleBackColor = false;
+            this.btnClearOpeningBalance.Visible = false;
             this.btnClearOpeningBalance.Click += new System.EventHandler(this.btnClearOpeningBalance_Click);
             // 
             // mpPVCTemp
@@ -434,6 +438,7 @@
             // txtVoucherSeries
             // 
             this.txtVoucherSeries.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtVoucherSeries.Enabled = false;
             this.txtVoucherSeries.IsNumericDataSet = false;
             this.txtVoucherSeries.Location = new System.Drawing.Point(93, 75);
             this.txtVoucherSeries.Name = "txtVoucherSeries";
@@ -445,7 +450,7 @@
             this.psLabel8.AutoSize = true;
             this.psLabel8.Location = new System.Drawing.Point(1, 74);
             this.psLabel8.Name = "psLabel8";
-            this.psLabel8.Size = new System.Drawing.Size(70, 16);
+            this.psLabel8.Size = new System.Drawing.Size(69, 16);
             this.psLabel8.TabIndex = 1085;
             this.psLabel8.Text = "Vou Series";
             // 
@@ -454,7 +459,7 @@
             this.lblVouDate.AutoSize = true;
             this.lblVouDate.Location = new System.Drawing.Point(10, 54);
             this.lblVouDate.Name = "lblVouDate";
-            this.lblVouDate.Size = new System.Drawing.Size(61, 16);
+            this.lblVouDate.Size = new System.Drawing.Size(60, 16);
             this.lblVouDate.TabIndex = 1083;
             this.lblVouDate.Text = "Vou &Date";
             // 
@@ -463,7 +468,7 @@
             this.lblVouNumber.AutoSize = true;
             this.lblVouNumber.Location = new System.Drawing.Point(24, 29);
             this.lblVouNumber.Name = "lblVouNumber";
-            this.lblVouNumber.Size = new System.Drawing.Size(50, 16);
+            this.lblVouNumber.Size = new System.Drawing.Size(49, 16);
             this.lblVouNumber.TabIndex = 1083;
             this.lblVouNumber.Text = "Vou No";
             // 
@@ -472,7 +477,7 @@
             this.lblVouType.AutoSize = true;
             this.lblVouType.Location = new System.Drawing.Point(8, 4);
             this.lblVouType.Name = "lblVouType";
-            this.lblVouType.Size = new System.Drawing.Size(63, 16);
+            this.lblVouType.Size = new System.Drawing.Size(62, 16);
             this.lblVouType.TabIndex = 1083;
             this.lblVouType.Text = "Vou Type";
             // 
@@ -546,7 +551,7 @@
             this.mPlbl5.AutoSize = true;
             this.mPlbl5.Location = new System.Drawing.Point(719, 115);
             this.mPlbl5.Name = "mPlbl5";
-            this.mPlbl5.Size = new System.Drawing.Size(77, 16);
+            this.mPlbl5.Size = new System.Drawing.Size(76, 16);
             this.mPlbl5.TabIndex = 139;
             this.mPlbl5.Text = "On Account";
             // 
@@ -555,7 +560,7 @@
             this.mPlbl4.AutoSize = true;
             this.mPlbl4.Location = new System.Drawing.Point(57, 129);
             this.mPlbl4.Name = "mPlbl4";
-            this.mPlbl4.Size = new System.Drawing.Size(68, 16);
+            this.mPlbl4.Size = new System.Drawing.Size(67, 16);
             this.mPlbl4.TabIndex = 138;
             this.mPlbl4.Text = "Narra&tion";
             // 
@@ -564,7 +569,7 @@
             this.mPlbl3.AutoSize = true;
             this.mPlbl3.Location = new System.Drawing.Point(67, 105);
             this.mPlbl3.Name = "mPlbl3";
-            this.mPlbl3.Size = new System.Drawing.Size(57, 16);
+            this.mPlbl3.Size = new System.Drawing.Size(56, 16);
             this.mPlbl3.TabIndex = 137;
             this.mPlbl3.Text = "&Amount";
             // 
@@ -573,7 +578,7 @@
             this.mPlbl2.AutoSize = true;
             this.mPlbl2.Location = new System.Drawing.Point(65, 46);
             this.mPlbl2.Name = "mPlbl2";
-            this.mPlbl2.Size = new System.Drawing.Size(58, 16);
+            this.mPlbl2.Size = new System.Drawing.Size(57, 16);
             this.mPlbl2.TabIndex = 136;
             this.mPlbl2.Text = "Address";
             // 
@@ -582,7 +587,7 @@
             this.mPlbl1.AutoSize = true;
             this.mPlbl1.Location = new System.Drawing.Point(32, 14);
             this.mPlbl1.Name = "mPlbl1";
-            this.mPlbl1.Size = new System.Drawing.Size(96, 16);
+            this.mPlbl1.Size = new System.Drawing.Size(95, 16);
             this.mPlbl1.TabIndex = 135;
             this.mPlbl1.Text = "Account &Name";
             // 

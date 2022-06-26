@@ -131,7 +131,7 @@ namespace EcoMart.InterfaceLayer
             bool retValue = false;
             try
             {
-                _Area.Id = txtName.SelectedID;
+                //_Area.Id = txtName.SelectedID;
                 if (_Area.Id != null && _Area.Id != "")
                 {
                     retValue = _Area.CanBeDeleted();

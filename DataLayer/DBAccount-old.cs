@@ -12,7 +12,6 @@ namespace EcoMart.DataLayer
         public DBAccount()
         {
         }
-        //Remove  and AND condition//
         public DataTable GetOverviewData()
         {
             DataTable dtable = new DataTable();
@@ -79,7 +78,7 @@ namespace EcoMart.DataLayer
                 "AccShortName, AccBirthDay, AccBirthMonth, AccBirthYear, AccHistory, " +
                 "AccVATTin, AccEmailID, IPartyID, AccNumber, AccRemark1,AccRemark2, AccBankAccountNumber " +
                 ", AccCrVisitDays, AccShortName, AccDbVisitDay1, AccDbVisitDay2, AccDbVisitDay3 " +
-                ", AccDiscountOffered, AccVATTin, AccBankAccountNumber, AccDLN, AccTokenNumber from masteraccount where AccountID != '"+ accountID +"' AND  (AccountID = '" + FixAccounts.AccountCash + "' OR AccCode = '" + FixAccounts.AccCodeForBank + "') order by AccName";
+                ", AccDiscountOffered, AccVATTin, AccBankAccountNumber, AccDLN, AccTokenNumber from masteraccount where AccountID != '"+ accountID +"' AND (AccountID = '" + FixAccounts.AccountCash + "' OR AccCode = '" + FixAccounts.AccCodeForBank + "') order by AccName";
 
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
@@ -788,7 +787,7 @@ namespace EcoMart.DataLayer
         public DataTable GetDebtorCreditorListForCashBankReceipt()//changes in current method remove masterpateintsale table from union query 
         {
             DataTable dtable = new DataTable();
-            string strSql = string.Format("SELECT AccName,AccountID,AccAddress1,AccAddress2,AccTransactionType,AccCode,AccOpeningDebit,AccClearedAmount,AccTelephone,AccBankID,AccBranchID, MobileNumberForSMS FROM masterAccount where accCode != 'B'  AND  accountID != '" + FixAccounts.AccountCash + "' order by AccName");
+            string strSql = string.Format("SELECT AccName,AccountID,AccAddress1,AccAddress2,AccTransactionType,AccCode,AccOpeningDebit,AccClearedAmount,AccTelephone,AccBankID,AccBranchID, MobileNumberForSMS FROM masterAccount where accCode != 'B'  AND accountID != '" + FixAccounts.AccountCash + "' order by AccName");
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
 

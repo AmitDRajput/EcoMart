@@ -71,25 +71,25 @@ namespace EcoMart.BusinessLayer
         public override bool CanBeDeleted()
         {
             bool bRetValue = false;
-            try
-            {
-                int _rowcount = 0;
-                DBDelete dbdelete = new DBDelete();
-                _rowcount = dbdelete.GetOverviewDataSelect("masteraccount", "AccCityID", Id);
-                if (_rowcount == 0)
-                {
-                    bRetValue = true;
-                    _rowcount = dbdelete.GetOverviewDataSelect("vouchersale", "CityID", Id);
-                    if (_rowcount == 0)
-                        bRetValue = true;
-                    else
-                        bRetValue = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.WriteException(ex);
-            }
+            //try
+            //{
+            //    int _rowcount = 0;
+            //    DBDelete dbdelete = new DBDelete();
+            //    _rowcount = dbdelete.GetOverviewDataSelect("masteraccount", "AccCityID", Id);
+            //    if (_rowcount == 0)
+            //    {
+            //        bRetValue = true;
+            //        _rowcount = dbdelete.GetOverviewDataSelect("vouchersale", "CityID", Id);
+            //        if (_rowcount == 0)
+            //            bRetValue = true;
+            //        else
+            //            bRetValue = false;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Log.WriteException(ex);
+            //}
             return bRetValue;
         }
         #endregion Internal Methods

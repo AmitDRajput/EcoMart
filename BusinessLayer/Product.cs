@@ -350,17 +350,21 @@ namespace EcoMart.BusinessLayer
                 }
 
                 DBProduct dbProd = new DBProduct();
-
+                int vv = 0;
                 if (IFEdit == "Y")
                 {
-                    if (dbProd.IsNameUniqueForEdit(Name, ProdLoosePack, ProdPack, ProdCompID, IntID ))
+                    vv = dbProd.IsNameUniqueForEdit(Name, ProdLoosePack, ProdPack, ProdCompID, Id);
+                    //if (dbProd.IsNameUniqueForEdit(Name, ProdLoosePack, ProdPack, ProdCompID, IntID ))
+                    if (vv == 0)
                     {
                         ValidationMessages.Add("Product Already Exists.");
                     }
                 }
                 else
                 {
-                    if (dbProd.IsNameUniqueForAdd(Name, ProdLoosePack, ProdPack, ProdCompID, IntID ))
+                    vv = dbProd.IsNameUniqueForEdit(Name, ProdLoosePack, ProdPack, ProdCompID, Id);
+                    if (vv == 1)
+                    //if (dbProd.IsNameUniqueForAdd(Name, ProdLoosePack, ProdPack, ProdCompID, IntID ))
                     {
                         ValidationMessages.Add("Product Already Exists.");
                     }
@@ -638,7 +642,7 @@ namespace EcoMart.BusinessLayer
 
         }
 
-        public bool AddDetails()
+        public int AddDetails()
         {
             DBProduct dbProd = new DBProduct();
             return dbProd.AddDetails(IntID , Name, ProdLoosePack, ProdPack, ProdPackType, ProdCompShortName,
@@ -740,11 +744,11 @@ namespace EcoMart.BusinessLayer
             DBProduct dbprod = new DBProduct();
             return dbprod.SaveProductDrugLink(ProdLinkDrugId, IntID , ProdGenericID, CreatedBy, CreatedDate, CreatedTime);
         }
-        public bool RemoveProductDrugLink()
-        {
-            DBProduct dbprod = new DBProduct();
-            return dbprod.RemoveProductDrugLink(IntID , ProdGenericID);
-        }
+        //public bool RemoveProductDrugLink()
+        //{
+        //    DBProduct dbprod = new DBProduct();
+        //    return dbprod.RemoveProductDrugLink(IntID , ProdGenericID);
+        //}
         #endregion
 
         public bool SetMinMax(int _min, int _max)

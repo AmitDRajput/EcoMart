@@ -153,7 +153,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                 FillSearchGridData();
                 dgvSearchList.DataSource = _BindingSource;
                 dgvSearchList.Bind();
-                dgvSearchList.DateColumnNames.Add("Col_VoucherDate");
+                //dgvSearchList.DateColumnNames.Add("Col_VoucherDate");
             }
             catch (Exception ex)
             {

@@ -117,7 +117,7 @@ namespace EcoMart.InterfaceLayer
                 FillmpMSVCGrid("");
                 datePickerFromDate.Value = General.ConvertStringToDateyyyyMMdd(General.ShopDetail.Shopsy);
                 datePickerToDate.Value = General.ConvertStringToDateyyyyMMdd(General.ShopDetail.Shopey);
-                FillOpeningBalanceGrid("");
+               // FillOpeningBalanceGrid("");
                 FillPartyCombo();
                 mcbCreditor.ShowNew = false;
                 datePickerBillDate.Value = DateTime.Now;
@@ -571,7 +571,7 @@ namespace EcoMart.InterfaceLayer
             }
             if (dr != null && dr["CBID"] != DBNull.Value)
             {
-                _CashReceipt.Id = dr["CBID"].ToString();
+                _CashReceipt.IntID = Convert.ToInt32(dr["CBID"].ToString());
                 FillSearchData(_CashReceipt.Id, "");
             }
             return retValue;
@@ -593,7 +593,7 @@ namespace EcoMart.InterfaceLayer
             }
             if (dr != null && dr["CBID"] != DBNull.Value)
             {
-                _CashReceipt.Id = dr["CBID"].ToString();
+                _CashReceipt.IntID = Convert.ToInt32(dr["CBID"].ToString());
                 FillSearchData(_CashReceipt.Id, "");
             }
             return retValue;
@@ -640,12 +640,12 @@ namespace EcoMart.InterfaceLayer
             string vousubtype = "";
             try
             {
-                mpMSCSale.ViewControl = new UclDistributorSale("R");               
+                mpMSCSale.ViewControl = new UclDistributorSale("R");
                 string selectedID = selectedRow.Cells[0].Value.ToString();
                 voutype = selectedRow.Cells["Col_BillType"].Value.ToString();
                 vousubtype = selectedRow.Cells["Col_BillSubType"].Value.ToString();
                 if (vousubtype == FixAccounts.SubTypeForRegularSale)
-                    ViewControl = new UclDistributorSale("R");                
+                    ViewControl = new UclDistributorSale("R");
                 ShowViewForm(selectedID);
                 this.Cursor = Cursors.Default;
             }
@@ -760,7 +760,7 @@ namespace EcoMart.InterfaceLayer
 
                             if (retValue)
                             {
-                                SaveOldDetails();
+                                //SaveOldDetails();
                                 General.CommitTransaction();
                             }
                             else
@@ -870,7 +870,7 @@ namespace EcoMart.InterfaceLayer
 
                                 if (retValue)
                                 {
-                                    SaveOldDetails();
+                                    //SaveOldDetails();
                                     General.CommitTransaction();
                                 }
                                 else
@@ -940,7 +940,7 @@ namespace EcoMart.InterfaceLayer
             return totdisc;
         }
 
-        public override bool FillSearchData(string ID, string Vmode)
+        public override bool FillSearchData(string  ID, string Vmode)
         {
             try
             {
@@ -961,8 +961,10 @@ namespace EcoMart.InterfaceLayer
                     FillmpMSVCGrid(Vmode);
 
                     FillmpPVCTempGrid();
-                    DateTime mydate = new DateTime(Convert.ToInt32(_CashReceipt.CBVouDate.Substring(0, 4)), Convert.ToInt32(_CashReceipt.CBVouDate.Substring(4, 2)), Convert.ToInt32(_CashReceipt.CBVouDate.Substring(6, 2)));
-                    datePickerBillDate.Value = mydate;
+                    //DateTime mydate = new DateTime(Convert.ToInt32(_CashReceipt.CBVouDate.Substring(0, 4)), Convert.ToInt32(_CashReceipt.CBVouDate.Substring(4, 2)), Convert.ToInt32(_CashReceipt.CBVouDate.Substring(6, 2)));
+
+                    if (DateTime.TryParse(_CashReceipt.CBVouDate, out DateTime mydate))
+                        datePickerBillDate.Value = mydate;                  
                     txtAddress1.Text = _CashReceipt.CBAddress1;
                     txtAddress2.Text = _CashReceipt.CBAddress2;
                     txtNarration.Text = _CashReceipt.CBNarration;
@@ -1030,7 +1032,7 @@ namespace EcoMart.InterfaceLayer
                 if (keyPressed == Keys.C && modifier == Keys.Alt)
                 {
 
-                    btnClearOpeningBalanceClick();
+                    //btnClearOpeningBalanceClick();
                     retValue = true;
                 }
 
@@ -1079,7 +1081,7 @@ namespace EcoMart.InterfaceLayer
                 _CashReceipt.ModifyEdit = "Y";
 
                 retValue = FillmpPVC1GridSaleforModify();
-                FillOpeningBalanceGrid("");
+                //FillOpeningBalanceGrid("");
 
                 //  retValue = RevertPreviousEntry();
 
@@ -1273,9 +1275,9 @@ namespace EcoMart.InterfaceLayer
             {
                 foreach (DataGridViewRow drow in mpMSCSale.Rows)
                 {
-                    if (drow.Cells["Col_GetClearedAmount"].Value != null && drow.Cells["Col_GetClearedAmount"].Value.ToString() != "" &&
-                       Convert.ToDouble(drow.Cells["Col_GetClearedAmount"].Value) > 0)
-                    {
+                    //if (drow.Cells["Col_GetClearedAmount"].Value != null && drow.Cells["Col_GetClearedAmount"].Value.ToString() != "" &&
+                    //   Convert.ToDouble(drow.Cells["Col_GetClearedAmount"].Value) > 0)
+                    //{
                         _CashReceipt.SerialNumber += 1;
                         _CashReceipt.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         if (drow.Cells["Col_MasterID"].Value != null)
@@ -1316,7 +1318,7 @@ namespace EcoMart.InterfaceLayer
                         else
                             break;
                     }
-                }
+                //}
             }
             catch (Exception ex)
             {
@@ -1572,7 +1574,7 @@ namespace EcoMart.InterfaceLayer
                 Log.WriteException(Ex);
             }
         }
-
+        //Cooment the vooucherstaement and old stement code//
         private void GetData()  //Amar
         {
             try
@@ -1593,7 +1595,7 @@ namespace EcoMart.InterfaceLayer
 
                     if (_Mode != OperationMode.ReportView)
                         FillmpMSVCGrid("");
-                    FillOpeningBalanceGrid("");
+                    //FillOpeningBalanceGrid("");
                     mpMSCSale.ClearSelection();
                 }
             }
@@ -1645,10 +1647,10 @@ namespace EcoMart.InterfaceLayer
                 retValue = RevertPreviousEntry();
                 IfOpeningAdded = true;
                 _saledtable = _CashReceipt.ReadBillDetailsByID();
-                _statementdtable = _CashReceipt.ReadStatementDetailsByID();
+                //_statementdtable = _CashReceipt.ReadStatementDetailsByID();
                 BindmpMSCSaleGrid(_saledtable, _statementdtable);
                 NoofRows();
-                FillOpeningBalanceGrid("");
+               // FillOpeningBalanceGrid("");
                 retValue = true;
             }
             catch (Exception ex)
@@ -1747,7 +1749,7 @@ namespace EcoMart.InterfaceLayer
                         else
                         {
                             _saledtable = _CashReceipt.ReadBillDetailsByCSRID();
-                            //  _statementdtable = _CashReceipt.ReadStatementDetailsByCSRID();
+                             _statementdtable = _CashReceipt.ReadStatementDetailsByCSRID();
                         }
                         BindmpMSVCGrid(_saledtable, _statementdtable);
                         NoofRowsFormpMSVCGrid();
@@ -1945,38 +1947,40 @@ namespace EcoMart.InterfaceLayer
                     }
 
                 }
-                if (statementtable != null && statementtable.Rows.Count > 0)
-                {
 
-                    foreach (DataRow dr in statementtable.Rows)
-                    {
-                        if (dr["ID"] != DBNull.Value)
-                            iD = dr["ID"].ToString();
-                        ifIDFound = SearchforIDInSaleGrid(iD);
-                        if (ifIDFound == false)
-                        {
-                            _rowIndex = mpMSCSale.Rows.Add();
-                            DataGridViewRow currentdr = mpMSCSale.Rows[_rowIndex];
-                            currentdr.Cells["Col_ID"].Value = dr["ID"].ToString();
-                            currentdr.Cells["Col_BillSeries"].Value = dr["VoucherSeries"].ToString();
-                            currentdr.Cells["Col_BillType"].Value = dr["VoucherType"].ToString();
-                            currentdr.Cells["Col_BillNumber"].Value = dr["VoucherNumber"].ToString();
-                            currentdr.Cells["Col_BillSubType"].Value = dr["VoucherSubType"].ToString();
-                            //  currentdr.Cells["Col_BillFromDate"].Value = General.GetDateInShortDateFormat(dr["VoucherDate"].ToString());
-                            currentdr.Cells["Col_BillFromDate"].Value = dr["VoucherDate"].ToString();
-                            currentdr.Cells["Col_BillAmount"].Value = dr["AmountNet"].ToString();
-                            currentdr.Cells["Col_PatientShortName"].Value = dr["PatientShortName"].ToString();
-                            currentdr.Cells["Col_BalanceAmount"].Value = dr["AmountBalance"].ToString();
-                            currentdr.Cells["Col_ClearedAmount"].Value = dr["AmountClear"].ToString();
-                            currentdr.Cells["Col_GetClearedAmount"].Value = "0.00";
-                            currentdr.Cells["Col_Discountamount"].Value = "0.00";
-                            currentdr.Cells["Col_MasterID"].Value = dr["MasterID"].ToString();
-                            currentdr.Cells["Col_MasterSaleID"].Value = dr["MasterSaleID"].ToString();
-                        }
 
-                    }
+                //if (statementtable != null && statementtable.Rows.Count > 0)
+                //{
 
-                }
+                //    foreach (DataRow dr in statementtable.Rows)
+                //    {
+                //        if (dr["ID"] != DBNull.Value)
+                //            iD = dr["ID"].ToString();
+                //        ifIDFound = SearchforIDInSaleGrid(iD);
+                //        if (ifIDFound == false)
+                //        {
+                //            _rowIndex = mpMSCSale.Rows.Add();
+                //            DataGridViewRow currentdr = mpMSCSale.Rows[_rowIndex];
+                //            currentdr.Cells["Col_ID"].Value = dr["ID"].ToString();
+                //            currentdr.Cells["Col_BillSeries"].Value = dr["VoucherSeries"].ToString();
+                //            currentdr.Cells["Col_BillType"].Value = dr["VoucherType"].ToString();
+                //            currentdr.Cells["Col_BillNumber"].Value = dr["VoucherNumber"].ToString();
+                //            currentdr.Cells["Col_BillSubType"].Value = dr["VoucherSubType"].ToString();
+                //            //  currentdr.Cells["Col_BillFromDate"].Value = General.GetDateInShortDateFormat(dr["VoucherDate"].ToString());
+                //            currentdr.Cells["Col_BillFromDate"].Value = dr["VoucherDate"].ToString();
+                //            currentdr.Cells["Col_BillAmount"].Value = dr["AmountNet"].ToString();
+                //            currentdr.Cells["Col_PatientShortName"].Value = dr["PatientShortName"].ToString();
+                //            currentdr.Cells["Col_BalanceAmount"].Value = dr["AmountBalance"].ToString();
+                //            currentdr.Cells["Col_ClearedAmount"].Value = dr["AmountClear"].ToString();
+                //            currentdr.Cells["Col_GetClearedAmount"].Value = "0.00";
+                //            currentdr.Cells["Col_Discountamount"].Value = "0.00";
+                //            currentdr.Cells["Col_MasterID"].Value = dr["MasterID"].ToString();
+                //            currentdr.Cells["Col_MasterSaleID"].Value = dr["MasterSaleID"].ToString();
+                //        }
+
+                //    }
+
+                //}
             }
             catch (Exception Ex)
             {
@@ -3184,7 +3188,7 @@ namespace EcoMart.InterfaceLayer
                             mpMSVC.SetFocus(mpMSVC.Rows.Count - 1, 1);
                             System.Threading.Thread.Sleep(10);
                         }
-                        FillSearchData(_CashReceipt.Id, "");
+                       FillSearchData(_CashReceipt.Id, "");
                     }
                 }
                 catch (Exception ex)
@@ -3218,186 +3222,186 @@ namespace EcoMart.InterfaceLayer
 
         private void btnClearOpeningBalance_Click(object sender, EventArgs e)
         {
-            btnClearOpeningBalanceClick();
+            //btnClearOpeningBalanceClick();
         }
 
-        private void btnClearOpeningBalanceClick()
-        {
-            double opamt = 0;
-            try
-            {
-                if (mpMSCSale.Rows[0].Cells["Col_GetClearedAmount"].Value != null && mpMSCSale.Rows[0].Cells["Col_GetClearedAmount"].Value.ToString() != string.Empty)
-                    opamt = Convert.ToDouble(mpMSCSale.Rows[0].Cells["Col_GetClearedAmount"].Value.ToString());
-                txtOpeningBalanceAmount.Text = opamt.ToString("#0.00");
-                if (opamt > 0 && dgClearOpeningBalance.Rows.Count > 0)
-                {
-                    dgClearOpeningBalance.Visible = true;
-                    dgClearOpeningBalance.Enabled = true;
-                    dgClearOpeningBalance.SetFocus(0, 12);
-                }
-                else if (opamt > 0)
+        //private void btnClearOpeningBalanceClick()
+        //{
+        //    double opamt = 0;
+        //    try
+        //    {
+        //        if (mpMSCSale.Rows[0].Cells["Col_GetClearedAmount"].Value != null && mpMSCSale.Rows[0].Cells["Col_GetClearedAmount"].Value.ToString() != string.Empty)
+        //            opamt = Convert.ToDouble(mpMSCSale.Rows[0].Cells["Col_GetClearedAmount"].Value.ToString());
+        //        txtOpeningBalanceAmount.Text = opamt.ToString("#0.00");
+        //        if (opamt > 0 && dgClearOpeningBalance.Rows.Count > 0)
+        //        {
+        //            dgClearOpeningBalance.Visible = true;
+        //            dgClearOpeningBalance.Enabled = true;
+        //            dgClearOpeningBalance.SetFocus(0, 12);
+        //        }
+        //        else if (opamt > 0)
 
-                    lblFooterMessage.Text = "No Previous Records...";
-            }
-            catch (Exception Ex)
-            {
-                Log.WriteException(Ex);
-            }
-        }
+        //            lblFooterMessage.Text = "No Previous Records...";
+        //    }
+        //    catch (Exception Ex)
+        //    {
+        //        Log.WriteException(Ex);
+        //    }
+        //}
 
         private void dgClearOpeningBalance_OnCellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                double getclearedamt = 0;
-                if (e.ColumnIndex == 12) // old 8
-                {
-                    double mbalanceamount = 0;
-                    double mamtnotadj = 0;
-                    // txtOpeningBalanceAmount.Text = mpMSCSale.MainDataGridCurrentRow.Cells[12].ToString();
-                    double.TryParse(txtOpeningBalanceAmount.Text, out mamtnotadj);
-                    if (dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value != null && dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value.ToString().Trim() != "")
-                        double.TryParse(dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value.ToString(), out getclearedamt);
-                    _CashReceipt.CellOpeningBalanceOldValueAmount = getclearedamt;
-                    if (dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_BalanceAmount"].Value != null && dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_BalanceAmount"].Value.ToString().Trim() != "")
-                        double.TryParse(dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_BalanceAmount"].Value.ToString(), out mbalanceamount);
-                    if (getclearedamt == 0 && mamtnotadj != 0)
-                    {
-                        double clearedamt = 0;
-                        clearedamt = Math.Min(mamtnotadj, mbalanceamount);
-                        dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value = clearedamt;
+            //try
+            //{
+            //    double getclearedamt = 0;
+            //    if (e.ColumnIndex == 12) // old 8
+            //    {
+            //        double mbalanceamount = 0;
+            //        double mamtnotadj = 0;
+            //        // txtOpeningBalanceAmount.Text = mpMSCSale.MainDataGridCurrentRow.Cells[12].ToString();
+            //        double.TryParse(txtOpeningBalanceAmount.Text, out mamtnotadj);
+            //        if (dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value != null && dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value.ToString().Trim() != "")
+            //            double.TryParse(dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value.ToString(), out getclearedamt);
+            //        _CashReceipt.CellOpeningBalanceOldValueAmount = getclearedamt;
+            //        if (dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_BalanceAmount"].Value != null && dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_BalanceAmount"].Value.ToString().Trim() != "")
+            //            double.TryParse(dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_BalanceAmount"].Value.ToString(), out mbalanceamount);
+            //        if (getclearedamt == 0 && mamtnotadj != 0)
+            //        {
+            //            double clearedamt = 0;
+            //            clearedamt = Math.Min(mamtnotadj, mbalanceamount);
+            //            dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value = clearedamt;
 
-                    }
-                    dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].ReadOnly = false;
-                }
-            }
-            catch (Exception ex) { Log.WriteError(ex.ToString()); }
+            //        }
+            //        dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].ReadOnly = false;
+            //    }
+            //}
+            //catch (Exception ex) { Log.WriteError(ex.ToString()); }
         }
 
         private void dgClearOpeningBalance_OnCellLeave(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
+            //try
+            //{
 
-                if (e.ColumnIndex == 12) // old 8
-                    dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value = _CashReceipt.CellOpeningBalanceOldValueAmount.ToString("#0.00");
+            //    if (e.ColumnIndex == 12) // old 8
+            //        dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value = _CashReceipt.CellOpeningBalanceOldValueAmount.ToString("#0.00");
 
-            }
-            catch (Exception ex) { Log.WriteError(ex.ToString()); }
+            //}
+            //catch (Exception ex) { Log.WriteError(ex.ToString()); }
         }
 
         private void dgClearOpeningBalance_OnCellValueChangeCommited(int colIndex)
         {
-            txtAmountReceived.Enabled = false;
-            txtOpeningBalanceAmount.Enabled = false;
-            double totalreceived = 0;
-            double getclearedamt = 0;
-            double mbalanceAmount = 0;
-            double mamtnotadj = 0;
-            double clearedamt = 0;
-            double mbillamt = 0;
-            double mdiscountamt = 0;
-            mbillamt = Convert.ToDouble(mpMSCSale.Rows[0].Cells["Col_GetClearedAmount"].Value.ToString());
-            double.TryParse(txtOpeningBalanceAmount.Text, out mamtnotadj);
+            //txtAmountReceived.Enabled = false;
+            //txtOpeningBalanceAmount.Enabled = false;
+            //double totalreceived = 0;
+            //double getclearedamt = 0;
+            //double mbalanceAmount = 0;
+            //double mamtnotadj = 0;
+            //double clearedamt = 0;
+            //double mbillamt = 0;
+            //double mdiscountamt = 0;
+            //mbillamt = Convert.ToDouble(mpMSCSale.Rows[0].Cells["Col_GetClearedAmount"].Value.ToString());
+            //double.TryParse(txtOpeningBalanceAmount.Text, out mamtnotadj);
 
-            if (dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value != null)
-                double.TryParse(dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value.ToString(), out getclearedamt);
-            if (dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value != null && dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value.ToString() != "")
-                double.TryParse(dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value.ToString(), out mdiscountamt);
-            double.TryParse(dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_BalanceAmount"].Value.ToString(), out mbalanceAmount);
+            //if (dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value != null)
+            //    double.TryParse(dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value.ToString(), out getclearedamt);
+            //if (dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value != null && dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value.ToString() != "")
+            //    double.TryParse(dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value.ToString(), out mdiscountamt);
+            //double.TryParse(dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_BalanceAmount"].Value.ToString(), out mbalanceAmount);
 
-            clearedamt = Math.Min(mamtnotadj, mbalanceAmount);
-            try
-            {
+            //clearedamt = Math.Min(mamtnotadj, mbalanceAmount);
+            //try
+            //{
 
-                if (colIndex == 12) // old 8
-                {
+            //    if (colIndex == 12) // old 8
+            //    {
 
-                    if (getclearedamt == 0)
-                    {
-                        _CashReceipt.CellOpeningBalanceOldValueAmount = 0;
-                    }
+            //        if (getclearedamt == 0)
+            //        {
+            //            _CashReceipt.CellOpeningBalanceOldValueAmount = 0;
+            //        }
 
-                    if (mbalanceAmount < getclearedamt)
-                    {
-                        dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value = clearedamt;
-                        _CashReceipt.CellOpeningBalanceOldValueAmount = clearedamt;
-                    }
-                    else
-                    {
-                        if (mamtnotadj == 0)
-                            dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value = _CashReceipt.CellOpeningBalanceOldValueAmount;
-
-
-                        //if (clearedamt <= Math.Min(mamtnotadj, mbalanceAmount) || (clearedamt <= _CashReceipt.CellOldValueAmount))
-                        //{
-
-                        _CashReceipt.CellOpeningBalanceOldValueAmount = getclearedamt;
-                        foreach (DataGridViewRow dr in dgClearOpeningBalance.Rows)
-                        {
-                            double mcleared = 0;
-                            double mdiscount = 0;
-                            if (dr.Cells["Col_GetClearedAmount"].Value != null)
-                                double.TryParse(dr.Cells["Col_GetClearedAmount"].Value.ToString(), out mcleared);
-                            if (dr.Index == dgClearOpeningBalance.MainDataGridCurrentRow.Index)
-                                mcleared = getclearedamt;
-                            if (dr.Cells["Col_DiscountAmount"].Value != null && dr.Cells["Col_DiscountAmount"].Value.ToString() != "")
-                                double.TryParse(dr.Cells["Col_DiscountAmount"].Value.ToString(), out mdiscount);
-                            if (mcleared > 0)
-                                totalreceived += mcleared;
-                        }
-
-                        mamtnotadj = (mbillamt - totalreceived);
-
-                        if (mamtnotadj < 0)
-                        {
-                            mamtnotadj = 0;
-                            _CashReceipt.CellOpeningBalanceOldValueAmount = 0;
-                            _CashReceipt.CellOpeningBalanceOldValueDiscount = 0;
-                            getclearedamt = 0;
-                        }
-                        txtOpeningBalanceAmount.Text = mamtnotadj.ToString("#0.00");
-                        if (mamtnotadj >= 0 && getclearedamt > 0)
-                        {
-                            mdiscountamt = mbalanceAmount - getclearedamt;
-                            if (mdiscountamt > 10)
-                                mdiscountamt = 0;
-                        }
-                        else
-                            mdiscountamt = 0;
+            //        if (mbalanceAmount < getclearedamt)
+            //        {
+            //            dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value = clearedamt;
+            //            _CashReceipt.CellOpeningBalanceOldValueAmount = clearedamt;
+            //        }
+            //        else
+            //        {
+            //            if (mamtnotadj == 0)
+            //                dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_GetClearedAmount"].Value = _CashReceipt.CellOpeningBalanceOldValueAmount;
 
 
-                        if (getclearedamt == 0)
-                            dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value = "0.00";
-                        else
-                            dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value = mdiscountamt.ToString("#0.00");
-                        dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].ReadOnly = false;
-                        //int rowindex = mpMSCSale.MainDataGridCurrentRow.Index;
-                        //if (mpMSCSale.Rows.Count > rowindex + 1)
-                        //    mpMSCSale.SetFocus(rowindex + 1, 9);
-                        //}
-                    }
-                }
-                else if (colIndex == 13)
-                {
-                    double mdiscgiven = 0;
-                    if (dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value != null && dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value.ToString() != "")
-                        double.TryParse(dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value.ToString(), out mdiscgiven);
-                    mdiscountamt = Math.Round(mbalanceAmount - getclearedamt, 2);
-                    if (mdiscgiven != 0)
-                    {
-                        if (mdiscgiven != mdiscountamt || getclearedamt == 0)
-                            dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value = "0.00";
-                    }
-                    //if (mpMSCSale.MainDataGridCurrentRow.Index < mpMSCSale.Rows.Count-1)
+            //            //if (clearedamt <= Math.Min(mamtnotadj, mbalanceAmount) || (clearedamt <= _CashReceipt.CellOldValueAmount))
+            //            //{
 
-                    //    mpMSCSale.SetFocus(mpMSCSale.MainDataGridCurrentRow.Index + 1, 12);
-                }
-            }
-            catch (Exception Ex)
-            {
-                Log.WriteException(Ex);
-            }
+            //            _CashReceipt.CellOpeningBalanceOldValueAmount = getclearedamt;
+            //            foreach (DataGridViewRow dr in dgClearOpeningBalance.Rows)
+            //            {
+            //                double mcleared = 0;
+            //                double mdiscount = 0;
+            //                if (dr.Cells["Col_GetClearedAmount"].Value != null)
+            //                    double.TryParse(dr.Cells["Col_GetClearedAmount"].Value.ToString(), out mcleared);
+            //                if (dr.Index == dgClearOpeningBalance.MainDataGridCurrentRow.Index)
+            //                    mcleared = getclearedamt;
+            //                if (dr.Cells["Col_DiscountAmount"].Value != null && dr.Cells["Col_DiscountAmount"].Value.ToString() != "")
+            //                    double.TryParse(dr.Cells["Col_DiscountAmount"].Value.ToString(), out mdiscount);
+            //                if (mcleared > 0)
+            //                    totalreceived += mcleared;
+            //            }
+
+            //            mamtnotadj = (mbillamt - totalreceived);
+
+            //            if (mamtnotadj < 0)
+            //            {
+            //                mamtnotadj = 0;
+            //                _CashReceipt.CellOpeningBalanceOldValueAmount = 0;
+            //                _CashReceipt.CellOpeningBalanceOldValueDiscount = 0;
+            //                getclearedamt = 0;
+            //            }
+            //            txtOpeningBalanceAmount.Text = mamtnotadj.ToString("#0.00");
+            //            if (mamtnotadj >= 0 && getclearedamt > 0)
+            //            {
+            //                mdiscountamt = mbalanceAmount - getclearedamt;
+            //                if (mdiscountamt > 10)
+            //                    mdiscountamt = 0;
+            //            }
+            //            else
+            //                mdiscountamt = 0;
+
+
+            //            if (getclearedamt == 0)
+            //                dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value = "0.00";
+            //            else
+            //                dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value = mdiscountamt.ToString("#0.00");
+            //            dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].ReadOnly = false;
+            //            //int rowindex = mpMSCSale.MainDataGridCurrentRow.Index;
+            //            //if (mpMSCSale.Rows.Count > rowindex + 1)
+            //            //    mpMSCSale.SetFocus(rowindex + 1, 9);
+            //            //}
+            //        }
+            //    }
+            //    else if (colIndex == 13)
+            //    {
+            //        double mdiscgiven = 0;
+            //        if (dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value != null && dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value.ToString() != "")
+            //            double.TryParse(dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value.ToString(), out mdiscgiven);
+            //        mdiscountamt = Math.Round(mbalanceAmount - getclearedamt, 2);
+            //        if (mdiscgiven != 0)
+            //        {
+            //            if (mdiscgiven != mdiscountamt || getclearedamt == 0)
+            //                dgClearOpeningBalance.MainDataGridCurrentRow.Cells["Col_DiscountAmount"].Value = "0.00";
+            //        }
+            //        //if (mpMSCSale.MainDataGridCurrentRow.Index < mpMSCSale.Rows.Count-1)
+
+            //        //    mpMSCSale.SetFocus(mpMSCSale.MainDataGridCurrentRow.Index + 1, 12);
+            //    }
+            //}
+            //catch (Exception Ex)
+            //{
+            //    Log.WriteException(Ex);
+            //}
         }
 
         private void dgClearOpeningBalance_OnEscapeKeyPressed(object sender, EventArgs e)
