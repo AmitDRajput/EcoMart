@@ -201,14 +201,14 @@ namespace EcoMart.BusinessLayer
                 ShopDLN = license.DLN;
                 //ShopDLNDist = license.DLNDist;
                 ShopJurisdiction = license.Jurisdiction;
-                ShopVATTINV = license.GSTN;
+                ShopVATTINV = license.GSTNo;
                 //ShopVATTINC = license.VATTINC;
                 //ShopLBT = license.LBT;
                 //ShopDistributorSale = license.DistributorSale;
                 //ShopChangeCounterSaleType = license.ChangeCounterSaleType;
                 //ShopDebitNoteWithLooseQuantity = license.DebitNoteInLooseQuantity;
                 ShopScorgCode = string.Empty;
-                ShopTransferToTally = license.TransferToTally;
+                //ShopTransferToTally = license.TransferToTally;
                 //ShopBarCode = license.BarCode;
                 ShopDetailsForForm sdf = new ShopDetailsForForm();
                 sdf.GetDataFromtblShopDetails();

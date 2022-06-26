@@ -12,10 +12,10 @@ namespace EcoMart.Common.Classes
     public class ValidationHelper
     {
         EcoMartLic licData;
-        private const string SUPPORTED_LICENSE_VERSION = "1.0";
+        private const string SUPPORTED_LICENSE_VERSION = "2.0";
         public ValidationHelper()
         {
-            licData = new EcoMartLic();
+            licData = new EcoMartLic();           
         }
 
         public bool DoValidate()
@@ -124,7 +124,7 @@ namespace EcoMart.Common.Classes
                         }
                         else
                         {
-                            MessageBox.Show("Invalid License schema. Please contact your administrator", General.ApplicationTitle);
+                            MessageBox.Show("Invalid License Version No. Please contact your administrator", General.ApplicationTitle);
                             retValue = false;
                         }
                     }
