@@ -2674,6 +2674,8 @@
     <None Include="Licenses\LicenseEcoMart.lic" />
     <None Include="Licenses\LicenseStockist1.lic" />
     <None Include="Licenses\LicenseStockist2.lic" />
+    <None Include="Licenses\LicenseStockist3.lic" />
+    <None Include="Licenses\LicenseStockist4.lic" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
