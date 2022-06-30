@@ -26,6 +26,7 @@ namespace EcoMart.InterfaceLayer
         private Form frmView;
         private DateTime _preDate = DateTime.Now;
         private string _preBankID = string.Empty;
+        private string _prepaymentmodeID = string.Empty;
         private BaseControl ViewControl;    
         bool IfOpeningAdded = false;
         #endregion
@@ -84,6 +85,7 @@ namespace EcoMart.InterfaceLayer
                 datePickerBillDate.Value = _preDate;
                 mcbBankAccount.SelectedID = _preBankID;
                 headerLabel1.Text = "BANK RECEIPT -> NEW";
+                pspaymode.SelectedID = _prepaymentmodeID;
                 FillCombo();
                 EnableDisableAdd();
                 mcbBankAccount.Focus();
@@ -104,6 +106,7 @@ namespace EcoMart.InterfaceLayer
                 oldBankID = mcbBankAccount.SelectedID;
             FillBankCombo();
             FillBankAccountCombo();
+            FillPaymentModeCombo();
             _BankReceipt.CBBankAccountID = oldBankID;
             mcbBankAccount.SelectedID = oldBankID;
             FillBranchCombo();
@@ -576,6 +579,8 @@ namespace EcoMart.InterfaceLayer
                     }
 
                     _BankReceipt.CBBankAccountID = mcbBankAccount.SelectedID;
+                    _BankReceipt.CBPaymodeID = pspaymode.SelectedID;
+
                     _BankReceipt.CBBankID = mcbBank.SelectedID;
                     _BankReceipt.CBBranchID = mcbBranch.SelectedID;
                     _BankReceipt.CBBankName = mcbBank.SeletedItem.ItemData[1];
@@ -593,6 +598,7 @@ namespace EcoMart.InterfaceLayer
                     {
                         _preDate = datePickerBillDate.Value;
                         _preBankID = mcbBankAccount.SelectedID;
+                        _prepaymentmodeID = pspaymode.SelectedID;
                     }
                     
                     if (_Mode == OperationMode.Edit)
@@ -625,6 +631,7 @@ namespace EcoMart.InterfaceLayer
                             }
                             _BankReceipt.IntID = 0;
                             _BankReceipt.IntID = _BankReceipt.AddDetails();
+                              
                             if (_BankReceipt.IntID > 0)
                                 retValue = true;
                             else
@@ -752,6 +759,7 @@ namespace EcoMart.InterfaceLayer
                             {
                                 General.BeginTransaction();
                                 _BankReceipt.CBAccountID = mcbCreditor.SelectedID;
+                                _BankReceipt.CBPaymodeID = pspaymode.SelectedID;
                                 _BankReceipt.ModifiedBy = General.CurrentUser.Id;
                                 _BankReceipt.ModifiedDate = DateTime.Now.Date.ToString("yyyyMMdd");
                                 _BankReceipt.ModifiedTime = DateTime.Now.ToString("HH:mm:ss");
@@ -899,8 +907,12 @@ namespace EcoMart.InterfaceLayer
                     mcbBankAccount.SelectedID = _BankReceipt.CBBankAccountID;
                     mcbBank.SelectedID = _BankReceipt.CBBankID;
                     mcbBranch.SelectedID = _BankReceipt.CBBranchID;
-                    _BankReceipt.CBBankName = mcbBank.SeletedItem.ItemData[1];
-                    _BankReceipt.CBBranchName = mcbBranch.SeletedItem.ItemData[1];
+                   // _BankReceipt.CBBankName = mcbBank.SeletedItem.ItemData[1];
+                    //_BankReceipt.CBBranchName = mcbBranch.SeletedItem.ItemData[1];
+
+                    pspaymode.SelectedID = _BankReceipt.CBPaymodeID;   
+                    _BankReceipt.CBPaymentModeOption=pspaymode.SeletedItem.ItemData[1];
+
                     txtAddress1.Text = _BankReceipt.CBAddress1;
                     txtAddress2.Text = _BankReceipt.CBAddress2;
                     txtNarration.Text = _BankReceipt.CBNarration;
@@ -1554,6 +1566,25 @@ namespace EcoMart.InterfaceLayer
                 Log.WriteException(Ex);
             }
         }
+        private void FillPaymentModeCombo()
+        {
+            try
+            {
+                pspaymode.SelectedID = null;
+                pspaymode.SourceDataString = new string[2] { "PayModeID", "PayModeOption" };
+                pspaymode.ColumnWidth = new string[2] { "0", "200" };
+                pspaymode.ValueColumnNo = 0;
+                pspaymode.UserControlToShow = new UclBank();
+                Bank _Bank = new Bank();
+                DataTable dtable = _Bank.GetPaymentModeData();
+                pspaymode.FillData(dtable);
+            }
+            catch (Exception Ex)
+            {
+                Log.WriteException(Ex);
+            }
+        }
+
         private void FillBranchCombo()
         {
             try
@@ -4205,6 +4236,16 @@ namespace EcoMart.InterfaceLayer
             }
         }
 
-       
+        private void pspaymode_SeletectIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+        private void pspaymode_EnterKeyPressed(object sender, EventArgs e)
+        {
+
+        }
     }
 }

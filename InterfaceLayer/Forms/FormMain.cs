@@ -174,8 +174,8 @@ namespace EcoMart
         UclPurchaseOrder _UclPurchaseOrder;
         UclPurchaseOrderForToday _UclPurchaseOrderForToday;
         UclPurchaseOrderByStockAndSale _UclPurchaseOrderByStockAndSale;
-        UclPurchaseOrderAllTypes _UclPurchaseOrderAlltypes;
-        UclPurchaseOrderList _UclPurchaseOrderList;
+        UclPurchaseOrderStockist _UclPurchaseOrderStockist;
+        //UclPurchaseOrderList _UclPurchaseOrderList;
         //Settings
         UclSettingsSale _UclSettingsSale;
         UclSettingsForPrint _UclSettingsForPrint;
@@ -651,81 +651,81 @@ namespace EcoMart
             _BandItem.Visible = isViewVisible;
         }
 
-        private void AddSpecialSaleItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
-        {
+        //private void AddSpecialSaleItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        //{
 
-            ToolStripMenuItem _SubSubMenuItem = null;
-            ControlItem _ControlItem = null;
+        //    ToolStripMenuItem _SubSubMenuItem = null;
+        //    ControlItem _ControlItem = null;
 
-            _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "Special Sale";
-            _ControlItem.ItemMode = OperationMode.View;
-            _ControlItem.Control = _UclDistributorSaleSpecial;
+        //    _ControlItem = new ControlItem();
+        //    _ControlItem.ItemName = "Special Sale";
+        //    _ControlItem.ItemMode = OperationMode.View;
+        //    _ControlItem.Control = _UclDistributorSaleSpecial;
 
-            _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
-            _BandItem.Name = _ControlItem.ItemName;
-            _BandItem.Tag = _ControlItem;
-            _Band.Items.Add(_BandItem);
-            _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
-            _SubSubMenuItem.Name = _ControlItem.ItemName;
-            _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
-            _SubSubMenuItem.Tag = _ControlItem;
-            _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+        //    _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
+        //    _BandItem.Name = _ControlItem.ItemName;
+        //    _BandItem.Tag = _ControlItem;
+        //    _Band.Items.Add(_BandItem);
+        //    _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+        //    _SubSubMenuItem.Name = _ControlItem.ItemName;
+        //    _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+        //    _SubSubMenuItem.Tag = _ControlItem;
+        //    _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
 
-            bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
-            _SubSubMenuItem.Visible = isViewVisible;
-            _BandItem.Visible = isViewVisible;
-        }
-        private void AddPTSSaleItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
-        {
+        //    bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
+        //    _SubSubMenuItem.Visible = isViewVisible;
+        //    _BandItem.Visible = isViewVisible;
+        //}
+        //private void AddPTSSaleItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        //{
 
-            ToolStripMenuItem _SubSubMenuItem = null;
-            ControlItem _ControlItem = null;
+        //    ToolStripMenuItem _SubSubMenuItem = null;
+        //    ControlItem _ControlItem = null;
 
-            _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "PTS Sale";
-            _ControlItem.ItemMode = OperationMode.View;
-            _ControlItem.Control = _UclDistributorSalePTS;
+        //    _ControlItem = new ControlItem();
+        //    _ControlItem.ItemName = "PTS Sale";
+        //    _ControlItem.ItemMode = OperationMode.View;
+        //    _ControlItem.Control = _UclDistributorSalePTS;
 
-            _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
-            _BandItem.Name = _ControlItem.ItemName;
-            _BandItem.Tag = _ControlItem;
-            _Band.Items.Add(_BandItem);
-            _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
-            _SubSubMenuItem.Name = _ControlItem.ItemName;
-            _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
-            _SubSubMenuItem.Tag = _ControlItem;
-            _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+        //    _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
+        //    _BandItem.Name = _ControlItem.ItemName;
+        //    _BandItem.Tag = _ControlItem;
+        //    _Band.Items.Add(_BandItem);
+        //    _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+        //    _SubSubMenuItem.Name = _ControlItem.ItemName;
+        //    _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+        //    _SubSubMenuItem.Tag = _ControlItem;
+        //    _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
 
-            bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
-            _SubSubMenuItem.Visible = isViewVisible;
-            _BandItem.Visible = isViewVisible;
-        }
-        private void AddRegularSale2Item(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
-        {
+        //    bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
+        //    _SubSubMenuItem.Visible = isViewVisible;
+        //    _BandItem.Visible = isViewVisible;
+        //}
+        //private void AddRegularSale2Item(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        //{
 
-            ToolStripMenuItem _SubSubMenuItem = null;
-            ControlItem _ControlItem = null;
+        //    ToolStripMenuItem _SubSubMenuItem = null;
+        //    ControlItem _ControlItem = null;
 
-            _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "Regular Sale2";
-            _ControlItem.ItemMode = OperationMode.View;
-            _ControlItem.Control = _UclDistributorSaleRegular2;
+        //    _ControlItem = new ControlItem();
+        //    _ControlItem.ItemName = "Regular Sale2";
+        //    _ControlItem.ItemMode = OperationMode.View;
+        //    _ControlItem.Control = _UclDistributorSaleRegular2;
 
-            _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
-            _BandItem.Name = _ControlItem.ItemName;
-            _BandItem.Tag = _ControlItem;
-            _Band.Items.Add(_BandItem);
-            _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
-            _SubSubMenuItem.Name = _ControlItem.ItemName;
-            _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
-            _SubSubMenuItem.Tag = _ControlItem;
-            _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+        //    _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
+        //    _BandItem.Name = _ControlItem.ItemName;
+        //    _BandItem.Tag = _ControlItem;
+        //    _Band.Items.Add(_BandItem);
+        //    _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+        //    _SubSubMenuItem.Name = _ControlItem.ItemName;
+        //    _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+        //    _SubSubMenuItem.Tag = _ControlItem;
+        //    _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
 
-            bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
-            _SubSubMenuItem.Visible = isViewVisible;
-            _BandItem.Visible = isViewVisible;
-        }
+        //    bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
+        //    _SubSubMenuItem.Visible = isViewVisible;
+        //    _BandItem.Visible = isViewVisible;
+        //}
         #endregion Sale
 
         #region Purchase
@@ -755,162 +755,162 @@ namespace EcoMart
             _BandItem.Visible = isViewVisible;
         }
 
-        private void AddPurchaseWithoutStockItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
-        {
+        //private void AddPurchaseWithoutStockItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        //{
 
-            //ToolStripMenuItem _SubSubMenuItem = null;
-            //ControlItem _ControlItem = null;
+        //    //ToolStripMenuItem _SubSubMenuItem = null;
+        //    //ControlItem _ControlItem = null;
 
-            //_ControlItem = new ControlItem();
-            //_ControlItem.ItemName = "Purchase Without Stock";
-            //_ControlItem.ItemMode = OperationMode.View;
-            //_ControlItem.Control = _UclPurchaseWithoutStock;
+        //    //_ControlItem = new ControlItem();
+        //    //_ControlItem.ItemName = "Purchase Without Stock";
+        //    //_ControlItem.ItemMode = OperationMode.View;
+        //    //_ControlItem.Control = _UclPurchaseWithoutStock;
 
-            //_BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
-            //_BandItem.Name = _ControlItem.ItemName;
-            //_BandItem.Tag = _ControlItem;
-            //_Band.Items.Add(_BandItem);
-            //_SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
-            //_SubSubMenuItem.Name = _ControlItem.ItemName;
-            //_SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
-            //_SubSubMenuItem.Tag = _ControlItem;
-            //_SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+        //    //_BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
+        //    //_BandItem.Name = _ControlItem.ItemName;
+        //    //_BandItem.Tag = _ControlItem;
+        //    //_Band.Items.Add(_BandItem);
+        //    //_SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+        //    //_SubSubMenuItem.Name = _ControlItem.ItemName;
+        //    //_SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+        //    //_SubSubMenuItem.Tag = _ControlItem;
+        //    //_SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
 
-            //bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
-            //_SubSubMenuItem.Visible = isViewVisible;
-            //_BandItem.Visible = isViewVisible;
-        }
-        private void AddChallanPurchaseItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
-        {
-            ToolStripMenuItem _SubSubMenuItem = null;
-            ControlItem _ControlItem = null;
+        //    //bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
+        //    //_SubSubMenuItem.Visible = isViewVisible;
+        //    //_BandItem.Visible = isViewVisible;
+        //}
+        //private void AddChallanPurchaseItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        //{
+        //    ToolStripMenuItem _SubSubMenuItem = null;
+        //    ControlItem _ControlItem = null;
 
-            _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "ChallanPurchase";
-            _ControlItem.ItemMode = OperationMode.View;
-            //   _ControlItem.Control = _UclChallanPurchase;
-
-
-            _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
-            _BandItem.Name = _ControlItem.ItemName;
-            _BandItem.Tag = _ControlItem;
-            _Band.Items.Add(_BandItem);
-            _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
-            _SubSubMenuItem.Name = _ControlItem.ItemName;
-            _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
-            _SubSubMenuItem.Tag = _ControlItem;
-            _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
-
-            bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
-            _SubSubMenuItem.Visible = isViewVisible;
-            _BandItem.Visible = isViewVisible;
-        }
-        private void AddChallanWithBillNumberItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
-        {
-            ToolStripMenuItem _SubSubMenuItem = null;
-            ControlItem _ControlItem = null;
-
-            _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "ChallanWithBillNumber";
-            _ControlItem.ItemMode = OperationMode.View;
-            //    _ControlItem.Control = _UclChallanWithBillNumber;
+        //    _ControlItem = new ControlItem();
+        //    _ControlItem.ItemName = "ChallanPurchase";
+        //    _ControlItem.ItemMode = OperationMode.View;
+        //    //   _ControlItem.Control = _UclChallanPurchase;
 
 
-            _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
-            _BandItem.Name = _ControlItem.ItemName;
-            _BandItem.Tag = _ControlItem;
-            _Band.Items.Add(_BandItem);
-            _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
-            _SubSubMenuItem.Name = _ControlItem.ItemName;
-            _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
-            _SubSubMenuItem.Tag = _ControlItem;
-            _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+        //    _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
+        //    _BandItem.Name = _ControlItem.ItemName;
+        //    _BandItem.Tag = _ControlItem;
+        //    _Band.Items.Add(_BandItem);
+        //    _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+        //    _SubSubMenuItem.Name = _ControlItem.ItemName;
+        //    _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+        //    _SubSubMenuItem.Tag = _ControlItem;
+        //    _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
 
-            bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
-            _SubSubMenuItem.Visible = isViewVisible;
-            _BandItem.Visible = isViewVisible;
-        }
-        private void AddChallanWithProductItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
-        {
-            ToolStripMenuItem _SubSubMenuItem = null;
-            ControlItem _ControlItem = null;
+        //    bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
+        //    _SubSubMenuItem.Visible = isViewVisible;
+        //    _BandItem.Visible = isViewVisible;
+        //}
+        //private void AddChallanWithBillNumberItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        //{
+        //    ToolStripMenuItem _SubSubMenuItem = null;
+        //    ControlItem _ControlItem = null;
 
-            _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "ChallanWithProduct";
-            _ControlItem.ItemMode = OperationMode.View;
-            //   _ControlItem.Control = _UclChallanWithProduct;
+        //    _ControlItem = new ControlItem();
+        //    _ControlItem.ItemName = "ChallanWithBillNumber";
+        //    _ControlItem.ItemMode = OperationMode.View;
+        //    //    _ControlItem.Control = _UclChallanWithBillNumber;
 
 
-            _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
-            _BandItem.Name = _ControlItem.ItemName;
-            _BandItem.Tag = _ControlItem;
-            _Band.Items.Add(_BandItem);
-            _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
-            _SubSubMenuItem.Name = _ControlItem.ItemName;
-            _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
-            _SubSubMenuItem.Tag = _ControlItem;
-            _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+        //    _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
+        //    _BandItem.Name = _ControlItem.ItemName;
+        //    _BandItem.Tag = _ControlItem;
+        //    _Band.Items.Add(_BandItem);
+        //    _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+        //    _SubSubMenuItem.Name = _ControlItem.ItemName;
+        //    _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+        //    _SubSubMenuItem.Tag = _ControlItem;
+        //    _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
 
-            bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
-            _SubSubMenuItem.Visible = isViewVisible;
-            _BandItem.Visible = isViewVisible;
-        }
-        private void AddDailyPurchaseOrderItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
-        {
+        //    bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
+        //    _SubSubMenuItem.Visible = isViewVisible;
+        //    _BandItem.Visible = isViewVisible;
+        //}
+        //private void AddChallanWithProductItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        //{
+        //    ToolStripMenuItem _SubSubMenuItem = null;
+        //    ControlItem _ControlItem = null;
 
-            ToolStripMenuItem _SubSubMenuItem = null;
-            ControlItem _ControlItem = null;
+        //    _ControlItem = new ControlItem();
+        //    _ControlItem.ItemName = "ChallanWithProduct";
+        //    _ControlItem.ItemMode = OperationMode.View;
+        //    //   _ControlItem.Control = _UclChallanWithProduct;
 
-            _UclDailyPurhcaseOrder = new UclDailyPurchaseOrder();
-            _UclDailyPurhcaseOrder.Dock = DockStyle.Fill;
-            _UclDailyPurhcaseOrder.Visible = false;
-            _UclDailyPurhcaseOrder.ExitClicked += new EventHandler(Item_ExitClicked);
 
-            _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "PO Daily ShortList";
-            _ControlItem.ItemMode = OperationMode.Add;
-            _ControlItem.Control = _UclDailyPurhcaseOrder;
+        //    _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
+        //    _BandItem.Name = _ControlItem.ItemName;
+        //    _BandItem.Tag = _ControlItem;
+        //    _Band.Items.Add(_BandItem);
+        //    _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+        //    _SubSubMenuItem.Name = _ControlItem.ItemName;
+        //    _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+        //    _SubSubMenuItem.Tag = _ControlItem;
+        //    _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
 
-            _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
-            _BandItem.Name = _ControlItem.ItemName;
-            _BandItem.Tag = _ControlItem;
-            _Band.Items.Add(_BandItem);
-            _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
-            _SubSubMenuItem.Name = _ControlItem.ItemName;
-            _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
-            _SubSubMenuItem.Tag = _ControlItem;
-            _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+        //    bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
+        //    _SubSubMenuItem.Visible = isViewVisible;
+        //    _BandItem.Visible = isViewVisible;
+        //}
+        //private void AddDailyPurchaseOrderItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        //{
 
-        }
+        //    ToolStripMenuItem _SubSubMenuItem = null;
+        //    ControlItem _ControlItem = null;
 
-        private void AddPurchaseOrderItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
-        {
+        //    _UclDailyPurhcaseOrder = new UclDailyPurchaseOrder();
+        //    _UclDailyPurhcaseOrder.Dock = DockStyle.Fill;
+        //    _UclDailyPurhcaseOrder.Visible = false;
+        //    _UclDailyPurhcaseOrder.ExitClicked += new EventHandler(Item_ExitClicked);
 
-            ToolStripMenuItem _SubSubMenuItem = null;
-            ControlItem _ControlItem = null;
+        //    _ControlItem = new ControlItem();
+        //    _ControlItem.ItemName = "PO Daily ShortList";
+        //    _ControlItem.ItemMode = OperationMode.Add;
+        //    _ControlItem.Control = _UclDailyPurhcaseOrder;
 
-            _UclPurchaseOrder = new UclPurchaseOrder();
-            _UclPurchaseOrder.Dock = DockStyle.Fill;
-            _UclPurchaseOrder.Visible = false;
-            _UclPurchaseOrder.ExitClicked += new EventHandler(Item_ExitClicked);
+        //    _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
+        //    _BandItem.Name = _ControlItem.ItemName;
+        //    _BandItem.Tag = _ControlItem;
+        //    _Band.Items.Add(_BandItem);
+        //    _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+        //    _SubSubMenuItem.Name = _ControlItem.ItemName;
+        //    _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+        //    _SubSubMenuItem.Tag = _ControlItem;
+        //    _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
 
-            _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "PurchaseOrder";
-            _ControlItem.ItemMode = OperationMode.Add;
-            _ControlItem.Control = _UclPurchaseOrder;
+        //}
 
-            _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
-            _BandItem.Name = _ControlItem.ItemName;
-            _BandItem.Tag = _ControlItem;
-            _Band.Items.Add(_BandItem);
-            _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
-            _SubSubMenuItem.Name = _ControlItem.ItemName;
-            _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
-            _SubSubMenuItem.Tag = _ControlItem;
-            _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
-        }
+        //private void AddPurchaseOrderItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        //{
 
-        private void AddPurchaseOrderForTodayItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        //    ToolStripMenuItem _SubSubMenuItem = null;
+        //    ControlItem _ControlItem = null;
+
+        //    _UclPurchaseOrder = new UclPurchaseOrder();
+        //    _UclPurchaseOrder.Dock = DockStyle.Fill;
+        //    _UclPurchaseOrder.Visible = false;
+        //    _UclPurchaseOrder.ExitClicked += new EventHandler(Item_ExitClicked);
+
+        //    _ControlItem = new ControlItem();
+        //    _ControlItem.ItemName = "PurchaseOrder";
+        //    _ControlItem.ItemMode = OperationMode.Add;
+        //    _ControlItem.Control = _UclPurchaseOrder;
+
+        //    _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
+        //    _BandItem.Name = _ControlItem.ItemName;
+        //    _BandItem.Tag = _ControlItem;
+        //    _Band.Items.Add(_BandItem);
+        //    _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+        //    _SubSubMenuItem.Name = _ControlItem.ItemName;
+        //    _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+        //    _SubSubMenuItem.Tag = _ControlItem;
+        //    _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+        //}
+
+        private void AddPurchaseOrderCNF(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
         {
 
             ToolStripMenuItem _SubSubMenuItem = null;
@@ -922,7 +922,33 @@ namespace EcoMart
             _UclPurchaseOrderForToday.ExitClicked += new EventHandler(Item_ExitClicked);
 
             _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "PurchaseOrderForToday";
+            _ControlItem.ItemName = "PurchaseOrderCNF";
+            _ControlItem.ItemMode = OperationMode.Add;
+            _ControlItem.Control = _UclPurchaseOrderForToday;
+
+            _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
+            _BandItem.Name = _ControlItem.ItemName;
+            _BandItem.Tag = _ControlItem;
+            _Band.Items.Add(_BandItem);
+            _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+            _SubSubMenuItem.Name = _ControlItem.ItemName;
+            _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+            _SubSubMenuItem.Tag = _ControlItem;
+            _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+        }
+        private void AddPurchaseOrderEcoMart(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        {
+
+            ToolStripMenuItem _SubSubMenuItem = null;
+            ControlItem _ControlItem = null;
+
+            _UclPurchaseOrderForToday = new UclPurchaseOrderForToday();
+            _UclPurchaseOrderForToday.Dock = DockStyle.Fill;
+            _UclPurchaseOrderForToday.Visible = false;
+            _UclPurchaseOrderForToday.ExitClicked += new EventHandler(Item_ExitClicked);
+
+            _ControlItem = new ControlItem();
+            _ControlItem.ItemName = "PurchaseOrderEcoMart";
             _ControlItem.ItemMode = OperationMode.Add;
             _ControlItem.Control = _UclPurchaseOrderForToday;
 
@@ -937,32 +963,31 @@ namespace EcoMart
             _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
         }
 
+        //private void AddPurchaseOrderByStockAndSaleItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        //{
 
-        private void AddPurchaseOrderByStockAndSaleItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
-        {
+        //    ToolStripMenuItem _SubSubMenuItem = null;
+        //    ControlItem _ControlItem = null;
 
-            ToolStripMenuItem _SubSubMenuItem = null;
-            ControlItem _ControlItem = null;
+        //    _UclPurchaseOrderByStockAndSale = new UclPurchaseOrderByStockAndSale();
+        //    _UclPurchaseOrderByStockAndSale.Dock = DockStyle.Fill;
+        //    _UclPurchaseOrderByStockAndSale.Visible = false;
+        //    _UclPurchaseOrderByStockAndSale.ExitClicked += new EventHandler(Item_ExitClicked);
 
-            _UclPurchaseOrderByStockAndSale = new UclPurchaseOrderByStockAndSale();
-            _UclPurchaseOrderByStockAndSale.Dock = DockStyle.Fill;
-            _UclPurchaseOrderByStockAndSale.Visible = false;
-            _UclPurchaseOrderByStockAndSale.ExitClicked += new EventHandler(Item_ExitClicked);
+        //    _ControlItem = new ControlItem();
+        //    _ControlItem.ItemName = "PurchaseByStockAndSale";
+        //    _ControlItem.ItemMode = OperationMode.Add;
+        //    _ControlItem.Control = _UclPurchaseOrderByStockAndSale;
 
-            _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "PurchaseByStockAndSale";
-            _ControlItem.ItemMode = OperationMode.Add;
-            _ControlItem.Control = _UclPurchaseOrderByStockAndSale;
-
-            _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
-            _BandItem.Name = _ControlItem.ItemName;
-            _BandItem.Tag = _ControlItem;
-            _Band.Items.Add(_BandItem);
-            _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
-            _SubSubMenuItem.Name = _ControlItem.ItemName;
-            _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
-            _SubSubMenuItem.Tag = _ControlItem;
-            _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+        //    _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
+        //    _BandItem.Name = _ControlItem.ItemName;
+        //    _BandItem.Tag = _ControlItem;
+        //    _Band.Items.Add(_BandItem);
+        //    _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+        //    _SubSubMenuItem.Name = _ControlItem.ItemName;
+        //    _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+        //    _SubSubMenuItem.Tag = _ControlItem;
+        //    _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
 
             //_OperationMenuItem = new ToolStripMenuItem(_ControlItem.ItemMode.ToString());
             //_OperationMenuItem.Name = _ControlItem.ItemMode.ToString();
@@ -991,22 +1016,22 @@ namespace EcoMart
             //{
             //    _BandItem.Visible = false;
             //}
-        }
-        private void AddPurchaseOrderAllTypesItem(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        //}
+        private void AddPurchaseOrderStockist(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
         {
 
             ToolStripMenuItem _SubSubMenuItem = null;
             ControlItem _ControlItem = null;
 
-            _UclPurchaseOrderAlltypes = new UclPurchaseOrderAllTypes();
-            _UclPurchaseOrderAlltypes.Dock = DockStyle.Fill;
-            _UclPurchaseOrderAlltypes.Visible = false;
-            _UclPurchaseOrderAlltypes.ExitClicked += new EventHandler(Item_ExitClicked);
+            _UclPurchaseOrderStockist = new UclPurchaseOrderStockist();
+            _UclPurchaseOrderStockist.Dock = DockStyle.Fill;
+            _UclPurchaseOrderStockist.Visible = false;
+            _UclPurchaseOrderStockist.ExitClicked += new EventHandler(Item_ExitClicked);
 
             _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "PurchaseOrderAllTypes";
+            _ControlItem.ItemName = "PurchaseOrderStockist";
             _ControlItem.ItemMode = OperationMode.Add;
-            _ControlItem.Control = _UclPurchaseOrderAlltypes;
+            _ControlItem.Control = _UclPurchaseOrderStockist;
 
             _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
             _BandItem.Name = _ControlItem.ItemName;
@@ -1018,32 +1043,32 @@ namespace EcoMart
             _SubSubMenuItem.Tag = _ControlItem;
             _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
         }
-        private void AddPurchaseOrderList(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
-        {
+        //private void AddPurchaseOrderList(OutlookBarBand _Band, ToolStripMenuItem _SubMenuItem)
+        //{
 
-            ToolStripMenuItem _SubSubMenuItem = null;
-            ControlItem _ControlItem = null;
+        //    ToolStripMenuItem _SubSubMenuItem = null;
+        //    ControlItem _ControlItem = null;
 
-            _UclPurchaseOrderList = new InterfaceLayer.UclPurchaseOrderList();
-            _UclPurchaseOrderList.Dock = DockStyle.Fill;
-            _UclPurchaseOrderList.Visible = false;
-            _UclPurchaseOrderList.ExitClicked += new EventHandler(Item_ExitClicked);
+        //    _UclPurchaseOrderList = new InterfaceLayer.UclPurchaseOrderList();
+        //    _UclPurchaseOrderList.Dock = DockStyle.Fill;
+        //    _UclPurchaseOrderList.Visible = false;
+        //    _UclPurchaseOrderList.ExitClicked += new EventHandler(Item_ExitClicked);
 
-            _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "Purchase Order List";
-            _ControlItem.ItemMode = OperationMode.Add;
-            _ControlItem.Control = _UclPurchaseOrderList;
+        //    _ControlItem = new ControlItem();
+        //    _ControlItem.ItemName = "Purchase Order List";
+        //    _ControlItem.ItemMode = OperationMode.Add;
+        //    _ControlItem.Control = _UclPurchaseOrderList;
 
-            _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
-            _BandItem.Name = _ControlItem.ItemName;
-            _BandItem.Tag = _ControlItem;
-            _Band.Items.Add(_BandItem);
-            _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
-            _SubSubMenuItem.Name = _ControlItem.ItemName;
-            _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
-            _SubSubMenuItem.Tag = _ControlItem;
-            _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
-        }
+        //    _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
+        //    _BandItem.Name = _ControlItem.ItemName;
+        //    _BandItem.Tag = _ControlItem;
+        //    _Band.Items.Add(_BandItem);
+        //    _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+        //    _SubSubMenuItem.Name = _ControlItem.ItemName;
+        //    _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+        //    _SubSubMenuItem.Tag = _ControlItem;
+        //    _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+        //}
         #endregion Purchase
 
         # region Debit Note
@@ -3285,11 +3310,24 @@ namespace EcoMart
                 _SubMenuItem = new ToolStripMenuItem("PurchaseOrder");
                 _SubMenuItem.Name = "PurchaseOrder";
 
+
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.Stockist)
+                {
+                    AddPurchaseOrderStockist(_Band, _SubMenuItem);
+                }
+                else if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+                {
+                    AddPurchaseOrderCNF(_Band, _SubMenuItem);
+                }
+                else if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+                {
+                    AddPurchaseOrderEcoMart(_Band, _SubMenuItem);
+
+                }
                 //AddDailyPurchaseOrderItem(_Band, _SubMenuItem);
                 //AddPurchaseOrderItem(_Band, _SubMenuItem);
-                //AddPurchaseOrderForTodayItem(_Band, _SubMenuItem);
                 //AddPurchaseOrderByStockAndSaleItem(_Band, _SubMenuItem);
-                AddPurchaseOrderAllTypesItem(_Band, _SubMenuItem);
+               
                 //AddPurchaseOrderList(_Band, _SubMenuItem);
 
                 if (_Band.Items.Count == 0)
@@ -11364,12 +11402,12 @@ namespace EcoMart
                         _item.Control = _UclPurchaseOrderByStockAndSale;
                         break;
 
-                    case "PurchaseOrderAllTypes":
-                        _UclPurchaseOrderAlltypes = new UclPurchaseOrderAllTypes();
-                        _UclPurchaseOrderAlltypes.Dock = DockStyle.Fill;
-                        _UclPurchaseOrderAlltypes.Visible = false;
-                        _UclPurchaseOrderAlltypes.ExitClicked += new EventHandler(Item_ExitClicked);
-                        _item.Control = _UclPurchaseOrderAlltypes;
+                    case "PurchaseOrderStockist":
+                        _UclPurchaseOrderStockist = new UclPurchaseOrderStockist();
+                        _UclPurchaseOrderStockist.Dock = DockStyle.Fill;
+                        _UclPurchaseOrderStockist.Visible = false;
+                        _UclPurchaseOrderStockist.ExitClicked += new EventHandler(Item_ExitClicked);
+                        _item.Control = _UclPurchaseOrderStockist;
                         break;
                     #endregion PurchaseORder
 
@@ -12943,9 +12981,9 @@ namespace EcoMart
                         _item.Control = null;
                         _UclPurchaseOrderByStockAndSale = null;
                         break;
-                    case "PurchaseOrderAllTypes":
+                    case "PurchaseOrderStockist":
                         _item.Control = null;
-                        _UclPurchaseOrderAlltypes = null;
+                        _UclPurchaseOrderStockist  = null;
                         break;
                     #endregion Purchase Order
 

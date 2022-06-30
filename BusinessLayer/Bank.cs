@@ -93,6 +93,11 @@ namespace EcoMart.BusinessLayer
             return dbBank.GetOverviewData();
         }
 
+        public DataTable GetPaymentModeData()
+        {
+            DBBank dbBank = new DBBank();
+            return dbBank.GetPaymentModeData();
+        }
         public bool ReadDetailsByID()
         {
             bool retValue = false;

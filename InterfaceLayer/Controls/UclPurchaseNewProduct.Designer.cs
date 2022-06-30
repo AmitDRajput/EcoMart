@@ -73,6 +73,8 @@
             this.mcbProduct.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.mcbProduct.Name = "mcbProduct";
             this.mcbProduct.SelectedID = "";
+            this.mcbProduct.SelectedIDtest = 0;
+            this.mcbProduct.SelectedIntID = 0;
             this.mcbProduct.ShowNew = false;
             this.mcbProduct.Size = new System.Drawing.Size(469, 22);
             this.mcbProduct.SourceDataString = null;
@@ -105,6 +107,8 @@
             this.mcbCreditor.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.mcbCreditor.Name = "mcbCreditor";
             this.mcbCreditor.SelectedID = "";
+            this.mcbCreditor.SelectedIDtest = 0;
+            this.mcbCreditor.SelectedIntID = 0;
             this.mcbCreditor.ShowNew = false;
             this.mcbCreditor.Size = new System.Drawing.Size(34, 22);
             this.mcbCreditor.SourceDataString = null;
@@ -112,6 +116,7 @@
             this.mcbCreditor.TabIndex = 2;
             this.mcbCreditor.UserControlToShow = null;
             this.mcbCreditor.ValueColumnNo = 0;
+            this.mcbCreditor.Visible = false;
             this.mcbCreditor.EnterKeyPressed += new System.EventHandler(this.mcbCreditor_EnterKeyPressed);
             this.mcbCreditor.UpArrowPressed += new System.EventHandler(this.mcbCreditor_UpArrowPressed);
             // 
@@ -145,6 +150,7 @@
             this.lblParty.Size = new System.Drawing.Size(41, 16);
             this.lblParty.TabIndex = 7;
             this.lblParty.Text = "Party";
+            this.lblParty.Visible = false;
             // 
             // UclPurchaseNewProduct
             // 

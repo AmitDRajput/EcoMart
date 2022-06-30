@@ -1990,7 +1990,7 @@ namespace EcoMart.InterfaceLayer
                         {
                             // ThisStockID = _Purchase.CheckForBatchMRPStockIDInStockTable_stock(); //ss18/10
                             //ThisStockID = _Purchase.CheckForBatchMRPStockIDInStockTable();
-                            ThisStockID = _Purchase.CheckForPurchaseIdStockIDInStockTable();
+                            //ThisStockID = _Purchase.CheckForPurchaseIdStockIDInStockTable();
                             oldAccountId = _Purchase.oldaccountIDFind();
                             _Purchase.oldAccountId = oldAccountId;
 

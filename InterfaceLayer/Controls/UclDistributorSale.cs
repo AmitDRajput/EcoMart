@@ -1742,13 +1742,13 @@ namespace EcoMart.InterfaceLayer
                             returnVal = _SSSale.UpdateIntblStockForDistributor();
                             if (returnVal)
                                 returnVal = _SSSale.UpdateSaleStockInMasterProductForDistributor();
-                            if (returnVal)
-                            {
-                                if (_SSSale.IfAddToShortList())
-                                    Filldailyshortlist();
-                            }
-                            else
-                                break;
+                            //if (returnVal)
+                            //{
+                            //    if (_SSSale.IfAddToShortList())
+                            //        Filldailyshortlist();
+                            //}
+                            //else
+                                //break;
 
                         }
                     }
@@ -4469,8 +4469,11 @@ namespace EcoMart.InterfaceLayer
                     if (mpMSVC.MainDataGridCurrentRow.Cells["Col_StockID"].Value != null)
                         prodstockid = mpMSVC.MainDataGridCurrentRow.Cells["Col_StockID"].Value.ToString();
                     string batchstockid = string.Empty;
-                    if (dgvBatchGrid.CurrentRow.Cells["Col_StockID"].Value != null)
-                        batchstockid = dgvBatchGrid.CurrentRow.Cells["Col_StockID"].Value.ToString();
+                    if (dgvBatchGrid != null && dgvBatchGrid.CurrentRow != null)
+                    {
+                        if (dgvBatchGrid.CurrentRow.Cells["Col_StockID"].Value != null)
+                            batchstockid = dgvBatchGrid.CurrentRow.Cells["Col_StockID"].Value.ToString();
+                    }
                     if (mpMSVC.MainDataGridCurrentRow.Cells["Col_ProductID"].Value != null)
                     {
                         if (mpMSVC.MainDataGridCurrentRow.Cells["Col_ClosingStock"].Value != null)

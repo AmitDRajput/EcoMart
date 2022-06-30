@@ -1481,7 +1481,7 @@ namespace EcoMart.DataLayer
         {
             bool returnVal = false;
             int prodid = Convert.ToInt32(ProductID);
-            string strSql = "Update tbldailyshortlist SET PurchaseQuantity = " + Quantity + "  where ProductID = '" + ProductID + "'";
+            string strSql = "Update detailpurchaseorderstockist SET PurchaseQuantity = " + Quantity + "  where ProductID = '" + ProductID + "'";
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 returnVal = true;

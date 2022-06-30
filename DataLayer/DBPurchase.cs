@@ -263,7 +263,7 @@ namespace EcoMart.DataLayer
 
         public DataRow CheckProductInShortList(int ProductID)
         {
-            string strSql = string.Format("Select *  from tbldailyshortlist where ProductID = '{0}' AND  OrderNumber =  0", ProductID);
+            string strSql = string.Format("Select *  from detailpurchaseorderstockist where ProductID = '{0}' AND  OrderNumber =  0", ProductID);
             return DBInterface.SelectFirstRow(strSql);
         }
         public DataRow GetFirstAndSecondCreditor(int ProductID)
@@ -310,7 +310,7 @@ namespace EcoMart.DataLayer
         public bool RemoveFromShortList(int ProductID)
         {
             bool returnVal = false;
-            string strSql = "Delete from tbldailyshortlist where ProductID = '" + ProductID + "' AND OrderNumber = 0";
+            string strSql = "Delete from detailpurchaseorderstockist where ProductID = '" + ProductID + "' AND OrderNumber = 0";
             try
             {
                 DBInterface.ExecuteQuery(strSql);

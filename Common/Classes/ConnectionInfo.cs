@@ -62,7 +62,7 @@ namespace EcoMart.Common
                 connStr = ConfigurationManager.ConnectionStrings["EcoMartAzureConnectionString"].ConnectionString;
                 connStr = EcoMartLicenseLib.Common.Decrypt(connStr);
                 AzureDBInterface.ConnectionString = connStr;
-                //MessageBox.Show("CONNECTION String: " + DBInterface.ConnectionString);
+               //MessageBox.Show("CONNECTION String: " + DBInterface.ConnectionString);
                 AzureDBInterface.Initialize();
 
             }

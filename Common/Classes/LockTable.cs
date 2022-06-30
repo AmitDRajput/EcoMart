@@ -17,7 +17,7 @@ namespace EcoMart.Common
 
         public static void LockTablesForSale()
         {
-            //string strSql = "LOCK TABLES tblStock Low_priority WRITE , tblvouchernumbers Low_priority WRITE, vouchersale Low_Priority WRITE , detailsale Low_Priority WRITE,  tbltrnac Low_Priority WRITE ,vouchercreditdebitnote LOW_PRIORITY WRITE, mastershelf READ, mastercompany READ , tbldailyshortlist LOW_PRIORITY WRITE,masterproduct Low_Priority WRITE,  masteraccount Low_priority WRITE, tblscanprescriptions Low_priority WRITE,masterdoctor Low_Priority WRITE";
+            //string strSql = "LOCK TABLES tblStock Low_priority WRITE , tblvouchernumbers Low_priority WRITE, vouchersale Low_Priority WRITE , detailsale Low_Priority WRITE,  tbltrnac Low_Priority WRITE ,vouchercreditdebitnote LOW_PRIORITY WRITE, mastershelf READ, mastercompany READ , detailpurchaseorderstockist LOW_PRIORITY WRITE,masterproduct Low_Priority WRITE,  masteraccount Low_priority WRITE, tblscanprescriptions Low_priority WRITE,masterdoctor Low_Priority WRITE";
             //DBInterface.ExecuteQuery(strSql);                           
         }
         public static void LockTablesForSpecialSale()
@@ -32,7 +32,7 @@ namespace EcoMart.Common
         }
         public static void LockTablesForPurchase()
         {
-            //string strSql = "LOCK TABLES tblStock Low_Priority WRITE , tblvouchernumbers Low_priority WRITE, voucherpurchase Low_Priority WRITE , detailpurchase Low_Priority WRITE,tbltrnac Low_priority WRITE,vouchercreditdebitnote LOW_PRIORITY WRITE,masterproduct Low_priority WRITE,tbldailyshortlist Low_priority WRITE";
+            //string strSql = "LOCK TABLES tblStock Low_Priority WRITE , tblvouchernumbers Low_priority WRITE, voucherpurchase Low_Priority WRITE , detailpurchase Low_Priority WRITE,tbltrnac Low_priority WRITE,vouchercreditdebitnote LOW_PRIORITY WRITE,masterproduct Low_priority WRITE,detailpurchaseorderstockist Low_priority WRITE";
             //DBInterface.ExecuteQuery(strSql);
         }
         public static void LockTablesForStatementPurchase()
@@ -151,12 +151,12 @@ namespace EcoMart.Common
         }
         public static void LockTablesForChallanPurchase()
         {
-            //string strSql = "LOCK TABLES tblStock Low_Priority WRITE , tblvouchernumbers Low_priority WRITE, voucherChallanpurchase Low_Priority WRITE , detailpurchase Low_Priority WRITE,masterproduct Low_priority WRITE,tbldailyshortlist Low_priority WRITE";
+            //string strSql = "LOCK TABLES tblStock Low_Priority WRITE , tblvouchernumbers Low_priority WRITE, voucherChallanpurchase Low_Priority WRITE , detailpurchase Low_Priority WRITE,masterproduct Low_priority WRITE,detailpurchaseorderstockist Low_priority WRITE";
             //DBInterface.ExecuteQuery(strSql);
         }
         public static void LockTablesForPurchaseOrder()
         {
-            //string strSql = "LOCK TABLES Masterorder Low_Priority WRITE , tbldailyshortlist Low_priority WRITE";
+            //string strSql = "LOCK TABLES masterpurchaseorderstockist Low_Priority WRITE , detailpurchaseorderstockist Low_priority WRITE";
             //DBInterface.ExecuteQuery(strSql);
         }
     }

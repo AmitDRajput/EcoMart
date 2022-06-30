@@ -305,7 +305,7 @@ namespace EcoMart.DataLayer
 
         public DataRow CheckProductInShortList(int ProductID)
         {
-            string strSql = string.Format("Select *  from tbldailyshortlist where ProductID = '{0}' AND  OrderNumber =  0 AND ShortListDate = '"+ DateTime.Today.Date.ToString("yyyyMMdd") +"' ", ProductID);
+            string strSql = string.Format("Select *  from detailpurchaseorderstockist where ProductID = '{0}' AND  OrderNumber =  0 AND ShortListDate = '"+ DateTime.Today.Date.ToString("yyyyMMdd") +"' ", ProductID);
             return DBInterface.SelectFirstRow(strSql);
         }
 
@@ -322,17 +322,17 @@ namespace EcoMart.DataLayer
         private string GetInsertQueryforShortList(int ProductID, string Voudate, string shortlistid, double purchaserate, string accid)
         {
             Query objQuery = new Query();
-            objQuery.Table = "tbldailyshortlist";
+            objQuery.Table = "detailpurchaseorderstockist";
             //objQuery.AddToQuery("DSLID", shortlistid);
             objQuery.AddToQuery("ProductID", ProductID);
             objQuery.AddToQuery("ShortListDate", Voudate);
             objQuery.AddToQuery("PurchaseRate", purchaserate);
             objQuery.AddToQuery("IFSave", "N");
             objQuery.AddToQuery("MasterID", " ");
-            objQuery.AddToQuery("OrderNumber", 0);
-            objQuery.AddToQuery("OrderDate", " ");
-            objQuery.AddToQuery("OrderQuantity", 0);
-            objQuery.AddToQuery("AccountId", accid);
+            objQuery.AddToQuery("stockistOrderNumber", 0);
+            objQuery.AddToQuery("stockistOrderDate", " ");
+            objQuery.AddToQuery("stockistOrderQuantity", 0);
+            objQuery.AddToQuery("stockistAccountId", accid);
             objQuery.AddToQuery("ShortListTime", " ");
             return objQuery.InsertQuery();
         }

@@ -311,12 +311,12 @@ namespace EcoMart.BusinessLayer
             bool retValue =   dby.SelectFromSale(_MToDate);            
         }       
 
-        public void DeleteFromtblTrnactbldailyshortlist(string _MToDate)
-        {
-            bool retValue = false;
-            DBYearEnd dby = new DBYearEnd();
-            retValue = dby.DeleteFromtblTrnactbldailyshortlist(_MToDate); 
-        }
+        //public void DeleteFromtblTrnacdetailpurchaseorder(string _MToDate)
+        //{
+        //    bool retValue = false;
+        //    DBYearEnd dby = new DBYearEnd();
+        //    retValue = dby.DeleteFromtblTrnac(_MToDate); 
+        //}
 
         public void DeleteFromDetails(string _MToDate)
         {

@@ -1171,7 +1171,7 @@ namespace EcoMart.InterfaceLayer
                     int mmqty = 0;
 
                     string mmaccid = "";
-                    string mmordid = "";
+                    //string mmordid = "";
                     string preaccountid = "";
                     double mmpurrate = 0;
                     double mmamt = 0;
@@ -1188,7 +1188,7 @@ namespace EcoMart.InterfaceLayer
                     mmpurrate = 0;
                     mmamt = 0;
                     mmaccid = "";
-                    mmordid = "";
+                    //mmordid = "";
                     mmprodID = 0;
 
                     //_DailyPurchaseOrder.DSLMasterID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");

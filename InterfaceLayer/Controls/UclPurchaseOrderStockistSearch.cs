@@ -62,6 +62,7 @@ namespace EcoMart.InterfaceLayer
             string retValue = "";
             try
             {
+                
                 if (dgvSearchList.Rows.Count > 0)
                 {
                     retValue = dgvSearchList.SelectedRow.Cells[0].Value.ToString();
@@ -149,7 +150,7 @@ namespace EcoMart.InterfaceLayer
         private void FillSearchGrid()
         {
             try
-            {
+            {                
                 FillSearchGridData();
                 dgvSearchList.DataSource = _BindingSource;
                 dgvSearchList.Bind();

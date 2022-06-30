@@ -47,6 +47,8 @@ namespace EcoMart.BusinessLayer
         private double _CBTotalDiscount;
         private string _CBJVID;
         private int _CBJVNo;
+        private string _CBPaymodeID;
+        private string _CBPaymentMode;
         private string _CBFromDate;
         private string _CBToDate;
         private int _PaymentSubType;
@@ -80,6 +82,8 @@ namespace EcoMart.BusinessLayer
         private string _preChequeNumber;
         private string _preChequeDate;
         private double _preOnAccountAmount;
+        private string _prepaymentmodeID;
+        private string _prePaymentModeOption;
 
         private int _ChequeReturnVouNo;
         private string _ChequeReturnVouDate;
@@ -124,6 +128,17 @@ namespace EcoMart.BusinessLayer
         {
             get { return _CBJVNo; }
             set { _CBJVNo = value; }
+        }
+
+        public string  CBPaymodeID
+        {
+            get { return _CBPaymodeID; }
+            set { _CBPaymodeID = value; }
+        }
+        public string CBPaymentModeOption
+        {
+            get { return _CBPaymentMode; }
+            set { _CBPaymentMode = value; }
         }
         public int CBJVIDpay
         {
@@ -373,6 +388,7 @@ namespace EcoMart.BusinessLayer
             get { return _preBranchId; }
             set { _preBranchId = value; }
         }
+
         public string preBankName
         {
             get { return _preBankName; }
@@ -387,6 +403,17 @@ namespace EcoMart.BusinessLayer
         {
             get { return _preAccountId; }
             set { _preAccountId = value; }
+        }
+        public string prepaymentmodeID
+        {
+            get { return _prepaymentmodeID; }
+            set { _prepaymentmodeID = value; }
+        }
+
+        public string prePaymentModeOption
+        {
+            get { return _prePaymentModeOption; }
+            set { _prePaymentModeOption = value; }
         }
         public string preVouDate
         {
@@ -645,6 +672,8 @@ namespace EcoMart.BusinessLayer
                 {
                     CBAccountID = drow["AccountId"].ToString();
                     CBName = drow["AccName"].ToString();
+                    CBPaymodeID = drow["CBPaymodeID"].ToString();
+                    CBPaymentModeOption = drow["PayModeOption"].ToString();
                     CBAddress1 = drow["AccAddress1"].ToString();
                     CBAddress2 = drow["AccAddress2"].ToString();
                     CBVouNo = Convert.ToInt32(drow["VoucherNumber"].ToString());
@@ -673,6 +702,7 @@ namespace EcoMart.BusinessLayer
                     preBankID = CBBankID;
                     preBranchID = CBBranchID;
                     preOnAccountAmount = CBOnAccountAmount;
+                    prepaymentmodeID = CBPaymodeID;
                     retValue = true;
                 }
             }
@@ -860,7 +890,7 @@ namespace EcoMart.BusinessLayer
         public int AddDetails()
         {
             DBBankReceipt CBtran = new DBBankReceipt();
-            return CBtran.AddDetails(Id, CBAccountID, CBNarration, CBVouType, CBVouNo, CBVouDate, CBAmount, CBBankAccountID, CBBankID, CBBranchID, CBChequeNumber, CBChequeDate,CBOnAccountAmount, CBTotalDiscount, CBJVNo, CBJVIDpay, CreatedBy,CreatedDate,CreatedTime);
+            return CBtran.AddDetails(Id, CBAccountID, CBNarration, CBVouType, CBVouNo, CBVouDate, CBAmount, CBBankAccountID, CBBankID, CBBranchID, CBChequeNumber, CBChequeDate,CBOnAccountAmount, CBTotalDiscount, CBJVNo, CBJVIDpay, CreatedBy,CreatedDate,CreatedTime, CBPaymodeID);
         }
 
         public bool AddChangedDetails()
@@ -986,7 +1016,7 @@ namespace EcoMart.BusinessLayer
         public bool UpdateDetails()
         {
             DBBankReceipt CBtran = new DBBankReceipt();
-            return CBtran.UpdateDetails(Id, CBAccountID, CBNarration, CBVouType, CBVouNo, CBVouDate, CBAmount, CBBankAccountID, CBBankID, CBBranchID, CBChequeNumber, CBChequeDate,CBOnAccountAmount, CBTotalDiscount, CBJVNo, CBJVID, ModifiedBy,ModifiedDate,ModifiedTime);
+            return CBtran.UpdateDetails(Id, CBAccountID, CBNarration, CBVouType, CBVouNo, CBVouDate, CBAmount, CBBankAccountID, CBBankID, CBBranchID, CBChequeNumber, CBChequeDate,CBOnAccountAmount, CBTotalDiscount, CBJVNo, CBJVID, ModifiedBy,ModifiedDate,ModifiedTime,CBPaymodeID);
         }
         public bool UpdateDetailsForFifth()
         {

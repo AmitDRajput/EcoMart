@@ -19,6 +19,15 @@ namespace EcoMart.DataLayer
             dtable = DBInterface.SelectDataTable(strSql);
 
             return dtable;
+        }        
+        public DataTable GetPaymentModeData()
+        {
+            DataTable dtable = new DataTable();
+            string strSql = "Select PayModeID, PayModeOption from PaymentMode order by PayModeOption";
+
+            dtable = DBInterface.SelectDataTable(strSql);
+
+            return dtable;
         }
 
         public DataRow ReadDetailsByID(string Id)

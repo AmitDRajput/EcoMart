@@ -63,7 +63,7 @@ namespace EcoMart.DataLayer
             DataRow dRow = null;
             if (Id != "")
             {
-                string strSql = "Select a.CBID,a.VoucherSeries,a.VoucherType,a.IfChequereturn,a.VoucherNumber,a.VoucherDate,a.AccountID,a.AmountNet,a.Narration,a.OnaccountAmount,a.ChequeNumber,a.ChequeDate,a.ChequeDepositedBankID,a.CustomerBankID,a.CustomerBranchID,a.TotalDiscount,a.BankSlipNumber,a.BankSlipDate,b.AccName,b.AccAddress1,b.AccAddress2 from vouchercashbankreceipt a inner join masteraccount b on a.AccountID = b.AccountID where CBID='{0}' ";
+                string strSql = "Select a.CBID,a.VoucherSeries,a.VoucherType,a.IfChequereturn,a.VoucherNumber,a.VoucherDate,a.AccountID,a.AmountNet,a.Narration,a.OnaccountAmount,a.ChequeNumber,a.ChequeDate,a.ChequeDepositedBankID,a.CustomerBankID,a.CustomerBranchID,a.TotalDiscount,a.BankSlipNumber,a.BankSlipDate,b.AccName,b.AccAddress1,b.AccAddress2 ,pm.PayModeOption ,a.CBPaymodeID  from vouchercashbankreceipt a inner join masteraccount b on a.AccountID = b.AccountID inner join PaymentMode pm on pm.PayModeID = a.CBPaymodeID  where CBID='{0}' ";
                 strSql = string.Format(strSql, Id);
                 dRow = DBInterface.SelectFirstRow(strSql);
             }           
@@ -167,7 +167,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
             string strSql = "Select distinct a.MasterSaleID as ID,a.MasterID, a.MasterSaleID,a.BillSeries as VoucherSeries,a.BillType as VoucherType,a.BillNumber as VoucherNumber,a.BillDate as VoucherDate,a.BillSubType as VoucherSubType,a.BillAmount as AmountNet,a.BalanceAmount as AmountBalance," +
-                                   "a.ClearAmount as AmountClear,a.DiscountAmount,a.FromDate,a.ToDate,b.AccountID,c.PatientShortName ,a.SerialNumber " +
+                                   "a.ClearAmount as AmountClear,a.DiscountAmount,a.FromDate,a.ToDate,b.AccountID,c.PatientShortName ,a.SerialNumber ,b.CBPaymodeID " +
                             " from detailcashbankreceipt a inner join vouchercashbankreceipt b  on a.MasterId = b.CBId  left outer join vouchersale c on a.MasterSaleID = c.ID where  a.MasterID =  " + "'" + Id + "' and b.AccountID = '" + accid + "' order by a.SerialNumber desc";
 
             dtable = DBInterface.SelectDataTable(strSql);
@@ -200,7 +200,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
             string strSql = "Select a.MasterID as ID, a.MasterSaleID,a.BillSeries as VoucherSeries,a.BillType as VoucherType,a.BillNumber as VoucherNumber,a.BillDate as VoucherDate,a.BillSubType as VoucherSubType,a.BillAmount as AmountNet,a.BalanceAmount as AmountBalance," +
-                                   "a.ClearAmount as AmountClear,a.DiscountAmount,a.MasterId ,a.FromDate,a.ToDate,b.AccountID,d.AccName as PatientShortName " +
+                                   "a.ClearAmount as AmountClear,a.DiscountAmount,a.MasterId ,a.FromDate,a.ToDate,b.AccountID,d.AccName as PatientShortName , b.CBPaymodeID " +
                             " from detailcashbankreceipt a inner join vouchercashbankreceipt b  on a.MasterId = b.CBId  inner join voucherstatement c on a.MasterSaleID = c.ID  inner join masteraccount d on c.AccountID = d.AccountID where  a.MasterID =  " + "'" + Id + "' and b.AccountID = '" + accid + "' order by a.SerialNumber";
 
             dtable = DBInterface.SelectDataTable(strSql);
@@ -222,11 +222,11 @@ namespace EcoMart.DataLayer
         }
 
         public int AddDetails(string Id, string CreditorId, string Narration, string VouType, int VouNo,
-             string VouDate, double Amt,string bankaccount,string bank,string branch,string chqno,string chqdate, double onaccountamount , double totalDiscount, int jvno, int jvID, string createdby, string createddate, string createdtime)
+             string VouDate, double Amt,string bankaccount,string bank,string branch,string chqno,string chqdate, double onaccountamount , double totalDiscount, int jvno, int jvID, string createdby, string createddate, string createdtime,string PaymodeID)
         {
           //  bool bRetValue = false;
             string strSql = GetInsertQuery(Id, CreditorId, Narration, VouType, VouNo,
-                VouDate, Amt,bankaccount,bank,branch,chqno,chqdate,onaccountamount, totalDiscount, jvno, jvID, createdby,createddate,createdtime);
+                VouDate, Amt,bankaccount,bank,branch,chqno,chqdate,onaccountamount, totalDiscount, jvno, jvID, createdby,createddate,createdtime, PaymodeID);
 
             //bool ii = (DBInterface.ExecuteQuery(strSql) > 0);
             //strSql = "select last_insert_ID()";
@@ -422,11 +422,11 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
         public bool UpdateDetails(string Id, string CreditorId, string Narration, string VouType, int VouNo,
-             string VouDate, double Amt, string bankaccount, string bank, string branch, string chqno, string chqdate,double onaccountamount, double totalDiscount, int jvnumber, string jvID, string modifiedby, string modifieddate, string modifiedtime)
+             string VouDate, double Amt, string bankaccount, string bank, string branch, string chqno, string chqdate,double onaccountamount, double totalDiscount, int jvnumber, string jvID, string modifiedby, string modifieddate, string modifiedtime, string PaymodeID)
         {
             bool bRetValue = false;
             string strSql = GetUpdateQuery(Id, CreditorId, Narration, VouType, VouNo,
-                VouDate, Amt,bankaccount,bank,branch,chqno,chqdate,onaccountamount, totalDiscount, jvnumber,jvID, modifiedby,modifieddate,modifiedtime);
+                VouDate, Amt,bankaccount,bank,branch,chqno,chqdate,onaccountamount, totalDiscount, jvnumber,jvID, modifiedby,modifieddate,modifiedtime, PaymodeID);
 
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
@@ -533,7 +533,7 @@ namespace EcoMart.DataLayer
             return sQuery.ToString();
         }
         private string GetInsertQuery(string Id, string CreditorId, string Narration, string VouType, int VouNo,
-             string VouDate, double Amt,string bankaccount,string bank,string branch,string chqno,string chqdate,double onaccountamount, double totalDiscount, int jvno, int jvID, string createdby, string createddate, string createdtime)
+             string VouDate, double Amt,string bankaccount,string bank,string branch,string chqno,string chqdate,double onaccountamount, double totalDiscount, int jvno, int jvID, string createdby, string createddate, string createdtime,string PaymodeID)
         {
             Query objQuery = new Query();
             objQuery.Table = "vouchercashbankreceipt";
@@ -558,6 +558,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("CreatedUserID", createdby);
             objQuery.AddToQuery("CreatedDate", createddate);
             objQuery.AddToQuery("CreatedTime", createdtime);
+            objQuery.AddToQuery("CBPaymodeID", PaymodeID);
             return objQuery.InsertQuery();
         }
 
@@ -653,7 +654,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("BillSeries", RSeries);
             objQuery.AddToQuery("BillType", RType);
             objQuery.AddToQuery("BillNumber", RNumber);
-            //objQuery.AddToQuery("BillDate", RDate);
+            objQuery.AddToQuery("BillDate", RDate);
             objQuery.AddToQuery("BillSubType", RSubType);
             objQuery.AddToQuery("BillAmount", RBillAmount);
             objQuery.AddToQuery("ClearAmount", RClearedAmount);
@@ -725,7 +726,7 @@ namespace EcoMart.DataLayer
             return objQuery.InsertQuery();
         }
         private string GetUpdateQuery(string Id, string CreditorId, string Narration, string VouType, int VouNo,
-             string VouDate, double Amt, string bankaccount, string bank, string branch, string chqno, string chqdate,double onaccountamount, double totalDiscount, int jvnumber, string jvID, string modifiedby, string modifieddate, string modifiedtime)
+             string VouDate, double Amt, string bankaccount, string bank, string branch, string chqno, string chqdate,double onaccountamount, double totalDiscount, int jvnumber, string jvID, string modifiedby, string modifieddate, string modifiedtime,string PaymodeID)
         {
             Query objQuery = new Query();
             objQuery.Table = "vouchercashbankreceipt";
@@ -750,6 +751,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("ModifiedUserID", modifiedby);
             objQuery.AddToQuery("ModifiedDate", modifieddate);
             objQuery.AddToQuery("ModifiedTime", modifiedtime);
+            objQuery.AddToQuery("CBPaymodeID", PaymodeID);
             return objQuery.UpdateQuery();
         }
         private string GetUpdateQueryForFifth(string Id, string CreditorId, string Narration, string VouType, int VouNo,

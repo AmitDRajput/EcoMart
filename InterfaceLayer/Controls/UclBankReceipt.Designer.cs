@@ -49,6 +49,8 @@
             this.datePickerBillDate = new System.Windows.Forms.DateTimePicker();
             this.txtVouchernumber = new PharmaSYSPlus.CommonLibrary.GeneralTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.psLabel1 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
+            this.pspaymode = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
             this.lblToDate = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl6 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.datePickerChequeDate = new System.Windows.Forms.DateTimePicker();
@@ -331,6 +333,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.psLabel1);
+            this.panel1.Controls.Add(this.pspaymode);
             this.panel1.Controls.Add(this.lblToDate);
             this.panel1.Controls.Add(this.mPlbl6);
             this.panel1.Controls.Add(this.datePickerChequeDate);
@@ -357,6 +361,37 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(567, 236);
             this.panel1.TabIndex = 1104;
+            // 
+            // psLabel1
+            // 
+            this.psLabel1.AutoSize = true;
+            this.psLabel1.Location = new System.Drawing.Point(301, 117);
+            this.psLabel1.Name = "psLabel1";
+            this.psLabel1.Size = new System.Drawing.Size(62, 16);
+            this.psLabel1.TabIndex = 1089;
+            this.psLabel1.Text = "&PayMode";
+            // 
+            // pspaymode
+            // 
+            this.pspaymode.ColumnWidth = null;
+            this.pspaymode.DataSource = null;
+            this.pspaymode.DisplayColumnNo = 1;
+            this.pspaymode.DropDownHeight = 200;
+            this.pspaymode.Location = new System.Drawing.Point(364, 113);
+            this.pspaymode.Margin = new System.Windows.Forms.Padding(4);
+            this.pspaymode.Name = "pspaymode";
+            this.pspaymode.SelectedID = "";
+            this.pspaymode.SelectedIDtest = 0;
+            this.pspaymode.SelectedIntID = 0;
+            this.pspaymode.ShowNew = false;
+            this.pspaymode.Size = new System.Drawing.Size(120, 22);
+            this.pspaymode.SourceDataString = null;
+            this.pspaymode.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
+            this.pspaymode.TabIndex = 1088;
+            this.pspaymode.UserControlToShow = null;
+            this.pspaymode.ValueColumnNo = 0;
+            this.pspaymode.SeletectIndexChanged += new System.EventHandler(this.pspaymode_SeletectIndexChanged);
+            this.pspaymode.EnterKeyPressed += new System.EventHandler(this.pspaymode_EnterKeyPressed);
             // 
             // lblToDate
             // 
@@ -927,5 +962,7 @@
         private System.Windows.Forms.DateTimePicker datePickerToDate;
         private CommonControls.PSLabel lblFromDate;
         private System.Windows.Forms.DateTimePicker datePickerFromDate;
+        private CommonControls.PSLabel psLabel1;
+        private CommonControls.PSComboBoxNew pspaymode;
     }
 }

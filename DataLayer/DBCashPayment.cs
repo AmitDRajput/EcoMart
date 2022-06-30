@@ -528,7 +528,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("BillSeries", RSeries);
             objQuery.AddToQuery("BillType", RType);
             objQuery.AddToQuery("BillNumber", RNumber);
-            //objQuery.AddToQuery("BillDate", RDate);      
+            objQuery.AddToQuery("BillDate", RDate);      
             objQuery.AddToQuery("BillAmount", RBillAmount);
             objQuery.AddToQuery("ClearAmount", RClearedAmount);
             objQuery.AddToQuery("BalanceAmount", RBalanceAmount);

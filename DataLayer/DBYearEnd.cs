@@ -628,18 +628,18 @@ namespace EcoMart.DataLayer
         //other tables
 
 
-        public bool DeleteFromtblTrnactbldailyshortlist(string toDate)
+        public bool DeleteFromtblTrnacdetailpurchaseorderstockist(string toDate)
         {
             bool returnVal = false;
             string strSql = "delete from tbltrnac where Transactiondate <= '" + toDate + "'";
             if (DBInterface.ExecuteQuery(strSql) > 0)
                 returnVal = true;
 
-            strSql = "delete from tbldailyshortlist where ShortListDate <= '" + toDate + "' || CreatedDate <= '" + toDate + "'";
+            strSql = "delete from detailpurchaseorderstockist where ShortListDate <= '" + toDate + "' || CreatedDate <= '" + toDate + "'";
             if (DBInterface.ExecuteQuery(strSql) > 0)
                 returnVal = true;
 
-            strSql = "delete from masterorder where voucherDate <= '" + toDate + "'";
+            strSql = "delete from masterpurchaseorderstockist where voucherDate <= '" + toDate + "'";
             if (DBInterface.ExecuteQuery(strSql) > 0)
                 returnVal = true;
 
@@ -988,11 +988,11 @@ namespace EcoMart.DataLayer
                 if (DBInterface.ExecuteQuery(strSql) > 0)
                     returnVal = true;
 
-                strSql = "delete from tbldailyshortlist where ShortListDate > '" + toDate + "'";
+                strSql = "delete from detailpurchaseorderstockist where ShortListDate > '" + toDate + "'";
                 if (DBInterface.ExecuteQuery(strSql) > 0)
                     returnVal = true;
 
-                strSql = "delete from masterorder where voucherDate > '" + toDate + "'";
+                strSql = "delete from masterpurchaseorderstockist where voucherDate > '" + toDate + "'";
                 if (DBInterface.ExecuteQuery(strSql) > 0)
                     returnVal = true;
 

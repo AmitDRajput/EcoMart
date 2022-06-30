@@ -81,10 +81,11 @@ namespace EcoMart.InterfaceLayer.CommonControls
                 if (mcbProduct.SelectedID != null && mcbProduct.SelectedID != string.Empty)
                     FillSearchData(mcbProduct.SelectedID, "");
                 if (mcbCreditor.SeletedItem == null)
-                    mcbCreditor.Focus();
+                    txtQuantity.Focus();
                 else
                     txtQuantity.Focus();
             }
+
             catch (Exception ex)
             {
                 Log.WriteError(ex.ToString());
@@ -124,6 +125,22 @@ namespace EcoMart.InterfaceLayer.CommonControls
         {
             try
             {
+                double  mprate = 0;
+                int orderqty = 0;
+                double mnetamt = 0;
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.Stockist)
+                {
+                    _Party.Id = Convert.ToString(General.EcoMartLicense.CNFInfo.ShopID);
+                    _Party.IntID = General.EcoMartLicense.CNFInfo.ShopID;
+                    _Party.AccName = General.EcoMartLicense.CNFInfo.ShopName;
+                }
+                else if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+                {
+                    _Party.Id = Convert.ToString ( General.EcoMartLicense.EcoMartInfo.ShopID);
+                    _Party.IntID = General.EcoMartLicense.EcoMartInfo.ShopID;
+                    _Party.AccName = General.EcoMartLicense.EcoMartInfo.ShopName;
+                }
+                
                 if (MainViewControl.dgMainGrid != null && string.IsNullOrEmpty(_Party.Id) == false && string.IsNullOrEmpty(_Product.Id) == false && txtQuantity.Text != null && txtQuantity.Text.ToString() != string.Empty && Convert.ToInt32(txtQuantity.Text.ToString()) > 0)
                 {
                     foreach (DataGridViewRow item in MainViewControl.dgMainGrid.Rows)
@@ -142,7 +159,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                     DataGridViewRow dr = MainViewControl.dgMainGrid.Rows[i];
                     dr.Cells["Col_ACCID"].Value = _Party.Id;
                     dr.Cells["Col_AccName"].Value = _Party.AccName;
-                    dr.Cells["Col_ShortListID"].Value = "0";
+                    //dr.Cells["Col_ShortListID"].Value = "0";
                     dr.Cells["Col_ProdID"].Value = _Product.Id;
                     dr.Cells["Col_ProductName"].Value = _Product.Name;
                     dr.Cells["Col_UOM"].Value = _Product.ProdLoosePack;
@@ -150,19 +167,23 @@ namespace EcoMart.InterfaceLayer.CommonControls
                     dr.Cells["Col_ProdCompShortName"].Value = _Product.ProdCompShortName;
                     dr.Cells["Col_BoxQty"].Value = _Product.ProdBoxQty;
                     dr.Cells["Col_ClosingStock"].Value = _Product.ProdClosingStock;
-                    dr.Cells["Col_ID1"].Value = "";
-                    dr.Cells["Col_AccName1"].Value = "";
-                    dr.Cells["Col_ID2"].Value = "";
-                    dr.Cells["Col_Check1"].Value = "";
-                    dr.Cells["Col_AccName2"].Value = "";
-                    dr.Cells["Col_IfSave"].Value = "True";
+                    //dr.Cells["Col_ID1"].Value = "";
+                    //dr.Cells["Col_AccName1"].Value = "";
+                    //dr.Cells["Col_ID2"].Value = "";
+                    //dr.Cells["Col_Check1"].Value = "";
+                    //dr.Cells["Col_AccName2"].Value = "";
+                    //dr.Cells["Col_IfSave"].Value = "True";
                     dr.Cells["Col_PurchaseRate"].Value = _Product.ProdlastPurchaseRate;
                     dr.Cells["Col_OrderNumber"].Value = "0";
-                    dr.Cells["Col_Quantity1"].Value = txtQuantity.Text;
+                    dr.Cells["Col_SaleStock"].Value = txtQuantity.Text;
                     dr.Cells["Col_Quantity"].Value = txtQuantity.Text;
                     dr.Cells["Col_SchemeQuantity"].Value = txtSchemeQuantity.Text;
-                    dr.Cells["Col_AccAddress1"].Value = "";
-                    dr.Cells["Col_AccAddress2"].Value = "";
+                    mprate = Convert.ToDouble(_Product.ProdlastPurchaseRate.ToString());
+                    orderqty = Convert.ToInt32(txtQuantity.Text.ToString());
+                    mnetamt = Convert.ToDouble(Convert.ToDouble(orderqty) * mprate);
+                    dr.Cells["Col_NetRate"].Value = mnetamt;                   
+                    //dr.Cells["Col_AccAddress1"].Value = "";
+                    //dr.Cells["Col_AccAddress2"].Value = "";
                     SetControltoDefault();
                 }
                 else
@@ -182,7 +203,8 @@ namespace EcoMart.InterfaceLayer.CommonControls
             }
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Left)
             {
-                mcbCreditor.Focus();
+                //mcbCreditor.Focus();
+                mcbProduct.Focus();
             }
         }
         private void txtSchemeQuantity_KeyUp(object sender, KeyEventArgs e)

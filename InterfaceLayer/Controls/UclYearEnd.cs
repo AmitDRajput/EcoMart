@@ -783,7 +783,7 @@ namespace EcoMart.InterfaceLayer
             retValue = ye.CreateTable(currentdatabase, _oldyeardatabase, tablename);
             tablename = "masterhospitalpatient";
             retValue = ye.CreateTable(currentdatabase, _oldyeardatabase, tablename);
-            tablename = "masterorder";
+            tablename = "masterpurchaseorderstockist";
             retValue = ye.CreateTable(currentdatabase, _oldyeardatabase, tablename);
             tablename = "masterpack";
             retValue = ye.CreateTable(currentdatabase, _oldyeardatabase, tablename);
@@ -825,7 +825,7 @@ namespace EcoMart.InterfaceLayer
             retValue = ye.CreateTable(currentdatabase, _oldyeardatabase, tablename);
                 tablename = "tblbillimportlink";
                 retValue = ye.CreateTable(currentdatabase, _oldyeardatabase, tablename);
-                tablename = "tbldailyshortlist";
+                tablename = "detailpurchaseorderstockist";
             retValue = ye.CreateTable(currentdatabase, _oldyeardatabase, tablename);
             tablename = "masterEmail";
             retValue = ye.CreateTable(currentdatabase, _oldyeardatabase, tablename);
@@ -1137,7 +1137,7 @@ namespace EcoMart.InterfaceLayer
                 _YearEnd.DeleteFromDetails(_MToDate);
                 ShowYearEndProgressInfo("Delete From Other Details Tables");
 
-                _YearEnd.DeleteFromtblTrnactbldailyshortlist(_MToDate);
+                //_YearEnd.DeleteFromtblTrnacdetailpurchaseorder(_MToDate);
             }
             catch (Exception Ex)
             {

@@ -37,6 +37,8 @@ namespace EcoMart.BusinessLayer
         private int _DayofWeek;
         private int _DSLProductID;
         private int _DSLSchemeQuantity;
+        private int _DSLSaleQuantity;
+        private int _DSLClosingStock;
         #endregion
 
         #region Constructors, Destructors
@@ -54,6 +56,16 @@ namespace EcoMart.BusinessLayer
         #endregion
 
         #region Properties
+        public int DSLSaleQuantity
+        {
+            get { return _DSLSaleQuantity; }
+            set { _DSLSaleQuantity = value; }
+        }
+        public int DSLClosingStock
+        {
+            get { return _DSLClosingStock; }
+            set { _DSLClosingStock = value; }
+        }
         public int DSLSchemeQuantity
         {
             get { return _DSLSchemeQuantity; }
@@ -181,6 +193,19 @@ namespace EcoMart.BusinessLayer
             get { return _DSLAmount; }
             set { _DSLAmount = value; }
         }
+
+        public DataTable  ReadDetailsByID()
+        {
+            DataTable dtable = new DataTable();
+
+            string strSql = "Select a.DSLID,a.stockistOrderNumber,a.stockistOrderDate,a.stockistOrderQuantity,a.stockistAccountID,a.stockistSchemeQuantity,a.stockistsalequantity,a.stockistclosingstock,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
+          "b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock, b.ProdLastPurchaseRate  from detailpurchaseorderstockist a " +
+         " inner join masterproduct b on a.ProductID = b.ProductID  where a.MasterID = " + IntID   + "  Order by a.stockistOrderNumber ";
+          
+            dtable = DBInterface.SelectDataTable(strSql);
+            return dtable;
+        }
+
         public int CurrentOrderNumber
         {
             get { return _CurrentOrderNumber; }
@@ -254,15 +279,15 @@ namespace EcoMart.BusinessLayer
         }
         public bool CreateOrder()
         {
-            DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
-            return dpo.CreateOrder(DSLID, DSLAccountID, DSLQty, DSLIFSave,DSLOrderNumber,EndDay,DSLDailyShortList,DSLPurchaseRate, DSLMasterID, DSLSchemeQuantity , CreatedBy,CreatedDate,CreatedTime);
-          
+            //DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
+            //return dpo.CreateOrder(DSLID, DSLAccountID, DSLQty, DSLIFSave, DSLOrderNumber, EndDay, DSLDailyShortList, DSLPurchaseRate, DSLMasterID, DSLSchemeQuantity, CreatedBy, CreatedDate, CreatedTime);
+            return true;
         }
 
         public int CreateOrderForToday()
         {
             DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
-            return dpo.CreateOrderForToday(DSLAccountID, DSLQty, DSLIFSave, DSLOrderNumber, EndDay, DSLDailyShortList, DSLPurchaseRate, DSLMasterID, DSLProductID.ToString(), DSLSchemeQuantity, CreatedBy, CreatedDate, CreatedTime, netrate);
+            return dpo.AddInDetailPurchaseOrder(DSLAccountID, DSLQty, DSLIFSave, DSLOrderNumber, EndDay, DSLDailyShortList, DSLPurchaseRate, DSLMasterID, DSLProductID.ToString(), DSLSchemeQuantity, CreatedBy, CreatedDate, CreatedTime, netrate, IntID, DSLSaleQuantity,DSLClosingStock) ;
         }
         public int AddDetails()
         {
@@ -325,5 +350,22 @@ namespace EcoMart.BusinessLayer
             return dpo.ReadLastOrderRemainingProductsAllTypes();
         }
 
+        public bool UpdatePurchaseOrderNumberIndetailsale()
+        {
+            DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
+            return dpo.UpdatePurchaseOrderNumberIndetailsale(DSLOrderNumber, FromDay,EndDay);
+        }
+
+        public  bool UpdateMasterIDinDetailPurchaseOrder()
+        {
+            DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
+            return dpo.UpdateMasterIDinDetailPurchaseOrder(DSLOrderNumber,IntID );
+        }
+
+        public bool InsertRowinDailypurchaseorderfromstockist(int mshopid, int mcnfid, int mecomartid, int mprodid, int orderqty, int mschemeqty, int salequantity, int closingstock, int mordernumber, string morderdate)
+        {
+            DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
+            return dpo.InsertRowinDailypurchaseorderfromstockist(mshopid, mcnfid, mecomartid, mprodid, orderqty,mschemeqty,salequantity,closingstock,mordernumber,morderdate);
+        }
     }
 }

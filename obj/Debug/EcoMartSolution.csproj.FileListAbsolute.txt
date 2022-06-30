@@ -730,7 +730,6 @@ C:\Users\HP\Documents\GitHub\EcoMart\bin\Debug\cs\EcoMart.resources.dll
 C:\Users\HP\Documents\GitHub\EcoMart\bin\Debug\EcoMartLicenseLib.dll
 C:\Users\HP\Documents\GitHub\EcoMart\bin\Debug\MySqlBackup.dll
 C:\Users\HP\Documents\GitHub\EcoMart\bin\Debug\MySql.Data.dll
-C:\Users\HP\Documents\GitHub\EcoMart\bin\Debug\EcoMartLicenseLib.pdb
 C:\Users\HP\Documents\GitHub\EcoMart\bin\Debug\MySql.Data.xml
 C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMartSolution.csproj.AssemblyReference.cache
 C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMart.InterfaceLayer.CommonControls.PSAutoSuggestTextBox.resources
@@ -832,7 +831,6 @@ C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMart.InterfaceLayer.UclPhoneBo
 C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMart.InterfaceLayer.UclPhoneBookSearch.resources
 C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMart.InterfaceLayer.UclPrescription.resources
 C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMart.InterfaceLayer.UclPrescriptionSearch.resources
-C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMart.InterfaceLayer.UclPurchaseOrderAllTypes.resources
 C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMart.InterfaceLayer.UclPurchaseOrderList.resources
 C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMart.InterfaceLayer.UclSaleSummaryControl.resources
 C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMart.InterfaceLayer.UclToolDistributorPercentageChange.resources
@@ -1083,3 +1081,4 @@ C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\cs\EcoMart.resources.dll
 C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMartSolution.csproj.CopyComplete
 C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMart.exe
 C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMart.pdb
+C:\Users\HP\Documents\GitHub\EcoMart\obj\Debug\EcoMart.InterfaceLayer.UclPurchaseOrderStockist.resources

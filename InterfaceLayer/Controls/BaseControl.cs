@@ -417,6 +417,7 @@ namespace EcoMart.InterfaceLayer
             {
                 if (SearchControl != null)
                 {
+                    
                     frmSearch = new Form();
                     frmSearch.FormBorderStyle = FormBorderStyle.None;
                     frmSearch.Height = 500;

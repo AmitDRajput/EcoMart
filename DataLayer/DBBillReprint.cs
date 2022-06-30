@@ -181,7 +181,7 @@ namespace EcoMart.DataLayer
 
         public DataRow CheckProductInShortList(int ProductID)
         {
-            string strSql = string.Format("Select *  from tbldailyshortlist where ProductID = '{0}' &&  OrderNumber =  0", ProductID);
+            string strSql = string.Format("Select *  from detailpurchaseorderstockist where ProductID = '{0}' &&  OrderNumber =  0", ProductID);
             return DBInterface.SelectFirstRow(strSql);
         }
 
@@ -198,7 +198,7 @@ namespace EcoMart.DataLayer
         private string GetInsertQueryforShortList(int ProductID, string Voudate, string shortlistid, double purchaserate)
         {
             Query objQuery = new Query();
-            objQuery.Table = "tbldailyshortlist";
+            objQuery.Table = "detailpurchaseorderstockist";
             objQuery.AddToQuery("DSLID", shortlistid);
             objQuery.AddToQuery("ProductID", ProductID);
             objQuery.AddToQuery("ShortListDate", Voudate);
