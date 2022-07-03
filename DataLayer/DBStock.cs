@@ -42,7 +42,7 @@ namespace EcoMart.DataLayer
         public DataTable GetBatchListByProductIDForPurchaseBatchWise(int prodID)
         {
             DataTable dtable = new DataTable();
-            string strSql = string.Format("Select a.ProductID,a.BatchNumber,a.MRP,a.PurchaseRate from tblstock a where ProductID = '{0}' group by a.ProductID,a.BatchNumber,a.mrp", prodID );
+            string strSql = string.Format("Select a.ProductID,a.BatchNumber,a.MRP from tblstock a where ProductID = '{0}' group by a.ProductID,a.BatchNumber,a.mrp", prodID );
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }

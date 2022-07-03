@@ -20,7 +20,7 @@ namespace EcoMart.DataLayer
         public DataTable GetPurchase()
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select purchaseID,EntryDate,VoucherSeries,VoucherType,VoucherSubType,VoucherNumber,VoucherDate,PurchaseBillNumber,AccountID,AmountNet,AmountClear,AmountGross,AmountItemDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountAddOn,CashDiscountPercentage,AmountCreditNote,AmountDebitNote,StatementNumber,RoundUpAmount,OctroiPercentage,AmountOctroi,DueDate,Narration,AmountPurchase4PercentVAT,AmountVAT4Percent,PurchaseAmount12.5PercentVAT,AmountVAT12.5Percent, AmountPurchaseZeroVAT,NumberofChallans,CreatedDate,CreatedUserId,ModifiedDate,ModifiedUserId";
+            string strSql = "Select purchaseID,EntryDate,VoucherSeries,VoucherType,VoucherNumber,VoucherDate,PurchaseBillNumber,AccountID,AmountNet,AmountClear,AmountGross,AmountItemDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountAddOn,CashDiscountPercentage,AmountCreditNote,AmountDebitNote,StatementNumber,RoundUpAmount,OctroiPercentage,AmountOctroi,DueDate,Narration,AmountPurchase4PercentVAT,AmountVAT4Percent,PurchaseAmount12.5PercentVAT,AmountVAT12.5Percent, AmountPurchaseZeroVAT,NumberofChallans,CreatedDate,CreatedUserId,ModifiedDate,ModifiedUserId";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -946,7 +946,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
             string strSql = "";
-            strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,b.GSTnumber,(AmountCreditNote) as TotalLess,(AmountFreight+AmountDebitNote) as TotalAdd,AmountGST0,AmountGSTS5,GSTS5,AmountGSTS12,GSTS12,AmountGSTS18,GSTS18,AmountGSTS28,GSTS28,AmountGSTC5,GSTC5,AmountGSTC12,GSTC12,AmountGSTC18,GSTC18,AmountGSTC28,GSTC28, AmountCreditNote,AmountFreight,AmountDebitNote,RoundUpAmount,AmountCashDiscount from voucherpurchase a inner join masteraccount b on a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' order by VoucherNumber";
+            strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,b.GSTnumber,(AmountCreditNote) as TotalLess,(AmountFreight+AmountDebitNote) as TotalAdd,AmountGST0,AmountGSTS5,GSTS5,AmountGSTS12,GSTS12,AmountGSTS18,GSTS18,AmountGSTS28,GSTS28,AmountGSTC5,GSTC5,AmountGSTC12,GSTC12,AmountGSTC18,GSTC18,AmountGSTC28,GSTC28, AmountCreditNote,AmountFreight,AmountDebitNote,RoundUpAmount,AmountCashDiscount from voucherpurchase a inner join masteraccount b on a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -955,7 +955,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
             string strSql = "";
-            strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.VoucherSubType,a.PurchaseBillNumber,a.VoucherDate,c.ProductID,c.ProdName,c.HSNNumber,b.ProductID,b.ProductVATPercent,b.GSTAmountZero,b.GSTSAmount,b.GSTCAmount,b.GSTIAmount,b.GSTS,b.GSTC,b.GSTI from voucherpurchase a inner join detailpurchase b on a.PurchaseID = b.PurchaseID inner join masterproduct c on b.ProductID = c.ProductID where a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' order by VoucherNumber";
+            strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.PurchaseBillNumber,a.VoucherDate,c.ProductID,c.ProdName,c.HSNNumber,b.ProductID,b.ProductVATPercent,b.GSTAmountZero,b.GSTSAmount,b.GSTCAmount,b.GSTIAmount,b.GSTS,b.GSTC,b.GSTI from voucherpurchase a inner join detailpurchase b on a.PurchaseID = b.PurchaseID inner join masterproduct c on b.ProductID = c.ProductID where a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -970,7 +970,7 @@ namespace EcoMart.DataLayer
         public DataTable GetOverviewDataForWithoutStockSearch()
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.VoucherSubType,a.PurchaseBillNumber,a.VoucherDate,a.AmountNet,b.AccName,b.AccAddress1,b.AccAddress2,a.AmountClear,(a.AmountVAT5Percent+a.AmountVAT12Point5Percent) as AmountVAT from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.VoucherSubType = '2'  order by a.VoucherNumber";
+            string strSql = "Select a.purchaseID,a.VoucherNumber,a.VoucherType,a.PurchaseBillNumber,a.VoucherDate,a.AmountNet,b.AccName,b.AccAddress1,b.AccAddress2,a.AmountClear,(a.AmountVAT5Percent+a.AmountVAT12Point5Percent) as AmountVAT from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID order by a.VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -978,14 +978,14 @@ namespace EcoMart.DataLayer
         public DataTable GetOverviewDataForPurchaseRegister(string fromdate, string todate, string voutype)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select distinct purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear,(AmountVAT5Percent+AmountVAT12Point5Percent) as AmountVAT from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' AND a.vouchertype = '" + voutype + "' order by VoucherNumber";
+            string strSql = "Select distinct purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear,(AmountVAT5Percent+AmountVAT12Point5Percent) as AmountVAT from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' AND a.vouchertype = '" + voutype + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
         public DataTable GetOverviewDataForPurchaseRegister(string fromdate, string todate)
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select distinct purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' order by VoucherNumber";
+            string strSql = "Select distinct purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,AccName,AccAddress1,AccAddress2,AmountClear from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -995,11 +995,11 @@ namespace EcoMart.DataLayer
             string strSql = "";
             if (voutype == string.Empty)
             {
-                strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "'order by VoucherNumber";
+                strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "'order by VoucherNumber";
             }
             else
             {
-                strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' AND a.voucherType = '" + voutype + "' order by VoucherNumber";
+                strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' AND a.voucherType = '" + voutype + "' order by VoucherNumber";
             }
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
@@ -1009,11 +1009,11 @@ namespace EcoMart.DataLayer
             DataTable dtable = new DataTable();
             string strSql = "";
 
-            strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.AccountID = '" + accountID + "' AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "'order by VoucherNumber";
+            strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.AccountID = '" + accountID + "' AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "'order by VoucherNumber";
             //}
             //else
             //{
-            //    strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' AND a.voucherType = '" + voutype + "' order by VoucherNumber";
+            //    strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID AND a.voucherdate >= '" + fromdate + "' AND a.voucherdate <= '" + todate + "' AND a.voucherType = '" + voutype + "' order by VoucherNumber";
             //}
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
@@ -1052,7 +1052,7 @@ namespace EcoMart.DataLayer
         public DataTable GetOverviewDataForVATReport()
         {
             DataTable dtable = new DataTable();
-            string strSql = "Select purchaseID,VoucherNumber,VoucherType,VoucherSubType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID order by VoucherNumber";
+            string strSql = "Select purchaseID,VoucherNumber,VoucherType,PurchaseBillNumber,VoucherDate,AmountNet,b.AccountID,AccName,AccAddress1,AccAddress2,AmountClear,(AmountItemDiscount+AmountSchemeDiscount+AmountCashDiscount+AmountCreditNote) as TotalLess,(AmountAddOn+AmountDebitNote) as TotalAdd,AmountPurchase5PercentVAT,AmountPurchase12point5PercentVAT,AmountPurchaseZeroVAT,AmountItemDiscount,AmountSchemeDiscount,AmountCashDiscount,AmountCreditNote,AmountAddOn,AmountDebitNote,RoundUpAmount, AmountVAT5Percent,AmountVAT12Point5Percent from voucherpurchase a, masteraccount b Where a.AccountID = b.AccountID order by VoucherNumber";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -1278,7 +1278,7 @@ namespace EcoMart.DataLayer
 
 
                     string strSql = "select  b.PurchaseID  , b.VoucherType, " +
-                                    "b.VoucherNumber,b.VoucherSubType,b.VoucherDate,a.AccName,a.AccAddress1,b.AmountNet as Amount,b.AmountBalance, a.AccAddress2 as AccAddress2  from  voucherpurchase b inner join masteraccount a on b.AccountID = a.AccountID  " +
+                                    "b.VoucherNumber,b.VoucherDate,a.AccName,a.AccAddress1,b.AmountNet as Amount,b.AmountBalance, a.AccAddress2 as AccAddress2  from  voucherpurchase b inner join masteraccount a on b.AccountID = a.AccountID  " +
                                     "where b.AccountID = '" + accID + "' AND  b.voucherdate >= '" + fromdate + "'  AND b.VoucherDate <= '" + todate + "' AND b.AmountBalance > 0 order by b.VoucherDate,b.VoucherNumber";
 
 
@@ -1302,7 +1302,7 @@ namespace EcoMart.DataLayer
 
 
                     string strSql = "select  b.PurchaseID  , b.VoucherType, " +
-                                    "b.VoucherNumber,b.VoucherSubType,b.VoucherDate,b.AccountID,a.AccName,a.AccAddress1,b.AmountNet as Amount, b.AmountBalance, a.AccAddress2,a.accopeningdebit,a.accopeningCredit,a.accclearedamount  from  voucherpurchase b " +
+                                    "b.VoucherNumber,b.VoucherDate,b.AccountID,a.AccName,a.AccAddress1,b.AmountNet as Amount, b.AmountBalance, a.AccAddress2,a.accopeningdebit,a.accopeningCredit,a.accclearedamount  from  voucherpurchase b " +
                                     "inner join masteraccount a on b.AccountID = a.AccountID where b.VoucherType = 'PCR' AND  b.AmountBalance > 0   AND  b.voucherdate >= '" + fromdate + "'  AND b.VoucherDate <= '" + todate + "' order by a.AccName, a.AccAddress1,b.VoucherDate";
 
 
@@ -1496,7 +1496,7 @@ namespace EcoMart.DataLayer
         {
             DataRow dRow = null;
             {
-                string strSql = "Select * from voucherpurchase where VoucherType = '" + voutype + "'  AND VoucherSubType = '" + vouSubType + "' AND  VoucherSeries = '" + VouSeries + "'  order by Vouchernumber ";
+                string strSql = "Select * from voucherpurchase where VoucherType = '" + voutype + "'  AND VoucherSeries = '" + VouSeries + "'  order by Vouchernumber ";
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
             return dRow;
@@ -1506,7 +1506,7 @@ namespace EcoMart.DataLayer
         {
             DataRow dRow = null;
             {
-                string strSql = "Select * from voucherpurchase where VoucherType = '" + vouType + "'  AND VoucherSubType = '" + vouSubType + "' AND VoucherSeries = '" + vouSeries + "'  order by Vouchernumber desc ";
+                string strSql = "Select * from voucherpurchase where VoucherType = '" + vouType + "'  AND VoucherSeries = '" + vouSeries + "'  order by Vouchernumber desc ";
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
             return dRow;
@@ -1525,7 +1525,7 @@ namespace EcoMart.DataLayer
         {
             DataRow dRow = null;
             {
-                string strSql = "Select Vouchernumber from voucherpurchase where VoucherType =  '" + vouType + "'  AND  VoucherSubType = '" + vouSubType + "' AND  VoucherSeries = '" + vouSeries + "' order by Vouchernumber desc ";
+                string strSql = "Select Vouchernumber from voucherpurchase where VoucherType =  '" + vouType + "' AND  VoucherSeries = '" + vouSeries + "' order by Vouchernumber desc ";
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
             return dRow;
@@ -1537,7 +1537,7 @@ namespace EcoMart.DataLayer
             DataRow dRow = null;
 
 
-            string strSql = "Select * from voucherpurchase where VoucherNumber = " + vouno + " AND VoucherType = '" + voutype + "'  AND Voucherseries = '" + vouSeries + "' AND VoucherSubType = '" + vousubtype + "'";
+            string strSql = "Select * from voucherpurchase where VoucherNumber = " + vouno + " AND VoucherType = '" + voutype + "'  AND Voucherseries = '" + vouSeries + "'";
             dRow = DBInterface.SelectFirstRow(strSql);
 
             return dRow;
