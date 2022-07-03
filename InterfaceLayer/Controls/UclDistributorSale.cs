@@ -836,7 +836,8 @@ namespace EcoMart.InterfaceLayer
                         mpMSVC.ColumnsMain["Col_Quantity"].ReadOnly = true;
                         mpMSVC.IsAllowDelete = true;
                         mcbCreditor.Enabled = true;
-                        mpMSVC.SetFocus(1);
+                        if (mpMSVC.dgMainGrid.CurrentRow != null)
+                            mpMSVC.SetFocus(1);
                         mpMSVC.Select();
                         txtVouchernumber.Enabled = false;
                         if (_Mode == OperationMode.Edit)
@@ -1748,7 +1749,7 @@ namespace EcoMart.InterfaceLayer
                             //        Filldailyshortlist();
                             //}
                             //else
-                                //break;
+                            //break;
 
                         }
                     }
