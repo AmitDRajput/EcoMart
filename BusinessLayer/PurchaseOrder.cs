@@ -436,5 +436,15 @@ namespace EcoMart.BusinessLayer
             }
             return dt;
         }
+
+        public bool GetAccountIDForPurchaseOrder()
+        {
+            bool retValue = true;
+            DataRow dr;
+            DBSSSale dbs = new DBSSSale();
+            dr = dbs.GetAccountIDForPurchaseOrder();
+            AccountID = dr["AccountID"].ToString(); 
+            return retValue;
+        }
     }
 }

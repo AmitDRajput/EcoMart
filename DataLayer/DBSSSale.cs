@@ -426,6 +426,16 @@ namespace EcoMart.DataLayer
 
             return dr;
         }
+
+        public DataRow GetAccountIDForPurchaseOrder()
+        {
+            DataRow dr;
+
+            string strsql = "select accountID,AccName from masteraccount where acccode = 'C'";
+            dr = DBInterface.SelectFirstRow(strsql);
+
+            return dr;
+        }
         public DataRow GetSchemeDetails(string mprod)
         {
             DataRow dr;
@@ -1090,6 +1100,8 @@ namespace EcoMart.DataLayer
             return objQuery.InsertQuery();
         }
 
+        
+
         private string GetInsertQuerySaleSpecialSale(string Id, string AccountId, string Narration1,string Narration2, string VouType, int VouNo,
            string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5, double Vat12, double rnd,
           string docId, string docshortname, string docAddress, double addon, string vousubtype, double amtbal, double amtclear, double octper, double octamt,
@@ -1184,6 +1196,7 @@ namespace EcoMart.DataLayer
                 int schemeDiscountQuantity, string vouDate, int vouNo, string vouType, double gstPurchaseAmountZero, double gstSPurchaseAmount, double gstCPurchaseAmount,
                double gstSAmount, double gstCAmount, string newbatchno, double newmrp, double newsalerate)
         {
+            int maccountid = Convert.ToInt32(accId);
             Query objQuery = new Query();
             objQuery.Table = "detailsale";
             objQuery.AddToQuery("MasterSaleID", Id);
@@ -1201,6 +1214,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("VATAmount", VatAmt);
             objQuery.AddToQuery("IfProductDiscount", ifproddisc);
             objQuery.AddToQuery("StockID", stockid);
+            objQuery.AddToQuery("AccountID", maccountid) ;
          //   objQuery.AddToQuery("DetailSaleID", mydetailsaleid);
             objQuery.AddToQuery("SerialNumber", serialNumber);
             objQuery.AddToQuery("ProfitInRupees", ProfitInRupees);

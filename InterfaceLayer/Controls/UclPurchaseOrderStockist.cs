@@ -1671,6 +1671,7 @@ namespace EcoMart.InterfaceLayer
             int ProductID = 0;
             int drrProductID = 0;
             bool found = false;
+            retValue =  _PurchaseOrder.GetAccountIDForPurchaseOrder();
             try
             {
 
@@ -1736,10 +1737,10 @@ namespace EcoMart.InterfaceLayer
                                 orderqty = 0;
                                 mnetamt = 0;
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_SrNo"].Value = tempSrNo;
-                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_ACCID"].Value = General.EcoMartLicense.CNFInfo.ShopID;
-                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_AccName"].Value = General.EcoMartLicense.CNFInfo.ShopName;
-                                //mpMainSubViewControl1.Rows[rowindex].Cells["Col_ACCID"].Value = dr["AccountID"].ToString();
-                                //mpMainSubViewControl1.Rows[rowindex].Cells["Col_AccName"].Value = dr["AccName"].ToString();
+                                //mpMainSubViewControl1.Rows[rowindex].Cells["Col_ACCID"].Value = General.EcoMartLicense.CNFInfo.ShopID;
+                                //mpMainSubViewControl1.Rows[rowindex].Cells["Col_AccName"].Value = General.EcoMartLicense.CNFInfo.ShopName;
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_ACCID"].Value = _PurchaseOrder.AccountID;
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_AccName"].Value = dr["AccName"].ToString();
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_ProdID"].Value = dr["ProductID"].ToString();
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_ProductName"].Value = dr["ProdName"].ToString();
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_UOM"].Value = dr["ProdLoosePack"].ToString();

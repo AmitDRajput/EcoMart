@@ -460,7 +460,7 @@ namespace EcoMart.Reporting.Controls
                         DataGridViewRow dgvrow = dgvReportList.Rows[rowIndex];
                         dgvrow.Cells["Col_ID"].Value = dr["PurchaseID"].ToString();
                         dgvrow.Cells["Col_VoucherType"].Value = dr["VoucherType"].ToString();
-                        dgvrow.Cells["Col_VoucherSubType"].Value = dr["VoucherSubType"].ToString();
+                        //dgvrow.Cells["Col_VoucherSubType"].Value = dr["VoucherSubType"].ToString();
                         dgvrow.Cells["Col_VoucherNumber"].Value = dr["VoucherNumber"].ToString();
                         dgvrow.Cells["Col_VoucherDate"].Value = dr["VoucherDate"].ToString();
                         dgvrow.Cells["Col_AccName"].Value = dr["AccName"].ToString();
