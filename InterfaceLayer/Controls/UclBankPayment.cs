@@ -1525,7 +1525,7 @@ namespace EcoMart.InterfaceLayer
                     if (_Mode == OperationMode.Add || (_BankPayment.ActualAccountID != _BankPayment.CBAccountID && _BankPayment.ModifyEdit == "Y"))
                     {
                         dtable = _BankPayment.ReadBillDetailsByID();
-                        _statementdtable = _BankPayment.ReadStatementDetailsByID();
+                        //_statementdtable = _BankPayment.ReadStatementDetailsByID();
                     }
                     else
                         dtable = _BankPayment.ReadBillDetailsByBKPID();
@@ -1592,7 +1592,7 @@ namespace EcoMart.InterfaceLayer
                 retValue = RevertPreviousEntry();
                 IfOpeningAdded = true;
                 _saledtable = _BankPayment.ReadBillDetailsByID();
-                _statementdtable = _BankPayment.ReadStatementDetailsByID();
+                //_statementdtable = _BankPayment.ReadStatementDetailsByID();
                 BindmpMSCSaleGrid(_saledtable, _statementdtable);
                 NoofRows();
                 FillOpeningBalanceGrid("");
@@ -2015,7 +2015,7 @@ namespace EcoMart.InterfaceLayer
                     if (_Mode == OperationMode.Add || (_BankPayment.ActualAccountID != _BankPayment.CBAccountID && _BankPayment.ModifyEdit == "Y"))
                     {
                         dtable = _BankPayment.ReadBillDetailsByID();
-                        _statementdtable = _BankPayment.ReadStatementDetailsByID();
+                        //_statementdtable = _BankPayment.ReadStatementDetailsByID();
 
                         mpMSCSale.Rows.Clear();
                         mpMSVC.Rows.Clear();
@@ -2108,7 +2108,7 @@ namespace EcoMart.InterfaceLayer
                 dtable = _BankPayment.ReadBillDetailsByBKPID();
              //   mpPVCTemp.DataSource = dtable;
                // mpPVCTemp.Bind();
-                _statementdtable = _BankPayment.ReadStatementDetailsByID();
+                //_statementdtable = _BankPayment.ReadStatementDetailsByID();
                 BindTempGrid(dtable, _statementdtable);
                 retValue = true;
             }

@@ -1206,8 +1206,8 @@ namespace EcoMart.InterfaceLayer
                             retValue = _BankReceipt.UpdateOpeningBalanceReducePrevious(_BankReceipt.preAccountID, _BankReceipt.OpeningClearedInVoucher + _BankReceipt.DiscountInOpeningBalance);
                         else if (mvoutype == FixAccounts.VoucherTypeForCreditSale )
                             retValue = _BankReceipt.RevertPreviousSalesBalance(mSaleID, mClearedAmount + mdiscamount);
-                        else if (mvoutype == FixAccounts.VoucherTypeForStatementSale )
-                            retValue = _BankReceipt.RevertPreviousStatementBalance(mSaleID, mClearedAmount + mdiscamount);
+                        //else if (mvoutype == FixAccounts.VoucherTypeForStatementSale )
+                        //    retValue = _BankReceipt.RevertPreviousStatementBalance(mSaleID, mClearedAmount + mdiscamount);
                     }
                     if (retValue == false)
                         break;
@@ -1684,13 +1684,13 @@ namespace EcoMart.InterfaceLayer
 
                 IfOpeningAdded = false;
                 dtable = _BankReceipt.ReadBillDetailsByIDforModify();
-                _statementdtable = _BankReceipt.ReadStatementDetailsByIDforModify();
+                //_statementdtable = _BankReceipt.ReadStatementDetailsByIDforModify();
                 mpMSCSale.Rows.Clear();
                 BindmpMSCSaleGrid(dtable, _statementdtable);
                 retValue = RevertPreviousEntry();
                 IfOpeningAdded = true;
                 _saledtable = _BankReceipt.ReadBillDetailsByID();
-                _statementdtable = _BankReceipt.ReadStatementDetailsByID();
+                //_statementdtable = _BankReceipt.ReadStatementDetailsByID();
                 BindmpMSCSaleGrid(_saledtable, _statementdtable);
                 NoofRows();
                // FillOpeningBalanceGrid("");//Commnet said By Madam
@@ -1772,7 +1772,7 @@ namespace EcoMart.InterfaceLayer
                     if ((_Mode == OperationMode.Add) || (_BankReceipt.ActualAccountID != _BankReceipt.CBAccountID && _BankReceipt.ModifyEdit == "Y"))
                     {
                         _saledtable = _BankReceipt.ReadBillDetailsByID();
-                        _statementdtable = _BankReceipt.ReadStatementDetailsByID();
+                        //_statementdtable = _BankReceipt.ReadStatementDetailsByID();
                         mpMSCSale.Rows.Clear();
                         BindmpMSVCGrid(_saledtable, _statementdtable);
                         IfOpeningAdded = false;
@@ -1790,7 +1790,7 @@ namespace EcoMart.InterfaceLayer
                         else
                         {
                             _saledtable = _BankReceipt.ReadBillDetailsByBKRID();
-                            _statementdtable = _BankReceipt.ReadStatementDetailsByBKRID();
+                            //_statementdtable = _BankReceipt.ReadStatementDetailsByBKRID();
                         }
                         BindmpMSVCGrid(_saledtable, _statementdtable);
                         NoofRowsFormpMSVCGrid();
@@ -1875,36 +1875,36 @@ namespace EcoMart.InterfaceLayer
                 }
 
             }
-            if (statementtable != null && statementtable.Rows.Count > 0)
-            {
-                try
-                {
-                    foreach (DataRow dr in statementtable.Rows)
-                    {
-                        _rowIndex = mpMSVC.Rows.Add();
-                        DataGridViewRow currentdr = mpMSVC.Rows[_rowIndex];
-                        currentdr.Cells["Col_ID"].Value = dr["ID"].ToString();
-                        currentdr.Cells["Col_BillSeries"].Value = dr["VoucherSeries"].ToString();
-                        currentdr.Cells["Col_BillType"].Value = dr["VoucherType"].ToString();
-                        currentdr.Cells["Col_BillNumber"].Value = dr["VoucherNumber"].ToString();
-                        currentdr.Cells["Col_BillSubType"].Value = dr["VoucherSubType"].ToString();
-                        currentdr.Cells["Col_BillFromDate"].Value = dr["VoucherDate"].ToString();
-                        currentdr.Cells["Col_BillAmount"].Value = dr["AmountNet"].ToString();
-                        currentdr.Cells["Col_PatientShortName"].Value = dr["PatientShortName"].ToString();
-                        currentdr.Cells["Col_BalanceAmount"].Value = dr["AmountBalance"].ToString();
-                        currentdr.Cells["Col_ClearedAmount"].Value = dr["AmountClear"].ToString();
-                        currentdr.Cells["Col_DiscountAmount"].Value = dr["DiscountAmount"].ToString();
-                        currentdr.Cells["Col_MasterID"].Value = dr["MasterID"].ToString();
-                        currentdr.Cells["Col_MasterSaleID"].Value = dr["MasterSaleID"].ToString();
+            //if (statementtable != null && statementtable.Rows.Count > 0)
+            //{
+            //    try
+            //    {
+            //        foreach (DataRow dr in statementtable.Rows)
+            //        {
+            //            _rowIndex = mpMSVC.Rows.Add();
+            //            DataGridViewRow currentdr = mpMSVC.Rows[_rowIndex];
+            //            currentdr.Cells["Col_ID"].Value = dr["ID"].ToString();
+            //            currentdr.Cells["Col_BillSeries"].Value = dr["VoucherSeries"].ToString();
+            //            currentdr.Cells["Col_BillType"].Value = dr["VoucherType"].ToString();
+            //            currentdr.Cells["Col_BillNumber"].Value = dr["VoucherNumber"].ToString();
+            //            currentdr.Cells["Col_BillSubType"].Value = dr["VoucherSubType"].ToString();
+            //            currentdr.Cells["Col_BillFromDate"].Value = dr["VoucherDate"].ToString();
+            //            currentdr.Cells["Col_BillAmount"].Value = dr["AmountNet"].ToString();
+            //            currentdr.Cells["Col_PatientShortName"].Value = dr["PatientShortName"].ToString();
+            //            currentdr.Cells["Col_BalanceAmount"].Value = dr["AmountBalance"].ToString();
+            //            currentdr.Cells["Col_ClearedAmount"].Value = dr["AmountClear"].ToString();
+            //            currentdr.Cells["Col_DiscountAmount"].Value = dr["DiscountAmount"].ToString();
+            //            currentdr.Cells["Col_MasterID"].Value = dr["MasterID"].ToString();
+            //            currentdr.Cells["Col_MasterSaleID"].Value = dr["MasterSaleID"].ToString();
 
-                    }
-                }
-                catch (Exception Ex)
-                {
-                    Log.WriteException(Ex);
-                }
+            //        }
+            //    }
+            //    catch (Exception Ex)
+            //    {
+            //        Log.WriteException(Ex);
+            //    }
 
-            }
+            //}
 
         }
 

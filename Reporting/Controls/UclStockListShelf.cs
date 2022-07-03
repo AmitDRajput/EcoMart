@@ -428,11 +428,11 @@ namespace EcoMart.Reporting.Controls
                     }
                     if (dr.Cells["Col_ExpiryDate"].Value != null && dr.Cells["Col_ExpiryDate"].Value.ToString() != string.Empty)
                     {
-                        int exd = Convert.ToInt32(dr.Cells["Col_ExpiryDate"].Value.ToString());
-                        if (exd < curdate)
-                        {
-                            dr.DefaultCellStyle.BackColor = Color.LightPink;
-                        }
+                        //int exd = Convert.ToInt32(dr.Cells["Col_ExpiryDate"].Value.ToString()); 
+                        //if (exd < curdate)
+                        //{
+                        //    dr.DefaultCellStyle.BackColor = Color.LightPink;
+                        //}
                         
                     }
 

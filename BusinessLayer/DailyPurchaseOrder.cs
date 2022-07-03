@@ -239,22 +239,26 @@ namespace EcoMart.BusinessLayer
             DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
             return dpo.ReadShotListByDateForTodayByAccountID(FromDay, EndDay,DSLAccountID);
         }
-        public DataTable ReadListForTodayALLTypes()
+        //public DataTable ReadListForTodayALLTypes()
+        //{
+        //    DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
+        //    return dpo.ReadListForTodays(FromDaySaleToday, EndDaySaleToday);
+        //}
+        public DataTable ReadListForTodayStockist()
         {
             DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
-            return dpo.ReadListForTodayALLTypes(FromDaySaleToday, EndDaySaleToday);
+            return dpo.ReadListForTodayStockist(FromDay, EndDay);
         }
-        public DataTable ReadShotListByDateALLTypes()
+        public DataTable ReadListForTodayCNF()
         {
             DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
-            return dpo.ReadShotListByDateALLTypes(FromDay, EndDay);
+            return dpo.ReadListForTodayCNF(FromDay, EndDay, General.EcoMartLicense.ShopID);
         }
-
-        public DataTable ReadShotListByDateNextVisit()
-        {
-            DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
-            return dpo.ReadShotListByDateNextVisit(FromDay, EndDay, FromDayNextVisit, EndDayNextVisit);
-        }
+        ////public DataTable ReadShotListByDateNextVisit()
+        ////{
+        ////    //DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
+        ////    //return dpo.ReadShotListByDateNextVisit(FromDay, EndDay, FromDayNextVisit, EndDayNextVisit);
+        ////}
 
         public DataTable ReadOrderByNumber()
         {
@@ -287,7 +291,7 @@ namespace EcoMart.BusinessLayer
         public int CreateOrderForToday()
         {
             DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
-            return dpo.AddInDetailPurchaseOrder(DSLAccountID, DSLQty, DSLIFSave, DSLOrderNumber, EndDay, DSLDailyShortList, DSLPurchaseRate, DSLMasterID, DSLProductID.ToString(), DSLSchemeQuantity, CreatedBy, CreatedDate, CreatedTime, netrate, IntID, DSLSaleQuantity,DSLClosingStock) ;
+            return dpo.AddInDetailPurchaseOrder(DSLAccountID, DSLQty, DSLIFSave, DSLOrderNumber, EndDay, DSLDailyShortList, DSLPurchaseRate, DSLMasterID, DSLProductID.ToString(), DSLSchemeQuantity, DSLClosingStock, DSLSaleQuantity ,CreatedBy, CreatedDate, CreatedTime, netrate, IntID); ;
         }
         public int AddDetails()
         {
@@ -366,6 +370,11 @@ namespace EcoMart.BusinessLayer
         {
             DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
             return dpo.InsertRowinDailypurchaseorderfromstockist(mshopid, mcnfid, mecomartid, mprodid, orderqty,mschemeqty,salequantity,closingstock,mordernumber,morderdate);
+        }
+        public bool InsertRowinDailypurchaseorderfromCNF(int mshopid, int mcnfid, int mecomartid, int mprodid, int orderqty, int mschemeqty, int salequantity, int closingstock, int mordernumber, string morderdate)
+        {
+            DBDailyPurchaseOrder dpo = new DBDailyPurchaseOrder();
+            return dpo.InsertRowinDailypurchaseorderfromCNF(mshopid, mcnfid, mecomartid, mprodid, orderqty, mschemeqty, salequantity, closingstock, mordernumber, morderdate);
         }
     }
 }
