@@ -761,10 +761,11 @@ namespace EcoMart.Reporting.Controls
                 mcbCreditor.ColumnWidth = new string[8] { "0", "50", "200", "200", "200", "0", "0", "0" };
                 mcbCreditor.DisplayColumnNo = 2;
                 mcbCreditor.ValueColumnNo = 0;
-                //  mcbCreditor.UserControlToShow = new UclPatient();
-                //Patient _Party = new Patient();
-                //DataTable dtable = _Party.GetOverviewDataForCounterSale();
-                //mcbCreditor.FillData(dtable);
+
+                mcbCreditor.UserControlToShow = new UclAccount();
+                Account _Party = new Account();
+                DataTable dtable = _Party.GetOverviewData();
+                mcbCreditor.FillData(dtable);
             }
             catch (Exception ex)
             {

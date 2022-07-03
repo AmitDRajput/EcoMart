@@ -25,10 +25,10 @@ namespace EcoMart.Reporting.Controls
         private double _MTotAmountCash = 0;
         private double _MTotAmountCredit = 0;
         private double _MTotAmountCreditStatement = 0;
-       
+
         #endregion
 
-        # region Constructor
+        #region Constructor
         public UclSaleListPartySaleSummary()
         {
             try
@@ -48,11 +48,11 @@ namespace EcoMart.Reporting.Controls
             try
             {
                 _BindingSource = new DataTable();
-                _SaleList = new SaleList();             
+                _SaleList = new SaleList();
                 headerLabel1.Text = "PARTYWISE SALE SUMMARY";
                 ClearControls();
                 HidepnlGO();
-                AddToolTip();               
+                AddToolTip();
             }
             catch (Exception ex)
             {
@@ -77,7 +77,7 @@ namespace EcoMart.Reporting.Controls
                 btnOKMultiSelectionClick();
                 retValue = true;
             }
-           
+
             if (retValue == false)
             {
                 retValue = base.HandleShortcutAction(keyPressed, modifier);
@@ -110,12 +110,12 @@ namespace EcoMart.Reporting.Controls
                 Log.WriteException(ex);
             }
         }
-       
+
         private void PrintData()
         {
             PrintRow row;
             try
-            {               
+            {
                 PrintBill.Rows.Clear();
                 PrintFont = new Font(General.CurrentSetting.MsetPrintFontName, Convert.ToInt32(General.CurrentSetting.MsetPrintFontSize));
                 int totalrows = dgvReportList.Rows.Count;
@@ -141,7 +141,7 @@ namespace EcoMart.Reporting.Controls
                         PrintHead(_MToDate, _MToDate);
                     }
                     PrintRowPixel += 17;
-                    PrintRowCount += 1;                
+                    PrintRowCount += 1;
                     double mamt = 0;
                     if (dr.Cells["Col_Name"].Value != null)
                     {
@@ -292,9 +292,9 @@ namespace EcoMart.Reporting.Controls
                 //toDate1.Value = DateTime.Now;
                 InitializeDates();
                 lblFooterMessage.Text = "";
-                txtCrStatmentTotal.Text = "";               
+                txtCrStatmentTotal.Text = "";
                 InitializeReportGrid();
-                
+
             }
             catch (Exception ex)
             {
@@ -389,7 +389,7 @@ namespace EcoMart.Reporting.Controls
             if (General.EcoMartLicense.LicenseType == EcoMartLicenseLib.LicenseTypes.Full)
             {
                 tsbtnPrint.Enabled = true;
-            }       
+            }
             pnlMultiSelection.Visible = false;
             ViewFromDate.Text = General.GetDateInShortDateFormat(_MFromDate);
             ViewToDate.Text = General.GetDateInShortDateFormat(_MToDate);
@@ -484,7 +484,7 @@ namespace EcoMart.Reporting.Controls
                             }
                             else
                             {
-                                if (drvouchertype == FixAccounts.VoucherTypeForCreditStatementSale )
+                                if (drvouchertype == FixAccounts.VoucherTypeForCreditStatementSale)
                                 {
                                     currentdr.Cells["Col_CreditStatementAmount"].Value = dramount.ToString("#0.00");
                                     _MTotAmountCreditStatement += dramount;
@@ -508,8 +508,8 @@ namespace EcoMart.Reporting.Controls
         {
             try
             {
-                DataTable dtable = new DataTable();              
-                dtable = _SaleList.GetOverviewDataForAllPartySummary(_MFromDate,_MToDate);
+                DataTable dtable = new DataTable();
+                dtable = _SaleList.GetOverviewDataForAllPartySummary(_MFromDate, _MToDate);
                 _BindingSource = dtable;
             }
             catch (Exception ex)
@@ -551,23 +551,23 @@ namespace EcoMart.Reporting.Controls
         {
             bool retValue = false;
             InitializeReportGrid();
-            _MFromDate  = fromDate1.Value.Date.ToString("yyyyMMdd");
+            _MFromDate = fromDate1.Value.Date.ToString("yyyyMMdd");
             _MToDate = toDate1.Value.Date.ToString("yyyyMMdd");
-             retValue = General.CheckDates(_MFromDate, _MToDate);
-             if (retValue)
-             {
-                 this.Cursor = Cursors.WaitCursor; 
-                     ShowpnlGO();
-                     FillReportGrid();
-                     this.Cursor = Cursors.Default;
-                 
-                 NoofRows();
+            retValue = General.CheckDates(_MFromDate, _MToDate);
+            if (retValue)
+            {
+                this.Cursor = Cursors.WaitCursor;
+                ShowpnlGO();
+                FillReportGrid();
+                this.Cursor = Cursors.Default;
+
+                NoofRows();
                 PrintReportHead = "Sales Report [Patient Summay]"; // From: " + General.GetDateInShortDateFormat(_MFromDate) + " To: " + General.GetDateInShortDateFormat(_MToDate);
-                 PrintReportHead2 = "";
-                 dgvReportList.Focus();
-             }
-             else
-                 lblFooterMessage.Text = "Please Check Date...";
+                PrintReportHead2 = "";
+                dgvReportList.Focus();
+            }
+            else
+                lblFooterMessage.Text = "Please Check Date...";
         }
         #endregion
 
@@ -576,7 +576,7 @@ namespace EcoMart.Reporting.Controls
         {
             try
             {
-                ttToolTip.SetToolTip(btnOKMultiSelection1, "Click to See Report = End");               
+                ttToolTip.SetToolTip(btnOKMultiSelection1, "Click to See Report = End");
             }
             catch (Exception Ex)
             {
@@ -589,7 +589,7 @@ namespace EcoMart.Reporting.Controls
         {
 
             btnOKMultiSelectionClick();
-        }      
+        }
 
         private void fromDate1_KeyDown(object sender, KeyEventArgs e)
         {

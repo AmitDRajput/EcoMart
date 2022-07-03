@@ -688,9 +688,7 @@ namespace EcoMart.Reporting.Controls
                 {
                     if (dr["ProductID"].ToString() == ID && Convert.ToInt32(dr["VoucherDate"].ToString()) >= Convert.ToInt32(_MFromDate) && Convert.ToInt32(dr["VoucherDate"].ToString()) <= Convert.ToInt32(_MToDate))
                     {
-
                         double mamt = 0;
-
                         _RowIndex = dgvReportList.Rows.Add();
                         currentdr = dgvReportList.Rows[_RowIndex];
                         currentdr.Cells["Col_ID"].Value = dr["MasterSaleID"].ToString();
@@ -725,8 +723,6 @@ namespace EcoMart.Reporting.Controls
             {
                 Log.WriteException(ex);
             }
-
-
         }
 
         private void CheckFiltertxtSearch(string txtString)

@@ -449,8 +449,6 @@ namespace EcoMart.Reporting.Controls
             {
                 if (rbtnCash.Checked == true)
                 {
-
-
                    // txtType.Text = FixAccounts.VoucherTypeForCashPurchase;
                     txtViewtype.Text = "Cash";
                     _BindingSource.DefaultView.RowFilter = "VoucherType = '" + FixAccounts.VoucherTypeForCashSale+ "'";
