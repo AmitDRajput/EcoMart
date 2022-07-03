@@ -2681,10 +2681,10 @@
     <None Include="Licenses\LicenseCNF1.lic" />
     <None Include="Licenses\LicenseCNF2.lic" />
     <None Include="Licenses\LicenseEcoMart.lic" />
-    <None Include="Licenses\LicenseStockist1.lic" />
-    <None Include="Licenses\LicenseStockist2.lic" />
-    <None Include="Licenses\LicenseStockist3.lic" />
-    <None Include="Licenses\LicenseStockist4.lic" />
+    <None Include="Licenses\LicenseStockist1CNF1.lic" />
+    <None Include="Licenses\LicenseStockist2CNF2.lic" />
+    <None Include="Licenses\LicenseStockist3CNF1.lic" />
+    <None Include="Licenses\LicenseStockist4CNF2.lic" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
