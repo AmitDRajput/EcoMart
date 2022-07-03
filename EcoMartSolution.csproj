@@ -662,6 +662,12 @@
     <Compile Include="InterfaceLayer\Controls\UclOPStock.Designer.cs">
       <DependentUpon>UclOPStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderCNF.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderCNF.Designer.cs">
+      <DependentUpon>UclPurchaseOrderCNF.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderStockist.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1968,6 +1974,9 @@
     <EmbeddedResource Include="InterfaceLayer\Controls\UclPrescriptionSearch.resx">
       <DependentUpon>UclPrescriptionSearch.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderCNF.resx">
+      <DependentUpon>UclPurchaseOrderCNF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderStockist.resx">
       <DependentUpon>UclPurchaseOrderStockist.cs</DependentUpon>
