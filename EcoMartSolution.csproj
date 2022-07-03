@@ -662,6 +662,12 @@
     <Compile Include="InterfaceLayer\Controls\UclOPStock.Designer.cs">
       <DependentUpon>UclOPStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderCNF.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderCNF.Designer.cs">
+      <DependentUpon>UclPurchaseOrderCNF.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderStockist.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1969,6 +1975,9 @@
       <DependentUpon>UclPrescriptionSearch.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderCNF.resx">
+      <DependentUpon>UclPurchaseOrderCNF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderStockist.resx">
       <DependentUpon>UclPurchaseOrderStockist.cs</DependentUpon>
     </EmbeddedResource>
@@ -2672,10 +2681,10 @@
     <None Include="Licenses\LicenseCNF1.lic" />
     <None Include="Licenses\LicenseCNF2.lic" />
     <None Include="Licenses\LicenseEcoMart.lic" />
-    <None Include="Licenses\LicenseStockist1.lic" />
-    <None Include="Licenses\LicenseStockist2.lic" />
-    <None Include="Licenses\LicenseStockist3.lic" />
-    <None Include="Licenses\LicenseStockist4.lic" />
+    <None Include="Licenses\LicenseStockist1CNF1.lic" />
+    <None Include="Licenses\LicenseStockist2CNF2.lic" />
+    <None Include="Licenses\LicenseStockist3CNF1.lic" />
+    <None Include="Licenses\LicenseStockist4CNF2.lic" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

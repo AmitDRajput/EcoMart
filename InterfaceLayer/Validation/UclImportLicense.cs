@@ -10,6 +10,7 @@ using System.IO;
 using EcoMart.Common;
 using EcoMartLicenseLib;
 using EcoMart.BusinessLayer;
+using System.Configuration;
 
 namespace EcoMart.InterfaceLayer.Validation
 {
@@ -45,9 +46,31 @@ namespace EcoMart.InterfaceLayer.Validation
                 textBox1.Text = ofd.FileName;
             }
         }
+        private bool CheckDBConnectionStringAzure()
+        {
+            bool RetValue = true;
+            try
+            {
+                string connStrDB = ConfigurationManager.ConnectionStrings["EcoMartConnectionString"].ConnectionString;
+                string connStrDBAzure = ConfigurationManager.ConnectionStrings["EcoMartAzureConnectionString"].ConnectionString;
+
+                if (connStrDB.ToLower() == connStrDBAzure.ToLower())
+                {
+                    RetValue = false;
+                    MessageBox.Show("Error in license import. You can't use CNF/Stockist License/Database as Azure Database.", General.ApplicationTitle);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+                //   retValue = false;
+            }
+            return RetValue;
+        }
 
         private void btnImportLicense_Click(object sender, EventArgs e)
         {
+            bool IsValidConnectionString = true;
             if (File.Exists(textBox1.Text))
             {
                 StreamReader sr = new StreamReader(textBox1.Text);
@@ -79,11 +102,15 @@ namespace EcoMart.InterfaceLayer.Validation
 
                     mpLic.Id = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                     mpLic.Data = lic.GetLicenseData(lic);
-                    if (mpLic.AddDetails())
+                    if (lic.ApplicationType != ApplicationTypes.EcoMart)
+                    {
+                        IsValidConnectionString = CheckDBConnectionStringAzure();
+                    }
+                    if (IsValidConnectionString && mpLic.AddDetails())
                     {
                         General.EcoMartLicense = new EcoMartLicenseLib.Licence();
                         General.EcoMartLicense.LoadLicense(mpLic.Data);
-                        MessageBox.Show("License imported successfully...!", General.ApplicationTitle);
+                        MessageBox.Show("License imported successfully...!" + Environment.NewLine + "Click 'Next' to continue ...", General.ApplicationTitle);
                         //this.DialogResult = DialogResult.OK;
                         if (OnStateOk != null)
                             OnStateOk(this, new EventArgs());
