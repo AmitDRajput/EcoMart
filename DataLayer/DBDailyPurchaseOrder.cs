@@ -32,7 +32,9 @@ namespace EcoMart.DataLayer
         internal DataTable GetOverviewSummaryData(int FirstOrderNumber)
         {
             DataTable dtable = new DataTable();
-            string strsql = "Select a.stockistOrderNumber, sum(a.stockistOrderQuantity*a.PurchaseRate) as Amount from detailpurchaseorderstockist a inner join masteraccount b ON a.stockistAccountId = b.AccountID WHERE a.stockistOrderNumber >= " + FirstOrderNumber + " Group by a.stockistOrderNumber";
+            //string strsql = "Select a.stockistOrderNumber, sum(a.stockistOrderQuantity*a.PurchaseRate) as Amount from detailpurchaseorderstockist a inner join masteraccount b ON a.stockistAccountId = b.AccountID WHERE a.stockistOrderNumber >= " + FirstOrderNumber + " Group by a.stockistOrderNumber";
+            string strsql = "Select a.stockistOrderNumber, sum(a.stockistOrderQuantity*a.PurchaseRate) as Amount from detailpurchaseorderstockist a  WHERE a.stockistOrderNumber >= " + FirstOrderNumber + " Group by a.stockistOrderNumber";
+            
             dtable = DBInterface.SelectDataTable(strsql);
             return dtable;
         }
@@ -65,7 +67,7 @@ namespace EcoMart.DataLayer
             dt2 = DBInterface.SelectDataTable(strSql);
 
             DataTable dtable = new DataTable();
-            dtable = GetMergedProductStockDecimalQuantity(dt2, dt1);
+            //dtable = GetMergedProductStockDecimalQuantity(dt2, dt1);
 
 
             return dtable;
@@ -254,7 +256,46 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("stockistOrderDate", morderdate);
             objQuery.AddToQuery("StockistSaleQuantity", salequantity);
             objQuery.AddToQuery("StockistClosingStock", closingstock);
+            objQuery.AddToQuery("CNFOrderNumber", 0);
 
+            //objQuery.AddToQuery("IfDailyShortList", DSLDailyshortlist);
+            //objQuery.AddToQuery("PurchaseRate", DslPurchaseRate);
+            //objQuery.AddToQuery("MasterID", DSLMasterID);
+            //objQuery.AddToQuery("ShortListDate", createddate);
+            //objQuery.AddToQuery("IfSave", DSLIfSave);
+            //objQuery.AddToQuery("CreatedUserID", createdby);
+            //objQuery.AddToQuery("CreatedDate", createddate);
+            //objQuery.AddToQuery("CreatedTime", createdtime);
+            //objQuery.AddToQuery("NetRate", netrate);
+            return objQuery.InsertQuery();
+        }
+        public bool InsertRowinDailypurchaseorderfromCNF(int mshopid, int mcnfid, int mecomartid, int mprodid, int orderqty, int mschemeqty, int salequantity, int closingstock, int mordernumber, string morderdate)
+        {
+            bool bRetValue = false;
+            string strSql = GetInsertQueryForDailypurchaseorderfromCNF(mshopid, mcnfid, mecomartid, mprodid, orderqty, mschemeqty, salequantity, closingstock, mordernumber, morderdate);
+
+            if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                bRetValue = true;
+            }
+            return bRetValue;
+        }
+        private string GetInsertQueryForDailypurchaseorderfromCNF(int mshopid, int mcnfid, int mecomartid, int mprodid, int orderqty, int dslSchemeQuantity, int salequantity, int closingstock, int mordernumber, string morderdate)
+        {
+            Query objQuery = new Query();
+            objQuery.Table = "detailpurchaseorderfromstockist";
+            //objQuery.AddToQuery("DSLID", DSLID);
+            objQuery.AddToQuery("EcoMartID", mecomartid);
+            objQuery.AddToQuery("CNFID", mcnfid);
+            objQuery.AddToQuery("StockistID", mshopid);
+            objQuery.AddToQuery("ProductID", mprodid);
+            objQuery.AddToQuery("CNFOrderQuantity", orderqty);
+            objQuery.AddToQuery("CNFSchemeQuantity", dslSchemeQuantity);
+            objQuery.AddToQuery("CNFOrderNumber", mordernumber);
+            objQuery.AddToQuery("CNFOrderDate", morderdate);
+            objQuery.AddToQuery("CNFSaleQuantity", salequantity);
+            objQuery.AddToQuery("CNFClosingStock", closingstock);
+            objQuery.AddToQuery("EcoMartOrderNumber", 0);
 
             //objQuery.AddToQuery("IfDailyShortList", DSLDailyshortlist);
             //objQuery.AddToQuery("PurchaseRate", DslPurchaseRate);
@@ -279,46 +320,47 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public DataTable ReadShotListByDateALLTypes(string fromDay, string endDay)
-        {
-            DataTable dt1 = new DataTable();
-            DataTable dt2 = new DataTable();
-            string strSql = "Select a.DSLID,a.ProductID,a.stockistOrderNumber,a.stockistOrderDate,a.ShortListDate,a.stockistOrderQuantity as Quantity ,a.IfSave  from" +
-        " detailpurchaseorderstockist a  where a.ShortListDate >= " + "'" + fromDay + "'  AND a.ShortListDate <= '" + endDay + "' AND a.stockistOrderNumber = 0 ";
-            dt1 = DBInterface.SelectDataTable(strSql);
-            strSql = "Select b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
-     "COALESCE(b.ProdPartyId_1),COALESCE(b.ProdPartyId_2),b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,b.ProdMaxLevel as OrderQuantity ,b.ProdLastPurchaseRate,c.AccountId,c.AccName as AccName,c.AccCrVisitDays as AccCrVisitDays,c.AccAddress1,c.AccAddress2 " +
-    " from masterproduct b  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID where b.ProdMaxLevel >= b.ProdClosingStock  order by ProdClosingStock asc";
-            dt2 = DBInterface.SelectDataTable(strSql);
-            DataTable dtable = new DataTable();
-            dtable = GetMergedProductStockIntegerQuantity(dt2, dt1);
-            return dtable;
-        }
+    //    public DataTable ReadListForTodayALLTypes(string fromDay, string endDay)
+    //    {
+    //        DataTable dt1 = new DataTable();
+    //        DataTable dt2 = new DataTable();
+    //        string strSql = "Select a.DSLID,a.ProductID,a.stockistOrderNumber,a.stockistOrderDate,a.ShortListDate,a.stockistOrderQuantity as Quantity ,a.IfSave  from" +
+    //    " detailpurchaseorderstockist a  where a.ShortListDate >= " + "'" + fromDay + "'  AND a.ShortListDate <= '" + endDay + "' AND a.stockistOrderNumber = 0 ";
+    //        dt1 = DBInterface.SelectDataTable(strSql);
+    //        strSql = "Select b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
+    // "COALESCE(b.ProdPartyId_1),COALESCE(b.ProdPartyId_2),b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,b.ProdMaxLevel as OrderQuantity ,b.ProdLastPurchaseRate,c.AccountId,c.AccName as AccName,c.AccCrVisitDays as AccCrVisitDays,c.AccAddress1,c.AccAddress2 " +
+    //" from masterproduct b  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID where b.ProdMaxLevel >= b.ProdClosingStock  order by ProdClosingStock asc";
+    //        dt2 = DBInterface.SelectDataTable(strSql);
+    //        DataTable dtable = new DataTable();
+    //        dtable = GetMergedProductStockIntegerQuantity(dt2, dt1);
+    //        return dtable;
+    //    }
 
-        public DataTable ReadShotListByDateNextVisit(string fromDay, string endDay, string FromDayNextVisit, string EndDayNextVisit)
-        {
-            DataTable dt1 = new DataTable();
-            DataTable dt2 = new DataTable();
-            DataTable dt3 = new DataTable();
-            //    string strSql = "Select a.DSLID,a.ProductID,a.OrderNumber,a.OrderDate,a.ShortListDate,a.OrderQuantity as Quantity ,a.IfSave  from" +
-            //" detailpurchaseorder a  where a.ShortListDate >= " + "'" + fromDay + "'  AND a.ShortListDate <= '" + endDay + "' AND a.OrderNumber = 0 ";
-            string strSql = "Select d.ProductID, Cast((d.Quantity) AS DECIMAL(2)) As Quantity from vouchersale v inner join detailsale d on v.ID = d.MasterSaleID where NextVisitDate between '" + FromDayNextVisit + "' and '" + EndDayNextVisit + "'";
-            dt1 = DBInterface.SelectDataTable(strSql);
+      
+  //      public DataTable ReadShotListByDateNextVisit(string fromDay, string endDay, string FromDayNextVisit, string EndDayNextVisit)
+  //      {
+  //          DataTable dt1 = new DataTable();
+  //          DataTable dt2 = new DataTable();
+  //          DataTable dt3 = new DataTable();
+  //          //    string strSql = "Select a.DSLID,a.ProductID,a.OrderNumber,a.OrderDate,a.ShortListDate,a.OrderQuantity as Quantity ,a.IfSave  from" +
+  //          //" detailpurchaseorder a  where a.ShortListDate >= " + "'" + fromDay + "'  AND a.ShortListDate <= '" + endDay + "' AND a.OrderNumber = 0 ";
+  //          string strSql = "Select d.ProductID, Cast((d.Quantity) AS DECIMAL(2)) As Quantity from vouchersale v inner join detailsale d on v.ID = d.MasterSaleID where NextVisitDate between '" + FromDayNextVisit + "' and '" + EndDayNextVisit + "'";
+  //          dt1 = DBInterface.SelectDataTable(strSql);
 
-            strSql = "Select b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
-   "COALESCE(b.ProdPartyId_1),COALESCE(b.ProdPartyId_2),b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,b.ProdMaxLevel as OrderQuantity ,b.ProdLastPurchaseRate,c.AccountId,c.AccName as AccName,c.AccCrVisitDays as AccCrVisitDays,c.AccAddress1,c.AccAddress2 " +
-  " from masterproduct b  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID   order by ProdClosingStock asc";
-            dt2 = DBInterface.SelectDataTable(strSql);
-
-
-            //dt3 = DBInterface.SelectDataTable(strSql);
-
-            DataTable dtable = new DataTable();
-            dtable = GetMergedProductStockDecimalQuantity(dt2, dt1);
+  //          strSql = "Select b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
+  // "COALESCE(b.ProdPartyId_1),COALESCE(b.ProdPartyId_2),b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,b.ProdMaxLevel as OrderQuantity ,b.ProdLastPurchaseRate,c.AccountId,c.AccName as AccName,c.AccCrVisitDays as AccCrVisitDays,c.AccAddress1,c.AccAddress2 " +
+  //" from masterproduct b  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID   order by ProdClosingStock asc";
+  //          dt2 = DBInterface.SelectDataTable(strSql);
 
 
-            return dtable;
-        }
+  //          //dt3 = DBInterface.SelectDataTable(strSql);
+
+  //          DataTable dtable = new DataTable();
+  //          dtable = GetMergedProductStockDecimalQuantity(dt2, dt1);
+
+
+  //          return dtable;
+  //      }
 
         public DataTable ReadShotListByDateForTodayByAccountID(string fromday, string today, string accountID)
         {
@@ -330,12 +372,76 @@ namespace EcoMart.DataLayer
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
-        public DataTable ReadListForTodayALLTypes(string fromday, string today)
+
+
+
+        //    public DataTable ReadShotListByDateStockist(string fromday, string today)
+        //    {
+        //        DataTable dt1 = new DataTable();
+        //        DataTable dt2 = new DataTable();
+        //        string strSql = "Select a.DSLID,a.ProductID,a.stockistOrderNumber,a.stockistOrderDate,a.ShortListDate,a.stockistOrderQuantity as Quantity ,a.IfSave  from" +
+        //    " detailpurchaseorderstockist a  where a.ShortListDate >= " + "'" + fromday + "'  AND a.ShortListDate <= '" + today + "' AND a.stockistOrderNumber = 0 ";
+        //        dt1 = DBInterface.SelectDataTable(strSql);
+        //        strSql = "Select b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
+        // "COALESCE(b.ProdPartyId_1),COALESCE(b.ProdPartyId_2),b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,b.ProdMaxLevel as OrderQuantity ,b.ProdLastPurchaseRate,c.AccountId,c.AccName as AccName,c.AccCrVisitDays as AccCrVisitDays,c.AccAddress1,c.AccAddress2 " +
+        //" from masterproduct b  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID where b.ProdMaxLevel >= b.ProdClosingStock  order by ProdClosingStock asc";
+        //        dt2 = DBInterface.SelectDataTable(strSql);
+        //        DataTable dtable = new DataTable();
+        //        dtable = GetMergedProductStockIntegerQuantity(dt2, dt1);
+        //        return dtable;
+        //        //         DataTable dt1 = new DataTable();
+        //        //         DataTable dt2 = new DataTable();
+        //        //         string strSql = "Select distinct a.ProductID, sum(a.Quantity) as Quantity from  detailsale a " +
+        //        //"  where  a.voucherdate >= '" + fromday + "' AND a.voucherdate <= '" + today + "'  Group by a.ProductID ";
+
+        //        //         dt1 = DBInterface.SelectDataTable(strSql);
+
+
+        //        //         strSql = "Select b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
+        //        //  " b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,b.ProdMaxLevel as OrderQuantity ,b.ProdLastPurchaseRate,c.AccountId,c.AccName as AccName,c.AccCrVisitDays as AccCrVisitDays,c.AccAddress1,c.AccAddress2 " +
+        //        // " from masterproduct b  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID   order by ProdClosingStock asc";
+        //        //         strSql = "Select b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
+        //        // "b.ProdPartyId_1, b.ProdPartyId_2, b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,b.ProdMaxLevel as OrderQuantity ,b.ProdLastPurchaseRate,c.AccountId,c.AccName as AccName,c.AccCrVisitDays as AccCrVisitDays,c.AccAddress1,c.AccAddress2 " +
+        //        //" from masterproduct b  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID   order by ProdClosingStock asc";
+        //        //         dt2 = DBInterface.SelectDataTable(strSql);
+
+        //        //         DataTable dtable = new DataTable();
+        //        //         dtable = GetMergedProductStockDecimalQuantity(dt2, dt1);
+
+
+        //        //         return dtable;
+        //    }
+
+        public DataTable ReadListForTodayStockist(string fromday, string today)
         {
             DataTable dt1 = new DataTable();
             DataTable dt2 = new DataTable();
             string strSql = "Select distinct a.ProductID, sum(a.Quantity) as Quantity from  detailsale a " +
    "  where  a.voucherdate >= '" + fromday + "' AND a.voucherdate <= '" + today + "'  Group by a.ProductID ";
+
+            dt1 = DBInterface.SelectDataTable(strSql);
+
+
+            strSql = "Select b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
+     " b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,b.ProdMaxLevel as OrderQuantity ,b.ProdLastPurchaseRate,c.AccountId,c.AccName as AccName,c.AccCrVisitDays as AccCrVisitDays,c.AccAddress1,c.AccAddress2 " +
+    " from masterproduct b  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID   order by ProdClosingStock asc";
+            strSql = "Select b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdBoxQuantity,b.ProdCompShortName," +
+    "b.ProdPartyId_1, b.ProdPartyId_2, b.ProdMinLevel,b.ProdMaxLevel,b.ProdClosingStock,b.ProdMaxLevel as OrderQuantity ,b.ProdLastPurchaseRate,c.AccountId,c.AccName as AccName,c.AccCrVisitDays as AccCrVisitDays,c.AccAddress1,c.AccAddress2 " +
+   " from masterproduct b  left outer join masteraccount c on b.ProdPartyId_1 = c.AccountID   order by ProdClosingStock asc";
+            dt2 = DBInterface.SelectDataTable(strSql);
+
+            DataTable dtable = new DataTable();
+            dtable = GetMergedProductStockDecimalQuantity(dt2, dt1);
+
+
+            return dtable;
+        }
+        public DataTable ReadListForTodayCNF(string fromday, string today, int mcnfId)
+        {
+            DataTable dt1 = new DataTable();
+            DataTable dt2 = new DataTable();
+            string strSql = "Select distinct a.ProductID, sum(a.StockistOrderQuantity) as Quantity from  detailpurchaseorderfromstockist a " +
+   "  where  a.StockistOrderDate >= '"+ fromday + "' AND a.StockistOrderDate <= '" + today + "' and a.CNFId = "+ mcnfId + " and  CNFOrderNumber = " + 0 + "  Group by a.ProductID ";
 
             dt1 = DBInterface.SelectDataTable(strSql);
 
@@ -434,9 +540,9 @@ namespace EcoMart.DataLayer
         //    return bRetValue;
         //}
 
-        public int AddInDetailPurchaseOrder(string DSLAccountID, int DSLQty, string DSLIfSave, int DSLOrderNumber, string TodayS, string DSLDailyshortlist, double DSLPurchaseRate, string DSLMasterID, string dslProductID, int dslSchemeQuantity, string createdby, string createddate, string createdtime, string netrate, int masterid, int msaleqty, int mclosingstk)
+        public int AddInDetailPurchaseOrder(string DSLAccountID, int DSLQty, string DSLIfSave, int DSLOrderNumber, string TodayS, string DSLDailyshortlist, double DSLPurchaseRate, string DSLMasterID, string dslProductID, int dslSchemeQuantity, int dslclosingstock, int dslsaleqty, string createdby, string createddate, string createdtime, string netrate, int masterid)
         {
-            string strSql = GetInsertQueryForDetail(DSLAccountID, DSLQty, DSLIfSave, DSLOrderNumber, TodayS, DSLDailyshortlist, DSLPurchaseRate, DSLMasterID, dslProductID, dslSchemeQuantity, createdby, createddate, createdtime, netrate,masterid,msaleqty,mclosingstk);
+            string strSql = GetInsertQueryForDetail(DSLAccountID, DSLQty, DSLIfSave, DSLOrderNumber, TodayS, DSLDailyshortlist, DSLPurchaseRate, DSLMasterID, dslProductID, dslSchemeQuantity, dslclosingstock, dslsaleqty, createdby, createddate, createdtime, netrate,masterid);
                         return DBInterface.ExecuteQuery(strSql);            
         }
         public int AddDetails(string VoucherSeries, string DSLVoucherType, int DSLOrderNumber, string ToDays, string DSLAccountID, double DSLAmount, string CreatedBy, string CreatedDate, string CreatedTime)
@@ -466,7 +572,7 @@ namespace EcoMart.DataLayer
             return objQuery.UpdateQuery();
         }
 
-        private string GetInsertQueryForDetail(string DSLAccountID, int DSLQty, string DSLIfSave, int DSLOrderNumber, string TodayS, string DSLDailyshortlist, double DslPurchaseRate, string DSLMasterID, string dslProductID, int dslSchemeQuantity, string createdby, string createddate, string createdtime, string netrate, int masterid, int msaleqty, int mclosingstk)
+        private string GetInsertQueryForDetail(string DSLAccountID, int DSLQty, string DSLIfSave, int DSLOrderNumber, string TodayS, string DSLDailyshortlist, double DslPurchaseRate, string DSLMasterID, string dslProductID, int dslSchemeQuantity, int mclosingstk, int msaleqty, string createdby, string createddate, string createdtime, string netrate, int masterid)
         {
             Query objQuery = new Query();
             objQuery.Table = "detailpurchaseorderstockist";

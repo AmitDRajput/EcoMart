@@ -1,6 +1,7 @@
-﻿namespace EcoMart.InterfaceLayer
+﻿
+namespace EcoMart.InterfaceLayer
 {
-    partial class UclPurchaseOrderStockist
+    partial class UclPurchaseOrderCNF
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,12 +30,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UclPurchaseOrderStockist));
-            this.mpMainSubViewControl = new EcoMart.InterfaceLayer.CommonControls.PSMainSubViewControl();
-            this.txtAmount = new PharmaSYSPlus.CommonLibrary.DecimalTextBox();
-            this.lblAmountTotal = new System.Windows.Forms.Label();
-            this.lblNoofRows = new System.Windows.Forms.Label();
-            this.txtNoOfRows = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UclPurchaseOrderCNF));
             this.pnlTop = new System.Windows.Forms.Panel();
             this.btnUploadSearch = new System.Windows.Forms.Button();
             this.btnRecoverQty = new System.Windows.Forms.Button();
@@ -81,7 +77,6 @@
             this.datePickerBillDate = new System.Windows.Forms.DateTimePicker();
             this.txtVouchernumber = new PharmaSYSPlus.CommonLibrary.GeneralTextBox();
             this.mpMainSubViewControl1 = new EcoMart.InterfaceLayer.CommonControls.PSMainSubViewControl();
-            this.dgvBatchGrid = new System.Windows.Forms.DataGridView();
             this.mdgOrderDetail = new PharmaSYSPlus.CommonLibrary.MDataGridView();
             this.mdgOrderSummary = new PharmaSYSPlus.CommonLibrary.MDataGridView();
             this.pnlSummary = new System.Windows.Forms.Panel();
@@ -91,6 +86,12 @@
             this.label21 = new System.Windows.Forms.Label();
             this.btnExitSummary = new System.Windows.Forms.Button();
             this.uclPurchaseNewProduct2 = new EcoMart.InterfaceLayer.CommonControls.UclPurchaseNewProduct();
+            this.dgvBatchGrid = new System.Windows.Forms.DataGridView();
+            this.txtAmount = new PharmaSYSPlus.CommonLibrary.DecimalTextBox();
+            this.lblAmountTotal = new System.Windows.Forms.Label();
+            this.lblNoofRows = new System.Windows.Forms.Label();
+            this.txtNoOfRows = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
+            this.mpMainSubViewControl = new EcoMart.InterfaceLayer.CommonControls.PSMainSubViewControl();
             this.MMBottomPanel.SuspendLayout();
             this.MMMainPanel.SuspendLayout();
             this.pnlTop.SuspendLayout();
@@ -100,14 +101,13 @@
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlVou.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBatchGrid)).BeginInit();
             this.pnlSummary.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBatchGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // headerLabel1
             // 
-            this.headerLabel1.Margin = new System.Windows.Forms.Padding(5);
-            this.headerLabel1.Size = new System.Drawing.Size(1176, 24);
+            this.headerLabel1.Size = new System.Drawing.Size(1052, 24);
             // 
             // MMBottomPanel
             // 
@@ -115,11 +115,10 @@
             this.MMBottomPanel.Controls.Add(this.lblAmountTotal);
             this.MMBottomPanel.Controls.Add(this.lblNoofRows);
             this.MMBottomPanel.Controls.Add(this.txtNoOfRows);
-            this.MMBottomPanel.Location = new System.Drawing.Point(0, 645);
-            this.MMBottomPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.MMBottomPanel.Size = new System.Drawing.Size(1178, 73);
-            this.MMBottomPanel.Controls.SetChildIndex(this.lblRightSideFooterMsg, 0);
+            this.MMBottomPanel.Location = new System.Drawing.Point(0, 689);
+            this.MMBottomPanel.Size = new System.Drawing.Size(1054, 65);
             this.MMBottomPanel.Controls.SetChildIndex(this.lblFooterMessage, 0);
+            this.MMBottomPanel.Controls.SetChildIndex(this.lblRightSideFooterMsg, 0);
             this.MMBottomPanel.Controls.SetChildIndex(this.txtNoOfRows, 0);
             this.MMBottomPanel.Controls.SetChildIndex(this.lblNoofRows, 0);
             this.MMBottomPanel.Controls.SetChildIndex(this.lblAmountTotal, 0);
@@ -127,98 +126,24 @@
             // 
             // MMMainPanel
             // 
-            this.MMMainPanel.Controls.Add(this.pnlSummary);
-            this.MMMainPanel.Controls.Add(this.dgvBatchGrid);
-            this.MMMainPanel.Controls.Add(this.mpMainSubViewControl1);
             this.MMMainPanel.Controls.Add(this.uclPurchaseNewProduct2);
+            this.MMMainPanel.Controls.Add(this.pnlSummary);
+            this.MMMainPanel.Controls.Add(this.mpMainSubViewControl1);
             this.MMMainPanel.Controls.Add(this.pnlTop);
+            this.MMMainPanel.Controls.Add(this.dgvBatchGrid);
             this.MMMainPanel.Controls.Add(this.mpMainSubViewControl);
-            this.MMMainPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.MMMainPanel.Size = new System.Drawing.Size(1178, 582);
-            this.MMMainPanel.Controls.SetChildIndex(this.ctrlUclSaleSummaryControl, 0);
+            this.MMMainPanel.Size = new System.Drawing.Size(1054, 626);
             this.MMMainPanel.Controls.SetChildIndex(this.mpMainSubViewControl, 0);
-            this.MMMainPanel.Controls.SetChildIndex(this.pnlTop, 0);
-            this.MMMainPanel.Controls.SetChildIndex(this.uclPurchaseNewProduct2, 0);
-            this.MMMainPanel.Controls.SetChildIndex(this.mpMainSubViewControl1, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.dgvBatchGrid, 0);
+            this.MMMainPanel.Controls.SetChildIndex(this.ctrlUclSaleSummaryControl, 0);
+            this.MMMainPanel.Controls.SetChildIndex(this.pnlTop, 0);
+            this.MMMainPanel.Controls.SetChildIndex(this.mpMainSubViewControl1, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.pnlSummary, 0);
+            this.MMMainPanel.Controls.SetChildIndex(this.uclPurchaseNewProduct2, 0);
             // 
             // lblRightSideFooterMsg
             // 
-            this.lblRightSideFooterMsg.Location = new System.Drawing.Point(972, 0);
-            this.lblRightSideFooterMsg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRightSideFooterMsg.Size = new System.Drawing.Size(204, 30);
-            // 
-            // mpMainSubViewControl
-            // 
-            this.mpMainSubViewControl.AutoScroll = true;
-            this.mpMainSubViewControl.BackColor = System.Drawing.Color.Linen;
-            this.mpMainSubViewControl.DataSource = null;
-            this.mpMainSubViewControl.DataSourceMain = null;
-            this.mpMainSubViewControl.DateColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpMainSubViewControl.DateColumnNames")));
-            this.mpMainSubViewControl.DoubleColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpMainSubViewControl.DoubleColumnNames")));
-            this.mpMainSubViewControl.EditedTempDataList = null;
-            this.mpMainSubViewControl.Filter = null;
-            this.mpMainSubViewControl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mpMainSubViewControl.IsAllowDelete = true;
-            this.mpMainSubViewControl.IsAllowNewRow = true;
-            this.mpMainSubViewControl.Location = new System.Drawing.Point(0, 0);
-            this.mpMainSubViewControl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.mpMainSubViewControl.MinimumSize = new System.Drawing.Size(390, 250);
-            this.mpMainSubViewControl.Name = "mpMainSubViewControl";
-            this.mpMainSubViewControl.NextRowColumn = 0;
-            this.mpMainSubViewControl.NumericColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpMainSubViewControl.NumericColumnNames")));
-            this.mpMainSubViewControl.Size = new System.Drawing.Size(1176, 580);
-            this.mpMainSubViewControl.SubGridWidth = 560;
-            this.mpMainSubViewControl.TabIndex = 1016;
-            this.mpMainSubViewControl.ViewControl = null;           
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.BackColor = System.Drawing.Color.White;
-            this.txtAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAmount.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmount.Location = new System.Drawing.Point(1003, 2);
-            this.txtAmount.MaxLength = 15;
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.ReadOnly = true;
-            this.txtAmount.Size = new System.Drawing.Size(128, 24);
-            this.txtAmount.TabIndex = 1018;
-            this.txtAmount.TabStop = false;
-            this.txtAmount.Tag = "0.00";
-            this.txtAmount.Text = "0.00";
-            this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lblAmountTotal
-            // 
-            this.lblAmountTotal.AutoSize = true;
-            this.lblAmountTotal.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmountTotal.Location = new System.Drawing.Point(896, 5);
-            this.lblAmountTotal.Name = "lblAmountTotal";
-            this.lblAmountTotal.Size = new System.Drawing.Size(94, 14);
-            this.lblAmountTotal.TabIndex = 1017;
-            this.lblAmountTotal.Text = "Amount Total";
-            // 
-            // lblNoofRows
-            // 
-            this.lblNoofRows.AutoSize = true;
-            this.lblNoofRows.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoofRows.Location = new System.Drawing.Point(749, 6);
-            this.lblNoofRows.Name = "lblNoofRows";
-            this.lblNoofRows.Size = new System.Drawing.Size(79, 13);
-            this.lblNoofRows.TabIndex = 1015;
-            this.lblNoofRows.Text = "No Of Rows";
-            // 
-            // txtNoOfRows
-            // 
-            this.txtNoOfRows.BackColor = System.Drawing.Color.Snow;
-            this.txtNoOfRows.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNoOfRows.Enabled = false;
-            this.txtNoOfRows.Location = new System.Drawing.Point(836, 3);
-            this.txtNoOfRows.Name = "txtNoOfRows";
-            this.txtNoOfRows.Size = new System.Drawing.Size(54, 22);
-            this.txtNoOfRows.TabIndex = 1016;
-            this.txtNoOfRows.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.lblRightSideFooterMsg.Location = new System.Drawing.Point(586, 0);
             // 
             // pnlTop
             // 
@@ -241,8 +166,8 @@
             this.pnlTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1176, 154);
-            this.pnlTop.TabIndex = 1017;
+            this.pnlTop.Size = new System.Drawing.Size(1052, 154);
+            this.pnlTop.TabIndex = 1018;
             // 
             // btnUploadSearch
             // 
@@ -347,7 +272,6 @@
             this.btnClearQty.TabIndex = 1110;
             this.btnClearQty.Text = "Clear Qty";
             this.btnClearQty.UseVisualStyleBackColor = true;
-            this.btnClearQty.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnCreateOrder
             // 
@@ -360,8 +284,7 @@
             this.btnCreateOrder.TabIndex = 1109;
             this.btnCreateOrder.Text = "Create &Orders";
             this.btnCreateOrder.UseVisualStyleBackColor = false;
-            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click_1);
-            this.btnCreateOrder.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnCreateOrder_KeyDown_1);
+            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
             // 
             // mPlbl6
             // 
@@ -545,7 +468,6 @@
             this.cbSaleToday.TabIndex = 1039;
             this.cbSaleToday.Text = "Sale Today";
             this.cbSaleToday.UseVisualStyleBackColor = false;
-            this.cbSaleToday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbSaleToday_KeyDown);
             // 
             // cbShortList
             // 
@@ -559,7 +481,6 @@
             this.cbShortList.Text = "Short List";
             this.cbShortList.UseVisualStyleBackColor = false;
             this.cbShortList.Visible = false;
-            this.cbShortList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbShortList_KeyDown);
             // 
             // psLabel3
             // 
@@ -612,7 +533,6 @@
             this.FromDateSaleToday.Size = new System.Drawing.Size(102, 23);
             this.FromDateSaleToday.TabIndex = 1021;
             this.FromDateSaleToday.Value = new System.DateTime(2010, 7, 4, 0, 0, 0, 0);
-            this.FromDateSaleToday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FromDateSaleToday_KeyDown);
             // 
             // ToDateSaleToday
             // 
@@ -627,7 +547,6 @@
             this.ToDateSaleToday.Size = new System.Drawing.Size(102, 23);
             this.ToDateSaleToday.TabIndex = 1020;
             this.ToDateSaleToday.Value = new System.DateTime(2010, 7, 4, 0, 0, 0, 0);
-            this.ToDateSaleToday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ToDateSaleToday_KeyDown);
             // 
             // FromDateShortList
             // 
@@ -642,7 +561,6 @@
             this.FromDateShortList.TabIndex = 1021;
             this.FromDateShortList.Value = new System.DateTime(2010, 7, 4, 0, 0, 0, 0);
             this.FromDateShortList.Visible = false;
-            this.FromDateShortList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FromDateShortList_KeyDown);
             // 
             // ToDateShortList
             // 
@@ -657,7 +575,6 @@
             this.ToDateShortList.TabIndex = 1020;
             this.ToDateShortList.Value = new System.DateTime(2010, 7, 4, 0, 0, 0, 0);
             this.ToDateShortList.Visible = false;
-            this.ToDateShortList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ToDateShortList_KeyDown);
             // 
             // txtSaleDays
             // 
@@ -796,27 +713,10 @@
             this.mpMainSubViewControl1.Name = "mpMainSubViewControl1";
             this.mpMainSubViewControl1.NextRowColumn = 0;
             this.mpMainSubViewControl1.NumericColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpMainSubViewControl1.NumericColumnNames")));
-            this.mpMainSubViewControl1.Size = new System.Drawing.Size(1056, 401);
+            this.mpMainSubViewControl1.Size = new System.Drawing.Size(965, 447);
             this.mpMainSubViewControl1.SubGridWidth = 450;
-            this.mpMainSubViewControl1.TabIndex = 1026;
+            this.mpMainSubViewControl1.TabIndex = 1027;
             this.mpMainSubViewControl1.ViewControl = null;
-            // 
-            // dgvBatchGrid
-            // 
-            this.dgvBatchGrid.AllowUserToAddRows = false;
-            this.dgvBatchGrid.AllowUserToDeleteRows = false;
-            this.dgvBatchGrid.AllowUserToResizeColumns = false;
-            this.dgvBatchGrid.AllowUserToResizeRows = false;
-            this.dgvBatchGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvBatchGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBatchGrid.Location = new System.Drawing.Point(94, 162);
-            this.dgvBatchGrid.MultiSelect = false;
-            this.dgvBatchGrid.Name = "dgvBatchGrid";
-            this.dgvBatchGrid.ReadOnly = true;
-            this.dgvBatchGrid.RowHeadersWidth = 51;
-            this.dgvBatchGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBatchGrid.Size = new System.Drawing.Size(622, 179);
-            this.dgvBatchGrid.TabIndex = 1077;
             // 
             // mdgOrderDetail
             // 
@@ -826,7 +726,7 @@
             this.mdgOrderDetail.DoubleColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mdgOrderDetail.DoubleColumnNames")));
             this.mdgOrderDetail.Filter = null;
             this.mdgOrderDetail.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mdgOrderDetail.Location = new System.Drawing.Point(11, 152);
+            this.mdgOrderDetail.Location = new System.Drawing.Point(11, 160);
             this.mdgOrderDetail.Name = "mdgOrderDetail";
             this.mdgOrderDetail.ShowGridFilter = false;
             this.mdgOrderDetail.Size = new System.Drawing.Size(819, 178);
@@ -840,7 +740,7 @@
             this.mdgOrderSummary.DoubleColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mdgOrderSummary.DoubleColumnNames")));
             this.mdgOrderSummary.Filter = null;
             this.mdgOrderSummary.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mdgOrderSummary.Location = new System.Drawing.Point(11, 10);
+            this.mdgOrderSummary.Location = new System.Drawing.Point(11, 18);
             this.mdgOrderSummary.Name = "mdgOrderSummary";
             this.mdgOrderSummary.ShowGridFilter = false;
             this.mdgOrderSummary.Size = new System.Drawing.Size(819, 140);
@@ -858,14 +758,14 @@
             this.pnlSummary.Controls.Add(this.label21);
             this.pnlSummary.Controls.Add(this.btnExitSummary);
             this.pnlSummary.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlSummary.Location = new System.Drawing.Point(94, 162);
+            this.pnlSummary.Location = new System.Drawing.Point(96, 196);
             this.pnlSummary.Name = "pnlSummary";
             this.pnlSummary.Size = new System.Drawing.Size(844, 375);
-            this.pnlSummary.TabIndex = 1079;
+            this.pnlSummary.TabIndex = 1080;
             // 
             // btnUpLoad
             // 
-            this.btnUpLoad.Location = new System.Drawing.Point(393, 338);
+            this.btnUpLoad.Location = new System.Drawing.Point(393, 345);
             this.btnUpLoad.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpLoad.Name = "btnUpLoad";
             this.btnUpLoad.Size = new System.Drawing.Size(94, 24);
@@ -879,7 +779,7 @@
             // 
             this.psLableWithBorderMiddleRight1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.psLableWithBorderMiddleRight1.CausesValidation = false;
-            this.psLableWithBorderMiddleRight1.Location = new System.Drawing.Point(242, 334);
+            this.psLableWithBorderMiddleRight1.Location = new System.Drawing.Point(242, 341);
             this.psLableWithBorderMiddleRight1.Name = "psLableWithBorderMiddleRight1";
             this.psLableWithBorderMiddleRight1.Size = new System.Drawing.Size(132, 28);
             this.psLableWithBorderMiddleRight1.TabIndex = 1017;
@@ -891,7 +791,7 @@
             // 
             this.txtNoofOrders.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNoofOrders.CausesValidation = false;
-            this.txtNoofOrders.Location = new System.Drawing.Point(153, 334);
+            this.txtNoofOrders.Location = new System.Drawing.Point(153, 341);
             this.txtNoofOrders.Name = "txtNoofOrders";
             this.txtNoofOrders.Size = new System.Drawing.Size(56, 28);
             this.txtNoofOrders.TabIndex = 1016;
@@ -902,7 +802,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(48, 341);
+            this.label21.Location = new System.Drawing.Point(48, 348);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(99, 17);
             this.label21.TabIndex = 1012;
@@ -911,7 +811,7 @@
             // btnExitSummary
             // 
             this.btnExitSummary.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExitSummary.Location = new System.Drawing.Point(500, 338);
+            this.btnExitSummary.Location = new System.Drawing.Point(500, 345);
             this.btnExitSummary.Name = "btnExitSummary";
             this.btnExitSummary.Size = new System.Drawing.Size(94, 24);
             this.btnExitSummary.TabIndex = 4;
@@ -923,19 +823,107 @@
             // 
             this.uclPurchaseNewProduct2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.uclPurchaseNewProduct2.Font = new System.Drawing.Font("Cambria", 8.25F);
-            this.uclPurchaseNewProduct2.Location = new System.Drawing.Point(0, 555);
+            this.uclPurchaseNewProduct2.Location = new System.Drawing.Point(0, 599);
             this.uclPurchaseNewProduct2.MainViewControl = this.mpMainSubViewControl1;
             this.uclPurchaseNewProduct2.Name = "uclPurchaseNewProduct2";
-            this.uclPurchaseNewProduct2.Size = new System.Drawing.Size(1176, 25);
-            this.uclPurchaseNewProduct2.TabIndex = 1081;
+            this.uclPurchaseNewProduct2.Size = new System.Drawing.Size(1052, 25);
+            this.uclPurchaseNewProduct2.TabIndex = 1082;
             // 
-            // UclPurchaseOrderStockist
+            // dgvBatchGrid
+            // 
+            this.dgvBatchGrid.AllowUserToAddRows = false;
+            this.dgvBatchGrid.AllowUserToDeleteRows = false;
+            this.dgvBatchGrid.AllowUserToResizeColumns = false;
+            this.dgvBatchGrid.AllowUserToResizeRows = false;
+            this.dgvBatchGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBatchGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBatchGrid.Location = new System.Drawing.Point(109, 197);
+            this.dgvBatchGrid.MultiSelect = false;
+            this.dgvBatchGrid.Name = "dgvBatchGrid";
+            this.dgvBatchGrid.ReadOnly = true;
+            this.dgvBatchGrid.RowHeadersWidth = 51;
+            this.dgvBatchGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBatchGrid.Size = new System.Drawing.Size(622, 179);
+            this.dgvBatchGrid.TabIndex = 1083;
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.BackColor = System.Drawing.Color.White;
+            this.txtAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAmount.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAmount.Location = new System.Drawing.Point(858, -1);
+            this.txtAmount.MaxLength = 15;
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.ReadOnly = true;
+            this.txtAmount.Size = new System.Drawing.Size(128, 24);
+            this.txtAmount.TabIndex = 1022;
+            this.txtAmount.TabStop = false;
+            this.txtAmount.Tag = "0.00";
+            this.txtAmount.Text = "0.00";
+            this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblAmountTotal
+            // 
+            this.lblAmountTotal.AutoSize = true;
+            this.lblAmountTotal.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmountTotal.Location = new System.Drawing.Point(751, 2);
+            this.lblAmountTotal.Name = "lblAmountTotal";
+            this.lblAmountTotal.Size = new System.Drawing.Size(94, 14);
+            this.lblAmountTotal.TabIndex = 1021;
+            this.lblAmountTotal.Text = "Amount Total";
+            // 
+            // lblNoofRows
+            // 
+            this.lblNoofRows.AutoSize = true;
+            this.lblNoofRows.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoofRows.Location = new System.Drawing.Point(604, 3);
+            this.lblNoofRows.Name = "lblNoofRows";
+            this.lblNoofRows.Size = new System.Drawing.Size(79, 13);
+            this.lblNoofRows.TabIndex = 1019;
+            this.lblNoofRows.Text = "No Of Rows";
+            // 
+            // txtNoOfRows
+            // 
+            this.txtNoOfRows.BackColor = System.Drawing.Color.Snow;
+            this.txtNoOfRows.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNoOfRows.Enabled = false;
+            this.txtNoOfRows.Location = new System.Drawing.Point(691, 0);
+            this.txtNoOfRows.Name = "txtNoOfRows";
+            this.txtNoOfRows.Size = new System.Drawing.Size(54, 22);
+            this.txtNoOfRows.TabIndex = 1020;
+            this.txtNoOfRows.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // mpMainSubViewControl
+            // 
+            this.mpMainSubViewControl.AutoScroll = true;
+            this.mpMainSubViewControl.BackColor = System.Drawing.Color.Linen;
+            this.mpMainSubViewControl.DataSource = null;
+            this.mpMainSubViewControl.DataSourceMain = null;
+            this.mpMainSubViewControl.DateColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpMainSubViewControl.DateColumnNames")));
+            this.mpMainSubViewControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mpMainSubViewControl.DoubleColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpMainSubViewControl.DoubleColumnNames")));
+            this.mpMainSubViewControl.EditedTempDataList = null;
+            this.mpMainSubViewControl.Filter = null;
+            this.mpMainSubViewControl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mpMainSubViewControl.IsAllowDelete = true;
+            this.mpMainSubViewControl.IsAllowNewRow = false;
+            this.mpMainSubViewControl.Location = new System.Drawing.Point(0, 0);
+            this.mpMainSubViewControl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.mpMainSubViewControl.MinimumSize = new System.Drawing.Size(390, 250);
+            this.mpMainSubViewControl.Name = "mpMainSubViewControl";
+            this.mpMainSubViewControl.NextRowColumn = 0;
+            this.mpMainSubViewControl.NumericColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpMainSubViewControl.NumericColumnNames")));
+            this.mpMainSubViewControl.Size = new System.Drawing.Size(1052, 624);
+            this.mpMainSubViewControl.SubGridWidth = 450;
+            this.mpMainSubViewControl.TabIndex = 1085;
+            this.mpMainSubViewControl.ViewControl = null;
+            // 
+            // UclPurchaseOrderCNF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "UclPurchaseOrderStockist";
-            this.Size = new System.Drawing.Size(1178, 718);
+            this.Name = "UclPurchaseOrderCNF";
+            this.Size = new System.Drawing.Size(1054, 754);
             this.MMBottomPanel.ResumeLayout(false);
             this.MMBottomPanel.PerformLayout();
             this.MMMainPanel.ResumeLayout(false);
@@ -953,65 +941,62 @@
             this.panel1.PerformLayout();
             this.pnlVou.ResumeLayout(false);
             this.pnlVou.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBatchGrid)).EndInit();
             this.pnlSummary.ResumeLayout(false);
             this.pnlSummary.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBatchGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private EcoMart.InterfaceLayer.CommonControls.PSMainSubViewControl mpMainSubViewControl;
-        private PharmaSYSPlus.CommonLibrary.DecimalTextBox txtAmount;
-        private System.Windows.Forms.Label lblAmountTotal;
-        private System.Windows.Forms.Label lblNoofRows;
-        private PharmaSYSPlus.CommonLibrary.NumericTextBox txtNoOfRows;
+
         private System.Windows.Forms.Panel pnlTop;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel panel1;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel psLabel1;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel psLabel2;
-        private System.Windows.Forms.DateTimePicker FromDateShortList;
-        private System.Windows.Forms.DateTimePicker ToDateShortList;
-        private PharmaSYSPlus.CommonLibrary.NumericTextBox txtSaleDays;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl4;
-        private System.Windows.Forms.Panel pnlVou;
-        private EcoMart.InterfaceLayer.CommonControls.PSLableWithBorderMiddleLeft txtVouType;
-        private EcoMart.InterfaceLayer.CommonControls.PSTextBox txtVoucherSeries;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel psLabel8;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel lblVouDate;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel lblVouNumber;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel lblVouType;
-        private System.Windows.Forms.DateTimePicker datePickerBillDate;
-        private PharmaSYSPlus.CommonLibrary.GeneralTextBox txtVouchernumber;
-        private EcoMart.InterfaceLayer.CommonControls.PSRadioButton rbtExpiry;
-        private EcoMart.InterfaceLayer.CommonControls.PSRadioButton rbtMinMax;
-        private EcoMart.InterfaceLayer.CommonControls.PSMainSubViewControl mpMainSubViewControl1;
-        private System.Windows.Forms.DataGridView dgvBatchGrid;
-        private CommonControls.PSRadioButton psRadioButton1;
-        private CommonControls.PSLabel mPlbl6;
-        private PharmaSYSPlus.CommonLibrary.DecimalTextBox txtBillAmount;
-        private CommonControls.PSLabel psLabel3;
-        private CommonControls.PSLabel psLabel4;
-        private System.Windows.Forms.DateTimePicker FromDateSaleToday;
-        private System.Windows.Forms.DateTimePicker ToDateSaleToday;
-        private CommonControls.PSRadioButton psRadioButton2;
-        private System.Windows.Forms.CheckBox cbSaleToday;
-        private System.Windows.Forms.CheckBox cbShortList;
-        private System.Windows.Forms.RadioButton rbtLastOrderAllProducts;
-        private System.Windows.Forms.RadioButton rbtLastOrderRemainingProducts;
-        private System.Windows.Forms.Button btnCreateOrder;
-        private System.Windows.Forms.Button btnClearQty;
+        private System.Windows.Forms.Button btnUploadSearch;
+        private System.Windows.Forms.Button btnRecoverQty;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.CheckBox chkNextVisit;
         private CommonControls.PSLabel psLabel5;
         private CommonControls.PSLabel psLabel6;
         private System.Windows.Forms.DateTimePicker FromdateNextVisit;
         private System.Windows.Forms.DateTimePicker ToDateNextVisit;
-        private System.Windows.Forms.CheckBox chkNextVisit;
-        private System.Windows.Forms.Button btnRecoverQty;
+        private System.Windows.Forms.Button btnClearQty;
+        private System.Windows.Forms.Button btnCreateOrder;
+        private CommonControls.PSLabel mPlbl6;
+        private PharmaSYSPlus.CommonLibrary.DecimalTextBox txtBillAmount;
+        private System.Windows.Forms.Panel panel3;
+        private CommonControls.PSRadioButton psRadioButton1;
+        private CommonControls.PSRadioButton rbtExpiry;
+        private CommonControls.PSRadioButton rbtMinMax;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbtLastOrderRemainingProducts;
+        private System.Windows.Forms.RadioButton rbtLastOrderAllProducts;
+        private CommonControls.PSRadioButton psRadioButton2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnGO;
+        private System.Windows.Forms.CheckBox cbSaleToday;
+        private System.Windows.Forms.CheckBox cbShortList;
+        private CommonControls.PSLabel psLabel3;
+        private CommonControls.PSLabel psLabel1;
+        private CommonControls.PSLabel psLabel4;
+        private CommonControls.PSLabel psLabel2;
+        private System.Windows.Forms.DateTimePicker FromDateSaleToday;
+        private System.Windows.Forms.DateTimePicker ToDateSaleToday;
+        private System.Windows.Forms.DateTimePicker FromDateShortList;
+        private System.Windows.Forms.DateTimePicker ToDateShortList;
+        private PharmaSYSPlus.CommonLibrary.NumericTextBox txtSaleDays;
+        private CommonControls.PSLabel mPlbl4;
+        private System.Windows.Forms.Panel pnlVou;
+        private CommonControls.PSLableWithBorderMiddleLeft txtVouType;
+        private CommonControls.PSTextBox txtVoucherSeries;
+        private CommonControls.PSLabel psLabel8;
+        private CommonControls.PSLabel lblVouDate;
+        private CommonControls.PSLabel lblVouNumber;
+        private CommonControls.PSLabel lblVouType;
+        private System.Windows.Forms.DateTimePicker datePickerBillDate;
+        private PharmaSYSPlus.CommonLibrary.GeneralTextBox txtVouchernumber;
+        private CommonControls.PSMainSubViewControl mpMainSubViewControl1;
         private System.Windows.Forms.Panel pnlSummary;
         private System.Windows.Forms.Button btnUpLoad;
         private CommonControls.PSLableWithBorderMiddleRight psLableWithBorderMiddleRight1;
@@ -1021,7 +1006,11 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button btnExitSummary;
         private CommonControls.UclPurchaseNewProduct uclPurchaseNewProduct2;
-        private System.Windows.Forms.Button btnGO;
-        private System.Windows.Forms.Button btnUploadSearch;
+        private System.Windows.Forms.DataGridView dgvBatchGrid;
+        private PharmaSYSPlus.CommonLibrary.DecimalTextBox txtAmount;
+        private System.Windows.Forms.Label lblAmountTotal;
+        private System.Windows.Forms.Label lblNoofRows;
+        private PharmaSYSPlus.CommonLibrary.NumericTextBox txtNoOfRows;
+        private CommonControls.PSMainSubViewControl mpMainSubViewControl;
     }
 }

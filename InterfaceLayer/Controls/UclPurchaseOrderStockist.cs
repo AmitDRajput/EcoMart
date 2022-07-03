@@ -1365,6 +1365,8 @@ namespace EcoMart.InterfaceLayer
                     double mmamt = 0;
                     int mmprodID = 0;
                     string netrate = "";
+                    int msaleqty = 0;
+                    int mclosingstk = 0;
 
 
                     preaccountid = rowCollectionmain[index].Cells["Col_ACCID"].Value.ToString().Trim();
@@ -1378,6 +1380,8 @@ namespace EcoMart.InterfaceLayer
                     mmaccid = "";
                     //mmordid = "";
                     mmprodID = 0;
+                    msaleqty = 0;
+                    mclosingstk = 0;
 
                     //_DailyPurchaseOrder.DSLMasterID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                     _DailyPurchaseOrder.DSLAmount = 0;
@@ -1412,10 +1416,13 @@ namespace EcoMart.InterfaceLayer
                             if (ddsr.Cells["Col_PurchaseRate"].Value != null)
                                 double.TryParse(ddsr.Cells["Col_PurchaseRate"].Value.ToString(), out mmpurrate);
                             mmamt = mmqty * mmpurrate;
+                        if (ddsr.Cells["Col_SaleStock"].Value != null)
+                            int.TryParse(ddsr.Cells["Col_SaleStock"].Value.ToString(), out msaleqty);
+                        if (ddsr.Cells["Col_ClosingStock"].Value != null)
+                            int.TryParse(ddsr.Cells["Col_ClosingStock"].Value.ToString(), out mclosingstk);
 
-
-                            //_DailyPurchaseOrder.DSLID = mmordid;
-                            _DailyPurchaseOrder.DSLOrderNumber = mordno;
+                        //_DailyPurchaseOrder.DSLID = mmordid;
+                        _DailyPurchaseOrder.DSLOrderNumber = mordno;
                             _DailyPurchaseOrder.DSLAccountID = mmaccid;
                             _DailyPurchaseOrder.DSLProductID = mmprodID;
                             _DailyPurchaseOrder.DSLQty = mmqty;
@@ -1423,6 +1430,8 @@ namespace EcoMart.InterfaceLayer
                             _DailyPurchaseOrder.DSLIFSave = "Y";
                             _DailyPurchaseOrder.DSLDailyShortList = "T";
                             _DailyPurchaseOrder.DSLPurchaseRate = mmpurrate;
+                        _DailyPurchaseOrder.DSLSaleQuantity = msaleqty;
+                        _DailyPurchaseOrder.DSLClosingStock = mclosingstk;
                             _DailyPurchaseOrder.CreatedBy = General.CurrentUser.Id;
                             _DailyPurchaseOrder.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
                             _DailyPurchaseOrder.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
@@ -1550,19 +1559,19 @@ namespace EcoMart.InterfaceLayer
                 days += 1;
                 int mselection = 0;
                 DataTable dtable = new DataTable();
-                if (cbShortList.Checked == true)
-                {
-                    mselection = 1;
-                    dtable = _DailyPurchaseOrder.ReadShotListByDateALLTypes();
-                    if (mpMainSubViewControl.Rows.Count > 0)
-                        mpMainSubViewControl.Rows.Clear();
-                    BindmpMainSubViewControl(dtable, mselection);
-                }
+                //if (cbShortList.Checked == true)
+                //{
+                //    mselection = 1;
+                //    dtable = _DailyPurchaseOrder.ReadShotListByDateStockist();
+                //    if (mpMainSubViewControl.Rows.Count > 0)
+                //        mpMainSubViewControl.Rows.Clear();
+                //    BindmpMainSubViewControl(dtable, mselection);
+                //}
                 if (cbSaleToday.Checked == true)
                 {
                     mselection = 2;
                     _DailyPurchaseOrder.DSLAccountID = string.Empty;
-                    dtable = _DailyPurchaseOrder.ReadListForTodayALLTypes();
+                    dtable = _DailyPurchaseOrder.ReadListForTodayStockist();
                     if (mpMainSubViewControl.Rows.Count > 0)
                         mpMainSubViewControl.Rows.Clear();
                     BindmpMainSubViewControl(dtable, mselection);
@@ -1582,32 +1591,32 @@ namespace EcoMart.InterfaceLayer
                     }
                     BindmpMainSubViewControl(dtable, mselection);
                 }
-                if (chkNextVisit.Checked == true)         //Amar
-                {
-                    mselection = 4;
-                    dtable = _DailyPurchaseOrder.ReadShotListByDateNextVisit();
-                    if (mpMainSubViewControl.Rows.Count > 0)
-                        mpMainSubViewControl.Rows.Clear();
-                    BindmpMainSubViewControl(dtable, mselection);
+                //if (chkNextVisit.Checked == true)         //Amar
+                //{
+                //    mselection = 4;
+                //    dtable = _DailyPurchaseOrder.ReadShotListByDateNextVisit();
+                //    if (mpMainSubViewControl.Rows.Count > 0)
+                //        mpMainSubViewControl.Rows.Clear();
+                //    BindmpMainSubViewControl(dtable, mselection);
 
-                    //GetNextVisitDataPurchase();
-                }
+                //    //GetNextVisitDataPurchase();
+                //}
 
-                else if (rbtLastOrderRemainingProducts.Checked)
-                {
-                    RemoveBlankRow();
-                    mselection = 4;
-                    _DailyPurchaseOrder.DSLAccountID = string.Empty;
-                    dtable = _DailyPurchaseOrder.ReadLastOrderRemainingProductsAllTypes();
-                    DataRow firstdr = null;
-                    int lastordernumber = 0;
-                    if (dtable != null && dtable.Rows.Count > 0)
-                    {
-                        firstdr = dtable.Rows[0];
-                        lastordernumber = Convert.ToInt32(firstdr["OrderNumber"].ToString());
-                        BindmpMainSubViewControl(dtable, mselection);
-                    }
-                }
+                //else if (rbtLastOrderRemainingProducts.Checked)
+                //{
+                //    RemoveBlankRow();
+                //    mselection = 4;
+                //    _DailyPurchaseOrder.DSLAccountID = string.Empty;
+                //    dtable = _DailyPurchaseOrder.ReadLastOrderRemainingProductsAllTypes();
+                //    DataRow firstdr = null;
+                //    int lastordernumber = 0;
+                //    if (dtable != null && dtable.Rows.Count > 0)
+                //    {
+                //        firstdr = dtable.Rows[0];
+                //        lastordernumber = Convert.ToInt32(firstdr["OrderNumber"].ToString());
+                //        BindmpMainSubViewControl(dtable, mselection);
+                //    }
+                //}
 
                 mpMainSubViewControl1.Sort(mpMainSubViewControl1.ColumnsMain[1], ListSortDirection.Ascending);
                 mpMainSubViewControl1.Refresh();
@@ -2795,5 +2804,6 @@ namespace EcoMart.InterfaceLayer
         {
             bool retValue = BtnUploadClick();
         }
+
     }
 }

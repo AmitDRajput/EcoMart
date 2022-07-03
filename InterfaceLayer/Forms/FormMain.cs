@@ -175,6 +175,7 @@ namespace EcoMart
         UclPurchaseOrderForToday _UclPurchaseOrderForToday;
         UclPurchaseOrderByStockAndSale _UclPurchaseOrderByStockAndSale;
         UclPurchaseOrderStockist _UclPurchaseOrderStockist;
+        UclPurchaseOrderCNF _UclPurchaseOrderCNF;
         //UclPurchaseOrderList _UclPurchaseOrderList;
         //Settings
         UclSettingsSale _UclSettingsSale;
@@ -916,15 +917,15 @@ namespace EcoMart
             ToolStripMenuItem _SubSubMenuItem = null;
             ControlItem _ControlItem = null;
 
-            _UclPurchaseOrderForToday = new UclPurchaseOrderForToday();
-            _UclPurchaseOrderForToday.Dock = DockStyle.Fill;
-            _UclPurchaseOrderForToday.Visible = false;
-            _UclPurchaseOrderForToday.ExitClicked += new EventHandler(Item_ExitClicked);
+            _UclPurchaseOrderCNF = new UclPurchaseOrderCNF();
+            _UclPurchaseOrderCNF.Dock = DockStyle.Fill;
+            _UclPurchaseOrderCNF.Visible = false;
+            _UclPurchaseOrderCNF.ExitClicked += new EventHandler(Item_ExitClicked);
 
             _ControlItem = new ControlItem();
             _ControlItem.ItemName = "PurchaseOrderCNF";
             _ControlItem.ItemMode = OperationMode.Add;
-            _ControlItem.Control = _UclPurchaseOrderForToday;
+            _ControlItem.Control = _UclPurchaseOrderCNF;
 
             _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
             _BandItem.Name = _ControlItem.ItemName;
@@ -942,15 +943,15 @@ namespace EcoMart
             ToolStripMenuItem _SubSubMenuItem = null;
             ControlItem _ControlItem = null;
 
-            _UclPurchaseOrderForToday = new UclPurchaseOrderForToday();
-            _UclPurchaseOrderForToday.Dock = DockStyle.Fill;
-            _UclPurchaseOrderForToday.Visible = false;
-            _UclPurchaseOrderForToday.ExitClicked += new EventHandler(Item_ExitClicked);
+            _UclPurchaseOrderStockist = new UclPurchaseOrderStockist();
+            _UclPurchaseOrderStockist.Dock = DockStyle.Fill;
+            _UclPurchaseOrderStockist.Visible = false;
+            _UclPurchaseOrderStockist.ExitClicked += new EventHandler(Item_ExitClicked);
 
             _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "PurchaseOrderEcoMart";
+            _ControlItem.ItemName = "PurchaseOrderCNF";
             _ControlItem.ItemMode = OperationMode.Add;
-            _ControlItem.Control = _UclPurchaseOrderForToday;
+            _ControlItem.Control = _UclPurchaseOrderStockist;
 
             _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
             _BandItem.Name = _ControlItem.ItemName;
@@ -3736,16 +3737,16 @@ namespace EcoMart
                 tsmenuReports.DropDownItems.Add(_SubMenuItem);
                 #endregion Scheme
 
-                #region ChallanPurchase
+                //#region ChallanPurchase
 
-                _SubMenuItem = new ToolStripMenuItem("Challan Purchase");
-                _SubMenuItem.Name = "Challan Purchase";
+                //_SubMenuItem = new ToolStripMenuItem("Challan Purchase");
+                //_SubMenuItem.Name = "Challan Purchase";
 
-                AddChallanPurchase(_SubMenuItem);
-                AddChallanPurchaseProductList(_SubMenuItem);
-                tsmenuReports.DropDownItems.Add(_SubMenuItem);
+                //AddChallanPurchase(_SubMenuItem);
+                //AddChallanPurchaseProductList(_SubMenuItem);
+                //tsmenuReports.DropDownItems.Add(_SubMenuItem);
 
-                #endregion
+                //#endregion
 
                 #region Purchase
                 _SubMenuItem = new ToolStripMenuItem("Purchase");
@@ -3858,31 +3859,31 @@ namespace EcoMart
                 tsmenuReports.DropDownItems.Add(_SubMenuItem);
                 #endregion Final Accounts
 
-                # region VAT
-                _SubMenuItem = new ToolStripMenuItem("VAT");
-                _SubMenuItem.Name = "VAT";
+                //# region VAT
+                //_SubMenuItem = new ToolStripMenuItem("VAT");
+                //_SubMenuItem.Name = "VAT";
 
-                //  AddVATSaleRegisterListReportItem(_SubMenuItem);
-                //AddVATSaleRegisterOtherDetailsListReportItem(_SubMenuItem);
-                //AddVATSaleRegisterDateListReportItem(_SubMenuItem);
-                //   AddVATSaleRegisterMonthListReportItem(_SubMenuItem);
-                //AddVATSaleRegisterTINListReportItem(_SubMenuItem);
-                //AddVATSaleRegisterTINDetailListReportItem(_SubMenuItem);
-                //   AddVATSaleRegisterDetailListReportItem(_SubMenuItem);
-                //  AddVATSaleRegisterPartyWiseReportItem(_SubMenuItem);
-                //AddVATPurchaseRegisterListReportItem(_SubMenuItem);
-                //AddVATPurchaseRegisterOtherDetailsListReportItem(_SubMenuItem);
-                //AddVATPurchaseRegisterDateListReportItem(_SubMenuItem);
-                //AddVATPurchaseRegisterMonthListReportItem(_SubMenuItem);
-                //AddVATPurchaseRegisterTINListReportItem(_SubMenuItem);
-                //AddVATPurchaseRegisterTINDetailListReportItem(_SubMenuItem);
+                ////  AddVATSaleRegisterListReportItem(_SubMenuItem);
+                ////AddVATSaleRegisterOtherDetailsListReportItem(_SubMenuItem);
+                ////AddVATSaleRegisterDateListReportItem(_SubMenuItem);
+                ////   AddVATSaleRegisterMonthListReportItem(_SubMenuItem);
+                ////AddVATSaleRegisterTINListReportItem(_SubMenuItem);
+                ////AddVATSaleRegisterTINDetailListReportItem(_SubMenuItem);
+                ////   AddVATSaleRegisterDetailListReportItem(_SubMenuItem);
+                ////  AddVATSaleRegisterPartyWiseReportItem(_SubMenuItem);
+                ////AddVATPurchaseRegisterListReportItem(_SubMenuItem);
+                ////AddVATPurchaseRegisterOtherDetailsListReportItem(_SubMenuItem);
+                ////AddVATPurchaseRegisterDateListReportItem(_SubMenuItem);
+                ////AddVATPurchaseRegisterMonthListReportItem(_SubMenuItem);
+                ////AddVATPurchaseRegisterTINListReportItem(_SubMenuItem);
+                ////AddVATPurchaseRegisterTINDetailListReportItem(_SubMenuItem);
 
-                //AddVATPurchaseRegisterDetailReportItem(_SubMenuItem);
-                //AddVATCreditNoteRegisterDetailReportItem(_SubMenuItem);
-                //AddVATListCombineReportItem(_SubMenuItem);
+                ////AddVATPurchaseRegisterDetailReportItem(_SubMenuItem);
+                ////AddVATCreditNoteRegisterDetailReportItem(_SubMenuItem);
+                ////AddVATListCombineReportItem(_SubMenuItem);
 
-                tsmenuReports.DropDownItems.Add(_SubMenuItem);
-                #endregion VAT
+                //tsmenuReports.DropDownItems.Add(_SubMenuItem);
+                //#endregion VAT
 
                 # region MIS
                 _SubMenuItem = new ToolStripMenuItem("MIS");
@@ -3903,40 +3904,40 @@ namespace EcoMart
                 tsmenuReports.DropDownItems.Add(_SubMenuItem);
                 #endregion MIS
 
-                # region H1
-                _SubMenuItem = new ToolStripMenuItem("H1");
-                _SubMenuItem.Name = "H1";
+                //# region H1
+                //_SubMenuItem = new ToolStripMenuItem("H1");
+                //_SubMenuItem.Name = "H1";
 
-                AddH1SaleListReportItem(_SubMenuItem);
-                tsmenuReports.DropDownItems.Add(_SubMenuItem);
-                #endregion H1
+                //AddH1SaleListReportItem(_SubMenuItem);
+                //tsmenuReports.DropDownItems.Add(_SubMenuItem);
+                //#endregion H1
 
-                # region LBT
-                _SubMenuItem = new ToolStripMenuItem("LBT");
-                _SubMenuItem.Name = "LBT";
+                //# region LBT
+                //_SubMenuItem = new ToolStripMenuItem("LBT");
+                //_SubMenuItem.Name = "LBT";
 
-                //AddLBTPurchaseFromOUTListReportItem(_SubMenuItem);
-                //AddLBTPurchaseFromINListReportItem(_SubMenuItem);
-                //AddLBTPurchasePartywiseListReportItem(_SubMenuItem);
-                //AddLBTSummaryListReportItem(_SubMenuItem);
+                ////AddLBTPurchaseFromOUTListReportItem(_SubMenuItem);
+                ////AddLBTPurchaseFromINListReportItem(_SubMenuItem);
+                ////AddLBTPurchasePartywiseListReportItem(_SubMenuItem);
+                ////AddLBTSummaryListReportItem(_SubMenuItem);
 
-                tsmenuReports.DropDownItems.Add(_SubMenuItem);
-                #endregion LBT
+                //tsmenuReports.DropDownItems.Add(_SubMenuItem);
+                //#endregion LBT
 
 
-                # region Distributor
-                if (General.ShopDetail.ShopDistributorSale == "Y")
-                {
-                    _SubMenuItem = new ToolStripMenuItem("Distributor Reports");
-                    _SubMenuItem.Name = "Distributor Reports";
+                //# region Distributor
+                //if (General.ShopDetail.ShopDistributorSale == "Y")
+                //{
+                //    _SubMenuItem = new ToolStripMenuItem("Distributor Reports");
+                //    _SubMenuItem.Name = "Distributor Reports";
 
-                    AddDistributorPartiwiseOutStandingListReportItem(_SubMenuItem);
-                    AddDistributorDailySaleListReportItem(_SubMenuItem);
-                    //  AddVATSaleRegisterPartyWiseReportItem(_SubMenuItem);
-                    AddDistributorAreawiseOutStandingListReportItem(_SubMenuItem);
-                    tsmenuReports.DropDownItems.Add(_SubMenuItem);
-                }
-                #endregion Distributor
+                //    AddDistributorPartiwiseOutStandingListReportItem(_SubMenuItem);
+                //    AddDistributorDailySaleListReportItem(_SubMenuItem);
+                //    //  AddVATSaleRegisterPartyWiseReportItem(_SubMenuItem);
+                //    AddDistributorAreawiseOutStandingListReportItem(_SubMenuItem);
+                //    tsmenuReports.DropDownItems.Add(_SubMenuItem);
+                //}
+                //#endregion Distributor
 
                 #region GST
                 _SubMenuItem = new ToolStripMenuItem("GST");

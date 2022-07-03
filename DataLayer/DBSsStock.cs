@@ -205,7 +205,7 @@ namespace EcoMart.DataLayer
         public DataTable GetStockForAll(string compID)
         {
             DataTable dt = null;
-            string strSql = "Select a.ProductID,sum(a.OpeningStock) as OpeningStock,sum(a.ClosingStock) as ClosingStock,b.ProdCompID, b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdShelfID,b.ProdCompShortName,c.ShelfID,c.ShelfCode from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  left outer join  mastershelf c on b.ProdShelfID = c.ShelfID where b.ProdCompID = '" + compID + "' Group by a.ProductID order by b.ProdName";
+            string strSql = "Select a.ProductID,sum(a.OpeningStock) as OpeningStock,sum(a.ClosingStock) as ClosingStock,b.ProdCompID, b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdShelfID,b.ProdCompShortName,c.ShelfID,c.ShelfCode from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  left outer join  mastershelf c on b.ProdShelfID = c.ShelfID where b.ProdCompID = '" + compID + "' Group by a.ProductID ,b.ProdCompID,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdShelfID,b.ProdCompShortName,c.ShelfID,c.ShelfCode   order by b.ProdName";
             dt = DBInterface.SelectDataTable(strSql);
             return dt;
         }
@@ -213,7 +213,7 @@ namespace EcoMart.DataLayer
         public DataTable GetStockForAllWithOutZeroOpening(string compID)
         {
             DataTable dt = null;
-            string strSql = "Select a.ProductID,sum(a.OpeningStock) as OpeningStock,sum(a.ClosingStock) as ClosingStock,b.ProdCompID,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdShelfID,b.ProdCompShortName,c.ShelfID,c.ShelfCode from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastershelf c on b.ProdShelfID = c.ShelfID  where openingStock > 0  AND  b.ProdCompID = '" + compID + "'  Group by a.ProductID order by b.ProdName";
+            string strSql = "Select a.ProductID,sum(a.OpeningStock) as OpeningStock,sum(a.ClosingStock) as ClosingStock,b.ProdCompID,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdShelfID,b.ProdCompShortName,c.ShelfID,c.ShelfCode from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastershelf c on b.ProdShelfID = c.ShelfID  where openingStock > 0  AND  b.ProdCompID = '" + compID + "'  Group by a.ProductID ,b.ProdCompID,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdShelfID,b.ProdCompShortName,c.ShelfID,c.ShelfCode   order by b.ProdName";
             dt = DBInterface.SelectDataTable(strSql);
             return dt;
         }
