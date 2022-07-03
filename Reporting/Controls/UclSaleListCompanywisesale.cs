@@ -137,7 +137,7 @@ namespace EcoMart.Reporting.Controls
         {
             PrintRow row;
             try
-            {               
+            {
                 PrintBill.Rows.Clear();
                 PrintFont = new Font(General.CurrentSetting.MsetPrintFontName, Convert.ToInt32(General.CurrentSetting.MsetPrintFontSize));
                 int totalrows = _MTotalRows;
@@ -148,7 +148,7 @@ namespace EcoMart.Reporting.Controls
                 int colpix = 0;
                 totpg = Convert.ToDouble(Math.Ceiling(Convert.ToDouble(totalrows) / FixAccounts.NumberOfRowsPerReport));
                 PrintTotalPages = Convert.ToInt32(Math.Ceiling(totpg));
-                PrintHead(_MFromDate,_MToDate);
+                PrintHead(_MFromDate, _MToDate);
                 PrintIfFirstRow = "Y";
                 double mamt = 0;
                 int mcolpix = 0;
@@ -163,7 +163,7 @@ namespace EcoMart.Reporting.Controls
                         PrintBill.Rows.Clear();
                         PrintRowPixel = 0;
                         PrintPageNumber += 1;
-                        PrintHead(_MFromDate,_MToDate);
+                        PrintHead(_MFromDate, _MToDate);
                         PrintIfFirstRow = "Y";
                     }
 
@@ -178,7 +178,7 @@ namespace EcoMart.Reporting.Controls
                                 row = new PrintRow(dr.Cells["Col_ProductName"].Value.ToString().PadRight(30), PrintRowPixel, 10, PrintFont);
                                 PrintBill.Rows.Add(row);
                             }
-                            
+
                             if (dr.Cells["Col_ProductLoosePack"].Value != null)
                             {
                                 row = new PrintRow(dr.Cells["Col_ProductLoosePack"].Value.ToString().PadRight(15), PrintRowPixel, 200, PrintFont);
@@ -192,7 +192,7 @@ namespace EcoMart.Reporting.Controls
 
                             mamt = 0;
                             mcolpix = 310;
-                                                         
+
 
                             if (dr.Cells["Col_salestock"].Value != null)
                             {
@@ -203,7 +203,7 @@ namespace EcoMart.Reporting.Controls
                             row = new PrintRow(mamt.ToString("#0"), PrintRowPixel, colpix, PrintFont);
                             PrintBill.Rows.Add(row);
                             mcolpix += 200;
-                           
+
 
                             if (dr.Cells["Col_Amount"].Value != null && Convert.ToDouble(dr.Cells["Col_Amount"].Value.ToString()) != 0)
                             {
@@ -214,7 +214,7 @@ namespace EcoMart.Reporting.Controls
                                 PrintBill.Rows.Add(row);
                             }
 
-                            
+
 
                         }
                     }
@@ -250,7 +250,7 @@ namespace EcoMart.Reporting.Controls
         private int PrintHead(string _MFromDate, string _MToDate)
         {
             PrintRow row;
-           
+
             try
             {
                 PrintRowPixel = GeneralReport.PrintHeader(PrintTotalPages, PrintFont, PrintReportHead, PrintRowPixel, PrintPageNumber, PrintReportHead2, General.GetDateInDateFormat(_MFromDate), General.GetDateInDateFormat(_MToDate));
@@ -261,21 +261,21 @@ namespace EcoMart.Reporting.Controls
                 PrintBill.Rows.Add(row);
 
                 PrintRowPixel += 13;
-               
+
                 row = new PrintRow("Product", PrintRowPixel, 30, PrintFont);
                 PrintBill.Rows.Add(row);
                 row = new PrintRow("UOM", PrintRowPixel, 220, PrintFont);
                 PrintBill.Rows.Add(row);
                 row = new PrintRow("Pack", PrintRowPixel, 276, PrintFont);
                 PrintBill.Rows.Add(row);
-                int colpix = 330;               
+                int colpix = 330;
 
-                row = new PrintRow("Sale Stock", PrintRowPixel, colpix+20, PrintFont);
+                row = new PrintRow("Sale Stock", PrintRowPixel, colpix + 20, PrintFont);
                 PrintBill.Rows.Add(row);
 
                 colpix = colpix + 165;
 
-               
+
 
                 row = new PrintRow("Amount", PrintRowPixel, colpix, PrintFont);
                 PrintBill.Rows.Add(row);
@@ -408,7 +408,7 @@ namespace EcoMart.Reporting.Controls
                 column.HeaderText = "Pack";
                 column.Width = 80;
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-                dgvReportList.Columns.Add(column);              
+                dgvReportList.Columns.Add(column);
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_salestock";
@@ -417,7 +417,7 @@ namespace EcoMart.Reporting.Controls
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
                 column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvReportList.Columns.Add(column);
-              
+
 
                 column = new DataGridViewTextBoxColumn();
                 column.Name = "Col_Amount";
@@ -460,7 +460,7 @@ namespace EcoMart.Reporting.Controls
             int mscm = 0;
             double mamt = 0;
             _MTotalAmount = 0;
-           
+
             int drsalestk = 0;
             string mvoudate = "";
             try
@@ -469,7 +469,6 @@ namespace EcoMart.Reporting.Controls
                 dtable = _SsStock.GetOverViewStocknSale(mcbCompany.SelectedID);
                 _BindingSource = dtable;
                 BindReportGrid();
-                  
 
                 dtable = _SsStock.GetSaleStockForStocknSale(_MToDate, mcbCompany.SelectedID);
 
@@ -514,7 +513,7 @@ namespace EcoMart.Reporting.Controls
                         }
                     }
                 }
-                            
+
             }
             catch (Exception ex)
             {
@@ -551,10 +550,9 @@ namespace EcoMart.Reporting.Controls
                 currentdr = dgvReportList.Rows[_RowIndex];
                 currentdr.Cells["Col_ID"].Value = dr["ProductID"].ToString();
                 currentdr.Cells["Col_ProductName"].Value = dr["ProdName"].ToString();
-                currentdr.Cells["Col_ProductLoosePack"].Value = dr["ProdLoosePack"].ToString();
-                currentdr.Cells["Col_ProductPack"].Value = dr["ProdPack"].ToString();               
+                //currentdr.Cells["Col_ProductLoosePack"].Value = dr["ProdLoosePack"].ToString();
+                currentdr.Cells["Col_ProductPack"].Value = dr["ProdPack"].ToString();
             }
-
         }
 
         private void btnOKMultiSelectionClick()
@@ -570,7 +568,7 @@ namespace EcoMart.Reporting.Controls
                 if (retValue)
                 {
                     this.Cursor = Cursors.WaitCursor;
-                    FillReportGrid();                   
+                    FillReportGrid();
                     this.Cursor = Cursors.Default;
                     PrintReportHead = "Sale  CompanyWise"; // From: " + General.GetDateInShortDateFormat(_MFromDate) + " To: " + General.GetDateInShortDateFormat(_MToDate);
                     PrintReportHead2 = "[" + mcbCompany.SeletedItem.ItemData[1].ToString() + "]";
@@ -588,19 +586,19 @@ namespace EcoMart.Reporting.Controls
 
         private void CheckFilter()
         {
-           
-            int drsalestk = 0;          
+
+            int drsalestk = 0;
             _MTotalRows = 0;
             int i = 0;
             try
             {
                 foreach (DataGridViewRow dr in dgvReportList.Rows)
-                {                  
-                   
-                    drsalestk = 0;                                   
+                {
+
+                    drsalestk = 0;
                     if (dr.Cells["Col_salestock"].Value != null)
                         drsalestk = Convert.ToInt32(dr.Cells["Col_salestock"].Value.ToString());
-                   
+
                     if (cbZero.Checked == true)
                     {
                         _MTotalRows += 1;
@@ -609,7 +607,7 @@ namespace EcoMart.Reporting.Controls
                     }
                     else
                     {
-                        if ( drsalestk  == 0)
+                        if (drsalestk == 0)
                         {
 
                             if (i >= 0)
