@@ -221,7 +221,7 @@ namespace EcoMart.DataLayer
         public DataTable GetStockForAllWithOutZeroClosing(string compID)
         {
             DataTable dt = null;
-            string strSql = "Select a.ProductID,sum(a.OpeningStock) as OpeningStock,sum(a.ClosingStock) as ClosingStock,b.ProdCompID,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdShelfID,b.ProdCompShortName,c.ShelfID,c.ShelfCode from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  left outer join  mastershelf c on b.ProdShelfID = c.ShelfID  where  ClosingStock > 0 AND b.ProdCompID = '" + compID + "' Group by a.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdShelfID,b.ProdCompShortName,c.ShelfID,c.ShelfCode ,b.ProductID,b.ProdCompID order by b.ProdName";
+            string strSql = "Select a.ProductID,sum(a.OpeningStock) as OpeningStock,sum(a.ClosingStock) as ClosingStock,b.ProdCompID,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdShelfID,b.ProdCompShortName,c.ShelfID,c.ShelfCode from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  left outer join  mastershelf c on b.ProdShelfID = c.ShelfID  where  ClosingStock > 0 AND b.ProdCompID = '" + compID + "' Group by a.ProductID order by b.ProdName";
             dt = DBInterface.SelectDataTable(strSql);
             return dt;
         }
@@ -306,7 +306,7 @@ namespace EcoMart.DataLayer
             //  strSql = "update masterproduct set SSOpeningStock = 0,SSPurchaseStock = 0, SSSaleStock = 0, SSCRStock = 0, SSDRStock = 0";
             //   bRetValue = (DBInterface.ExecuteQuery(strSql) > 0);
             //  strSql = "Select distinct ProductID,ProdName,ProdLoosePack,ProdPack,ProdCompID,ProdOpeningStock,SSOpeningStock,SSPurchaseStock,SSSaleStock,SSCRStock,SSDRStock from masterproduct  where prodCompID = '"+ mcompID + "' order by ProdName " ;
-            strSql = "Select a.ProductID,a.ProdName,a.ProdLoosePack,a.ProdPack,a.ProdCompID,a.ProdCompShortName,sum(b.openingstock) as ProdOpeningStock,b.MRP from masterproduct a inner join tblstock b on a.ProductID = b.ProductID  where a.prodCompID = '" + mcompID + "' group by b.ProductID order by ProdName ";
+            strSql = "Select a.ProductID,MAX(a.ProdName) AS ProdName, MAX(a.ProdPack) AS ProdPack, MAX(a.ProdCompID) AS ProdCompID, MAX(a.ProdCompShortName) AS ProdCompShortName, sum(b.openingstock) as ProdOpeningStock, MAX(b.MRP) AS MRP  from masterproduct a inner join tblstock b on a.ProductID = b.ProductID  where a.prodCompID = '" + mcompID + "' group by a.ProductID order by ProdName ";
             dt = DBInterface.SelectDataTable(strSql);
             return dt;
         }
@@ -1513,7 +1513,7 @@ namespace EcoMart.DataLayer
             string strSql = "";
             //strSql = "Select a.ID,a.VoucherDate,b.MasterSaleID,b.ProductID,sum(b.Quantity) as Quantity,sum(b.SchemeQuantity) as SchemeQuantity,c.ProductID, c.ProdCompID  from vouchersale a inner join detailsale b on a.ID = b.MasterSaleID inner join masterproduct c on b.ProductID = c.ProductID  where a.voucherdate <='" + mtodate + "' AND  c.ProdCompID = '" + mcompID + "' group by b.ProductID";
 
-            strSql = "Select a.ID,a.VoucherDate,b.MasterSaleID,b.ProductID,(b.Quantity) as Quantity,(b.SchemeQuantity) as SchemeQuantity,sum(b.Quantity * (b.SaleRate/c.Prodloosepack)) as Amount,c.ProductID, c.ProdCompID, d.CompID,d.CompName  from vouchersale a inner join detailsale b on a.ID = b.MasterSaleID inner join masterproduct c on b.ProductID = c.ProductID inner join mastercompany d on c.ProdCompID = d.CompID  where a.voucherDate >= '"+ mfromdate +"' AND a.voucherdate <='" + mtodate + "'  Group by c.ProdCompID order by Amount desc";
+            strSql = "Select sum(b.Quantity * (b.SaleRate/c.Prodloosepack)) as Amount, c.ProdCompID, MAX(d.CompID) AS CompID, MAX(d.CompName) AS CompName  from vouchersale a inner join detailsale b on a.ID = b.MasterSaleID inner join masterproduct c on b.ProductID = c.ProductID inner join mastercompany d on c.ProdCompID = d.CompID  where a.voucherDate >= '" + mfromdate +"' AND a.voucherdate <='" + mtodate + "'  Group by c.ProdCompID order by Amount desc";
             dt = DBInterface.SelectDataTable(strSql);
             return dt;
         }

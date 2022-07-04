@@ -38,6 +38,26 @@ namespace EcoMart.InterfaceLayer
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.lblMessage = new System.Windows.Forms.Label();
             this.pnlCenter = new System.Windows.Forms.Panel();
+            this.pnlDebtor = new System.Windows.Forms.Panel();
+            this.psLabel6 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
+            this.mcbArea = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
+            this.psLabel1 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
+            this.txtDebtorDiscountOffered = new PharmaSYSPlus.CommonLibrary.DecimalTextBox();
+            this.lblTransactionType = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
+            this.lblTokenNumberDb = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
+            this.lblDLNDb = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
+            this.lblVATTINDb = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
+            this.lblBranchDb = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
+            this.lblBankDb = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
+            this.txtTokenNumber = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
+            this.txtDLN = new System.Windows.Forms.TextBox();
+            this.txtVATTIN = new System.Windows.Forms.TextBox();
+            this.gbTransactionType = new System.Windows.Forms.GroupBox();
+            this.rbCashCredit = new System.Windows.Forms.RadioButton();
+            this.rbCredit = new System.Windows.Forms.RadioButton();
+            this.rbCash = new System.Windows.Forms.RadioButton();
+            this.mcbBranch = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
+            this.mcbBank = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
             this.pnlBank = new System.Windows.Forms.Panel();
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.lblvattin = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
@@ -75,26 +95,6 @@ namespace EcoMart.InterfaceLayer
             this.cbAccountType = new System.Windows.Forms.ComboBox();
             this.lblPANDb = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.txtNameAddress = new System.Windows.Forms.TextBox();
-            this.pnlDebtor = new System.Windows.Forms.Panel();
-            this.psLabel6 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.mcbArea = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
-            this.psLabel1 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.txtDebtorDiscountOffered = new PharmaSYSPlus.CommonLibrary.DecimalTextBox();
-            this.lblTransactionType = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.lblTokenNumberDb = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.lblDLNDb = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.lblVATTINDb = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.lblBranchDb = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.lblBankDb = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.txtTokenNumber = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
-            this.txtDLN = new System.Windows.Forms.TextBox();
-            this.txtVATTIN = new System.Windows.Forms.TextBox();
-            this.gbTransactionType = new System.Windows.Forms.GroupBox();
-            this.rbCashCredit = new System.Windows.Forms.RadioButton();
-            this.rbCredit = new System.Windows.Forms.RadioButton();
-            this.rbCash = new System.Windows.Forms.RadioButton();
-            this.mcbBranch = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
-            this.mcbBank = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
             this.pnlCreditor = new System.Windows.Forms.Panel();
             this.lblDLNCr = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.lblVATTINCR = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
@@ -113,12 +113,12 @@ namespace EcoMart.InterfaceLayer
             this.MMBottomPanel.SuspendLayout();
             this.MMMainPanel.SuspendLayout();
             this.pnlCenter.SuspendLayout();
+            this.pnlDebtor.SuspendLayout();
+            this.gbTransactionType.SuspendLayout();
             this.pnlBank.SuspendLayout();
             this.pnlGeneral.SuspendLayout();
             this.pnlRemark.SuspendLayout();
             this.pnlAddress.SuspendLayout();
-            this.pnlDebtor.SuspendLayout();
-            this.gbTransactionType.SuspendLayout();
             this.pnlCreditor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -216,6 +216,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.pnlCenter.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlCenter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlCenter.Controls.Add(this.pnlDebtor);
             this.pnlCenter.Controls.Add(this.pnlBank);
             this.pnlCenter.Controls.Add(this.txtAddress1);
             this.pnlCenter.Controls.Add(this.txtAddress2);
@@ -242,12 +243,275 @@ namespace EcoMart.InterfaceLayer
             this.pnlCenter.Controls.Add(this.lblPANDb);
             this.pnlCenter.Controls.Add(this.txtNameAddress);
             this.pnlCenter.Controls.Add(this.pnlCreditor);
-            this.pnlCenter.Controls.Add(this.pnlDebtor);
             this.pnlCenter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlCenter.Location = new System.Drawing.Point(0, 31);
             this.pnlCenter.Name = "pnlCenter";
             this.pnlCenter.Size = new System.Drawing.Size(961, 531);
             this.pnlCenter.TabIndex = 54;
+            // 
+            // pnlDebtor
+            // 
+            this.pnlDebtor.Controls.Add(this.psLabel6);
+            this.pnlDebtor.Controls.Add(this.mcbArea);
+            this.pnlDebtor.Controls.Add(this.psLabel1);
+            this.pnlDebtor.Controls.Add(this.txtDebtorDiscountOffered);
+            this.pnlDebtor.Controls.Add(this.lblTransactionType);
+            this.pnlDebtor.Controls.Add(this.lblTokenNumberDb);
+            this.pnlDebtor.Controls.Add(this.lblDLNDb);
+            this.pnlDebtor.Controls.Add(this.lblVATTINDb);
+            this.pnlDebtor.Controls.Add(this.lblBranchDb);
+            this.pnlDebtor.Controls.Add(this.lblBankDb);
+            this.pnlDebtor.Controls.Add(this.txtTokenNumber);
+            this.pnlDebtor.Controls.Add(this.txtDLN);
+            this.pnlDebtor.Controls.Add(this.txtVATTIN);
+            this.pnlDebtor.Controls.Add(this.gbTransactionType);
+            this.pnlDebtor.Controls.Add(this.mcbBranch);
+            this.pnlDebtor.Controls.Add(this.mcbBank);
+            this.pnlDebtor.Location = new System.Drawing.Point(116, 223);
+            this.pnlDebtor.Name = "pnlDebtor";
+            this.pnlDebtor.Size = new System.Drawing.Size(618, 269);
+            this.pnlDebtor.TabIndex = 9;
+            // 
+            // psLabel6
+            // 
+            this.psLabel6.AutoSize = true;
+            this.psLabel6.Location = new System.Drawing.Point(98, 47);
+            this.psLabel6.Name = "psLabel6";
+            this.psLabel6.Size = new System.Drawing.Size(37, 16);
+            this.psLabel6.TabIndex = 178;
+            this.psLabel6.Text = "&Area";
+            // 
+            // mcbArea
+            // 
+            this.mcbArea.ColumnWidth = null;
+            this.mcbArea.DataSource = null;
+            this.mcbArea.DisplayColumnNo = 1;
+            this.mcbArea.DropDownHeight = 200;
+            this.mcbArea.Location = new System.Drawing.Point(151, 46);
+            this.mcbArea.Margin = new System.Windows.Forms.Padding(4);
+            this.mcbArea.Name = "mcbArea";
+            this.mcbArea.SelectedID = "";
+            this.mcbArea.SelectedIDtest = 0;
+            this.mcbArea.SelectedIntID = 0;
+            this.mcbArea.ShowNew = true;
+            this.mcbArea.Size = new System.Drawing.Size(353, 22);
+            this.mcbArea.SourceDataString = null;
+            this.mcbArea.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
+            this.mcbArea.TabIndex = 177;
+            this.mcbArea.UserControlToShow = null;
+            this.mcbArea.ValueColumnNo = 0;
+            this.mcbArea.ItemAddedEdited += new System.EventHandler(this.mcbArea_ItemAddedEdited);
+            this.mcbArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mcbArea_KeyDown);
+            // 
+            // psLabel1
+            // 
+            this.psLabel1.AutoSize = true;
+            this.psLabel1.Location = new System.Drawing.Point(31, 121);
+            this.psLabel1.Name = "psLabel1";
+            this.psLabel1.Size = new System.Drawing.Size(109, 16);
+            this.psLabel1.TabIndex = 151;
+            this.psLabel1.Text = "&Discount Offered";
+            // 
+            // txtDebtorDiscountOffered
+            // 
+            this.txtDebtorDiscountOffered.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDebtorDiscountOffered.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDebtorDiscountOffered.Location = new System.Drawing.Point(152, 118);
+            this.txtDebtorDiscountOffered.MaxLength = 15;
+            this.txtDebtorDiscountOffered.Name = "txtDebtorDiscountOffered";
+            this.txtDebtorDiscountOffered.Size = new System.Drawing.Size(76, 21);
+            this.txtDebtorDiscountOffered.TabIndex = 150;
+            this.txtDebtorDiscountOffered.Tag = "0.00";
+            this.txtDebtorDiscountOffered.Text = "0.00";
+            this.txtDebtorDiscountOffered.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDebtorDiscountOffered.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDebtorDiscountOffered_KeyDown);
+            // 
+            // lblTransactionType
+            // 
+            this.lblTransactionType.AutoSize = true;
+            this.lblTransactionType.Location = new System.Drawing.Point(11, 235);
+            this.lblTransactionType.Name = "lblTransactionType";
+            this.lblTransactionType.Size = new System.Drawing.Size(113, 16);
+            this.lblTransactionType.TabIndex = 149;
+            this.lblTransactionType.Text = "Transaction T&ype";
+            this.lblTransactionType.Visible = false;
+            // 
+            // lblTokenNumberDb
+            // 
+            this.lblTokenNumberDb.AutoSize = true;
+            this.lblTokenNumberDb.Location = new System.Drawing.Point(27, 211);
+            this.lblTokenNumberDb.Name = "lblTokenNumberDb";
+            this.lblTokenNumberDb.Size = new System.Drawing.Size(98, 16);
+            this.lblTokenNumberDb.TabIndex = 148;
+            this.lblTokenNumberDb.Text = "Tok&en Number";
+            this.lblTokenNumberDb.Visible = false;
+            // 
+            // lblDLNDb
+            // 
+            this.lblDLNDb.AutoSize = true;
+            this.lblDLNDb.Location = new System.Drawing.Point(101, 94);
+            this.lblDLNDb.Name = "lblDLNDb";
+            this.lblDLNDb.Size = new System.Drawing.Size(35, 16);
+            this.lblDLNDb.TabIndex = 147;
+            this.lblDLNDb.Text = "D&LN";
+            // 
+            // lblVATTINDb
+            // 
+            this.lblVATTINDb.AutoSize = true;
+            this.lblVATTINDb.Location = new System.Drawing.Point(51, 72);
+            this.lblVATTINDb.Name = "lblVATTINDb";
+            this.lblVATTINDb.Size = new System.Drawing.Size(86, 16);
+            this.lblVATTINDb.TabIndex = 146;
+            this.lblVATTINDb.Text = "&GST Number";
+            // 
+            // lblBranchDb
+            // 
+            this.lblBranchDb.AutoSize = true;
+            this.lblBranchDb.Location = new System.Drawing.Point(84, 28);
+            this.lblBranchDb.Name = "lblBranchDb";
+            this.lblBranchDb.Size = new System.Drawing.Size(52, 16);
+            this.lblBranchDb.TabIndex = 144;
+            this.lblBranchDb.Text = "Branc&h";
+            // 
+            // lblBankDb
+            // 
+            this.lblBankDb.AutoSize = true;
+            this.lblBankDb.Location = new System.Drawing.Point(94, 8);
+            this.lblBankDb.Name = "lblBankDb";
+            this.lblBankDb.Size = new System.Drawing.Size(39, 16);
+            this.lblBankDb.TabIndex = 143;
+            this.lblBankDb.Text = "Ban&k";
+            // 
+            // txtTokenNumber
+            // 
+            this.txtTokenNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTokenNumber.Location = new System.Drawing.Point(151, 209);
+            this.txtTokenNumber.MaxLength = 6;
+            this.txtTokenNumber.Name = "txtTokenNumber";
+            this.txtTokenNumber.Size = new System.Drawing.Size(54, 22);
+            this.txtTokenNumber.TabIndex = 139;
+            this.txtTokenNumber.Visible = false;
+            this.txtTokenNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTokenNumber_KeyDown);
+            this.txtTokenNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtTokenNumber_Validating);
+            // 
+            // txtDLN
+            // 
+            this.txtDLN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDLN.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDLN.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDLN.Location = new System.Drawing.Point(151, 93);
+            this.txtDLN.MaxLength = 50;
+            this.txtDLN.Name = "txtDLN";
+            this.txtDLN.Size = new System.Drawing.Size(416, 22);
+            this.txtDLN.TabIndex = 4;
+            // 
+            // txtVATTIN
+            // 
+            this.txtVATTIN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtVATTIN.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtVATTIN.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVATTIN.Location = new System.Drawing.Point(151, 70);
+            this.txtVATTIN.MaxLength = 50;
+            this.txtVATTIN.Name = "txtVATTIN";
+            this.txtVATTIN.Size = new System.Drawing.Size(416, 22);
+            this.txtVATTIN.TabIndex = 3;
+            // 
+            // gbTransactionType
+            // 
+            this.gbTransactionType.Controls.Add(this.rbCashCredit);
+            this.gbTransactionType.Controls.Add(this.rbCredit);
+            this.gbTransactionType.Controls.Add(this.rbCash);
+            this.gbTransactionType.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTransactionType.Location = new System.Drawing.Point(151, 225);
+            this.gbTransactionType.Name = "gbTransactionType";
+            this.gbTransactionType.Size = new System.Drawing.Size(276, 33);
+            this.gbTransactionType.TabIndex = 110;
+            this.gbTransactionType.TabStop = false;
+            this.gbTransactionType.Visible = false;
+            // 
+            // rbCashCredit
+            // 
+            this.rbCashCredit.AutoSize = true;
+            this.rbCashCredit.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCashCredit.Location = new System.Drawing.Point(66, 11);
+            this.rbCashCredit.Name = "rbCashCredit";
+            this.rbCashCredit.Size = new System.Drawing.Size(62, 19);
+            this.rbCashCredit.TabIndex = 2;
+            this.rbCashCredit.TabStop = true;
+            this.rbCashCredit.Text = "Credit";
+            this.rbCashCredit.UseVisualStyleBackColor = true;
+            this.rbCashCredit.Visible = false;
+            // 
+            // rbCredit
+            // 
+            this.rbCredit.AutoSize = true;
+            this.rbCredit.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCredit.Location = new System.Drawing.Point(139, 11);
+            this.rbCredit.Name = "rbCredit";
+            this.rbCredit.Size = new System.Drawing.Size(128, 19);
+            this.rbCredit.TabIndex = 1;
+            this.rbCredit.TabStop = true;
+            this.rbCredit.Text = "Credit Statement";
+            this.rbCredit.UseVisualStyleBackColor = true;
+            this.rbCredit.Visible = false;
+            // 
+            // rbCash
+            // 
+            this.rbCash.AutoSize = true;
+            this.rbCash.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCash.Location = new System.Drawing.Point(6, 11);
+            this.rbCash.Name = "rbCash";
+            this.rbCash.Size = new System.Drawing.Size(53, 19);
+            this.rbCash.TabIndex = 0;
+            this.rbCash.TabStop = true;
+            this.rbCash.Text = "Cash";
+            this.rbCash.UseVisualStyleBackColor = true;
+            this.rbCash.Visible = false;
+            // 
+            // mcbBranch
+            // 
+            this.mcbBranch.ColumnWidth = null;
+            this.mcbBranch.DataSource = null;
+            this.mcbBranch.DisplayColumnNo = 1;
+            this.mcbBranch.DropDownHeight = 200;
+            this.mcbBranch.Location = new System.Drawing.Point(151, 25);
+            this.mcbBranch.Margin = new System.Windows.Forms.Padding(4);
+            this.mcbBranch.Name = "mcbBranch";
+            this.mcbBranch.SelectedID = "";
+            this.mcbBranch.SelectedIDtest = 0;
+            this.mcbBranch.SelectedIntID = 0;
+            this.mcbBranch.ShowNew = true;
+            this.mcbBranch.Size = new System.Drawing.Size(353, 22);
+            this.mcbBranch.SourceDataString = null;
+            this.mcbBranch.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
+            this.mcbBranch.TabIndex = 2;
+            this.mcbBranch.UserControlToShow = null;
+            this.mcbBranch.ValueColumnNo = 0;
+            this.mcbBranch.EnterKeyPressed += new System.EventHandler(this.mcbBranch_EnterKeyPressed);
+            this.mcbBranch.ItemAddedEdited += new System.EventHandler(this.mcbBranch_ItemAddedEdited);
+            // 
+            // mcbBank
+            // 
+            this.mcbBank.ColumnWidth = null;
+            this.mcbBank.DataSource = null;
+            this.mcbBank.DisplayColumnNo = 1;
+            this.mcbBank.DropDownHeight = 200;
+            this.mcbBank.Location = new System.Drawing.Point(151, 2);
+            this.mcbBank.Margin = new System.Windows.Forms.Padding(4);
+            this.mcbBank.Name = "mcbBank";
+            this.mcbBank.SelectedID = "";
+            this.mcbBank.SelectedIDtest = 0;
+            this.mcbBank.SelectedIntID = 0;
+            this.mcbBank.ShowNew = true;
+            this.mcbBank.Size = new System.Drawing.Size(353, 22);
+            this.mcbBank.SourceDataString = null;
+            this.mcbBank.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
+            this.mcbBank.TabIndex = 1;
+            this.mcbBank.UserControlToShow = null;
+            this.mcbBank.ValueColumnNo = 0;
+            this.mcbBank.EnterKeyPressed += new System.EventHandler(this.mcbBank_EnterKeyPressed);
+            this.mcbBank.ItemAddedEdited += new System.EventHandler(this.mcbBank_ItemAddedEdited);
+            this.mcbBank.UpArrowPressed += new System.EventHandler(this.mcbBank_UpArrowPressed);
             // 
             // pnlBank
             // 
@@ -689,263 +953,6 @@ namespace EcoMart.InterfaceLayer
             this.txtNameAddress.Visible = false;
             this.txtNameAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameAddress_KeyDown);
             // 
-            // pnlDebtor
-            // 
-            this.pnlDebtor.Controls.Add(this.psLabel6);
-            this.pnlDebtor.Controls.Add(this.mcbArea);
-            this.pnlDebtor.Controls.Add(this.psLabel1);
-            this.pnlDebtor.Controls.Add(this.txtDebtorDiscountOffered);
-            this.pnlDebtor.Controls.Add(this.lblTransactionType);
-            this.pnlDebtor.Controls.Add(this.lblTokenNumberDb);
-            this.pnlDebtor.Controls.Add(this.lblDLNDb);
-            this.pnlDebtor.Controls.Add(this.lblVATTINDb);
-            this.pnlDebtor.Controls.Add(this.lblBranchDb);
-            this.pnlDebtor.Controls.Add(this.lblBankDb);
-            this.pnlDebtor.Controls.Add(this.txtTokenNumber);
-            this.pnlDebtor.Controls.Add(this.txtDLN);
-            this.pnlDebtor.Controls.Add(this.txtVATTIN);
-            this.pnlDebtor.Controls.Add(this.gbTransactionType);
-            this.pnlDebtor.Controls.Add(this.mcbBranch);
-            this.pnlDebtor.Controls.Add(this.mcbBank);
-            this.pnlDebtor.Location = new System.Drawing.Point(121, 228);
-            this.pnlDebtor.Name = "pnlDebtor";
-            this.pnlDebtor.Size = new System.Drawing.Size(618, 269);
-            this.pnlDebtor.TabIndex = 9;
-            // 
-            // psLabel6
-            // 
-            this.psLabel6.AutoSize = true;
-            this.psLabel6.Location = new System.Drawing.Point(98, 72);
-            this.psLabel6.Name = "psLabel6";
-            this.psLabel6.Size = new System.Drawing.Size(37, 16);
-            this.psLabel6.TabIndex = 178;
-            this.psLabel6.Text = "&Area";
-            // 
-            // mcbArea
-            // 
-            this.mcbArea.ColumnWidth = null;
-            this.mcbArea.DataSource = null;
-            this.mcbArea.DisplayColumnNo = 1;
-            this.mcbArea.DropDownHeight = 200;
-            this.mcbArea.Location = new System.Drawing.Point(151, 71);
-            this.mcbArea.Margin = new System.Windows.Forms.Padding(4);
-            this.mcbArea.Name = "mcbArea";
-            this.mcbArea.SelectedID = "";
-            this.mcbArea.SelectedIDtest = 0;
-            this.mcbArea.SelectedIntID = 0;
-            this.mcbArea.ShowNew = true;
-            this.mcbArea.Size = new System.Drawing.Size(353, 22);
-            this.mcbArea.SourceDataString = null;
-            this.mcbArea.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
-            this.mcbArea.TabIndex = 177;
-            this.mcbArea.UserControlToShow = null;
-            this.mcbArea.ValueColumnNo = 0;           
-            this.mcbArea.ItemAddedEdited += new System.EventHandler(this.mcbArea_ItemAddedEdited);
-            this.mcbArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mcbArea_KeyDown);
-            // 
-            // psLabel1
-            // 
-            this.psLabel1.AutoSize = true;
-            this.psLabel1.Location = new System.Drawing.Point(300, 212);
-            this.psLabel1.Name = "psLabel1";
-            this.psLabel1.Size = new System.Drawing.Size(109, 16);
-            this.psLabel1.TabIndex = 151;
-            this.psLabel1.Text = "&Discount Offered";
-            // 
-            // txtDebtorDiscountOffered
-            // 
-            this.txtDebtorDiscountOffered.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDebtorDiscountOffered.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDebtorDiscountOffered.Location = new System.Drawing.Point(421, 209);
-            this.txtDebtorDiscountOffered.MaxLength = 15;
-            this.txtDebtorDiscountOffered.Name = "txtDebtorDiscountOffered";
-            this.txtDebtorDiscountOffered.Size = new System.Drawing.Size(76, 21);
-            this.txtDebtorDiscountOffered.TabIndex = 150;
-            this.txtDebtorDiscountOffered.Tag = "0.00";
-            this.txtDebtorDiscountOffered.Text = "0.00";
-            this.txtDebtorDiscountOffered.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtDebtorDiscountOffered.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDebtorDiscountOffered_KeyDown);
-            // 
-            // lblTransactionType
-            // 
-            this.lblTransactionType.AutoSize = true;
-            this.lblTransactionType.Location = new System.Drawing.Point(11, 235);
-            this.lblTransactionType.Name = "lblTransactionType";
-            this.lblTransactionType.Size = new System.Drawing.Size(113, 16);
-            this.lblTransactionType.TabIndex = 149;
-            this.lblTransactionType.Text = "Transaction T&ype";
-            // 
-            // lblTokenNumberDb
-            // 
-            this.lblTokenNumberDb.AutoSize = true;
-            this.lblTokenNumberDb.Location = new System.Drawing.Point(27, 211);
-            this.lblTokenNumberDb.Name = "lblTokenNumberDb";
-            this.lblTokenNumberDb.Size = new System.Drawing.Size(98, 16);
-            this.lblTokenNumberDb.TabIndex = 148;
-            this.lblTokenNumberDb.Text = "Tok&en Number";
-            // 
-            // lblDLNDb
-            // 
-            this.lblDLNDb.AutoSize = true;
-            this.lblDLNDb.Location = new System.Drawing.Point(101, 141);
-            this.lblDLNDb.Name = "lblDLNDb";
-            this.lblDLNDb.Size = new System.Drawing.Size(35, 16);
-            this.lblDLNDb.TabIndex = 147;
-            this.lblDLNDb.Text = "D&LN";
-            // 
-            // lblVATTINDb
-            // 
-            this.lblVATTINDb.AutoSize = true;
-            this.lblVATTINDb.Location = new System.Drawing.Point(51, 119);
-            this.lblVATTINDb.Name = "lblVATTINDb";
-            this.lblVATTINDb.Size = new System.Drawing.Size(86, 16);
-            this.lblVATTINDb.TabIndex = 146;
-            this.lblVATTINDb.Text = "&GST Number";
-            // 
-            // lblBranchDb
-            // 
-            this.lblBranchDb.AutoSize = true;
-            this.lblBranchDb.Location = new System.Drawing.Point(84, 28);
-            this.lblBranchDb.Name = "lblBranchDb";
-            this.lblBranchDb.Size = new System.Drawing.Size(52, 16);
-            this.lblBranchDb.TabIndex = 144;
-            this.lblBranchDb.Text = "Branc&h";
-            // 
-            // lblBankDb
-            // 
-            this.lblBankDb.AutoSize = true;
-            this.lblBankDb.Location = new System.Drawing.Point(94, 8);
-            this.lblBankDb.Name = "lblBankDb";
-            this.lblBankDb.Size = new System.Drawing.Size(39, 16);
-            this.lblBankDb.TabIndex = 143;
-            this.lblBankDb.Text = "Ban&k";
-            // 
-            // txtTokenNumber
-            // 
-            this.txtTokenNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTokenNumber.Location = new System.Drawing.Point(151, 209);
-            this.txtTokenNumber.MaxLength = 6;
-            this.txtTokenNumber.Name = "txtTokenNumber";
-            this.txtTokenNumber.Size = new System.Drawing.Size(54, 22);
-            this.txtTokenNumber.TabIndex = 139;
-            this.txtTokenNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTokenNumber_KeyDown);
-            this.txtTokenNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtTokenNumber_Validating);
-            // 
-            // txtDLN
-            // 
-            this.txtDLN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDLN.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDLN.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDLN.Location = new System.Drawing.Point(151, 140);
-            this.txtDLN.MaxLength = 50;
-            this.txtDLN.Name = "txtDLN";
-            this.txtDLN.Size = new System.Drawing.Size(416, 22);
-            this.txtDLN.TabIndex = 4;            
-            // 
-            // txtVATTIN
-            // 
-            this.txtVATTIN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtVATTIN.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtVATTIN.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVATTIN.Location = new System.Drawing.Point(151, 117);
-            this.txtVATTIN.MaxLength = 50;
-            this.txtVATTIN.Name = "txtVATTIN";
-            this.txtVATTIN.Size = new System.Drawing.Size(416, 22);
-            this.txtVATTIN.TabIndex = 3;           
-            // 
-            // gbTransactionType
-            // 
-            this.gbTransactionType.Controls.Add(this.rbCashCredit);
-            this.gbTransactionType.Controls.Add(this.rbCredit);
-            this.gbTransactionType.Controls.Add(this.rbCash);
-            this.gbTransactionType.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbTransactionType.Location = new System.Drawing.Point(151, 225);
-            this.gbTransactionType.Name = "gbTransactionType";
-            this.gbTransactionType.Size = new System.Drawing.Size(276, 33);
-            this.gbTransactionType.TabIndex = 110;
-            this.gbTransactionType.TabStop = false;
-            // 
-            // rbCashCredit
-            // 
-            this.rbCashCredit.AutoSize = true;
-            this.rbCashCredit.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCashCredit.Location = new System.Drawing.Point(66, 11);
-            this.rbCashCredit.Name = "rbCashCredit";
-            this.rbCashCredit.Size = new System.Drawing.Size(62, 19);
-            this.rbCashCredit.TabIndex = 2;
-            this.rbCashCredit.TabStop = true;
-            this.rbCashCredit.Text = "Credit";
-            this.rbCashCredit.UseVisualStyleBackColor = true;
-            // 
-            // rbCredit
-            // 
-            this.rbCredit.AutoSize = true;
-            this.rbCredit.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCredit.Location = new System.Drawing.Point(139, 11);
-            this.rbCredit.Name = "rbCredit";
-            this.rbCredit.Size = new System.Drawing.Size(128, 19);
-            this.rbCredit.TabIndex = 1;
-            this.rbCredit.TabStop = true;
-            this.rbCredit.Text = "Credit Statement";
-            this.rbCredit.UseVisualStyleBackColor = true;
-            // 
-            // rbCash
-            // 
-            this.rbCash.AutoSize = true;
-            this.rbCash.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCash.Location = new System.Drawing.Point(6, 11);
-            this.rbCash.Name = "rbCash";
-            this.rbCash.Size = new System.Drawing.Size(53, 19);
-            this.rbCash.TabIndex = 0;
-            this.rbCash.TabStop = true;
-            this.rbCash.Text = "Cash";
-            this.rbCash.UseVisualStyleBackColor = true;
-            // 
-            // mcbBranch
-            // 
-            this.mcbBranch.ColumnWidth = null;
-            this.mcbBranch.DataSource = null;
-            this.mcbBranch.DisplayColumnNo = 1;
-            this.mcbBranch.DropDownHeight = 200;
-            this.mcbBranch.Location = new System.Drawing.Point(151, 25);
-            this.mcbBranch.Margin = new System.Windows.Forms.Padding(4);
-            this.mcbBranch.Name = "mcbBranch";
-            this.mcbBranch.SelectedID = "";
-            this.mcbBranch.SelectedIDtest = 0;
-            this.mcbBranch.SelectedIntID = 0;
-            this.mcbBranch.ShowNew = true;
-            this.mcbBranch.Size = new System.Drawing.Size(353, 22);
-            this.mcbBranch.SourceDataString = null;
-            this.mcbBranch.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
-            this.mcbBranch.TabIndex = 2;
-            this.mcbBranch.UserControlToShow = null;
-            this.mcbBranch.ValueColumnNo = 0;
-            this.mcbBranch.EnterKeyPressed += new System.EventHandler(this.mcbBranch_EnterKeyPressed);
-            this.mcbBranch.ItemAddedEdited += new System.EventHandler(this.mcbBranch_ItemAddedEdited);
-            // 
-            // mcbBank
-            // 
-            this.mcbBank.ColumnWidth = null;
-            this.mcbBank.DataSource = null;
-            this.mcbBank.DisplayColumnNo = 1;
-            this.mcbBank.DropDownHeight = 200;
-            this.mcbBank.Location = new System.Drawing.Point(151, 2);
-            this.mcbBank.Margin = new System.Windows.Forms.Padding(4);
-            this.mcbBank.Name = "mcbBank";
-            this.mcbBank.SelectedID = "";
-            this.mcbBank.SelectedIDtest = 0;
-            this.mcbBank.SelectedIntID = 0;
-            this.mcbBank.ShowNew = true;
-            this.mcbBank.Size = new System.Drawing.Size(353, 22);
-            this.mcbBank.SourceDataString = null;
-            this.mcbBank.Style = EcoMart.InterfaceLayer.CommonControls.PSMultiColumComboBox.ComboStyle.DropDownList;
-            this.mcbBank.TabIndex = 1;
-            this.mcbBank.UserControlToShow = null;
-            this.mcbBank.ValueColumnNo = 0;
-            this.mcbBank.EnterKeyPressed += new System.EventHandler(this.mcbBank_EnterKeyPressed);
-            this.mcbBank.ItemAddedEdited += new System.EventHandler(this.mcbBank_ItemAddedEdited);
-            this.mcbBank.UpArrowPressed += new System.EventHandler(this.mcbBank_UpArrowPressed);
-            // 
             // pnlCreditor
             // 
             this.pnlCreditor.BackColor = System.Drawing.Color.Gainsboro;
@@ -1007,7 +1014,7 @@ namespace EcoMart.InterfaceLayer
             this.txtCreditorDLN.MaxLength = 50;
             this.txtCreditorDLN.Name = "txtCreditorDLN";
             this.txtCreditorDLN.Size = new System.Drawing.Size(381, 23);
-            this.txtCreditorDLN.TabIndex = 1;           
+            this.txtCreditorDLN.TabIndex = 1;
             // 
             // txtCreditorDiscountOffered
             // 
@@ -1078,7 +1085,7 @@ namespace EcoMart.InterfaceLayer
             this.txtName.DisplayColumnNo = 1;
             this.txtName.DropDownHeight = 200;
             this.txtName.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(267, 9);
+            this.txtName.Location = new System.Drawing.Point(269, 9);
             this.txtName.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = false;
@@ -1130,6 +1137,10 @@ namespace EcoMart.InterfaceLayer
             this.MMMainPanel.PerformLayout();
             this.pnlCenter.ResumeLayout(false);
             this.pnlCenter.PerformLayout();
+            this.pnlDebtor.ResumeLayout(false);
+            this.pnlDebtor.PerformLayout();
+            this.gbTransactionType.ResumeLayout(false);
+            this.gbTransactionType.PerformLayout();
             this.pnlBank.ResumeLayout(false);
             this.pnlBank.PerformLayout();
             this.pnlGeneral.ResumeLayout(false);
@@ -1137,10 +1148,6 @@ namespace EcoMart.InterfaceLayer
             this.pnlRemark.ResumeLayout(false);
             this.pnlRemark.PerformLayout();
             this.pnlAddress.ResumeLayout(false);
-            this.pnlDebtor.ResumeLayout(false);
-            this.pnlDebtor.PerformLayout();
-            this.gbTransactionType.ResumeLayout(false);
-            this.gbTransactionType.PerformLayout();
             this.pnlCreditor.ResumeLayout(false);
             this.pnlCreditor.PerformLayout();
             this.ResumeLayout(false);

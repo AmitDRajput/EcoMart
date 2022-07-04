@@ -42,7 +42,7 @@ namespace EcoMart.InterfaceLayer
         #region IDetail Control
         public override void SetFocus()
         {
-            FromDateShortList.Focus();
+            btnGO.Focus();
 
         }
         public override bool ClearData()
@@ -73,10 +73,11 @@ namespace EcoMart.InterfaceLayer
                 pnlSummary.SendToBack();
                 pnlSummary.Visible = false;
                 mpMainSubViewControl1.ClearSelection();
-                mpMainSubViewControl1.Focus();
+               
                 tsBtnSave.Visible = false;
                 tsBtnSavenPrint.Visible = false;
                 tsBtnPrint.Visible = false;
+                btnGO.Focus();
                 //TOCHECK
                 //InitializeMainSubViewControl();
                 //btnGoClick();
@@ -299,11 +300,12 @@ namespace EcoMart.InterfaceLayer
                 ConstructMainColumns();
                 mpMainSubViewControl1.NumericColumnNames.Add("Col_ProdClosingStock");
                 mpMainSubViewControl1.NumericColumnNames.Add("Col_SaleStock");
-                DataTable dtable = new DataTable();
-                DataTable dt = new DataTable();
-                mpMainSubViewControl1.DataSourceMain = dtable;
-                mpMainSubViewControl1.DataSource = dt;
-                mpMainSubViewControl1.Bind();
+                mpMainSubViewControl1.Rows.Clear();
+                //DataTable dtable = new DataTable();
+                //DataTable dt = new DataTable();
+                //mpMainSubViewControl1.DataSourceMain = dtable;
+                //mpMainSubViewControl1.DataSource = dt;
+                //mpMainSubViewControl1.Bind();
                 tsBtnSavenPrint.Visible = false;
                 tsBtnSearch.Visible = true;
                 tsBtnDelete.Visible = true;
@@ -742,15 +744,15 @@ namespace EcoMart.InterfaceLayer
                 //ConstructMainColumns();
                 //mpMainSubViewControl1.NumericColumnNames.Add("Col_ProdClosingStock");
                 ConstructSubColumns();
-                DataTable dtable = new DataTable();
-                mpMainSubViewControl1.NextRowColumn = 0;
-                mpMainSubViewControl1.DataSourceMain = dtable;
+                //DataTable dtable = new DataTable();
+                //mpMainSubViewControl1.NextRowColumn = 0;
+                //mpMainSubViewControl1.DataSourceMain = dtable;
                 mpMainSubViewControl1.NumericColumnNames.Add("Col_Quantity");
                 mpMainSubViewControl1.NumericColumnNames.Add("Col_SchemeQuantity");
                 mpMainSubViewControl1.DoubleColumnNames.Add("Col_Amount");
-                Account acc = new Account();
-                DataTable dt = acc.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
-                mpMainSubViewControl1.DataSource = dt;
+                //Account acc = new Account();
+                //DataTable dt = acc.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
+                //mpMainSubViewControl1.DataSource = dt;
 
             }
             catch (Exception Ex)
@@ -1513,14 +1515,14 @@ namespace EcoMart.InterfaceLayer
             //mpMainSubViewControl1.dgMainGrid.Columns[10].Width = 80;
         }
 
-        private void btnGo_Click(object sender, EventArgs e)
-        {
-            btnGoClick();
-            InitializeMainSubViewControl();
-            sortcolumn();
-            sizefix();
+        //private void btnGo_Click(object sender, EventArgs e)
+        //{
+        //    btnGoClick();
+        //    InitializeMainSubViewControl();
+        //    sortcolumn();
+        //    sizefix();
 
-        }
+        //}
 
         public void sortcolumn()
         {
@@ -1732,7 +1734,7 @@ namespace EcoMart.InterfaceLayer
                             try
                             {
                                 mpMainSubViewControl1.ClearSelection();
-                                rowindex = mpMainSubViewControl1.Rows.Add();
+                                rowindex = mpMainSubViewControl1.dgMainGrid.Rows.Add();
                                 mprate = 0;
                                 orderqty = 0;
                                 mnetamt = 0;
@@ -1811,7 +1813,7 @@ namespace EcoMart.InterfaceLayer
                 mpMainSubViewControl1.ClearSelection();
                 foreach (DataRow dr in datatablesearch.Rows)
                 {
-                    rowindex = mpMainSubViewControl1.Rows.Add();
+                    rowindex = mpMainSubViewControl1.dgMainGrid.Rows.Add();
                     mprate = 0;
                     orderqty = 0;
                     mnetamt = 0;
