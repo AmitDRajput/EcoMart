@@ -81,11 +81,11 @@ namespace EcoMart.DataLayer
 
                 if (identityInsertOn)
                     sql = "SET IDENTITY_INSERT " + _Table + " ON;";
+                sql = "";
 
                 sql += "Insert into " + _Table;
-                sql = sql + " " + fields + " Values" + values;
+                sql = sql + " " + fields + " Values" + values;                
                 sql = sql + ";  select scope_identity();";
-
                 if (identityInsertOn)
                     sql += "SET IDENTITY_INSERT " + _Table + " OFF;";
             }

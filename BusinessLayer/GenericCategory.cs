@@ -134,7 +134,7 @@ namespace EcoMart.BusinessLayer
             return retValue;
         }
 
-        public int AddDetails()
+        public bool AddDetails()
         {
             DBGenericCategory dbGenericCategory = new DBGenericCategory();
             return dbGenericCategory.AddDetails(IntID , Name, CreatedBy, CreatedDate, CreatedTime);
@@ -166,6 +166,10 @@ namespace EcoMart.BusinessLayer
             }
             return maxid;
 
+        }
+        public int GetNextIntID()
+        {
+            return General.GetNextIntID("MasterGenericCategory", "GenericCategoryID");
         }
         #endregion
 

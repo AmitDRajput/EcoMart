@@ -454,7 +454,7 @@ namespace EcoMart.BusinessLayer
             if (retValue)
                 return dnno + 1;
             else
-                return 0;
+                return 1;
         }
         private bool UpdatePurchase(int dn, string vt, string voucherseries)
         {

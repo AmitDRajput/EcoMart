@@ -9,7 +9,7 @@ namespace EcoMart.DataLayer
     public class DBGenericCategory
     {
         public DBGenericCategory()
-        { 
+        {
         }
 
         public DataTable GetOverviewData()
@@ -32,17 +32,17 @@ namespace EcoMart.DataLayer
             return dRow;
         }
 
-        public int AddDetails(int Id, string Name, string createdby, string createddate, string createdtime)
+        public bool AddDetails(int Id, string Name, string createdby, string createddate, string createdtime)
         {
-           int iRetValue = 0;
-           string strSql = GetInsertQuery(Id, Name, createdby, createddate, createdtime);
+            bool iRetValue = true;
+            string strSql = GetInsertQuery(Id, Name, createdby, createddate, createdtime);
 
-            iRetValue = DBInterface.ExecuteScalar(strSql);
-            //if (DBInterface.ExecuteQuery(strSql) > 0)
-            //{
-            //    iRetValue = true;
-            //}
+            if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                iRetValue = true;
+            }
             return iRetValue;
+
         }
 
         public bool UpdateDetails(string Id, string Name, string modifyby, string modifydate, string modifytime)
@@ -115,12 +115,12 @@ namespace EcoMart.DataLayer
             return dRow;
         }
         #region Query Building Functions
-       
+
         private string GetInsertQuery(int Id, string Name, string createdby, string createddate, string createdtime)
         {
             Query objQuery = new Query();
             objQuery.Table = "MasterGenericCategory";
-            //objQuery.AddToQuery("GenericCategoryId", Id);
+            objQuery.AddToQuery("GenericCategoryId", Id);
             objQuery.AddToQuery("GenericCategoryName", Name);
             objQuery.AddToQuery("CreatedDate", createddate);
             objQuery.AddToQuery("CreatedTime", createdtime);

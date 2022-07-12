@@ -771,8 +771,8 @@ namespace EcoMart.Reporting.Controls
                         ViewControl = new UclJournalVoucher();
                     else if (voutype == FixAccounts.VoucherTypeForOpeningStock)
                         ViewControl = new UclOPStock();
-                    else if (voutype == FixAccounts.VoucherTypeForPurchaseOrder)
-                        ViewControl = new UclPurchaseOrder();                  
+                    //else if (voutype == FixAccounts.VoucherTypeForPurchaseOrder)
+                    //    ViewControl = new UclPurchaseOrder();                  
                     else if (voutype == FixAccounts.VoucherTypeForStatementPurchase)
                         ViewControl = new UclStatementSale();
                     else if (voutype == FixAccounts.VoucherTypeForStockIN)

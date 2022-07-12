@@ -68,7 +68,7 @@ namespace EcoMart.InterfaceLayer
         }
         public override bool Add()
         {
-
+            bool ifpendingorder = false;
             bool retValue = base.Add();
             try
             {
@@ -97,6 +97,15 @@ namespace EcoMart.InterfaceLayer
                 cbTransactionType.Enabled = true;
                 //   txtNarration.Enabled = true;
                 txtVouchernumber.Enabled = false;
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+                {
+                    ifpendingorder = _SSSale.CheckForPendingOrdersEcoMart();
+                  
+                }
+                if (ifpendingorder)
+                    this.btnReadPO.Visible = true;
+                else
+                    this.btnReadPO.Visible = false;
                 // if (General.CurrentSetting.MsetPurchaseChangeSaleRate == "Y")
                 //    txtSaleRate.Enabled = true;
                 //  else
@@ -116,11 +125,11 @@ namespace EcoMart.InterfaceLayer
         private void ShowHeading(string ho)
         {
             if (MainSaleSubType == FixAccounts.SubTypeForRegularSale || MainSaleSubType == FixAccounts.SubTypeForRegularSale2)
-                headerLabel1.Text = "DISTRIBUTOR REGULAR SALE -> " + ho;
+                headerLabel1.Text = "REGULAR SALE -> " + ho;
             else if (MainSaleSubType == FixAccounts.SubTypeForSpecialSale)
-                headerLabel1.Text = "DISTRIBUTOR SPECIAL SALE -> " + ho;
+                headerLabel1.Text = " SPECIAL SALE -> " + ho;
             else if (MainSaleSubType == FixAccounts.SubTypeForPTSSale)
-                headerLabel1.Text = "DISTRIBUTOR PTS SALE -> " + ho;
+                headerLabel1.Text = "PTS SALE -> " + ho;
         }
 
         private void FillCombos()
@@ -141,22 +150,16 @@ namespace EcoMart.InterfaceLayer
             InitializeScreen();
             tsBtnSave.Enabled = false;
             headoption = "EDIT";
-            ShowHeading(headoption);
-            //headerLabel1.Text = "DISTRIBUTOR SALE -> EDIT";
+            ShowHeading(headoption);           
             InitializeMainSubViewControl("");
             FillCombos();
             btnPaymentHistory.Visible = true;
             mcbCreditor.Enabled = false;
-            pnlProductDetail.Enabled = true;
-            //   txtNarration.Enabled = false;
+            pnlProductDetail.Enabled = true;           
             txtVouchernumber.ReadOnly = false;
             txtVouchernumber.Enabled = true;
             cbTransactionType.Enabled = true;
-            FixVoucherTypeBycbTransactionType();
-            //if (General.CurrentSetting.MsetPurchaseChangeSaleRate == "Y")
-            //    txtSaleRate.Enabled = true;
-            //else
-            //    txtSaleRate.Enabled = false;
+            FixVoucherTypeBycbTransactionType();         
 
             return retValue;
         }
@@ -165,11 +168,7 @@ namespace EcoMart.InterfaceLayer
         {
             _SSSale.CrdbVouType = "";
             if (cbTransactionType.Text == FixAccounts.TransactionTypeForCredit)
-                _SSSale.CrdbVouType = FixAccounts.VoucherTypeForCreditSale;
-            //else if (cbTransactionType.Text == FixAccounts.TransactionTypeForCash)
-            //    _SSSale.CrdbVouType = FixAccounts.VoucherTypeForCashSale;
-            //else if (cbTransactionType.Text == FixAccounts.TransactionTypeForCreditStatement)
-            //    _SSSale.CrdbVouType = FixAccounts.VoucherTypeForCreditStatementSale;
+                _SSSale.CrdbVouType = FixAccounts.VoucherTypeForCreditSale;           
             txtVouType.Text = _SSSale.CrdbVouType;
         }
 
@@ -268,7 +267,7 @@ namespace EcoMart.InterfaceLayer
                 {
                     tsBtnAdd.Visible = true;
                     tsBtnDelete.Visible = true;
-                    tsBtnFifth.Visible = true;
+                    tsBtnFifth.Visible = false;
                     tsBtnEdit.Visible = true;
                 }
                 else
@@ -579,74 +578,74 @@ namespace EcoMart.InterfaceLayer
                                     retValue = false;
                                 }
                             }
-                            else if (_Mode == OperationMode.Fifth && _SSSale.StatementNumber == 0)
-                            {
-                                DataTable stocktbl = new DataTable();
-                                _SSSale.OldVoucherType = txtVouType.Text.ToString();
-                                _SSSale.OldVoucherNumber = _SSSale.CrdbVouNo;
-                                _SSSale.CrdbVouNo = int.Parse(txtVouchernumber.Text);
-                                if (cbTransactionType.Text == cbNewTransactionType.Text)
-                                    _SSSale.IfTypeChange = "N";
-                                else
-                                    _SSSale.IfTypeChange = "Y";
-                                if (cbNewTransactionType.Text == FixAccounts.TransactionTypeForCash)
-                                    _SSSale.CrdbVouType = FixAccounts.VoucherTypeForCashSale;
-                                else if (cbNewTransactionType.Text == FixAccounts.TransactionTypeForCredit)
-                                    _SSSale.CrdbVouType = FixAccounts.VoucherTypeForCreditSale;
-                                else
-                                    _SSSale.CrdbVouType = FixAccounts.VoucherTypeForCreditStatementSale;
+                            //else if (_Mode == OperationMode.Fifth && _SSSale.StatementNumber == 0)
+                            //{
+                            //    DataTable stocktbl = new DataTable();
+                            //    _SSSale.OldVoucherType = txtVouType.Text.ToString();
+                            //    _SSSale.OldVoucherNumber = _SSSale.CrdbVouNo;
+                            //    _SSSale.CrdbVouNo = int.Parse(txtVouchernumber.Text);
+                            //    if (cbTransactionType.Text == cbNewTransactionType.Text)
+                            //        _SSSale.IfTypeChange = "N";
+                            //    else
+                            //        _SSSale.IfTypeChange = "Y";
+                            //    if (cbNewTransactionType.Text == FixAccounts.TransactionTypeForCash)
+                            //        _SSSale.CrdbVouType = FixAccounts.VoucherTypeForCashSale;
+                            //    else if (cbNewTransactionType.Text == FixAccounts.TransactionTypeForCredit)
+                            //        _SSSale.CrdbVouType = FixAccounts.VoucherTypeForCreditSale;
+                            //    else
+                            //        _SSSale.CrdbVouType = FixAccounts.VoucherTypeForCreditStatementSale;
 
-                                General.BeginTransaction();
+                            //    General.BeginTransaction();
 
-                                if (_SSSale.IfTypeChange == "Y")
-                                {
-                                    if (_SSSale.OldVoucherType != _SSSale.CrdbVouType)
-                                    {
-                                        _SSSale.CrdbVouNo = _SSSale.GetAndUpdateSaleNumber(_SSSale.CrdbVouType, General.ShopDetail.ShopVoucherSeries);
-                                        txtVouchernumber.Text = _SSSale.CrdbVouNo.ToString();
-                                        txtVouType.Text = _SSSale.CrdbVouType;
-                                        if (_SSSale.CrdbVouType != FixAccounts.VoucherTypeForCashSale)
-                                        {
-                                            _SSSale.CrdbAmountBalance = _SSSale.CrdbAmountNet;
-                                            _SSSale.CrdbAmountClear = 0;
-                                        }
-                                        else
-                                        {
-                                            _SSSale.CrdbAmountBalance = 0;
-                                            _SSSale.CrdbAmountClear = _SSSale.CrdbAmountNet;
-                                        }
-                                        retValue = _SSSale.UpdateDetailsForTypeChange();
-                                        if (retValue)
-                                        {
-                                            retValue = _SSSale.DeleteDetailsFromtblTrnac(_SSSale.Id);
-                                        }
-                                        if (retValue)
-                                        {
-                                            retValue = _SSSale.AddAccountDetails();
-                                        }
-                                        if (retValue)
-                                            _SSSale.UpdateCreditDebitNoteforTypeChange(_SSSale.CreditDebitNoteID, _SSSale.Amount, _SSSale.CrdbVouType, _SSSale.CrdbVouNo, _SSSale.CrdbVouDate, "", _SSSale.Id);
+                            //    if (_SSSale.IfTypeChange == "Y")
+                            //    {
+                            //        if (_SSSale.OldVoucherType != _SSSale.CrdbVouType)
+                            //        {
+                            //            _SSSale.CrdbVouNo = _SSSale.GetAndUpdateSaleNumber(_SSSale.CrdbVouType, General.ShopDetail.ShopVoucherSeries);
+                            //            txtVouchernumber.Text = _SSSale.CrdbVouNo.ToString();
+                            //            txtVouType.Text = _SSSale.CrdbVouType;
+                            //            if (_SSSale.CrdbVouType != FixAccounts.VoucherTypeForCashSale)
+                            //            {
+                            //                _SSSale.CrdbAmountBalance = _SSSale.CrdbAmountNet;
+                            //                _SSSale.CrdbAmountClear = 0;
+                            //            }
+                            //            else
+                            //            {
+                            //                _SSSale.CrdbAmountBalance = 0;
+                            //                _SSSale.CrdbAmountClear = _SSSale.CrdbAmountNet;
+                            //            }
+                            //            retValue = _SSSale.UpdateDetailsForTypeChange();
+                            //            if (retValue)
+                            //            {
+                            //                retValue = _SSSale.DeleteDetailsFromtblTrnac(_SSSale.Id);
+                            //            }
+                            //            if (retValue)
+                            //            {
+                            //                retValue = _SSSale.AddAccountDetails();
+                            //            }
+                            //            if (retValue)
+                            //                _SSSale.UpdateCreditDebitNoteforTypeChange(_SSSale.CreditDebitNoteID, _SSSale.Amount, _SSSale.CrdbVouType, _SSSale.CrdbVouNo, _SSSale.CrdbVouDate, "", _SSSale.Id);
 
-                                        if (retValue)
-                                            General.CommitTransaction();
-                                        else
-                                            General.RollbackTransaction();
-                                        LockTable.UnLockTables();
-                                        if (retValue)
-                                        {
-                                            string msgLine2 = _SSSale.CrdbVouType + "  " + _SSSale.CrdbVouNo.ToString("#0");
-                                            PSDialogResult result = PSMessageBox.Show("Information has been saved successfully.", msgLine2, General.ApplicationTitle, PSMessageBoxButtons.OK, PSMessageBoxIcon.Information, PSMessageBoxButtons.OK);
-                                            retValue = true;
-                                        }
-                                        else
-                                        {
-                                            PSDialogResult result = PSMessageBox.Show("Could not Update...", "Error", General.ApplicationTitle, PSMessageBoxButtons.OK, PSMessageBoxIcon.Error, PSMessageBoxButtons.None);
-                                            retValue = false;
-                                        }
-                                    }
-                                    ClearData();
-                                }
-                            }
+                            //            if (retValue)
+                            //                General.CommitTransaction();
+                            //            else
+                            //                General.RollbackTransaction();
+                            //            LockTable.UnLockTables();
+                            //            if (retValue)
+                            //            {
+                            //                string msgLine2 = _SSSale.CrdbVouType + "  " + _SSSale.CrdbVouNo.ToString("#0");
+                            //                PSDialogResult result = PSMessageBox.Show("Information has been saved successfully.", msgLine2, General.ApplicationTitle, PSMessageBoxButtons.OK, PSMessageBoxIcon.Information, PSMessageBoxButtons.OK);
+                            //                retValue = true;
+                            //            }
+                            //            else
+                            //            {
+                            //                PSDialogResult result = PSMessageBox.Show("Could not Update...", "Error", General.ApplicationTitle, PSMessageBoxButtons.OK, PSMessageBoxIcon.Error, PSMessageBoxButtons.None);
+                            //                retValue = false;
+                            //            }
+                            //        }
+                            //        ClearData();
+                            //    }
+                            //}
                             else if (_Mode == OperationMode.Edit)
                             {
                                 General.BeginTransaction();
@@ -822,8 +821,8 @@ namespace EcoMart.InterfaceLayer
                     NoofRows();
                     txtAddress1.Enabled = false;
                     txtAddress2.Enabled = false;
-
-                    if (_Mode == OperationMode.View)
+                    
+                    if (_Mode == OperationMode.View )
                     {
                         mpMSVC.ColumnsMain["Col_ProductName"].ReadOnly = true;
                         mpMSVC.ColumnsMain["Col_Quantity"].ReadOnly = true;
@@ -854,17 +853,17 @@ namespace EcoMart.InterfaceLayer
                     }
                     if (_Mode == OperationMode.Fifth && _SSSale.StatementNumber == 0)
                     {
-                        if (_SSSale.CrdbAmountClear > 0 && _SSSale.CrdbVouType != FixAccounts.VoucherTypeForCashSale)
+                        if ((_SSSale.CrdbAmountClear > 0 && _SSSale.CrdbVouType != FixAccounts.VoucherTypeForCashSale))
                             lblFooterMessage.Text = "Payment Done";
                         else
                         {
                             mpMSVC.Enabled = false;
                             pnlTypeChange.Visible = true;
-                            btnTypeChange.Visible = true;
+                            btnTypeChange.Visible = false;
                             cbNewTransactionType.Visible = true;
                             cbNewTransactionType.Enabled = false;
-                            btnTypeChange.Enabled = true;
-                            btnTypeChange.Focus();
+                            btnTypeChange.Enabled = false;
+                            //btnTypeChange.Focus();
                         }
 
                     }
@@ -1873,55 +1872,39 @@ namespace EcoMart.InterfaceLayer
             try
             {
                 if (mcbCreditor.SelectedID != null && mcbCreditor.SelectedID != "")
+                {
                     _SSSale.AccountID = mcbCreditor.SelectedID;
-                if (mcbCreditor.SeletedItem == null)
-                {
-                    txtAddress1.Text = "";
-                    txtAddress2.Text = "";
-                }
-                else
-                {
-
-                    FillCreditDebitNote();
-                    _SSSale.CrdbName = mcbCreditor.SeletedItem.ItemData[2];
-                    _SSSale.GetPartyOtherDetails(mcbCreditor.SelectedID);
-                    txtAddress1.Text = _SSSale.PatientAddress1;
-                    txtAddress2.Text = _SSSale.PatientAddress2;
-                    //   txtDiscPercent.Text = mcbCreditor.SeletedItem.ItemData[9];
-                    //if (mcbCreditor.SeletedItem.ItemData[6] != "")
-                    //    _SSSale.TokenNumber = Convert.ToInt32(mcbCreditor.SeletedItem.ItemData[6].ToString());
-
-                    _SSSale.TransactionType = mcbCreditor.SeletedItem.ItemData[6];
-
-                    if (_Mode == OperationMode.Add)
+                    if (mcbCreditor.SeletedItem == null)
                     {
-                        FillTransactionType();
-                        //if (_SSSale.TransactionType == "CS")
-                        //{
-                        //    cbTransactionType.Text = FixAccounts.TransactionTypeForCash;
-                        //    cbTransactionType.SelectedIndex = cbTransactionType.Items.IndexOf(FixAccounts.TransactionTypeForCash);
-                        //    _SSSale.CrdbVouType = FixAccounts.VoucherTypeForCashSale;
-                        //}
-                        //else if (_SSSale.TransactionType == "CR")
-                        //{
-                        //    cbTransactionType.Text = FixAccounts.TransactionTypeForCreditStatement;
-                        //    cbTransactionType.SelectedIndex = cbTransactionType.Items.IndexOf(FixAccounts.TransactionTypeForCreditStatement);
-                        //    _SSSale.CrdbVouType = FixAccounts.VoucherTypeForCreditStatementSale;
-                        //}
-                        //else
-                        //{
-                        //    cbTransactionType.Text = FixAccounts.TransactionTypeForCredit;
-                        //    cbTransactionType.SelectedIndex = cbTransactionType.Items.IndexOf(FixAccounts.TransactionTypeForCredit);
-                        //    _SSSale.CrdbVouType = FixAccounts.VoucherTypeForCreditSale;
-                        //}
-                        txtVouType.Text = _SSSale.CrdbVouType;
+                        txtAddress1.Text = "";
+                        txtAddress2.Text = "";
                     }
+                    else
+                    {
 
-                    _SSSale.GetPendingAmount(mcbCreditor.SelectedID);
-                    _SSSale.GetOpeningBalance(mcbCreditor.SelectedID);
-                    _SSSale.PendingAmount = _SSSale.OpeningBalance + (_SSSale.TotalDebit - _SSSale.TotalCredit);
-                    txtPendingBalance.Text = Math.Abs(_SSSale.PendingAmount).ToString("#0.00");
-                    //   txtNarration.Focus();
+                        FillCreditDebitNote();
+                        _SSSale.CrdbName = mcbCreditor.SeletedItem.ItemData[2];
+                        _SSSale.GetPartyOtherDetails(mcbCreditor.SelectedID);
+                        txtAddress1.Text = _SSSale.PatientAddress1;
+                        txtAddress2.Text = _SSSale.PatientAddress2;
+                        //   txtDiscPercent.Text = mcbCreditor.SeletedItem.ItemData[9];
+                        //if (mcbCreditor.SeletedItem.ItemData[6] != "")
+                        //    _SSSale.TokenNumber = Convert.ToInt32(mcbCreditor.SeletedItem.ItemData[6].ToString());
+
+                        _SSSale.TransactionType = mcbCreditor.SeletedItem.ItemData[6];
+
+                        if (_Mode == OperationMode.Add)
+                        {
+                            FillTransactionType();
+                            txtVouType.Text = _SSSale.CrdbVouType;
+                        }
+
+                        _SSSale.GetPendingAmount(mcbCreditor.SelectedID);
+                        _SSSale.GetOpeningBalance(mcbCreditor.SelectedID);
+                        _SSSale.PendingAmount = _SSSale.OpeningBalance + (_SSSale.TotalDebit - _SSSale.TotalCredit);
+                        txtPendingBalance.Text = Math.Abs(_SSSale.PendingAmount).ToString("#0.00");
+                        //   txtNarration.Focus();
+                    }
                 }
             }
             catch (Exception Ex)
@@ -3628,6 +3611,7 @@ namespace EcoMart.InterfaceLayer
             {
                 pnlGST.Visible = false;
                 pnlIGST.Visible = false;
+                pnlSummary.Visible = false;
                 ConstructMainColumns();
                 pnlTypeChange.Visible = false;
                 if ((_Mode == OperationMode.Add || _Mode == OperationMode.Edit) && _SSSale.AddNewRowCheck(mpMSVC))
@@ -7879,6 +7863,27 @@ namespace EcoMart.InterfaceLayer
             //   btnscmisdataokYES.Visible = true;
             //    btnscmisdataokNO.Visible = true;
             //    lblscmDoyouwanttoenterscheme.Visible = false;
+        }
+
+        private void btnReadPO_Click(object sender, EventArgs e)
+        {
+            DataTable dt = null;
+            DataTable stockdt = null;
+            int mprodid = 0;
+
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+            {
+                dt = _SSSale.GetPurchaseOrderDataEcoMart();
+
+                if (dt != null)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        mprodid = Convert.ToInt32(dr["ProductID"].ToString());
+                        stockdt = _SSSale.GetStockDataEcoMart(mprodid);
+                    }
+                }
+            }
         }
     }
 }

@@ -203,7 +203,7 @@ namespace EcoMart.DataLayer
                     OpenConnection();
 
                     _Command.Connection = _Connection;
-                    _Command.Transaction = _Transaction;                   
+                    _Command.Transaction = _Transaction;
                     iReturnValue = Convert.ToInt32(_Command.ExecuteScalar());
                 }
             }

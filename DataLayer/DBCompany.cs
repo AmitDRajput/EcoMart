@@ -60,16 +60,15 @@ namespace EcoMart.DataLayer
             return dRow;
         }
 
-        public int AddDetails(int Id, string ShortName, string Name, string Telephone, string MailId, 
+        public bool AddDetails(int Id, string ShortName, string Name, string Telephone, string MailId, 
             string ContactPerson, string Address,string partyID1,string partyID2, string partyID3, string partyID4, string createdby, string  createddate,string createdtime)
         {
-            int iRetValue = 0;
+            bool iRetValue = false;
             string strSql = GetInsertQuery(Id, ShortName, Name, Telephone, MailId, ContactPerson, Address,partyID1,partyID2, partyID3, partyID4, createdby, createddate, createdtime);
-            iRetValue = DBInterface.ExecuteScalar(strSql);
-            //if (DBInterface.ExecuteQuery(strSql) > 0)
-            //{
-            //    iRetValue = true;
-            //}
+           if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                iRetValue = true;
+            }
             return iRetValue;
         }
 
@@ -163,9 +162,9 @@ namespace EcoMart.DataLayer
         //    }
         //    return bRetValue;
         //}  
-        public bool IsNameUniqueForAdd(string Name, string Shortname)
+        public bool IsNameUniqueForAdd(string Name, string Shortname, int id)
         {
-            int ifdup = GetDataForUniqueForAdd(Name, Shortname);
+            int ifdup = GetDataForUniqueForAdd(Name, Shortname, id);
             bool bRetValue = false;
             if (ifdup > 0)
             {
@@ -174,9 +173,9 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool IsNameUniqueForEdit(string Name, string Shortname)
+        public bool IsNameUniqueForEdit(string Name, string Shortname, int id)
         {
-            int ifdup = GetDataForUniqueForAdd(Name, Shortname);
+            int ifdup = GetDataForUniqueForEdit(Name, Shortname,id);
             bool bRetValue = false;
             if (ifdup > 0)
             {
@@ -184,7 +183,7 @@ namespace EcoMart.DataLayer
             }
             return bRetValue;
         }
-        private int GetDataForUniqueForAdd(string Name, string Shortname)
+        private int GetDataForUniqueForAdd(string Name, string Shortname, int id)
         {
             StringBuilder sQuery = new StringBuilder();
             DataRow dRow = null;
@@ -199,45 +198,40 @@ namespace EcoMart.DataLayer
                 return 1;
             }
 
-        }
-        public DataRow GetMaxID()
-        {
-            DataRow dRow = null;
-            
-                string strSql = "Select max(companyid) as maxcompid from MasterCompany ";               
-                dRow = DBInterface.SelectFirstRow(strSql);
-           
-            return dRow;
-        }
+        }       
 
         #region Query Building Functions
-
-        //private string GetDataForUniqueForAdd(string Name, string Id)
-        //{
-        //    StringBuilder sQuery = new StringBuilder();
-        //    sQuery.AppendFormat("Select CompId from MasterCompany where CompName='{0}'", Name);
-        //    if (Id != "")
-        //    {
-        //        sQuery.AppendFormat(" AND CompId in ('{0}')", Id);
-        //    }
-        //    return sQuery.ToString();
-        //}
-        private string GetDataForUniqueForEdit(string Name, string Id)
+       
+        private int GetDataForUniqueForEdit(string Name, string Shortname, int id)
         {
+
             StringBuilder sQuery = new StringBuilder();
-            sQuery.AppendFormat("Select CompId from MasterCompany where CompName='{0}'", Name);
-            if (Id != "")
+            DataRow dRow = null;
+            string strSql = "Select CompId from MasterCompany where CompName = '" + Name + "' and CompShortName = '" + Shortname + "' and compID != " + id ;
+            dRow = DBInterface.SelectFirstRow(strSql);
+            if (dRow == null)
             {
-                sQuery.AppendFormat(" AND CompId not in ('{0}')", Id);
+                return 0;
             }
-            return sQuery.ToString();
+            else
+            {
+                return 1;
+            }
+
+            //StringBuilder sQuery = new StringBuilder();
+            //sQuery.AppendFormat("Select CompId from MasterCompany where CompName='{0}'", Name);
+            //if (Id != "")
+            //{
+            //    sQuery.AppendFormat(" AND CompId not in ('{0}')", Id);
+            //}
+            //return sQuery.ToString();
         }
         private string GetInsertQuery(int Id, string ShortName, string Name, string Telephone, string MailId,
             string ContactPerson, string Address,string partyID1,string partyID2, string partyID3, string partyID4, string createdby, string createddate,string createdtime)
         {
             Query objQuery = new Query();
             objQuery.Table = "MasterCompany";
-            //objQuery.AddToQuery("CompId", Id);
+            objQuery.AddToQuery("CompId", Id);
             objQuery.AddToQuery("CompShortName", ShortName);
             objQuery.AddToQuery("CompName", Name);
             objQuery.AddToQuery("CompTelephone", Telephone);
@@ -266,7 +260,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("CompMailId", MailId);
             objQuery.AddToQuery("CompContactPerson", ContactPerson);
             objQuery.AddToQuery("CompAddress", Address);
-            objQuery.AddToQuery("PartyID_1", FirstCreditor);    // [ansuman] [15.11.2016]
+            objQuery.AddToQuery("PartyID_1", FirstCreditor);   
             objQuery.AddToQuery("PartyID_2", SecondCreditor);   // [ansuman] [15.11.2016]
             objQuery.AddToQuery("PartyID_3", ThirdCreditor);    // Amar
             objQuery.AddToQuery("PartyID_4", ForthCreditor);   // Amar

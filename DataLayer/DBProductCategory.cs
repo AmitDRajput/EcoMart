@@ -34,15 +34,14 @@ namespace EcoMart.DataLayer
             return dRow;
         }
 
-        public int AddDetails(int Id, string Name,  string createdby, string createddate, string createdtime)
+        public bool AddDetails(int Id, string Name,  string createdby, string createddate, string createdtime)
         {
-            int iRetValue = 0;
+            bool iRetValue = false;
             string strSql = GetInsertQuery(Id, Name, createdby, createddate, createdtime);
-            iRetValue = DBInterface.ExecuteScalar(strSql);
-            //if (DBInterface.ExecuteQuery(strSql) > 0)
-            //{
-            //    iRetValue = true;
-            //}
+            if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                iRetValue = true;
+            }
             return iRetValue;
            
         }
@@ -136,7 +135,7 @@ namespace EcoMart.DataLayer
         {
             Query objQuery = new Query();
             objQuery.Table = "masterproductcategory";
-            //objQuery.AddToQuery("ProductCategoryId", Id);
+            objQuery.AddToQuery("ProductCategoryId", Id);
             objQuery.AddToQuery("ProductCategoryName", Name);           
             objQuery.AddToQuery("CreatedDate", createddate);
             objQuery.AddToQuery("CreatedTime", createdtime);

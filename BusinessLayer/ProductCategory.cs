@@ -144,7 +144,7 @@ namespace EcoMart.BusinessLayer
             return retValue;
         }
 
-        public int AddDetails()
+        public bool AddDetails()
         {
             DBProductCategory dbProductCategory = new DBProductCategory();        
             return dbProductCategory.AddDetails(IntID , Name,  CreatedBy, CreatedDate, CreatedTime);
@@ -167,7 +167,10 @@ namespace EcoMart.BusinessLayer
             return dbProductCategory.DeleteDetails(Id);
         }
 
-       
+        public int GetNextIntID()
+        {
+            return General.GetNextIntID("MasterProductCategory", "ProductCategoryID");
+        }
         #endregion      
 
     }

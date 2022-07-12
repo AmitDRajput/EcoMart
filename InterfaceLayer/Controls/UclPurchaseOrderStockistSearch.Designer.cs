@@ -1,6 +1,6 @@
 ﻿namespace EcoMart.InterfaceLayer
 {
-    partial class UclPurchaseOrderSearch
+    partial class UclPurchaseOrderStockistSearch
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UclPurchaseOrderSearch));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UclPurchaseOrderStockistSearch));
             this.dgvSearchList = new PharmaSYSPlus.CommonLibrary.MDataGridView();
             this.MMMainPanel.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +58,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "UclPurchaseOrderSearch";
+            this.Name = "UclPurchaseOrderStockistSearch";
             this.Size = new System.Drawing.Size(960, 552);
             this.MMMainPanel.ResumeLayout(false);
             this.ResumeLayout(false);

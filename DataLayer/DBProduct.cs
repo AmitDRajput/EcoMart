@@ -970,12 +970,13 @@ namespace EcoMart.DataLayer
         }
 
         public bool UpdatePurchaseDataInmasterProduct(int ProductID, string PurchaseBillNumber, string VoucherDate, string AccountID, string VoucherType,
-                int VoucherNumber, double PurchaseRate, double TradeRate, double SaleRate, double MRP, double PurchaseVATPercent, double CSTPercent, double AmountCST, double SchemeDiscountPercent,
+                int VoucherNumber, double PurchaseRate, double TradeRate, double SaleRate, double MRP, double PurchaseVATPercent, double CSTPercent, double AmountCST,
+                double SchemeDiscountPercent, double mpricetoretailer,
                 double AmountSchemeDiscount, double ItemDiscountPercent, string Expiry, string ExpiryDate, string Batchno, string shelfID, string stockid)
         {
             bool returnVal = false;
             string strSql = GetUpdateQueryforlastpurchase(ProductID, PurchaseBillNumber, VoucherDate, AccountID, VoucherType,
-                   VoucherNumber, PurchaseRate, TradeRate, SaleRate, MRP, PurchaseVATPercent, CSTPercent, AmountCST, SchemeDiscountPercent,
+                   VoucherNumber, PurchaseRate, TradeRate, SaleRate, MRP, PurchaseVATPercent, CSTPercent, AmountCST, SchemeDiscountPercent, mpricetoretailer,
                    AmountSchemeDiscount, ItemDiscountPercent, Expiry, ExpiryDate, Batchno, shelfID, stockid);
 
             if (DBInterface.ExecuteQuery(strSql) > 0)
@@ -1031,7 +1032,7 @@ namespace EcoMart.DataLayer
 
         #region For Product
 
-        public int AddDetails(int Id, string ProdName,
+        public bool AddDetails(int Id, string ProdName,
            int ProdLoosePack, string ProdPack, string ProdPackType, string ProdCompShortName,
             Int32 ProdCompID, double ProdVATPercent, double ProdCST, string ProdGrade,
             int ProdMinLevel, int ProdMaxLevel, int ProdBoxQty,
@@ -1042,7 +1043,7 @@ namespace EcoMart.DataLayer
            string prodifscheduleddrug, string prodrequirecoldstorage, string prodIfBarCodeRequired, string ScannedBarcode, int hsnnumber,
            string createdby, string createddate, string createdtime)
         {
-            int iRetValue = 0;
+            bool iRetValue = false;
             string strSql = GetInsertQuery(Id, ProdName,
            ProdLoosePack, ProdPack, ProdPackType, ProdCompShortName,
              ProdCompID, ProdVATPercent, ProdCST, ProdGrade,
@@ -1054,7 +1055,10 @@ namespace EcoMart.DataLayer
             prodclosingstock, prodifscheduleddrug, prodrequirecoldstorage, prodIfBarCodeRequired, ScannedBarcode, hsnnumber,
             createdby, createddate, createdtime);
 
-            iRetValue = DBInterface.ExecuteScalar(strSql);
+            if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                iRetValue = true;
+            }
             return iRetValue;
            
         }
@@ -1143,7 +1147,7 @@ namespace EcoMart.DataLayer
         {
             Query objQuery = new Query();
             objQuery.Table = "masterproduct";
-            //objQuery.AddToQuery("ProductID", Id);
+            objQuery.AddToQuery("ProductID", Id);
             objQuery.AddToQuery("ProdName", ProdName);
             objQuery.AddToQuery("ProdLoosePack", ProdLoosePack);
             objQuery.AddToQuery("ProdPack", ProdPack);
@@ -1301,7 +1305,7 @@ namespace EcoMart.DataLayer
 
         private string GetUpdateQueryforlastpurchase(int ProductID, string PurchaseBillNumber, string VoucherDate, string AccountID, string VoucherType,
                 int VoucherNumber, double PurchaseRate, double TradeRate, double SaleRate, double MRP, double PurchaseVATPercent,
-               double CSTPercent, double AmountCST, double SchemeDiscountPercent,
+               double CSTPercent, double AmountCST, double SchemeDiscountPercent, double mpricetoretailer,
                 double AmountSchemeDiscount, double ItemDiscountPercent, string Expiry, string ExpiryDate, string Batchno, string shelfID, string stockid)
         {
             Query objQuery = new Query();
@@ -1326,11 +1330,14 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("ProdLastPurchaseItemDiscPer", ItemDiscountPercent);
             objQuery.AddToQuery("ProdLastPurchaseExpiry", Expiry);
             objQuery.AddToQuery("ProdLastPurchaseExpiryDate", ExpiryDate);
-            objQuery.AddToQuery("ProdLastPurchaseBatchNumber", Batchno);
-            //objQuery.AddToQuery("ProdShelfID", shelfID);
+            objQuery.AddToQuery("ProdLastPurchaseBatchNumber", Batchno);           
             objQuery.AddToQuery("ProdLastPurchaseStockID", stockid);
-            //  objQuery.AddToQuery("ProdLastPurchaseDistributorSaleRatePer", distSaleRatePer);
-            //   objQuery.AddToQuery("ProdLastPurchaseDistributorSaleRate", distributorSaleRate);
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+            {
+                objQuery.AddToQuery("ProdLastPurchasePTR", mpricetoretailer);
+                objQuery.AddToQuery("ProdLastPurchaseCNF", SaleRate);
+                objQuery.AddToQuery("ProdLastPurchaseEcoMart", TradeRate);
+            }
             return objQuery.UpdateQuery();
         }
         #endregion
@@ -1420,13 +1427,16 @@ namespace EcoMart.DataLayer
         //    }
 
         //}
-        public string SearchForProdPack(string pack)
+        public int SearchForProdPack(string  pack)
         {
-            string mpackID = "";
+            Int32 mpackID = 0;
             string strSql = "Select PackID from masterpack where packName = '" + pack + "'";
             DataRow drow = DBInterface.SelectFirstRow(strSql);
             if (drow != null)
-                mpackID = drow["PackID"].ToString();
+                mpackID = Convert.ToInt32( drow["PackID"].ToString());
+            else
+                mpackID = 0;
+
             return mpackID;
         }
         public Int32 SearchForProdPackType(string packtype)
@@ -1436,6 +1446,8 @@ namespace EcoMart.DataLayer
             DataRow drow = DBInterface.SelectFirstRow(strSql);
             if (drow != null)
                 mpackID = Convert.ToInt32(drow["ID"].ToString());
+            else
+                mpackID = 0;
             return mpackID;
         }
         public bool RemoveProductDrugLink(Int32 Id, Int32 ProdGenericID)
@@ -1477,7 +1489,7 @@ namespace EcoMart.DataLayer
         #endregion 
         #endregion
 
-        public bool UpdatePurchaseOrder(int ProductID, int Quantity)
+        public bool UpdatePurchaseOrderStockist(int ProductID, int Quantity)
         {
             bool returnVal = false;
             int prodid = Convert.ToInt32(ProductID);
@@ -1489,7 +1501,38 @@ namespace EcoMart.DataLayer
 
             return returnVal;
         }
+        public bool UpdatePurchaseOrderCNF(int ProductID, int Quantity)
+        {
+            bool returnVal = false;
+            int prodid = Convert.ToInt32(ProductID);
+            string strSql = "Update detailpurchaseorderCNF SET PurchaseQuantity = " + Quantity + "  where ProductID = '" + ProductID + "'";
+            if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                returnVal = true;
+            }
 
+            return returnVal;
+        }
+        public bool UpdatePurchaseOrderEcoMart(int ProductID, int Quantity)
+        {
+            bool returnVal = false;
+            int prodid = Convert.ToInt32(ProductID);
+
+
+            //string strSql = "select  EcoMartReceivedQuantity from detailpurchaseorderEcoMart  where  ProductID = '" + ProductID + "'";
+            //DataRow dr = DBInterface.sele
+            //(DBInterface.ExecuteQuery(strSql) > 0)
+            //{
+            //    returnVal = true;
+            //}
+            string strSql = "Update detailpurchaseorderEcoMart SET EcoMartReceivedQuantity =  EcoMartReceivedQuantity +  " + Quantity + "  where ProductID = '" + ProductID + "'";
+            if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                returnVal = true;
+            }
+
+            return returnVal;
+        }
         public bool SetMinMax(int _min, int _max)
         {
             bool returnVal = false;

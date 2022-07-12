@@ -239,12 +239,22 @@ namespace EcoMart.BusinessLayer
             return dbpo.DeletePreviousProducts(Id);
         }
 
-        public DataTable GetOverviewData()
+        public DataTable GetOverviewDataStockist()
         {
             DBPurchaseOrder dbStock = new DBPurchaseOrder();
-            return dbStock.GetOverviewData();
+            return dbStock.GetOverviewDataStockist();
         }
 
+        public DataTable GetOverviewDataCNF()
+        {
+            DBPurchaseOrder dbStock = new DBPurchaseOrder();
+            return dbStock.GetOverviewDataCNF();
+        }
+        public DataTable GetOverviewDataEcoMart()
+        {
+            DBPurchaseOrder dbStock = new DBPurchaseOrder();
+            return dbStock.GetOverviewDataEcoMart();
+        }
         public bool ReadDetailsByID()
         {
             bool retValue = false;

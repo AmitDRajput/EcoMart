@@ -668,17 +668,29 @@
     <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderCNF.Designer.cs">
       <DependentUpon>UclPurchaseOrderCNF.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderCNFSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderCNFSearch.Designer.cs">
+      <DependentUpon>UclPurchaseOrderCNFSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderEcoMart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderEcoMart.Designer.cs">
+      <DependentUpon>UclPurchaseOrderEcoMart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderEcoMartSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderEcoMartSearch.Designer.cs">
+      <DependentUpon>UclPurchaseOrderEcoMartSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderStockist.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderStockist.Designer.cs">
       <DependentUpon>UclPurchaseOrderStockist.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclzzPurchaseOrderList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclzzPurchaseOrderList.designer.cs">
-      <DependentUpon>UclzzPurchaseOrderList.cs</DependentUpon>
     </Compile>
     <Compile Include="InterfaceLayer\Controls\UclSaleSummaryControl.cs">
       <SubType>UserControl</SubType>
@@ -835,18 +847,6 @@
     </Compile>
     <Compile Include="InterfaceLayer\Controls\UclToolPrintBarCode.Designer.cs">
       <DependentUpon>UclToolPrintBarCode.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclzzPurchaseOrderByStockAndSale.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclzzPurchaseOrderByStockAndSale.Designer.cs">
-      <DependentUpon>UclzzPurchaseOrderByStockAndSale.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclzzPurchaseOrderForToday.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclzzPurchaseOrderForToday.Designer.cs">
-      <DependentUpon>UclzzPurchaseOrderForToday.cs</DependentUpon>
     </Compile>
     <Compile Include="InterfaceLayer\Controls\UclSettingsEmail.cs">
       <SubType>UserControl</SubType>
@@ -1247,12 +1247,6 @@
     <Compile Include="InterfaceLayer\Controls\UclPurchase.Designer.cs">
       <DependentUpon>UclPurchase.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclzzPurchaseOrder.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclzzPurchaseOrder.Designer.cs">
-      <DependentUpon>UclzzPurchaseOrder.cs</DependentUpon>
-    </Compile>
     <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderStockistSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1485,12 +1479,6 @@
     <Compile Include="InterfaceLayer\Controls\UclToolFillBarCodeNumbers.Designer.cs">
       <DependentUpon>UclToolFillBarCodeNumbers.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclzzPurchaseOrderMinMax.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclzzPurchaseOrderMinMax.Designer.cs">
-      <DependentUpon>UclzzPurchaseOrderMinMax.cs</DependentUpon>
-    </Compile>
     <Compile Include="InterfaceLayer\Controls\UclToolSetMinMaxLevel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1608,6 +1596,24 @@
     <Compile Include="Printing\PrintSettings.cs" />
     <Compile Include="Printing\PrintSettingsForDistributor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporting\Controls\UclEcoMartCurrentProductWiseStockStockist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclEcoMartCurrentProductWiseStockStockist.Designer.cs">
+      <DependentUpon>UclEcoMartCurrentProductWiseStockStockist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclEcoMartProductWiseSaleCNF.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclEcoMartProductWiseSaleCNF.Designer.cs">
+      <DependentUpon>UclEcoMartProductWiseSaleCNF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclEcoMartProductWiseSaleStockist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclEcoMartProductWiseSaleStockist.Designer.cs">
+      <DependentUpon>UclEcoMartProductWiseSaleStockist.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="InterfaceLayer\CommonControls\PSAutoSuggestTextBox.resx">
       <DependentUpon>PSAutoSuggestTextBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -1978,11 +1984,17 @@
     <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderCNF.resx">
       <DependentUpon>UclPurchaseOrderCNF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderCNFSearch.resx">
+      <DependentUpon>UclPurchaseOrderCNFSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderEcoMart.resx">
+      <DependentUpon>UclPurchaseOrderEcoMart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderEcoMartSearch.resx">
+      <DependentUpon>UclPurchaseOrderEcoMartSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderStockist.resx">
       <DependentUpon>UclPurchaseOrderStockist.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InterfaceLayer\Controls\UclzzPurchaseOrderList.resx">
-      <DependentUpon>UclzzPurchaseOrderList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\Controls\UclSaleSummaryControl.resx">
       <DependentUpon>UclSaleSummaryControl.cs</DependentUpon>
@@ -2028,13 +2040,6 @@
     <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchase.resx">
       <DependentUpon>UclPurchase.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InterfaceLayer\Controls\UclzzPurchaseOrder.resx">
-      <DependentUpon>UclzzPurchaseOrder.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InterfaceLayer\Controls\UclzzPurchaseOrderByStockAndSale.resx">
-      <DependentUpon>UclzzPurchaseOrderByStockAndSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\Controls\UclPurchaseOrderStockistSearch.resx">
       <DependentUpon>UclPurchaseOrderStockistSearch.cs</DependentUpon>
@@ -2155,9 +2160,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\Controls\UclToolFillBarCodeNumbers.resx">
       <DependentUpon>UclToolFillBarCodeNumbers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InterfaceLayer\Controls\UclzzPurchaseOrderMinMax.resx">
-      <DependentUpon>UclzzPurchaseOrderMinMax.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\Controls\UclToolSetMinMaxLevel.resx">
       <DependentUpon>UclToolSetMinMaxLevel.cs</DependentUpon>
@@ -2761,6 +2763,12 @@
     </Compile>
     <Compile Include="Reporting\Controls\UclDistributorPartywiseOutStanding.Designer.cs">
       <DependentUpon>UclDistributorPartywiseOutStanding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclEcoMartProductWiseCurrentStockCNF.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporting\Controls\UclEcoMartProductWiseCurrentStockCNF.Designer.cs">
+      <DependentUpon>UclEcoMartProductWiseCurrentStockCNF.cs</DependentUpon>
     </Compile>
     <Compile Include="Reporting\Controls\UclExpiryListDetail.cs">
       <SubType>UserControl</SubType>
@@ -3651,10 +3659,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\Controls\UclLinkProductScheduleH1.resx">
       <DependentUpon>UclLinkProductScheduleH1.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InterfaceLayer\Controls\UclzzPurchaseOrderForToday.resx">
-      <DependentUpon>UclzzPurchaseOrderForToday.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\Controls\UclSettingsEmail.resx">

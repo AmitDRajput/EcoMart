@@ -44,7 +44,7 @@ namespace EcoMart.Common.Classes
             catch (Exception ex)
             {
                 Log.WriteException(ex);
-                //   retValue = false;
+                //retValue = false;
             }
             return retValue;
         }
@@ -61,7 +61,7 @@ namespace EcoMart.Common.Classes
                         if (connInfo.IsDBConnected)
                         {
                             DataSync dbSync = new DataSync();
-                            dbSync.GetDataToSync();
+                            ///*dbSync.GetDataToSync(); // */FOR THE TIMEBEING
                         }
                     }
                 //MessageBox.Show("Completed thread is: {0}",

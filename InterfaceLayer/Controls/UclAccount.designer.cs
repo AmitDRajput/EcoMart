@@ -38,6 +38,15 @@ namespace EcoMart.InterfaceLayer
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.lblMessage = new System.Windows.Forms.Label();
             this.pnlCenter = new System.Windows.Forms.Panel();
+            this.pnlBank = new System.Windows.Forms.Panel();
+            this.pnlGeneral = new System.Windows.Forms.Panel();
+            this.lblvattin = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
+            this.lblPANGeneral = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
+            this.txtGeneralVATTIN = new System.Windows.Forms.TextBox();
+            this.txtGeneralPAN = new System.Windows.Forms.TextBox();
+            this.cbSetAsDefault = new System.Windows.Forms.CheckBox();
+            this.txtAccountNumber = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
+            this.txtBankAccountNumber = new System.Windows.Forms.TextBox();
             this.pnlDebtor = new System.Windows.Forms.Panel();
             this.psLabel6 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mcbArea = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
@@ -58,15 +67,8 @@ namespace EcoMart.InterfaceLayer
             this.rbCash = new System.Windows.Forms.RadioButton();
             this.mcbBranch = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
             this.mcbBank = new EcoMart.InterfaceLayer.CommonControls.PSComboBoxNew();
-            this.pnlBank = new System.Windows.Forms.Panel();
-            this.pnlGeneral = new System.Windows.Forms.Panel();
-            this.lblvattin = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.lblPANGeneral = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.txtGeneralVATTIN = new System.Windows.Forms.TextBox();
-            this.txtGeneralPAN = new System.Windows.Forms.TextBox();
-            this.cbSetAsDefault = new System.Windows.Forms.CheckBox();
-            this.txtAccountNumber = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.txtBankAccountNumber = new System.Windows.Forms.TextBox();
+            this.txtRemark1 = new System.Windows.Forms.TextBox();
+            this.txtRemark2 = new System.Windows.Forms.TextBox();
             this.txtAddress1 = new System.Windows.Forms.TextBox();
             this.txtAddress2 = new System.Windows.Forms.TextBox();
             this.psLabel5 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
@@ -81,8 +83,6 @@ namespace EcoMart.InterfaceLayer
             this.mPlbl3 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl2 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.pnlRemark = new System.Windows.Forms.Panel();
-            this.txtRemark1 = new System.Windows.Forms.TextBox();
-            this.txtRemark2 = new System.Windows.Forms.TextBox();
             this.pnlAddress = new System.Windows.Forms.Panel();
             this.txtAutoAddress2 = new EcoMart.InterfaceLayer.CommonControls.PSAutoSuggestTextBox();
             this.txtAutoAddress1 = new EcoMart.InterfaceLayer.CommonControls.PSAutoSuggestTextBox();
@@ -113,11 +113,10 @@ namespace EcoMart.InterfaceLayer
             this.MMBottomPanel.SuspendLayout();
             this.MMMainPanel.SuspendLayout();
             this.pnlCenter.SuspendLayout();
-            this.pnlDebtor.SuspendLayout();
-            this.gbTransactionType.SuspendLayout();
             this.pnlBank.SuspendLayout();
             this.pnlGeneral.SuspendLayout();
-            this.pnlRemark.SuspendLayout();
+            this.pnlDebtor.SuspendLayout();
+            this.gbTransactionType.SuspendLayout();
             this.pnlAddress.SuspendLayout();
             this.pnlCreditor.SuspendLayout();
             this.SuspendLayout();
@@ -216,8 +215,10 @@ namespace EcoMart.InterfaceLayer
             // 
             this.pnlCenter.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlCenter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCenter.Controls.Add(this.pnlDebtor);
             this.pnlCenter.Controls.Add(this.pnlBank);
+            this.pnlCenter.Controls.Add(this.pnlDebtor);
+            this.pnlCenter.Controls.Add(this.txtRemark1);
+            this.pnlCenter.Controls.Add(this.txtRemark2);
             this.pnlCenter.Controls.Add(this.txtAddress1);
             this.pnlCenter.Controls.Add(this.txtAddress2);
             this.pnlCenter.Controls.Add(this.psLabel5);
@@ -249,6 +250,100 @@ namespace EcoMart.InterfaceLayer
             this.pnlCenter.Size = new System.Drawing.Size(961, 531);
             this.pnlCenter.TabIndex = 54;
             // 
+            // pnlBank
+            // 
+            this.pnlBank.Controls.Add(this.pnlGeneral);
+            this.pnlBank.Controls.Add(this.cbSetAsDefault);
+            this.pnlBank.Controls.Add(this.txtAccountNumber);
+            this.pnlBank.Controls.Add(this.txtBankAccountNumber);
+            this.pnlBank.Location = new System.Drawing.Point(121, 226);
+            this.pnlBank.Name = "pnlBank";
+            this.pnlBank.Size = new System.Drawing.Size(600, 64);
+            this.pnlBank.TabIndex = 9;
+            // 
+            // pnlGeneral
+            // 
+            this.pnlGeneral.Controls.Add(this.lblvattin);
+            this.pnlGeneral.Controls.Add(this.lblPANGeneral);
+            this.pnlGeneral.Controls.Add(this.txtGeneralVATTIN);
+            this.pnlGeneral.Controls.Add(this.txtGeneralPAN);
+            this.pnlGeneral.Location = new System.Drawing.Point(21, -1);
+            this.pnlGeneral.Name = "pnlGeneral";
+            this.pnlGeneral.Size = new System.Drawing.Size(562, 51);
+            this.pnlGeneral.TabIndex = 102;
+            // 
+            // lblvattin
+            // 
+            this.lblvattin.AutoSize = true;
+            this.lblvattin.Location = new System.Drawing.Point(23, 28);
+            this.lblvattin.Name = "lblvattin";
+            this.lblvattin.Size = new System.Drawing.Size(86, 16);
+            this.lblvattin.TabIndex = 137;
+            this.lblvattin.Text = "&GST Number";
+            // 
+            // lblPANGeneral
+            // 
+            this.lblPANGeneral.AutoSize = true;
+            this.lblPANGeneral.Location = new System.Drawing.Point(76, 5);
+            this.lblPANGeneral.Name = "lblPANGeneral";
+            this.lblPANGeneral.Size = new System.Drawing.Size(34, 16);
+            this.lblPANGeneral.TabIndex = 136;
+            this.lblPANGeneral.Text = "&PAN";
+            // 
+            // txtGeneralVATTIN
+            // 
+            this.txtGeneralVATTIN.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtGeneralVATTIN.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGeneralVATTIN.Location = new System.Drawing.Point(126, 26);
+            this.txtGeneralVATTIN.MaxLength = 50;
+            this.txtGeneralVATTIN.Name = "txtGeneralVATTIN";
+            this.txtGeneralVATTIN.Size = new System.Drawing.Size(416, 22);
+            this.txtGeneralVATTIN.TabIndex = 0;
+            this.txtGeneralVATTIN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtGeneralVATTIN_KeyDown);
+            // 
+            // txtGeneralPAN
+            // 
+            this.txtGeneralPAN.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtGeneralPAN.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGeneralPAN.Location = new System.Drawing.Point(125, 2);
+            this.txtGeneralPAN.MaxLength = 50;
+            this.txtGeneralPAN.Name = "txtGeneralPAN";
+            this.txtGeneralPAN.Size = new System.Drawing.Size(416, 22);
+            this.txtGeneralPAN.TabIndex = 0;
+            this.txtGeneralPAN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtGeneralPAN_KeyDown);
+            // 
+            // cbSetAsDefault
+            // 
+            this.cbSetAsDefault.AutoSize = true;
+            this.cbSetAsDefault.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbSetAsDefault.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSetAsDefault.Location = new System.Drawing.Point(42, 29);
+            this.cbSetAsDefault.Name = "cbSetAsDefault";
+            this.cbSetAsDefault.Size = new System.Drawing.Size(122, 21);
+            this.cbSetAsDefault.TabIndex = 160;
+            this.cbSetAsDefault.Text = "Set As Default";
+            this.cbSetAsDefault.UseVisualStyleBackColor = true;
+            // 
+            // txtAccountNumber
+            // 
+            this.txtAccountNumber.AutoSize = true;
+            this.txtAccountNumber.Location = new System.Drawing.Point(9, 5);
+            this.txtAccountNumber.Name = "txtAccountNumber";
+            this.txtAccountNumber.Size = new System.Drawing.Size(111, 16);
+            this.txtAccountNumber.TabIndex = 159;
+            this.txtAccountNumber.Text = "Acco&unt Number";
+            // 
+            // txtBankAccountNumber
+            // 
+            this.txtBankAccountNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBankAccountNumber.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBankAccountNumber.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBankAccountNumber.Location = new System.Drawing.Point(151, 1);
+            this.txtBankAccountNumber.MaxLength = 50;
+            this.txtBankAccountNumber.Name = "txtBankAccountNumber";
+            this.txtBankAccountNumber.Size = new System.Drawing.Size(385, 22);
+            this.txtBankAccountNumber.TabIndex = 0;
+            // 
             // pnlDebtor
             // 
             this.pnlDebtor.Controls.Add(this.psLabel6);
@@ -267,7 +362,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlDebtor.Controls.Add(this.gbTransactionType);
             this.pnlDebtor.Controls.Add(this.mcbBranch);
             this.pnlDebtor.Controls.Add(this.mcbBank);
-            this.pnlDebtor.Location = new System.Drawing.Point(116, 223);
+            this.pnlDebtor.Location = new System.Drawing.Point(116, 226);
             this.pnlDebtor.Name = "pnlDebtor";
             this.pnlDebtor.Size = new System.Drawing.Size(618, 269);
             this.pnlDebtor.TabIndex = 9;
@@ -300,6 +395,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbArea.TabIndex = 177;
             this.mcbArea.UserControlToShow = null;
             this.mcbArea.ValueColumnNo = 0;
+            this.mcbArea.EnterKeyPressed += new System.EventHandler(this.mcbArea_EnterKeyPressed);
             this.mcbArea.ItemAddedEdited += new System.EventHandler(this.mcbArea_ItemAddedEdited);
             this.mcbArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mcbArea_KeyDown);
             // 
@@ -415,6 +511,7 @@ namespace EcoMart.InterfaceLayer
             this.txtVATTIN.Name = "txtVATTIN";
             this.txtVATTIN.Size = new System.Drawing.Size(416, 22);
             this.txtVATTIN.TabIndex = 3;
+            this.txtVATTIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVATTIN_KeyPress);
             // 
             // gbTransactionType
             // 
@@ -513,99 +610,31 @@ namespace EcoMart.InterfaceLayer
             this.mcbBank.ItemAddedEdited += new System.EventHandler(this.mcbBank_ItemAddedEdited);
             this.mcbBank.UpArrowPressed += new System.EventHandler(this.mcbBank_UpArrowPressed);
             // 
-            // pnlBank
+            // txtRemark1
             // 
-            this.pnlBank.Controls.Add(this.pnlGeneral);
-            this.pnlBank.Controls.Add(this.cbSetAsDefault);
-            this.pnlBank.Controls.Add(this.txtAccountNumber);
-            this.pnlBank.Controls.Add(this.txtBankAccountNumber);
-            this.pnlBank.Location = new System.Drawing.Point(121, 222);
-            this.pnlBank.Name = "pnlBank";
-            this.pnlBank.Size = new System.Drawing.Size(641, 64);
-            this.pnlBank.TabIndex = 9;
+            this.txtRemark1.BackColor = System.Drawing.Color.White;
+            this.txtRemark1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRemark1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtRemark1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRemark1.Location = new System.Drawing.Point(271, 190);
+            this.txtRemark1.MaxLength = 50;
+            this.txtRemark1.Name = "txtRemark1";
+            this.txtRemark1.Size = new System.Drawing.Size(376, 15);
+            this.txtRemark1.TabIndex = 0;
+            this.txtRemark1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRemark1_KeyDown);
             // 
-            // pnlGeneral
+            // txtRemark2
             // 
-            this.pnlGeneral.Controls.Add(this.lblvattin);
-            this.pnlGeneral.Controls.Add(this.lblPANGeneral);
-            this.pnlGeneral.Controls.Add(this.txtGeneralVATTIN);
-            this.pnlGeneral.Controls.Add(this.txtGeneralPAN);
-            this.pnlGeneral.Location = new System.Drawing.Point(21, -1);
-            this.pnlGeneral.Name = "pnlGeneral";
-            this.pnlGeneral.Size = new System.Drawing.Size(562, 51);
-            this.pnlGeneral.TabIndex = 102;
-            // 
-            // lblvattin
-            // 
-            this.lblvattin.AutoSize = true;
-            this.lblvattin.Location = new System.Drawing.Point(23, 28);
-            this.lblvattin.Name = "lblvattin";
-            this.lblvattin.Size = new System.Drawing.Size(86, 16);
-            this.lblvattin.TabIndex = 137;
-            this.lblvattin.Text = "&GST Number";
-            // 
-            // lblPANGeneral
-            // 
-            this.lblPANGeneral.AutoSize = true;
-            this.lblPANGeneral.Location = new System.Drawing.Point(76, 5);
-            this.lblPANGeneral.Name = "lblPANGeneral";
-            this.lblPANGeneral.Size = new System.Drawing.Size(34, 16);
-            this.lblPANGeneral.TabIndex = 136;
-            this.lblPANGeneral.Text = "&PAN";
-            // 
-            // txtGeneralVATTIN
-            // 
-            this.txtGeneralVATTIN.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtGeneralVATTIN.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGeneralVATTIN.Location = new System.Drawing.Point(126, 26);
-            this.txtGeneralVATTIN.MaxLength = 50;
-            this.txtGeneralVATTIN.Name = "txtGeneralVATTIN";
-            this.txtGeneralVATTIN.Size = new System.Drawing.Size(416, 22);
-            this.txtGeneralVATTIN.TabIndex = 0;
-            this.txtGeneralVATTIN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtGeneralVATTIN_KeyDown);
-            // 
-            // txtGeneralPAN
-            // 
-            this.txtGeneralPAN.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtGeneralPAN.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGeneralPAN.Location = new System.Drawing.Point(125, 2);
-            this.txtGeneralPAN.MaxLength = 50;
-            this.txtGeneralPAN.Name = "txtGeneralPAN";
-            this.txtGeneralPAN.Size = new System.Drawing.Size(416, 22);
-            this.txtGeneralPAN.TabIndex = 0;
-            this.txtGeneralPAN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtGeneralPAN_KeyDown);
-            // 
-            // cbSetAsDefault
-            // 
-            this.cbSetAsDefault.AutoSize = true;
-            this.cbSetAsDefault.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbSetAsDefault.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSetAsDefault.Location = new System.Drawing.Point(42, 29);
-            this.cbSetAsDefault.Name = "cbSetAsDefault";
-            this.cbSetAsDefault.Size = new System.Drawing.Size(122, 21);
-            this.cbSetAsDefault.TabIndex = 160;
-            this.cbSetAsDefault.Text = "Set As Default";
-            this.cbSetAsDefault.UseVisualStyleBackColor = true;
-            // 
-            // txtAccountNumber
-            // 
-            this.txtAccountNumber.AutoSize = true;
-            this.txtAccountNumber.Location = new System.Drawing.Point(9, 5);
-            this.txtAccountNumber.Name = "txtAccountNumber";
-            this.txtAccountNumber.Size = new System.Drawing.Size(111, 16);
-            this.txtAccountNumber.TabIndex = 159;
-            this.txtAccountNumber.Text = "Acco&unt Number";
-            // 
-            // txtBankAccountNumber
-            // 
-            this.txtBankAccountNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBankAccountNumber.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBankAccountNumber.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBankAccountNumber.Location = new System.Drawing.Point(151, 1);
-            this.txtBankAccountNumber.MaxLength = 50;
-            this.txtBankAccountNumber.Name = "txtBankAccountNumber";
-            this.txtBankAccountNumber.Size = new System.Drawing.Size(385, 22);
-            this.txtBankAccountNumber.TabIndex = 0;
+            this.txtRemark2.BackColor = System.Drawing.Color.White;
+            this.txtRemark2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRemark2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtRemark2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRemark2.Location = new System.Drawing.Point(271, 209);
+            this.txtRemark2.MaxLength = 50;
+            this.txtRemark2.Name = "txtRemark2";
+            this.txtRemark2.Size = new System.Drawing.Size(376, 15);
+            this.txtRemark2.TabIndex = 1;
+            this.txtRemark2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRemark2_KeyDown);
             // 
             // txtAddress1
             // 
@@ -741,38 +770,10 @@ namespace EcoMart.InterfaceLayer
             // pnlRemark
             // 
             this.pnlRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlRemark.Controls.Add(this.txtRemark1);
-            this.pnlRemark.Controls.Add(this.txtRemark2);
             this.pnlRemark.Location = new System.Drawing.Point(268, 187);
             this.pnlRemark.Name = "pnlRemark";
-            this.pnlRemark.Size = new System.Drawing.Size(381, 35);
+            this.pnlRemark.Size = new System.Drawing.Size(381, 40);
             this.pnlRemark.TabIndex = 147;
-            // 
-            // txtRemark1
-            // 
-            this.txtRemark1.BackColor = System.Drawing.Color.White;
-            this.txtRemark1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtRemark1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtRemark1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRemark1.Location = new System.Drawing.Point(1, 1);
-            this.txtRemark1.MaxLength = 50;
-            this.txtRemark1.Name = "txtRemark1";
-            this.txtRemark1.Size = new System.Drawing.Size(376, 15);
-            this.txtRemark1.TabIndex = 0;
-            this.txtRemark1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRemark1_KeyDown);
-            // 
-            // txtRemark2
-            // 
-            this.txtRemark2.BackColor = System.Drawing.Color.White;
-            this.txtRemark2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtRemark2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtRemark2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRemark2.Location = new System.Drawing.Point(1, 17);
-            this.txtRemark2.MaxLength = 50;
-            this.txtRemark2.Name = "txtRemark2";
-            this.txtRemark2.Size = new System.Drawing.Size(376, 15);
-            this.txtRemark2.TabIndex = 1;
-            this.txtRemark2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRemark2_KeyDown);
             // 
             // pnlAddress
             // 
@@ -964,7 +965,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlCreditor.Controls.Add(this.txtCreditorDiscountOffered);
             this.pnlCreditor.Controls.Add(this.txtCreditorVATTIN);
             this.pnlCreditor.Controls.Add(this.txtCreditorShortName);
-            this.pnlCreditor.Location = new System.Drawing.Point(115, 228);
+            this.pnlCreditor.Location = new System.Drawing.Point(110, 227);
             this.pnlCreditor.Name = "pnlCreditor";
             this.pnlCreditor.Size = new System.Drawing.Size(711, 259);
             this.pnlCreditor.TabIndex = 0;
@@ -1137,16 +1138,14 @@ namespace EcoMart.InterfaceLayer
             this.MMMainPanel.PerformLayout();
             this.pnlCenter.ResumeLayout(false);
             this.pnlCenter.PerformLayout();
-            this.pnlDebtor.ResumeLayout(false);
-            this.pnlDebtor.PerformLayout();
-            this.gbTransactionType.ResumeLayout(false);
-            this.gbTransactionType.PerformLayout();
             this.pnlBank.ResumeLayout(false);
             this.pnlBank.PerformLayout();
             this.pnlGeneral.ResumeLayout(false);
             this.pnlGeneral.PerformLayout();
-            this.pnlRemark.ResumeLayout(false);
-            this.pnlRemark.PerformLayout();
+            this.pnlDebtor.ResumeLayout(false);
+            this.pnlDebtor.PerformLayout();
+            this.gbTransactionType.ResumeLayout(false);
+            this.gbTransactionType.PerformLayout();
             this.pnlAddress.ResumeLayout(false);
             this.pnlCreditor.ResumeLayout(false);
             this.pnlCreditor.PerformLayout();

@@ -228,59 +228,61 @@ namespace EcoMart.InterfaceLayer
                     _Company.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
                     //_Company.IntID  = _Company.GetIntID(); /* Guid.NewGuid().ToString().ToUpper().Replace("-", "");*/
                     //retValue = _Company.AddDetails();
-                    _Company.IntID = _Company.AddDetails();
+                    _Company.IntID = _Company.GetNextIntID();
                     if (_Company.IntID > 0)
+                        retValue = _Company.AddDetails();
+                    if (retValue)
                     {
-                        MessageBox.Show("Email information has been saved successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Company information has been saved successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         _SaveIntID = _Company.IntID;
                         ClearControls();
                         FilltxtName();
                         retValue = true;
-                    
-                    
-                    if (_Company.PartyID_1 != string.Empty)
-                    {
-                        retValue = _Company.UpdateProductMasterWithPartyID1();
-                        _PartyCompany.Id = _Company.PartyID_1;
-                        _PartyCompany.CompanyId = _Company.Id;
-                        _PartyCompany.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                        retValue = _PartyCompany.AddDetails();
-                    }
-                    if (_Company.PartyID_2 != string.Empty)
-                    {
-                        retValue = _Company.UpdateProductMasterWithPartyID1();
-                        _PartyCompany.Id = _Company.PartyID_2;
-                        _PartyCompany.CompanyId = _Company.Id;
-                        _PartyCompany.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                        retValue = _PartyCompany.AddDetails();
-                    }
 
-                    if (_Company.PartyID_3 != string.Empty) //Amar
-                    {
-                        retValue = _Company.UpdateProductMasterWithPartyID1();
-                        _PartyCompany.Id = _Company.PartyID_3;
-                        _PartyCompany.CompanyId = _Company.Id;
-                        _PartyCompany.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                        retValue = _PartyCompany.AddDetails();
-                    }
+                        //if (_Company.PartyID_1 != string.Empty)
+                        //{
+                        //    retValue = _Company.UpdateProductMasterWithPartyID1();
+                        //    _PartyCompany.Id = _Company.PartyID_1;
+                        //    _PartyCompany.CompanyId = _Company.Id;
+                        //    _PartyCompany.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                        //    retValue = _PartyCompany.AddDetails();
+                        //}
+                        //if (_Company.PartyID_2 != string.Empty)
+                        //{
+                        //    retValue = _Company.UpdateProductMasterWithPartyID1();
+                        //    _PartyCompany.Id = _Company.PartyID_2;
+                        //    _PartyCompany.CompanyId = _Company.Id;
+                        //    _PartyCompany.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                        //    retValue = _PartyCompany.AddDetails();
+                        //}
 
-                    if (_Company.PartyID_4 != string.Empty) //Amar
-                    {
-                        retValue = _Company.UpdateProductMasterWithPartyID1();
-                        _PartyCompany.Id = _Company.PartyID_4;
-                        _PartyCompany.CompanyId = _Company.Id;
-                        _PartyCompany.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                        retValue = _PartyCompany.AddDetails();
-                    }
+                        //if (_Company.PartyID_3 != string.Empty) //Amar
+                        //{
+                        //    retValue = _Company.UpdateProductMasterWithPartyID1();
+                        //    _PartyCompany.Id = _Company.PartyID_3;
+                        //    _PartyCompany.CompanyId = _Company.Id;
+                        //    _PartyCompany.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                        //    retValue = _PartyCompany.AddDetails();
+                        //}
+
+                        //if (_Company.PartyID_4 != string.Empty) //Amar
+                        //{
+                        //    retValue = _Company.UpdateProductMasterWithPartyID1();
+                        //    _PartyCompany.Id = _Company.PartyID_4;
+                        //    _PartyCompany.CompanyId = _Company.Id;
+                        //    _PartyCompany.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                        //    retValue = _PartyCompany.AddDetails();
+                        //}
                     }
                     else
                     {
+                        MessageBox.Show("Unable to generate Company ID.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         retValue = false;
                     }
                     //MessageBox.Show("Company information has been saved successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //_SavedID = _Company.Id;
                     //ClearControls();
-                    retValue = true;
+                    //retValue = true;
                 }
                 else if (_Mode == OperationMode.Edit)
                 {
@@ -401,7 +403,7 @@ namespace EcoMart.InterfaceLayer
 
         public override void ReFillData(Control closedControl)
         {
-            //FilltxtName();
+            FillFirstCreditorCombo();
         }
 
         public override bool HandleShortcutAction(Keys keyPressed, Keys modifier)
