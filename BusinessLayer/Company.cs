@@ -126,14 +126,14 @@ namespace EcoMart.BusinessLayer
 
                 if (IFEdit == "Y")
                 {
-                    if (dbComp.IsNameUniqueForEdit(CName, ShortName))
+                    if (dbComp.IsNameUniqueForEdit(CName, ShortName,IntID))
                     {
                         ValidationMessages.Add("Company Already Exists.");
                     }
                 }
                 else
                 {
-                    if (dbComp.IsNameUniqueForAdd(CName, ShortName))
+                    if (dbComp.IsNameUniqueForAdd(CName, ShortName, IntID))
                     {
                         ValidationMessages.Add("Company Already Exists.");
                     }
@@ -239,7 +239,7 @@ namespace EcoMart.BusinessLayer
             return drow;
         }
 
-        public int AddDetails()
+        public bool AddDetails()
         {
             DBCompany dbComp = new DBCompany();            
             return dbComp.AddDetails( IntID , ShortName, CName, Telephone, MailID, ContactPerson, Address,PartyID_1,PartyID_2, PartyID_3, PartyID_4, CreatedBy, CreatedDate, CreatedTime);
@@ -275,41 +275,11 @@ namespace EcoMart.BusinessLayer
             DBCompany dbComp = new DBCompany();
             return dbComp.DeleteDetails(Id);
         }
-        public Int32 GetIntID()
+        public int GetNextIntID()
         {
-            
-            DBCompany dbcomp = new DBCompany();
-            DataRow idrow = dbcomp.GetMaxID();
-            int maxid = Convert.ToInt32 ( idrow["maxcompid"]) + 1;
-            return maxid;
-
+            return General.GetNextIntID("MasterCompany", "CompID");
         }
-        #endregion      
-
-      
-
-        //public Hashtable GetTableListByCode(string IDName)
-        //{
-        //    Hashtable compList = new Hashtable();
-        //    try
-        //    {
-        //        DBCompany dbc = new DBCompany();
-        //        DataTable dtable = dbc.GetTableListByCode(IDName);
-        //        int rowcount = 0;
-        //        if (dtable != null && dtable.Rows.Count > 0)
-        //        {
-        //            foreach (DataRow dr in dtable.Rows)
-        //            {
-        //                rowcount += 1;
-        //                compList.Add(rowcount, dr["CompID"].ToString());
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Log.WriteException(ex);
-        //    }
-        //    return compList;
-        //}
+        #endregion   
+        
     }
 }

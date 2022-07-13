@@ -75,7 +75,7 @@ namespace EcoMart.InterfaceLayer
                 HidePanels();
                 FillGroupCombo();
                 FillBankCombo();
-                FillBranchCombo();               
+                FillBranchCombo();
                 FillAreaCombo();
                 FillAccountType();
                 GetAccTokenNumber();
@@ -106,7 +106,7 @@ namespace EcoMart.InterfaceLayer
                 FillGroupCombo();
                 FillBankCombo();
                 FillBranchCombo();
-              
+
                 FillAreaCombo();
                 txtName.Focus();
             }
@@ -153,10 +153,13 @@ namespace EcoMart.InterfaceLayer
             bool retValue = false;
             try
             {
-                _Account.Id = txtName.SelectedID;
+                //_Account.Id = txtName.SelectedID;
+
                 if (_Account.Id != null && _Account.Id != "")
                 {
                     retValue = _Account.CanBeDeleted();
+                    if (_Account.AccCode == FixAccounts.AccCodeForCreditor && General.EcoMartLicense.ApplicationType != EcoMartLicenseLib.ApplicationTypes.EcoMart)
+                        retValue = false;
                     if (retValue == true)
                     {
                         retValue = _Account.DeleteDetails();
@@ -310,7 +313,7 @@ namespace EcoMart.InterfaceLayer
                     if (mcbBank.SelectedID != null)
                         _Account.AccBankId = mcbBank.SelectedID;
                     if (mcbBranch.SelectedID != null)
-                        _Account.AccBranchID = mcbBranch.SelectedID;                    
+                        _Account.AccBranchID = mcbBranch.SelectedID;
                     if (mcbArea.SelectedID != null)
                         _Account.AccAreaID = mcbArea.SelectedID;
 
@@ -333,20 +336,24 @@ namespace EcoMart.InterfaceLayer
                 }
                 else if (_Account.AccCode == FixAccounts.AccCodeForCreditor)
                 {
-                    cbAccountType.Text = FixAccounts.AccTypeForCreditor;
-                    cbAccountType.SelectedIndex = cbAccountType.Items.IndexOf(FixAccounts.AccTypeForCreditor);
-                    if (txtCreditorShortName.Text != null)
-                        _Account.AccShortName = txtCreditorShortName.Text.ToString().Trim();
-                    if (txtCreditorDiscountOffered.Text != null && txtCreditorDiscountOffered.Text != "")
-                        _Account.AccDiscountOffered = Convert.ToDouble(txtCreditorDiscountOffered.Text.ToString());                   
-                    if (txtCreditorVATTIN.Text != null)
-                        _Account.AccVATTin = txtCreditorVATTIN.Text.ToString().Trim();
-                    if (txtCreditorDLN.Text != null)
-                        _Account.AccDLN = txtCreditorDLN.Text.ToString().Trim();
-                   
-                    VisitDaysForDB = VisitDaysForDB.Trim();
-                    _Account.AccCrVisitDays = VisitDaysForDB;
-                   
+
+                    if (_Account.AccCode == FixAccounts.AccCodeForCreditor && General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+                    {
+                        cbAccountType.Text = FixAccounts.AccTypeForCreditor;
+                        cbAccountType.SelectedIndex = cbAccountType.Items.IndexOf(FixAccounts.AccTypeForCreditor);
+                        if (txtCreditorShortName.Text != null)
+                            _Account.AccShortName = txtCreditorShortName.Text.ToString().Trim();
+                        if (txtCreditorDiscountOffered.Text != null && txtCreditorDiscountOffered.Text != "")
+                            _Account.AccDiscountOffered = Convert.ToDouble(txtCreditorDiscountOffered.Text.ToString());
+                        if (txtCreditorVATTIN.Text != null)
+                            _Account.AccVATTin = txtCreditorVATTIN.Text.ToString().Trim();
+                        if (txtCreditorDLN.Text != null)
+                            _Account.AccDLN = txtCreditorDLN.Text.ToString().Trim();
+
+                        VisitDaysForDB = VisitDaysForDB.Trim();
+                        _Account.AccCrVisitDays = VisitDaysForDB;
+                    }
+
                 }
                 else if (_Account.AccCode == FixAccounts.AccCodeForBank)
                 {
@@ -365,6 +372,8 @@ namespace EcoMart.InterfaceLayer
                 if (_Mode == OperationMode.Edit)
                     _Account.IFEdit = "Y";
                 _Account.Validate();
+
+
                 if (_Account.IsValid)
                 {
                     //LockTable.LockTableForAccount();
@@ -412,33 +421,44 @@ namespace EcoMart.InterfaceLayer
                     }
                     else if (_Mode == OperationMode.Edit)
                     {
-                        _Account.ModifiedBy = General.CurrentUser.Id;
-                        _Account.ModifiedDate = DateTime.Now.Date.ToString("yyyyMMdd");
-                        _Account.ModifiedTime = DateTime.Now.ToString("HH:mm:ss");
-                        if (_Account.AccCode == FixAccounts.AccCodeForDebtor)
-                            retValue = _Account.UpdateDebtorDetails();
-                        else if (_Account.AccCode == FixAccounts.AccCodeForCreditor)
-                            retValue = _Account.UpdateCreditorDetails();
-                        else if (_Account.AccCode == FixAccounts.AccCodeForGeneral)
-                            retValue = _Account.UpdateDetailsGnrl();
-                        else
+                        if (_Account.AccCode != FixAccounts.AccCodeForCreditor || (_Account.AccCode == FixAccounts.AccCodeForCreditor && General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart))
                         {
-                            retValue = _Account.UpdateBankDetails();
-                            if (_Account.SetAsDefault == "Y")
+                            _Account.ModifiedBy = General.CurrentUser.Id;
+                            _Account.ModifiedDate = DateTime.Now.Date.ToString("yyyyMMdd");
+                            _Account.ModifiedTime = DateTime.Now.ToString("HH:mm:ss");
+                            if (_Account.AccCode == FixAccounts.AccCodeForDebtor)
+                                retValue = _Account.UpdateDebtorDetails();
+                            else if (_Account.AccCode == FixAccounts.AccCodeForCreditor)
+                                retValue = _Account.UpdateCreditorDetails();
+                            else if (_Account.AccCode == FixAccounts.AccCodeForGeneral)
+                                retValue = _Account.UpdateDetailsGnrl();
+                            else
                             {
-                                _Account.ClearAllSetDefault();
-                                _Account.SetThisAsDefault(_Account.Id);
+                                retValue = _Account.UpdateBankDetails();
+                                if (_Account.SetAsDefault == "Y")
+                                {
+                                    _Account.ClearAllSetDefault();
+                                    _Account.SetThisAsDefault(_Account.Id);
+                                }
                             }
-                        }
-                        if (retValue)
-                        {
-                            MessageBox.Show("Account information has been updated successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            _SavedID = _Account.Id;
+                            if (retValue)
+                            {
+                                MessageBox.Show("Account information has been updated successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                _SavedID = _Account.Id;
+                            }
+                            else
+                            {
+                                MessageBox.Show("CAN NOT SAVE.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                _SavedID = _Account.Id;
+
+                            }
                         }
                         else
                         {
                             MessageBox.Show("CAN NOT SAVE.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             _SavedID = _Account.Id;
+                            pnlCreditor.Enabled = true;
+                            txtName.Enabled = true;
 
                         }
                     }
@@ -474,7 +494,7 @@ namespace EcoMart.InterfaceLayer
                     FillBankCombo();
                     FillBranchCombo();
                     FillGroupCombo();
-                   
+
                     FillAreaCombo();
                     FillAccountType();
 
@@ -488,10 +508,21 @@ namespace EcoMart.InterfaceLayer
                     }
                     if (_Account.AccCode == FixAccounts.AccCodeForCreditor)
                     {
+                        cbAccountType.Enabled = true;
                         cbAccountType.Text = FixAccounts.AccTypeForCreditor;
                         cbAccountType.SelectedIndex = cbAccountType.Items.IndexOf(FixAccounts.AccTypeForCreditor);
                         mcbGroup.Enabled = false;
                         pnlCreditor.Visible = true;
+                        if (_Account.AccCode == FixAccounts.AccCodeForCreditor && General.EcoMartLicense.ApplicationType != EcoMartLicenseLib.ApplicationTypes.EcoMart)
+                        {
+                            pnlCreditor.Enabled = false;
+                            txtName.Enabled = false;
+                        }
+                        else
+                        {
+                            pnlCreditor.Enabled = true;
+                            txtName.Enabled = true;
+                        }
                     }
                     if (_Account.AccCode == FixAccounts.AccCodeForBank)
                     {
@@ -545,7 +576,7 @@ namespace EcoMart.InterfaceLayer
                             mcbBank.SelectedID = _Account.AccBankId.Trim();
                         if (_Account.AccBranchID != null)
                             mcbBranch.SelectedID = _Account.AccBranchID.Trim();
-                       
+
                         if (_Account.AccVATTin != null)
                             txtVATTIN.Text = _Account.AccVATTin.Trim();
 
@@ -559,7 +590,7 @@ namespace EcoMart.InterfaceLayer
                             rbCredit.Checked = true;
                         else
                             rbCashCredit.Checked = true;
-                       
+
                         if (string.IsNullOrEmpty(Convert.ToString(_Account.AccDiscountOffered)) == false)
                             txtDebtorDiscountOffered.Text = _Account.AccDiscountOffered.ToString("#0.00");
                     }
@@ -568,11 +599,11 @@ namespace EcoMart.InterfaceLayer
                         if (_Account.AccShortName != null)
                             txtCreditorShortName.Text = _Account.AccShortName.Trim();
                         txtCreditorDiscountOffered.Text = _Account.AccDiscountOffered.ToString("#0.00");
-                       if (_Account.AccVATTin != null)
+                        if (_Account.AccVATTin != null)
                             txtCreditorVATTIN.Text = _Account.AccVATTin.Trim();
                         if (_Account.AccDLN != null)
                             txtCreditorDLN.Text = _Account.AccDLN.Trim();
-                        
+
                     }
                     else if (_Account.AccCode == FixAccounts.AccCodeForBank)
                         txtBankAccountNumber.Text = _Account.AccBankAccountNumber.Trim();
@@ -708,7 +739,7 @@ namespace EcoMart.InterfaceLayer
                         txtDLN.Focus();
                     retValue = true;
                 }
-               
+
                 if (keyPressed == Keys.K && modifier == Keys.Alt)
                 {
                     mcbBank.Focus();
@@ -796,10 +827,10 @@ namespace EcoMart.InterfaceLayer
                 txtOpeningDebit.Clear();
                 txtRemark1.Text = "";
                 txtRemark2.Text = "";
-                txtTelephone.Clear();               
+                txtTelephone.Clear();
                 tsBtnFifth.Visible = false;
                 tsBtnPrint.Visible = false;
-                tsBtnSavenPrint.Visible = false;               
+                tsBtnSavenPrint.Visible = false;
             }
             catch (Exception Ex)
             {
@@ -1014,7 +1045,9 @@ namespace EcoMart.InterfaceLayer
         {
             cbAccountType.Items.Clear();
 
-            cbAccountType.Items.Add(FixAccounts.AccTypeForCreditor);
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+                cbAccountType.Items.Add(FixAccounts.AccTypeForCreditor);
+
             cbAccountType.Items.Add(FixAccounts.AccTypeForDebtor);
             cbAccountType.Items.Add(FixAccounts.AccTypeForBank);
             cbAccountType.Items.Add(FixAccounts.AccTypeForGeneral);
@@ -1023,8 +1056,8 @@ namespace EcoMart.InterfaceLayer
             cbAccountType.Items.Add(FixAccounts.AccTypeForPurchase);
             cbAccountType.Items.Add(FixAccounts.AccTypeForSale);
 
-            cbAccountType.Text = FixAccounts.AccTypeForCreditor;
-            cbAccountType.SelectedIndex = cbAccountType.Items.IndexOf(FixAccounts.AccTypeForCreditor);
+            cbAccountType.Text = FixAccounts.AccTypeForDebtor;
+            cbAccountType.SelectedIndex = cbAccountType.Items.IndexOf(FixAccounts.AccTypeForDebtor);
         }
         public void FilltxtName()
         {
@@ -1081,7 +1114,7 @@ namespace EcoMart.InterfaceLayer
                 Log.WriteException(Ex);
             }
         }
-       
+
         private void FillAreaCombo()
         {
             try
@@ -1299,7 +1332,7 @@ namespace EcoMart.InterfaceLayer
             {
                 Log.WriteException(Ex);
             }
-        }    
+        }
 
         private void txtAddress1_TextChanged(object sender, EventArgs e)
         {
@@ -1349,7 +1382,7 @@ namespace EcoMart.InterfaceLayer
 
         private void mcbArea_KeyDown(object sender, KeyEventArgs e)
         {
-           
+
         }
 
         private void txtNameAddress_KeyDown(object sender, KeyEventArgs e)
@@ -1800,7 +1833,7 @@ namespace EcoMart.InterfaceLayer
                     break;
 
             }
-        }   
+        }
 
         private void mcbBank_EnterKeyPressed(object sender, EventArgs e)
         {
@@ -1809,7 +1842,7 @@ namespace EcoMart.InterfaceLayer
 
         private void mcbBranch_EnterKeyPressed(object sender, EventArgs e)
         {
-           
+            mcbArea.Focus();
         }
 
         private void txtTokenNumber_KeyDown(object sender, KeyEventArgs e)
@@ -1904,7 +1937,7 @@ namespace EcoMart.InterfaceLayer
         {
             //  if (_Mode == OperationMode.Edit)
             rbtnClick();
-        }  
+        }
 
         private void txtvisit3_KeyDown(object sender, KeyEventArgs e)
         {
@@ -1958,7 +1991,7 @@ namespace EcoMart.InterfaceLayer
 
             tsBtnFifth.Visible = false;
             tsBtnSavenPrint.Visible = false;
-            tsBtnSearch.Visible = false;
+            //tsBtnSearch.Visible = false;
         }
 
         private void txtName_SeletectIndexChanged(object sender, EventArgs e)
@@ -2015,7 +2048,7 @@ namespace EcoMart.InterfaceLayer
                (e.KeyChar != ',') && (e.KeyChar != '/'))
             {
                 e.Handled = true;
-            }         
+            }
         }
         private void lvVisitDays_KeyDown(object sender, KeyEventArgs e)
         {
@@ -2032,5 +2065,35 @@ namespace EcoMart.InterfaceLayer
 
         #endregion UIEventes
 
+        private void mcbArea_EnterKeyPressed(object sender, EventArgs e)
+        {
+            txtVATTIN.Focus();
+        }
+
+       
+
+        private void txtDLN_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtDebtorDiscountOffered.Focus();
+            }
+        }
+
+        private void txtVATTIN_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {               
+                txtDLN.Focus();
+            }
+        }
+
+        private void txtVATTIN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    txtDLN.Focus();
+            //}
+        }
     }
 }

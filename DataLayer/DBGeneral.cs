@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using EcoMart.Common;
 
 namespace EcoMart.DataLayer
 {
@@ -21,6 +22,31 @@ namespace EcoMart.DataLayer
             return dtable;
 
 
+        }
+
+        public int GetNextIntID(string tableName, string fieldName)
+        {
+            int RetValue = 0;
+            try
+            {
+                string strSql = string.Format("Select max({0}) as maxid from {1} ", fieldName, tableName);
+                DataRow dRow = DBInterface.SelectFirstRow(strSql);
+                if (dRow != null)
+                {
+                    if (dRow["maxid"] != null && dRow["maxid"].ToString() != string.Empty)
+                    {
+                        RetValue = Convert.ToInt32(dRow["maxid"]) + 1;
+                    }
+                }
+                
+                if (RetValue == 0)
+                    RetValue = 1;
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+            }
+            return RetValue;
         }
     }
 }

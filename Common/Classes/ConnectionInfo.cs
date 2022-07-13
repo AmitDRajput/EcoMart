@@ -25,8 +25,9 @@ namespace EcoMart.Common
             try
             {
                 //connStr = "DSN=EcoMartConnector";
-                connStr = ConfigurationManager.ConnectionStrings["EcoMartConnectionString"].ConnectionString;
+                connStr = ConfigurationManager.ConnectionStrings["EcoMartConnectionString"].ConnectionString;               
                 connStr = EcoMartLicenseLib.Common.Decrypt(connStr);
+                //connStr = "";
                 DBInterface.ConnectionString = connStr;
                 //TOREMOVE
                 //Log.WriteInfo("ConnectionString=" + connStr);                

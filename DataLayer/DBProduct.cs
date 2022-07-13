@@ -162,7 +162,7 @@ namespace EcoMart.DataLayer
             DataTable dtable = new DataTable();
             string strsql = "Select a.ProductID,a.ProdName,a.ProdPack,a.ProdLoosePack," +
                             "a.ProdCompShortName,a.ProdBoxQuantity,a.ProdVATPercent,a.ProdCST,a.ProdGrade,a.ProdCompID,a.ProdLastPurchaseMRP,a.ProdLastPurchaseSaleRate," +
-                            "a.ProdShelfID,a.ProdScheduleDrugCode,a.ProdIfSchedule,a.ProdClosingStock ,a.ProdIfSaleDisc,a.ProdLastPurchaseRate,a.ProdIfShortListed,a.ProdMaxLevel,a.ProdLastSaleStockID,b.ShelfID,b.ShelfCode,c.CompID,c.CompName  from masterproduct a  left outer join mastershelf b  on a.ProdShelfID = b.ShelfID  inner join mastercompany c on a.ProdCompId = c.CompId where a.ProdClosingStock > 0 && a.ProductID = '" + ProductID + "' order by a.ProdName";
+                            "a.ProdShelfID,a.ProdScheduleDrugCode,a.ProdIfSchedule,a.ProdClosingStock ,a.ProdIfSaleDisc,a.ProdLastPurchaseRate,a.ProdIfShortListed,a.ProdMaxLevel,a.ProdLastSaleStockID,b.ShelfID,b.ShelfCode,c.CompID,c.CompName  from masterproduct a  left outer join mastershelf b  on a.ProdShelfID = b.ShelfID  inner join mastercompany c on a.ProdCompId = c.CompId where a.ProdClosingStock > 0 AND a.ProductID = '" + ProductID + "' order by a.ProdName";
 
             dtable = DBInterface.SelectDataTable(strsql);
             return dtable;
@@ -190,7 +190,7 @@ namespace EcoMart.DataLayer
            "b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc," +
            "b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,sum(a.ClosingStock* a.MRP / b.ProdLoosePack) as CLValueByMRP, sum(a.ClosingStock* a.PurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,sum(a.Openingstock* a.MRP / b.ProdLoosePack) as OPValueByMRP, sum(a.Openingstock* a.PurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName " +
            "from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID  where " +
-           "a.Openingstock >= 0 && a.ClosingStock >= 0  Group by a.ProductID order by b.ProdName";
+           "a.Openingstock >= 0 and a.ClosingStock >= 0  Group by a.ProductID ,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP,b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc ,b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,c.CompID,c.CompName  order by b.ProdName";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -200,7 +200,7 @@ namespace EcoMart.DataLayer
             string strSql = "Select a.ProductID,b.ProductID,b.ProdName,b.ProdLoosePack," +
             "b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP," +
             "b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc," +
-            "b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,sum(b.ProdClosingStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as CLValueByMRP, sum(b.ProdClosingStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,sum(b.ProdOpeningStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as OPValueByMRP, sum(b.ProdOpeningStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID  Group by a.ProductID order by b.ProdName";
+            "b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,sum(b.ProdClosingStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as CLValueByMRP, sum(b.ProdClosingStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,sum(b.ProdOpeningStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as OPValueByMRP, sum(b.ProdOpeningStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID  Group by a.ProductID ,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP,b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc ,b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,c.CompID,c.CompName  order by b.ProdName";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -211,7 +211,7 @@ namespace EcoMart.DataLayer
             "b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID," +
             "b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,a.ClosingStock ,a.OpeningStock,b.ProdIfSaleDisc,a.BatchNumber,a.MRP,a.TradeRate," +
             "b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,(a.ClosingStock* a.mrp / b.ProdLoosePack) as CLValueByMRP, (a.ClosingStock* a.PurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,(a.OpeningStock* a.mrp / b.ProdLoosePack) as OPValueByMRP, (a.OpeningStock* a.PurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName " +
-            "from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID Where a.ClosingStock >= 0 && a.Openingstock >= 0 order by b.ProdName";
+            "from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID Where a.ClosingStock >= 0 AND a.Openingstock >= 0 order by b.ProdName";
             dtable = DBInterface.SelectDataTable(strSql);
             return dtable;
         }
@@ -260,7 +260,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
             string strsql = "Select d.PurchaseID,d.ProductID,((d.Quantity*d.PurchaseRate) * f.LBTPercent/100) as LBTAmount ,e.VoucherType,e.VoucherNumber,e.VoucherDate,e.PurchaseBillNumber,e.AccountID,e.PurchaseID,e.AmountNet,a.ProductID,a.ProdName,a.ProdPack,a.ProdLoosePack,a.ProdCategoryID," +
-                            "b.AccountID,b.AccName,b.IFLBT,f.LBTPercent,f.ProductCategoryName  from detailpurchase d  left outer join voucherpurchase e on d.PurchaseID = e.PurchaseID left outer join masterproduct a on d.ProductID = a.ProductID left outer join masteraccount b on e.AccountID = b.AccountID left outer join masterproductcategory f on a.ProdCategoryID = f.productcategoryID where (b.IFLBT is null || b.IFLBT != 'Y') &&  e.VoucherDate >= '" + fromDate + "' && e.Voucherdate <= '" + toDate + "' order by e.VoucherDate";
+                            "b.AccountID,b.AccName,b.IFLBT,f.LBTPercent,f.ProductCategoryName  from detailpurchase d  left outer join voucherpurchase e on d.PurchaseID = e.PurchaseID left outer join masterproduct a on d.ProductID = a.ProductID left outer join masteraccount b on e.AccountID = b.AccountID left outer join masterproductcategory f on a.ProdCategoryID = f.productcategoryID where (b.IFLBT is null || b.IFLBT != 'Y') AND  e.VoucherDate >= '" + fromDate + "' AND e.Voucherdate <= '" + toDate + "' order by e.VoucherDate";
 
             dtable = DBInterface.SelectDataTable(strsql);
             return dtable;
@@ -270,7 +270,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
             string strsql = "Select d.PurchaseID,d.ProductID,((d.Quantity*d.PurchaseRate) * f.LBTPercent/100) as LBTAmount ,e.VoucherType,e.VoucherNumber,e.VoucherDate,e.PurchaseBillNumber,e.AccountID,e.PurchaseID,e.AmountNet,a.ProductID,a.ProdName,a.ProdPack,a.ProdLoosePack,a.ProdCategoryID," +
-                            "b.AccountID,b.AccName,b.IFLBT,f.LBTPercent,f.ProductCategoryName  from detailpurchase d  left outer join voucherpurchase e on d.PurchaseID = e.PurchaseID left outer join masterproduct a on d.ProductID = a.ProductID left outer join masteraccount b on e.AccountID = b.AccountID left outer join masterproductcategory f on a.ProdCategoryID = f.productcategoryID where (b.IFLBT is null || b.IFLBT != 'Y')  &&  e.VoucherDate >= '" + fromDate + "' && e.Voucherdate <= '" + toDate + "' order by e.VoucherDate";
+                            "b.AccountID,b.AccName,b.IFLBT,f.LBTPercent,f.ProductCategoryName  from detailpurchase d  left outer join voucherpurchase e on d.PurchaseID = e.PurchaseID left outer join masterproduct a on d.ProductID = a.ProductID left outer join masteraccount b on e.AccountID = b.AccountID left outer join masterproductcategory f on a.ProdCategoryID = f.productcategoryID where (b.IFLBT is null || b.IFLBT != 'Y')  AND  e.VoucherDate >= '" + fromDate + "' AND e.Voucherdate <= '" + toDate + "' order by e.VoucherDate";
 
             dtable = DBInterface.SelectDataTable(strsql);
             return dtable;
@@ -280,7 +280,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dtable = new DataTable();
             string strsql = "Select d.PurchaseID,d.ProductID,((d.Quantity*d.PurchaseRate) * f.LBTPercent/100) as LBTAmount ,e.VoucherType,e.VoucherNumber,e.VoucherDate,e.PurchaseBillNumber,e.AccountID,e.PurchaseID,e.AmountNet,a.ProductID,a.ProdName,a.ProdPack,a.ProdLoosePack,a.ProdCategoryID," +
-                            "b.AccountID,b.AccName,b.IFLBT,f.LBTPercent,f.ProductCategoryName  from detailpurchase d  left outer join voucherpurchase e on d.PurchaseID = e.PurchaseID left outer join masterproduct a on d.ProductID = a.ProductID left outer join masteraccount b on e.AccountID = b.AccountID left outer join masterproductcategory f on a.ProdCategoryID = f.productcategoryID where e.AccountID = '" + party + "'  &&  e.VoucherDate >= '" + fromDate + "' && e.Voucherdate <= '" + toDate + "' order by e.VoucherDate";
+                            "b.AccountID,b.AccName,b.IFLBT,f.LBTPercent,f.ProductCategoryName  from detailpurchase d  left outer join voucherpurchase e on d.PurchaseID = e.PurchaseID left outer join masterproduct a on d.ProductID = a.ProductID left outer join masteraccount b on e.AccountID = b.AccountID left outer join masterproductcategory f on a.ProdCategoryID = f.productcategoryID where e.AccountID = '" + party + "'  AND  e.VoucherDate >= '" + fromDate + "' AND e.Voucherdate <= '" + toDate + "' order by e.VoucherDate";
 
             dtable = DBInterface.SelectDataTable(strsql);
             return dtable;
@@ -288,7 +288,7 @@ namespace EcoMart.DataLayer
         public DataRow GetOverviewDataForLBTSummaryTotalPurchase(string fromDate, string toDate)
         {
             DataRow dr = null;
-            string strsql = "Select  sum(AmountNet) as AmountNet   from voucherpurchase  where VoucherDate >= '" + fromDate + "' && Voucherdate <= '" + toDate + "'";
+            string strsql = "Select  sum(AmountNet) as AmountNet   from voucherpurchase  where VoucherDate >= '" + fromDate + "' AND Voucherdate <= '" + toDate + "'";
 
             dr = DBInterface.SelectFirstRow(strsql);
             return dr;
@@ -296,7 +296,7 @@ namespace EcoMart.DataLayer
         public DataRow GetOverviewDataForLBTPurchaseOUTSummary(string fromDate, string toDate)
         {
             DataRow dr = null;
-            string strsql = "Select  sum(a.AmountNet) as AmountNet   from voucherpurchase a inner join masteraccount b  on a.AccountID = b.AccountID   where b.iflbt = 'Y' && VoucherDate >= '" + fromDate + "' && Voucherdate <= '" + toDate + "'";
+            string strsql = "Select  sum(a.AmountNet) as AmountNet   from voucherpurchase a inner join masteraccount b  on a.AccountID = b.AccountID   where b.iflbt = 'Y' AND VoucherDate >= '" + fromDate + "' AND Voucherdate <= '" + toDate + "'";
 
             dr = DBInterface.SelectFirstRow(strsql);
             return dr;
@@ -304,7 +304,7 @@ namespace EcoMart.DataLayer
         public DataRow GetOverviewDataForLBTPurchaseINSummary(string fromDate, string toDate)
         {
             DataRow dr = null;
-            string strsql = "Select  sum(a.AmountNet) as AmountNet   from voucherpurchase a inner join masteraccount b  on a.AccountID = b.AccountID   where (b.IFLBT is null || b.iflbt != 'Y') && VoucherDate >= '" + fromDate + "' && Voucherdate <= '" + toDate + "'";
+            string strsql = "Select  sum(a.AmountNet) as AmountNet   from voucherpurchase a inner join masteraccount b  on a.AccountID = b.AccountID   where (b.IFLBT is null || b.iflbt != 'Y') AND VoucherDate >= '" + fromDate + "' AND Voucherdate <= '" + toDate + "'";
 
             dr = DBInterface.SelectFirstRow(strsql);
             return dr;
@@ -970,12 +970,13 @@ namespace EcoMart.DataLayer
         }
 
         public bool UpdatePurchaseDataInmasterProduct(int ProductID, string PurchaseBillNumber, string VoucherDate, string AccountID, string VoucherType,
-                int VoucherNumber, double PurchaseRate, double TradeRate, double SaleRate, double MRP, double PurchaseVATPercent, double CSTPercent, double AmountCST, double SchemeDiscountPercent,
+                int VoucherNumber, double PurchaseRate, double TradeRate, double SaleRate, double MRP, double PurchaseVATPercent, double CSTPercent, double AmountCST,
+                double SchemeDiscountPercent, double mpricetoretailer,
                 double AmountSchemeDiscount, double ItemDiscountPercent, string Expiry, string ExpiryDate, string Batchno, string shelfID, string stockid)
         {
             bool returnVal = false;
             string strSql = GetUpdateQueryforlastpurchase(ProductID, PurchaseBillNumber, VoucherDate, AccountID, VoucherType,
-                   VoucherNumber, PurchaseRate, TradeRate, SaleRate, MRP, PurchaseVATPercent, CSTPercent, AmountCST, SchemeDiscountPercent,
+                   VoucherNumber, PurchaseRate, TradeRate, SaleRate, MRP, PurchaseVATPercent, CSTPercent, AmountCST, SchemeDiscountPercent, mpricetoretailer,
                    AmountSchemeDiscount, ItemDiscountPercent, Expiry, ExpiryDate, Batchno, shelfID, stockid);
 
             if (DBInterface.ExecuteQuery(strSql) > 0)
@@ -1031,7 +1032,7 @@ namespace EcoMart.DataLayer
 
         #region For Product
 
-        public int AddDetails(int Id, string ProdName,
+        public bool AddDetails(int Id, string ProdName,
            int ProdLoosePack, string ProdPack, string ProdPackType, string ProdCompShortName,
             Int32 ProdCompID, double ProdVATPercent, double ProdCST, string ProdGrade,
             int ProdMinLevel, int ProdMaxLevel, int ProdBoxQty,
@@ -1042,7 +1043,7 @@ namespace EcoMart.DataLayer
            string prodifscheduleddrug, string prodrequirecoldstorage, string prodIfBarCodeRequired, string ScannedBarcode, int hsnnumber,
            string createdby, string createddate, string createdtime)
         {
-            int iRetValue = 0;
+            bool iRetValue = false;
             string strSql = GetInsertQuery(Id, ProdName,
            ProdLoosePack, ProdPack, ProdPackType, ProdCompShortName,
              ProdCompID, ProdVATPercent, ProdCST, ProdGrade,
@@ -1054,7 +1055,10 @@ namespace EcoMart.DataLayer
             prodclosingstock, prodifscheduleddrug, prodrequirecoldstorage, prodIfBarCodeRequired, ScannedBarcode, hsnnumber,
             createdby, createddate, createdtime);
 
-            iRetValue = DBInterface.ExecuteScalar(strSql);
+            if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                iRetValue = true;
+            }
             return iRetValue;
            
         }
@@ -1143,7 +1147,7 @@ namespace EcoMart.DataLayer
         {
             Query objQuery = new Query();
             objQuery.Table = "masterproduct";
-            //objQuery.AddToQuery("ProductID", Id);
+            objQuery.AddToQuery("ProductID", Id);
             objQuery.AddToQuery("ProdName", ProdName);
             objQuery.AddToQuery("ProdLoosePack", ProdLoosePack);
             objQuery.AddToQuery("ProdPack", ProdPack);
@@ -1301,7 +1305,7 @@ namespace EcoMart.DataLayer
 
         private string GetUpdateQueryforlastpurchase(int ProductID, string PurchaseBillNumber, string VoucherDate, string AccountID, string VoucherType,
                 int VoucherNumber, double PurchaseRate, double TradeRate, double SaleRate, double MRP, double PurchaseVATPercent,
-               double CSTPercent, double AmountCST, double SchemeDiscountPercent,
+               double CSTPercent, double AmountCST, double SchemeDiscountPercent, double mpricetoretailer,
                 double AmountSchemeDiscount, double ItemDiscountPercent, string Expiry, string ExpiryDate, string Batchno, string shelfID, string stockid)
         {
             Query objQuery = new Query();
@@ -1326,11 +1330,14 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("ProdLastPurchaseItemDiscPer", ItemDiscountPercent);
             objQuery.AddToQuery("ProdLastPurchaseExpiry", Expiry);
             objQuery.AddToQuery("ProdLastPurchaseExpiryDate", ExpiryDate);
-            objQuery.AddToQuery("ProdLastPurchaseBatchNumber", Batchno);
-            //objQuery.AddToQuery("ProdShelfID", shelfID);
+            objQuery.AddToQuery("ProdLastPurchaseBatchNumber", Batchno);           
             objQuery.AddToQuery("ProdLastPurchaseStockID", stockid);
-            //  objQuery.AddToQuery("ProdLastPurchaseDistributorSaleRatePer", distSaleRatePer);
-            //   objQuery.AddToQuery("ProdLastPurchaseDistributorSaleRate", distributorSaleRate);
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+            {
+                objQuery.AddToQuery("ProdLastPurchasePTR", mpricetoretailer);
+                objQuery.AddToQuery("ProdLastPurchaseCNF", SaleRate);
+                objQuery.AddToQuery("ProdLastPurchaseEcoMart", TradeRate);
+            }
             return objQuery.UpdateQuery();
         }
         #endregion
@@ -1420,13 +1427,16 @@ namespace EcoMart.DataLayer
         //    }
 
         //}
-        public string SearchForProdPack(string pack)
+        public int SearchForProdPack(string  pack)
         {
-            string mpackID = "";
+            Int32 mpackID = 0;
             string strSql = "Select PackID from masterpack where packName = '" + pack + "'";
             DataRow drow = DBInterface.SelectFirstRow(strSql);
             if (drow != null)
-                mpackID = drow["PackID"].ToString();
+                mpackID = Convert.ToInt32( drow["PackID"].ToString());
+            else
+                mpackID = 0;
+
             return mpackID;
         }
         public Int32 SearchForProdPackType(string packtype)
@@ -1436,12 +1446,14 @@ namespace EcoMart.DataLayer
             DataRow drow = DBInterface.SelectFirstRow(strSql);
             if (drow != null)
                 mpackID = Convert.ToInt32(drow["ID"].ToString());
+            else
+                mpackID = 0;
             return mpackID;
         }
         public bool RemoveProductDrugLink(Int32 Id, Int32 ProdGenericID)
         {
             bool bRetValue = false;
-            string strSql = "Delete from linkdruggrouping where ProductID = '" + Id + "' && GenericCategoryID = '" + ProdGenericID + "'";
+            string strSql = "Delete from linkdruggrouping where ProductID = '" + Id + "' AND GenericCategoryID = '" + ProdGenericID + "'";
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 bRetValue = true;
@@ -1477,7 +1489,7 @@ namespace EcoMart.DataLayer
         #endregion 
         #endregion
 
-        public bool UpdatePurchaseOrder(int ProductID, int Quantity)
+        public bool UpdatePurchaseOrderStockist(int ProductID, int Quantity)
         {
             bool returnVal = false;
             int prodid = Convert.ToInt32(ProductID);
@@ -1489,7 +1501,38 @@ namespace EcoMart.DataLayer
 
             return returnVal;
         }
+        public bool UpdatePurchaseOrderCNF(int ProductID, int Quantity)
+        {
+            bool returnVal = false;
+            int prodid = Convert.ToInt32(ProductID);
+            string strSql = "Update detailpurchaseorderCNF SET PurchaseQuantity = " + Quantity + "  where ProductID = '" + ProductID + "'";
+            if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                returnVal = true;
+            }
 
+            return returnVal;
+        }
+        public bool UpdatePurchaseOrderEcoMart(int ProductID, int Quantity)
+        {
+            bool returnVal = false;
+            int prodid = Convert.ToInt32(ProductID);
+
+
+            //string strSql = "select  EcoMartReceivedQuantity from detailpurchaseorderEcoMart  where  ProductID = '" + ProductID + "'";
+            //DataRow dr = DBInterface.sele
+            //(DBInterface.ExecuteQuery(strSql) > 0)
+            //{
+            //    returnVal = true;
+            //}
+            string strSql = "Update detailpurchaseorderEcoMart SET EcoMartReceivedQuantity =  EcoMartReceivedQuantity +  " + Quantity + "  where ProductID = '" + ProductID + "'";
+            if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                returnVal = true;
+            }
+
+            return returnVal;
+        }
         public bool SetMinMax(int _min, int _max)
         {
             bool returnVal = false;
@@ -1505,7 +1548,7 @@ namespace EcoMart.DataLayer
         public bool RemoveEDEProductLink(int prodID, string partyID)
         {
             bool returnVal = false;
-            string strSql = "delete from tblbillimportlink where DistributorID = '" + partyID + "' && RetailerProductID = '" + prodID + "'";
+            string strSql = "delete from tblbillimportlink where DistributorID = '" + partyID + "' AND RetailerProductID = '" + prodID + "'";
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 returnVal = true;

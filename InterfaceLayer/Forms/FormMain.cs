@@ -171,11 +171,12 @@ namespace EcoMart
         UclJournalVoucher _UclJournalVoucher;
         // Purchase Order
         UclDailyPurchaseOrder _UclDailyPurhcaseOrder;
-        UclPurchaseOrder _UclPurchaseOrder;
-        UclPurchaseOrderForToday _UclPurchaseOrderForToday;
-        UclPurchaseOrderByStockAndSale _UclPurchaseOrderByStockAndSale;
+        //UclPurchaseOrder _UclPurchaseOrder;
+        //UclPurchaseOrderForToday _UclPurchaseOrderForToday;
+        //UclPurchaseOrderByStockAndSale _UclPurchaseOrderByStockAndSale;
         UclPurchaseOrderStockist _UclPurchaseOrderStockist;
         UclPurchaseOrderCNF _UclPurchaseOrderCNF;
+        UclPurchaseOrderEcoMart _UclPurchaseOrderEcoMart;
         //UclPurchaseOrderList _UclPurchaseOrderList;
         //Settings
         UclSettingsSale _UclSettingsSale;
@@ -357,21 +358,19 @@ namespace EcoMart
         UclExpiryListDetail _UclExpiryListDetail;
         // H1
         UclH1SaleList _UclH1SaleList;
-        // LBT
-        //UclLBTPurchaseFromOutside _UclLBTPurchaseFromOutside;
-        //UclLBTPurchaseFromInside _UclLBTPurchaseFromInside;
-        //UclLBTPurchaseParywise _UclLBTPurchasePartywise;
-        //UclLBTSummary _UclLBTSummary;
-        // Distributor
-        //   UclDistributorPartywiseOutStanding _UclDistributorPartywiseOutStanding;
-        //   UclDistributorDailySale _UclDistributorDailySale;
-        //  UclVATListSalesRegisterPartywise _UclVATListSalesRegisterPartywise;
-        //    UclDistributorAreawiseOutstanding _UclDistributorAreawiseOutstanding;
-        FormSplash splash;
+       
         // GST Reports
         UclGSTPurchaseRegister _UclGSTPurchaseRegister;
         UclGSTSaleRegister _UclGSTSaleRegister;
-        //   FormSplash splash;
+
+        // EcoMart Reports
+        UclEcoMartProductWiseCurrentStockCNF _UclEcoMartProductWiseCurrentStockCNF;
+        UclEcoMartCurrentProductWiseStockStockist _UclEcoMartCurrentProductWiseStockStockist;
+        UclEcoMartProductWiseSaleCNF _UclEcoMartProductWiseSaleCNF;
+        UclEcoMartProductWiseSaleStockist _UclEcoMartProductWiseSaleStockist;
+
+
+        FormSplash splash;
         #endregion
 
         #region Constructor(s)
@@ -943,15 +942,15 @@ namespace EcoMart
             ToolStripMenuItem _SubSubMenuItem = null;
             ControlItem _ControlItem = null;
 
-            _UclPurchaseOrderStockist = new UclPurchaseOrderStockist();
-            _UclPurchaseOrderStockist.Dock = DockStyle.Fill;
-            _UclPurchaseOrderStockist.Visible = false;
-            _UclPurchaseOrderStockist.ExitClicked += new EventHandler(Item_ExitClicked);
+            _UclPurchaseOrderEcoMart  = new UclPurchaseOrderEcoMart();
+            _UclPurchaseOrderEcoMart.Dock = DockStyle.Fill;
+            _UclPurchaseOrderEcoMart.Visible = false;
+            _UclPurchaseOrderEcoMart.ExitClicked += new EventHandler(Item_ExitClicked);
 
             _ControlItem = new ControlItem();
-            _ControlItem.ItemName = "PurchaseOrderCNF";
+            _ControlItem.ItemName = "PurchaseOrderEcoMart";
             _ControlItem.ItemMode = OperationMode.Add;
-            _ControlItem.Control = _UclPurchaseOrderStockist;
+            _ControlItem.Control = _UclPurchaseOrderEcoMart;
 
             _BandItem = new OutlookBarItem(_ControlItem.ItemName, 9);
             _BandItem.Name = _ControlItem.ItemName;
@@ -3949,6 +3948,20 @@ namespace EcoMart
 
                 tsmenuReports.DropDownItems.Add(_SubMenuItem);
                 #endregion GST
+
+                #region EcoMart
+                _SubMenuItem = new ToolStripMenuItem("EcoMart");
+                _SubMenuItem.Name = "EcoMart";
+
+                AddEcoMartProductWiseCurrentStockCNFItem(_SubMenuItem);
+                AddEcoMartCurrentProductWiseStockStockistItem(_SubMenuItem);
+                AddEcoMartProductWiseSaleCNFItem(_SubMenuItem);
+                AddEcoMartProductWiseSaleStockistItem(_SubMenuItem);
+
+
+
+                tsmenuReports.DropDownItems.Add(_SubMenuItem);
+                #endregion EcoMart
                 # endregion reports
 
             }
@@ -9399,6 +9412,141 @@ namespace EcoMart
         }
         #endregion GST Reports
 
+        #region EcoMart Reports
+        private void AddEcoMartProductWiseCurrentStockCNFItem(ToolStripMenuItem _SubMenuItem)
+        {
+            ToolStripMenuItem _SubSubMenuItem = null;
+            ControlItem _ControlItem = null;
+            try
+            {               
+                _ControlItem = new ControlItem();
+                _ControlItem.ItemName = "CNF Stock";
+                _ControlItem.ItemMode = OperationMode.Report;
+                _ControlItem.Control = _UclEcoMartProductWiseCurrentStockCNF;
+
+                _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+                _SubSubMenuItem.Name = _ControlItem.ItemName;
+                _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+                _SubSubMenuItem.Tag = _ControlItem;
+                _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+
+                bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
+                if (isViewVisible)
+                {
+                    _SubSubMenuItem.Visible = true;
+                }
+                else
+                {
+                    _SubSubMenuItem.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+            }
+        }
+
+        private void AddEcoMartCurrentProductWiseStockStockistItem(ToolStripMenuItem _SubMenuItem)
+        {
+            ToolStripMenuItem _SubSubMenuItem = null;
+            ControlItem _ControlItem = null;
+            try
+            {                
+                 _ControlItem = new ControlItem();
+                _ControlItem.ItemName = "Stockist Stock";
+                _ControlItem.ItemMode = OperationMode.Report;
+                _ControlItem.Control = _UclEcoMartCurrentProductWiseStockStockist;
+
+                _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+                _SubSubMenuItem.Name = _ControlItem.ItemName;
+                _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+                _SubSubMenuItem.Tag = _ControlItem;
+                _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+
+                bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
+                if (isViewVisible)
+                {
+                    _SubSubMenuItem.Visible = true;
+                }
+                else
+                {
+                    _SubSubMenuItem.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+            }
+        }
+        private void AddEcoMartProductWiseSaleCNFItem(ToolStripMenuItem _SubMenuItem)
+        {
+            ToolStripMenuItem _SubSubMenuItem = null;
+            ControlItem _ControlItem = null;
+            try
+            {
+                
+                 _ControlItem = new ControlItem();
+                _ControlItem.ItemName = "CNF Sale";
+                _ControlItem.ItemMode = OperationMode.Report;
+                _ControlItem.Control = _UclEcoMartProductWiseSaleCNF;
+
+                _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+                _SubSubMenuItem.Name = _ControlItem.ItemName;
+                _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+                _SubSubMenuItem.Tag = _ControlItem;
+                _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+
+                bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
+                if (isViewVisible)
+                {
+                    _SubSubMenuItem.Visible = true;
+                }
+                else
+                {
+                    _SubSubMenuItem.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+            }
+
+        }
+        private void AddEcoMartProductWiseSaleStockistItem(ToolStripMenuItem _SubMenuItem)
+        {
+            ToolStripMenuItem _SubSubMenuItem = null;
+            ControlItem _ControlItem = null;
+            try
+            {
+
+                _ControlItem = new ControlItem();
+                _ControlItem.ItemName = "Stockist Sale";
+                _ControlItem.ItemMode = OperationMode.Report;
+                _ControlItem.Control = _UclEcoMartProductWiseSaleStockist;
+
+                _SubSubMenuItem = new ToolStripMenuItem(_ControlItem.ItemName);
+                _SubSubMenuItem.Name = _ControlItem.ItemName;
+                _SubSubMenuItem.Click += new EventHandler(this.menuItem_Click);
+                _SubSubMenuItem.Tag = _ControlItem;
+                _SubMenuItem.DropDownItems.Add(_SubSubMenuItem);
+
+                bool isViewVisible = General.IsUserRightAllowed(_ControlItem.ItemName, _ControlItem.ItemMode);
+                if (isViewVisible)
+                {
+                    _SubSubMenuItem.Visible = true;
+                }
+                else
+                {
+                    _SubSubMenuItem.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteException(ex);
+            }
+
+        }
+        #endregion EcoMart Reports
         #endregion Report Items
 
         #endregion Initialize reports
@@ -11381,27 +11529,27 @@ namespace EcoMart
                         _UclDailyPurhcaseOrder.ExitClicked += new EventHandler(Item_ExitClicked);
                         _item.Control = _UclDailyPurhcaseOrder;
                         break;
-                    case "PurchaseOrder":
-                        _UclPurchaseOrder = new UclPurchaseOrder();
-                        _UclPurchaseOrder.Dock = DockStyle.Fill;
-                        _UclPurchaseOrder.Visible = false;
-                        _UclPurchaseOrder.ExitClicked += new EventHandler(Item_ExitClicked);
-                        _item.Control = _UclPurchaseOrder;
-                        break;
-                    case "PurchaseOrderForToday":
-                        _UclPurchaseOrderForToday = new UclPurchaseOrderForToday();
-                        _UclPurchaseOrderForToday.Dock = DockStyle.Fill;
-                        _UclPurchaseOrderForToday.Visible = false;
-                        _UclPurchaseOrderForToday.ExitClicked += new EventHandler(Item_ExitClicked);
-                        _item.Control = _UclPurchaseOrderForToday;
-                        break;
-                    case "PurchaseByStockAndSale":
-                        _UclPurchaseOrderByStockAndSale = new UclPurchaseOrderByStockAndSale();
-                        _UclPurchaseOrderByStockAndSale.Dock = DockStyle.Fill;
-                        _UclPurchaseOrderByStockAndSale.Visible = false;
-                        _UclPurchaseOrderByStockAndSale.ExitClicked += new EventHandler(Item_ExitClicked);
-                        _item.Control = _UclPurchaseOrderByStockAndSale;
-                        break;
+                    //case "PurchaseOrder":
+                    //    _UclPurchaseOrder = new UclPurchaseOrder();
+                    //    _UclPurchaseOrder.Dock = DockStyle.Fill;
+                    //    _UclPurchaseOrder.Visible = false;
+                    //    _UclPurchaseOrder.ExitClicked += new EventHandler(Item_ExitClicked);
+                    //    _item.Control = _UclPurchaseOrder;
+                    //    break;
+                    //case "PurchaseOrderForToday":
+                    //    _UclPurchaseOrderForToday = new UclPurchaseOrderForToday();
+                    //    _UclPurchaseOrderForToday.Dock = DockStyle.Fill;
+                    //    _UclPurchaseOrderForToday.Visible = false;
+                    //    _UclPurchaseOrderForToday.ExitClicked += new EventHandler(Item_ExitClicked);
+                    //    _item.Control = _UclPurchaseOrderForToday;
+                    //    break;
+                    //case "PurchaseByStockAndSale":
+                    //    _UclPurchaseOrderByStockAndSale = new UclPurchaseOrderByStockAndSale();
+                    //    _UclPurchaseOrderByStockAndSale.Dock = DockStyle.Fill;
+                    //    _UclPurchaseOrderByStockAndSale.Visible = false;
+                    //    _UclPurchaseOrderByStockAndSale.ExitClicked += new EventHandler(Item_ExitClicked);
+                    //    _item.Control = _UclPurchaseOrderByStockAndSale;
+                    //    break;
 
                     case "PurchaseOrderStockist":
                         _UclPurchaseOrderStockist = new UclPurchaseOrderStockist();
@@ -12744,6 +12892,37 @@ namespace EcoMart
                         _item.Control = _UclGSTSaleRegister;
                         break;
                         #endregion GST
+                        
+                    #region EcoMart
+                    case "CNF Stock":
+                        _UclEcoMartProductWiseCurrentStockCNF = new UclEcoMartProductWiseCurrentStockCNF();
+                        _UclEcoMartProductWiseCurrentStockCNF.Dock = DockStyle.Fill;
+                        _UclEcoMartProductWiseCurrentStockCNF.Visible = false;
+                        _UclEcoMartProductWiseCurrentStockCNF.ExitClicked += new EventHandler(Item_ExitClicked);
+                        _item.Control = _UclEcoMartProductWiseCurrentStockCNF;
+                        break;
+                    case "Stockist Stock":
+                        _UclEcoMartCurrentProductWiseStockStockist = new UclEcoMartCurrentProductWiseStockStockist();
+                        _UclEcoMartCurrentProductWiseStockStockist.Dock = DockStyle.Fill;
+                        _UclEcoMartCurrentProductWiseStockStockist.Visible = false;
+                        _UclEcoMartCurrentProductWiseStockStockist.ExitClicked += new EventHandler(Item_ExitClicked);
+                        _item.Control = _UclEcoMartCurrentProductWiseStockStockist;
+                        break;
+                    case "CNF Sale":
+                        _UclEcoMartProductWiseSaleCNF = new UclEcoMartProductWiseSaleCNF();
+                        _UclEcoMartProductWiseSaleCNF.Dock = DockStyle.Fill;
+                        _UclEcoMartProductWiseSaleCNF.Visible = false;
+                        _UclEcoMartProductWiseSaleCNF.ExitClicked += new EventHandler(Item_ExitClicked);
+                        _item.Control = _UclEcoMartProductWiseSaleCNF;
+                        break;
+                    case "Stockist Sale":
+                        _UclEcoMartProductWiseSaleStockist = new UclEcoMartProductWiseSaleStockist();
+                        _UclEcoMartProductWiseSaleStockist.Dock = DockStyle.Fill;
+                        _UclEcoMartProductWiseSaleStockist.Visible = false;
+                        _UclEcoMartProductWiseSaleStockist.ExitClicked += new EventHandler(Item_ExitClicked);
+                        _item.Control = _UclEcoMartProductWiseSaleStockist;
+                        break;
+                        #endregion EcoMart
 
                         #endregion Reports
                 }
@@ -12970,18 +13149,18 @@ namespace EcoMart
                         _item.Control = null;
                         _UclDailyPurhcaseOrder = null;
                         break;
-                    case "PurchaseOrder":
-                        _item.Control = null;
-                        _UclPurchaseOrder = null;
-                        break;
-                    case "PurchaseOrderForToday":
-                        _item.Control = null;
-                        _UclPurchaseOrderForToday = null;
-                        break;
-                    case "PurchaseByStockAndSale":
-                        _item.Control = null;
-                        _UclPurchaseOrderByStockAndSale = null;
-                        break;
+                    //case "PurchaseOrder":
+                    //    _item.Control = null;
+                    //    _UclPurchaseOrder = null;
+                    //    break;
+                    //case "PurchaseOrderForToday":
+                    //    _item.Control = null;
+                    //    _UclPurchaseOrderForToday = null;
+                    //    break;
+                    //case "PurchaseByStockAndSale":
+                    //    _item.Control = null;
+                    //    _UclPurchaseOrderByStockAndSale = null;
+                    //    break;
                     case "PurchaseOrderStockist":
                         _item.Control = null;
                         _UclPurchaseOrderStockist  = null;
@@ -13789,7 +13968,26 @@ namespace EcoMart
                         _item.Control = null;
                         _UclGSTSaleRegister = null;
                         break;
-                        #endregion GST
+                    #endregion GST
+
+                    #region EcoMart
+                    case "CNF Stock":
+                        _item.Control = null;
+                        _UclEcoMartProductWiseCurrentStockCNF = null;
+                        break;
+                    case "Stockist Stock":
+                        _item.Control = null;
+                        _UclEcoMartCurrentProductWiseStockStockist = null;
+                        break;
+                    case "CNF Sale":
+                        _item.Control = null;
+                        _UclEcoMartProductWiseSaleCNF = null;
+                        break;
+                    case "Stockist Sale":
+                        _item.Control = null;
+                        _UclEcoMartProductWiseSaleStockist = null;
+                        break;
+                        #endregion EcoMart
 
                         #endregion Reports
                 }
@@ -13850,6 +14048,7 @@ namespace EcoMart
 
         #endregion UIEvents
 
+       
     }
 }
 

@@ -30,7 +30,7 @@ namespace EcoMart.InterfaceLayer
         private string _SelectedID;
         public event EventHandler ItemAddedEdited;
         //   public event EventHandler OnNewParty;
-        //public event EventHandler OnNewPurchase;
+        public event EventHandler OnNewPurchase;
         public event EventHandler OnCancel;
         public string tempdelpath = "";
         public bool ifFirst = true;
@@ -211,8 +211,8 @@ namespace EcoMart.InterfaceLayer
                                                 else
                                                     ImportBillData.VoucherType = FixAccounts.VoucherTypeForCreditStatementPurchase;
                                                 ImportBillData.VoucherSeries = General.ShopDetail.ShopVoucherSeries;
-                                                ImportBillData.DistributorID = mcbCreditor.SelectedID;  //ImportBillData.CheckParty();
-                                                ImportBillData.AIOCDACode = ImportBillData.DistributorID;
+                                                ImportBillData.CompanyID = mcbCreditor.SelectedID;  //ImportBillData.CheckParty();
+                                                ImportBillData.AIOCDACode = ImportBillData.CompanyID;
                                                 retValue = ImportBillData.CheckForBillNumberInPurchase(ImportBillData.AIOCDACode, ImportBillData.BillNumber, ImportBillData.VoucherType);
                                                 if (retValue)
                                                 {
@@ -335,8 +335,8 @@ namespace EcoMart.InterfaceLayer
                                                 else
                                                     ImportBillData.VoucherType = FixAccounts.VoucherTypeForCreditStatementPurchase;
                                                 ImportBillData.VoucherSeries = General.ShopDetail.ShopVoucherSeries;
-                                                ImportBillData.DistributorID = mcbCreditor.SelectedID;  //ImportBillData.CheckParty();
-                                                ImportBillData.AIOCDACode = ImportBillData.DistributorID;
+                                                ImportBillData.CompanyID = mcbCreditor.SelectedID;  //ImportBillData.CheckParty();
+                                                ImportBillData.AIOCDACode = ImportBillData.CompanyID;
                                                 retValue = ImportBillData.CheckForBillNumberInPurchase(ImportBillData.AIOCDACode, ImportBillData.BillNumber, ImportBillData.VoucherType);
                                                 if (retValue)
                                                 {
@@ -451,8 +451,8 @@ namespace EcoMart.InterfaceLayer
                                                 else
                                                     ImportBillData.VoucherType = FixAccounts.VoucherTypeForCreditStatementPurchase;
                                                 ImportBillData.VoucherSeries = General.ShopDetail.ShopVoucherSeries;
-                                                ImportBillData.DistributorID = mcbCreditor.SelectedID;  //ImportBillData.CheckParty();
-                                                ImportBillData.AIOCDACode = ImportBillData.DistributorID;
+                                                ImportBillData.CompanyID = mcbCreditor.SelectedID;  //ImportBillData.CheckParty();
+                                                ImportBillData.AIOCDACode = ImportBillData.CompanyID;
                                                 retValue = ImportBillData.CheckForBillNumberInPurchase(ImportBillData.AIOCDACode, ImportBillData.BillNumber, ImportBillData.VoucherType);
                                                 if (retValue)
                                                 {
@@ -541,7 +541,8 @@ namespace EcoMart.InterfaceLayer
 
                         case "PharmaSYS":
                             break;
-                        case "Allied HT":
+                        case "EcoMart":
+                           
                             ImportBillData.BillNumberAlreadyEntered = "N";
                             try
                             {
@@ -558,46 +559,8 @@ namespace EcoMart.InterfaceLayer
                                         {
 
                                             string Header = items[0];
-                                            if (Header == "H")
-                                            {
-                                                //  H,,21/07/2015,CR30846,122,NITIN AGENCY,MHPU200079,3,345.74,0.00,41.92,0.00,3.00,10.38,0.00,0.00,0.00,0.00,0.00,377.00,0.00,N
 
-
-                                                // H,,01/07/2015,CC/3562,,NEELU & COMPANY,MHPU200075,2,51495.85,0.00,2153.32,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,53649.00,0.00,N
-                                                ImportBillData.BillDate = items[1];
-                                                ImportBillData.BillNumber = items[2];
-                                                ImportBillData.DistributorCode = items[6];
-                                                ImportBillData.DistributorName = items[5];
-                                                ImportBillData.AIOCDACode = items[6];
-                                                ImportBillData.TransactionType = items[7].ToString();
-                                                ImportBillData.CashDiscountPercent = items[20];
-                                                ImportBillData.CashDiscountAmount = items[21];
-                                                ImportBillData.TotalAmount = items[15];
-                                                ImportBillData.PurchaseBillFormat = cmbFormat.Text;//rbAlliedHT.Text.ToString();
-                                                                                                   //   ImportBillData.BillNetAmount = items[28];
-
-                                                if (ImportBillData.TransactionType == "1")
-                                                    ImportBillData.VoucherType = FixAccounts.VoucherTypeForCashPurchase;
-                                                else if (ImportBillData.TransactionType == "2")
-                                                    ImportBillData.VoucherType = FixAccounts.VoucherTypeForCreditPurchase;
-                                                else
-                                                    ImportBillData.VoucherType = FixAccounts.VoucherTypeForCreditStatementPurchase;
-                                                ImportBillData.VoucherSeries = General.ShopDetail.ShopVoucherSeries;
-
-                                                   if (mcbCreditor.SelectedID != string.Empty)
-                                                {
-                                                    ImportBillData.DistributorID = mcbCreditor.SelectedID;  //ImportBillData.CheckParty();
-                                                    retValue = ImportBillData.CheckForBillNumberInPurchase(ImportBillData.DistributorID, ImportBillData.BillNumber, ImportBillData.VoucherType);
-                                                    if (retValue)
-                                                    {
-                                                        ImportBillData.BillNumberAlreadyEntered = "Y";
-                                                        psCombofile.SelectedID = "";
-                                                        break;
-                                                    }
-                                                }
-
-                                            }
-                                            else if (Header == "T")
+                                            if (Header == "E")
                                             {
 
                                                 //    0,1,               2,             3, 4,5,6,7,8     ,9    ,10    ,11        ,12    ,13  ,14  ,15  ,16  ,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31   ,32    
@@ -605,20 +568,22 @@ namespace EcoMart.InterfaceLayer
                                                 //    T,,PRED - FORTE  EYEDROPS,ALLER  DELTA,5ML,,30,0,36.60,27.67,PT0013,31/03/2017,830.10,0.00,0.00,0.00,5.00,,,,,,,,,,,,,,,29.51,0.00
                                                 //    T,,REFRESH (10ML) LIQUIGEL,ALLER  DELTA,10ML,,15,0,212.41,150.20,PT0403,31/03/2017,2253.00,0.00,0.00,0.00,5.00,,,,,,,,,,,,,,,163.50,0.00
                                                 //    T,,TEARS PLUS EYE DROPS,ALLERG ALPHA,10 ML,,60,0,61.87,43.75,PT0352,31/03/2017,2625.00,0.00,0.00,0.00,5.00,,,,,,,,,,,,,,,47.62,0.00
-
-                                                int rowIndex = dgImpotProducts.Rows.Add();
-                                                dgImpotProducts.Rows[rowIndex].Cells["Col_Check"].Value = false;
-                                                dgImpotProducts.Rows[rowIndex].Cells["Col_Index"].Value = rowIndex + 1;
                                                 //  dgAlliedProducts.Rows[rowIndex].Cells["Col_CompanyID"].Value = items[1];
                                                 //dgImpotProducts.Rows[rowIndex].Cells["Col_CompanyName"].Value = items[2];
                                                 //  dgAlliedProducts.Rows[rowIndex].Cells["Col_Company"].Value = items[3];
-                                                dgImpotProducts.Rows[rowIndex].Cells["Col_DistributorsProductID"].Value = items[1];
-                                                dgImpotProducts.Rows[rowIndex].Cells["Col_ProductName"].Value = items[2];
-                                                dgImpotProducts.Rows[rowIndex].Cells["Col_Pack"].Value = items[3];
+                                                int rowIndex = dgImpotProducts.Rows.Add();
+                                                dgImpotProducts.Rows[rowIndex].Cells["Col_Check"].Value = false;
+                                                dgImpotProducts.Rows[rowIndex].Cells["Col_Index"].Value = rowIndex + 1;
+                                               
+
+                                               
+                                                dgImpotProducts.Rows[rowIndex].Cells["Col_DistributorsProductID"].Value = items[4];
+                                                dgImpotProducts.Rows[rowIndex].Cells["Col_ProductName"].Value = items[5];
+                                                dgImpotProducts.Rows[rowIndex].Cells["Col_Pack"].Value = items[6];
                                                 //  dgReadData.CurrentRow.Cells[""].Value = items[7];
-                                                dgImpotProducts.Rows[rowIndex].Cells["Col_BatchNumber"].Value = items[4];
-                                                dgImpotProducts.Rows[rowIndex].Cells["Col_ExpiryDate"].Value = items[5];
-                                                string mexp = items[5];
+                                                dgImpotProducts.Rows[rowIndex].Cells["Col_BatchNumber"].Value = items[7];
+                                                dgImpotProducts.Rows[rowIndex].Cells["Col_ExpiryDate"].Value = items[8];
+                                                string mexp = items[8];
                                                 string mexpl = "";
                                                 string mexpr = "";
                                                 if (mexp.Length == 10)
@@ -629,31 +594,32 @@ namespace EcoMart.InterfaceLayer
                                                 }
                                                 else if (mexp.Length == 8)
                                                 {
-                                                    mexpl = mexp.Substring(2, 2);
-                                                    mexpr = mexp.Substring(6, 2);
+                                                    mexpl = mexp.Substring(4, 2);
+                                                    mexpr = mexp.Substring(2, 2);
                                                     mexp = mexpl + "/" + mexpr;
                                                 }
                                                 dgImpotProducts.Rows[rowIndex].Cells["Col_Expiry"].Value = mexp;
-                                                dgImpotProducts.Rows[rowIndex].Cells["Col_Quantity"].Value = items[6];
-                                                dgImpotProducts.Rows[rowIndex].Cells["Col_Scheme"].Value = items[7];
-                                                dgImpotProducts.Rows[rowIndex].Cells["Col_VAT"].Value = items[12];
-                                                dgImpotProducts.Rows[rowIndex].Cells["Col_TradeRate"].Value = items[8];
-                                                dgImpotProducts.Rows[rowIndex].Cells["Col_PurchaseRate"].Value = items[8];
-                                                dgImpotProducts.Rows[rowIndex].Cells["Col_MRP"].Value = items[9];
-                                            }
-                                            else
-                                            {
-                                                MessageBox.Show("Wrong Format");
-                                                wrongFormat = "Y";
-                                                psCombofile.Focus();
-                                                break;
+                                                dgImpotProducts.Rows[rowIndex].Cells["Col_Quantity"].Value = items[9];
+                                                dgImpotProducts.Rows[rowIndex].Cells["Col_Scheme"].Value = items[10];
+                                                dgImpotProducts.Rows[rowIndex].Cells["Col_MRP"].Value = items[11];                                                
+                                                dgImpotProducts.Rows[rowIndex].Cells["Col_TradeRate"].Value = items[12];
+                                                dgImpotProducts.Rows[rowIndex].Cells["Col_PurchaseRate"].Value = items[13];
+                                                //dgImpotProducts.Rows[rowIndex].Cells["Col_RetailRate"].Value = items[14]; 
+                                                dgImpotProducts.Rows[rowIndex].Cells["Col_VAT"].Value = items[15];
+
                                             }
                                         }
                                     } //While
                                     reader.Close();
                                 }
+                                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+                                    AfterReadingData(wrongFormat);
+                                else
+                                {
+                                    this.Hide();
+                                    
+                                }
 
-                                AfterReadingData(wrongFormat);
                             }
                             catch (Exception ex)
                             {
@@ -717,8 +683,8 @@ namespace EcoMart.InterfaceLayer
                                                 else
                                                     ImportBillData.VoucherType = FixAccounts.VoucherTypeForCreditStatementPurchase;
                                                 ImportBillData.VoucherSeries = General.ShopDetail.ShopVoucherSeries;
-                                                ImportBillData.DistributorID = mcbCreditor.SelectedID;  //ImportBillData.CheckParty();
-                                                ImportBillData.AIOCDACode = ImportBillData.DistributorID;
+                                                ImportBillData.CompanyID = mcbCreditor.SelectedID;  //ImportBillData.CheckParty();
+                                                ImportBillData.AIOCDACode = ImportBillData.CompanyID;
                                                 retValue = ImportBillData.CheckForBillNumberInPurchase(ImportBillData.AIOCDACode, ImportBillData.BillNumber, ImportBillData.VoucherType);
                                                 if (retValue)
                                                 {
@@ -825,8 +791,8 @@ namespace EcoMart.InterfaceLayer
                                                 ImportBillData.TransactionType = "3";
                                                 ImportBillData.VoucherType = FixAccounts.VoucherTypeForCreditPurchase;
                                                 ImportBillData.VoucherSeries = General.ShopDetail.ShopVoucherSeries;
-                                                ImportBillData.DistributorID = mcbCreditor.SelectedID;  //ImportBillData.CheckParty();
-                                                ImportBillData.AIOCDACode = ImportBillData.DistributorID;
+                                                ImportBillData.CompanyID = mcbCreditor.SelectedID;  //ImportBillData.CheckParty();
+                                                ImportBillData.AIOCDACode = ImportBillData.CompanyID;
                                                 retValue = ImportBillData.CheckForBillNumberInPurchase(ImportBillData.AIOCDACode, ImportBillData.BillNumber, ImportBillData.VoucherType);
                                                 if (retValue)
                                                 {
@@ -922,69 +888,73 @@ namespace EcoMart.InterfaceLayer
                 MessageBox.Show("Purchase Already Entered For This Bill Number " + ImportBillData.VoucherType + ":" + ImportBillData.VoucherNumber);
             else if (wrongFormat != "Y")
             {
-                int remainingproducts = 0;
-                string _distributorProductID = string.Empty;
-                string _retailerProductID = string.Empty;
-                ImportBill ib = new ImportBill();
-
-                foreach (DataGridViewRow dr in dgImpotProducts.Rows)
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
                 {
-                    _distributorProductID = string.Empty;
-                    _retailerProductID = string.Empty;
-                    if (dr.Cells["Col_DistributorsProductID"].Value != null)
-                        _distributorProductID = dr.Cells["Col_DistributorsProductID"].Value.ToString();
-                    _retailerProductID = ib.GetRetailerProductIDFromDistributorProductID(ImportBillData.DistributorID, _distributorProductID);
-                    if (_retailerProductID != string.Empty)
+                    int remainingproducts = 0;
+                    string _CompanyProductID = string.Empty;
+                    string _retailerProductID = string.Empty;
+
+                    ImportBill ib = new ImportBill();
+
+                    foreach (DataGridViewRow dr in dgImpotProducts.Rows)
                     {
-                        dr.Cells["Col_Check"].Value = true;
-                        dr.Cells["Col_ProductID"].Value = _retailerProductID;
+                        _CompanyProductID = string.Empty;
+                        _retailerProductID = string.Empty;
+                        if (dr.Cells["Col_DistributorsProductID"].Value != null)
+                            _CompanyProductID = dr.Cells["Col_DistributorsProductID"].Value.ToString();
+                        _retailerProductID = ib.GetRetailerProductIDFromDistributorProductID(ImportBillData.CompanyID, _CompanyProductID);
+                        if (_retailerProductID != string.Empty)
+                        {
+                            dr.Cells["Col_Check"].Value = true;
+                            dr.Cells["Col_ProductID"].Value = _retailerProductID;
+                        }
+                        else
+                            remainingproducts += 1;
+                    }
+
+                    lblTotalProductsToMatch.Visible = true;
+                    lblTotalProducts.Visible = true;
+                    lblTotalProducts.Text = dgImpotProducts.Rows.Count.ToString();
+                    lblRemainingProducts.Visible = true;
+                    lblRemainingProducts.Text = remainingproducts.ToString();
+                    //lblPharmaSysParty.Visible = true;
+                    //lblPharmaSYSPartyName.Visible = true;
+                    //pnlPartyMatch.Visible = true;
+                    //pnlPartyMatch.Location = new Point(501, 102);
+                    //pnlPartyMatch.Focus();
+                    //dgParty.Focus();
+                    //SelectPartyInTheGrid();
+                    if (remainingproducts == 0)
+                    {
+                        MessageBox.Show("Click Finish Key");
+                        mcbProduct.Visible = false;
+                        btnProductMatch.Enabled = false;
+                        btnFinish.Visible = true;
+                        btnFinish.Enabled = true;
+                        dgProduct.Enabled = false;
                     }
                     else
-                        remainingproducts += 1;
-                }
-
-                lblTotalProductsToMatch.Visible = true;
-                lblTotalProducts.Visible = true;
-                lblTotalProducts.Text = dgImpotProducts.Rows.Count.ToString();
-                lblRemainingProducts.Visible = true;
-                lblRemainingProducts.Text = remainingproducts.ToString();
-                //lblPharmaSysParty.Visible = true;
-                //lblPharmaSYSPartyName.Visible = true;
-                //pnlPartyMatch.Visible = true;
-                //pnlPartyMatch.Location = new Point(501, 102);
-                //pnlPartyMatch.Focus();
-                //dgParty.Focus();
-                //SelectPartyInTheGrid();
-                if (remainingproducts == 0)
-                {
-                    MessageBox.Show("Click Finish Key");
-                    mcbProduct.Visible = false;
-                    btnProductMatch.Enabled = false;
-                    btnFinish.Visible = true;
-                    btnFinish.Enabled = true;
-                    dgProduct.Enabled = false;
-                }
-                else
-                {
-                    mcbProduct.Enabled = true;
-                    btnProductMatch.Enabled = true;
-                    btnFinish.Enabled = false;
-                    dgProduct.Enabled = true;
-                    int newIndex = 0;
-                    if (dgImpotProducts.Rows.Count > 0)
                     {
-                        foreach (DataGridViewRow dr in dgImpotProducts.Rows)
+                        mcbProduct.Enabled = true;
+                        btnProductMatch.Enabled = true;
+                        btnFinish.Enabled = false;
+                        dgProduct.Enabled = true;
+                        int newIndex = 0;
+                        if (dgImpotProducts.Rows.Count > 0)
                         {
-                            if (Convert.ToBoolean(dr.Cells["Col_Check"].Value) == false)
+                            foreach (DataGridViewRow dr in dgImpotProducts.Rows)
                             {
-                                newIndex = dr.Index;
-                                break;
+                                if (Convert.ToBoolean(dr.Cells["Col_Check"].Value) == false)
+                                {
+                                    newIndex = dr.Index;
+                                    break;
+                                }
                             }
+                            dgImpotProducts.Rows[newIndex].Selected = true;
+                            dgImpotProducts.CurrentCell = dgImpotProducts.Rows[newIndex].Cells["Col_ProductName"];
                         }
-                        dgImpotProducts.Rows[newIndex].Selected = true;
-                        dgImpotProducts.CurrentCell = dgImpotProducts.Rows[newIndex].Cells["Col_ProductName"];
+                        ShowProductData();
                     }
-                    ShowProductData();
                 }
 
             }
@@ -1371,8 +1341,8 @@ namespace EcoMart.InterfaceLayer
         {
             ImportBillData.SaleBillData = dgImpotProducts;
             this.Hide();
-            //if (OnNewPurchase != null)
-            //    OnNewPurchase(this, new EventArgs());
+            if (OnNewPurchase != null)
+                OnNewPurchase(this, new EventArgs());
             this.DialogResult = DialogResult.OK;
         }
 
@@ -1519,7 +1489,8 @@ namespace EcoMart.InterfaceLayer
                 }
                 if (retvalue == true)
                 {
-                    retvalue = ImportBillData.CheckIFProductIDIsNOTLinked(ImportBillData.DistributorID, _DistProductID, _ProductID);
+                    ImportBillData.CompanyID = mcbCreditor.SelectedID;
+                    retvalue = ImportBillData.CheckIFProductIDIsNOTLinked(ImportBillData.CompanyID, _DistProductID, _ProductID);
 
                 }
                 //if (retvalue == true)
@@ -1542,7 +1513,7 @@ namespace EcoMart.InterfaceLayer
                 lblRemainingProducts.Text = GetRemainingProductMatchCount();
                 if ((Convert.ToInt32(lblRemainingProducts.Text.ToString()) == 0) || (dgImpotProducts.CurrentRow.Index == dgImpotProducts.Rows.Count - 1))
                 {
-                    MessageBox.Show("Match DONE Click Finish To Continue");
+                    MessageBox.Show("Match DONE Click  FINISH  To Continue");
                     btnFinish.Enabled = true;
 
                     lblRemainingProducts.Text = GetRemainingProductMatchCount();
@@ -1701,9 +1672,9 @@ namespace EcoMart.InterfaceLayer
         private bool CheckIFBillAlreadyEntered()
         {
             bool retValue = false;
-            ImportBillData.DistributorID = mcbCreditor.SelectedID;
+            ImportBillData.CompanyID = mcbCreditor.SelectedID;
             // ImportBillData.AIOCDACode = ImportBillData.GetAIOCDACode(ImportBillData.DistributorID);           
-            retValue = ImportBillData.CheckForBillNumberInPurchase(ImportBillData.DistributorID, ImportBillData.BillNumber, ImportBillData.VoucherType);
+            retValue = ImportBillData.CheckForBillNumberInPurchase(ImportBillData.CompanyID, ImportBillData.BillNumber, ImportBillData.VoucherType);
             if (retValue)
             {
                 ImportBillData.BillNumberAlreadyEntered = "Y";
@@ -1822,15 +1793,15 @@ namespace EcoMart.InterfaceLayer
                     }
                     else
                     {
-                        ImportBillData.DistributorID = string.Empty;
+                        ImportBillData.CompanyID = string.Empty;
                         string str = tempitems[0];
                         str = str.Replace('"', ' ').Trim();
                         // str = str.Replace('\',' ').Trim();
                         ImportBillData.DistributorCode = str;
                         if (ImportBillData.DistributorCode != null && ImportBillData.DistributorCode.ToString() != string.Empty)
-                            ImportBillData.DistributorID = ImportBillData.GetDistributorIDFromDistributorCode(ImportBillData.DistributorCode);
-                        if (ImportBillData.DistributorID != string.Empty)
-                            mcbCreditor.SelectedID = ImportBillData.DistributorID;
+                            ImportBillData.CompanyID  = ImportBillData.GetDistributorIDFromDistributorCode(ImportBillData.DistributorCode);
+                        if (ImportBillData.CompanyID != string.Empty)
+                            mcbCreditor.SelectedID = ImportBillData.CompanyID;
                         break;
                     }
                 }
@@ -1845,11 +1816,11 @@ namespace EcoMart.InterfaceLayer
                         ImportBillData.DistributorName = tempitems[5];
                         ImportBillData.AIOCDACode = tempitems[6];
                         if (ImportBillData.AIOCDACode != string.Empty)
-                            ImportBillData.DistributorID = ImportBillData.GetDistributorIDFromAIOCDACode(ImportBillData.AIOCDACode);
-                        if (ImportBillData.DistributorID == string.Empty)
-                            ImportBillData.DistributorID = ImportBillData.GetDistributorIDFromDistributorCode(ImportBillData.DistributorCode);
-                        if (ImportBillData.DistributorID != string.Empty)
-                            mcbCreditor.SelectedID = ImportBillData.DistributorID;
+                            ImportBillData.CompanyID = ImportBillData.GetDistributorIDFromAIOCDACode(ImportBillData.AIOCDACode);
+                        if (ImportBillData.CompanyID == string.Empty)
+                            ImportBillData.CompanyID = ImportBillData.GetDistributorIDFromDistributorCode(ImportBillData.DistributorCode);
+                        if (ImportBillData.CompanyID != string.Empty)
+                            mcbCreditor.SelectedID = ImportBillData.CompanyID;
                         break;
                     }
                 }
@@ -1861,9 +1832,9 @@ namespace EcoMart.InterfaceLayer
                         ImportBillData.DistributorCode = tempitems[9];
                         cmbFormat.Text = "Medica";
                         if (ImportBillData.DistributorCode != null && ImportBillData.DistributorCode.ToString() != string.Empty)
-                            ImportBillData.DistributorID = ImportBillData.GetDistributorIDFromDistributorCode(ImportBillData.DistributorCode);
-                        if (ImportBillData.DistributorID != string.Empty)
-                            mcbCreditor.SelectedID = ImportBillData.DistributorID;
+                            ImportBillData.CompanyID = ImportBillData.GetDistributorIDFromDistributorCode(ImportBillData.DistributorCode);
+                        if (ImportBillData.CompanyID != string.Empty)
+                            mcbCreditor.SelectedID = ImportBillData.CompanyID;
                         break;
                     }
                 }
@@ -1879,11 +1850,11 @@ namespace EcoMart.InterfaceLayer
                         ImportBillData.AIOCDACode = tempitems[17];
                         // ImportBillData.AIOCDACode = "";
                         if (ImportBillData.AIOCDACode != string.Empty)
-                            ImportBillData.DistributorID = ImportBillData.GetDistributorIDFromAIOCDACode(ImportBillData.AIOCDACode);
-                        if (ImportBillData.DistributorID == string.Empty)
-                            ImportBillData.DistributorID = ImportBillData.GetDistributorIDFromDistributorCode(ImportBillData.DistributorCode);
-                        if (ImportBillData.DistributorID != string.Empty)
-                            mcbCreditor.SelectedID = ImportBillData.DistributorID;
+                            ImportBillData.CompanyID = ImportBillData.GetDistributorIDFromAIOCDACode(ImportBillData.AIOCDACode);
+                        if (ImportBillData.CompanyID == string.Empty)
+                            ImportBillData.CompanyID = ImportBillData.GetDistributorIDFromDistributorCode(ImportBillData.DistributorCode);
+                        if (ImportBillData.CompanyID != string.Empty)
+                            mcbCreditor.SelectedID = ImportBillData.CompanyID;
                         break;
                     }
                 }

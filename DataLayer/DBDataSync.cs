@@ -45,7 +45,7 @@ Convert.ToString(dr["SSCRStock"]), Convert.ToString(dr["SSDRStock"]), Convert.To
 Convert.ToString(dr["GlobalID"]), Convert.ToString(dr["opstock"]), Convert.ToString(dr["purstock"]), Convert.ToString(dr["salestock"]), Convert.ToString(dr["crstock"]), Convert.ToString(dr["dbstock"]), Convert.ToString(dr["PacktypeId"]), Convert.ToString(dr["ProdCompID"]), Convert.ToString(dr["ProdShelfID"]), Convert.ToString(dr["ProdDrugID"]), Convert.ToString(dr["ProdCategoryID"]), Convert.ToString(dr["ProdLBTID"]), Convert.ToString(dr["ProdPartyId_1"]), Convert.ToString(dr["ProdPartyId_2"]), Convert.ToString(dr["ProdTaxID"]), Convert.ToString(dr["prodmrp"]),
 Convert.ToString(dr["HSNNumber"]), Convert.ToString(dr["ScannedBarcode"]));
 
-                        DBInterface.ExecuteScalar(strSqlUpdate);
+                        DBInterface.ExecuteQuery(strSqlUpdate);
                     }
                     else
                     {
@@ -62,7 +62,7 @@ Convert.ToString(dr["SSCRStock"]), Convert.ToString(dr["SSDRStock"]), Convert.To
 Convert.ToString(dr["GlobalID"]), Convert.ToString(dr["opstock"]), Convert.ToString(dr["purstock"]), Convert.ToString(dr["salestock"]), Convert.ToString(dr["crstock"]), Convert.ToString(dr["dbstock"]), Convert.ToString(dr["PacktypeId"]), Convert.ToString(dr["ProdCompID"]), Convert.ToString(dr["ProdShelfID"]), Convert.ToString(dr["ProdDrugID"]), Convert.ToString(dr["ProdCategoryID"]), Convert.ToString(dr["ProdLBTID"]), Convert.ToString(dr["ProdPartyId_1"]), Convert.ToString(dr["ProdPartyId_2"]), Convert.ToString(dr["ProdTaxID"]), Convert.ToString(dr["prodmrp"]),
 Convert.ToString(dr["HSNNumber"]), Convert.ToString(dr["ScannedBarcode"]));
 
-                        DBInterface.ExecuteScalar(strSqlInsert);
+                        DBInterface.ExecuteQuery(strSqlInsert);
                     }
 
                 }
@@ -94,14 +94,14 @@ Convert.ToString(dr["HSNNumber"]), Convert.ToString(dr["ScannedBarcode"]));
                     {
                         string strSqlUpdate = GetUpdateQueryMasterVAT(Convert.ToInt32(dr["ID"]), Convert.ToString(dr["VATPercentage"]));
 
-                        DBInterface.ExecuteScalar(strSqlUpdate);
+                        DBInterface.ExecuteQuery(strSqlUpdate);
                     }
                     else
                     {
 
                         string strSqlInsert = GetInsertQueryMasterVAT(Convert.ToInt32(dr["ID"]), Convert.ToString(dr["VATPercentage"]));
 
-                        DBInterface.ExecuteScalar(strSqlInsert);
+                        DBInterface.ExecuteQuery(strSqlInsert);
                     }
 
                 }
@@ -131,14 +131,14 @@ Convert.ToString(dr["HSNNumber"]), Convert.ToString(dr["ScannedBarcode"]));
                     {
                         string strSqlUpdate = GetUpdateQueryMasterGenericCategory(Convert.ToInt32(dr["GenericCategoryID"]), Convert.ToString(dr["GenericCategoryName"]));
 
-                        DBInterface.ExecuteScalar(strSqlUpdate);
+                        DBInterface.ExecuteQuery(strSqlUpdate);
                     }
                     else
                     {
 
                         string strSqlInsert = GetInsertQueryMasterGenericCategory(Convert.ToInt32(dr["GenericCategoryID"]), Convert.ToString(dr["GenericCategoryName"]));
 
-                        DBInterface.ExecuteScalar(strSqlInsert);
+                        DBInterface.ExecuteQuery(strSqlInsert);
                     }
 
                 }
@@ -168,14 +168,14 @@ Convert.ToString(dr["HSNNumber"]), Convert.ToString(dr["ScannedBarcode"]));
                     {
                         string strSqlUpdate = GetUpdateQueryMasterProductCategory(Convert.ToInt32(dr["ProductCategoryId"]), Convert.ToString(dr["ProductCategoryName"]));
 
-                        DBInterface.ExecuteScalar(strSqlUpdate);
+                        DBInterface.ExecuteQuery(strSqlUpdate);
                     }
                     else
                     {
 
                         string strSqlInsert = GetInsertQueryMasterProductCategory(Convert.ToInt32(dr["ProductCategoryId"]), Convert.ToString(dr["ProductCategoryName"]));
 
-                        DBInterface.ExecuteScalar(strSqlInsert);
+                        DBInterface.ExecuteQuery(strSqlInsert);
                     }
 
                 }
@@ -206,14 +206,14 @@ Convert.ToString(dr["HSNNumber"]), Convert.ToString(dr["ScannedBarcode"]));
                     {
                         string strSqlUpdate = GetUpdateQueryMasterpackType(Convert.ToInt32(dr["ID"]), Convert.ToString(dr["PackTypeName"]));
 
-                        DBInterface.ExecuteScalar(strSqlUpdate);
+                        DBInterface.ExecuteQuery(strSqlUpdate);
                     }
                     else
                     {
 
                         string strSqlInsert = GetInsertQueryMasterpackType(Convert.ToInt32(dr["ID"]), Convert.ToString(dr["PackTypeName"]));
 
-                        DBInterface.ExecuteScalar(strSqlInsert);
+                        DBInterface.ExecuteQuery(strSqlInsert);
                     }
 
                 }
@@ -244,14 +244,14 @@ Convert.ToString(dr["HSNNumber"]), Convert.ToString(dr["ScannedBarcode"]));
                     {
                         string strSqlUpdate = GetUpdateQueryMasterpack(Convert.ToInt32(dr["PackId"]), Convert.ToString(dr["PackName"]));
 
-                        DBInterface.ExecuteScalar(strSqlUpdate);
+                        DBInterface.ExecuteQuery(strSqlUpdate);
                     }
                     else
                     {
 
                         string strSqlInsert = GetInsertQueryMasterpack(Convert.ToInt32(dr["PackId"]), Convert.ToString(dr["PackName"]));
 
-                        DBInterface.ExecuteScalar(strSqlInsert);
+                        DBInterface.ExecuteQuery(strSqlInsert);
                     }
 
                 }
@@ -268,7 +268,7 @@ Convert.ToString(dr["HSNNumber"]), Convert.ToString(dr["ScannedBarcode"]));
             DataTable dtableAzure = new DataTable();
             string strSqlAzure = "Select * from mastercompany";
             dtableAzure = AzureDBInterface.SelectDataTable(strSqlAzure);
-
+           
             DataTable dtSync = null;
             var rows = dtableAzure.AsEnumerable().Except(dtable.AsEnumerable(), DataRowComparer.Default);
 
@@ -284,7 +284,7 @@ Convert.ToString(dr["HSNNumber"]), Convert.ToString(dr["ScannedBarcode"]));
              Convert.ToString(dr["CreatedDate"]), Convert.ToString(dr["CreatedTime"]), Convert.ToString(dr["CreatedUserID"]), Convert.ToString(dr["ModifiedDate"]), Convert.ToString(dr["ModifiedTime"]),
              Convert.ToString(dr["ModifiedUserID"]), Convert.ToString(dr["Companycode"]), Convert.ToString(dr["GlobalID"]), Convert.ToString(dr["Tag"]), Convert.ToString(dr["MaincompID"]));
 
-                        DBInterface.ExecuteScalar(strSqlUpdate);
+                        DBInterface.ExecuteQuery(strSqlUpdate);
                     }
                     else
                     {
@@ -294,7 +294,7 @@ Convert.ToString(dr["HSNNumber"]), Convert.ToString(dr["ScannedBarcode"]));
                 Convert.ToString(dr["CreatedDate"]), Convert.ToString(dr["CreatedTime"]), Convert.ToString(dr["CreatedUserID"]), Convert.ToString(dr["ModifiedDate"]), Convert.ToString(dr["ModifiedTime"]),
                 Convert.ToString(dr["ModifiedUserID"]), Convert.ToString(dr["Companycode"]), Convert.ToString(dr["GlobalID"]), Convert.ToString(dr["Tag"]), Convert.ToString(dr["MaincompID"]));
 
-                        DBInterface.ExecuteScalar(strSqlInsert);
+                        DBInterface.ExecuteQuery(strSqlInsert);
                     }
 
                 }
@@ -568,9 +568,9 @@ string ProdPartyId_1, string ProdPartyId_2, string ProdTaxID, string prodmrp, st
             objQuery.AddToQuery("ProdBoxQuantity", ProdBoxQuantity);
             objQuery.AddToQuery("ProdCompShortName", ProdCompShortName);
             objQuery.AddToQuery("ProdVATPercent", ProdVATPercent);
-            objQuery.AddToQuery("ProdCST", ProdCST);
-            objQuery.AddToQuery("ProdCSTPercent", ProdCSTPercent);
-            objQuery.AddToQuery("ProdGrade", ProdGrade);
+            //objQuery.AddToQuery("ProdCST", ProdCST);
+            //objQuery.AddToQuery("ProdCSTPercent", ProdCSTPercent);
+            //objQuery.AddToQuery("ProdGrade", ProdGrade);
             //objQuery.AddToQuery("ProdScheduleDrugCode", ProdScheduleDrugCode);
             //objQuery.AddToQuery("ProdDPCOCode", ProdDPCOCode);
             //objQuery.AddToQuery("ProdIfSchedule", ProdIfSchedule);

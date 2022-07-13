@@ -2567,9 +2567,10 @@ namespace EcoMart.BusinessLayer
 
         public bool UpdateLastPurhcaseDataInMasterProduct()
         {
+
             DBProduct dbprod = new DBProduct();
             return dbprod.UpdatePurchaseDataInmasterProduct(ProductID, PurchaseBillNumber, VoucherDate, AccountID, VoucherType,
-                VoucherNumber, PurchaseRate, TradeRate, SaleRate, MRP, PurchaseVATPercent, CSTPercent, AmountCST, SchemeDiscountPercent,
+                VoucherNumber, PurchaseRate, TradeRate, SaleRate, MRP, PurchaseVATPercent, CSTPercent, AmountCST, SchemeDiscountPercent, PriceToRetailer,
             AmountSchemeDiscount, ItemDiscountPercent, Expiry, ExpiryDate, Batchno, ShelfID, StockID);
             // return true;
 
@@ -3098,15 +3099,23 @@ namespace EcoMart.BusinessLayer
             DBPurchase dbp = new DBPurchase();
             dbp.SavePurchaseBillFormat(PurchaseBillFormat, AccountID);
         }
-        public bool UpdatePurchaseOrder()
+        public bool UpdatePurchaseOrderStockist()
         {
             DBProduct dbprod = new DBProduct();
-            return dbprod.UpdatePurchaseOrder(ProductID, (Quantity + SchemeQuanity + ReplacementQuantity));
+            return dbprod.UpdatePurchaseOrderStockist(ProductID, (Quantity + SchemeQuanity + ReplacementQuantity));
         }
 
+        public bool UpdatePurchaseOrderCNF()
+        {
+            DBProduct dbprod = new DBProduct();
+            return dbprod.UpdatePurchaseOrderCNF(ProductID, (Quantity + SchemeQuanity + ReplacementQuantity));
+        }
 
-
-
+        public bool UpdatePurchaseOrderEcoMart()
+        {
+            DBProduct dbprod = new DBProduct();
+            return dbprod.UpdatePurchaseOrderEcoMart(ProductID, (Quantity + SchemeQuanity + ReplacementQuantity));
+        }
 
 
 
@@ -3233,5 +3242,168 @@ namespace EcoMart.BusinessLayer
             return dt;
         }
 
+        public void ReadDetailsFromAzure()
+        {
+            //bool retValue = false;
+            try
+            {
+                DataRow drow = null;
+                DBPurchase dbData = new DBPurchase();
+                drow = dbData.ReadDetailsFromAzue();
+                if (drow != null)
+                {
+                    if (drow["purchaseID"] != DBNull.Value)
+                        Id = Convert.ToString(drow["purchaseID"]);
+                    if (drow["EntryDate"] != DBNull.Value)
+                        EntryDate = Convert.ToString(drow["EntryDate"]);
+                    if (drow["VoucherSeries"] != DBNull.Value)
+                        VoucherSeries = Convert.ToString(drow["VoucherSeries"]);
+                    if (drow["VoucherType"] != DBNull.Value)
+                        VoucherType = Convert.ToString(drow["VoucherType"]);
+                    if (drow["VoucherNumber"] != DBNull.Value)
+                        VoucherNumber = Convert.ToInt32(drow["VoucherNumber"]);
+                    if (drow["VoucherDate"] != DBNull.Value)
+                        VoucherDate = Convert.ToString(drow["VoucherDate"]);
+                    if (drow["PurchaseBillNumber"] != DBNull.Value)
+                        PurchaseBillNumber = Convert.ToString(drow["PurchaseBillNumber"]);
+                    if (drow["AccountID"] != DBNull.Value)
+                        AccountID = Convert.ToString(drow["AccountID"]);
+                    if (drow["AmountNet"] != DBNull.Value)
+                        AmountNetS = Convert.ToDouble(drow["AmountNet"]);
+                    if (drow["AmountClear"] != DBNull.Value)
+                        AmountClearS = Convert.ToDouble(drow["AmountClear"]);
+                    if (drow["AmountGross"] != DBNull.Value)
+                    {
+                        AmountS = Convert.ToDouble(drow["AmountGross"]);
+                        AmountBillS = AmountS;
+                    }
+                    if (drow["AmountItemDiscount"] != DBNull.Value)
+                        AmountItemDiscountS = Convert.ToDouble(drow["AmountItemDiscount"]);
+                    //if (drow["AmountSpecialDiscount"] != DBNull.Value)
+                    //    AmountSpecialDiscountS = Convert.ToByte(drow["AmountSpecialDiscount"]);
+                    if (drow["AmountSchemeDiscount"] != DBNull.Value)
+                        AmountSchemeDiscountS = Convert.ToDouble(drow["AmountSchemeDiscount"]);
+                    if (drow["AmountCashDiscount"] != DBNull.Value)
+                        AmountCashDiscountS = Convert.ToDouble(drow["AmountCashDiscount"]);
+                    if (drow["AmountAddOn"] != DBNull.Value)
+                        AmountAddOnS = Convert.ToDouble(drow["AmountAddOn"]);
+                    if (drow["AmountFreight"] != DBNull.Value)
+                        AmountFreightS = Convert.ToDouble(drow["AmountFreight"]);
+                    if (drow["CashDiscountPercentage"] != DBNull.Value)
+                        CashDiscountPercentageS = Convert.ToDouble(drow["CashDiscountPercentage"]);
+                    //if (drow["SpecialDiscountPercentage"] != DBNull.Value)
+                    //    SpecialDiscountPercentS = Convert.ToDouble(drow["SpecialDiscountPercentage"]);
+                    if (drow["AmountCreditNote"] != DBNull.Value)
+                        AmountCreditNoteS = Convert.ToDouble(drow["AmountCreditNote"]);
+                    if (drow["AmountDebitNote"] != DBNull.Value)
+                        AmountDebitNoteS = Convert.ToDouble(drow["AmountDebitNote"]);
+                    //if (drow["StatementNumber"] != DBNull.Value)
+                    //    StatementNumber = Convert.ToInt32(drow["StatementNumber"]);
+                    if (drow["RoundUpAmount"] != DBNull.Value)
+                        RoundUpAmountS = Convert.ToDouble(drow["RoundUpAmount"]);
+                    //if (drow["OctroiPercentage"] != DBNull.Value)
+                    //    OctroiPercentageS = Convert.ToDouble(drow["OctroiPercentage"]);
+                    //if (drow["AmountOctroi"] != DBNull.Value)
+                    //    AmountOctroiS = Convert.ToDouble(drow["AmountOctroi"]);
+                    if (drow["DueDate"] != DBNull.Value)
+                        DueDate = Convert.ToString(drow["DueDate"]);
+                    if (drow["Narration"] != DBNull.Value)
+                        Narration = Convert.ToString(drow["Narration"]);
+                    //if (drow["AmountVAT5Percent"] != DBNull.Value)
+                    //    AmountVAT5PercentS = Convert.ToDouble(drow["AmountVAT5Percent"]);
+                    //if (drow["AmountVAT12point5Percent"] != DBNull.Value)
+                    //    AmountVAT12point5PercentS = Convert.ToDouble(drow["AmountVAT12point5Percent"]);
+                    //if (drow["AmountVATOPercent"] != DBNull.Value)
+                    //    VATOPercent = Convert.ToDouble(drow["AmountVATOPercent"]);
+                    //if (drow["NumberofChallans"] != DBNull.Value)
+                    //    NumberofChallans = Convert.ToInt32(drow["NumberofChallans"]);
+                    //if (drow["AmountPurchaseZeroVAT"] != DBNull.Value)
+                    //    PurchaseAmountZeroVATS = Convert.ToDouble(drow["AmountPurchaseZeroVAT"]);
+                    //if (drow["AmountPurchase12point5PercentVAT"] != DBNull.Value)
+                    //    PurchaseAmount12point5PercentVATS = Convert.ToDouble(drow["AmountPurchase12point5PercentVAT"]);
+                    //if (drow["AmountPurchase5PercentVAT"] != DBNull.Value)
+                    //    PurchaseAmount5PercentVATS = Convert.ToDouble(drow["AmountPurchase5PercentVAT"]);                   
+                    if (drow["GSTS5"] != DBNull.Value)
+                        GSTS5 = Convert.ToInt32(drow["GSTS5"]);
+                    if (drow["GSTC5"] != DBNull.Value)
+                        GSTC5 = Convert.ToInt32(drow["GSTC5"]);
+                    if (drow["GSTS12"] != DBNull.Value)
+                        GSTS12 = Convert.ToInt32(drow["GSTS12"]);
+                    if (drow["GSTC12"] != DBNull.Value)
+                        GSTC12 = Convert.ToInt32(drow["GSTC12"]);
+                    if (drow["GSTS18"] != DBNull.Value)
+                        GSTS18 = Convert.ToInt32(drow["GSTS18"]);
+                    if (drow["GSTC18"] != DBNull.Value)
+                        GSTC18 = Convert.ToInt32(drow["GSTC18"]);
+                    if (drow["GSTS28"] != DBNull.Value)
+                        GSTS28 = Convert.ToInt32(drow["GSTS28"]);
+                    if (drow["GSTC28"] != DBNull.Value)
+                        GSTC28 = Convert.ToInt32(drow["GSTC28"]);
+
+                    if (drow["AmountGST0"] != DBNull.Value)
+                        GSTAmt0 = Convert.ToInt32(drow["AmountGST0"]);
+                    if (drow["AmountGSTS5"] != DBNull.Value)
+                        GSTAmtS5 = Convert.ToInt32(drow["AmountGSTS5"]);
+                    if (drow["AmountGSTC5"] != DBNull.Value)
+                        GSTAmtC5 = Convert.ToInt32(drow["AmountGSTC5"]);
+                    if (drow["AmountGSTS12"] != DBNull.Value)
+                        GSTAmtS12 = Convert.ToInt32(drow["AmountGSTS12"]);
+                    if (drow["AmountGSTC12"] != DBNull.Value)
+                        GSTAmtC12 = Convert.ToInt32(drow["AmountGSTC12"]);
+                    if (drow["AmountGSTS18"] != DBNull.Value)
+                        GSTAmtS18 = Convert.ToInt32(drow["AmountGSTS18"]);
+                    if (drow["AmountGSTC18"] != DBNull.Value)
+                        GSTAmtC18 = Convert.ToInt32(drow["AmountGSTC18"]);
+                    if (drow["AmountGSTS28"] != DBNull.Value)
+                        GSTAmtS28 = Convert.ToInt32(drow["AmountGSTS28"]);
+                    if (drow["AmountGSTC28"] != DBNull.Value)
+                        GSTAmtC28 = Convert.ToInt32(drow["AmountGSTC28"]);
+
+
+                    preAccountID = AccountID;
+                    preNarration = Narration;
+                    preEntryDate = EntryDate;
+                    preVoucherSeries = VoucherSeries;
+                    preVoucherType = VoucherType;
+                    preVoucherNumber = VoucherNumber;
+                    preVoucherDate = VoucherDate;
+                    prePurchaseBillNumber = PurchaseBillNumber;
+                    preAmountNetS = AmountNetS;
+                    preAmountClearS = AmountClearS;
+                    preAmountBillS = AmountBillS;
+                    preAmountItemDiscountS = AmountItemDiscountS;
+                    //preAmountSpecialDiscountS = AmountSpecialDiscountS;
+                    //preSpecialDiscountPercentS = SpecialDiscountPercentS;
+                    preAmountCashDiscountS = AmountCashDiscountS;
+                    preCreditNoteDiscountPercentS = 0;
+                    preAmountSchemeDiscountS = AmountSchemeDiscountS;
+                    preAmountAddOnS = AmountAddOnS;
+                    preAmountFreightS = AmountFreightS;
+                    preCashDiscountPercentageS = CashDiscountPercentageS;
+                    preAmountCreditNoteS = AmountCreditNoteS;
+                    preAmountDebitNoteS = AmountDebitNoteS;
+                    preRoundUpAmountS = RoundUpAmountS;
+                    preOctroiPercentageS = OctroiPercentageS;
+                    preAmountOctroiS = AmountOctroiS;
+                    prePurchaseAmount5PercentVATS = PurchaseAmount5PercentVATS;
+                    preAmountVAT0PercentS = 0;
+                    preAmountVAT5PercentS = AmountVAT5PercentS;
+                    prePurchaseAmount12point5PercentVATS = PurchaseAmount12point5PercentVATS;
+                    preAmountVAT12point5PercentS = AmountVAT12point5PercentS;
+                    prePurchaseAmountZeroVATS = PurchaseAmountZeroVATS;
+                    preDueDate = DueDate;
+                    //preNumberofChallans = NumberofChallans;                   
+                    //preStatementNumber = StatementNumber;
+
+
+                }
+            }
+            catch (Exception Ex)
+            {
+                Log.WriteException(Ex);
+            }
+
+            //return retValue;
+        }
     }
 }

@@ -977,7 +977,7 @@ namespace EcoMart.InterfaceLayer
             try
             {
                 DataTable dtable = new DataTable();
-                dtable = _DailyPurchaseOrder.GetSummaryData();
+                dtable = _DailyPurchaseOrder.GetSummaryDataStockist();
                 _BindingSource = dtable;
             }
             catch (Exception Ex)
@@ -1005,7 +1005,7 @@ namespace EcoMart.InterfaceLayer
             try
             {
                 DataTable dtable = new DataTable();
-                dtable = _DailyPurchaseOrder.GetDetailData(_DailyPurchaseOrder.CurrentOrderNumber);
+                dtable = _DailyPurchaseOrder.GetDetailDataStockist(_DailyPurchaseOrder.CurrentOrderNumber);
                 _BindingSource = dtable;
             }
             catch (Exception Ex)
@@ -1090,7 +1090,7 @@ namespace EcoMart.InterfaceLayer
                         {
                             _DailyPurchaseOrder.DSLID = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                             _DailyPurchaseOrder.DSLProductID = Convert.ToInt32(ddsr.Cells["Col_ProdID"].Value);
-                            int id = _DailyPurchaseOrder.CreateOrderForToday();
+                            int id = _DailyPurchaseOrder.CreateOrderForTodayStockist();
                             _DailyPurchaseOrder.DSLID = id.ToString();
                             returnVal = id > 0;
                         }
@@ -1100,7 +1100,7 @@ namespace EcoMart.InterfaceLayer
 
                     if (rowCollection.Count > 0)
                     {
-                        int id = _DailyPurchaseOrder.AddDetails();
+                        int id = _DailyPurchaseOrder.AddDetailsStockist();
                         _DailyPurchaseOrder.DSLMasterID = id.ToString();
                         returnVal = id > 0;
                         index--;

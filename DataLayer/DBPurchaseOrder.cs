@@ -188,7 +188,7 @@ namespace EcoMart.DataLayer
         }
         #endregion private methods
 
-        public  DataTable GetOverviewData()
+        public  DataTable GetOverviewDataStockist()
         {
             DataTable dtable = new DataTable();
             string strSql = "Select distinct  a.ID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.Amount, " +
@@ -198,6 +198,24 @@ namespace EcoMart.DataLayer
             return dtable;
         }
 
+        public DataTable GetOverviewDataCNF()
+        {
+            DataTable dtable = new DataTable();
+            string strSql = "Select distinct  a.ID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.Amount, " +
+                            "a.AccountID,a.Narration, b.AccountID, b.AccName, b.AccAddress1,b.AccAddress2 from masterpurchaseorderCNF a, masteraccount b " +
+                            "where a.AccountId = b.AccountId and  a.VoucherDate >= '" + General.ShopDetail.Shopsy + "' and a.VoucherDate <= '" + General.ShopDetail.Shopey + "'  order by a.vouchernumber ";
+            dtable = DBInterface.SelectDataTable(strSql);
+            return dtable;
+        }
+        public DataTable GetOverviewDataEcoMart()
+        {
+            DataTable dtable = new DataTable();
+            string strSql = "Select distinct  a.ID,a.VoucherType,a.VoucherNumber,a.VoucherDate,a.Amount, " +
+                            "a.AccountID,a.Narration, b.AccountID, b.AccName, b.AccAddress1,b.AccAddress2 from masterpurchaseorderEcoMart a, masteraccount b " +
+                            "where a.AccountId = b.AccountId and  a.VoucherDate >= '" + General.ShopDetail.Shopsy + "' and a.VoucherDate <= '" + General.ShopDetail.Shopey + "'  order by a.vouchernumber ";
+            dtable =  DBInterface.SelectDataTable(strSql);
+            return dtable;
+        }
         public DataRow ReadDetailsByID(string Id)
         {
             DataRow dRow = null;

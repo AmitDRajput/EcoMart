@@ -612,7 +612,8 @@ namespace EcoMart.Reporting.Controls
                     mvoutype = "";
                     msubtype = "";
                     if (dgvr.Cells["Col_VoucherDate"].Value != null && dgvr.Cells["Col_VoucherDate"].Value.ToString() != "")
-                        mvoudate = General.GetShortDateInyyyymmddForm(dgvr.Cells["Col_VoucherDate"].Value.ToString());
+                        //mvoudate = General.GetShortDateInyyyymmddForm(dgvr.Cells["Col_VoucherDate"].Value.ToString());
+                        mvoudate = dgvr.Cells["Col_VoucherDate"].Value.ToString();
                     if (dgvr.Cells["Col_VoucherType"].Value != null && dgvr.Cells["Col_VoucherType"].Value.ToString() != "")
                         mvoutype = dgvr.Cells["Col_VoucherType"].Value.ToString();
                     if (dgvr.Cells["Col_VoucherSubType"].Value != null && dgvr.Cells["Col_VoucherSubType"].Value.ToString() != "")
@@ -628,7 +629,8 @@ namespace EcoMart.Reporting.Controls
                     //if (mvoutype == FixAccounts.VoucherTypeForOpeningStock || mvoutype == "Beginning" )//mvoudate == string.Empty || mvoudate == " " ||
                     //    mopstk = mopstk + mqtyin - mqtyout + mscmqtyin - mscmqtyout;
                     //  mopstk = _OpeningStock;
-                    if (mvoudate == string.Empty || mvoudate == " " || mvoutype == FixAccounts.VoucherTypeForOpeningStock || Convert.ToInt32(mvoudate) >= Convert.ToInt32(_MFromDate))
+                    //if (mvoudate == string.Empty || mvoudate == " " || mvoutype == FixAccounts.VoucherTypeForOpeningStock || Convert.ToInt32(mvoudate) >= Convert.ToInt32(_MFromDate))
+                    if (mvoudate == string.Empty || mvoudate == " " || mvoutype == FixAccounts.VoucherTypeForOpeningStock)
                     {
                         if (mvoutype == FixAccounts.VoucherTypeForCreditPurchase || mvoutype == FixAccounts.VoucherTypeForCreditStatementPurchase || mvoutype == FixAccounts.VoucherTypeForCashPurchase)
                         {

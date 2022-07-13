@@ -688,7 +688,7 @@ namespace EcoMart.InterfaceLayer
                     bool isDeleteVisible = General.IsUserRightAllowed(ControlName, OperationMode.Delete);
                     
                     tsBtnAdd.Visible = isAddVisible;
-                    tsBtnFifth.Visible = isEditVisible;
+                    tsBtnFifth.Visible = false;
                     tsBtnEdit.Visible = isEditVisible;
 
                     tsBtnView.Visible = false;

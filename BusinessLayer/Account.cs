@@ -546,8 +546,7 @@ namespace EcoMart.BusinessLayer
                         IfLBt = drow["IFLBT"].ToString();
                     //if (drow["ACCIFOMS"] != DBNull.Value)
                     //    IFOMS = Convert.ToString(drow["ACCIFOMS"]);
-                    AccStatement15Days = "Y";
-
+                    AccStatement15Days = "Y"; 
                 }
             }
             catch (Exception ex)

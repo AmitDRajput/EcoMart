@@ -244,17 +244,14 @@ namespace EcoMart.InterfaceLayer
                 {
                     if (_Mode == OperationMode.Add || _Mode == OperationMode.OpenAsChild)
                     {
-                        _GenericCategory.IntID  = _GenericCategory.GetIntID(); /* Guid.NewGuid().ToString().ToUpper().Replace("-", "");*/
+                        _GenericCategory.IntID  = _GenericCategory.GetIntID();
                         _GenericCategory.CreatedBy = General.CurrentUser.Id;
                         _GenericCategory.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
                         _GenericCategory.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
-                        //retValue = _GenericCategory.AddDetails();
-                        //MessageBox.Show("GenericCategory information has been saved successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //_SavedID = _GenericCategory.Id;
-                        //ClearControls();
-                        //FilltxtName();
-                        _GenericCategory.IntID = _GenericCategory.AddDetails();
+                        _GenericCategory.IntID = _GenericCategory.GetNextIntID();
                         if (_GenericCategory.IntID > 0)
+                            retValue = _GenericCategory.AddDetails();
+                        if (retValue)
                         {
                             MessageBox.Show("GenericCategory  information has been saved successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             _SaveIntID = _GenericCategory.IntID;

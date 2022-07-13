@@ -48,7 +48,7 @@ namespace EcoMart.InterfaceLayer.Validation
         #endregion       
         
         private void btnTestConnection_Click(object sender, EventArgs e)
-        { 
+        {
             _server = cmbServers.Text;
             _databasename = txtDatabase.Text;
             _username = txtUser.Text;
