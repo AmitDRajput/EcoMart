@@ -12,18 +12,18 @@ using System.IO;
 
 namespace EcoMart.InterfaceLayer
 {
-    public partial class FrmLogin : Form 
+    public partial class FrmLogin : Form
     {
         private User _User;
-      
+
         #region Constructor
         public FrmLogin()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             _User = new User();
             btnlogin.Focus();
             this.Icon = EcoMart.Properties.Resources.Icon;
-            this.Text = General.ApplicationTitle+" Ver:"+ General.PharmaSYSVersion;
+            this.Text = General.ApplicationTitle + " Ver:" + General.PharmaSYSVersion;
         }
 
         #endregion         
@@ -57,19 +57,19 @@ namespace EcoMart.InterfaceLayer
             _User.Password = txtpasswd.Text.Trim();
             if (IsValid())
             {
-               // AccountingYear accountingyear = _AccountingYear.GetOverviewData();
+                // AccountingYear accountingyear = _AccountingYear.GetOverviewData();
                 User user = _User.GetUserByUserNameAndPassword(_User.Name, _User.Password);
-                if (user != null )
-                { 
-                    General.CurrentUser = new User();                    
+                if (user != null)
+                {
+                    General.CurrentUser = new User();
                     General.CurrentUser.Id = user.Id;
                     General.CurrentUser.Name = user.Name;
                     General.CurrentUser.IfInUse = user.IfInUse;
                     General.CurrentUser.Password = user.Password;
                     General.CurrentUser.Description = user.Description;
-                    General.CurrentUser.Level = user.Level;                    
-                    General.ShopDetail = new ShopDetails();                
-                    General.ShopDetail.FillShopDetails(General.EcoMartLicense);              
+                    General.CurrentUser.Level = user.Level;
+                    General.ShopDetail = new ShopDetails();
+                    General.ShopDetail.FillShopDetails(General.EcoMartLicense);
                     General.CurrentSetting = new Settings();
                     General.BackupPath = new BackupPath();
 
@@ -90,13 +90,13 @@ namespace EcoMart.InterfaceLayer
                     }
                     string mcurrentyear = "N";
                     if (mcbAccountingYear.SeletedItem.ItemData[5] != null)
-                         mcurrentyear = mcbAccountingYear.SeletedItem.ItemData[5].ToString();                  
-                        General.CurrentSetting.FillSettings();                     
-                        General.PrintSettings = new EcoMart.Printing.PrintSettings();
-                        if (General.ShopDetail.ShopDistributorSale == "Y")
-                            General.PrintSettingsForDistributor = new EcoMart.Printing.PrintSettingsForDistributor();
-                        //General.BackupPath.ReadBackupPath();
-                        retvalue = true;
+                        mcurrentyear = mcbAccountingYear.SeletedItem.ItemData[5].ToString();
+                    General.CurrentSetting.FillSettings();
+                    General.PrintSettings = new EcoMart.Printing.PrintSettings();
+                    //if (General.ShopDetail.ShopDistributorSale == "Y")
+                    General.PrintSettingsForDistributor = new EcoMart.Printing.PrintSettingsForDistributor();
+                    //General.BackupPath.ReadBackupPath();
+                    retvalue = true;
                     //}
                     string dd = (DateTime.Now.Date.ToString("yyyyMMdd"));
                     string shops = General.ShopDetail.Shopsy;
@@ -115,13 +115,13 @@ namespace EcoMart.InterfaceLayer
                 }
             }
             return retvalue;
-           
+
         }
         private void btnlogin_Click(object sender, EventArgs e)
         {
             if (ValidateLogin())
             {
-                this.DialogResult = DialogResult.OK;                                   
+                this.DialogResult = DialogResult.OK;
             }
         }
         public string GetCurrentYearData()
@@ -135,24 +135,24 @@ namespace EcoMart.InterfaceLayer
                 string ifyearendover = "N";
                 //if (dt != null)
                 //{
-                    foreach (DataRow dr in dt.Rows)
+                foreach (DataRow dr in dt.Rows)
+                {
+                    workingyear = dr["VoucherSeries"].ToString();
+                    ifyearendover = dr["YearEndOver"].ToString();
+                    if (currentYear == workingyear)
                     {
-                        workingyear = dr["VoucherSeries"].ToString();
-                        ifyearendover = dr["YearEndOver"].ToString();
-                        if (currentYear == workingyear)
-                        {
-                            break;
-                        }
-                        else if (dr["CurrentYear"].ToString() == "Y")
-                        {
-                            break;
-                        }
+                        break;
                     }
-                    if (dt.Rows.Count == 0)
-                        workingyear = currentYear;
+                    else if (dr["CurrentYear"].ToString() == "Y")
+                    {
+                        break;
+                    }
+                }
+                if (dt.Rows.Count == 0)
+                    workingyear = currentYear;
                 //}
                 //    workingyear = currentYear;
-                }
+            }
             catch (Exception ex)
             {
                 Log.WriteException(ex);
@@ -161,7 +161,7 @@ namespace EcoMart.InterfaceLayer
         }
         public bool LoadData()
         {
-            bool retValue = false;           
+            bool retValue = false;
             try
             {
                 string reportdir = @"c:\Reports";
@@ -186,24 +186,24 @@ namespace EcoMart.InterfaceLayer
                 string ifyearendover = "N";
                 //if (dt != null)
                 //{
-                    foreach (DataRow dr in dt.Rows)
+                foreach (DataRow dr in dt.Rows)
+                {
+                    workingyear = dr["VoucherSeries"].ToString();
+                    ifyearendover = dr["YearEndOver"].ToString();
+                    if (currentYear == workingyear)
                     {
-                        workingyear = dr["VoucherSeries"].ToString();
-                        ifyearendover = dr["YearEndOver"].ToString();
-                        if (currentYear == workingyear)
-                        {
-                            retValue = true;
-                            break;
-                        }
+                        retValue = true;
+                        break;
                     }
+                }
                 //}
                 General.IfYearEndOverGlobal = ifyearendover;
-                
-                if (dt != null &&  dt.Rows.Count == 0)
+
+                if (dt != null && dt.Rows.Count == 0)
                     workingyear = currentYear;
                 if (retValue == false)
                 {
-                    if (Convert.ToInt32(currentYear) > Convert.ToInt32(workingyear) && ifyearendover == "N") 
+                    if (Convert.ToInt32(currentYear) > Convert.ToInt32(workingyear) && ifyearendover == "N")
                         retValue = true;
                 }
                 if (ifyearendover == "Y")
@@ -225,13 +225,13 @@ namespace EcoMart.InterfaceLayer
                     FillAccountingYearCombo(dt);
                     mcbAccountingYear.SelectedID = workingyear;
                     retValue = true;
-                }              
+                }
                 else
                 {
-                     MessageBox.Show("Please Check Machine Date", EcoMart.Common.General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Please Check Machine Date", EcoMart.Common.General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
 
-                bool lretValue = false;               
+                bool lretValue = false;
                 string lastworkingyear = "N";
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -248,7 +248,7 @@ namespace EcoMart.InterfaceLayer
                 else
                     General.ifYearEndOverForthePreviousYear = "Y";
 
-                
+
             }
             catch (Exception ex)
             {
@@ -260,9 +260,9 @@ namespace EcoMart.InterfaceLayer
         private void FillAccountingYearCombo(DataTable dt)
         {
             mcbAccountingYear.SelectedID = null;
-            mcbAccountingYear.SourceDataString = new string[6] { "VoucherSeries", "VoucherSeries", "FromDate", "ToDate", "YearEndOver","CurrentYear" };
-            mcbAccountingYear.ColumnWidth = new string[6] { "0", "50", "0", "0", "0","0" };
-            mcbAccountingYear.FillData(dt);           
+            mcbAccountingYear.SourceDataString = new string[6] { "VoucherSeries", "VoucherSeries", "FromDate", "ToDate", "YearEndOver", "CurrentYear" };
+            mcbAccountingYear.ColumnWidth = new string[6] { "0", "50", "0", "0", "0", "0" };
+            mcbAccountingYear.FillData(dt);
         }
 
         private bool IsCurrentYearEntryPresent(DataTable dt, string currentYear)
@@ -295,7 +295,7 @@ namespace EcoMart.InterfaceLayer
                 int year = Convert.ToInt32(DateTime.Now.Year.ToString("0000").Substring(2));
                 if (month >= 4 && month <= 12)
                 {
-                    retValue = year.ToString() + (year + 1).ToString();                    
+                    retValue = year.ToString() + (year + 1).ToString();
                 }
                 else
                 {
@@ -313,7 +313,7 @@ namespace EcoMart.InterfaceLayer
         {
             this.DialogResult = DialogResult.Cancel;
         }
-    
+
         private void txtpasswd_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -321,7 +321,7 @@ namespace EcoMart.InterfaceLayer
                 case Keys.Enter:
                     if (ValidateLogin())
                     {
-                        this.DialogResult = DialogResult.OK;                        
+                        this.DialogResult = DialogResult.OK;
                     }
                     break;
             }
@@ -344,6 +344,6 @@ namespace EcoMart.InterfaceLayer
         {
             if (e.KeyCode == Keys.Enter)
                 btnlogin.Focus();
-        }       
+        }
     }
 }

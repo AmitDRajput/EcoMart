@@ -6,8 +6,6 @@ using PrintDataGrid;
 using EcoMart.Common;
 using System.Windows.Forms;
 
-
-
 namespace EcoMart.Printing
 {
     public class PlainPaperPrinterForDistributor
@@ -18,7 +16,12 @@ namespace EcoMart.Printing
         {
 
         }
-        public void Print(string BillType, string BillNo, string BillDate, string PatientName, string PatientAddress, string PatientAddress2, string PatientTelephone, string PatientVATTIN,  string PatientDLN,string PatientLBT, string DoctorName, string DoctorAddress, DataGridViewRowCollection Rows, double GrossAmount, double DiscountAmount,double VAT12Point5Amount, double VAT5Amount, double ADDAmount, double LESSAmount,string Narration1,string Narration2, double NetAmount, string SaleSubType, double CNAmount, double DNAmount, double BalanceAmount, string ShopDLN, string ShopLBT, double TotalItemDiscount, double TotalSchemeDiscount, double RoundUP)
+        public void Print(string BillType, string BillNo, string BillDate, string PatientName, string PatientAddress, string PatientAddress2, string PatientTelephone, 
+            string PatientVATTIN, string PatientDLN, string PatientLBT, string DoctorName, string DoctorAddress, DataGridViewRowCollection Rows, double GrossAmount, double DiscountAmount, 
+            double GSTAmtS5, double GSTS12, double GSTS18, double GSTS28, double GSTAmtC5, double GSTC12, double GSTC18, double GSTC28,
+            double ADDAmount, double LESSAmount, string Narration1, string Narration2, 
+            double NetAmount, string SaleSubType, double CNAmount, double DNAmount, double BalanceAmount, string ShopDLN, string ShopLBT, double TotalItemDiscount, 
+            double TotalSchemeDiscount, double RoundUP)
         {
             PrintRow row;
             int rowcount = 1;
@@ -37,22 +40,22 @@ namespace EcoMart.Printing
                 //else if (BillType == FixAccounts.VoucherTypeForStockIN)
                 //    IFSaleBill = "I";
                 //else if (BillType == FixAccounts.VoucherTypeForStockOut)
-                 
 
-                    if (IFSaleBill == "W")
-                        PrintFactory.SendReverseLineFeed(General.PrintSettingsForDistributor.SaleBillPrintSettingsPlainPaperForDistributor.GeneralSettingsForDistributor.ReverseLineFeed);
-                    else
-                        PrintFactory.SendReverseLineFeed(General.PrintSettings.DebitNotePrintSettingsPlainPaper.GeneralSettings.ReverseLineFeed);
+
+                if (IFSaleBill == "W")
+                    PrintFactory.SendReverseLineFeed(General.PrintSettingsForDistributor.SaleBillPrintSettingsPlainPaperForDistributor.GeneralSettingsForDistributor.ReverseLineFeed);
+                else
+                    PrintFactory.SendReverseLineFeed(General.PrintSettings.DebitNotePrintSettingsPlainPaper.GeneralSettings.ReverseLineFeed);
 
                 PrintBill.Rows.Clear();
                 if (IFSaleBill == "W")
-                     generalPrintSettings = General.PrintSettingsForDistributor.SaleBillPrintSettingsPlainPaperForDistributor.GeneralSettingsForDistributor;
+                    generalPrintSettings = General.PrintSettingsForDistributor.SaleBillPrintSettingsPlainPaperForDistributor.GeneralSettingsForDistributor;
                 else
                     generalPrintSettings = General.PrintSettingsForDistributor.SaleBillPrintSettingsPlainPaperForDistributor.GeneralSettingsForDistributor;
                 double totpages = Convert.ToDouble(Math.Ceiling(Convert.ToDouble(Rows.Count) / General.CurrentSetting.MsetNumberOfLinesSaleBill));
                 int totalpages = Convert.ToInt32(totpages);
-             
-                PrintHeader(CurrentPageNo, totalpages, BillType, BillNo, BillDate, PatientName, PatientAddress, PatientAddress2, PatientTelephone, PatientVATTIN,PatientDLN,PatientLBT, DoctorName, DoctorAddress, SaleSubType);
+
+                PrintHeader(CurrentPageNo, totalpages, BillType, BillNo, BillDate, PatientName, PatientAddress, PatientAddress2, PatientTelephone, PatientVATTIN, PatientDLN, PatientLBT, DoctorName, DoctorAddress, SaleSubType);
 
 
 
@@ -74,7 +77,7 @@ namespace EcoMart.Printing
                                 PageFooter = General.PrintSettings.DebitNotePrintSettingsPlainPaper.PageFooter;
                             }
 
-                            int PrintPix = PageFooter.ContinueItem.Row ;
+                            int PrintPix = PageFooter.ContinueItem.Row;
                             if (generalPrintSettings.PageWidth > 700)
                                 row = new PrintRow(FixAccounts.DashLine80Normal, PrintPix, 1, General.FontRegular);
                             else
@@ -87,14 +90,14 @@ namespace EcoMart.Printing
                             PrintBill.Rows.Clear();
                             PrintRowPixel = 0;
                             CurrentPageNo += 1;
-                            PrintHeader(CurrentPageNo, totalpages, BillType, BillNo, BillDate, PatientName, PatientAddress, PatientAddress2, PatientTelephone, PatientVATTIN, PatientDLN,PatientLBT , DoctorName, DoctorAddress, SaleSubType);
+                            PrintHeader(CurrentPageNo, totalpages, BillType, BillNo, BillDate, PatientName, PatientAddress, PatientAddress2, PatientTelephone, PatientVATTIN, PatientDLN, PatientLBT, DoctorName, DoctorAddress, SaleSubType);
                             rowcount = 0;
                             PrintRowPixel = generalPrintSettings.ContentStartRow;
                         }
                         PrintRowPixel += 13;
                         rowcount += 1;
                         int colpix = 1;
-                       // int mqty = 0;
+                        // int mqty = 0;
                         int mlen = 0;
                         double mamt = 0;
                         string mproductname = "";
@@ -123,14 +126,14 @@ namespace EcoMart.Printing
                                             string ss = (column.ColumnDataField).ToString();
                                             if (ss != "Col_UnitOfMeasure")
                                             {
-                                                
+
                                                 uom = Convert.ToInt32(dr.Cells[column.ColumnDataField].Value.ToString());
 
 
                                                 mlen = uom.ToString("#0").Length;
 
                                                 colpix = Convert.ToInt32(column.Column + ((5 - Convert.ToInt32(mlen)) * 5.5));
-                                               // string pack = dr.Cells["Col_Pack"].Value.ToString().PadRight(3).Substring(0, 3);
+                                                // string pack = dr.Cells["Col_Pack"].Value.ToString().PadRight(3).Substring(0, 3);
                                                 row = new PrintRow(uom.ToString("#0"), PrintRowPixel, colpix, column.Font);
                                                 PrintBill.Rows.Add(row);
                                             }
@@ -181,7 +184,7 @@ namespace EcoMart.Printing
                                                 if (mpak.Length < 4)
                                                     mpak = mpak.PadRight(4);
                                                 else
-                                                    mpak = mpak.Substring(0, 4);                                               
+                                                    mpak = mpak.Substring(0, 4);
                                                 colpix = column.Column;
                                                 row = new PrintRow(mpak, PrintRowPixel, colpix, column.Font);
                                                 PrintBill.Rows.Add(row);
@@ -204,10 +207,11 @@ namespace EcoMart.Printing
                         }
                     }//End of For each Rows
                 }
-           
 
 
-                PrintFooter(Narration1,Narration2, GrossAmount,DiscountAmount, VAT12Point5Amount,VAT5Amount,ADDAmount,LESSAmount, NetAmount,  CNAmount, DNAmount,  BalanceAmount,ShopDLN, ShopLBT,TotalItemDiscount,TotalSchemeDiscount,RoundUP);
+
+                PrintFooter(Narration1, Narration2, GrossAmount, DiscountAmount, GSTAmtS5, GSTS12, GSTS18, GSTS28, GSTAmtC5, GSTC12, GSTC18, GSTC28,
+                    ADDAmount, LESSAmount, NetAmount, CNAmount, DNAmount, BalanceAmount, ShopDLN, ShopLBT, TotalItemDiscount, TotalSchemeDiscount, RoundUP);
 
 
                 PrintBill.Print_Bill(generalPrintSettings.PageWidth, generalPrintSettings.PageHeight);
@@ -237,8 +241,8 @@ namespace EcoMart.Printing
                 if (SaleSubType == string.Empty)
                     SaleSubType = " ";
                 //PrintFactory.SendReverseLineFeed(6);
-               
-                    PageHeader = General.PrintSettingsForDistributor.SaleBillPrintSettingsPlainPaperForDistributor.PageHeaderForDistributor;
+
+                PageHeader = General.PrintSettingsForDistributor.SaleBillPrintSettingsPlainPaperForDistributor.PageHeaderForDistributor;
                 //}
                 //else
                 //{
@@ -250,9 +254,9 @@ namespace EcoMart.Printing
                     row = new PrintRow(General.ShopDetail.ShopName, PageHeader.ShopName.Row, PageHeader.ShopName.Column, PageHeader.ShopName.Font);
                     PrintBill.Rows.Add(row);
                 }
-                row = new PrintRow("TAX INVOICE", PageHeader.ShopName.Row, PageHeader.ShopName.Column+400, PageHeader.ShopName.Font);
+                row = new PrintRow("GST INVOICE", PageHeader.ShopName.Row, PageHeader.ShopName.Column + 400, PageHeader.ShopName.Font);
                 PrintBill.Rows.Add(row);
-               
+
                 //if (IFSaleBill == "W")
                 //{
                 //    if (BillType == FixAccounts.VoucherTypeForDistributorSaleCash)
@@ -264,10 +268,10 @@ namespace EcoMart.Printing
                 //}
                 //else
                 //{
-                    if (IFSaleBill == "C")
-                        row = new PrintRow(PageHeader.VoucherTypeCreditNote.Text + BillNo.Trim() + "-" + SaleSubType.ToString().Trim(), PageHeader.VoucherTypeCreditNote.Row, PageHeader.VoucherTypeCreditNote.Column, PageHeader.VoucherTypeCreditNote.Font);
-                    else if (IFSaleBill == "D")
-                        row = new PrintRow(PageHeader.VoucherTypeDebitNote.Text + BillNo.Trim() + "-" + SaleSubType.ToString().Trim(), PageHeader.VoucherTypeDebitNote.Row, PageHeader.VoucherTypeDebitNote.Column, PageHeader.VoucherTypeDebitNote.Font);
+                if (IFSaleBill == "C")
+                    row = new PrintRow(PageHeader.VoucherTypeCreditNote.Text + BillNo.Trim() + "-" + SaleSubType.ToString().Trim(), PageHeader.VoucherTypeCreditNote.Row, PageHeader.VoucherTypeCreditNote.Column, PageHeader.VoucherTypeCreditNote.Font);
+                else if (IFSaleBill == "D")
+                    row = new PrintRow(PageHeader.VoucherTypeDebitNote.Text + BillNo.Trim() + "-" + SaleSubType.ToString().Trim(), PageHeader.VoucherTypeDebitNote.Row, PageHeader.VoucherTypeDebitNote.Column, PageHeader.VoucherTypeDebitNote.Font);
                 //}
                 PrintBill.Rows.Add(row);
 
@@ -283,8 +287,8 @@ namespace EcoMart.Printing
                     row = new PrintRow(General.ShopDetail.ShopAddress2.Trim(), PageHeader.ShopAddress2.Row, PageHeader.ShopAddress2.Column, PageHeader.ShopAddress2.Font);
                     PrintBill.Rows.Add(row);
                 }
-                row = new PrintRow(DateTime.Now.TimeOfDay.ToString().Substring(0, 5), PageHeader.Time.Row, PageHeader.Time.Column, PageHeader.Time.Font);
-                PrintBill.Rows.Add(row);
+                //row = new PrintRow(DateTime.Now.TimeOfDay.ToString().Substring(0, 5), PageHeader.Time.Row, PageHeader.Time.Column, PageHeader.Time.Font);
+                //PrintBill.Rows.Add(row);
                 if (PageHeader.ShopTelephone.Show)
                 {
                     row = new PrintRow(PageHeader.ShopTelephone.Text.ToString() + " " + General.ShopDetail.ShopTelephone.Trim(), PageHeader.ShopTelephone.Row, PageHeader.ShopTelephone.Column, PageHeader.ShopTelephone.Font);
@@ -292,7 +296,6 @@ namespace EcoMart.Printing
                 }
                 if (PageHeader.Time.Show)
                 {
-
                     row = new PrintRow(PageHeader.Time.Text.ToString() + " " + DateTime.Now.TimeOfDay.ToString().Substring(0, 5), PageHeader.Time.Row, PageHeader.Time.Column, PageHeader.Time.Font);
                     PrintBill.Rows.Add(row);
                 }
@@ -308,15 +311,15 @@ namespace EcoMart.Printing
                     row = new PrintRow(PageHeader.PatientTelephone.Text.ToString() + " " + PatientTelephone, PageHeader.PatientTelephone.Row, PageHeader.PatientTelephone.Column, PageHeader.PatientTelephone.Font);
                     PrintBill.Rows.Add(row);
                 }
-                row = new PrintRow(PageHeader.PatientVATTINV.Text.ToString() + " " + PatientVATTINV , PageHeader.PatientVATTINV.Row, PageHeader.PatientVATTINV.Column, PageHeader.PatientVATTINV.Font);
-                PrintBill.Rows.Add(row);               
+                row = new PrintRow(PageHeader.PatientVATTINV.Text.ToString() + " " + PatientVATTINV, PageHeader.PatientVATTINV.Row, PageHeader.PatientVATTINV.Column, PageHeader.PatientVATTINV.Font);
+                PrintBill.Rows.Add(row);
                 row = new PrintRow(PageHeader.PartyDLN.Text.ToString() + " " + PatientDLN, PageHeader.PartyDLN.Row, PageHeader.PartyDLN.Column, PageHeader.PartyDLN.Font);
-                PrintBill.Rows.Add(row);              
-                row = new PrintRow(PageHeader.PartyLBT.Text.ToString() + " " + PatientLBT, PageHeader.PartyLBT.Row, PageHeader.PartyLBT.Column, PageHeader.PartyLBT.Font);
                 PrintBill.Rows.Add(row);
-                string page = currentPageNo.ToString().Trim() + "/" + TotalPages.ToString().Trim();
-                row = new PrintRow(PageHeader.PageNo.Text.ToString() + " " + page, PageHeader.PageNo.Row, PageHeader.PageNo.Column, PageHeader.PageNo.Font);
-                PrintBill.Rows.Add(row);
+                //row = new PrintRow(PageHeader.PartyLBT.Text.ToString() + " " + PatientLBT, PageHeader.PartyLBT.Row, PageHeader.PartyLBT.Column, PageHeader.PartyLBT.Font);
+                //PrintBill.Rows.Add(row);
+                //string page = currentPageNo.ToString().Trim() + "/" + TotalPages.ToString().Trim();
+                //row = new PrintRow(PageHeader.PageNo.Text.ToString() + " " + page, PageHeader.PageNo.Row, PageHeader.PageNo.Column, PageHeader.PageNo.Font);
+                //PrintBill.Rows.Add(row);
 
                 if (PageHeader.DoctorName.Show)
                 {
@@ -330,7 +333,7 @@ namespace EcoMart.Printing
                     PrintBill.Rows.Add(row);
                 }
 
-                int PrintRowPixel = PageHeader.PageNo.Row+20;
+                int PrintRowPixel = PageHeader.PageNo.Row + 20;
 
                 if (generalPrintSettings.PageWidth > 700)
                     row = new PrintRow(FixAccounts.DashLine80Normal, PrintRowPixel, 1, General.FontRegular);
@@ -342,7 +345,7 @@ namespace EcoMart.Printing
                 EcoMart.Printing.PageContentForDistributor PageContent;
 
                 PageContent = General.PrintSettingsForDistributor.SaleBillPrintSettingsPlainPaperForDistributor.PageContentForDistributor;
-          
+
                 for (int i = 0; i < PageContent.ColumnCount; i++)
                 {
                     if (PageContent.Columns[i].Show == true)
@@ -368,7 +371,9 @@ namespace EcoMart.Printing
         }
 
 
-        private void PrintFooter(string Narration1, string Narration2, double GrossAmount, double DiscountAmount, double Vat12point5Amount, double Vat5Amount, double AddAmount, double LessAmount, double NetAmount, double CNAmount, double DNAmount, double BalanceAmount, string ShopDLN, string ShopLBT, double itemDiscount, double schemeDiscount, double roundUP)
+        private void PrintFooter(string Narration1, string Narration2, double GrossAmount, double DiscountAmount,
+            double GSTSAmt5, double GSTSAmt12, double GSTSAmt18, double GSTSAmt28, double GSTCAmt5, double GSTCAmt12, double GSTCAmt18, double GSTCAmt28,
+            double AddAmount, double LessAmount, double NetAmount, double CNAmount, double DNAmount, double BalanceAmount, string ShopDLN, string ShopLBT, double itemDiscount, double schemeDiscount, double roundUP)
         {
             PrintRow row;
             PageFooterForDistributor PageFooter;
@@ -377,12 +382,12 @@ namespace EcoMart.Printing
                 PageFooter = General.PrintSettingsForDistributor.SaleBillPrintSettingsPlainPaperForDistributor.PageFooterForDistributor;
                 if (PageFooter.NarrationItem.Show)
                 {
-                  //  string nn = Concat(Narration1.Trim(), " ", Narration2.Trim());
-                    row = new PrintRow(Narration1.Trim()+ " "+Narration2.Trim(), PageFooter.NarrationItem.Row, PageFooter.NarrationItem.Column, PageFooter.NarrationItem.Font);
+                    //  string nn = Concat(Narration1.Trim(), " ", Narration2.Trim());
+                    row = new PrintRow(Narration1.Trim() + " " + Narration2.Trim(), PageFooter.NarrationItem.Row, PageFooter.NarrationItem.Column, PageFooter.NarrationItem.Font);
                     PrintBill.Rows.Add(row);
                 }
-             
-                if (PageFooter.BalanceAmountItem.Show )
+
+                if (PageFooter.BalanceAmountItem.Show)
                 {
                     row = new PrintRow(PageFooter.BalanceAmountItem.Text + BalanceAmount.ToString("#0.00"), PageFooter.BalanceAmountItem.Row, PageFooter.BalanceAmountItem.Column, PageFooter.BalanceAmountItem.Font);
                     PrintBill.Rows.Add(row);
@@ -418,11 +423,11 @@ namespace EcoMart.Printing
                 {
                     row = new PrintRow(PageFooter.VATTINCItem.Text.ToString() + " " + General.ShopDetail.ShopVATTINC.ToString(), PageFooter.VATTINCItem.Row, PageFooter.VATTINCItem.Column, PageFooter.VATTINCItem.Font);
                     PrintBill.Rows.Add(row);
-                }                             
-              
+                }
+
                 if (PageFooter.DiscountItem.Show)
                 {
-                    row = new PrintRow(PageFooter.DiscountItem.Text.ToString()+ DiscountAmount.ToString("#0.00"), PageFooter.DiscountItem.Row, PageFooter.DiscountItem.Column, PageFooter.DiscountItem.Font);
+                    row = new PrintRow(PageFooter.DiscountItem.Text.ToString() + DiscountAmount.ToString("#0.00"), PageFooter.DiscountItem.Row, PageFooter.DiscountItem.Column, PageFooter.DiscountItem.Font);
                     PrintBill.Rows.Add(row);
                 }
                 if (PageFooter.DeclarationItem1.Show)
@@ -430,36 +435,75 @@ namespace EcoMart.Printing
                     row = new PrintRow(PageFooter.DeclarationItem1.Text.ToString(), PageFooter.DeclarationItem1.Row, PageFooter.DeclarationItem1.Column, PageFooter.DeclarationItem1.Font);
                     PrintBill.Rows.Add(row);
                 }
-                if (PageFooter.LBTItem.Show)
+                //if (PageFooter.LBTItem.Show)
+                //{
+                //    row = new PrintRow(PageFooter.LBTItem.Text.ToString() + " " + ShopLBT, PageFooter.LBTItem.Row, PageFooter.LBTItem.Column, PageFooter.LBTItem.Font);
+                //    PrintBill.Rows.Add(row);
+                //}
+
+                if (PageFooter.GSTAmtS5Item.Show)
                 {
-                    row = new PrintRow(PageFooter.LBTItem.Text.ToString() + " " + ShopLBT, PageFooter.LBTItem.Row, PageFooter.LBTItem.Column, PageFooter.LBTItem.Font);
+                    row = new PrintRow(PageFooter.GSTAmtS5Item.Text.ToString() + GSTSAmt5.ToString("#0.00"), PageFooter.GSTAmtS5Item.Row, PageFooter.GSTAmtS5Item.Column, PageFooter.GSTAmtS5Item.Font);
                     PrintBill.Rows.Add(row);
                 }
 
-                if (PageFooter.Vat12point5Item.Show)
+                if (PageFooter.GSTAmtS12Item.Show)
                 {
-                    row = new PrintRow( PageFooter.Vat12point5Item.Text.ToString()+ Vat12point5Amount.ToString("#0.00"), PageFooter.Vat12point5Item.Row, PageFooter.Vat12point5Item.Column, PageFooter.Vat12point5Item.Font);
+                    row = new PrintRow(PageFooter.GSTAmtS12Item.Text.ToString() + GSTSAmt12.ToString("#0.00"), PageFooter.GSTAmtS12Item.Row, PageFooter.GSTAmtS12Item.Column, PageFooter.GSTAmtS12Item.Font);
                     PrintBill.Rows.Add(row);
                 }
+
+                if (PageFooter.GSTAmtS18Item.Show)
+                {
+                    row = new PrintRow(PageFooter.GSTAmtS18Item.Text.ToString() + GSTSAmt18.ToString("#0.00"), PageFooter.GSTAmtS18Item.Row, PageFooter.GSTAmtS18Item.Column, PageFooter.GSTAmtS18Item.Font);
+                    PrintBill.Rows.Add(row);
+                }
+
+                if (PageFooter.GSTAmtS28Item.Show)
+                {
+                    row = new PrintRow(PageFooter.GSTAmtS28Item.Text.ToString() + GSTSAmt28.ToString("#0.00"), PageFooter.GSTAmtS28Item.Row, PageFooter.GSTAmtS28Item.Column, PageFooter.GSTAmtS28Item.Font);
+                    PrintBill.Rows.Add(row);
+                }
+
+                if (PageFooter.GSTAmtC5Item.Show)
+                {
+                    row = new PrintRow(PageFooter.GSTAmtC5Item.Text.ToString() + GSTCAmt5.ToString("#0.00"), PageFooter.GSTAmtC5Item.Row, PageFooter.GSTAmtC5Item.Column, PageFooter.GSTAmtC5Item.Font);
+                    PrintBill.Rows.Add(row);
+                }
+
+                if (PageFooter.GSTAmtC12Item.Show)
+                {
+                    row = new PrintRow(PageFooter.GSTAmtC12Item.Text.ToString() + GSTCAmt12.ToString("#0.00"), PageFooter.GSTAmtC12Item.Row, PageFooter.GSTAmtC12Item.Column, PageFooter.GSTAmtC12Item.Font);
+                    PrintBill.Rows.Add(row);
+                }
+
+                if (PageFooter.GSTAmtC18Item.Show)
+                {
+                    row = new PrintRow(PageFooter.GSTAmtC18Item.Text.ToString() + GSTCAmt18.ToString("#0.00"), PageFooter.GSTAmtC18Item.Row, PageFooter.GSTAmtC18Item.Column, PageFooter.GSTAmtC18Item.Font);
+                    PrintBill.Rows.Add(row);
+                }
+
+                if (PageFooter.GSTAmtC28Item.Show)
+                {
+                    row = new PrintRow(PageFooter.GSTAmtC28Item.Text.ToString() + GSTCAmt28.ToString("#0.00"), PageFooter.GSTAmtC28Item.Row, PageFooter.GSTAmtC28Item.Column, PageFooter.GSTAmtC28Item.Font);
+                    PrintBill.Rows.Add(row);
+                }
+
                 if (PageFooter.DeclarationItem2.Show)
                 {
                     row = new PrintRow(PageFooter.DeclarationItem2.Text.ToString(), PageFooter.DeclarationItem2.Row, PageFooter.DeclarationItem2.Column, PageFooter.DeclarationItem2.Font);
                     PrintBill.Rows.Add(row);
                 }
-                if (PageFooter.Vat5Item.Show)
-                {
-                    row = new PrintRow(PageFooter.Vat5Item.Text.ToString() + Vat5Amount.ToString("#0.00"), PageFooter.Vat5Item.Row, PageFooter.Vat5Item.Column, PageFooter.Vat5Item.Font);
-                    PrintBill.Rows.Add(row);
-                }
+                
                 if (PageFooter.DeclarationItem3.Show)
                 {
                     row = new PrintRow(PageFooter.DeclarationItem3.Text.ToString(), PageFooter.DeclarationItem3.Row, PageFooter.DeclarationItem3.Column, PageFooter.DeclarationItem3.Font);
                     PrintBill.Rows.Add(row);
-                }              
-             
-                if (PageFooter.SchemeDiscountItem.Show )
+                }
+
+                if (PageFooter.SchemeDiscountItem.Show)
                 {
-                    row = new PrintRow(PageFooter.SchemeDiscountItem.Text +  schemeDiscount.ToString("#0.00"), PageFooter.SchemeDiscountItem.Row, PageFooter.SchemeDiscountItem.Column, PageFooter.SchemeDiscountItem.Font);
+                    row = new PrintRow(PageFooter.SchemeDiscountItem.Text + schemeDiscount.ToString("#0.00"), PageFooter.SchemeDiscountItem.Row, PageFooter.SchemeDiscountItem.Column, PageFooter.SchemeDiscountItem.Font);
                     PrintBill.Rows.Add(row);
                 }
 

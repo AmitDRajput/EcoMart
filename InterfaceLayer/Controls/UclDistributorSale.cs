@@ -314,14 +314,24 @@ namespace EcoMart.InterfaceLayer
         private void PrintSaleBillPrePrintedPaper()
         {
             EcoMart.Printing.PlainPaperPrinterForDistributor printer = new EcoMart.Printing.PlainPaperPrinterForDistributor();
-            printer.Print(_SSSale.CrdbVouType, _SSSale.CrdbVouNo.ToString(), _SSSale.CrdbVouDate, _SSSale.CrdbName, _SSSale.PatientAddress1, _SSSale.PatientAddress2, _SSSale.Telephone, _SSSale.PatientVATTIN, _SSSale.PartyDLN, _SSSale.PartyLBT, _SSSale.DoctorName, _SSSale.DoctorAddress, mpMSVC.Rows, _SSSale.CrdbAmount, _SSSale.CrdbDiscAmt, _SSSale.CrdbVat12point5, _SSSale.CrdbVat5, _SSSale.CrdbTotalADD, _SSSale.CrdbTotalLESS, _SSSale.CrdbNarration1, _SSSale.CrdbNarration2, _SSSale.CrdbAmountNet, _SSSale.SaleSubType, _SSSale.CrNoteAmount, _SSSale.DbNoteAmount, _SSSale.PendingAmount + _SSSale.CrdbAmountNet, General.ShopDetail.ShopDLNDist, General.ShopDetail.ShopLBT, _SSSale.ItemTotalDiscount, _SSSale.SchemeTotalDiscount, _SSSale.CrdbRoundAmount);
+            printer.Print(_SSSale.CrdbVouType, _SSSale.CrdbVouNo.ToString(), _SSSale.CrdbVouDate, _SSSale.CrdbName, _SSSale.PatientAddress1, _SSSale.PatientAddress2, 
+                _SSSale.Telephone, _SSSale.PatientVATTIN, _SSSale.PartyDLN, _SSSale.PartyLBT, _SSSale.DoctorName, _SSSale.DoctorAddress, mpMSVC.Rows, _SSSale.CrdbAmount, 
+                _SSSale.CrdbDiscAmt, _SSSale.GSTAmtS5, _SSSale.GSTAmtS12, _SSSale.GSTAmtS18, _SSSale.GSTAmtS28, _SSSale.GSTAmtC5, _SSSale.GSTAmtC12, _SSSale.GSTAmtC18, _SSSale.GSTAmtC28,
+                _SSSale.CrdbTotalADD, _SSSale.CrdbTotalLESS, _SSSale.CrdbNarration1, _SSSale.CrdbNarration2, _SSSale.CrdbAmountNet, _SSSale.SaleSubType, _SSSale.CrNoteAmount, 
+                _SSSale.DbNoteAmount, _SSSale.PendingAmount + _SSSale.CrdbAmountNet, General.ShopDetail.ShopDLNDist, General.ShopDetail.ShopLBT, _SSSale.ItemTotalDiscount, 
+                _SSSale.SchemeTotalDiscount, _SSSale.CrdbRoundAmount);
 
         }
 
         private void PrintSaleBillPlainPaper()
         {
             EcoMart.Printing.PlainPaperPrinterForDistributor printer = new EcoMart.Printing.PlainPaperPrinterForDistributor();
-            printer.Print(_SSSale.CrdbVouType, _SSSale.CrdbVouNo.ToString(), _SSSale.CrdbVouDate, _SSSale.CrdbName, _SSSale.PatientAddress1, _SSSale.PatientAddress2, _SSSale.Telephone, _SSSale.PatientVATTIN, _SSSale.PartyDLN, _SSSale.PartyLBT, _SSSale.DoctorName, _SSSale.DoctorAddress, mpMSVC.Rows, _SSSale.CrdbAmount, _SSSale.CrdbDiscAmt, _SSSale.CrdbVat12point5, _SSSale.CrdbVat5, _SSSale.CrdbTotalADD, _SSSale.CrdbTotalLESS, _SSSale.CrdbNarration1, _SSSale.CrdbNarration2, _SSSale.CrdbAmountNet, _SSSale.SaleSubType, _SSSale.CrNoteAmount, _SSSale.DbNoteAmount, _SSSale.PendingAmount + _SSSale.CrdbAmountNet, General.ShopDetail.ShopDLNDist, General.ShopDetail.ShopLBT, _SSSale.ItemTotalDiscount, _SSSale.SchemeTotalDiscount, _SSSale.CrdbRoundAmount);
+            printer.Print(_SSSale.CrdbVouType, _SSSale.CrdbVouNo.ToString(), _SSSale.CrdbVouDate, _SSSale.CrdbName, _SSSale.PatientAddress1, _SSSale.PatientAddress2, 
+                _SSSale.Telephone, _SSSale.PatientVATTIN, _SSSale.PartyDLN, _SSSale.PartyLBT, _SSSale.DoctorName, _SSSale.DoctorAddress, mpMSVC.Rows, _SSSale.CrdbAmount, 
+                _SSSale.CrdbDiscAmt, _SSSale.GSTAmtS5, _SSSale.GSTAmtS12, _SSSale.GSTAmtS18, _SSSale.GSTAmtS28, _SSSale.GSTAmtC5, _SSSale.GSTAmtC12, _SSSale.GSTAmtC18, _SSSale.GSTAmtC28, 
+                _SSSale.CrdbTotalADD, _SSSale.CrdbTotalLESS, _SSSale.CrdbNarration1, _SSSale.CrdbNarration2, _SSSale.CrdbAmountNet, _SSSale.SaleSubType, _SSSale.CrNoteAmount, 
+                _SSSale.DbNoteAmount, _SSSale.PendingAmount + _SSSale.CrdbAmountNet, General.ShopDetail.ShopDLNDist, General.ShopDetail.ShopLBT, _SSSale.ItemTotalDiscount, 
+                _SSSale.SchemeTotalDiscount, _SSSale.CrdbRoundAmount);
 
         }
 

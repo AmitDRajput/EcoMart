@@ -1,2018 +1,2067 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <PrintSettingsForDistributor>
-  <SaleBillPrintSettingsPlainPaperForDistributor>
-    <GeneralSettingsForDistributor>
-      <PageWidth>800</PageWidth>
-      <PageHeight>400</PageHeight>
-      <LineFeed>13</LineFeed>
-      <ReverseLineFeed>8</ReverseLineFeed>
-      <ContentStartRow>100</ContentStartRow>
-    </GeneralSettingsForDistributor>
-    <PageHeaderForDistributor>
-      <ShopNameItem>
-        <Text></Text>
-        <Row>10</Row>
-        <Column>1</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>true</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </ShopNameItem>
-      <ShopAddress1Item>
-        <Text></Text>
-        <Row>25</Row>
-        <Column>1</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </ShopAddress1Item>
-      <ShopAddress2Item>
-        <Text></Text>
-        <Row>40</Row>
-        <Column>1</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </ShopAddress2Item>
-      <ShopTelephoneItem>
-        <Text>Tel:</Text>
-        <Row>55</Row>
-        <Column>1</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ShopTelephoneItem>
-      <PatientName>
-        <Text>Patient Name</Text>
-        <Row>25</Row>
-        <Column>360</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PatientName>
-      <PatientAddress1>
-        <Text>Add :</Text>
-        <Row>40</Row>
-        <Column>360</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </PatientAddress1>
-      <PatientAddress2>
-        <Text>Add :</Text>
-        <Row>55</Row>
-        <Column>360</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>true</ShowText>
-      </PatientAddress2>
-      <PatientTelephone>
-        <Text>"Tel:</Text>
-        <Row>55</Row>
-        <Column>360</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PatientTelephone>
-      <PatientVATTINV>
-        <Text>VATTIN:</Text>
-        <Row>70</Row>
-        <Column>130</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PatientVATTINV>
-      <PatientLBT>
-        <Text>LBT:</Text>
-        <Row>70</Row>
-        <Column>350</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PatientLBT>
-      <PatientDLN>
-        <Text>DLN:</Text>
-        <Row>70</Row>
-        <Column>610</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PatientDLN>
-      <DoctorName>
-        <Text>Doc Name Add: </Text>
-        <Row>85</Row>
-        <Column>1</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </DoctorName>
-      <DoctorAddress>
-        <Text>Add:</Text>
-        <Row>85</Row>
-        <Column>300</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </DoctorAddress>
-      <TimeItem>
-        <Text>Time:</Text>
-        <Row>40</Row>
-        <Column>600</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </TimeItem>
-      <VoucherTypeSCAItem>
-        <Text>Cash Memo:</Text>       
-        <Row>10</Row>
-        <Column>600</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeSCAItem>      
-      <VoucherTypeSCRItem>        
-        <Text>Cr.Sale:</Text>
-        <Row>10</Row>
-        <Column>600</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeSCRItem>
-      <VoucherTypeSCSItem>       
-        <Text>Credit Statement:</Text>
-        <Row>10</Row>
-        <Column>600</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeSCSItem>
-      <VoucherTypeSVUItem>
-        <Text>Voucher Sale:</Text>
-        <Row>10</Row>
-        <Column>600</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeSVUItem>
-      <VoucherTypeDebitNoteItem>
-        <Text>Debit Note:</Text>
-        <Row>54</Row>
-        <Column>600</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeDebitNoteItem>
-      <VoucherTypeCreditNoteItem> 
-        <Text>Credit Note:</Text>
-        <Row>54</Row>
-        <Column>600</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeCreditNoteItem>
-      <VoucherTypeStockOUTItem>
-        <Text>Stock OUT:</Text>
-        <Row>54</Row>
-        <Column>600</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeStockOUTItem>
-      <VoucherTypeStockINItem>
-        <Text>Stock In:</Text>
-        <Row>54</Row>
-        <Column>600</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeStockINItem>
-      <DateItem>
-        <Text>Date:</Text>
-        <Row>25</Row>
-        <Column>600</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DateItem>
-      <PageNoItem>
-        <Text>Page:</Text>
-        <Row>55</Row>
-        <Column>600</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </PageNoItem>
-    </PageHeaderForDistributor>
-    <PageContentForDistributor>
-      <ColumnCount>13</ColumnCount>
-      <Column1>
-        <ColumnHeader>Co</ColumnHeader>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_ProdCompShortName</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>1</Column>
-        <Show>true</Show>
-      </Column1>
-     
-      <Column2>
-        <ColumnHeader>Description</ColumnHeader>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_ProductName</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>32</Column>
-        <Show>true</Show>
-      </Column2>
-      <Column3>
-        <ColumnHeader>PACK</ColumnHeader>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Pack</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>215</Column>
-        <Show>true</Show>
-      </Column3>
-      <Column4>
-        <ColumnHeader>  Qty</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Quantity</ColumnDataField>
-        <ColumnDataType>Integer</ColumnDataType>
-        <Column>265</Column>
-        <Show>true</Show>
-      </Column4>
-      <Column5>
-        <ColumnHeader>FRE</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Scheme</ColumnDataField>
-        <ColumnDataType>Integer</ColumnDataType>
-        <Column>300</Column>
-        <Show>true</Show>
-      </Column5>
-      <Column6>
-        <ColumnHeader>Batch</ColumnHeader>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_BatchNumber</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>340</Column>
-        <Show>true</Show>
-      </Column6>
-      <Column7>
-        <ColumnHeader>Expiry</ColumnHeader>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Expiry</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>410</Column>
-        <Show>true</Show>
-      </Column7>
-      <Column8>
-        <ColumnHeader> M.R.P.</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_MRP</ColumnDataField>
-        <ColumnDataType>Decimal</ColumnDataType>
-        <Column>450</Column>
-        <Show>true</Show>
-      </Column8>
-      <Column9>
-        <ColumnHeader>  Rate</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_SaleRate</ColumnDataField>
-        <ColumnDataType>Decimal</ColumnDataType>
-        <Column>520</Column>
-        <Show>true</Show>
-      </Column9>
-      <Column10>
-        <ColumnHeader>S Disc</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_ItemSCMDiscountAmount</ColumnDataField>
-        <ColumnDataType>Decimal</ColumnDataType>
-        <Column>580</Column>
-        <Show>true</Show>
-      </Column10>
-      <Column11>
-        <ColumnHeader>Amount</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Amount</ColumnDataField>
-        <ColumnDataType>Decimal</ColumnDataType>
-        <Column>630</Column>
-        <Show>true</Show>
-      </Column11>
-      <Column12>
-        <ColumnHeader>DISC</ColumnHeader>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_ItemDiscountPer</ColumnDataField>
-        <ColumnDataType>Decimal</ColumnDataType>
-        <Column>690</Column>
-        <Show>true</Show>
-      </Column12>
-      <Column13>
-        <ColumnHeader> VAT</ColumnHeader>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_VatPer</ColumnDataField>
-        <ColumnDataType>Decimal</ColumnDataType>
-        <Column>720</Column>
-        <Show>true</Show>
-      </Column13>
-    </PageContentForDistributor>
-    <PageFooterForDistributor>
-      <NarrationItem>
-        <Text>Narration:</Text>
-        <Row>235</Row>
-        <Column>1</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </NarrationItem>
-      <BalanceAmountItem>
-        <Text>Bal:</Text>
-        <Row>235</Row>
-        <Column>550</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </BalanceAmountItem>
-      <DLNItem>
-        <Text>DLN No:</Text>
-        <Row>261</Row>
-        <Column>1</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DLNItem>
-     
-      <VATTINVItem>
-        <Text>VAT TIN:</Text>
-        <Row>261</Row>
-        <Column>400</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VATTINVItem>
-    
-      <GrossAmountItem>
-        <Text>Gross Amount:</Text>
-        <Row>261</Row>
-        <Column>600</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </GrossAmountItem>
-      
-      <VATTINCItem>
-        <Text>VATTINV   :</Text>
-        <Row>275</Row>
-        <Column>350</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>False</Show>
-        <ShowText>False</ShowText>
-      </VATTINCItem>
-     
-      <LBTItem>
-        <Text>LBT No:</Text>
-        <Row>275</Row>
-        <Column>1</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </LBTItem>
-      <DiscountItem>
-        <Text>C Disc:</Text>
-        <Row>287</Row>
-        <Column>250</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DiscountItem>
-      <SchemeDiscountItem>
-        <Text>Scm Disc:</Text>
-        <Row>275</Row>
-        <Column>250</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </SchemeDiscountItem>
+	<SaleBillPrintSettingsPlainPaperForDistributor>
+		<GeneralSettingsForDistributor>
+			<PageWidth>800</PageWidth>
+			<PageHeight>400</PageHeight>
+			<LineFeed>13</LineFeed>
+			<ReverseLineFeed>8</ReverseLineFeed>
+			<ContentStartRow>120</ContentStartRow>
+		</GeneralSettingsForDistributor>
+		<PageHeaderForDistributor>
+			<ShopNameItem>
+				<Text></Text>
+				<Row>10</Row>
+				<Column>1</Column>
+				<FontSize>12</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>true</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</ShopNameItem>
+			<ShopAddress1Item>
+				<Text></Text>
+				<Row>25</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</ShopAddress1Item>
+			<ShopAddress2Item>
+				<Text></Text>
+				<Row>40</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</ShopAddress2Item>
+			<ShopTelephoneItem>
+				<Text>Tel:</Text>
+				<Row>55</Row>
+				<Row>55</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ShopTelephoneItem>
+			<PatientName>
+				<Text>Patient Name</Text>
+				<Row>25</Row>
+				<Column>600</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</PatientName>
+			<PatientAddress1>
+				<Text>Add :</Text>
+				<Row>40</Row>
+				<Column>600</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</PatientAddress1>
+			<PatientAddress2>
+				<Text>Add :</Text>
+				<Row>55</Row>
+				<Column>600</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>true</ShowText>
+			</PatientAddress2>
+			<PatientTelephone>
+				<Text>Tel:</Text>
+				<Row>55</Row>
+				<Column>600</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</PatientTelephone>
+			<PatientVATTINV>
+				<Text>GSTIN/UIN:</Text>
+				<Row>85</Row>
+				<Column>600</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</PatientVATTINV>
+			<PatientDLN>
+				<Text>DLN:</Text>
+				<Row>70</Row>
+				<Column>600</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</PatientDLN>
+			<DoctorName>
+				<Text>Doc Name Add: </Text>
+				<Row>85</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</DoctorName>
+			<DoctorAddress>
+				<Text>Add:</Text>
+				<Row>85</Row>
+				<Column>300</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</DoctorAddress>
+			<TimeItem>
+				<Text>Time:</Text>
+				<Row>65</Row>
+				<Column>360</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</TimeItem>
+			<VoucherTypeSCAItem>
+				<Text>Cash Memo:</Text>
+				<Row>35</Row>
+				<Column>360</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeSCAItem>
+			<VoucherTypeSCRItem>
+				<Text>Cr.Sale:</Text>
+				<Row>35</Row>
+				<Column>360</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeSCRItem>
+			<VoucherTypeSCSItem>
+				<Text>Credit Statement:</Text>
+				<Row>35</Row>
+				<Column>360</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeSCSItem>
+			<VoucherTypeSVUItem>
+				<Text>Voucher Sale:</Text>
+				<Row>35</Row>
+				<Column>360</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeSVUItem>
+			<VoucherTypeDebitNoteItem>
+				<Text>Debit Note:</Text>
+				<Row>79</Row>
+				<Column>360</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeDebitNoteItem>
+			<VoucherTypeCreditNoteItem>
+				<Text>Credit Note:</Text>
+				<Row>79</Row>
+				<Column>360</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeCreditNoteItem>
+			<VoucherTypeStockOUTItem>
+				<Text>Stock OUT:</Text>
+				<Row>54</Row>
+				<Column>600</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeStockOUTItem>
+			<VoucherTypeStockINItem>
+				<Text>Stock In:</Text>
+				<Row>54</Row>
+				<Column>600</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeStockINItem>
+			<DateItem>
+				<Text>Date:</Text>
+				<Row>50</Row>
+				<Column>360</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</DateItem>
+			<PageNoItem>
+				<Text>Page:</Text>
+				<Row>75</Row>
+				<Column>600</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>true</ShowText>
+			</PageNoItem>
+		</PageHeaderForDistributor>
+		<PageContentForDistributor>
+			<ColumnCount>13</ColumnCount>
+			<Column1>
+				<ColumnHeader>Co</ColumnHeader>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_ProdCompShortName</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>1</Column>
+				<Show>true</Show>
+			</Column1>
 
-      <ItemDiscountItem>
-        <Text>Item Disc:</Text>
-        <Row>275</Row>
-        <Column>350</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ItemDiscountItem>
+			<Column2>
+				<ColumnHeader>Description</ColumnHeader>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_ProductName</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>32</Column>
+				<Show>true</Show>
+			</Column2>
+			<Column3>
+				<ColumnHeader>PACK</ColumnHeader>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Pack</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>215</Column>
+				<Show>true</Show>
+			</Column3>
+			<Column4>
+				<ColumnHeader>  Qty</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Quantity</ColumnDataField>
+				<ColumnDataType>Integer</ColumnDataType>
+				<Column>265</Column>
+				<Show>true</Show>
+			</Column4>
+			<Column5>
+				<ColumnHeader>FRE</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Scheme</ColumnDataField>
+				<ColumnDataType>Integer</ColumnDataType>
+				<Column>300</Column>
+				<Show>true</Show>
+			</Column5>
+			<Column6>
+				<ColumnHeader>Batch</ColumnHeader>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_BatchNumber</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>340</Column>
+				<Show>true</Show>
+			</Column6>
+			<Column7>
+				<ColumnHeader>Expiry</ColumnHeader>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Expiry</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>410</Column>
+				<Show>true</Show>
+			</Column7>
+			<Column8>
+				<ColumnHeader> M.R.P.</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_MRP</ColumnDataField>
+				<ColumnDataType>Decimal</ColumnDataType>
+				<Column>450</Column>
+				<Show>true</Show>
+			</Column8>
+			<Column9>
+				<ColumnHeader>  Rate</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_SaleRate</ColumnDataField>
+				<ColumnDataType>Decimal</ColumnDataType>
+				<Column>520</Column>
+				<Show>true</Show>
+			</Column9>
+			<Column10>
+				<ColumnHeader>S Disc</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_ItemSCMDiscountAmount</ColumnDataField>
+				<ColumnDataType>Decimal</ColumnDataType>
+				<Column>580</Column>
+				<Show>true</Show>
+			</Column10>
+			<Column11>
+				<ColumnHeader>Amount</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Amount</ColumnDataField>
+				<ColumnDataType>Decimal</ColumnDataType>
+				<Column>630</Column>
+				<Show>true</Show>
+			</Column11>
+			<Column12>
+				<ColumnHeader>DISC</ColumnHeader>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_ItemDiscountPer</ColumnDataField>
+				<ColumnDataType>Decimal</ColumnDataType>
+				<Column>690</Column>
+				<Show>true</Show>
+			</Column12>
+			<Column13>
+				<ColumnHeader> GST</ColumnHeader>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_VatPer</ColumnDataField>
+				<ColumnDataType>Decimal</ColumnDataType>
+				<Column>720</Column>
+				<Show>true</Show>
+			</Column13>
+		</PageContentForDistributor>
+		<PageFooterForDistributor>
+			<NarrationItem>
+				<Text>Narration:</Text>
+				<Row>235</Row>
+				<Column>1</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</NarrationItem>
+			<BalanceAmountItem>
+				<Text>Bal:</Text>
+				<Row>235</Row>
+				<Column>550</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</BalanceAmountItem>
+			<DLNItem>
+				<Text>DLN No:</Text>
+				<Row>261</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</DLNItem>
+
+			<VATTINVItem>
+				<Text>GSTIN:</Text>
+				<Row>261</Row>
+				<Column>400</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VATTINVItem>
+
+			<GrossAmountItem>
+				<Text>Gross Amount:</Text>
+				<Row>261</Row>
+				<Column>600</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</GrossAmountItem>
+			<VATTINCItem>
+				<Text>GSTINV   :</Text>
+				<Row>275</Row>
+				<Column>350</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>False</Show>
+				<ShowText>False</ShowText>
+			</VATTINCItem>
+			
+			<DiscountItem>
+				<Text>C Disc:</Text>
+				<Row>287</Row>
+				<Column>250</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</DiscountItem>
+			<SchemeDiscountItem>
+				<Text>Scm Disc:</Text>
+				<Row>275</Row>
+				<Column>250</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</SchemeDiscountItem>
+
+			<ItemDiscountItem>
+				<Text>Item Disc:</Text>
+				<Row>275</Row>
+				<Column>350</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ItemDiscountItem>
 
 
-      <RoundupItem>
-        <Text>Round Up:</Text>
-        <Row>275</Row>
-        <Column>465</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </RoundupItem>
+			<RoundupItem>
+				<Text>Round Up:</Text>
+				<Row>275</Row>
+				<Column>465</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</RoundupItem>
 
-      <ADDItem>
-        <Text>ADD              :</Text>
-        <Row>275</Row>
-        <Column>650</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ADDItem>
-      <JurisdictionItem>
-        <Text>Jurisdiction:</Text>
-        <Row>287</Row>
-        <Column>1</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </JurisdictionItem>
-      <CreditNoteItem>
-        <Text>CN:</Text>
-        <Row>287</Row>
-        <Column>1</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </CreditNoteItem>
+			<ADDItem>
+				<Text>ADD              :</Text>
+				<Row>275</Row>
+				<Column>650</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ADDItem>
+			<JurisdictionItem>
+				<Text>Jurisdiction:</Text>
+				<Row>287</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</JurisdictionItem>
+			<CreditNoteItem>
+				<Text>CN:</Text>
+				<Row>275</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</CreditNoteItem>
 
-      <DebitNoteItem>
-        <Text>DN:</Text>
-        <Row>287</Row>
-        <Column>130</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DebitNoteItem>
-      <VAT12Point5Item>
-        <Text>VAT 13.5 per:</Text>
-        <Row>287</Row>
-        <Column>350</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VAT12Point5Item>
-      <VAT5Item>
-        <Text>VAT 6 per:</Text>
-        <Row>287</Row>
-        <Column>465</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VAT5Item>
-      <LESSItem>
-        <Text>LESS             :</Text>
-        <Row>287</Row>
-        <Column>650</Column>
-        <FontSize>9</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </LESSItem>
-      <SubjectItem>
-        <Text>I/We hereby certify that my/our Registration Certificate under Maharashtra Value Added Tax Act,2002 is in force on the date </Text>
-        <Row>300</Row>
-        <Column>1</Column>
-        <FontSize>7</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </SubjectItem>
-      <NetAmountItem>
-        <Text>Net Amount  :</Text>
-        <Row>300</Row>
-        <Column>600</Column>
-        <FontSize>11</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </NetAmountItem>  
-      <DeclarationItem1>
-        <Text> on which the sale of goods specified in this Tax Invoice is made by me/us and that the transaction of sale covered by this Tax  </Text>
-        <Row>313</Row>
-        <Column>1</Column>
-        <FontSize>7</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DeclarationItem1>
-     
-      <DeclarationItem2>
-        <Text>Invoice is made by me/us and it shall beaccounted for in the turnover of sales while filling of return and the due tax, </Text>
-        <Row>326</Row>
-        <Column>1</Column>
-        <FontSize>7</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DeclarationItem2>
-     
-      <DeclarationItem3>
-        <Text>if any,payable on the sale has been paid or shall be paid</Text>
-        <Row>339</Row>
-        <Column>1</Column>
-        <FontSize>6</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DeclarationItem3>     
-      <ShopNameItem>
-        <Text>For</Text>
-        <Row>326</Row>
-        <Column>580</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ShopNameItem>
-     
-      <ContinueItem>
-        <Text>Continued....</Text>
-        <Row>300</Row>
-        <Column>15</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ContinueItem>
-      <SignatureItem>
-        <Text>Pharmasists Sign</Text>
-        <Row>360</Row>
-        <Column>600</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </SignatureItem>
-    
-    </PageFooterForDistributor>
-  </SaleBillPrintSettingsPlainPaperForDistributor>
- ///////////////////////////////////////////////////    SaleBillPrintSetting PrePrintedPaper
-  <SaleBillPrintSettingsPrePrintedPaper>
-    <GeneralSettings>
-      <PageWidth>600</PageWidth>
-      <PageHeight>400</PageHeight>
-      <LineFeed>8</LineFeed>
-      <ReverseLineFeed>8</ReverseLineFeed>
-      <ContentStartRow>138</ContentStartRow>
-    </GeneralSettings>
-    <PageHeader>
-      <ShopNameItem>
-        <Text></Text>
-        <Row>37</Row>
-        <Column>1</Column>
-        <FontSize>20</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>true</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </ShopNameItem>
-      <ShopAddress1Item>
-        <Text></Text>
-        <Row>54</Row>
-        <Column>1</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </ShopAddress1Item>
-      <ShopAddress2Item>
-        <Text></Text>
-        <Row>54</Row>
-        <Column>40</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </ShopAddress2Item>
-      <ShopTelephoneItem>
-        <Text></Text>
-        <Row>71</Row>
-        <Column>1</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </ShopTelephoneItem>
-      <PatientName>
-        <Text>Name</Text>
-        <Row>88</Row>
-        <Column>80</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PatientName>
-      <PatientAddress>
-        <Text>Add :</Text>
-        <Row>88</Row>
-        <Column>300</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PatientAddress>
-      <PatientTelephone>
-        <Text></Text>
-        <Row>70</Row>
-        <Column>400</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PatientTelephone>
-      <DoctorName>
-        <Text>Doc Name: </Text>
-        <Row>105</Row>
-        <Column>80</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </DoctorName>
-      <DoctorAddress>
-        <Text>Add:</Text>
-        <Row>105</Row>
-        <Column>300</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </DoctorAddress>
-      <TimeItem>
-        <Text>Time :</Text>
-        <Row>37</Row>
-        <Column>350</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </TimeItem>
-      <VoucherTypeSCAItem>
-        <Text>Cash Memo No :</Text>
-        <Row>54</Row>
-        <Column>300</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </VoucherTypeSCAItem>
-      <VoucherTypeSCRItem>
-        <Text>Credit Sale:</Text>
-        <Row>54</Row>
-        <Column>310</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </VoucherTypeSCRItem>
-      <VoucherTypeSCSItem>
-        <Text>Credit Statement:</Text>
-        <Row>54</Row>
-        <Column>310</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </VoucherTypeSCSItem>
-      <VoucherTypeSVUItem>
-        <Text>Voucher Sale:</Text>
-        <Row>54</Row>
-        <Column>310</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </VoucherTypeSVUItem>
-<VoucherTypeDebitNoteItem>
-        <Text>Debit Note:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeDebitNoteItem>
-<VoucherTypeCreditNoteItem>
-        <Text>Credit Note:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeCreditNoteItem>
-<VoucherTypeStockOUTItem>
-        <Text>Stock OUT:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeStockOUTItem>
-<VoucherTypeStockINItem>
-        <Text>Stock In:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeStockINItem>
-      <DateItem>
-        <Text>Date:</Text>
-        <Row>71</Row>
-        <Column>400</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </DateItem>
-      <PageNoItem>
-        <Text>Page:</Text>
-        <Row>105</Row>
-        <Column>450</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PageNoItem>
-    </PageHeader>
-    <PageContent>
-      <ColumnCount>8</ColumnCount>    
-      <Column1>
-        <ColumnHeader>Qty</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Quantity</ColumnDataField>
-        <ColumnDataType>Integer</ColumnDataType>
-        <Column>1</Column>
-        <Show>true</Show>
-      </Column1>
-      <Column2>
-        <ColumnHeader>Description</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_ProductName</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>85</Column>
-        <Show>true</Show>
-      </Column2>
+			<DebitNoteItem>
+				<Text>DN:</Text>
+				<Row>275</Row>
+				<Column>130</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</DebitNoteItem>
+			
+			<GSTAmtS5Item>
+				<Text>GSTS 5 per:</Text>
+				<Row>287</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</GSTAmtS5Item>
+			<GSTAmtC5Item>
+				<Text>GSTC 5 per:</Text>
+				<Row>300</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</GSTAmtC5Item>
+			
+			<GSTAmtS12Item>
+				<Text>GSTS 12 per:</Text>
+				<Row>313</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</GSTAmtS12Item>
+			<GSTAmtC12Item>
+				<Text>GSTC 12 per:</Text>
+				<Row>326</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</GSTAmtC12Item>
+			
+			<GSTAmtS18Item>
+				<Text>GSTS 18 per:</Text>
+				<Row>339</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</GSTAmtS18Item>
+			<GSTAmtC18Item>
+				<Text>GSTC 18 per:</Text>
+				<Row>352</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</GSTAmtC18Item>
+			
+			<GSTAmtS28Item>
+				<Text>GSTS 28 per:</Text>
+				<Row>365</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</GSTAmtS28Item>
+			<GSTAmtC28Item>
+				<Text>GSTC 28 per:</Text>
+				<Row>378</Row>
+				<Column>1</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</GSTAmtC28Item>
+			<LESSItem>
+				<Text>LESS             :</Text>
+				<Row>287</Row>
+				<Column>650</Column>
+				<FontSize>9</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</LESSItem>
+			<SubjectItem>
+				<Text>
+					Terms and Conditions
+					1. Our responsibility ceases as soon as the goods leaves our godown
+					2. All disputes subject to MUMBAI Jurisdiction.
+					3. Payment within due date otherwise 21% p.a interest will be charge
+				</Text>
+				<Row>405</Row>
+				<Column>1</Column>
+				<FontSize>7</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</SubjectItem>
+			<NetAmountItem>
+				<Text>Net Amount  :</Text>
+				<Row>300</Row>
+				<Column>600</Column>
+				<FontSize>11</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</NetAmountItem>
+			<DeclarationItem1>
+				<Text> on which the sale of goods specified in this Tax Invoice is made by me/us and that the transaction of sale covered by this Tax  </Text>
+				<Row>413</Row>
+				<Column>1</Column>
+				<FontSize>7</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>true</ShowText>
+			</DeclarationItem1>
 
-      <Column3>
-        <ColumnHeader>Shelf</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Shelf</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>85</Column>
-        <Show>false</Show>
-      </Column3>
-      
-      <Column4>
-        <ColumnHeader>Comp</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_ProdCompShortName</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>270</Column>
-        <Show>true</Show>
-      </Column4>
-      <Column5>
-        <ColumnHeader>Batch</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_BatchNumber</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>310</Column>
-        <Show>true</Show>
-      </Column5>
-      <Column6>
-        <ColumnHeader>Expiry</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Expiry</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>390</Column>
-        <Show>true</Show>
-      </Column6>
-      <Column7>
-        <ColumnHeader>Rate</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_RatePerUnit</ColumnDataField>
-        <ColumnDataType>Decimal</ColumnDataType>
-        <Column>450</Column>
-        <Show>true</Show>
-      </Column7>
-      <Column8>
-        <ColumnHeader>Amount</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Amount</ColumnDataField>
-        <ColumnDataType>Decimal</ColumnDataType>
-        <Column>550</Column>
-        <Show>true</Show>
-      </Column8>
-    </PageContent>
-    <PageFooter>
-    <DiscountItem>
-        <Text>Disc:</Text>
-        <Row>300</Row>
-        <Column>180</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DiscountItem>
-      <GrossAmountItem>
-        <Text>Gross Amount:</Text>
-        <Row>300</Row>
-        <Column></Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </GrossAmountItem>
-      <NarrationItem>
-        <Text>Narr:</Text>
-        <Row>300</Row>
-        <Column>1</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </NarrationItem>
-  
-      <CreditNoteItem>
-        <Text>CN:</Text>
-        <Row>300</Row>
-        <Column>250</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </CreditNoteItem>
+			<DeclarationItem2>
+				<Text>Invoice is made by me/us and it shall beaccounted for in the turnover of sales while filling of return and the due tax, </Text>
+				<Row>426</Row>
+				<Column>1</Column>
+				<FontSize>7</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>true</ShowText>
+			</DeclarationItem2>
 
-      <DebitNoteItem>
-        <Text>DN:</Text>
-        <Row>340</Row>
-        <Column>370</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DebitNoteItem>
-       <BalanceAmountItem>
-        <Text>Bal:</Text>
-        <Row>325</Row>
-        <Column>250</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </BalanceAmountItem>     
-      <NetAmountItem>
-        <Text>Net Amount:</Text>
-        <Row>300</Row>
-        <Column>450</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </NetAmountItem>
-      <SubjectItem>
-        <Text>E and O E. Subject to:{0} Jurisdiction</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </SubjectItem>
-      <DLNItem>
-        <Text>DLN:</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </DLNItem>
-      <VATTINItem>
-        <Text>VAT TIN:</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </VATTINItem>
-      <ShopNameItem>
-        <Text></Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </ShopNameItem>
-      <SignatureItem>
-        <Text>Pharmasists Sign</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </SignatureItem>
-      <ContinueItem>
-        <Text>Continued....</Text>
-        <Row>325</Row>
-        <Column>15</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ContinueItem>
-    </PageFooter>
-  </SaleBillPrintSettingsPrePrintedPaper>
-////////////////////////////////////////////////////////////// Debit Note plain paper
+			<DeclarationItem3>
+				<Text>if any,payable on the sale has been paid or shall be paid</Text>
+				<Row>439</Row>
+				<Column>1</Column>
+				<FontSize>6</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>true</ShowText>
+			</DeclarationItem3>
+			<ShopNameItem>
+				<Text>For</Text>
+				<Row>326</Row>
+				<Column>580</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ShopNameItem>
 
-  <DebitNotePrintSettingsPlainPaper>
-    <GeneralSettings>
-      <PageWidth>6</PageWidth>
-      <PageHeight>4</PageHeight>
-      <LineFeed>10</LineFeed>
-      <ReverseLineFeed>10</ReverseLineFeed>
-      <ContentStartRow>138</ContentStartRow>
-    </GeneralSettings>
-    <PageHeader>
-      <ShopNameItem>
-        <Text></Text>
-        <Row>37</Row>
-        <Column>1</Column>
-        <FontSize>20</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>true</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ShopNameItem>
-      <ShopAddress1Item>
-        <Text></Text>
-        <Row>54</Row>
-        <Column>1</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ShopAddress1Item>
-      <ShopAddress2Item>
-        <Text></Text>
-        <Row>54</Row>
-        <Column>40</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ShopAddress2Item>
-      <ShopTelephoneItem>
-        <Text></Text>
-        <Row>71</Row>
-        <Column>1</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ShopTelephoneItem>
-      <PatientName>
-        <Text>Name</Text>
-        <Row>88</Row>
-        <Column>1</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </PatientName>
-      <PatientAddress>
-        <Text>Add :</Text>
-        <Row>88</Row>
-        <Column>40</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </PatientAddress>
-      <PatientTelephone>
-        <Text></Text>
-        <Row>70</Row>
-        <Column>400</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PatientTelephone>
-      <DoctorName>
-        <Text>Doc Name: </Text>
-        <Row>105</Row>
-        <Column>1</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DoctorName>
-      <DoctorAddress>
-        <Text>Add</Text>
-        <Row>105</Row>
-        <Column>45</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DoctorAddress>
-      <TimeItem>
-        <Text>Time :</Text>
-        <Row>37</Row>
-        <Column>410</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </TimeItem>
-      <VoucherTypeSCAItem>
-        <Text>Cash Memo No :</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeSCAItem>
-      <VoucherTypeSCRItem>
-        <Text>Credit Sale:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeSCRItem>
-      <VoucherTypeSCSItem>
-        <Text>Credit Statement:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeSCSItem>
-      <VoucherTypeSVUItem>
-        <Text>Voucher Sale:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeSVUItem>
-<VoucherTypeDebitNoteItem>
-        <Text>Debit Note:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeDebitNoteItem>
-<VoucherTypeCreditNoteItem>
-        <Text>Credit Note:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeCreditNoteItem>
-<VoucherTypeStockOUTItem>
-        <Text>Stock OUT:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeStockOUTItem>
-<VoucherTypeStockINItem>
-        <Text>Stock In:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeStockINItem>
-      <DateItem>
-        <Text>Date:</Text>
-        <Row>71</Row>
-        <Column>410</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DateItem>
-      <PageNoItem>
-        <Text>Page:</Text>
-        <Row>105</Row>
-        <Column>450</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </PageNoItem>
-    </PageHeader>
-    <PageContent>
-      <ColumnCount>7</ColumnCount>
-      <Column1>
-        <ColumnHeader>Qty</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Quantity</ColumnDataField>
-        <ColumnDataType>Integer</ColumnDataType>
-        <Column>1</Column>
-        <Show>true</Show>
-      </Column1>
-      <Column2>
-        <ColumnHeader>Description</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_ProductName</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>85</Column>
-        <Show>true</Show>
-      </Column2>
+			<ContinueItem>
+				<Text>Continued....</Text>
+				<Row>300</Row>
+				<Column>15</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ContinueItem>
+			<SignatureItem>
+				<Text>Pharmasists Sign</Text>
+				<Row>360</Row>
+				<Column>600</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</SignatureItem>
 
-      <Column3>
-        <ColumnHeader>Shelf</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Shelf</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>85</Column>
-        <Show>false</Show>
-      </Column3>
+		</PageFooterForDistributor>
+	</SaleBillPrintSettingsPlainPaperForDistributor>
+	///////////////////////////////////////////////////    SaleBillPrintSetting PrePrintedPaper
+	<SaleBillPrintSettingsPrePrintedPaper>
+		<GeneralSettings>
+			<PageWidth>600</PageWidth>
+			<PageHeight>400</PageHeight>
+			<LineFeed>8</LineFeed>
+			<ReverseLineFeed>8</ReverseLineFeed>
+			<ContentStartRow>138</ContentStartRow>
+		</GeneralSettings>
+		<PageHeader>
+			<ShopNameItem>
+				<Text></Text>
+				<Row>37</Row>
+				<Column>1</Column>
+				<FontSize>20</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>true</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</ShopNameItem>
+			<ShopAddress1Item>
+				<Text></Text>
+				<Row>54</Row>
+				<Column>1</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</ShopAddress1Item>
+			<ShopAddress2Item>
+				<Text></Text>
+				<Row>54</Row>
+				<Column>40</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</ShopAddress2Item>
+			<ShopTelephoneItem>
+				<Text></Text>
+				<Row>71</Row>
+				<Column>1</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</ShopTelephoneItem>
+			<PatientName>
+				<Text>Name</Text>
+				<Row>88</Row>
+				<Column>80</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</PatientName>
+			<PatientAddress>
+				<Text>Add :</Text>
+				<Row>88</Row>
+				<Column>300</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</PatientAddress>
+			<PatientTelephone>
+				<Text></Text>
+				<Row>70</Row>
+				<Column>400</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</PatientTelephone>
+			<DoctorName>
+				<Text>Doc Name: </Text>
+				<Row>105</Row>
+				<Column>80</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</DoctorName>
+			<DoctorAddress>
+				<Text>Add:</Text>
+				<Row>105</Row>
+				<Column>300</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</DoctorAddress>
+			<TimeItem>
+				<Text>Time :</Text>
+				<Row>37</Row>
+				<Column>350</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</TimeItem>
+			<VoucherTypeSCAItem>
+				<Text>Cash Memo No :</Text>
+				<Row>54</Row>
+				<Column>300</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</VoucherTypeSCAItem>
+			<VoucherTypeSCRItem>
+				<Text>Credit Sale:</Text>
+				<Row>54</Row>
+				<Column>310</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</VoucherTypeSCRItem>
+			<VoucherTypeSCSItem>
+				<Text>Credit Statement:</Text>
+				<Row>54</Row>
+				<Column>310</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</VoucherTypeSCSItem>
+			<VoucherTypeSVUItem>
+				<Text>Voucher Sale:</Text>
+				<Row>54</Row>
+				<Column>310</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</VoucherTypeSVUItem>
+			<VoucherTypeDebitNoteItem>
+				<Text>Debit Note:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeDebitNoteItem>
+			<VoucherTypeCreditNoteItem>
+				<Text>Credit Note:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeCreditNoteItem>
+			<VoucherTypeStockOUTItem>
+				<Text>Stock OUT:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeStockOUTItem>
+			<VoucherTypeStockINItem>
+				<Text>Stock In:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeStockINItem>
+			<DateItem>
+				<Text>Date:</Text>
+				<Row>71</Row>
+				<Column>400</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</DateItem>
+			<PageNoItem>
+				<Text>Page:</Text>
+				<Row>105</Row>
+				<Column>450</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</PageNoItem>
+		</PageHeader>
+		<PageContent>
+			<ColumnCount>8</ColumnCount>
+			<Column1>
+				<ColumnHeader>Qty</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Quantity</ColumnDataField>
+				<ColumnDataType>Integer</ColumnDataType>
+				<Column>1</Column>
+				<Show>true</Show>
+			</Column1>
+			<Column2>
+				<ColumnHeader>Description</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_ProductName</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>85</Column>
+				<Show>true</Show>
+			</Column2>
 
-      <Column4>
-        <ColumnHeader>Comp</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_ProdCompShortName</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>270</Column>
-        <Show>true</Show>
-      </Column4>
-      <Column5>
-        <ColumnHeader>Batch</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_BatchNumber</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>310</Column>
-        <Show>true</Show>
-      </Column5>
-      <Column6>
-        <ColumnHeader>Expiry</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Expiry</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>390</Column>
-        <Show>true</Show>
-      </Column6>
-      <Column7>
-        <ColumnHeader>Amount</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Amount</ColumnDataField>
-        <ColumnDataType>Decimal</ColumnDataType>
-        <Column>450</Column>
-        <Show>true</Show>
-      </Column7>
-    </PageContent>
-    <PageFooter>
-      <DiscountItem>
-        <Text>Discount:</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>true</ShowText>
-      </DiscountItem>
-      <GrossAmountItem>
-        <Text>Gross Amount:</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </GrossAmountItem>
-      <NarrationItem>
-        <Text>Narration:</Text>
-        <Row>325</Row>
-        <Column>1</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </NarrationItem>
-      <CreditNoteItem>
-        <Text>CN:</Text>
-        <Row>325</Row>
-        <Column>200</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </CreditNoteItem>
+			<Column3>
+				<ColumnHeader>Shelf</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Shelf</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>85</Column>
+				<Show>false</Show>
+			</Column3>
 
-      <DebitNoteItem>
-        <Text>DN:</Text>
-        <Row>325</Row>
-        <Column>250</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DebitNoteItem>
-      <BalanceAmountItem>
-        <Text>Bal:</Text>
-        <Row>325</Row>
-        <Column>250</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </BalanceAmountItem>
-      <NetAmountItem>
-        <Text>Net Amount:</Text>
-        <Row>325</Row>
-        <Column></Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </NetAmountItem>
-      <SubjectItem>
-        <Text>E and O E. Subject to:{0} Jurisdiction</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </SubjectItem>
-      <DLNItem>
-        <Text>DLN:</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DLNItem>
-      <VATTINItem>
-        <Text>VAT TIN:</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VATTINItem>
-      <ShopNameItem>
-        <Text></Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ShopNameItem>
-      <SignatureItem>
-        <Text>Pharmasists Sign</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </SignatureItem>
-      <ContinueItem>
-        <Text>Continued....</Text>
-        <Row>325</Row>
-        <Column>15</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ContinueItem>
-    </PageFooter>
-  </DebitNotePrintSettingsPlainPaper>
-  ///////////////////////////////////////////////////  Debit Note PrePrinted Paper
-  <DebitNotePrintSettingsPrePrintedPaper>
-    <GeneralSettings>
-      <PageWidth>600</PageWidth>
-      <PageHeight>400</PageHeight>
-      <LineFeed>8</LineFeed>
-      <ReverseLineFeed>8</ReverseLineFeed>
-      <ContentStartRow>138</ContentStartRow>
-    </GeneralSettings>
-    <PageHeader>
-      <ShopNameItem>
-        <Text></Text>
-        <Row>37</Row>
-        <Column>1</Column>
-        <FontSize>20</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>true</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </ShopNameItem>
-      <ShopAddress1Item>
-        <Text></Text>
-        <Row>54</Row>
-        <Column>1</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </ShopAddress1Item>
-      <ShopAddress2Item>
-        <Text></Text>
-        <Row>54</Row>
-        <Column>40</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </ShopAddress2Item>
-      <ShopTelephoneItem>
-        <Text></Text>
-        <Row>71</Row>
-        <Column>1</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </ShopTelephoneItem>
-      <PatientName>
-        <Text>Name</Text>
-        <Row>88</Row>
-        <Column>80</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PatientName>
-      <PatientAddress>
-        <Text>Add :</Text>
-        <Row>88</Row>
-        <Column>80</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PatientAddress>
-      <PatientTelephone>
-        <Text></Text>
-        <Row>70</Row>
-        <Column>400</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PatientTelephone>
-      <DoctorName>
-        <Text>Doc Name: </Text>
-        <Row>105</Row>
-        <Column>80</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </DoctorName>
-      <DoctorAddress>
-        <Text>Add</Text>
-        <Row>105</Row>
-        <Column>45</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </DoctorAddress>
-      <TimeItem>
-        <Text>Time :</Text>
-        <Row>37</Row>
-        <Column>350</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </TimeItem>
-      <VoucherTypeSCAItem>
-        <Text>Cash Memo No :</Text>
-        <Row>54</Row>
-        <Column>300</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </VoucherTypeSCAItem>
-      <VoucherTypeSCRItem>
-        <Text>Credit Sale:</Text>
-        <Row>54</Row>
-        <Column>310</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </VoucherTypeSCRItem>
-      <VoucherTypeSCSItem>
-        <Text>Credit Statement:</Text>
-        <Row>54</Row>
-        <Column>310</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </VoucherTypeSCSItem>
-      <VoucherTypeSVUItem>
-        <Text>Voucher Sale:</Text>
-        <Row>54</Row>
-        <Column>310</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </VoucherTypeSVUItem>
-<VoucherTypeDebitNoteItem>
-        <Text>Debit Note:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeDebitNoteItem>
-<VoucherTypeCreditNoteItem>
-        <Text>Credit Note:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeCreditNoteItem>
-<VoucherTypeStockOUTItem>
-        <Text>Stock OUT:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeStockOUTItem>
-<VoucherTypeStockINItem>
-        <Text>Stock In:</Text>
-        <Row>54</Row>
-        <Column>366</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ShowSubType>true</ShowSubType>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VoucherTypeStockINItem>
-      <DateItem>
-        <Text>Date:</Text>
-        <Row>71</Row>
-        <Column>400</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </DateItem>
-      <PageNoItem>
-        <Text>Page:</Text>
-        <Row>105</Row>
-        <Column>450</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </PageNoItem>
-    </PageHeader>
-    <PageContent>
-      <ColumnCount>6</ColumnCount>
-      <Column1>
-        <ColumnHeader>Qty</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Quantity</ColumnDataField>
-        <ColumnDataType>Integer</ColumnDataType>
-        <Column>1</Column>
-        <Show>true</Show>
-      </Column1>
-      <Column2>
-        <ColumnHeader>Description</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_ProductName</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>85</Column>
-        <Show>true</Show>
-      </Column2>
-      
-      <Column3>
-        <ColumnHeader>Comp</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_ProdCompShortName</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>270</Column>
-        <Show>true</Show>
-      </Column3>
-      <Column4>
-        <ColumnHeader>Batch</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_BatchNumber</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>310</Column>
-        <Show>true</Show>
-      </Column4>
-      <Column5>
-        <ColumnHeader>Expiry</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Expiry</ColumnDataField>
-        <ColumnDataType>Text</ColumnDataType>
-        <Column>390</Column>
-        <Show>true</Show>
-      </Column5>
-      <Column6>
-        <ColumnHeader>Amount</ColumnHeader>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <ColumnDataField>Col_Amount</ColumnDataField>
-        <ColumnDataType>Decimal</ColumnDataType>
-        <Column>450</Column>
-        <Show>true</Show>
-      </Column6>
-    </PageContent>
-    <PageFooter>
-      <NarrationItem>
-        <Text>Narr:</Text>
-        <Row>300</Row>
-        <Column>1</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </NarrationItem>
-      <GrossAmountItem>
-        <Text>Gross Amount:</Text>
-        <Row>334</Row>
-        <Column>1000</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </GrossAmountItem>
-      <DiscountItem>
-        <Text>Disc:</Text>
-        <Row>368</Row>
-        <Column>1000</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </DiscountItem>
-      <VAT12Point5Item>
-        <Text>VAT 13.5%:</Text>
-        <Row>402</Row>
-        <Column>1000</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VAT12Point5Item>
-      <VAT5Item>
-        <Text>VAT 6%:</Text>
-        <Row>436</Row>
-        <Column>1000</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </VAT5Item>
-      <ADDItem>
-        <Text>ADD:</Text>
-        <Row>470</Row>
-        <Column>1000</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ADDItem>
-      <LESSItem>
-        <Text>LESS:</Text>
-        <Row>504</Row>
-        <Column>1000</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </LESSItem>
-      
-      
-      <CreditNoteItem>
-        <Text>CN:</Text>
-        <Row>300</Row>
-        <Column>250</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </CreditNoteItem>
+			<Column4>
+				<ColumnHeader>Comp</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_ProdCompShortName</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>270</Column>
+				<Show>true</Show>
+			</Column4>
+			<Column5>
+				<ColumnHeader>Batch</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_BatchNumber</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>310</Column>
+				<Show>true</Show>
+			</Column5>
+			<Column6>
+				<ColumnHeader>Expiry</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Expiry</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>390</Column>
+				<Show>true</Show>
+			</Column6>
+			<Column7>
+				<ColumnHeader>Rate</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_RatePerUnit</ColumnDataField>
+				<ColumnDataType>Decimal</ColumnDataType>
+				<Column>450</Column>
+				<Show>true</Show>
+			</Column7>
+			<Column8>
+				<ColumnHeader>Amount</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Amount</ColumnDataField>
+				<ColumnDataType>Decimal</ColumnDataType>
+				<Column>550</Column>
+				<Show>true</Show>
+			</Column8>
+		</PageContent>
+		<PageFooter>
+			<DiscountItem>
+				<Text>Disc:</Text>
+				<Row>300</Row>
+				<Column>180</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</DiscountItem>
+			<GrossAmountItem>
+				<Text>Gross Amount:</Text>
+				<Row>300</Row>
+				<Column></Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</GrossAmountItem>
+			<NarrationItem>
+				<Text>Narr:</Text>
+				<Row>300</Row>
+				<Column>1</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</NarrationItem>
 
-      <DebitNoteItem>
-        <Text>DN:</Text>
-        <Row>340</Row>
-        <Column>370</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </DebitNoteItem>
-      <BalanceAmountItem>
-        <Text>Bal:</Text>
-        <Row>325</Row>
-        <Column>250</Column>
-        <FontSize>8</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </BalanceAmountItem>
-      <NetAmountItem>
-        <Text>Net Amount:</Text>
-        <Row>300</Row>
-        <Column>450</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>false</ShowText>
-      </NetAmountItem>
-      <SubjectItem>
-        <Text>E and O E. Subject to:{0} Jurisdiction</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </SubjectItem>
-      <DLNItem>
-        <Text>DLN:</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </DLNItem>
-      <LBTItem>
-        <Text>DLN:</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </LBTItem>
-      <VATTINVItem>
-        <Text>VAT TIN:</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </VATTINVItem>
-      <VATTINCItem>
-        <Text>VAT TIN:</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </VATTINCItem>
-      <ShopNameItem>
-        <Text></Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </ShopNameItem>
-      <SignatureItem>
-        <Text>Pharmasists Sign</Text>
-        <Row></Row>
-        <Column></Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>false</Show>
-        <ShowText>false</ShowText>
-      </SignatureItem>
-      <ContinueItem>
-        <Text>Continued....</Text>
-        <Row>325</Row>
-        <Column>15</Column>
-        <FontSize>10</FontSize>
-        <FontName>Microsoft sans serif</FontName>
-        <FontBold>false</FontBold>
-        <Show>true</Show>
-        <ShowText>true</ShowText>
-      </ContinueItem>
-    </PageFooter>
-  </DebitNotePrintSettingsPrePrintedPaper>  
+			<CreditNoteItem>
+				<Text>CN:</Text>
+				<Row>300</Row>
+				<Column>250</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</CreditNoteItem>
+
+			<DebitNoteItem>
+				<Text>DN:</Text>
+				<Row>340</Row>
+				<Column>370</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</DebitNoteItem>
+			<BalanceAmountItem>
+				<Text>Bal:</Text>
+				<Row>325</Row>
+				<Column>250</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</BalanceAmountItem>
+			<NetAmountItem>
+				<Text>Net Amount:</Text>
+				<Row>300</Row>
+				<Column>450</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</NetAmountItem>
+			<SubjectItem>
+				<Text>E and O E. Subject to:{0} Jurisdiction</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</SubjectItem>
+			<DLNItem>
+				<Text>DLN:</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</DLNItem>
+			<VATTINItem>
+				<Text>VAT TIN:</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</VATTINItem>
+			<ShopNameItem>
+				<Text></Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</ShopNameItem>
+			<SignatureItem>
+				<Text>Pharmasists Sign</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</SignatureItem>
+			<ContinueItem>
+				<Text>Continued....</Text>
+				<Row>325</Row>
+				<Column>15</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ContinueItem>
+		</PageFooter>
+	</SaleBillPrintSettingsPrePrintedPaper>
+	////////////////////////////////////////////////////////////// Debit Note plain paper
+
+	<DebitNotePrintSettingsPlainPaper>
+		<GeneralSettings>
+			<PageWidth>6</PageWidth>
+			<PageHeight>4</PageHeight>
+			<LineFeed>10</LineFeed>
+			<ReverseLineFeed>10</ReverseLineFeed>
+			<ContentStartRow>138</ContentStartRow>
+		</GeneralSettings>
+		<PageHeader>
+			<ShopNameItem>
+				<Text></Text>
+				<Row>37</Row>
+				<Column>1</Column>
+				<FontSize>20</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>true</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ShopNameItem>
+			<ShopAddress1Item>
+				<Text></Text>
+				<Row>54</Row>
+				<Column>1</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ShopAddress1Item>
+			<ShopAddress2Item>
+				<Text></Text>
+				<Row>54</Row>
+				<Column>40</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ShopAddress2Item>
+			<ShopTelephoneItem>
+				<Text></Text>
+				<Row>71</Row>
+				<Column>1</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ShopTelephoneItem>
+			<PatientName>
+				<Text>Name</Text>
+				<Row>88</Row>
+				<Column>1</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</PatientName>
+			<PatientAddress>
+				<Text>Add :</Text>
+				<Row>88</Row>
+				<Column>40</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</PatientAddress>
+			<PatientTelephone>
+				<Text></Text>
+				<Row>70</Row>
+				<Column>400</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</PatientTelephone>
+			<DoctorName>
+				<Text>Doc Name: </Text>
+				<Row>105</Row>
+				<Column>1</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</DoctorName>
+			<DoctorAddress>
+				<Text>Add</Text>
+				<Row>105</Row>
+				<Column>45</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</DoctorAddress>
+			<TimeItem>
+				<Text>Time :</Text>
+				<Row>37</Row>
+				<Column>410</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</TimeItem>
+			<VoucherTypeSCAItem>
+				<Text>Cash Memo No :</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeSCAItem>
+			<VoucherTypeSCRItem>
+				<Text>Credit Sale:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeSCRItem>
+			<VoucherTypeSCSItem>
+				<Text>Credit Statement:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeSCSItem>
+			<VoucherTypeSVUItem>
+				<Text>Voucher Sale:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeSVUItem>
+			<VoucherTypeDebitNoteItem>
+				<Text>Debit Note:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeDebitNoteItem>
+			<VoucherTypeCreditNoteItem>
+				<Text>Credit Note:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeCreditNoteItem>
+			<VoucherTypeStockOUTItem>
+				<Text>Stock OUT:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeStockOUTItem>
+			<VoucherTypeStockINItem>
+				<Text>Stock In:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeStockINItem>
+			<DateItem>
+				<Text>Date:</Text>
+				<Row>71</Row>
+				<Column>410</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</DateItem>
+			<PageNoItem>
+				<Text>Page:</Text>
+				<Row>105</Row>
+				<Column>450</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</PageNoItem>
+		</PageHeader>
+		<PageContent>
+			<ColumnCount>7</ColumnCount>
+			<Column1>
+				<ColumnHeader>Qty</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Quantity</ColumnDataField>
+				<ColumnDataType>Integer</ColumnDataType>
+				<Column>1</Column>
+				<Show>true</Show>
+			</Column1>
+			<Column2>
+				<ColumnHeader>Description</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_ProductName</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>85</Column>
+				<Show>true</Show>
+			</Column2>
+
+			<Column3>
+				<ColumnHeader>Shelf</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Shelf</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>85</Column>
+				<Show>false</Show>
+			</Column3>
+
+			<Column4>
+				<ColumnHeader>Comp</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_ProdCompShortName</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>270</Column>
+				<Show>true</Show>
+			</Column4>
+			<Column5>
+				<ColumnHeader>Batch</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_BatchNumber</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>310</Column>
+				<Show>true</Show>
+			</Column5>
+			<Column6>
+				<ColumnHeader>Expiry</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Expiry</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>390</Column>
+				<Show>true</Show>
+			</Column6>
+			<Column7>
+				<ColumnHeader>Amount</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Amount</ColumnDataField>
+				<ColumnDataType>Decimal</ColumnDataType>
+				<Column>450</Column>
+				<Show>true</Show>
+			</Column7>
+		</PageContent>
+		<PageFooter>
+			<DiscountItem>
+				<Text>Discount:</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>true</ShowText>
+			</DiscountItem>
+			<GrossAmountItem>
+				<Text>Gross Amount:</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</GrossAmountItem>
+			<NarrationItem>
+				<Text>Narration:</Text>
+				<Row>325</Row>
+				<Column>1</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</NarrationItem>
+			<CreditNoteItem>
+				<Text>CN:</Text>
+				<Row>325</Row>
+				<Column>200</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</CreditNoteItem>
+
+			<DebitNoteItem>
+				<Text>DN:</Text>
+				<Row>325</Row>
+				<Column>250</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</DebitNoteItem>
+			<BalanceAmountItem>
+				<Text>Bal:</Text>
+				<Row>325</Row>
+				<Column>250</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</BalanceAmountItem>
+			<NetAmountItem>
+				<Text>Net Amount:</Text>
+				<Row>325</Row>
+				<Column></Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</NetAmountItem>
+			<SubjectItem>
+				<Text>E and O E. Subject to:{0} Jurisdiction</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</SubjectItem>
+			<DLNItem>
+				<Text>DLN:</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</DLNItem>
+			<VATTINItem>
+				<Text>VAT TIN:</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VATTINItem>
+			<ShopNameItem>
+				<Text></Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ShopNameItem>
+			<SignatureItem>
+				<Text>Pharmasists Sign</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</SignatureItem>
+			<ContinueItem>
+				<Text>Continued....</Text>
+				<Row>325</Row>
+				<Column>15</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ContinueItem>
+		</PageFooter>
+	</DebitNotePrintSettingsPlainPaper>
+	///////////////////////////////////////////////////  Debit Note PrePrinted Paper
+	<DebitNotePrintSettingsPrePrintedPaper>
+		<GeneralSettings>
+			<PageWidth>600</PageWidth>
+			<PageHeight>400</PageHeight>
+			<LineFeed>8</LineFeed>
+			<ReverseLineFeed>8</ReverseLineFeed>
+			<ContentStartRow>138</ContentStartRow>
+		</GeneralSettings>
+		<PageHeader>
+			<ShopNameItem>
+				<Text></Text>
+				<Row>37</Row>
+				<Column>1</Column>
+				<FontSize>20</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>true</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</ShopNameItem>
+			<ShopAddress1Item>
+				<Text></Text>
+				<Row>54</Row>
+				<Column>1</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</ShopAddress1Item>
+			<ShopAddress2Item>
+				<Text></Text>
+				<Row>54</Row>
+				<Column>40</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</ShopAddress2Item>
+			<ShopTelephoneItem>
+				<Text></Text>
+				<Row>71</Row>
+				<Column>1</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</ShopTelephoneItem>
+			<PatientName>
+				<Text>Name</Text>
+				<Row>88</Row>
+				<Column>80</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</PatientName>
+			<PatientAddress>
+				<Text>Add :</Text>
+				<Row>88</Row>
+				<Column>80</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</PatientAddress>
+			<PatientTelephone>
+				<Text></Text>
+				<Row>70</Row>
+				<Column>400</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</PatientTelephone>
+			<DoctorName>
+				<Text>Doc Name: </Text>
+				<Row>105</Row>
+				<Column>80</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</DoctorName>
+			<DoctorAddress>
+				<Text>Add</Text>
+				<Row>105</Row>
+				<Column>45</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</DoctorAddress>
+			<TimeItem>
+				<Text>Time :</Text>
+				<Row>37</Row>
+				<Column>350</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</TimeItem>
+			<VoucherTypeSCAItem>
+				<Text>Cash Memo No :</Text>
+				<Row>54</Row>
+				<Column>300</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</VoucherTypeSCAItem>
+			<VoucherTypeSCRItem>
+				<Text>Credit Sale:</Text>
+				<Row>54</Row>
+				<Column>310</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</VoucherTypeSCRItem>
+			<VoucherTypeSCSItem>
+				<Text>Credit Statement:</Text>
+				<Row>54</Row>
+				<Column>310</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</VoucherTypeSCSItem>
+			<VoucherTypeSVUItem>
+				<Text>Voucher Sale:</Text>
+				<Row>54</Row>
+				<Column>310</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</VoucherTypeSVUItem>
+			<VoucherTypeDebitNoteItem>
+				<Text>Debit Note:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeDebitNoteItem>
+			<VoucherTypeCreditNoteItem>
+				<Text>Credit Note:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeCreditNoteItem>
+			<VoucherTypeStockOUTItem>
+				<Text>Stock OUT:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeStockOUTItem>
+			<VoucherTypeStockINItem>
+				<Text>Stock In:</Text>
+				<Row>54</Row>
+				<Column>366</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ShowSubType>true</ShowSubType>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VoucherTypeStockINItem>
+			<DateItem>
+				<Text>Date:</Text>
+				<Row>71</Row>
+				<Column>400</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</DateItem>
+			<PageNoItem>
+				<Text>Page:</Text>
+				<Row>105</Row>
+				<Column>450</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</PageNoItem>
+		</PageHeader>
+		<PageContent>
+			<ColumnCount>6</ColumnCount>
+			<Column1>
+				<ColumnHeader>Qty</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Quantity</ColumnDataField>
+				<ColumnDataType>Integer</ColumnDataType>
+				<Column>1</Column>
+				<Show>true</Show>
+			</Column1>
+			<Column2>
+				<ColumnHeader>Description</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_ProductName</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>85</Column>
+				<Show>true</Show>
+			</Column2>
+
+			<Column3>
+				<ColumnHeader>Comp</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_ProdCompShortName</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>270</Column>
+				<Show>true</Show>
+			</Column3>
+			<Column4>
+				<ColumnHeader>Batch</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_BatchNumber</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>310</Column>
+				<Show>true</Show>
+			</Column4>
+			<Column5>
+				<ColumnHeader>Expiry</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Expiry</ColumnDataField>
+				<ColumnDataType>Text</ColumnDataType>
+				<Column>390</Column>
+				<Show>true</Show>
+			</Column5>
+			<Column6>
+				<ColumnHeader>Amount</ColumnHeader>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<ColumnDataField>Col_Amount</ColumnDataField>
+				<ColumnDataType>Decimal</ColumnDataType>
+				<Column>450</Column>
+				<Show>true</Show>
+			</Column6>
+		</PageContent>
+		<PageFooter>
+			<NarrationItem>
+				<Text>Narr:</Text>
+				<Row>300</Row>
+				<Column>1</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</NarrationItem>
+			<GrossAmountItem>
+				<Text>Gross Amount:</Text>
+				<Row>334</Row>
+				<Column>1000</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</GrossAmountItem>
+			<DiscountItem>
+				<Text>Disc:</Text>
+				<Row>368</Row>
+				<Column>1000</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</DiscountItem>
+			<VAT12Point5Item>
+				<Text>VAT 13.5%:</Text>
+				<Row>402</Row>
+				<Column>1000</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VAT12Point5Item>
+			<VAT5Item>
+				<Text>VAT 6%:</Text>
+				<Row>436</Row>
+				<Column>1000</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</VAT5Item>
+			<ADDItem>
+				<Text>ADD:</Text>
+				<Row>470</Row>
+				<Column>1000</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ADDItem>
+			<LESSItem>
+				<Text>LESS:</Text>
+				<Row>504</Row>
+				<Column>1000</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</LESSItem>
+
+
+			<CreditNoteItem>
+				<Text>CN:</Text>
+				<Row>300</Row>
+				<Column>250</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</CreditNoteItem>
+
+			<DebitNoteItem>
+				<Text>DN:</Text>
+				<Row>340</Row>
+				<Column>370</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</DebitNoteItem>
+			<BalanceAmountItem>
+				<Text>Bal:</Text>
+				<Row>325</Row>
+				<Column>250</Column>
+				<FontSize>8</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</BalanceAmountItem>
+			<NetAmountItem>
+				<Text>Net Amount:</Text>
+				<Row>300</Row>
+				<Column>450</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>false</ShowText>
+			</NetAmountItem>
+			<SubjectItem>
+				<Text>E and O E. Subject to:{0} Jurisdiction</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</SubjectItem>
+			<DLNItem>
+				<Text>DLN:</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</DLNItem>
+			<LBTItem>
+				<Text>DLN:</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</LBTItem>
+			<VATTINVItem>
+				<Text>VAT TIN:</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</VATTINVItem>
+			<VATTINCItem>
+				<Text>VAT TIN:</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</VATTINCItem>
+			<ShopNameItem>
+				<Text></Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</ShopNameItem>
+			<SignatureItem>
+				<Text>Pharmasists Sign</Text>
+				<Row></Row>
+				<Column></Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>false</Show>
+				<ShowText>false</ShowText>
+			</SignatureItem>
+			<ContinueItem>
+				<Text>Continued....</Text>
+				<Row>325</Row>
+				<Column>15</Column>
+				<FontSize>10</FontSize>
+				<FontName>Microsoft sans serif</FontName>
+				<FontBold>false</FontBold>
+				<Show>true</Show>
+				<ShowText>true</ShowText>
+			</ContinueItem>
+		</PageFooter>
+	</DebitNotePrintSettingsPrePrintedPaper>
 </PrintSettingsForDistributor>

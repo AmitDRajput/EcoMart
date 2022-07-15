@@ -51,7 +51,7 @@ namespace EcoMart.Printing
         //    get { return _DebitNotePrintSettingsPrePrintedPaperForDistributor; }
         //}
         public PrintSettingsForDistributor()
-        {           
+        {
             _SaleBillPrintSettingsPlainPaperForDistributor = new SaleBillSettingsForDistributor(PrintSettingsTypeForDistributor.SaleBillPrintSettingsPlainPaperForDistributor);
             //_SaleBillPrintSettingsPrePrintedPaperForDistributor = new SaleBillSettingsForDistributor(PrintSettingsTypeForDistributor.SaleBillPrintSettingsPrePrintedPaperForDistributor);
             //_DebitNotePrintSettingsPlainPaperForDistributor = new SaleBillSettingsForDistributor(PrintSettingsTypeForDistributor.DebiNotePrintSettingsPlainPaperForDistributor);
@@ -132,7 +132,7 @@ namespace EcoMart.Printing
 
         public SaleBillSettingsForDistributor(PrintSettingsTypeForDistributor printSettingsTypeForDistributor)
         {
-             _PrintSettingsTypeForDistributor = printSettingsTypeForDistributor;
+            _PrintSettingsTypeForDistributor = printSettingsTypeForDistributor;
             _GeneralSettingsForDistributor = new GeneralSettingsForDistributor(_PrintSettingsTypeForDistributor);
             _PageHeaderForDistributor = new PageHeaderForDistributor(_PrintSettingsTypeForDistributor);
             _PageContentForDistributor = new PageContentForDistributor(_PrintSettingsTypeForDistributor);
@@ -166,7 +166,7 @@ namespace EcoMart.Printing
 
         public GeneralSettingsForDistributor(PrintSettingsTypeForDistributor printSettingsTypeForDistributor)
         {
-           _PrintSettingsTypeForDistributor = printSettingsTypeForDistributor;
+            _PrintSettingsTypeForDistributor = printSettingsTypeForDistributor;
         }
 
         public int PageWidth
@@ -218,7 +218,7 @@ namespace EcoMart.Printing
                     item = element.Element("ContentStartRow");
                     int.TryParse(item.Value, out _ContentStartRow);
 
-                   
+
                 }
             }
             catch (Exception ex)
@@ -442,8 +442,8 @@ namespace EcoMart.Printing
                     item = element.Element("PatientDLN");
                     _PartyDLN.ReadSettingsForDistributor(item);
 
-                    item = element.Element("PatientLBT");
-                    _PartyLBT.ReadSettingsForDistributor(item);
+                    //item = element.Element("PatientLBT");
+                    //_PartyLBT.ReadSettingsForDistributor(item);
 
                     item = element.Element("DoctorName");
                     _DoctorName.ReadSettingsForDistributor(item);
@@ -485,10 +485,10 @@ namespace EcoMart.Printing
             }
         }
 
-       
+
     }
 
-    
+
     public class PageContentForDistributor
     {
         private PrintSettingsTypeForDistributor _PrintSettingsTypeForDistributor = PrintSettingsTypeForDistributor.None;
@@ -510,7 +510,7 @@ namespace EcoMart.Printing
         {
             try
             {
-               
+
                 string rootElement = PrintSettingsForDistributor.GetRootElementNameForDistributor(_PrintSettingsTypeForDistributor);
                 foreach (XElement element in doc.Descendants(rootElement).Descendants("PageContentForDistributor"))
                 {
@@ -534,7 +534,7 @@ namespace EcoMart.Printing
             }
         }
     }
-    
+
     public class PageFooterForDistributor
     {
         private PrintSettingsTypeForDistributor _PrintSettingsTypeForDistributor = PrintSettingsTypeForDistributor.None;
@@ -556,18 +556,68 @@ namespace EcoMart.Printing
             get { return _DiscountItem; }
             set { _DiscountItem = value; }
         }
-        private PageItemForDistributor _Vat12point5Item;
-        public PageItemForDistributor Vat12point5Item
+
+        private PageItemForDistributor _GSTAmtS5Item;
+
+        public PageItemForDistributor GSTAmtS5Item
         {
-            get { return _Vat12point5Item; }
-            set { _Vat12point5Item = value; }
+            get { return _GSTAmtS5Item; }
+            set { _GSTAmtS5Item = value; }
         }
-        private PageItemForDistributor _Vat5Item;
-        public PageItemForDistributor Vat5Item
+
+        private PageItemForDistributor _GSTAmtS12Item;
+
+        public PageItemForDistributor GSTAmtS12Item
         {
-            get { return _Vat5Item; }
-            set { _Vat5Item = value; }
+            get { return _GSTAmtS12Item; }
+            set { _GSTAmtS12Item = value; }
         }
+        private PageItemForDistributor _GSTAmtS18Item;
+
+        public PageItemForDistributor GSTAmtS18Item
+        {
+            get { return _GSTAmtS18Item; }
+            set { _GSTAmtS18Item = value; }
+        }
+
+        private PageItemForDistributor _GSTAmtS28Item;
+
+        public PageItemForDistributor GSTAmtS28Item
+        {
+            get { return _GSTAmtS28Item; }
+            set { _GSTAmtS28Item = value; }
+        }
+        private PageItemForDistributor _GSTAmtC5Item;
+
+        public PageItemForDistributor GSTAmtC5Item
+        {
+            get { return _GSTAmtC5Item; }
+            set { _GSTAmtC5Item = value; }
+        }
+
+        private PageItemForDistributor _GSTAmtC12Item;
+
+        public PageItemForDistributor GSTAmtC12Item
+        {
+            get { return _GSTAmtC12Item; }
+            set { _GSTAmtC12Item = value; }
+        }
+        private PageItemForDistributor _GSTAmtC18Item;
+
+        public PageItemForDistributor GSTAmtC18Item
+        {
+            get { return _GSTAmtC18Item; }
+            set { _GSTAmtC18Item = value; }
+        }
+
+        private PageItemForDistributor _GSTAmtC28Item;
+
+        public PageItemForDistributor GSTAmtC28Item
+        {
+            get { return _GSTAmtC28Item; }
+            set { _GSTAmtC28Item = value; }
+        }
+
         private PageItemForDistributor _ADDItem;
         public PageItemForDistributor ADDItem
         {
@@ -697,8 +747,14 @@ namespace EcoMart.Printing
             _DiscountItem = new PageItemForDistributor();
             _GrossAmountItem = new PageItemForDistributor();
             _NarrationItem = new PageItemForDistributor();
-            _Vat12point5Item = new PageItemForDistributor();
-            _Vat5Item = new PageItemForDistributor();
+            _GSTAmtS5Item = new PageItemForDistributor();
+            _GSTAmtS12Item = new PageItemForDistributor();
+            _GSTAmtS18Item = new PageItemForDistributor();
+            _GSTAmtS28Item = new PageItemForDistributor();
+            _GSTAmtC5Item = new PageItemForDistributor();
+            _GSTAmtC12Item = new PageItemForDistributor();
+            _GSTAmtC18Item = new PageItemForDistributor();
+            _GSTAmtC28Item = new PageItemForDistributor();
             _ADDItem = new PageItemForDistributor();
             _LESSItem = new PageItemForDistributor();
             _CreditNoteItem = new PageItemForDistributor();
@@ -715,7 +771,7 @@ namespace EcoMart.Printing
             _DeclarationItem2 = new PageItemForDistributor();
             _DeclarationItem3 = new PageItemForDistributor();
             _SignatureItem = new PageItemForDistributor();
-            _ContinueItem = new PageItemForDistributor();          
+            _ContinueItem = new PageItemForDistributor();
             _SchemeDiscountItem = new PageItemForDistributor();
             _RoundupItem = new PageItemForDistributor();
             _ItemDiscountItem = new PageItemForDistributor();
@@ -737,11 +793,29 @@ namespace EcoMart.Printing
                     item = element.Element("NarrationItem");
                     _NarrationItem.ReadSettingsForDistributor(item);
 
-                    item = element.Element("VAT12Point5Item");
-                    _Vat12point5Item.ReadSettingsForDistributor(item);
+                    item = element.Element("GSTAmtS5Item");
+                    _GSTAmtS5Item.ReadSettingsForDistributor(item);
 
-                    item = element.Element("VAT5Item");
-                    _Vat5Item.ReadSettingsForDistributor(item);
+                    item = element.Element("GSTAmtS12Item");
+                    _GSTAmtS12Item.ReadSettingsForDistributor(item);
+
+                    item = element.Element("GSTAmtS18Item");
+                    _GSTAmtS18Item.ReadSettingsForDistributor(item);
+
+                    item = element.Element("GSTAmtS28Item");
+                    _GSTAmtS28Item.ReadSettingsForDistributor(item); 
+                    
+                    item = element.Element("GSTAmtC5Item");
+                    _GSTAmtC5Item.ReadSettingsForDistributor(item);
+
+                    item = element.Element("GSTAmtC12Item");
+                    _GSTAmtC12Item.ReadSettingsForDistributor(item);
+
+                    item = element.Element("GSTAmtC18Item");
+                    _GSTAmtC18Item.ReadSettingsForDistributor(item);
+
+                    item = element.Element("GSTAmtC28Item");
+                    _GSTAmtC28Item.ReadSettingsForDistributor(item);
 
                     item = element.Element("ADDItem");
                     _ADDItem.ReadSettingsForDistributor(item);
@@ -767,14 +841,14 @@ namespace EcoMart.Printing
                     item = element.Element("DLNItem");
                     _DLNItem.ReadSettingsForDistributor(item);
 
-                    item = element.Element("LBTItem");
-                    _LBTItem.ReadSettingsForDistributor(item);
+                    //item = element.Element("LBTItem");
+                    //_LBTItem.ReadSettingsForDistributor(item);
 
-                    item = element.Element("VATTINVItem");
-                    _VATTINVItem.ReadSettingsForDistributor(item);
+                    //item = element.Element("VATTINVItem");
+                    //_VATTINVItem.ReadSettingsForDistributor(item);
 
-                    item = element.Element("VATTINCItem");
-                    _VATTINCItem.ReadSettingsForDistributor(item);
+                    //item = element.Element("VATTINCItem");
+                    //_VATTINCItem.ReadSettingsForDistributor(item);
 
                     item = element.Element("ShopNameItem");
                     _ShopNameItem.ReadSettingsForDistributor(item);
@@ -802,7 +876,7 @@ namespace EcoMart.Printing
 
                     item = element.Element("RoundupItem");
                     _RoundupItem.ReadSettingsForDistributor(item);
-                    
+
                 }
             }
             catch (Exception ex)
@@ -848,7 +922,7 @@ namespace EcoMart.Printing
             get { return _FontName; }
             set { _FontName = value; }
         }
-        
+
         private bool _FontBold;
         public bool FontBold
         {
@@ -894,7 +968,7 @@ namespace EcoMart.Printing
 
         }
 
-       public void ReadSettingsForDistributor(XElement element)
+        public void ReadSettingsForDistributor(XElement element)
         {
             try
             {
