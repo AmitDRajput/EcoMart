@@ -16,11 +16,11 @@ namespace EcoMart.Printing
         {
 
         }
-        public void Print(string BillType, string BillNo, string BillDate, string PatientName, string PatientAddress, string PatientAddress2, string PatientTelephone, 
-            string PatientVATTIN, string PatientDLN, string PatientLBT, string DoctorName, string DoctorAddress, DataGridViewRowCollection Rows, double GrossAmount, double DiscountAmount, 
+        public void Print(string BillType, string BillNo, string BillDate, string PatientName, string PatientAddress, string PatientAddress2, string PatientTelephone,
+            string PatientVATTIN, string PatientDLN, string PatientLBT, string DoctorName, string DoctorAddress, DataGridViewRowCollection Rows, double GrossAmount, double DiscountAmount,
             double GSTAmtS5, double GSTS12, double GSTS18, double GSTS28, double GSTAmtC5, double GSTC12, double GSTC18, double GSTC28,
-            double ADDAmount, double LESSAmount, string Narration1, string Narration2, 
-            double NetAmount, string SaleSubType, double CNAmount, double DNAmount, double BalanceAmount, string ShopDLN, string ShopLBT, double TotalItemDiscount, 
+            double ADDAmount, double LESSAmount, string Narration1, string Narration2,
+            double NetAmount, string SaleSubType, double CNAmount, double DNAmount, double BalanceAmount, string ShopDLN, string ShopLBT, double TotalItemDiscount,
             double TotalSchemeDiscount, double RoundUP)
         {
             PrintRow row;
@@ -268,10 +268,10 @@ namespace EcoMart.Printing
                 //}
                 //else
                 //{
-                if (IFSaleBill == "C")
-                    row = new PrintRow(PageHeader.VoucherTypeCreditNote.Text + BillNo.Trim() + "-" + SaleSubType.ToString().Trim(), PageHeader.VoucherTypeCreditNote.Row, PageHeader.VoucherTypeCreditNote.Column, PageHeader.VoucherTypeCreditNote.Font);
-                else if (IFSaleBill == "D")
-                    row = new PrintRow(PageHeader.VoucherTypeDebitNote.Text + BillNo.Trim() + "-" + SaleSubType.ToString().Trim(), PageHeader.VoucherTypeDebitNote.Row, PageHeader.VoucherTypeDebitNote.Column, PageHeader.VoucherTypeDebitNote.Font);
+                //if (IFSaleBill == "C")
+                row = new PrintRow(PageHeader.VoucherTypeCreditNote.Text + BillNo.Trim(), PageHeader.VoucherTypeCreditNote.Row, PageHeader.VoucherTypeCreditNote.Column, PageHeader.VoucherTypeCreditNote.Font);
+                //else if (IFSaleBill == "D")
+                //    row = new PrintRow(PageHeader.VoucherTypeDebitNote.Text + BillNo.Trim() + "-" + SaleSubType.ToString().Trim(), PageHeader.VoucherTypeDebitNote.Row, PageHeader.VoucherTypeDebitNote.Column, PageHeader.VoucherTypeDebitNote.Font);
                 //}
                 PrintBill.Rows.Add(row);
 
@@ -494,7 +494,7 @@ namespace EcoMart.Printing
                     row = new PrintRow(PageFooter.DeclarationItem2.Text.ToString(), PageFooter.DeclarationItem2.Row, PageFooter.DeclarationItem2.Column, PageFooter.DeclarationItem2.Font);
                     PrintBill.Rows.Add(row);
                 }
-                
+
                 if (PageFooter.DeclarationItem3.Show)
                 {
                     row = new PrintRow(PageFooter.DeclarationItem3.Text.ToString(), PageFooter.DeclarationItem3.Row, PageFooter.DeclarationItem3.Column, PageFooter.DeclarationItem3.Font);

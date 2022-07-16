@@ -196,8 +196,8 @@
 				<ShowText>true</ShowText>
 			</VoucherTypeDebitNoteItem>
 			<VoucherTypeCreditNoteItem>
-				<Text>Credit Note:</Text>
-				<Row>79</Row>
+				<Text>Invoice No.:</Text>
+				<Row>70</Row>
 				<Column>360</Column>
 				<FontSize>10</FontSize>
 				<FontName>Microsoft sans serif</FontName>
@@ -229,7 +229,7 @@
 				<ShowText>true</ShowText>
 			</VoucherTypeStockINItem>
 			<DateItem>
-				<Text>Date:</Text>
+				<Text>Invoice Date:</Text>
 				<Row>50</Row>
 				<Column>360</Column>
 				<FontSize>10</FontSize>
