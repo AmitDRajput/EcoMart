@@ -22,7 +22,7 @@ namespace EcoMart.BusinessLayer
         private string _AIOCDACode;
         private string _DistributorCode;
         private string _DistributorName;
-        private string _DistributorID;
+        private string _CompanyID;
 
         private string _CashDiscountPercent;
         private string _CashDiscountAmount;
@@ -92,10 +92,10 @@ namespace EcoMart.BusinessLayer
             get { return _DistributorCode; }
             set { _DistributorCode = value; }
         }
-        public string DistributorID
+        public string CompanyID
         {
-            get { return _DistributorID; }
-            set { _DistributorID = value; }
+            get { return _CompanyID; }
+            set { _CompanyID = value; }
         }
         public string DistributorName
         {
@@ -207,7 +207,7 @@ namespace EcoMart.BusinessLayer
              _AIOCDACode = string.Empty;
              _DistributorCode = string.Empty;
              _DistributorName = string.Empty;
-             _DistributorID = string.Empty;
+            _CompanyID = string.Empty;
              _CashDiscountPercent = string.Empty;
              _TotalAmount = string.Empty;
              _Vat5PerAmount = string.Empty;
@@ -271,43 +271,43 @@ namespace EcoMart.BusinessLayer
         public string GetAIOCDACode(string DistCode)
         {
             string AIOCDAcode = string.Empty;
-            DataRow dr = null;
-            DBImportBill dbimport = new DBImportBill();
-            dr = dbimport.GetAIOCDACode(DistCode);
-            if (dr != null)
-            {
-                if (dr["AIOCDAcode"] != DBNull.Value && dr["AIOCDAcode"].ToString() != string.Empty)
-                {
-                    AIOCDAcode = dr["AIOCDAcode"].ToString();
+            //DataRow dr = null;
+            //DBImportBill dbimport = new DBImportBill();
+            //dr = dbimport.GetAIOCDACode(DistCode);
+            //if (dr != null)
+            //{
+            //    if (dr["AIOCDAcode"] != DBNull.Value && dr["AIOCDAcode"].ToString() != string.Empty)
+            //    {
+            //        AIOCDAcode = dr["AIOCDAcode"].ToString();
 
-                }               
-            }
+            //    }               
+            //}
             return AIOCDAcode;
         }
 
         public string GetDistributorIDFromAIOCDACode(string AIOCDACode)
         {
             string CreditorID = string.Empty;
-            DataRow dr = null;
-            DBImportBill dbimport = new DBImportBill();
-            dr = dbimport.GetDistributorIDFromAIOCDACode(AIOCDACode);
-            if (dr != null)
-            {
-                if (dr["AccountID"] != DBNull.Value && dr["AccountID"].ToString() != string.Empty)
-                {
-                    CreditorID = dr["AccountID"].ToString();
+            //DataRow dr = null;
+            //DBImportBill dbimport = new DBImportBill();
+            //dr = dbimport.GetDistributorIDFromAIOCDACode(AIOCDACode);
+            //if (dr != null)
+            //{
+            //    if (dr["AccountID"] != DBNull.Value && dr["AccountID"].ToString() != string.Empty)
+            //    {
+            //        CreditorID = dr["AccountID"].ToString();
 
-                }
-            }
+            //    }
+            //}
             return CreditorID;
         }
 
         public string GetRetailerProductIDFromDistributorProductID(string distributorID, string distributorProductID)
         {
-            string retailerProductID = string.Empty;
+            string retailerProductID = string.Empty;            
             DataRow dr = null;
             DBImportBill dbimport = new DBImportBill();
-            dr = dbimport.GetRetailerProductIDFromDistributorProductID(distributorID, distributorProductID);
+            dr = dbimport.GetRetailerProductIDFromCompanyProductID(distributorID, distributorProductID);
             if (dr != null)
             {
                 if (dr["RetailerProductID"] != DBNull.Value && dr["RetailerProductID"].ToString() != string.Empty)
@@ -319,12 +319,12 @@ namespace EcoMart.BusinessLayer
             return retailerProductID;
         }
 
-        public bool CheckIFProductIDIsNOTLinked(string _DistributorID, string _DistProductID, string _ProductID)
+        public bool CheckIFProductIDIsNOTLinked(string _CompanyID, string _DistProductID, string _ProductID)
         {
             bool retValue = true;
             DataRow dr = null;
             DBImportBill dbimport = new DBImportBill();
-            dr = dbimport.CheckIFProductIDIsNOTLinked(_DistributorID,_DistProductID,_ProductID);
+            dr = dbimport.CheckIFProductIDIsNOTLinked(_CompanyID,_DistProductID,_ProductID);
             if (dr != null)
             {
                 
@@ -340,7 +340,7 @@ namespace EcoMart.BusinessLayer
             string CreditorID = string.Empty;
             DataRow dr = null;
             DBImportBill dbimport = new DBImportBill();
-            dr = dbimport.GetDistributorIDFromDistributorCode(p);
+            dr = dbimport.GetCompanyIDFromCompanyCode(p);
             if (dr != null)
             {
                 if (dr["AccountID"] != DBNull.Value && dr["AccountID"].ToString() != string.Empty)

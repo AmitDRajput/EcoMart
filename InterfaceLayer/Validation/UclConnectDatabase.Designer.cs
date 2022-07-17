@@ -77,7 +77,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(187, 20);
             this.txtPassword.TabIndex = 11;
-            this.txtPassword.Text = "ecomart@1234";
+            this.txtPassword.Text = "ecomart@99";
             // 
             // btnTestConnection
             // 
@@ -123,7 +123,7 @@
             this.cmbServers.Name = "cmbServers";
             this.cmbServers.Size = new System.Drawing.Size(187, 21);
             this.cmbServers.TabIndex = 5;
-            this.cmbServers.Text = "LAPTOP-HRIBAM33\\MSSQLSERVER01";
+            this.cmbServers.Text = "LAPTOP-HRIBAM33\\SQLEXPRESS";
             // 
             // label7
             // 

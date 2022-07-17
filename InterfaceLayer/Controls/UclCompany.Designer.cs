@@ -126,6 +126,8 @@
             this.mcbForthCreditor.Margin = new System.Windows.Forms.Padding(4);
             this.mcbForthCreditor.Name = "mcbForthCreditor";
             this.mcbForthCreditor.SelectedID = "";
+            this.mcbForthCreditor.SelectedIDtest = 0;
+            this.mcbForthCreditor.SelectedIntID = 0;
             this.mcbForthCreditor.ShowNew = true;
             this.mcbForthCreditor.Size = new System.Drawing.Size(363, 22);
             this.mcbForthCreditor.SourceDataString = null;
@@ -133,6 +135,7 @@
             this.mcbForthCreditor.TabIndex = 56;
             this.mcbForthCreditor.UserControlToShow = null;
             this.mcbForthCreditor.ValueColumnNo = 0;
+            this.mcbForthCreditor.Visible = false;
             this.mcbForthCreditor.EnterKeyPressed += new System.EventHandler(this.mcbForthCreditor_EnterKeyPressed);
             this.mcbForthCreditor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mcbForthCreditor_KeyDown);
             // 
@@ -146,6 +149,8 @@
             this.mcbThirdCreditor.Margin = new System.Windows.Forms.Padding(4);
             this.mcbThirdCreditor.Name = "mcbThirdCreditor";
             this.mcbThirdCreditor.SelectedID = "";
+            this.mcbThirdCreditor.SelectedIDtest = 0;
+            this.mcbThirdCreditor.SelectedIntID = 0;
             this.mcbThirdCreditor.ShowNew = true;
             this.mcbThirdCreditor.Size = new System.Drawing.Size(363, 22);
             this.mcbThirdCreditor.SourceDataString = null;
@@ -153,6 +158,7 @@
             this.mcbThirdCreditor.TabIndex = 55;
             this.mcbThirdCreditor.UserControlToShow = null;
             this.mcbThirdCreditor.ValueColumnNo = 0;
+            this.mcbThirdCreditor.Visible = false;
             this.mcbThirdCreditor.EnterKeyPressed += new System.EventHandler(this.mcbThirdCreditor_EnterKeyPressed);
             this.mcbThirdCreditor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mcbThirdCreditor_KeyDown);
             // 
@@ -164,6 +170,7 @@
             this.psLabel2.Size = new System.Drawing.Size(95, 16);
             this.psLabel2.TabIndex = 54;
             this.psLabel2.Text = "&Forth Creditor";
+            this.psLabel2.Visible = false;
             // 
             // psLabel1
             // 
@@ -173,6 +180,7 @@
             this.psLabel1.Size = new System.Drawing.Size(96, 16);
             this.psLabel1.TabIndex = 53;
             this.psLabel1.Text = "Thir&d Creditor";
+            this.psLabel1.Visible = false;
             // 
             // mPlbl11
             // 
@@ -182,6 +190,7 @@
             this.mPlbl11.Size = new System.Drawing.Size(105, 16);
             this.mPlbl11.TabIndex = 52;
             this.mPlbl11.Text = "S&econd Creditor";
+            this.mPlbl11.Visible = false;
             // 
             // mPlbl10
             // 
@@ -202,6 +211,8 @@
             this.mcbSecondCreditor.Margin = new System.Windows.Forms.Padding(4);
             this.mcbSecondCreditor.Name = "mcbSecondCreditor";
             this.mcbSecondCreditor.SelectedID = "";
+            this.mcbSecondCreditor.SelectedIDtest = 0;
+            this.mcbSecondCreditor.SelectedIntID = 0;
             this.mcbSecondCreditor.ShowNew = true;
             this.mcbSecondCreditor.Size = new System.Drawing.Size(363, 22);
             this.mcbSecondCreditor.SourceDataString = null;
@@ -209,6 +220,7 @@
             this.mcbSecondCreditor.TabIndex = 7;
             this.mcbSecondCreditor.UserControlToShow = null;
             this.mcbSecondCreditor.ValueColumnNo = 0;
+            this.mcbSecondCreditor.Visible = false;
             this.mcbSecondCreditor.EnterKeyPressed += new System.EventHandler(this.mcbSecondCreditor_EnterKeyPressed);
             this.mcbSecondCreditor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mcbSecondCreditor_KeyDown);
             // 
@@ -222,6 +234,8 @@
             this.mcbFirstCreditor.Margin = new System.Windows.Forms.Padding(4);
             this.mcbFirstCreditor.Name = "mcbFirstCreditor";
             this.mcbFirstCreditor.SelectedID = "";
+            this.mcbFirstCreditor.SelectedIDtest = 0;
+            this.mcbFirstCreditor.SelectedIntID = 0;
             this.mcbFirstCreditor.ShowNew = true;
             this.mcbFirstCreditor.Size = new System.Drawing.Size(363, 22);
             this.mcbFirstCreditor.SourceDataString = null;

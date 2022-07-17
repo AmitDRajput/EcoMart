@@ -172,7 +172,7 @@ namespace EcoMart.Common
         //   private static BackgroundWorker m_refillWorker;
 
         public static string ExportPath = "d:\\Reports";
-        public static string OnlinePurchasePath = "D:\\OnlinePurchae";
+        public static string OnlinePurchasePath = "D:\\OnlinePurchase";
         public static int ScreenHeight = Screen.PrimaryScreen.Bounds.Height;
         public static int ScreenWidth = Screen.PrimaryScreen.Bounds.Width;
         //public static int ProductPanel =ScreenHeight- 400;
@@ -1577,11 +1577,13 @@ namespace EcoMart.Common
                 string mjuri = General.EcoMartLicense.CNFInfo.Jurisdiction;
                 string mcontactperson = General.EcoMartLicense.CNFInfo.ShopOwnerName;
                 string mcity = General.EcoMartLicense.CNFInfo.AddressCity;
-                retValue = dblic.InsertCreditorinMasterAccount(macccode,maccname,maccaddress1,maccaddress2,marea,macctelephone,maccmobile,mdlnno,memail,mgstno,mjuri,mcontactperson,mcity);
+                int mecomartid = General.EcoMartLicense.EcoMartInfo.ShopID;
+                int mcnfid = General.EcoMartLicense.CNFInfo.ShopID;
+                retValue = dblic.InsertCreditorinMasterAccount(macccode, maccname, maccaddress1, maccaddress2, marea, macctelephone, maccmobile, mdlnno, memail, mgstno, mjuri, mcontactperson, mcity, mecomartid, mcnfid);
 
 
             }
-            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF )
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
             {
                 string macccode = "C";
                 string maccname = General.EcoMartLicense.EcoMartInfo.ShopName;
@@ -1596,11 +1598,19 @@ namespace EcoMart.Common
                 string mjuri = General.EcoMartLicense.EcoMartInfo.Jurisdiction;
                 string mcontactperson = General.EcoMartLicense.EcoMartInfo.ShopOwnerName;
                 string mcity = General.EcoMartLicense.EcoMartInfo.AddressCity;
-                retValue = dblic.InsertCreditorinMasterAccount(macccode, maccname, maccaddress1, maccaddress2, marea, macctelephone, maccmobile, mdlnno, memail, mgstno, mjuri, mcontactperson, mcity);
+                int mecomartid = General.EcoMartLicense.EcoMartInfo.ShopID;
+                int mcnfid = 0;                
+                retValue = dblic.InsertCreditorinMasterAccount(macccode, maccname, maccaddress1, maccaddress2, marea, macctelephone, maccmobile, mdlnno, memail, mgstno, mjuri, mcontactperson, mcity, mecomartid,mcnfid);
 
 
             }
             return retValue;
+        }
+
+        public static int GetNextIntID(string tableName, string fieldName)
+        {
+            DBGeneral dbGen = new DBGeneral();
+            return dbGen.GetNextIntID(tableName, fieldName);
         }
     }
 }

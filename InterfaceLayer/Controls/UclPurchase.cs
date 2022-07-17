@@ -182,7 +182,7 @@ namespace EcoMart.InterfaceLayer
             txtVouchernumber.Enabled = false;
             //if (dgTempPurchase.Rows.Count > 0)
             //    pnlTempPurchase.Visible = true;
-            if (General.CurrentSetting.MsetPurchaseChangeSaleRate == "Y")
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
                 txtSaleRate.Enabled = true;
             else
                 txtSaleRate.Enabled = false;
@@ -255,7 +255,7 @@ namespace EcoMart.InterfaceLayer
             cbTransactionType.SelectedItem = FixAccounts.TransactionTypeForCredit;
             lblPurchaseBillFormat.Text = _ImportBill.PurchaseBillFormat;
             txtVouType.Text = _ImportBill.VoucherType;
-            mcbCreditor.SelectedID = _ImportBill.DistributorID;
+            mcbCreditor.SelectedID = _ImportBill.CompanyID;
             txtCashDiscountPerS.Text = _ImportBill.CashDiscountPercent;
             txtRoundUPS.Text = _ImportBill.RoundOFF;
             txtGridAmountTot.Text = _ImportBill.TotalAmount;
@@ -266,7 +266,7 @@ namespace EcoMart.InterfaceLayer
             if (mpMSVC.Rows.Count > 0)
                 mpMSVC.Rows.Clear();
 
-            _Purchase.SavePartyAIOCDACodeInMasterAccount(_ImportBill.DistributorID, _ImportBill.AIOCDACode, _ImportBill.DistributorCode);
+            _Purchase.SavePartyAIOCDACodeInMasterAccount(_ImportBill.CompanyID, _ImportBill.AIOCDACode, _ImportBill.DistributorCode);
             //foreach (DataGridViewRow dr in _ImportBill.SaleBillData.Rows)
             //{
             //    if (dr.Cells["Col_ProductID"].Value != null && dr.Cells["Col_DistributorsProductID"].Value != null)
@@ -392,7 +392,7 @@ namespace EcoMart.InterfaceLayer
                 if (distributorProductID != null && distributorProductID != string.Empty)
                 {
                     guid = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                    _Purchase.SaveProductsintblbillimportlink(guid, _ImportBill.DistributorID, distributorProductID, retailerProductID);
+                    _Purchase.SaveProductsintblbillimportlink(guid, _ImportBill.CompanyID, distributorProductID, retailerProductID);
                 }
             }
         }
@@ -428,7 +428,7 @@ namespace EcoMart.InterfaceLayer
             txtVouchernumber.Enabled = true;
             cbTransactionType.Enabled = true;
 
-            if (General.CurrentSetting.MsetPurchaseChangeSaleRate == "Y")
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
                 txtSaleRate.Enabled = true;
             else
                 txtSaleRate.Enabled = false;
@@ -543,8 +543,8 @@ namespace EcoMart.InterfaceLayer
                 txtVouchernumber.Enabled = true;
                 txtVouchernumber.Focus();
                 mcbCreditor.Enabled = false;
-                tsBtnFifth.Text = "TypeChange";
-                tsBtnFifth.Visible = true;
+                //tsBtnFifth.Text = "TypeChange";
+                //tsBtnFifth.Visible = true;
 
                 if (General.IfYearEndOverGlobal == "Y")
                 {
@@ -552,7 +552,7 @@ namespace EcoMart.InterfaceLayer
                     {
                         tsBtnAdd.Visible = true;
                         tsBtnDelete.Visible = true;
-                        tsBtnFifth.Visible = true;
+                        //tsBtnFifth.Visible = true;
                         tsBtnEdit.Visible = true;
                     }
                     else
@@ -708,7 +708,7 @@ namespace EcoMart.InterfaceLayer
                                 General.BeginTransaction();
 
                                 //    _Purchase.Id = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                                //_Purchase.VoucherNumber = _Purchase.GetAndUpdatePurchaseNumber(_Purchase.VoucherType);
+                                _Purchase.VoucherNumber = _Purchase.GetAndUpdatePurchaseNumber(_Purchase.VoucherType);
                                 _Purchase.VoucherDate = datePickerBillDate.Value.Date.ToString("yyyyMMdd");
                                 txtVouchernumber.Text = _Purchase.VoucherNumber.ToString();
                                 _Purchase.CreatedBy = General.CurrentUser.Id;
@@ -1456,7 +1456,7 @@ namespace EcoMart.InterfaceLayer
                     }
                     else
                     {
-                        txtSaleRate.Focus();
+                        txtQuantity.Focus();
                     }
                     retValue = true;
                 }
@@ -1841,6 +1841,7 @@ namespace EcoMart.InterfaceLayer
                         _Purchase.TradeRate = 0;
                         _Purchase.PurchaseRate = 0;
                         _Purchase.SaleRate = 0;
+                        _Purchase.PriceToRetailer = 0;
                         _Purchase.SchemeQuanity = 0;
                         _Purchase.ReplacementQuantity = 0;
                         _Purchase.Quantity = 0;
@@ -1868,19 +1869,12 @@ namespace EcoMart.InterfaceLayer
                         _Purchase.GSTSPurchaseAmount = 0;
                         _Purchase.GSTCPurchaseAmount = 0;
                         _Purchase.ProfitPercent = 0;
-                        _Purchase.PriceToRetailer = 0;
-                        //  _Purchase.
-
-                        //   _Purchase.PendingSchemeQuantity = 0;
-                        //  _Purchase.DistributorSaleRate = 0;
-                        //    _Purchase.DistributorSaleRatePercent = 0;
                         _Purchase.oldAccountId = "";
                         //_Purchase.AccountID = 0;
                         //_Purchase.DetailId = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
                         _Purchase.ProductID = Convert.ToInt32(prodrow.Cells["Col_ProductID"].Value.ToString());
                         _Purchase.Batchno = prodrow.Cells["Col_BatchNumber"].Value.ToString();
-                        //if (prodrow.Cells["Col_UnitOfMeasure"].Value != null && !String.IsNullOrEmpty(prodrow.Cells["Col_UnitOfMeasure"].Value.ToString()))
-                        _Purchase.ProdLoosePack = 1;// Convert.ToInt32(prodrow.Cells["Col_UnitOfMeasure"].Value.ToString());
+                        _Purchase.ProdLoosePack = 1;
                         if (prodrow.Cells["Col_MRP"].Value != null)
                             _Purchase.MRP = Convert.ToDouble(prodrow.Cells["Col_MRP"].Value.ToString());
                         if (prodrow.Cells["Col_Pack"].Value != null)
@@ -1905,12 +1899,6 @@ namespace EcoMart.InterfaceLayer
                             _Purchase.ReplacementQuantity = Convert.ToInt32(prodrow.Cells["Col_Replacement"].Value.ToString());
                         if (prodrow.Cells["Col_Quantity"].Value != null)
                             _Purchase.Quantity = Convert.ToInt32(prodrow.Cells["Col_Quantity"].Value.ToString());
-
-                        //if (string.IsNullOrEmpty(Convert.ToString(prodrow.Cells["Col_PendingSchemeQuantity"].Value)) == true)
-                        //    _Purchase.PendingSchemeQuantity = 0;
-                        //else
-                        //    _Purchase.PendingSchemeQuantity = Convert.ToInt32(prodrow.Cells["Col_PendingSchemeQuantity"].Value.ToString());
-
                         if (prodrow.Cells["Col_VAT"].Value != null && prodrow.Cells["Col_VAT"].Value.ToString() != "")
                             _Purchase.PurchaseVATPercent = Convert.ToDouble(prodrow.Cells["Col_VAT"].Value.ToString());
                         if (prodrow.Cells["Col_ProdVATPer"].Value != null)
@@ -1921,34 +1909,20 @@ namespace EcoMart.InterfaceLayer
                             _Purchase.AmountItemDiscount = Convert.ToDouble(prodrow.Cells["Col_ItemDiscountAmount"].Value.ToString());
                         if (prodrow.Cells["Col_ItemSCMDiscountAmount"].Value != null)
                             _Purchase.AmountSchemeDiscount = Convert.ToDouble(prodrow.Cells["Col_ItemSCMDiscountAmount"].Value.ToString());
-                        //if (prodrow.Cells["Col_CSTAmount"].Value != null)
-                        //    _Purchase.AmountCST = Convert.ToDouble(prodrow.Cells["Col_CSTAmount"].Value.ToString());
-                        //if (prodrow.Cells["Col_CSTPer"].Value != null)
-                        //    _Purchase.CSTPercent = Convert.ToDouble(prodrow.Cells["Col_CSTPer"].Value.ToString());
-                        //if (prodrow.Cells["Col_SplDiscountPer"].Value != null)
-                        //    _Purchase.SplDiscountPercent = Convert.ToDouble(prodrow.Cells["Col_SplDiscountPer"].Value.ToString());
-                        //if (prodrow.Cells["Col_SplDiscountAmount"].Value != null)
-                        //    _Purchase.AmountSplDiscountPerUnit = Convert.ToDouble(prodrow.Cells["Col_SplDiscountAmount"].Value.ToString());
                         if (prodrow.Cells["Col_ShelfID"].Value != null)
                             _Purchase.ShelfID = prodrow.Cells["Col_ShelfID"].Value.ToString();
                         if (prodrow.Cells["Col_VATAmountPurchase"].Value != null)
                             _Purchase.AmountPurchaseVAT = Convert.ToDouble(prodrow.Cells["Col_VATAmountPurchase"].Value.ToString());
-
                         if (prodrow.Cells["Col_VATAmountSale"].Value != null)
                             _Purchase.AmountProductVAT = Convert.ToDouble(prodrow.Cells["Col_VATAmountSale"].Value.ToString());
                         if (prodrow.Cells["Col_CashDiscountAmount"].Value != null)
                             _Purchase.AmountCashDiscountPerUnit = Convert.ToDouble(prodrow.Cells["Col_CashDiscountAmount"].Value.ToString());
-
                         if (prodrow.Cells["Col_PriceToRetailer"].Value != null)
                             _Purchase.PriceToRetailer = Convert.ToDouble(prodrow.Cells["Col_PriceToRetailer"].Value.ToString());
-
                         if (prodrow.Cells["Col_ProfitPercent"].Value != null)
                             _Purchase.ProfitPercent = Convert.ToDouble(prodrow.Cells["Col_ProfitPercent"].Value.ToString());
-
-
                         if (prodrow.Cells["Col_Margin"].Value != null)
                             _Purchase.ProductMargin = Convert.ToDouble(prodrow.Cells["Col_Margin"].Value.ToString());
-
                         if (prodrow.Cells["Col_Margin2"].Value != null)
                             _Purchase.ProductMargin2 = Convert.ToDouble(prodrow.Cells["Col_Margin2"].Value.ToString());
                         if (_Purchase.ProductMargin < 0)
@@ -1957,16 +1931,9 @@ namespace EcoMart.InterfaceLayer
                             _Purchase.ProductMargin2 = 0;
                         if (prodrow.Cells["Col_StockID"].Value != null && prodrow.Cells["Col_StockID"].Value.ToString() != "")
                             _Purchase.StockID = prodrow.Cells["Col_StockID"].Value.ToString();
-
-
                         if (prodrow.Cells["Col_ScanCode"].Value != null && prodrow.Cells["Col_ScanCode"].Value.ToString() != "")
                             _Purchase.PurScanCode = prodrow.Cells["Col_ScanCode"].Value.ToString();
                         _Purchase.Name = prodrow.Cells["Col_ProductName"].Value.ToString();
-
-                        //if (prodrow.Cells["Col_DistributorSaleRate"].Value != null && prodrow.Cells["Col_DistributorSaleRate"].Value.ToString() != string.Empty)
-                        //    _Purchase.DistributorSaleRate = Convert.ToDouble(prodrow.Cells["Col_DistributorSaleRate"].Value.ToString());
-                        //if (prodrow.Cells["Col_DistributorSaleRatePer"].Value != null && prodrow.Cells["Col_DistributorSaleRatePer"].Value.ToString() != string.Empty)
-                        //    _Purchase.DistributorSaleRatePercent = Convert.ToDouble(prodrow.Cells["Col_DistributorSaleRatePer"].Value.ToString());
                         if (prodrow.Cells["Col_GSTAmountZero"].Value != null && prodrow.Cells["Col_GSTAmountZero"].Value.ToString() != string.Empty)
                             _Purchase.GSTPurchaseAmountZero = Convert.ToDouble(prodrow.Cells["Col_GSTAmountZero"].Value.ToString());
                         if (prodrow.Cells["Col_GSTSAmount"].Value != null && prodrow.Cells["Col_GSTSAmount"].Value.ToString() != string.Empty)
@@ -2031,8 +1998,23 @@ namespace EcoMart.InterfaceLayer
 
                             if (returnVal)
                             {
-                                // returnVal = _Purchase.UpdatePurchaseOrder(); ss 18-10
+                                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.Stockist)
+                                {
+                                    returnVal = _Purchase.UpdatePurchaseOrderStockist();
+                                }
+                                else
+                                {
+                                    if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+                                    {
+                                        returnVal = _Purchase.UpdatePurchaseOrderCNF();
+                                    }
+                                    else
+                                    {
+                                        returnVal = _Purchase.UpdatePurchaseOrderEcoMart();
+                                    }
+                                }
                                 returnVal = _Purchase.UpdatePurchaseStockInMasterProduct();
+
                             }
 
                             else
@@ -4462,31 +4444,39 @@ namespace EcoMart.InterfaceLayer
 
                 if (_Mode == OperationMode.Add)
                 {
-                    btnDownLoad.Visible = true;
-                    btnImport.Visible = true;
+                    if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+                        btnDownLoad.Visible = true;
+                    else
+                    {
+                        if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.Stockist)
+                            StockistDownload.Visible = true;
+                    }
+                    //btnImport.Visible = true;
                 }
                 else
                 {
                     btnDownLoad.Visible = false;
                     btnImport.Visible = false;
                 }
-                if (General.CurrentSetting.MsetPurchaseChangeSaleRate == "Y")
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
                     txtSaleRate.Enabled = true;
                 else
                     txtSaleRate.Enabled = false;
-                if (General.CurrentSetting.MsetPurchaseIfPTR == "Y")
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
                 {
                     txtPTR.Visible = true;
+                    txtPTR.Enabled = true;
                     txtProfitPercentage.Visible = false;
                     lblProfitPercent.Visible = false;
                     lblPriceToRetailer.Visible = true;
                 }
                 else
                 {
-                    txtPTR.Visible = false;
-                    txtProfitPercentage.Visible = true;
-                    lblPriceToRetailer.Visible = false;
-                    lblProfitPercent.Visible = true;
+                    txtPTR.Visible = true;
+                    txtPTR.Enabled = false;
+                    txtProfitPercentage.Visible = false;
+                    lblPriceToRetailer.Visible = true;
+                    lblProfitPercent.Visible = false;
                 }
                 pnlSummary.Visible = false;
                 pnlGST.Visible = false;
@@ -4663,6 +4653,7 @@ namespace EcoMart.InterfaceLayer
             double mmrpn = 0.00;
             double mpurrate = 0.00;
             double mtraderate = 0.00;
+            double mpricetoretailer = 0.00;
             double msalerate = 0.00;
             double mcstper = 0.00;
             double mcstamt = 0.00;
@@ -4705,6 +4696,8 @@ namespace EcoMart.InterfaceLayer
                     mexpirydate = dr["ProdLastPurchaseExpiryDate"].ToString().Trim();
                 if (dr["ProdLastPurchaseSaleRate"] != DBNull.Value)
                     double.TryParse(dr["ProdLastPurchaseSaleRate"].ToString(), out msalerate);
+                if (dr["ProdLastPurchasePTR"] != DBNull.Value)
+                    double.TryParse(dr["ProdLastPurchasePTR"].ToString(), out mpricetoretailer);
                 if (dr["ProdLastPurchaseTradeRate"] != DBNull.Value)
                     double.TryParse(dr["ProdLastPurchaseTradeRate"].ToString(), out mtraderate);
                 if (dr["ProdLastPurchaseRate"] != DBNull.Value)
@@ -4722,10 +4715,6 @@ namespace EcoMart.InterfaceLayer
                 if (dr["ProdVATPercent"] != DBNull.Value)
                     double.TryParse(dr["ProdVATPercent"].ToString(), out mprodvatper);
 
-                //if (dr["ProdLastPurchaseDistributorSaleRatePer"] != DBNull.Value)
-                //    double.TryParse(dr["ProdLastPurchaseDistributorSaleRatePer"].ToString(), out mdistrateper);
-                //if (dr["ProdLastPurchaseDistributorSaleRate"] != DBNull.Value)
-                //    double.TryParse(dr["ProdLastPurchaseDistributorSaleRate"].ToString(), out mdistrateamt);
 
                 mpurvatper = mprodvatper;
                 mpurvatamt = Math.Round((mtraderate * mpurvatper) / 100, 2);
@@ -4769,6 +4758,7 @@ namespace EcoMart.InterfaceLayer
                 txtDiscountAmt.Text = Convert.ToString(mitemdiscamt.ToString("#0.0000")).Trim();
                 txtPurchaseRate.Text = Convert.ToString(mpurrate.ToString("#0.00")).Trim();
                 txtMRP.Text = Convert.ToString(mmrpn.ToString("#0.00")).Trim();
+                txtPTR.Text = Convert.ToString(mpricetoretailer.ToString("#0.00")).Trim();
                 txtSaleRate.Text = Convert.ToString(msalerate.ToString("#0.00")).Trim();
                 txtMasterVATPer.Text = mprodvatper.ToString("#0.00");
                 txtMasterVATAmt.Text = mprodvatamt.ToString("#0.0000");
@@ -5241,6 +5231,7 @@ namespace EcoMart.InterfaceLayer
                 if (dgPaymentDetails != null)
                     dgPaymentDetails.Rows.Clear();
                 int _RowIndex = 0;
+
                 foreach (DataRow dr in dt.Rows)
                 {
                     _RowIndex = dgPaymentDetails.Rows.Add();
@@ -5591,6 +5582,7 @@ namespace EcoMart.InterfaceLayer
             double mtrate = 0;
             double mprate = 0;
             double msalerate = 0;
+            double mpricetoretailer = 0;
             double mvatamt = 0;
             string mbatch = "";
             string mexp = "";
@@ -5615,6 +5607,7 @@ namespace EcoMart.InterfaceLayer
                 mexp = txtExpiry.Text;
                 mexpdate = General.GetValidExpiryDate(mexp);
                 mprate = Convert.ToDouble(txtPurchaseRate.Text.ToString());
+                mpricetoretailer = Convert.ToDouble(txtPTR.Text.ToString());
                 if (mcstper > 0)
                 {
                     mvatper = 0;
@@ -5639,6 +5632,11 @@ namespace EcoMart.InterfaceLayer
                     retValue = false;
                     lblFooterMessage.Text = "Trade Rate should be < MRP";
                     txtTradeRate.Focus();
+                }
+                else if (mpricetoretailer < msalerate)
+                {
+                    lblFooterMessage.Text = "Price To Stockist should be > Price to CNF ";
+                    txtPTR.Focus();
                 }
                 else
                 {
@@ -6271,14 +6269,26 @@ namespace EcoMart.InterfaceLayer
         }
         private void txtDiscountPer_KeyDown(object sender, KeyEventArgs e)
         {
+            int dd = 0;
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
             {
                 txtDiscountAmt.Text = "0.00";
                 CalculatePurRateSaleRateAndAmount();
-                if (General.CurrentSetting.MsetPurchaseIfPTR == "Y")
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
                     txtPTR.Focus();
                 else
-                    txtProfitPercentage.Focus();
+                {
+                    dd = Convert.ToInt32(txtPTR.Text.ToString());
+                    if (dd == 0)
+
+                        txtPTR.Focus();
+                    else
+                        btnOK.Focus();
+                }
+                //if (General.CurrentSetting.MsetPurchaseIfPTR == "Y")
+                //    txtPTR.Focus();
+                ////else
+                //    txtProfitPercentage.Focus();
 
             }
             else if (e.KeyCode == Keys.Up)
@@ -6334,6 +6344,12 @@ namespace EcoMart.InterfaceLayer
         {
             if (mcbCreditor.SeletedItem != null)
             {
+                int macid = Convert.ToInt32(mcbCreditor.SelectedID);
+                Product prod = new Product();
+                DataTable dt = prod.GetOverviewData(macid);
+                //  DataTable dt = General.ProductList;
+                mpMSVC.DataSource = dt;
+                mpMSVC.Bind();
 
                 if (pnlPurchaseOrder.Visible == false)
                 {
@@ -6965,6 +6981,7 @@ namespace EcoMart.InterfaceLayer
             double mskl = 0;
             double mscmdisc = 0;
             double mitm = 0;
+            double mitmdisc = 0;
             double msplddx = 0;
             double mcrddx = 0;
             double mddx = 0;
@@ -6998,6 +7015,7 @@ namespace EcoMart.InterfaceLayer
                     mgsts = 0;
                     mgstc = 0;
                     mgstamt0 = 0;
+                    mitmdisc = 0;
                     if (dr.Cells["Col_Amount"].Value != null && dr.Cells["Col_Amount"].Value.ToString() != string.Empty && Convert.ToDouble(dr.Cells["Col_Amount"].Value.ToString()) > 0)
                     {
                         int.TryParse(dr.Cells["Col_Quantity"].Value.ToString(), out mqty);
@@ -7006,8 +7024,10 @@ namespace EcoMart.InterfaceLayer
                             mscmdisc = Convert.ToDouble(dr.Cells["Col_ItemSCMDiscountAmount"].Value.ToString());
                         if (dr.Cells["Col_VAT"].Value != null && dr.Cells["Col_VAT"].Value.ToString() != "")
                             mmstperpur = Convert.ToDouble(dr.Cells["Col_VAT"].Value.ToString());
+                        if (dr.Cells["Col_ItemDiscountPer"].Value != null && dr.Cells["Col_ItemDiscountPer"].Value.ToString() != string.Empty)
+                            mitmdisc = Convert.ToDouble(dr.Cells["Col_ItemDiscountPer"].Value.ToString());
                         mskl = Math.Round(mamt - mscmdisc, 2);
-                        mitm = Math.Round((mskl * Convert.ToDouble(dr.Cells["Col_ItemDiscountPer"].Value.ToString())) / 100, 2); //4
+                        mitm = Math.Round((mskl * mitmdisc) / 100, 2); //4
                         msplddx = Math.Round(((mskl - mitm) * _Purchase.SpecialDiscountPercentS) / 100, 2); //4
                         mcrddx = Math.Round(((mskl - mitm) * _Purchase.CreditNoteDiscountPercentS) / 100, 2); //4
                         mcrddx = 0; // ss 19-10-2017
@@ -7157,7 +7177,7 @@ namespace EcoMart.InterfaceLayer
         }
         #endregion
 
-        # region Button Click
+        #region Button Click
         private void btnSummary_Click(object sender, EventArgs e)
         {
             BtnSummaryClicked();
@@ -8491,7 +8511,7 @@ namespace EcoMart.InterfaceLayer
                     //    ViewControl = new UclDebitNotestock();
                     //else if (voutype == FixAccounts.VoucherTypeForDebitNoteAmount)
                     //    ViewControl = new UclDebitNoteAmount();
-                    ViewControl = new UclPurchaseOrder();
+                    ViewControl = new UclPurchaseOrderStockist();
                     ShowViewForm(selectedID);
                     this.Cursor = Cursors.Default;
                 }
@@ -8509,18 +8529,246 @@ namespace EcoMart.InterfaceLayer
 
         private void BtnDownLoadClick()
         {
-            //ConstructdgBillsColumns();
-            //dgBills.BringToFront();
-            //dgBills.Visible = true;
-            //ShowBills();
-            //Invoices invoices = new Invoices();
-            //DataTable dtInvoices = new DataTable("InvoiceItems");
-            ////invoices.InvoicesFromUserBulk(DeveloperId, UserId, Password, dtInvoices);
 
-            ////Download fresh Invoices
-            //DataTable invoicesReceived = invoices.InvoicesToUser(General.DeveloperId, General.UserId, General.Password);
-            //Emilan _emilan = new Emilan();
-            //bool retvalue = _emilan.CopyInvoicesReceived(invoicesReceived);
+            //bool retValue = false;
+            DataTable dt = null;
+            ClearData();
+            InitializeScreen();
+            InitializeMainSubViewControl("");
+            FillShelfCombo();
+            FillCreditorCombo();
+            FillBankCombo();
+            FillAllData();
+            //  FillTransactionType();
+            FixVoucherTypeBycbTransactionType();
+            EnableDisable();
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+                _Purchase.ReadDetailsFromAzureCNF(General.EcoMartLicense.ShopID);
+            else
+                _Purchase.ReadDetailsFromAzureStockist(General.EcoMartLicense.ShopID);
+
+            BindTempGrid();
+            FillGSTpnl();
+            _Purchase.OldVoucherType = _Purchase.VoucherType;
+            _Purchase.OldVoucherNumber = _Purchase.VoucherNumber;
+            txtVoucherSeries.Text = _Purchase.VoucherSeries;
+            if (_Purchase.VoucherType == FixAccounts.VoucherTypeForCashPurchase)
+            {
+
+                cbTransactionType.Text = FixAccounts.TransactionTypeForCash;
+                cbTransactionType.SelectedIndex = cbTransactionType.Items.IndexOf(FixAccounts.TransactionTypeForCash);
+            }
+            else if (_Purchase.VoucherType == FixAccounts.VoucherTypeForCreditStatementPurchase)
+            {
+
+                cbTransactionType.Text = FixAccounts.TransactionTypeForCreditStatement;
+                cbTransactionType.SelectedIndex = cbTransactionType.Items.IndexOf(FixAccounts.TransactionTypeForCreditStatement);
+            }
+            else
+            {
+
+                cbTransactionType.Text = FixAccounts.TransactionTypeForCredit;
+                cbTransactionType.SelectedIndex = cbTransactionType.Items.IndexOf(FixAccounts.TransactionTypeForCredit);
+            }
+
+            txtVouType.Text = _Purchase.VoucherType.ToString();
+            txtVouchernumber.Text = _Purchase.VoucherNumber.ToString();
+            txtBillNumber.Text = _Purchase.PurchaseBillNumber;
+            txtNarration.Text = _Purchase.Narration;
+            txtSplDiscPerS.Text = _Purchase.SpecialDiscountPercentS.ToString("#0.00");
+            txtCashDiscountPerS.Text = _Purchase.CashDiscountPercentageS.ToString("#0.00");
+            txtCashDiscountAmountS.Text = _Purchase.AmountCashDiscountS.ToString("#0.00");
+            txtPreCashDiscountAmountS.Text = _Purchase.AmountCashDiscountS.ToString("#0.00");
+            txtSplDiscountS.Text = _Purchase.AmountSpecialDiscountS.ToString("#0.00");
+            txtItemDiscountS.Text = _Purchase.AmountItemDiscountS.ToString("#0.00");
+            txtSchemeDiscountS.Text = _Purchase.AmountSchemeDiscountS.ToString("#0.00");
+            txtAddOnS.Text = _Purchase.AmountAddOnFreightS.ToString("#0.00");
+            txtLessS.Text = _Purchase.AmountLessS.ToString("#0.00");
+            txtCRAmountS.Text = _Purchase.AmountCreditNoteS.ToString("#0.00");
+            txtDBAmountS.Text = _Purchase.AmountDebitNoteS.ToString("#0.00");
+            txtViewVat5per.Text = _Purchase.AmountVAT5PercentS.ToString("#0.00");
+            txtViewVat12point5per.Text = _Purchase.AmountVAT12point5PercentS.ToString("#0.00");
+            txtPurchaseAmountVATZeroS.Text = _Purchase.PurchaseAmountZeroVATS.ToString("#0.00");
+            txtPurchaseAmountVAT5S.Text = _Purchase.PurchaseAmount5PercentVATS.ToString("#0.00");
+            txtPurchaseAmountVAT12point5S.Text = _Purchase.PurchaseAmount12point5PercentVATS.ToString("#0.00");
+            if (DateTime.TryParse(_Purchase.VoucherDate, out DateTime mydate))
+                datePickerBillDate.Value = mydate;
+            txtRoundUPS.Text = _Purchase.RoundUpAmountS.ToString("#0.00");
+            txtGridAmountTot.Text = _Purchase.AmountS.ToString("#0.00");
+            txtBillAmountS.Text = _Purchase.AmountS.ToString("#0.00");
+            txtBillAmount.ReadOnly = false;
+            txtBillAmount.Enabled = true;
+            txtBillAmount.Text = _Purchase.AmountNetS.ToString("#0.00");
+            txtNetAmountS.Text = _Purchase.AmountNetS.ToString("#0.00");
+            txtBillAmount.ReadOnly = true;
+            txtBillAmount.Enabled = false;
+
+            FillShelfCombo();
+            FillBankCombo();
+            int macno = 0;
+
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+            {
+                macno = _Purchase.GetAccountIDCNF();
+            }
+            else
+            {
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+                    macno = _Purchase.GetAccountIDStockist();
+            }
+
+            FillCreditorCombo();
+
+            int mprodid;
+            //int mclosingstock;
+            int mqty = 0;
+            int mscmqty = 0;
+            string mbatchno = "";
+            string mexp = "";
+            string mexpdate = "";
+            double mmrp = 0;
+            double mtrate = 0;
+            double mprate = 0;
+            double msrate = 0;
+            double mptr;
+            double mgstper;
+            double mamt;
+            //int mcnforderqty;
+            //int mcnfscmqty;
+            //int mpendingqty;
+            string mprodname;
+            string mprodpak;
+            string mprodcompshortname;
+            //string mshelf;
+            int mstockid = 0;
+            //int mcnfid = 0;
+            //int maccountid = 0;
+
+            mpMSVC.Rows.Clear();
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+            {
+                mgstper = 0;
+                mptr = 0;
+                dt = _Purchase.ReadProductDetailsFromAzureCNF(_Purchase.MasterID);
+
+                if (dt != null)
+                {
+
+                    foreach (DataRow stockdr in dt.Rows)
+                    {
+                        mprodid = Convert.ToInt32(stockdr["ProductID"].ToString());
+                        mprodname = (stockdr["ProdName"].ToString());
+                        mprodpak = (stockdr["ProdPack"].ToString());
+                        mprodcompshortname = (stockdr["ProdCompShortName"].ToString());
+                        if (stockdr["Quantity"] != DBNull.Value)
+                            mqty = Convert.ToInt32(stockdr["Quantity"].ToString());
+                        if (stockdr["SchemeQuantity"] != DBNull.Value)
+                            mscmqty = Convert.ToInt32(stockdr["SchemeQuantity"].ToString());
+                        if (stockdr["BatchNumber"] != DBNull.Value)
+                            mbatchno = (stockdr["BatchNumber"].ToString());
+                        if (stockdr["Expiry"] != DBNull.Value)
+                            mexp = (stockdr["Expiry"].ToString());
+                        if (stockdr["ExpiryDate"] != DBNull.Value)
+                            mexpdate = (stockdr["ExpiryDate"].ToString());
+                        if (stockdr["MRP"] != DBNull.Value)
+                            mmrp = Convert.ToDouble(stockdr["MRP"].ToString());
+                        if (stockdr["SaleRate"] != DBNull.Value)
+                            mtrate = Convert.ToDouble(stockdr["SaleRate"].ToString());
+                        if (stockdr["SaleRate"] != DBNull.Value)
+                            mprate = Convert.ToDouble(stockdr["SaleRate"].ToString());
+                        if (stockdr["PriceToRetailer"] != DBNull.Value)
+                            msrate = Convert.ToDouble(stockdr["PriceToRetailer"].ToString());
+                        if (stockdr["PriceToRetailer"] != DBNull.Value)
+                            mptr = Convert.ToDouble(stockdr["PriceToRetailer"].ToString());
+                        if (stockdr["ProdVATPercent"] != DBNull.Value)
+                            mgstper = Convert.ToDouble(stockdr["ProdVATPercent"].ToString());
+
+
+                        mamt = mqty * mtrate;
+                        int mindex = mpMSVC.Rows.Add();
+
+                        mpMSVC.Rows[mindex].Cells["Col_ProductID"].Value = mprodid.ToString("#0");
+                        mpMSVC.Rows[mindex].Cells["Col_ProductName"].Value = mprodname.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_Pack"].Value = mprodpak.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_Company"].Value = mprodcompshortname.ToString();
+                        //mpMSVC.Rows[mindex].Cells["Col_Shelf"].Value = mshelf.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_ProdVATPer"].Value = mgstper.ToString("#0.00");
+                        mpMSVC.Rows[mindex].Cells["Col_VAT"].Value = mgstper.ToString("#0.00");
+                        //mpMSVC.Rows[mindex].Cells["Col_ProdClosingStock"].Value = mclosingstock.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_PurchaseRate"].Value = mprate.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_BatchNumber"].Value = mbatchno.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_Expiry"].Value = mexp.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_MRP"].Value = mmrp.ToString("#0.00");
+                        mpMSVC.Rows[mindex].Cells["Col_SaleRate"].Value = msrate.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_Quantity"].Value = mqty.ToString("#0");
+                        mpMSVC.Rows[mindex].Cells["Col_Scheme"].Value = mscmqty.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_ItemDiscountAmount"].Value = 0.ToString("#0.00");
+                        mpMSVC.Rows[mindex].Cells["Col_ItemSCMDiscountAmount"].Value = 0.ToString("#0.00");
+                        mpMSVC.Rows[mindex].Cells["Col_ItemDiscountPer"].Value = 0.ToString("#0.00"); ;
+                        mpMSVC.Rows[mindex].Cells["Col_PriceToRetailer"].Value = mptr.ToString("#0.00");
+                        mpMSVC.Rows[mindex].Cells["Col_Amount"].Value = mamt.ToString("#0.00");
+                        mpMSVC.Rows[mindex].Cells["Col_ExpiryDate"].Value = mexpdate.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_TradeRate"].Value = mtrate.ToString("#0.00");
+                        mpMSVC.Rows[mindex].Cells["Col_StockID"].Value = mstockid.ToString();
+
+                        //mpMSVC.Rows[mindex].Cells["Col_NewSaleRate"].Value = msrate.ToString();
+                        //mpMSVC.Rows[mindex].Cells["Col_NewBatchNumber"].Value = txtBatch.Text.ToString();
+
+                    }
+                    this.btnSummary.Enabled = true;
+                    this.btnSummary.Focus();
+                }
+            }
+
+            _Purchase.AccountID = Convert.ToString(macno);
+            btnSummary.Enabled = true;
+            dgvBatchGrid.Visible = false;
+            pnlSummary.Visible = false;
+            pnlGST.Visible = false;
+            pnlIGST.Visible = false;
+
+
+            mcbCreditor.SelectedID = _Purchase.AccountID;
+            if (_Mode == OperationMode.ReportView)
+            {
+                tsBtnFifth.Visible = false;
+            }
+            //if (_Mode == OperationMode.Fifth && _Purchase.StatementNumber == 0)
+            //{
+            //    btnTypeChange.Visible = true;
+            //    cbNewTransactionType.Visible = true;
+            //    cbNewTransactionType.Enabled = false;
+            //    btnTypeChange.Enabled = true;
+            //    btnTypeChange.Focus();
+            //}
+            if (_Purchase.StatementNumber > 0 || _Mode == OperationMode.View || _Mode == OperationMode.ReportView)
+            {
+                pnlPaymentDetails.Enabled = false;
+                mpMSVC.IsAllowDelete = false;
+                mcbCreditor.Enabled = false;
+            }
+            else
+            {
+                mpMSVC.IsAllowDelete = true;
+                pnlPaymentDetails.Enabled = true;
+                pnlBillDetails.Enabled = true;
+                mcbCreditor.Enabled = true;
+                txtBillNumber.Enabled = true;
+                //if (_Mode !=OperationMode.Add)
+                //    mcbCreditor.Focus();
+
+            }
+
+            txtVouchernumber.Enabled = false;
+            cbTransactionType.Enabled = false;
+            txtVouchernumber.Enabled = true;
+            //if (_Mode != OperationMode.View && _Mode != OperationMode.ReportView)
+            //{
+            //    int currentrow = mpMSVC.Rows.Add();
+            //    //    mpMSVC.SetFocus(currentrow, 1);
+            //}
+
+
 
         }
         private void ShowBills()
@@ -8744,20 +8992,16 @@ namespace EcoMart.InterfaceLayer
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            _formImportAlliedSaleBill = new FormImportSaleBill();
-            CreateImportAlliedSaleBillForm();
-            _formImportAlliedSaleBill.RefreshData();
-            DialogResult result = _formImportAlliedSaleBill.ShowDialog();
-            tempdelpath = string.Empty;
-            if (result == DialogResult.OK)
-            {
-                _ImportBill = _formImportAlliedSaleBill.ImportBillData;
-                if (_ImportBill != null)
-                {
-                    FillFormWithImportBillData();
-                }
-                tempdelpath = _formImportAlliedSaleBill.tempdelpath;
-            }
+
+            //if (result == DialogResult.OK)
+            //{
+            //    _ImportBill = _formImportAlliedSaleBill.ImportBillData;
+            //    if (_ImportBill != null)
+            //    {
+            //        FillFormWithImportBillData();
+            //    }
+            //    tempdelpath = _formImportAlliedSaleBill.tempdelpath;
+            //}
         }
         private void CreateImportAlliedSaleBillForm()
         {
@@ -9354,7 +9598,7 @@ namespace EcoMart.InterfaceLayer
         public void BindMainProductGrid()
         {
             Product prod = new Product();
-            DataTable proddt = prod.GetOverviewData();
+            DataTable proddt = prod.GetOverviewData(Convert.ToInt32(mcbCreditor.SelectedID));
             //  DataTable dt = General.ProductList;
             mpMSVC.DataSource = proddt;
             mpMSVC.Bind();
@@ -9365,29 +9609,29 @@ namespace EcoMart.InterfaceLayer
         #region UIEvents
         private void txtProfitPercentage_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
-            {
-                double pp = 0;
-                if (txtProfitPercentage.Text != null && txtProfitPercentage.Text.ToString() != string.Empty)
-                    pp = Convert.ToDouble(txtProfitPercentage.Text.ToString());
-                if (pp > 0)
-                {
-                    double mtrate = 0;
-                    mtrate = Convert.ToDouble(txtTradeRate.Text.ToString());
-                    double msalerate = Math.Round(mtrate * pp / 100, 2);
-                    txtSaleRate.Text = (mtrate + msalerate).ToString("#0.00");
-                }
-                if (General.CurrentSetting.MsetPurchaseChangeSaleRate == "Y")
-                    txtSaleRate.Focus();
-                else
-                    btnOK.Focus();
-                CalculateTotals();
+            //if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            //{
+            //    double pp = 0;
+            //    if (txtProfitPercentage.Text != null && txtProfitPercentage.Text.ToString() != string.Empty)
+            //        pp = Convert.ToDouble(txtProfitPercentage.Text.ToString());
+            //    if (pp > 0)
+            //    {
+            //        double mtrate = 0;
+            //        mtrate = Convert.ToDouble(txtTradeRate.Text.ToString());
+            //        double msalerate = Math.Round(mtrate * pp / 100, 2);
+            //        txtSaleRate.Text = (mtrate + msalerate).ToString("#0.00");
+            //    }
+            //    if (General.CurrentSetting.MsetPurchaseChangeSaleRate == "Y")
+            //        txtSaleRate.Focus();
+            //    else
+            //        btnOK.Focus();
+            //    CalculateTotals();
 
-            }
-            else if (e.KeyCode == Keys.Up)
-            {
-                txtItemDiscountPer.Focus();
-            }
+            //}
+            //else if (e.KeyCode == Keys.Up)
+            //{
+            //    txtItemDiscountPer.Focus();
+            //}
 
         }
         private void mpMSVC_OnEscapeKeyPressed(object sender, EventArgs e)
@@ -9761,8 +10005,8 @@ namespace EcoMart.InterfaceLayer
                 double ptr = 0;
                 if (txtPTR.Text != null && txtPTR.Text.ToString() != string.Empty)
                     ptr = Convert.ToDouble(txtPTR.Text.ToString());
-                if (ptr > 0)
-                    txtSaleRate.Text = ptr.ToString("#0.00");
+                //if (ptr > 0)
+                //    txtSaleRate.Text = ptr.ToString("#0.00");
                 if (txtSaleRate.Enabled == true)
                     txtSaleRate.Focus();
                 else
@@ -9780,8 +10024,8 @@ namespace EcoMart.InterfaceLayer
             double ptr = 0;
             if (txtPTR.Text != null && txtPTR.Text.ToString() != string.Empty)
                 ptr = Convert.ToDouble(txtPTR.Text.ToString());
-            if (ptr > 0)
-                txtSaleRate.Text = ptr.ToString("#0.00");
+            //if (ptr > 0)
+            //    txtSaleRate.Text = ptr.ToString("#0.00");
         }
 
         private void txtProfitPercentage_TextChanged(object sender, EventArgs e)
@@ -9791,7 +10035,279 @@ namespace EcoMart.InterfaceLayer
 
         private void txtSaleRate_TextChanged(object sender, EventArgs e)
         {
-            CalculatePurRateSaleRateAndAmount();
+            //CalculatePurRateSaleRateAndAmount();
         }
+
+        private void StockistDownload_Click(object sender, EventArgs e)
+        {
+
+            stokistdownload();
+
+        }
+
+        private void stokistdownload()
+        {
+            //bool retValue = false;
+            int aa = General.EcoMartLicense.EcoMartInfo.ShopID;
+            int bb = General.EcoMartLicense.CNFInfo.ShopID;
+            int cc = General.EcoMartLicense.ShopID;
+            DataTable dt = null;
+            ClearData();
+            InitializeScreen();
+            InitializeMainSubViewControl("");
+            FillShelfCombo();
+            FillCreditorCombo();
+            FillBankCombo();
+            FillAllData();
+            //  FillTransactionType();
+            FixVoucherTypeBycbTransactionType();
+            EnableDisable();
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+            {
+                _Purchase.ReadDetailsFromAzureCNF(General.EcoMartLicense.ShopID);
+            }
+            else
+            {
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.Stockist )
+                    _Purchase.ReadDetailsFromAzureStockist(General.EcoMartLicense.ShopID);
+            }
+
+            BindTempGrid();
+
+            //BindPaymentDetails();
+            FillGSTpnl();
+            //InitializeMainSubViewControl(Vmode);
+            if (_Mode == OperationMode.ReportView)
+            {
+                string vout = _Purchase.VoucherType;
+                FillTransactionType();
+                _Purchase.VoucherType = vout;
+            }
+
+            //if (_Mode != OperationMode.View && _Mode != OperationMode.ReportView)
+            //{
+            //    int currentrow =  mpMSVC.Rows.Add();
+            //    mpMSVC.SetFocus(currentrow, 1);
+            //}
+            _Purchase.OldVoucherType = _Purchase.VoucherType;
+            _Purchase.OldVoucherNumber = _Purchase.VoucherNumber;
+            //if (_Purchase.StatementNumber.ToString() != "" && _Purchase.StatementNumber > 0)
+            //    lblFooterMessage.Text = "Statement Number : " + _Purchase.StatementNumber.ToString();
+            //else
+            //    lblFooterMessage.Text = "";
+            txtVoucherSeries.Text = _Purchase.VoucherSeries;
+            if (_Purchase.VoucherType == FixAccounts.VoucherTypeForCashPurchase)
+            {
+
+                cbTransactionType.Text = FixAccounts.TransactionTypeForCash;
+                cbTransactionType.SelectedIndex = cbTransactionType.Items.IndexOf(FixAccounts.TransactionTypeForCash);
+            }
+            else if (_Purchase.VoucherType == FixAccounts.VoucherTypeForCreditStatementPurchase)
+            {
+
+                cbTransactionType.Text = FixAccounts.TransactionTypeForCreditStatement;
+                cbTransactionType.SelectedIndex = cbTransactionType.Items.IndexOf(FixAccounts.TransactionTypeForCreditStatement);
+            }
+            else
+            {
+
+                cbTransactionType.Text = FixAccounts.TransactionTypeForCredit;
+                cbTransactionType.SelectedIndex = cbTransactionType.Items.IndexOf(FixAccounts.TransactionTypeForCredit);
+            }
+
+            txtVouType.Text = _Purchase.VoucherType.ToString();
+            txtVouchernumber.Text = _Purchase.VoucherNumber.ToString();
+            txtBillNumber.Text = _Purchase.PurchaseBillNumber;
+            txtNarration.Text = _Purchase.Narration;
+            txtSplDiscPerS.Text = _Purchase.SpecialDiscountPercentS.ToString("#0.00");
+            txtCashDiscountPerS.Text = _Purchase.CashDiscountPercentageS.ToString("#0.00");
+            txtCashDiscountAmountS.Text = _Purchase.AmountCashDiscountS.ToString("#0.00");
+            txtPreCashDiscountAmountS.Text = _Purchase.AmountCashDiscountS.ToString("#0.00");
+            txtSplDiscountS.Text = _Purchase.AmountSpecialDiscountS.ToString("#0.00");
+            txtItemDiscountS.Text = _Purchase.AmountItemDiscountS.ToString("#0.00");
+            txtSchemeDiscountS.Text = _Purchase.AmountSchemeDiscountS.ToString("#0.00");
+            txtAddOnS.Text = _Purchase.AmountAddOnFreightS.ToString("#0.00");
+            txtLessS.Text = _Purchase.AmountLessS.ToString("#0.00");
+            txtCRAmountS.Text = _Purchase.AmountCreditNoteS.ToString("#0.00");
+            txtDBAmountS.Text = _Purchase.AmountDebitNoteS.ToString("#0.00");
+            txtViewVat5per.Text = _Purchase.AmountVAT5PercentS.ToString("#0.00");
+            txtViewVat12point5per.Text = _Purchase.AmountVAT12point5PercentS.ToString("#0.00");
+            txtPurchaseAmountVATZeroS.Text = _Purchase.PurchaseAmountZeroVATS.ToString("#0.00");
+            txtPurchaseAmountVAT5S.Text = _Purchase.PurchaseAmount5PercentVATS.ToString("#0.00");
+            txtPurchaseAmountVAT12point5S.Text = _Purchase.PurchaseAmount12point5PercentVATS.ToString("#0.00");
+            if (DateTime.TryParse(_Purchase.VoucherDate, out DateTime mydate))
+                datePickerBillDate.Value = mydate;
+            txtRoundUPS.Text = _Purchase.RoundUpAmountS.ToString("#0.00");
+            txtGridAmountTot.Text = _Purchase.AmountS.ToString("#0.00");
+            txtBillAmountS.Text = _Purchase.AmountS.ToString("#0.00");
+            txtBillAmount.ReadOnly = false;
+            txtBillAmount.Enabled = true;
+            txtBillAmount.Text = _Purchase.AmountNetS.ToString("#0.00");
+            txtNetAmountS.Text = _Purchase.AmountNetS.ToString("#0.00");
+            txtBillAmount.ReadOnly = true;
+            txtBillAmount.Enabled = false;
+
+            FillShelfCombo();
+            FillBankCombo();
+            int macno = _Purchase.GetAccountIDStockist();
+            //string ssa = _Purchase.AccountID;
+            FillCreditorCombo();
+
+            int mprodid;
+            //int mclosingstock;
+            int mqty = 0;
+            int mscmqty = 0;
+            string mbatchno = "";
+            string mexp = "";
+            string mexpdate = "";
+            double mmrp = 0;
+            double mtrate = 0;
+            double mprate = 0;
+            double msrate = 0;
+            double mptr;
+            double mgstper;
+            double mamt;
+            //int mcnforderqty;
+            //int mcnfscmqty;
+            //int mpendingqty;
+            string mprodname;
+            string mprodpak;
+            string mprodcompshortname;
+            //string mshelf;
+            int mstockid = 0;
+            //int mcnfid = 0;
+            //int maccountid = 0;
+
+            mpMSVC.Rows.Clear();
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.Stockist)
+            {
+                mgstper = 0;
+                mptr = 0;
+                dt = _Purchase.ReadProductDetailsFromAzureStockist(_Purchase.VoucherNumber);
+
+                if (dt != null)
+                {
+
+                    foreach (DataRow stockdr in dt.Rows)
+                    {
+                        mprodid = Convert.ToInt32(stockdr["ProductID"].ToString());
+
+
+                        //if (stockdr["ClosingStock"] != DBNull.Value)
+                        //    mclosingstock = Convert.ToInt32(stockdr["ClosingStock"].ToString());
+                        //mpendingqty = mclosingstock - mcnftotalqty;
+
+                        mprodname = (stockdr["ProdName"].ToString());
+                        mprodpak = (stockdr["ProdPack"].ToString());
+                        mprodcompshortname = (stockdr["ProdCompShortName"].ToString());
+                        //mshelf = (stockdr["ShelfCode"].ToString());
+                        //mstockid = Convert.ToInt32(stockdr["StockID"].ToString());
+
+                        if (stockdr["Quantity"] != DBNull.Value)
+                            mqty = Convert.ToInt32(stockdr["Quantity"].ToString());
+                        if (stockdr["SchemeQuantity"] != DBNull.Value)
+                            mscmqty = Convert.ToInt32(stockdr["SchemeQuantity"].ToString());
+                        if (stockdr["BatchNumber"] != DBNull.Value)
+                            mbatchno = (stockdr["BatchNumber"].ToString());
+                        if (stockdr["Expiry"] != DBNull.Value)
+                            mexp = (stockdr["Expiry"].ToString());
+                        if (stockdr["ExpiryDate"] != DBNull.Value)
+                            mexpdate = (stockdr["ExpiryDate"].ToString());
+                        if (stockdr["MRP"] != DBNull.Value)
+                            mmrp = Convert.ToDouble(stockdr["MRP"].ToString());
+                        if (stockdr["SaleRate"] != DBNull.Value)
+                            mtrate = Convert.ToDouble(stockdr["SaleRate"].ToString());
+                        if (stockdr["SaleRate"] != DBNull.Value)
+                            mprate = Convert.ToDouble(stockdr["SaleRate"].ToString());
+                        if (stockdr["PriceToRetailer"] != DBNull.Value)
+                            msrate = Convert.ToDouble(stockdr["PriceToRetailer"].ToString());
+                        if (stockdr["PriceToRetailer"] != DBNull.Value)
+                            mptr = Convert.ToDouble(stockdr["PriceToRetailer"].ToString());
+                        if (stockdr["ProdVATPercent"] != DBNull.Value)
+                            mgstper = Convert.ToDouble(stockdr["ProdVATPercent"].ToString());
+
+
+                        mamt = mqty * mtrate;
+                        int mindex = mpMSVC.Rows.Add();
+
+                        mpMSVC.Rows[mindex].Cells["Col_ProductID"].Value = mprodid.ToString("#0");
+                        mpMSVC.Rows[mindex].Cells["Col_ProductName"].Value = mprodname.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_Pack"].Value = mprodpak.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_Company"].Value = mprodcompshortname.ToString();
+                        //mpMSVC.Rows[mindex].Cells["Col_Shelf"].Value = mshelf.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_ProdVATPer"].Value = mgstper.ToString("#0.00");
+                        mpMSVC.Rows[mindex].Cells["Col_VAT"].Value = mgstper.ToString("#0.00");
+                        //mpMSVC.Rows[mindex].Cells["Col_ProdClosingStock"].Value = mclosingstock.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_PurchaseRate"].Value = mprate.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_BatchNumber"].Value = mbatchno.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_Expiry"].Value = mexp.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_MRP"].Value = mmrp.ToString("#0.00");
+                        mpMSVC.Rows[mindex].Cells["Col_SaleRate"].Value = msrate.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_Quantity"].Value = mqty.ToString("#0");
+                        mpMSVC.Rows[mindex].Cells["Col_Scheme"].Value = mscmqty.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_ItemDiscountAmount"].Value = 0.ToString("#0.00");
+                        mpMSVC.Rows[mindex].Cells["Col_ItemSCMDiscountAmount"].Value = 0.ToString("#0.00");
+                        mpMSVC.Rows[mindex].Cells["Col_ItemDiscountPer"].Value = 0.ToString("#0.00"); ;
+                        mpMSVC.Rows[mindex].Cells["Col_PriceToRetailer"].Value = mptr.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_Amount"].Value = mamt.ToString("#0.00");
+                        mpMSVC.Rows[mindex].Cells["Col_ExpiryDate"].Value = mexpdate.ToString();
+                        mpMSVC.Rows[mindex].Cells["Col_TradeRate"].Value = mtrate.ToString("#0.00");
+                        mpMSVC.Rows[mindex].Cells["Col_StockID"].Value = mstockid.ToString();
+
+                        //mpMSVC.Rows[mindex].Cells["Col_NewSaleRate"].Value = msrate.ToString();
+                        //mpMSVC.Rows[mindex].Cells["Col_NewBatchNumber"].Value = txtBatch.Text.ToString();
+
+                    }
+                    this.btnSummary.Enabled = true;
+                    this.btnSummary.Focus();
+                }
+            }
+
+            _Purchase.AccountID = Convert.ToString(macno);
+            btnSummary.Enabled = true;
+            dgvBatchGrid.Visible = false;
+            pnlSummary.Visible = false;
+            pnlGST.Visible = false;
+            pnlIGST.Visible = false;
+
+
+            mcbCreditor.SelectedID = _Purchase.AccountID;
+            if (_Mode == OperationMode.ReportView)
+            {
+                tsBtnFifth.Visible = false;
+            }
+            //if (_Mode == OperationMode.Fifth && _Purchase.StatementNumber == 0)
+            //{
+            //    btnTypeChange.Visible = true;
+            //    cbNewTransactionType.Visible = true;
+            //    cbNewTransactionType.Enabled = false;
+            //    btnTypeChange.Enabled = true;
+            //    btnTypeChange.Focus();
+            //}
+            if (_Purchase.StatementNumber > 0 || _Mode == OperationMode.View || _Mode == OperationMode.ReportView)
+            {
+                pnlPaymentDetails.Enabled = false;
+                mpMSVC.IsAllowDelete = false;
+                mcbCreditor.Enabled = false;
+            }
+            else
+            {
+                mpMSVC.IsAllowDelete = true;
+                pnlPaymentDetails.Enabled = true;
+                pnlBillDetails.Enabled = true;
+                mcbCreditor.Enabled = true;
+                txtBillNumber.Enabled = true;
+                //if (_Mode !=OperationMode.Add)
+                //    mcbCreditor.Focus();
+
+            }
+
+            txtVouchernumber.Enabled = false;
+            cbTransactionType.Enabled = false;
+            txtVouchernumber.Enabled = true;
+
+        }
+
+
     }
 }

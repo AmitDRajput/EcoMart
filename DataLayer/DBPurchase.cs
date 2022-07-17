@@ -59,7 +59,7 @@ namespace EcoMart.DataLayer
                  gstAmt0, gstAmtS5, gstAmtS12, gstAmtS18, gstAmtS28, gstAmtC5, gstAmtC12, gstAmtC18, gstAmtC28, gsts5,
                 gsts12, gsts18, gsts28, gstc5, gstc12, gstc18, gstc28, gstAmtI5, gstAmtI12, gstAmtI18, gstAmtI28, gstI5, gstI12, gstI18, gstI28, createdby, createddate, createdtime);
             //strSql += ";select last_insert_ID()";
-            int ii = Convert.ToInt32(DBInterface.ExecuteScalar(strSql));
+            int ii = (DBInterface.ExecuteScalar(strSql));
             return ii;
         }
 
@@ -434,24 +434,8 @@ namespace EcoMart.DataLayer
             //objQuery.AddToQuery("SpecialDiscountPercentage", SpecialDiscPer);
             objQuery.AddToQuery("AmountCreditNote", AmountCreditNote);
             objQuery.AddToQuery("AmountDebitNote", AmountDebitNote);
-
-            objQuery.AddToQuery("RoundUpAmount", RoundUpAmount);
-            //   objQuery.AddToQuery("OctroiPercentage", OctroiPercentage);
-            //    objQuery.AddToQuery("AmountOctroi", AmountOctroi);
-            //  objQuery.AddToQuery("DueDate", DueDate);
-            objQuery.AddToQuery("Narration", Narration);
-            //  objQuery.AddToQuery("AmountVAT5Percent", AmountVAT5Percent);
-            //   objQuery.AddToQuery("AmountVAT12point5Percent", AmountVAT12Point5Percent);
-            //  objQuery.AddToQuery("AmountVATOPercent", AmtOtherPercentVAT);
-
-
-            //  objQuery.AddToQuery("AmountPurchaseZeroVAT", PurchaseAmountZeroVATS);
-            //  objQuery.AddToQuery("AmountPurchase5PercentVAT", PurchaseAmount5PercentVAT);
-            //   objQuery.AddToQuery("AmountPurchase12point5PercentVAT", PurchaseAmount12Point5PercentVAT);
-            //  objQuery.AddToQuery("AmountPurchaseOPercentVAT", PurchaseAmount0PercentVAT);
-            //objQuery.AddToQuery("StatementNumber", StatementNumber);
-            //objQuery.AddToQuery("NumberofChallans", NumberofChallans);
-
+            objQuery.AddToQuery("RoundUpAmount", RoundUpAmount);           
+            objQuery.AddToQuery("Narration", Narration);  
             objQuery.AddToQuery("AmountGST0", gstAmt0);
             objQuery.AddToQuery("AmountGSTS5", gstAmtS5);
             objQuery.AddToQuery("AmountGSTS12", gstAmtS12);
@@ -581,8 +565,6 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("AmountVAT5Percent", AmountVAT5Percent);
             objQuery.AddToQuery("AmountVAT12point5Percent", AmountVAT12Point5Percent);
             objQuery.AddToQuery("AmountVATOPercent", AmtOtherPercentVAT);
-
-
             objQuery.AddToQuery("AmountPurchaseZeroVAT", PurchaseAmountZeroVATS);
             objQuery.AddToQuery("AmountPurchase5PercentVAT", PurchaseAmount5PercentVAT);
             objQuery.AddToQuery("AmountPurchase12point5PercentVAT", PurchaseAmount12Point5PercentVAT);
@@ -662,7 +644,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("TradeRate", TradeRate);
             objQuery.AddToQuery("PurchaseRate", PurchaseRate);
             objQuery.AddToQuery("MRP", MRP);
-            objQuery.AddToQuery("SaleRate", SaleRate);
+            objQuery.AddToQuery("SaleRate", SaleRate);           
             objQuery.AddToQuery("Expiry", Expiry);
             objQuery.AddToQuery("ExpiryDate", ExpiryDate);
             objQuery.AddToQuery("Quantity", Quantity);
@@ -675,20 +657,19 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("PurchaseVATPercent", PurchaseVATPercent);
             objQuery.AddToQuery("ProductVATPercent", ProductVATPercent);
             objQuery.AddToQuery("AmountPurchaseVAT", AmountPurchaseVAT);
-            objQuery.AddToQuery("AmountProdVAT", AmountProductVAT);
-            //objQuery.AddToQuery("CSTPercent", CSTPercent);
-            //objQuery.AddToQuery("AmountCST", AmountCST);
-            //objQuery.AddToQuery("IfMRPInclusiveOfVAT", IfMRPInclusiveOfVAT);
-            //objQuery.AddToQuery("IfTradeRateInclusiveOfVAT", IfTradeRateInclusiveOfVAT);          
-            //objQuery.AddToQuery("AmountSpecialDiscount", amtspldisc);
-            //objQuery.AddToQuery("SpecialDiscountPercent", spldiscper);      
+            objQuery.AddToQuery("AmountProdVAT", AmountProductVAT);            
             objQuery.AddToQuery("AmountCashDiscount", Amountcashdiscperunit);
-            objQuery.AddToQuery("StockID", stockid);
-            //   objQuery.AddToQuery("DetailPurchaseID", mydetailpurchaseid);
+            objQuery.AddToQuery("StockID", stockid);           
             objQuery.AddToQuery("Margin", productMargin);
             objQuery.AddToQuery("MarginAfterDiscount", productMargin2);
             objQuery.AddToQuery("SerialNumber", serialNumber);
             objQuery.AddToQuery("ScanCode", scancode);
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+            {
+                objQuery.AddToQuery("StockistRate", pricetoretailer);
+                objQuery.AddToQuery("CNFRate", SaleRate);
+                objQuery.AddToQuery("EcoMartRate", TradeRate);
+            }
 
             objQuery.AddToQuery("GSTAmountZero", gstPurchaseAmountZero);
             objQuery.AddToQuery("GSTSAmount", gstSPurchaseAmount);
@@ -825,6 +806,24 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("DebitNoteStock", 0);
             objQuery.AddToQuery("SaleSchemeStock", 0);
             objQuery.AddToQuery("PriceToRetailer", pricetoretailer);
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+            {
+                objQuery.AddToQuery("StockistRate", pricetoretailer);
+                objQuery.AddToQuery("CNFRate", SaleRate);
+                objQuery.AddToQuery("EcoMartRate", TradeRate);
+                objQuery.AddToQuery("EcoMartID", General.EcoMartLicense.ShopID);
+                objQuery.AddToQuery("CNFID", 0);
+                objQuery.AddToQuery("StockistID", 0);                
+            }
+            else
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF )
+            {
+                objQuery.AddToQuery("StockistRate", pricetoretailer);
+                objQuery.AddToQuery("CNFRate", TradeRate);                
+                objQuery.AddToQuery("EcoMartID", General.EcoMartLicense.ShopID);
+                objQuery.AddToQuery("CNFID", 0);
+                objQuery.AddToQuery("StockistID", 0);
+            }
             objQuery.AddToQuery("ProfitPercent", profitpercent);
             //   objQuery.AddToQuery("StockID",stockid);
             objQuery.AddToQuery("Margin", productMargin);
@@ -870,24 +869,8 @@ namespace EcoMart.DataLayer
             //objQuery.AddToQuery("SpecialDiscountPercentage", SpecialDiscPer);
             objQuery.AddToQuery("AmountCreditNote", AmountCreditNote);
             objQuery.AddToQuery("AmountDebitNote", AmountDebitNote);
-
-            objQuery.AddToQuery("RoundUpAmount", RoundUpAmount);
-            //   objQuery.AddToQuery("OctroiPercentage", OctroiPercentage);
-            //    objQuery.AddToQuery("AmountOctroi", AmountOctroi);
-            //  objQuery.AddToQuery("DueDate", DueDate);
-            objQuery.AddToQuery("Narration", Narration);
-            //  objQuery.AddToQuery("AmountVAT5Percent", AmountVAT5Percent);
-            //   objQuery.AddToQuery("AmountVAT12point5Percent", AmountVAT12Point5Percent);
-            //  objQuery.AddToQuery("AmountVATOPercent", AmtOtherPercentVAT);
-
-
-            //  objQuery.AddToQuery("AmountPurchaseZeroVAT", PurchaseAmountZeroVATS);
-            //  objQuery.AddToQuery("AmountPurchase5PercentVAT", PurchaseAmount5PercentVAT);
-            //   objQuery.AddToQuery("AmountPurchase12point5PercentVAT", PurchaseAmount12Point5PercentVAT);
-            //  objQuery.AddToQuery("AmountPurchaseOPercentVAT", PurchaseAmount0PercentVAT);
-            //objQuery.AddToQuery("StatementNumber", StatementNumber);
-            //objQuery.AddToQuery("NumberofChallans", NumberofChallans);
-
+            objQuery.AddToQuery("RoundUpAmount", RoundUpAmount);           
+            objQuery.AddToQuery("Narration", Narration); 
             objQuery.AddToQuery("AmountGST0", gstAmt0);
             objQuery.AddToQuery("AmountGSTS5", gstAmtS5);
             objQuery.AddToQuery("AmountGSTS12", gstAmtS12);
@@ -1596,6 +1579,72 @@ namespace EcoMart.DataLayer
             return dt;
         }
 
+        public DataRow ReadDetailsFromAzureCNF(int  mcnfid)
+        {
+            DataRow dRow = null;
+            string strSql = "Select * from vouchersale where CNFID = " + mcnfid + " and ifdownloaded = 'N' ";           
+            dRow = AzureDBInterface.SelectFirstRow(strSql);
+            if (dRow != null)
+            {
+                strSql = "update vouchersale  set ifdownloaded = 'Y' where CNFID = " + mcnfid + " and ifdownloaded = 'N' ";
+                bool retValue = AzureDBInterface.ExecuteQuery(strSql) > 0;
+            }
+            return dRow;
+        }
 
+        public DataRow ReadDetailsFromAzureStockist(int mstockistid)
+        {
+            DataRow dRow = null;
+            string strSql = "Select * from vouchersale_cs where StockistID = " + mstockistid + " and ifdownloaded = 'N' and ifCNFSale = 'Y'"; 
+            dRow = AzureDBInterface.SelectFirstRow(strSql);
+            return dRow;
+        }
+        public DataRow GetAccountIDCNF()
+        {
+            DataRow dRow = null;
+            string strSql = "Select AccountID from masterAccount where EcoMartID = " + General.EcoMartLicense.EcoMartInfo.ShopID;
+            dRow = DBInterface.SelectFirstRow(strSql);
+            return dRow;
+        }
+
+        public DataRow GetAccountIDStockist()
+        {
+            DataRow dRow = null;
+            string strSql = "Select AccountID from masterAccount where CNFID =  " + General.EcoMartLicense.CNFInfo.ShopID;
+            dRow = DBInterface.SelectFirstRow(strSql);
+            return dRow;
+        }
+        public DataTable ReadProductDetailsFromAzureCNF(int masterID)
+        {
+            DataTable dt = null;
+            if (masterID != 0)
+            {
+                string strSql = "select a.DetailSaleID,a.MasterSaleID,a.ProductID,a.StockID,a.BatchNumber,a.MRP,a.PurchaseRate,a.SaleRate,a.PriceToRetailer, " +
+                                "a.TradeRate,a.Expiry,a.ExpiryDate,a.Quantity,a.SchemeQuantity,a.Vatper,a.VATAmount,a.Amount,a.AccountID, " +
+                                "a.VoucherNumber,a.VoucherDate,c.ProductID,c.ProdName,c.ProdLoosePack,c.ProdPack,c.ProdCompShortName,c.ProdVatPercent from detailsale a   " +
+                                "inner join masterproduct c on a.ProductID = c.ProductID where   a.MasterSaleID = '" + masterID + "'";
+                strSql = string.Format(strSql, masterID);
+                dt = AzureDBInterface.SelectDataTable(strSql);
+            }
+
+
+            return dt;
+        }
+
+        public DataTable ReadProductDetailsFromAzureStockist(int voucherNumber)
+        {
+            DataTable dt = null;
+            if (voucherNumber != 0)
+            {
+                string strSql = "select a.DetailSaleID,a.MasterSaleID,a.ProductID,a.StockID,a.BatchNumber,a.MRP,a.PurchaseRate,a.SaleRate,a.PriceToRetailer, " +
+                                "a.TradeRate,a.Expiry,a.ExpiryDate,a.Quantity,a.SchemeQuantity,a.Vatper,a.VATAmount,a.Amount,a.AccountID, " +
+                                "a.VoucherNumber,a.VoucherDate,c.ProductID,c.ProdName,c.ProdLoosePack,c.ProdPack,c.ProdCompShortName,c.ProdVatPercent from detailsale_CS a   " +
+                                "inner join masterproduct c on a.ProductID = c.ProductID where   a.voucherNumber = " + voucherNumber ;
+                strSql = string.Format(strSql, voucherNumber);
+                dt = AzureDBInterface.SelectDataTable(strSql);
+            }
+            return dt;
+        }
     }
 }
+ 

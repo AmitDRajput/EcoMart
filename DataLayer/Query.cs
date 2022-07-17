@@ -79,15 +79,15 @@ namespace EcoMart.DataLayer
                 values = string.Join(",", _Values.ToArray());
                 values = "(" + values + ")";
 
-                if (identityInsertOn)
-                    sql = "SET IDENTITY_INSERT " + _Table + " ON;";
+                //if (identityInsertOn)
+                //sql = "SET IDENTITY_INSERT " + _Table + " ON;";
+                sql = "";
 
                 sql += "Insert into " + _Table;
-                sql = sql + " " + fields + " Values" + values;
+                sql = sql + " " + fields + " Values" + values;                
                 sql = sql + ";  select scope_identity();";
-
-                if (identityInsertOn)
-                    sql += "SET IDENTITY_INSERT " + _Table + " OFF;";
+                //if (identityInsertOn)
+                //    sql += "SET IDENTITY_INSERT " + _Table + " OFF;";
             }
             catch (Exception ex)
             {

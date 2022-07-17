@@ -41,7 +41,6 @@ namespace EcoMart.InterfaceLayer
             this.mcbGenericCategory = new PaperlessPharmaRetail.InterfaceLayer.CommonControls.PSGenericCategoryComboBoxNew();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.psLabel2 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
@@ -56,7 +55,6 @@ namespace EcoMart.InterfaceLayer
             this.mPlbl7 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl6 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl5 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.mPlbl4 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl3 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl2 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.mPlbl1 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
@@ -67,7 +65,6 @@ namespace EcoMart.InterfaceLayer
             this.txtPack = new EcoMart.InterfaceLayer.CommonControls.PSAutoSuggestTextBox();
             this.txtMaxLevel = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
             this.txtMinLevel = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
-            this.txtLoosePack = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
             this.txtBoxQty = new PharmaSYSPlus.CommonLibrary.NumericTextBox();
             this.txtVAT = new PharmaSYSPlus.CommonLibrary.DecimalTextBox();
             this.txtCompShortName = new System.Windows.Forms.TextBox();
@@ -130,7 +127,6 @@ namespace EcoMart.InterfaceLayer
             this.panel2.Controls.Add(this.mcbGenericCategory);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.psLabel2);
@@ -145,7 +141,6 @@ namespace EcoMart.InterfaceLayer
             this.panel2.Controls.Add(this.mPlbl7);
             this.panel2.Controls.Add(this.mPlbl6);
             this.panel2.Controls.Add(this.mPlbl5);
-            this.panel2.Controls.Add(this.mPlbl4);
             this.panel2.Controls.Add(this.mPlbl3);
             this.panel2.Controls.Add(this.mPlbl2);
             this.panel2.Controls.Add(this.mPlbl1);
@@ -156,7 +151,6 @@ namespace EcoMart.InterfaceLayer
             this.panel2.Controls.Add(this.txtPack);
             this.panel2.Controls.Add(this.txtMaxLevel);
             this.panel2.Controls.Add(this.txtMinLevel);
-            this.panel2.Controls.Add(this.txtLoosePack);
             this.panel2.Controls.Add(this.txtBoxQty);
             this.panel2.Controls.Add(this.txtVAT);
             this.panel2.Controls.Add(this.txtCompShortName);
@@ -170,7 +164,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtHSNNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtHSNNumber.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtHSNNumber.Location = new System.Drawing.Point(448, 157);
+            this.txtHSNNumber.Location = new System.Drawing.Point(448, 180);
             this.txtHSNNumber.Name = "txtHSNNumber";
             this.txtHSNNumber.Size = new System.Drawing.Size(221, 22);
             this.txtHSNNumber.TabIndex = 66;
@@ -179,7 +173,7 @@ namespace EcoMart.InterfaceLayer
             // psLabel6
             // 
             this.psLabel6.AutoSize = true;
-            this.psLabel6.Location = new System.Drawing.Point(353, 159);
+            this.psLabel6.Location = new System.Drawing.Point(353, 182);
             this.psLabel6.Name = "psLabel6";
             this.psLabel6.Size = new System.Drawing.Size(89, 16);
             this.psLabel6.TabIndex = 65;
@@ -191,7 +185,7 @@ namespace EcoMart.InterfaceLayer
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(241, 158);
+            this.label10.Location = new System.Drawing.Point(241, 181);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(16, 14);
             this.label10.TabIndex = 64;
@@ -203,7 +197,7 @@ namespace EcoMart.InterfaceLayer
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(565, 134);
+            this.label9.Location = new System.Drawing.Point(241, 158);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(16, 14);
             this.label9.TabIndex = 59;
@@ -227,7 +221,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbGenericCategory.DataSource = null;
             this.mcbGenericCategory.DisplayColumnNo = 1;
             this.mcbGenericCategory.DropDownHeight = 200;
-            this.mcbGenericCategory.Location = new System.Drawing.Point(259, 253);
+            this.mcbGenericCategory.Location = new System.Drawing.Point(259, 276);
             this.mcbGenericCategory.Margin = new System.Windows.Forms.Padding(2);
             this.mcbGenericCategory.Name = "mcbGenericCategory";
             this.mcbGenericCategory.SelectedID = null;
@@ -250,7 +244,7 @@ namespace EcoMart.InterfaceLayer
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(241, 278);
+            this.label6.Location = new System.Drawing.Point(241, 301);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(16, 14);
             this.label6.TabIndex = 54;
@@ -262,23 +256,11 @@ namespace EcoMart.InterfaceLayer
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(387, 134);
+            this.label5.Location = new System.Drawing.Point(241, 134);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(16, 14);
             this.label5.TabIndex = 53;
             this.label5.Text = "*";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(241, 134);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(16, 14);
-            this.label4.TabIndex = 52;
-            this.label4.Text = "*";
             // 
             // label3
             // 
@@ -307,7 +289,7 @@ namespace EcoMart.InterfaceLayer
             // psLabel2
             // 
             this.psLabel2.AutoSize = true;
-            this.psLabel2.Location = new System.Drawing.Point(494, 134);
+            this.psLabel2.Location = new System.Drawing.Point(165, 158);
             this.psLabel2.Name = "psLabel2";
             this.psLabel2.Size = new System.Drawing.Size(69, 16);
             this.psLabel2.TabIndex = 48;
@@ -322,7 +304,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPackType.DisplayColumnNo = 1;
             this.txtPackType.DropDownHeight = 200;
             this.txtPackType.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPackType.Location = new System.Drawing.Point(583, 131);
+            this.txtPackType.Location = new System.Drawing.Point(259, 154);
             this.txtPackType.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtPackType.Name = "txtPackType";
             this.txtPackType.ReadOnly = false;
@@ -340,7 +322,7 @@ namespace EcoMart.InterfaceLayer
             // lblColdStorage
             // 
             this.lblColdStorage.AutoSize = true;
-            this.lblColdStorage.Location = new System.Drawing.Point(88, 209);
+            this.lblColdStorage.Location = new System.Drawing.Point(98, 232);
             this.lblColdStorage.Name = "lblColdStorage";
             this.lblColdStorage.Size = new System.Drawing.Size(136, 16);
             this.lblColdStorage.TabIndex = 42;
@@ -351,7 +333,7 @@ namespace EcoMart.InterfaceLayer
             this.txtRequireColdStorage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRequireColdStorage.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRequireColdStorage.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold);
-            this.txtRequireColdStorage.Location = new System.Drawing.Point(259, 204);
+            this.txtRequireColdStorage.Location = new System.Drawing.Point(259, 227);
             this.txtRequireColdStorage.Name = "txtRequireColdStorage";
             this.txtRequireColdStorage.Size = new System.Drawing.Size(37, 26);
             this.txtRequireColdStorage.TabIndex = 43;
@@ -360,7 +342,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl21
             // 
             this.mPlbl21.AutoSize = true;
-            this.mPlbl21.Location = new System.Drawing.Point(137, 303);
+            this.mPlbl21.Location = new System.Drawing.Point(147, 326);
             this.mPlbl21.Name = "mPlbl21";
             this.mPlbl21.Size = new System.Drawing.Size(87, 16);
             this.mPlbl21.TabIndex = 20;
@@ -369,7 +351,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl19
             // 
             this.mPlbl19.AutoSize = true;
-            this.mPlbl19.Location = new System.Drawing.Point(350, 134);
+            this.mPlbl19.Location = new System.Drawing.Point(198, 134);
             this.mPlbl19.Name = "mPlbl19";
             this.mPlbl19.Size = new System.Drawing.Size(36, 16);
             this.mPlbl19.TabIndex = 8;
@@ -378,7 +360,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl17
             // 
             this.mPlbl17.AutoSize = true;
-            this.mPlbl17.Location = new System.Drawing.Point(456, 186);
+            this.mPlbl17.Location = new System.Drawing.Point(456, 209);
             this.mPlbl17.Name = "mPlbl17";
             this.mPlbl17.Size = new System.Drawing.Size(105, 16);
             this.mPlbl17.TabIndex = 18;
@@ -387,7 +369,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl9
             // 
             this.mPlbl9.AutoSize = true;
-            this.mPlbl9.Location = new System.Drawing.Point(111, 280);
+            this.mPlbl9.Location = new System.Drawing.Point(121, 303);
             this.mPlbl9.Name = "mPlbl9";
             this.mPlbl9.Size = new System.Drawing.Size(113, 16);
             this.mPlbl9.TabIndex = 26;
@@ -396,7 +378,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl8
             // 
             this.mPlbl8.AutoSize = true;
-            this.mPlbl8.Location = new System.Drawing.Point(153, 234);
+            this.mPlbl8.Location = new System.Drawing.Point(163, 257);
             this.mPlbl8.Name = "mPlbl8";
             this.mPlbl8.Size = new System.Drawing.Size(71, 16);
             this.mPlbl8.TabIndex = 24;
@@ -405,7 +387,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl7
             // 
             this.mPlbl7.AutoSize = true;
-            this.mPlbl7.Location = new System.Drawing.Point(112, 257);
+            this.mPlbl7.Location = new System.Drawing.Point(122, 280);
             this.mPlbl7.Name = "mPlbl7";
             this.mPlbl7.Size = new System.Drawing.Size(112, 16);
             this.mPlbl7.TabIndex = 22;
@@ -414,7 +396,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl6
             // 
             this.mPlbl6.AutoSize = true;
-            this.mPlbl6.Location = new System.Drawing.Point(121, 186);
+            this.mPlbl6.Location = new System.Drawing.Point(131, 209);
             this.mPlbl6.Name = "mPlbl6";
             this.mPlbl6.Size = new System.Drawing.Size(103, 16);
             this.mPlbl6.TabIndex = 16;
@@ -423,25 +405,16 @@ namespace EcoMart.InterfaceLayer
             // mPlbl5
             // 
             this.mPlbl5.AutoSize = true;
-            this.mPlbl5.Location = new System.Drawing.Point(177, 159);
+            this.mPlbl5.Location = new System.Drawing.Point(187, 182);
             this.mPlbl5.Name = "mPlbl5";
             this.mPlbl5.Size = new System.Drawing.Size(47, 16);
             this.mPlbl5.TabIndex = 12;
             this.mPlbl5.Text = "&GST %";
             // 
-            // mPlbl4
-            // 
-            this.mPlbl4.AutoSize = true;
-            this.mPlbl4.Location = new System.Drawing.Point(121, 134);
-            this.mPlbl4.Name = "mPlbl4";
-            this.mPlbl4.Size = new System.Drawing.Size(103, 16);
-            this.mPlbl4.TabIndex = 6;
-            this.mPlbl4.Text = "&Unit of Measure";
-            // 
             // mPlbl3
             // 
             this.mPlbl3.AutoSize = true;
-            this.mPlbl3.Location = new System.Drawing.Point(84, 109);
+            this.mPlbl3.Location = new System.Drawing.Point(94, 109);
             this.mPlbl3.Name = "mPlbl3";
             this.mPlbl3.Size = new System.Drawing.Size(140, 16);
             this.mPlbl3.TabIndex = 4;
@@ -450,7 +423,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl2
             // 
             this.mPlbl2.AutoSize = true;
-            this.mPlbl2.Location = new System.Drawing.Point(159, 84);
+            this.mPlbl2.Location = new System.Drawing.Point(169, 84);
             this.mPlbl2.Name = "mPlbl2";
             this.mPlbl2.Size = new System.Drawing.Size(65, 16);
             this.mPlbl2.TabIndex = 2;
@@ -459,7 +432,7 @@ namespace EcoMart.InterfaceLayer
             // mPlbl1
             // 
             this.mPlbl1.AutoSize = true;
-            this.mPlbl1.Location = new System.Drawing.Point(129, 61);
+            this.mPlbl1.Location = new System.Drawing.Point(139, 61);
             this.mPlbl1.Name = "mPlbl1";
             this.mPlbl1.Size = new System.Drawing.Size(95, 16);
             this.mPlbl1.TabIndex = 0;
@@ -493,7 +466,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbProductCategory.DataSource = null;
             this.mcbProductCategory.DisplayColumnNo = 1;
             this.mcbProductCategory.DropDownHeight = 200;
-            this.mcbProductCategory.Location = new System.Drawing.Point(259, 277);
+            this.mcbProductCategory.Location = new System.Drawing.Point(259, 300);
             this.mcbProductCategory.Margin = new System.Windows.Forms.Padding(4);
             this.mcbProductCategory.Name = "mcbProductCategory";
             this.mcbProductCategory.SelectedID = "";
@@ -508,7 +481,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbProductCategory.ValueColumnNo = 0;
             this.mcbProductCategory.EnterKeyPressed += new System.EventHandler(this.mcbProductCategory_EnterKeyPressed);
             this.mcbProductCategory.ItemAddedEdited += new System.EventHandler(this.mcbProductCategory_ItemAddedEdited);
-            this.mcbProductCategory.UpArrowPressed += new System.EventHandler(this.mcbProductCategory_UpArrowPressed);           
+            this.mcbProductCategory.UpArrowPressed += new System.EventHandler(this.mcbProductCategory_UpArrowPressed);
             // 
             // mcbShelfCode
             // 
@@ -516,7 +489,7 @@ namespace EcoMart.InterfaceLayer
             this.mcbShelfCode.DataSource = null;
             this.mcbShelfCode.DisplayColumnNo = 1;
             this.mcbShelfCode.DropDownHeight = 200;
-            this.mcbShelfCode.Location = new System.Drawing.Point(259, 231);
+            this.mcbShelfCode.Location = new System.Drawing.Point(259, 254);
             this.mcbShelfCode.Margin = new System.Windows.Forms.Padding(4);
             this.mcbShelfCode.Name = "mcbShelfCode";
             this.mcbShelfCode.SelectedID = "";
@@ -567,7 +540,7 @@ namespace EcoMart.InterfaceLayer
             this.txtPack.DisplayColumnNo = 1;
             this.txtPack.DropDownHeight = 200;
             this.txtPack.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPack.Location = new System.Drawing.Point(408, 131);
+            this.txtPack.Location = new System.Drawing.Point(259, 131);
             this.txtPack.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtPack.Name = "txtPack";
             this.txtPack.ReadOnly = false;
@@ -578,13 +551,12 @@ namespace EcoMart.InterfaceLayer
             this.txtPack.TextMaxLenght = 32767;
             this.txtPack.UserControlToShow = null;
             this.txtPack.ValueColumnNo = 0;
-            this.txtPack.EnterKeyPressed += new System.EventHandler(this.txtPack_EnterKeyPressed);
-            this.txtPack.UpArrowKeyPressed += new System.EventHandler(this.txtPack_UpArrowKeyPressed);
+            this.txtPack.EnterKeyPressed += new System.EventHandler(this.txtPack_EnterKeyPressed);           
             // 
             // txtMaxLevel
             // 
             this.txtMaxLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaxLevel.Location = new System.Drawing.Point(583, 185);
+            this.txtMaxLevel.Location = new System.Drawing.Point(583, 208);
             this.txtMaxLevel.Name = "txtMaxLevel";
             this.txtMaxLevel.Size = new System.Drawing.Size(86, 22);
             this.txtMaxLevel.TabIndex = 19;
@@ -593,26 +565,16 @@ namespace EcoMart.InterfaceLayer
             // txtMinLevel
             // 
             this.txtMinLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMinLevel.Location = new System.Drawing.Point(259, 181);
+            this.txtMinLevel.Location = new System.Drawing.Point(259, 204);
             this.txtMinLevel.Name = "txtMinLevel";
             this.txtMinLevel.Size = new System.Drawing.Size(86, 22);
             this.txtMinLevel.TabIndex = 17;
             this.txtMinLevel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMinLevel_KeyDown);
             // 
-            // txtLoosePack
-            // 
-            this.txtLoosePack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLoosePack.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtLoosePack.Location = new System.Drawing.Point(259, 131);
-            this.txtLoosePack.Name = "txtLoosePack";
-            this.txtLoosePack.Size = new System.Drawing.Size(86, 22);
-            this.txtLoosePack.TabIndex = 7;
-            this.txtLoosePack.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLoosePack_KeyDown);
-            // 
             // txtBoxQty
             // 
             this.txtBoxQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBoxQty.Location = new System.Drawing.Point(259, 300);
+            this.txtBoxQty.Location = new System.Drawing.Point(259, 323);
             this.txtBoxQty.Name = "txtBoxQty";
             this.txtBoxQty.Size = new System.Drawing.Size(86, 22);
             this.txtBoxQty.TabIndex = 21;
@@ -621,7 +583,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.txtVAT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVAT.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVAT.Location = new System.Drawing.Point(259, 154);
+            this.txtVAT.Location = new System.Drawing.Point(259, 177);
             this.txtVAT.MaxLength = 15;
             this.txtVAT.Name = "txtVAT";
             this.txtVAT.Size = new System.Drawing.Size(86, 26);
@@ -702,7 +664,6 @@ namespace EcoMart.InterfaceLayer
         private DecimalTextBox txtVAT;
         private System.Windows.Forms.TextBox txtCompShortName;
         private NumericTextBox txtBoxQty;
-        private NumericTextBox txtLoosePack;
         private NumericTextBox txtMaxLevel;
         private NumericTextBox txtMinLevel;
         private System.Windows.Forms.ToolTip ttproduct;
@@ -718,7 +679,6 @@ namespace EcoMart.InterfaceLayer
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl7;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl6;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl5;
-        private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl4;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl3;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl2;
         private EcoMart.InterfaceLayer.CommonControls.PSLabel mPlbl1;
@@ -732,7 +692,6 @@ namespace EcoMart.InterfaceLayer
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private PaperlessPharmaRetail.InterfaceLayer.CommonControls.PSGenericCategoryComboBoxNew mcbGenericCategory;

@@ -55,11 +55,13 @@ namespace EcoMart
             this.tsmenuYearEnd = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenuExitMain = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMessageContainer = new System.Windows.Forms.Panel();
+            this.uclMessageView1 = new EcoMart.InterfaceLayer.UclMessageView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.MainOutlookBar = new ControlLib.OutlookControl();
             this.PnlClientArea = new System.Windows.Forms.Panel();
             this.PnlViewDetail = new System.Windows.Forms.Panel();
             this.pnlDBBackupProgress = new System.Windows.Forms.Panel();
+            this.lblDBBackupMsgLine1 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,8 +69,6 @@ namespace EcoMart
             this.tssHeader = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsbMinimize = new System.Windows.Forms.ToolStripSplitButton();
             this.tsbClose = new System.Windows.Forms.ToolStripSplitButton();
-            this.lblDBBackupMsgLine1 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
-            this.uclMessageView1 = new EcoMart.InterfaceLayer.UclMessageView();
             this.statusStrip1.SuspendLayout();
             this.msMain.SuspendLayout();
             this.pnlMessageContainer.SuspendLayout();
@@ -168,7 +168,7 @@ namespace EcoMart
             this.tsmenusubSMS,
             this.tsmenusubExit});
             this.tsmenuFile.Name = "tsmenuFile";
-            resources.ApplyResources(this.tsmenuFile, "tsmenuFile");
+            resources.ApplyResources(this.tsmenuFile, "tsmenuFile");            
             // 
             // toolStripSeparator2
             // 
@@ -275,6 +275,13 @@ namespace EcoMart
             resources.ApplyResources(this.pnlMessageContainer, "pnlMessageContainer");
             this.pnlMessageContainer.Name = "pnlMessageContainer";
             // 
+            // uclMessageView1
+            // 
+            this.uclMessageView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            resources.ApplyResources(this.uclMessageView1, "uclMessageView1");
+            this.uclMessageView1.MsgList = null;
+            this.uclMessageView1.Name = "uclMessageView1";
+            // 
             // splitContainer1
             // 
             this.splitContainer1.BackColor = System.Drawing.Color.AliceBlue;
@@ -325,6 +332,11 @@ namespace EcoMart
             this.pnlDBBackupProgress.Controls.Add(this.lblDBBackupMsgLine1);
             resources.ApplyResources(this.pnlDBBackupProgress, "pnlDBBackupProgress");
             this.pnlDBBackupProgress.Name = "pnlDBBackupProgress";
+            // 
+            // lblDBBackupMsgLine1
+            // 
+            resources.ApplyResources(this.lblDBBackupMsgLine1, "lblDBBackupMsgLine1");
+            this.lblDBBackupMsgLine1.Name = "lblDBBackupMsgLine1";
             // 
             // label2
             // 
@@ -381,18 +393,6 @@ namespace EcoMart
             this.tsbClose.Name = "tsbClose";
             this.tsbClose.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.tsbClose.ButtonClick += new System.EventHandler(this.tsbClose_ButtonClick);
-            // 
-            // lblDBBackupMsgLine1
-            // 
-            resources.ApplyResources(this.lblDBBackupMsgLine1, "lblDBBackupMsgLine1");
-            this.lblDBBackupMsgLine1.Name = "lblDBBackupMsgLine1";
-            // 
-            // uclMessageView1
-            // 
-            this.uclMessageView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            resources.ApplyResources(this.uclMessageView1, "uclMessageView1");
-            this.uclMessageView1.MsgList = null;
-            this.uclMessageView1.Name = "uclMessageView1";
             // 
             // MainForm
             // 

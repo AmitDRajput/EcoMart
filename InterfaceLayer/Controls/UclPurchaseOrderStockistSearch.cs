@@ -12,7 +12,7 @@ using EcoMart.BusinessLayer;
 namespace EcoMart.InterfaceLayer
 {
      [System.ComponentModel.ToolboxItem(false)]
-    public partial class UclPurchaseOrderSearch : SearchControl
+    public partial class UclPurchaseOrderStockistSearch : SearchControl
     {
         # region declaration
         private DataTable _BindingSource;
@@ -20,7 +20,7 @@ namespace EcoMart.InterfaceLayer
         #endregion
 
         # region constructor
-        public UclPurchaseOrderSearch()
+        public UclPurchaseOrderStockistSearch()
         {
             try
             {
@@ -166,7 +166,7 @@ namespace EcoMart.InterfaceLayer
             try
             {
                 DataTable dtable = new DataTable();
-                dtable = _PurchaseOrder.GetOverviewData();
+                dtable = _PurchaseOrder.GetOverviewDataStockist();
                 _BindingSource = dtable;
             }
             catch (Exception ex)

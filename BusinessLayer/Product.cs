@@ -429,7 +429,11 @@ namespace EcoMart.BusinessLayer
             DBProduct dbProd = new DBProduct();
             return dbProd.GetOverviewData();
         }
-
+        public DataTable GetOverviewData(int compid)
+        {
+            DBProduct dbProd = new DBProduct();
+            return dbProd.GetOverviewData(compid);
+        }
 
         public DataTable GetOverviewData(double vatPercent)
         {
@@ -642,7 +646,7 @@ namespace EcoMart.BusinessLayer
 
         }
 
-        public int AddDetails()
+        public bool AddDetails()
         {
             DBProduct dbProd = new DBProduct();
             return dbProd.AddDetails(IntID , Name, ProdLoosePack, ProdPack, ProdPackType, ProdCompShortName,
@@ -656,6 +660,8 @@ namespace EcoMart.BusinessLayer
         public bool AddPack()
         {
             DBProduct dbProd = new DBProduct();
+
+
             return dbProd.AddPack(ProdPackID, ProdPack);
         }
         public bool AddPackType()
@@ -729,7 +735,7 @@ namespace EcoMart.BusinessLayer
             DBProduct dbprod = new DBProduct();
             return dbprod.UpdateProductScanCode(IntID , ScannedBarcode);
         }
-        public string SearchForProdPack(string pack)
+        public Int32 SearchForProdPack(string pack)
         {
             DBProduct dbProd = new DBProduct();
             return dbProd.SearchForProdPack(pack);
@@ -817,6 +823,18 @@ namespace EcoMart.BusinessLayer
             }
             return maxid;
 
+        }
+        public int GetNextIntID()
+        {
+            return General.GetNextIntID("MasterProduct", "ProductID");
+        }
+        public int GetNextPackID()
+        {
+            return General.GetNextIntID("MasterPack", "PackID");
+        }
+        public int GetNextPackTypeID()
+        {
+            return General.GetNextIntID("MasterPackType", "ID");
         }
     }
 }

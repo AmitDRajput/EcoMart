@@ -44,7 +44,7 @@ namespace EcoMart.Common.Classes
             catch (Exception ex)
             {
                 Log.WriteException(ex);
-                //   retValue = false;
+                //retValue = false;
             }
             return retValue;
         }
@@ -58,11 +58,12 @@ namespace EcoMart.Common.Classes
                     {
                         AzureConnectionInfo connInfo = new AzureConnectionInfo();
                         connInfo.Initialize();
-                        if (connInfo.IsDBConnected)
-                        {
-                            DataSync dbSync = new DataSync();
-                            dbSync.GetDataToSync();
-                        }
+                        //if (connInfo.IsDBConnected)
+                        //{
+                        //    DataSync dbSync = new DataSync();
+                        //    dbSync.GetDataToSync();
+                            
+                        //} SYNK
                     }
                 //MessageBox.Show("Completed thread is: {0}",
                 //                  Thread.CurrentThread.Name);

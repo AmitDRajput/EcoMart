@@ -187,13 +187,9 @@
             this.cmbFormat.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFormat.FormattingEnabled = true;
             this.cmbFormat.Items.AddRange(new object[] {
-            "Allied HTF",
-            "DAVA",
-            "Medica",
-            "PharmaSYS",
-            "Allied HT",
-            "Care",
-            "MicroPro"});
+            "EcoMart",
+            "CIPLA",
+            "DR REDDY"});
             this.cmbFormat.Location = new System.Drawing.Point(96, 74);
             this.cmbFormat.Name = "cmbFormat";
             this.cmbFormat.Size = new System.Drawing.Size(454, 25);
@@ -287,6 +283,8 @@
             this.psCombofile.Margin = new System.Windows.Forms.Padding(4);
             this.psCombofile.Name = "psCombofile";
             this.psCombofile.SelectedID = "";
+            this.psCombofile.SelectedIDtest = 0;
+            this.psCombofile.SelectedIntID = 0;
             this.psCombofile.ShowNew = false;
             this.psCombofile.Size = new System.Drawing.Size(552, 22);
             this.psCombofile.SourceDataString = null;
@@ -327,6 +325,8 @@
             this.mcbCreditor.Margin = new System.Windows.Forms.Padding(4);
             this.mcbCreditor.Name = "mcbCreditor";
             this.mcbCreditor.SelectedID = "";
+            this.mcbCreditor.SelectedIDtest = 0;
+            this.mcbCreditor.SelectedIntID = 0;
             this.mcbCreditor.ShowNew = false;
             this.mcbCreditor.Size = new System.Drawing.Size(552, 22);
             this.mcbCreditor.SourceDataString = null;
@@ -367,6 +367,8 @@
             this.mcbProduct.Margin = new System.Windows.Forms.Padding(4);
             this.mcbProduct.Name = "mcbProduct";
             this.mcbProduct.SelectedID = "";
+            this.mcbProduct.SelectedIDtest = 0;
+            this.mcbProduct.SelectedIntID = 0;
             this.mcbProduct.ShowNew = false;
             this.mcbProduct.Size = new System.Drawing.Size(324, 22);
             this.mcbProduct.SourceDataString = null;

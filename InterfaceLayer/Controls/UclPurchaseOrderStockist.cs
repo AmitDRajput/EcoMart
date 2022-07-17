@@ -34,7 +34,7 @@ namespace EcoMart.InterfaceLayer
             _PurchaseOrder = new PurchaseOrder();
             _BindingSource = new DataTable();
             _DailyPurchaseOrder = new DailyPurchaseOrder();
-            SearchControl = new UclPurchaseOrderSearch();
+            SearchControl = new UclPurchaseOrderStockistSearch();
         }
 
         #endregion Constructor
@@ -73,7 +73,7 @@ namespace EcoMart.InterfaceLayer
                 pnlSummary.SendToBack();
                 pnlSummary.Visible = false;
                 mpMainSubViewControl1.ClearSelection();
-               
+
                 tsBtnSave.Visible = false;
                 tsBtnSavenPrint.Visible = false;
                 tsBtnPrint.Visible = false;
@@ -185,9 +185,17 @@ namespace EcoMart.InterfaceLayer
                     btnGO.Enabled = false;
                     btnUploadSearch.Visible = true;
                     tsBtnFifth.Text = "UPLOAD";
+                    this.txtVouchernumber.Text = ID.ToString();
+                    this.txtVouType.Text  = "POR";
+                    this.txtVoucherSeries.Text  = General.ShopDetail.ShopVoucherSeries.ToString();
+                    //this.datePickerBillDate.Value = _DailyPurchaseOrder
+
+                    
+                       
                     _DailyPurchaseOrder.Id = ID;
                     _DailyPurchaseOrder.IntID = Convert.ToInt32(ID);
-                    DataTable dtable =  _DailyPurchaseOrder.ReadDetailsByID();
+                    DataTable dtable = _DailyPurchaseOrder.ReadDetailsByIDStockist();
+                    //this.txtVouchernumber.Text = 
                     bool retValue = BindSearchData(dtable);
                 }
             }
@@ -279,7 +287,7 @@ namespace EcoMart.InterfaceLayer
             return retValue;
         }
 
-       
+
         public override string GetShortcutKeys()
         {
             string lbl = base.GetShortcutKeys();
@@ -336,29 +344,24 @@ namespace EcoMart.InterfaceLayer
         {
             mpMainSubViewControl1.ColumnsMain.Clear();
             DataGridViewTextBoxColumn column;
-            //DataGridViewComboBoxColumn combocolumn;
             DataGridViewCheckBoxColumn checkcolumn;
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_ACCID";
-            column.DataPropertyName = "AccountID";
             column.HeaderText = "ACCID";
             column.Visible = false;
             mpMainSubViewControl1.ColumnsMain.Add(column);
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_AccName";
-            column.DataPropertyName = "AccName";
             column.HeaderText = "Account Name";
             column.Width = 220;
             column.Visible = false;
-            //column.ReadOnly = true;
             column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             mpMainSubViewControl1.ColumnsMain.Add(column);
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_ProductName";
-            column.DataPropertyName = "ProdName";
             column.HeaderText = "Product Name";
             column.Width = 220;
             column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -368,7 +371,6 @@ namespace EcoMart.InterfaceLayer
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_SrNo";
-            //column.DataPropertyName = "SrNo";
             column.HeaderText = "Sr No";
             column.Visible = false;
             column.Width = 40;
@@ -378,14 +380,12 @@ namespace EcoMart.InterfaceLayer
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_DetailSaleID";
-            //    column.DataPropertyName = "DSLID";
             column.HeaderText = "DSLID";
             column.Visible = false;
             mpMainSubViewControl1.ColumnsMain.Add(column);
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_ProdID";
-            column.DataPropertyName = "ProductID";
             column.HeaderText = "ID";
             column.Visible = false;
             mpMainSubViewControl1.ColumnsMain.Add(column);
@@ -394,7 +394,6 @@ namespace EcoMart.InterfaceLayer
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_UOM";
-            column.DataPropertyName = "ProdLoosePack";
             column.HeaderText = "UOM";
             column.Width = 70;
             column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -403,7 +402,6 @@ namespace EcoMart.InterfaceLayer
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_Pack";
-            column.DataPropertyName = "ProdPack";
             column.HeaderText = "Pack";
             column.Width = 70;
             column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -412,7 +410,6 @@ namespace EcoMart.InterfaceLayer
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_ProdCompShortName";
-            column.DataPropertyName = "ProdCompShortName";
             column.HeaderText = "Comp";
             column.Width = 70;
             column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -421,7 +418,6 @@ namespace EcoMart.InterfaceLayer
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_BoxQty";
-            column.DataPropertyName = "ProdBoxQuantity";
             column.HeaderText = "Box Qty";
             column.Width = 70;
             column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -430,7 +426,6 @@ namespace EcoMart.InterfaceLayer
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_ClosingStock";
-            column.DataPropertyName = "ProdClosingStock";
             column.HeaderText = "Cl. Stock";
             column.Width = 80;
             column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -441,107 +436,41 @@ namespace EcoMart.InterfaceLayer
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_SaleStock";
-            column.DataPropertyName = "OrderQuantity";           
             column.HeaderText = "Sale Quantity";
             column.Width = 80;
             column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            //column.ValueType = typeof(int);
             column.ReadOnly = true;
             mpMainSubViewControl1.ColumnsMain.Add(column);
 
-            //column = new DataGridViewTextBoxColumn();
-            //column.Name = "Col_ID1";
-            ////  column.DataPropertyName = "AccountID1";
-            //column.HeaderText = "ID1";
-            //column.Visible = false;
-            //mpMainSubViewControl1.ColumnsMain.Add(column);
-
-            //column = new DataGridViewTextBoxColumn();
-            //column.Name = "Col_AccName1";
-            //column.DataPropertyName = "AccName1";
-            //column.HeaderText = "AccountName1";
-            //column.Visible = false;
-            //mpMainSubViewControl1.ColumnsMain.Add(column);
-
-            //column = new DataGridViewTextBoxColumn();
-            //column.Name = "Col_ID2";
-            ////   column.DataPropertyName = "AccountID2";
-            //column.HeaderText = "ID2";
-            //column.Visible = false;
-            //mpMainSubViewControl1.ColumnsMain.Add(column);
-
-            //DataGridViewCheckBoxColumn columnCheck1 = new DataGridViewCheckBoxColumn();
-            //columnCheck1.Name = "Col_Check1";
-            //columnCheck1.HeaderText = "Check1";
-            //columnCheck1.Visible = false;
-            //mpMainSubViewControl1.ColumnsMain.Add(columnCheck1);
-
-            //column = new DataGridViewTextBoxColumn();
-            //column.Name = "Col_AccName2";
-            ////   column.DataPropertyName = "AccName2";
-            //column.HeaderText = "AccountName2";
-            //column.Visible = false;
-            //mpMainSubViewControl1.ColumnsMain.Add(column);
-
-            //column = new DataGridViewTextBoxColumn();
-            //column.Name = "Col_IfSave";
-            //// column.DataPropertyName = "IfSave";
-            //column.HeaderText = "IfSave";
-            //column.Width = 20;
-            //column.Visible = false;
-            //mpMainSubViewControl1.ColumnsMain.Add(column);
+            column = new DataGridViewTextBoxColumn();
+            column.Name = "Col_PendingOrder";
+            column.HeaderText = "Pending Quantity";
+            column.Width = 80;
+            column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            column.ReadOnly = true;
+            mpMainSubViewControl1.ColumnsMain.Add(column);
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_PurchaseRate";
-            column.DataPropertyName = "ProdLastPurchaseRate";
             column.Width = 100;
             column.HeaderText = "Purchase Rate";
             column.ReadOnly = true;
             column.ValueType = typeof(double);
-            //column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            //column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;           
             mpMainSubViewControl1.ColumnsMain.Add(column);
 
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_OrderNumber";
-            //column.DataPropertyName = "OrderNumber";
             column.HeaderText = "OrderNo";
             column.Width = 20;
             column.ReadOnly = true;
             column.Visible = false;
             mpMainSubViewControl1.ColumnsMain.Add(column);
 
-            //column = new DataGridViewTextBoxColumn();
-            //column.Name = "Col_Quantity1";
-            ////   column.DataPropertyName = "OrderQuantity1";
-            //column.HeaderText = "Orderqty";
-            //column.Width = 80;
-            //column.Visible = false;
-            //mpMainSubViewControl1.ColumnsMain.Add(column);
-
-            //column = new DataGridViewTextBoxColumn();
-            //column.Name = "Col_AccAddress1";
-            //column.Visible = false;
-            //column.DataPropertyName = "AccAddress1";
-            //mpMainSubViewControl1.ColumnsMain.Add(column);
-
-            //column = new DataGridViewTextBoxColumn();
-            //column.Name = "Col_AccAddress2";
-            //column.Visible = false;
-            //column.DataPropertyName = "AccAddress2";
-            //mpMainSubViewControl1.ColumnsMain.Add(column);
-
-            //column = new DataGridViewTextBoxColumn();   // newly added [1.6.2017]
-            //column.Name = "Col_AccTelephone";
-            //column.Visible = false;
-            //column.DataPropertyName = "AccTelephone";
-            //mpMainSubViewControl1.ColumnsMain.Add(column);
-
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_Quantity";
-            //column.DataPropertyName = "OrderQuantity";
             column.HeaderText = "Order Qty";
             column.Width = 80;
             column.ValueType = typeof(int);
@@ -551,18 +480,15 @@ namespace EcoMart.InterfaceLayer
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_SchemeQuantity";
-            column.DataPropertyName = "SchemeQuantity";
             column.HeaderText = "Scm Qty";
             column.Width = 70;
             column.ValueType = typeof(int);
             column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            //column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             mpMainSubViewControl1.ColumnsMain.Add(column);
 
             checkcolumn = new DataGridViewCheckBoxColumn();
             checkcolumn.Name = "Col_CheckBox";
-            //checkcolumn.DataPropertyName = "Check";
             checkcolumn.HeaderText = "Check";
             checkcolumn.Width = 70;
             checkcolumn.TrueValue = true;
@@ -571,16 +497,11 @@ namespace EcoMart.InterfaceLayer
 
             column = new DataGridViewTextBoxColumn();
             column.Name = "Col_NetRate";
-            //combocolumn.DataPropertyName = "NetRate";
             column.HeaderText = "Amount";
             column.Width = 70;
             column.ReadOnly = true;
-            //combocolumn.Visible = false;
             mpMainSubViewControl1.ColumnsMain.Add(column);
 
-
-            //((DataGridViewComboBoxColumn)mpMainSubViewControl1.dgMainGrid.Columns["Col_NetRate"]).Items.Add("Y");
-            //((DataGridViewComboBoxColumn)mpMainSubViewControl1.dgMainGrid.Columns["Col_NetRate"]).Items.Add("N");
             ((DataGridViewCheckBoxColumn)mpMainSubViewControl1.dgMainGrid.Columns["Col_CheckBox"]).TrueValue = "True";
 
         }
@@ -1160,6 +1081,58 @@ namespace EcoMart.InterfaceLayer
                     ConstructOrderSummary();
                     ConstructOrderDetails();
                     FillSummaryGrid();
+                    FillDetailGrid();
+                    //pnlDate.Enabled = false;
+                    pnlSummary.BringToFront();
+                    pnlSummary.Visible = true;
+                    mdgOrderSummary.Focus();
+                    if (mdgOrderSummary.Rows.Count > 0)
+                        mdgOrderSummary.Rows[0].Selected = true;
+                }
+            }
+            catch (Exception Ex)
+            {
+                Log.WriteException(Ex);
+            }
+
+        }
+        private void btnCreateOrderClickold()
+        {
+            bool retValue = false;
+            tsBtnSave.Enabled = false;
+            btnUpLoad.Visible = true;
+            btnUpLoad.Enabled = true;
+            btnCreateOrder.Enabled = false;
+            string preaccountid = "";
+            int mqty = 0;
+            int mmordno = 0;
+            int mscmqty = 0;
+            try
+            {
+
+                mpMainSubViewControl1.Sort(mpMainSubViewControl1.ColumnsMain[1], ListSortDirection.Ascending);
+                mpMainSubViewControl1.Refresh();
+                rowCollectionmain = new List<DataGridViewRow>();
+                foreach (DataGridViewRow dr in mpMainSubViewControl1.Rows)
+                {
+                    preaccountid = dr.Cells["Col_ACCID"].Value.ToString().Trim();
+                    int.TryParse(dr.Cells["Col_Quantity"].Value.ToString(), out mqty);
+                    int.TryParse(dr.Cells["Col_SchemeQuantity"].Value.ToString(), out mscmqty);
+
+                    if (preaccountid != "" && mqty > 0 && mmordno == 0)
+                    {
+                        rowCollectionmain.Add(dr);
+                    }
+
+                }
+                if (rowCollectionmain.Count > 0)
+                    retValue = CreateOrders();
+                if (retValue == true)
+                {
+
+                    ConstructOrderSummary();
+                    ConstructOrderDetails();
+                    FillSummaryGrid();
                     //FillDetailGrid();
                     //pnlDate.Enabled = false;
                     pnlSummary.BringToFront();
@@ -1306,7 +1279,7 @@ namespace EcoMart.InterfaceLayer
             try
             {
                 DataTable dtable = new DataTable();
-                dtable = _DailyPurchaseOrder.GetSummaryData();
+                dtable = _DailyPurchaseOrder.GetSummaryDataStockist();
                 _BindingSource = dtable;
             }
             catch (Exception Ex)
@@ -1335,7 +1308,7 @@ namespace EcoMart.InterfaceLayer
             try
             {
                 DataTable dtable = new DataTable();
-                dtable = _DailyPurchaseOrder.GetDetailData(_DailyPurchaseOrder.CurrentOrderNumber);
+                dtable = _DailyPurchaseOrder.GetDetailDataStockist(_DailyPurchaseOrder.CurrentOrderNumber);
                 _BindingSource = dtable;
             }
             catch (Exception Ex)
@@ -1404,20 +1377,20 @@ namespace EcoMart.InterfaceLayer
 
                     }
 
-                   
-                        
 
-                        foreach (DataGridViewRow ddsr in rowCollection)
-                        {
 
-                            int.TryParse(ddsr.Cells["Col_Quantity"].Value.ToString(), out mmqty);
-                            mmaccid = ddsr.Cells["Col_ACCID"].Value.ToString();
-                            mmprodID = Convert.ToInt32(ddsr.Cells["Col_ProdID"].Value.ToString());
-                            netrate = ddsr.Cells["Col_NetRate"].Value.ToString();
-                            //mmordid = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
-                            if (ddsr.Cells["Col_PurchaseRate"].Value != null)
-                                double.TryParse(ddsr.Cells["Col_PurchaseRate"].Value.ToString(), out mmpurrate);
-                            mmamt = mmqty * mmpurrate;
+
+                    foreach (DataGridViewRow ddsr in rowCollection)
+                    {
+
+                        int.TryParse(ddsr.Cells["Col_Quantity"].Value.ToString(), out mmqty);
+                        mmaccid = ddsr.Cells["Col_ACCID"].Value.ToString();
+                        mmprodID = Convert.ToInt32(ddsr.Cells["Col_ProdID"].Value.ToString());
+                        netrate = ddsr.Cells["Col_NetRate"].Value.ToString();
+                        //mmordid = Guid.NewGuid().ToString().ToUpper().Replace("-", "");
+                        if (ddsr.Cells["Col_PurchaseRate"].Value != null)
+                            double.TryParse(ddsr.Cells["Col_PurchaseRate"].Value.ToString(), out mmpurrate);
+                        mmamt = mmqty * mmpurrate;
                         if (ddsr.Cells["Col_SaleStock"].Value != null)
                             int.TryParse(ddsr.Cells["Col_SaleStock"].Value.ToString(), out msaleqty);
                         if (ddsr.Cells["Col_ClosingStock"].Value != null)
@@ -1425,31 +1398,31 @@ namespace EcoMart.InterfaceLayer
 
                         //_DailyPurchaseOrder.DSLID = mmordid;
                         _DailyPurchaseOrder.DSLOrderNumber = mordno;
-                            _DailyPurchaseOrder.DSLAccountID = mmaccid;
-                            _DailyPurchaseOrder.DSLProductID = mmprodID;
-                            _DailyPurchaseOrder.DSLQty = mmqty;
-                            _DailyPurchaseOrder.DSLAmount += mmamt;
-                            _DailyPurchaseOrder.DSLIFSave = "Y";
-                            _DailyPurchaseOrder.DSLDailyShortList = "T";
-                            _DailyPurchaseOrder.DSLPurchaseRate = mmpurrate;
+                        _DailyPurchaseOrder.DSLAccountID = mmaccid;
+                        _DailyPurchaseOrder.DSLProductID = mmprodID;
+                        _DailyPurchaseOrder.DSLQty = mmqty;
+                        _DailyPurchaseOrder.DSLAmount += mmamt;
+                        _DailyPurchaseOrder.DSLIFSave = "Y";
+                        _DailyPurchaseOrder.DSLDailyShortList = "T";
+                        _DailyPurchaseOrder.DSLPurchaseRate = mmpurrate;
                         _DailyPurchaseOrder.DSLSaleQuantity = msaleqty;
                         _DailyPurchaseOrder.DSLClosingStock = mclosingstk;
-                            _DailyPurchaseOrder.CreatedBy = General.CurrentUser.Id;
-                            _DailyPurchaseOrder.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
-                            _DailyPurchaseOrder.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
-                            _DailyPurchaseOrder.netrate = netrate;
-                            int iid = _DailyPurchaseOrder.CreateOrderForToday();
-                            _DailyPurchaseOrder.DSLID = iid.ToString();
-                           
-                       
+                        _DailyPurchaseOrder.CreatedBy = General.CurrentUser.Id;
+                        _DailyPurchaseOrder.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
+                        _DailyPurchaseOrder.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
+                        _DailyPurchaseOrder.netrate = netrate;
+                        int iid = _DailyPurchaseOrder.CreateOrderForTodayStockist();
+                        _DailyPurchaseOrder.DSLID = iid.ToString();
+
+
                     }
                     if (rowCollection.Count > 0)
                     {
-                        _DailyPurchaseOrder.IntID  = _DailyPurchaseOrder.AddDetails();
-                        returnVal = _DailyPurchaseOrder.UpdatePurchaseOrderNumberIndetailsale();
+                        _DailyPurchaseOrder.IntID = _DailyPurchaseOrder.AddDetailsStockist();
+                        returnVal = _DailyPurchaseOrder.UpdatePurchaseOrderNumberIndetailsaleStockist();
                         _DailyPurchaseOrder.CurrentOrderNumber = _DailyPurchaseOrder.DSLLastOrderNumber;
                         _DailyPurchaseOrder.DSLMasterID = _DailyPurchaseOrder.IntID.ToString();
-                        returnVal = _DailyPurchaseOrder.UpdateMasterIDinDetailPurchaseOrder();
+                        returnVal = _DailyPurchaseOrder.UpdateMasterIDinDetailPurchaseOrderStockist();
                         index--;
                     }
                 }
@@ -1561,14 +1534,6 @@ namespace EcoMart.InterfaceLayer
                 days += 1;
                 int mselection = 0;
                 DataTable dtable = new DataTable();
-                //if (cbShortList.Checked == true)
-                //{
-                //    mselection = 1;
-                //    dtable = _DailyPurchaseOrder.ReadShotListByDateStockist();
-                //    if (mpMainSubViewControl.Rows.Count > 0)
-                //        mpMainSubViewControl.Rows.Clear();
-                //    BindmpMainSubViewControl(dtable, mselection);
-                //}
                 if (cbSaleToday.Checked == true)
                 {
                     mselection = 2;
@@ -1578,49 +1543,6 @@ namespace EcoMart.InterfaceLayer
                         mpMainSubViewControl.Rows.Clear();
                     BindmpMainSubViewControl(dtable, mselection);
                 }
-                if (rbtLastOrderAllProducts.Checked)
-                {
-                    RemoveBlankRow();
-                    mselection = 3;
-                    _DailyPurchaseOrder.DSLAccountID = string.Empty;
-                    dtable = _DailyPurchaseOrder.ReadLastOrderAllProducts(_DailyPurchaseOrder.DSLAccountID);
-                    DataRow firstdr = null;
-                    int lastordernumber = 0;
-                    if (dtable.Rows.Count > 0)
-                    {
-                        firstdr = dtable.Rows[0];
-                        lastordernumber = Convert.ToInt32(firstdr["OrderNumber"].ToString());
-                    }
-                    BindmpMainSubViewControl(dtable, mselection);
-                }
-                //if (chkNextVisit.Checked == true)         //Amar
-                //{
-                //    mselection = 4;
-                //    dtable = _DailyPurchaseOrder.ReadShotListByDateNextVisit();
-                //    if (mpMainSubViewControl.Rows.Count > 0)
-                //        mpMainSubViewControl.Rows.Clear();
-                //    BindmpMainSubViewControl(dtable, mselection);
-
-                //    //GetNextVisitDataPurchase();
-                //}
-
-                //else if (rbtLastOrderRemainingProducts.Checked)
-                //{
-                //    RemoveBlankRow();
-                //    mselection = 4;
-                //    _DailyPurchaseOrder.DSLAccountID = string.Empty;
-                //    dtable = _DailyPurchaseOrder.ReadLastOrderRemainingProductsAllTypes();
-                //    DataRow firstdr = null;
-                //    int lastordernumber = 0;
-                //    if (dtable != null && dtable.Rows.Count > 0)
-                //    {
-                //        firstdr = dtable.Rows[0];
-                //        lastordernumber = Convert.ToInt32(firstdr["OrderNumber"].ToString());
-                //        BindmpMainSubViewControl(dtable, mselection);
-                //    }
-                //}
-
-                mpMainSubViewControl1.Sort(mpMainSubViewControl1.ColumnsMain[1], ListSortDirection.Ascending);
                 mpMainSubViewControl1.Refresh();
                 GetLastSale();
                 CalculateAmount();
@@ -1631,21 +1553,6 @@ namespace EcoMart.InterfaceLayer
                 Log.WriteException(Ex);
             }
         }
-        //private int LastSoldStock(string mprod)
-        //{
-        //    int lastsolddays = 0;
-        //    string lastdate = "";
-        //    int lastsoldqty = 0;
-        //    if (txtSaleDays.Text != null && txtSaleDays.Text.ToString() != string.Empty && txtSaleDays.Text.ToString() != "0")
-        //    {
-        //        lastsolddays = Convert.ToInt32(txtSaleDays.Text.ToString());
-        //        DateTime today = DateTime.Now;
-        //        DateTime lastday = today.AddDays(lastsolddays * -1);
-        //        lastdate = lastday.Date.ToString("yyyyMMdd");
-        //    }
-        //    lastsoldqty = _PurchaseOrder.GetSaleDataForLastSoldDays(mprod, lastdate);
-        //    return lastsoldqty;
-        //}
         private void RemoveBlankRow()
         {
 
@@ -1673,7 +1580,6 @@ namespace EcoMart.InterfaceLayer
             int ProductID = 0;
             int drrProductID = 0;
             bool found = false;
-            retValue =  _PurchaseOrder.GetAccountIDForPurchaseOrder();
             try
             {
 
@@ -1681,13 +1587,13 @@ namespace EcoMart.InterfaceLayer
                 {
                     mprate = 0;
                     //mqty = 0;
-                    double  orderqty = 0;
+                    double orderqty = 0;
                     decimal unit = 0;
                     found = false;
                     if (dr["ProductID"] != DBNull.Value)
                     {
                         ProductID = Convert.ToInt32(dr["ProductID"].ToString());
-                        
+
                         foreach (DataGridViewRow drr in mpMainSubViewControl1.Rows)
                         {
                             drrProductID = 0;
@@ -1734,32 +1640,35 @@ namespace EcoMart.InterfaceLayer
                             try
                             {
                                 mpMainSubViewControl1.ClearSelection();
-                                rowindex = mpMainSubViewControl1.dgMainGrid.Rows.Add();
+                                rowindex = mpMainSubViewControl1.Rows.Add();
                                 mprate = 0;
                                 orderqty = 0;
                                 mnetamt = 0;
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_SrNo"].Value = tempSrNo;
-                                //mpMainSubViewControl1.Rows[rowindex].Cells["Col_ACCID"].Value = General.EcoMartLicense.CNFInfo.ShopID;
-                                //mpMainSubViewControl1.Rows[rowindex].Cells["Col_AccName"].Value = General.EcoMartLicense.CNFInfo.ShopName;
-                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_ACCID"].Value = _PurchaseOrder.AccountID;
-                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_AccName"].Value = dr["AccName"].ToString();
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_ACCID"].Value = General.EcoMartLicense.CNFInfo.ShopID;
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_AccName"].Value = General.EcoMartLicense.CNFInfo.ShopName;
+                                //mpMainSubViewControl1.Rows[rowindex].Cells["Col_ACCID"].Value = dr["AccountID"].ToString();
+                                //mpMainSubViewControl1.Rows[rowindex].Cells["Col_AccName"].Value = dr["AccName"].ToString();
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_ProdID"].Value = dr["ProductID"].ToString();
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_ProductName"].Value = dr["ProdName"].ToString();
-                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_UOM"].Value = dr["ProdLoosePack"].ToString();
-                                unit = Convert.ToDecimal(dr["ProdLoosePack"].ToString());
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_UOM"].Value = 1;
+                                unit = 1;
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_Pack"].Value = dr["ProdPack"].ToString();
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_ProdCompShortName"].Value = dr["ProdCompShortName"].ToString();
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_BoxQty"].Value = dr["ProdBoxQuantity"].ToString();
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_ClosingStock"].Value = Convert.ToInt32(dr["ProdClosingStock"].ToString());
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_PurchaseRate"].Value = dr["ProdLastPurchaseRate"].ToString();
-                                mprate = Convert.ToDouble(dr["ProdLastPurchaseRate"].ToString());
+                                if (dr["ProdLastPurchaseRate"].ToString() != "")
+                                    mprate = Convert.ToDouble(dr["ProdLastPurchaseRate"].ToString());
+                                else
+                                    mprate = 0;
                                 orderqty = Convert.ToInt32(dr["OrderQuantity"].ToString());
-                                mnetamt =  Convert.ToDouble(Convert.ToDouble(orderqty) * mprate);
+                                mnetamt = Convert.ToDouble(Convert.ToDouble(orderqty) * mprate);
                                 mamt = mnetamt;
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_SaleStock"].Value = Math.Round(orderqty);
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_Quantity"].Value = Math.Round(orderqty);
                                 mpMainSubViewControl1.Rows[rowindex].Cells["Col_SchemeQuantity"].Value = 0;
-                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_NetRate"].Value = Math.Round(orderqty * mprate,2);
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_NetRate"].Value = Math.Round(orderqty * mprate, 2);
                                 if (dr["ProdLastPurchaseRate"] != DBNull.Value)
                                 {
                                     mprate = Convert.ToDouble(dr["ProdLastPurchaseRate"].ToString());
@@ -1794,7 +1703,146 @@ namespace EcoMart.InterfaceLayer
             }
             return retValue;
         }
-        private bool BindSearchData( DataTable datatablesearch)
+        private bool BindmpMainSubViewControlold(DataTable dt, int mselection)
+        {
+            //mpMainSubViewControl1.Rows.Clear();
+            bool retValue = true;
+            //  ConstructMainColumns();
+            int rowindex = 0;
+            int tempSrNo = 1;
+            double mamt = 0;
+            double mprate = 0;
+            //double mqty = 0;
+            double mnetamt = 0;
+            int ProductID = 0;
+            int drrProductID = 0;
+            bool found = false;
+            retValue = _PurchaseOrder.GetAccountIDForPurchaseOrder();
+            try
+            {
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    mprate = 0;
+                    //mqty = 0;
+                    double orderqty = 0;
+                    decimal unit = 0;
+                    found = false;
+                    if (dr["ProductID"] != DBNull.Value)
+                    {
+                        ProductID = Convert.ToInt32(dr["ProductID"].ToString());
+
+                        foreach (DataGridViewRow drr in mpMainSubViewControl1.Rows)
+                        {
+                            drrProductID = 0;
+                            try
+                            {
+                                if (drr.Cells["Col_ProdID"].Value != null)
+                                {
+                                    drrProductID = Convert.ToInt32(drr.Cells["Col_ProdID"].Value.ToString());
+
+                                    if (drrProductID == ProductID)
+                                    {
+                                        found = true;
+                                        //  drr.Cells["Col_ProdLastPurchaseRate"].Value = dr["ProdLastPurchaseRate"].ToString();
+                                        //  drr.Cells["Col_Quantity"].Value = dr["OrderQuantity"].ToString();
+                                        //  drr.Cells["Col_SchemeQuantity"].Value = dr["SchemeQuantity"].ToString();
+                                        ////  drr.Cells["Col_ProdClosingStock"].Value = Convert.ToInt32(dr["ProdClosingStock"].ToString());
+                                        //  drr.Cells["Col_Sale"].Value = dr["Quantity"].ToString();
+                                        //  //if (dr["ProdLastPurchaseRate"] != DBNull.Value)
+                                        //  //{
+                                        //  //    mprate = Convert.ToDouble(dr["ProdLastPurchaseRate"].ToString());
+                                        //  //}
+                                        //  if (dr["OrderQuantity"] != DBNull.Value)
+                                        //      mqty = Convert.ToDouble(dr["OrderQuantity"].ToString());
+                                        //  mamt = mprate * mqty;
+                                        //  drr.Cells["Col_Amount"].Value = mamt.ToString("#0.00");
+                                        //  if (mselection == 2)
+                                        //      drr.DefaultCellStyle.BackColor = cbSaleToday.BackColor;
+                                        //  else if (mselection == 3)
+                                        //      drr.DefaultCellStyle.BackColor = rbtLastOrderAllProducts.BackColor;
+                                        //  else if (mselection == 4)
+                                        //      drr.DefaultCellStyle.BackColor = rbtLastOrderRemainingProducts.BackColor;
+                                        break;
+                                    }
+                                }
+                            }
+                            catch (Exception Ex)
+                            {
+                                Log.WriteException(Ex);
+                            }
+
+                        }
+                        if (found == false)
+                        {
+                            try
+                            {
+                                mpMainSubViewControl1.ClearSelection();
+                                rowindex = mpMainSubViewControl1.Rows.Add();
+                                mprate = 0;
+                                orderqty = 0;
+                                mnetamt = 0;
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_SrNo"].Value = tempSrNo;
+                                //mpMainSubViewControl1.Rows[rowindex].Cells["Col_ACCID"].Value = General.EcoMartLicense.CNFInfo.ShopID;
+                                //mpMainSubViewControl1.Rows[rowindex].Cells["Col_AccName"].Value = General.EcoMartLicense.CNFInfo.ShopName;
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_ACCID"].Value = _PurchaseOrder.AccountID;
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_AccName"].Value = dr["AccName"].ToString();
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_ProdID"].Value = dr["ProductID"].ToString();
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_ProductName"].Value = dr["ProdName"].ToString();
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_UOM"].Value = 1;
+                                unit = Convert.ToDecimal(dr["ProdLoosePack"].ToString());
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_Pack"].Value = dr["ProdPack"].ToString();
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_ProdCompShortName"].Value = dr["ProdCompShortName"].ToString();
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_BoxQty"].Value = dr["ProdBoxQuantity"].ToString();
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_ClosingStock"].Value = Convert.ToInt32(dr["ProdClosingStock"].ToString());
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_PurchaseRate"].Value = dr["ProdLastPurchaseRate"].ToString();
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_PendingOrder"].Value = dr["PendingQuantity"].ToString();
+                                if (dr["ProdLastPurchaseRate"].ToString() != "")
+                                    mprate = Convert.ToDouble(dr["ProdLastPurchaseRate"].ToString());
+                                else
+                                    mprate = 0;
+                                orderqty = Convert.ToInt32(dr["OrderQuantity"].ToString());
+                                mnetamt = Convert.ToDouble(Convert.ToDouble(orderqty) * mprate);
+                                mamt = mnetamt;
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_SaleStock"].Value = Math.Round(orderqty);
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_Quantity"].Value = Math.Round(orderqty);
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_SchemeQuantity"].Value = 0;
+                                mpMainSubViewControl1.Rows[rowindex].Cells["Col_NetRate"].Value = Math.Round(orderqty * mprate, 2);
+                                if (dr["ProdLastPurchaseRate"] != DBNull.Value)
+                                {
+                                    mprate = Convert.ToDouble(dr["ProdLastPurchaseRate"].ToString());
+                                }
+                                //if (dr["Quantity"] != DBNull.Value)
+                                //    mqty = Convert.ToInt32(dr["OrderQuantity"].ToString());
+                                //mamt = mprate * mqty;
+                                //       mpMainSubViewControl1.Rows[rowindex].Cells["Col_Amount"].Value = mamt.ToString("#0.00");
+                                if (mselection == 1)
+                                    mpMainSubViewControl1.Rows[rowindex].DefaultCellStyle.BackColor = cbShortList.BackColor;
+                                else if (mselection == 2)
+                                    mpMainSubViewControl1.Rows[rowindex].DefaultCellStyle.BackColor = cbSaleToday.BackColor;
+                                else if (mselection == 3)
+                                    mpMainSubViewControl1.Rows[rowindex].DefaultCellStyle.BackColor = rbtLastOrderAllProducts.BackColor;
+                                else if (mselection == 4)
+                                    mpMainSubViewControl1.Rows[rowindex].DefaultCellStyle.BackColor = rbtLastOrderRemainingProducts.BackColor;
+                                tempSrNo += 1;
+
+
+                            }
+                            catch (Exception Ex)
+                            {
+                                Log.WriteException(Ex);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                Log.WriteException(Ex);
+            }
+            return retValue;
+        }
+        private bool BindSearchData(DataTable datatablesearch)
         {
             bool retValue = true;
             //  ConstructMainColumns();
@@ -1803,13 +1851,14 @@ namespace EcoMart.InterfaceLayer
             double mamt = 0;
             double mprate = 0;
             //double mqty = 0;
-            double mnetamt = 0;            
+            double mnetamt = 0;
             int orderqty = 0;
             int mclosingstk = 0;
             int msaleqty = 0;
-            
+
             try
             {
+                mpMainSubViewControl1.Rows.Clear();
                 mpMainSubViewControl1.ClearSelection();
                 foreach (DataRow dr in datatablesearch.Rows)
                 {
@@ -1830,7 +1879,7 @@ namespace EcoMart.InterfaceLayer
                     mpMainSubViewControl1.Rows[rowindex].Cells["Col_Pack"].Value = dr["ProdPack"].ToString();
                     mpMainSubViewControl1.Rows[rowindex].Cells["Col_ProdCompShortName"].Value = dr["ProdCompShortName"].ToString();
                     mpMainSubViewControl1.Rows[rowindex].Cells["Col_BoxQty"].Value = dr["ProdBoxQuantity"].ToString();
-                    if (dr["stockistClosingStock"]  == null || dr["stockistClosingStock"].ToString() == "")
+                    if (dr["stockistClosingStock"] == null || dr["stockistClosingStock"].ToString() == "")
                         mclosingstk = 0;
                     else
                         mclosingstk = Convert.ToInt32(dr["stockistClosingStock"].ToString());
@@ -1843,7 +1892,10 @@ namespace EcoMart.InterfaceLayer
 
                     mpMainSubViewControl1.Rows[rowindex].Cells["Col_SaleStock"].Value = msaleqty;
                     mpMainSubViewControl1.Rows[rowindex].Cells["Col_PurchaseRate"].Value = dr["ProdLastPurchaseRate"].ToString();
-                    mprate = Convert.ToDouble(dr["ProdLastPurchaseRate"].ToString());
+                    if (dr["ProdLastPurchaseRate"].ToString() != "")
+                        mprate = Convert.ToDouble(dr["ProdLastPurchaseRate"].ToString());
+                    else
+                        mprate = 0;
                     orderqty = Convert.ToInt32(dr["stockistOrderQuantity"].ToString());
                     mnetamt = Convert.ToDouble(Convert.ToDouble(orderqty) * mprate);
                     mamt = mnetamt;
@@ -2272,7 +2324,7 @@ namespace EcoMart.InterfaceLayer
             int mclosingstock = 0;
             int mordernumber = 0;
             string morderdate = "";
-            DataTable dt = _DailyPurchaseOrder.ReadDetailsByID();
+            DataTable dt = _DailyPurchaseOrder.ReadDetailsByIDStockist();
             foreach (DataRow dr in dt.Rows)
             {
                 orderqty = 0;
@@ -2282,7 +2334,7 @@ namespace EcoMart.InterfaceLayer
                 if (dr["stockistClosingStock"] == null || dr["stockistClosingStock"].ToString() == "")
                     mclosingstock = 0;
                 else
-                    mclosingstock = Convert.ToInt32(dr["stockistClosingStock"].ToString());               
+                    mclosingstock = Convert.ToInt32(dr["stockistClosingStock"].ToString());
 
                 if (dr["Stockistsalequantity"] == null || dr["Stockistsalequantity"].ToString() == "")
                     msaleqty = 0;
@@ -2296,8 +2348,14 @@ namespace EcoMart.InterfaceLayer
                 morderdate = dr["StockistOrderDate"].ToString();
 
 
-                retValue = _DailyPurchaseOrder.InsertRowinDailypurchaseorderfromstockist(mshopid, mcnfid, mecomartid, mprodid, orderqty, mschemeqty,msaleqty, mclosingstock, mordernumber, morderdate);
+                retValue = _DailyPurchaseOrder.InsertRowinDailypurchaseorderfromstockist(mshopid, mcnfid, mecomartid, mprodid, orderqty, mschemeqty, msaleqty, mclosingstock, mordernumber, morderdate);
 
+
+            }
+            if (retValue)
+            {
+                MessageBox.Show("Purchase Order Uploaded successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearControls();
 
             }
             return retValue;

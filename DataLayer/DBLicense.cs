@@ -123,6 +123,32 @@ namespace  EcoMart.DataLayer
             return sQuery.ToString();
         }
 
+        public bool DeleteCreditorsinMasterAccount()
+        {
+            bool bRetValue = false;
+            string strSql = "delete from masteraccount where acccode = 'C'";
+
+            if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                bRetValue = true;
+            }
+            return bRetValue;
+        }
+
+
+        public bool InsertCreditorinMasterAccount(string macccode, string maccname, string maccaddress1, string maccaddress2, string marea, string macctelephone, string maccmobile, string mdlnno, string memail, string mgstno, string mjuri, string mcontactperson, string mcity, int mecomartid, int mcnfid)
+        {
+            bool bRetValue = false;
+            string strSql = "insert into masteraccount ( AccCode,AccName,AccOpeningDebit,AccOpeningCredit,AccAddress1,AccAddress2,AccTelephone,MobileNumberForSMS,AccContactPerson,AccGroupID,AccVATTIN,AccDLN,AccEmailID,EcoMartID,CNFID) values ('" + macccode + "','" + maccname + "'," + 0 + "," + 0 + ",'"+ maccaddress1 + "','" + maccaddress2 + "','" + macctelephone + "','" + maccmobile + "','" + mcontactperson + "'," + 31 + ",'" + mgstno + "','" + mdlnno + "','" + memail + "'," + mecomartid + "," + mcnfid + ")" ;
+
+
+            if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                bRetValue = true;
+            }
+            return bRetValue;
+        }
+
         //private string GetInsertQuery(string Id, string Name, string createdby, string createddate, string createdtime)
         //{
         //    Query objQuery = new Query();

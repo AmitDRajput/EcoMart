@@ -308,7 +308,7 @@ namespace EcoMart.InterfaceLayer.CommonControls
                     dgMainGrid.Initialize();
             }
             catch (Exception ex)
-            {                
+            {
                 Log.WriteError(ex.ToString());
             }
         }
@@ -787,14 +787,15 @@ namespace EcoMart.InterfaceLayer.CommonControls
             {
                 if (OnCellEnter != null)
                     OnCellEnter(sender, e);
-                if (e.ColumnIndex == 1)       // [ansuman]
-                {
-                    if (string.IsNullOrEmpty(Convert.ToString(dgMainGrid.CurrentRow.Cells[0].Value)) == false)
-                        General.SubstituteProductID = Convert.ToInt32(dgMainGrid.CurrentRow.Cells[0].Value.ToString());
-                    else General.SubstituteProductID = 0;
-                }
+                //if (e.ColumnIndex == 1)       // [ansuman]
+                //{
+                //    if (string.IsNullOrEmpty(Convert.ToString(dgMainGrid.CurrentRow.Cells[0].Value)) == false)
+                //        General.SubstituteProductID = Convert.ToInt32(dgMainGrid.CurrentRow.Cells[0].Value.ToString());
+                //    else General.SubstituteProductID = 0;
+                //}
                 this.Focus();
-                this.SetFocus(e.RowIndex, e.ColumnIndex);
+                if (dgMainGrid.Columns[e.ColumnIndex].ReadOnly == false)
+                    this.SetFocus(e.RowIndex, e.ColumnIndex);
             }
             catch (Exception ex) { Log.WriteError(ex.ToString()); }
         }

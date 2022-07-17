@@ -70,7 +70,7 @@ namespace EcoMart.InterfaceLayer
             Fillmcb();
             FillPack();
             FillPackType();
-            txtLoosePack.Text = _Product.ProdLoosePack.ToString().Trim();
+            //txtLoosePack.Text = _Product.ProdLoosePack.ToString().Trim();
             txtName.Focus();
             Prod_SelectedID = string.Empty;
             return retValue;
@@ -226,16 +226,24 @@ namespace EcoMart.InterfaceLayer
             _Product.Name = (_Product.Name.Replace("*", "X"));
             _Product.Name = (_Product.Name.Replace("%", "Per"));
             if (mcbCompany.SelectedID != null)
-                _Product.ProdCompID = Convert.ToInt32 ( mcbCompany.SelectedID.Trim());
+            {
+                _Product.ProdCompID = Convert.ToInt32(mcbCompany.SelectedID.Trim());
+                _Product.ProdCreditor1ID = Convert.ToInt32(mcbCompany.SeletedItem.ItemData[3]);
+            }
             _Product.ProdCompShortName = txtCompShortName.Text.Trim();
-            if (txtLoosePack.Text.Trim() != "")
-                _Product.ProdLoosePack = Convert.ToInt32(txtLoosePack.Text.Trim());
 
+            _Product.ProdLoosePack = 1;
             _Product.ProdPack = txtPack.Text.Trim();
-            _Product.ProdPackID = Convert.ToInt32 ( txtPack.SelectedID );
+            if (txtPack.SelectedID != null)
+                _Product.ProdPackID = Convert.ToInt32(txtPack.SelectedID);
+            else
+                _Product.ProdPackID = 0;
 
             _Product.ProdPackType = txtPackType.Text.Trim();
-            _Product.ProdPackTypeID =Convert.ToInt32( txtPackType.SelectedID);
+            if (txtPackType.SelectedID != null)
+                _Product.ProdPackTypeID = Convert.ToInt32(txtPackType.SelectedID);
+            else
+                _Product.ProdPackTypeID = 0;
 
             if (txtVAT.Text.Trim() != "")
                 _Product.ProdVATPer = Convert.ToDouble(txtVAT.Text.Trim());
@@ -249,25 +257,12 @@ namespace EcoMart.InterfaceLayer
                 _Product.ProdBoxQty = Convert.ToInt32(txtBoxQty.Text.Trim());
             if (mcbGenericCategory.SeletedItem != null)
                 _Product.ProdGenericID = Convert.ToInt32(mcbGenericCategory.SeletedItem.Value.Trim());
-            
+
             if (mcbShelfCode.SelectedID != "" && mcbShelfCode.SelectedID != null)
                 _Product.ProdShelfID = Convert.ToInt32(mcbShelfCode.SelectedID.Trim());
             if (mcbProductCategory.SelectedID != null)
                 _Product.ProdProductCategoryID = Convert.ToInt32(mcbProductCategory.SelectedID.Trim());
-            //if (mcbFirstCreditor.SelectedID != null)
-            //    _Product.ProdCreditor1ID = Convert.ToInt32(mcbFirstCreditor.SelectedID.Trim());
-            //if (mcbSecondCreditor.SelectedID != null)
-            //    _Product.ProdCreditor2ID = Convert.ToInt32(mcbSecondCreditor.SelectedID.Trim());
-            //if (cbSchedule.SelectedItem != null)
-            //    _Product.ProdScheduleDrugCode = cbSchedule.SelectedItem.ToString();
-            //_Product.ProdGrade = cbGrade.Text.Trim();
-            //_Product.ProdIfAddOctroi = txtAddOctroi.Text.ToString();
-            //_Product.ProdIfSaleDisc = txtSaleDiscount.Text.ToString();
-            //_Product.ProdIfShortList = txtShowInShortList.Text.ToString();
-            //_Product.ProdIfScheduledDrug = txtIfScheduledDrug.Text.ToString();
             _Product.ProdRequireColdStorage = txtRequireColdStorage.Text.ToString();
-            //_Product.ProdIfBarCodeRequired = txtIfBarCodeRequired.Text.ToString();
-            //_Product.ScannedBarcode = txtProductBarcode.Text.ToString();
             _Product.HSNNumber = Convert.ToInt32(txtHSNNumber.Text.ToString());
             if (_Mode == OperationMode.Edit)
                 _Product.IFEdit = "Y";
@@ -276,10 +271,10 @@ namespace EcoMart.InterfaceLayer
             _Product.Validate();
             if (_Product.IsValid)
             {
-                if (_Product.ProdPack != null && _Product.ProdPack != string.Empty)
+                if (_Product.ProdPackID == 0)
                 {
                     _Product.ProdPackID = Convert.ToInt32(_Product.SearchForProdPack(_Product.ProdPack).ToString());
-                    if (_Product.ProdPackID.ToString() == null || _Product.ProdPackID == 0)
+                    if (_Product.ProdPackID == 0)
                     {
                         //SS
                         _Product.IfNewPack = "Y";
@@ -297,25 +292,32 @@ namespace EcoMart.InterfaceLayer
                 }
                 if (_Mode == OperationMode.Add || _Mode == OperationMode.OpenAsChild)
                 {
-                    _Product.IntID  = _Product.GetIntID(); /* Guid.NewGuid().ToString().ToUpper().Replace("-", "");*/
+                    _Product.IntID = _Product.GetNextIntID();
                     _Product.CreatedBy = General.CurrentUser.Id;
                     _Product.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
                     _Product.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
-                    _Product.IntID  = _Product.AddDetails();
+                    if (_Product.IntID > 0)
+                        retValue = _Product.AddDetails();
 
                     if (_Product.IfNewPack != "" && _Product.IfNewPack == "Y")
+                    {
+                        _Product.ProdPackID = _Product.GetNextPackID();
                         retValue = _Product.AddPack();
+                    }
                     if (_Product.IfNewPackType != "" && _Product.IfNewPackType == "Y")
+                    {
+                        _Product.ProdPackTypeID = _Product.GetNextPackTypeID();
                         retValue = _Product.AddPackType();
+                    }
 
                     //retValue = _Product.RemoveProductDrugLink();
                     //SS
-                    _Product.ProdLinkDrugId = _Product.GetIntID(); /* Guid.NewGuid().ToString().ToUpper().Replace("-", "");*/
-                    if (_Product.ProdGenericID.ToString() != null && _Product.ProdGenericID.ToString() != string.Empty && _Product.ProdGenericID != 0)
-                        retValue = _Product.SaveProductDrugLink();
+                    // TOCHECK
+                    //////////////////_Product.ProdLinkDrugId = _Product.GetIntID(); /* Guid.NewGuid().ToString().ToUpper().Replace("-", "");*/
+                    //////////////////if (_Product.ProdGenericID.ToString() != null && _Product.ProdGenericID.ToString() != string.Empty && _Product.ProdGenericID != 0)
+                    //////////////////    retValue = _Product.SaveProductDrugLink();
 
-                    //EcoMartCache.RefreshProductData();
-                    //   General.NotifyProductListRefill();
+
                     _Product.IfNewPack = "N";
                     _Product.IfNewPackType = "N";
 
@@ -323,8 +325,6 @@ namespace EcoMart.InterfaceLayer
 
                     MessageBox.Show("Product information has been saved successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _SavedID = _Product.Id;
-
-                    //   ClearControls();                
                     retValue = true;
                 }
                 else if (_Mode == OperationMode.Edit)
@@ -335,26 +335,19 @@ namespace EcoMart.InterfaceLayer
                     _Product.ModifiedTime = DateTime.Now.ToString("HH:mm:ss");
                     retValue = _Product.UpdateDetails();
 
-                    //retValue = _Product.RemoveProductDrugLink();
-                    //SS
-                    _Product.ProdLinkDrugId = _Product.GetIntID(); /* Guid.NewGuid().ToString().ToUpper().Replace("-", "");*/
-                    if (_Product.ProdGenericID.ToString () != null && _Product.ProdGenericID != 0)
-                        retValue = _Product.SaveProductDrugLink();
-                    // General.NotifyProductListRefill();
-                    //AddInLinkPartyCompany();
+                    //_Product.ProdLinkDrugId = _Product.GetIntID(); /* Guid.NewGuid().ToString().ToUpper().Replace("-", "");*/
+                    //if (_Product.ProdGenericID.ToString () != null && _Product.ProdGenericID != 0)
+                    //    retValue = _Product.SaveProductDrugLink();
+
                     MessageBox.Show("Product information has been updated successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _SavedID = _Product.Id;
-                    //   ClearControls();
-                    //this.Visible = false;
-                    //if (OnChildDetailClosed != null)
-                    //    OnChildDetailClosed();
                     retValue = true;
                 }
 
                 CacheObject.Clear("cacheCounterSale");
                 _Product.GetOverviewData();
             }
-            else // Show Validation Messages
+            else
             {
                 _errorMessage = new System.Text.StringBuilder();
                 _errorMessage.Append("Error while validating the input" + Environment.NewLine);
@@ -370,10 +363,6 @@ namespace EcoMart.InterfaceLayer
         private bool AddInLinkPartyCompany() // [ansuman- 13.04.2017]
         {
             List<PSComboBoxNew> Creditorlist = new List<PSComboBoxNew>();
-            //Creditorlist.Add(mcbFirstCreditor);
-            //Creditorlist.Add(mcbSecondCreditor);
-            //Creditorlist.Add(mcbThirdCreditor);
-            //Creditorlist.Add(mcbFourthCreditor);
 
             foreach (PSComboBoxNew items in Creditorlist)
             {
@@ -411,11 +400,11 @@ namespace EcoMart.InterfaceLayer
                 txtCompShortName.Focus();
                 return false;
             }
-            else if (ValidateEmptyorNullData(txtLoosePack.Text, "Please enter Unit of measure.") == true)
-            {
-                txtLoosePack.Focus();
-                return false;
-            }
+            //else if (ValidateEmptyorNullData(txtLoosePack.Text, "Please enter Unit of measure.") == true)
+            //{
+            //    txtLoosePack.Focus();
+            //    return false;
+            //}
             else if (ValidateEmptyorNullData(txtPack.Text, "Please enter Pack.") == true)
             {
                 txtPack.Focus();
@@ -445,7 +434,7 @@ namespace EcoMart.InterfaceLayer
                     txtName.SelectedID = _Product.Id;
                 txtCompShortName.Text = _Product.ProdCompShortName;
                 txtName.Text = _Product.Name;
-                txtLoosePack.Text = Convert.ToString(_Product.ProdLoosePack);
+                //txtLoosePack.Text = Convert.ToString(_Product.ProdLoosePack);
 
                 txtPack.Text = _Product.ProdPack;
                 txtPackType.Text = _Product.ProdPackType;
@@ -455,32 +444,12 @@ namespace EcoMart.InterfaceLayer
                 txtBoxQty.Text = Convert.ToString(_Product.ProdBoxQty);
                 txtVAT.Text = _Product.ProdVATPer.ToString("#0.00");
                 //txtCST.Text = _Product.ProdCST.ToString("#0.00");
-                mcbCompany.SelectedIntID  = Convert.ToInt32 ( _Product.ProdCompID);
-                //FillCompanyCombo();
-                //FillCreditorList();  // [ansuman]
-
-                //mcbFirstCreditor.SelectedID = _Product.ProdCreditor1ID.Trim();  // [ansuman]
+                mcbCompany.SelectedIntID = Convert.ToInt32(_Product.ProdCompID);
                 mcbGenericCategory.SelectedIntID = _Product.ProdGenericID;
                 mcbProductCategory.SelectedIntID = _Product.ProdProductCategoryID;
-                //mcbSecondCreditor.SelectedID = _Product.ProdCreditor2ID.Trim(); // [ansuman]
                 mcbShelfCode.SelectedIntID = _Product.ProdShelfID;
-                //if (_Product.ProdScheduleDrugCode != null && _Product.ProdScheduleDrugCode.ToString() != string.Empty)
-                //{
-                //    cbSchedule.Text = _Product.ProdScheduleDrugCode;
-                //    cbSchedule.SelectedIndex = cbSchedule.Items.IndexOf(_Product.ProdScheduleDrugCode);
-                //}
-                //cbGrade.Text = _Product.ProdGrade;
-                //txtAddOctroi.Text = _Product.ProdIfAddOctroi.ToString();
-                //txtSaleDiscount.Text = _Product.ProdIfSaleDisc.ToString();
-                //txtShowInShortList.Text = _Product.ProdIfShortList;
-                //txtIfScheduledDrug.Text = _Product.ProdIfScheduledDrug.ToString();
-                //txtRequireColdStorage.Text = _Product.ProdRequireColdStorage.ToString();
-                //txtProductBarcode.Text = _Product.ScannedBarcode.ToString();
-
                 txtHSNNumber.Text = Convert.ToString(_Product.HSNNumber);
                 txtName.Focus();
-                // headerLabel1.Text = "PRODUCT -> EDIT";
-
             }
             if (Mode == OperationMode.Delete || Mode == OperationMode.View)
                 panel2.Enabled = false;
@@ -501,16 +470,6 @@ namespace EcoMart.InterfaceLayer
                 FillShelfCombo();
             else if (closedControl is UclProdCategory)
                 FillProdCategoryCombo();
-            //else if (closedControl is UclAccount)
-            //{
-            //    FillFirstCreditorCombo();
-            //    FillSecondCreditorCombo();
-            //    FillThirdCreditorCombo();
-            //    FillFourthCreditorCombo();
-            //}
-
-            //FillScheduleDrugCombo();
-            //  FilltxtName();
             FillPack();
             FillPackType();
         }
@@ -544,36 +503,23 @@ namespace EcoMart.InterfaceLayer
                 txtName.Focus();
                 retValue = true;
             }
-            if (keyPressed == Keys.U && modifier == Keys.Alt)
-            {
-                txtLoosePack.Focus();
-                retValue = true;
-            }
+            //if (keyPressed == Keys.U && modifier == Keys.Alt)
+            //{
+            //    txtLoosePack.Focus();
+            //    retValue = true;
+            //}
             if (keyPressed == Keys.K && modifier == Keys.Alt)
             {
                 txtPack.Focus();
                 retValue = true;
             }
-            //if (keyPressed == Keys.G && modifier == Keys.Alt)
-            //{
-            //    cbGrade.Focus();
-            //    retValue = true;
-            //}
+
             if (keyPressed == Keys.V && modifier == Keys.Alt)
             {
                 txtVAT.Focus();
                 retValue = true;
             }
-            //if (keyPressed == Keys.T && modifier == Keys.Alt)
-            //{
-            //    txtCST.Focus();
-            //    retValue = true;
-            //}
-            //if (keyPressed == Keys.H && modifier == Keys.Alt)
-            //{
-            //    cbSchedule.Focus();
-            //    retValue = true;
-            //}
+
             if (keyPressed == Keys.I && modifier == Keys.Alt)
             {
                 txtMinLevel.Focus();
@@ -605,31 +551,7 @@ namespace EcoMart.InterfaceLayer
                 mcbProductCategory.Focus();
                 retValue = true;
             }
-            //if (keyPressed == Keys.R && modifier == Keys.Alt)
-            //{
-            //    mcbFirstCreditor.Focus();
-            //    retValue = true;
-            //}
-            //if (keyPressed == Keys.E && modifier == Keys.Alt)
-            //{
-            //    mcbSecondCreditor.Focus();
-            //    retValue = true;
-            //}
-            //if (keyPressed == Keys.O && modifier == Keys.Alt)
-            //{
-            //    txtShowInShortList.Focus();
-            //    retValue = true;
-            //}
-            //if (keyPressed == Keys.D && modifier == Keys.Alt)
-            //{
-            //    txtSaleDiscount.Focus();
-            //    retValue = true;
-            //}
-            //if (keyPressed == Keys.A && modifier == Keys.Alt)
-            //{
-            //    txtAddOctroi.Focus();
-            //    retValue = true;
-            //}
+
             if (keyPressed == Keys.Escape)
             {
                 retValue = Exit();
@@ -659,7 +581,7 @@ namespace EcoMart.InterfaceLayer
             txtCompShortName.Text = "";
             txtVAT.Text = "12.0";
             //txtCST.Text = "";
-            txtLoosePack.Text = "";
+            //txtLoosePack.Text = "";
             txtPack.Text = "";
             txtPackType.Text = "";
             txtMaxLevel.Text = "";
@@ -668,20 +590,11 @@ namespace EcoMart.InterfaceLayer
             txtCompShortName.Text = "";
             Clearmcb();
             lblMessage.Text = "";
-            //txtIfScheduledDrug.Text = "Y";
-            //txtSaleDiscount.Text = "Y";
-            //txtShowInShortList.Text = "Y";
-            //txtAddOctroi.Text = "N";
             txtRequireColdStorage.Text = "N";
-            //txtIfBarCodeRequired.Text = "N";
-            //mcbFirstCreditor.Enabled = true;
-            //mcbSecondCreditor.Enabled = true;
             panel2.Enabled = true;
-            //FillScheduleDrugCombo();
             tsBtnFifth.Visible = false;
             tsBtnPrint.Visible = false;
             tsBtnSavenPrint.Visible = false;
-            //txtProductBarcode.Text = string.Empty;
         }
 
         private void Clearmcb()
@@ -713,11 +626,6 @@ namespace EcoMart.InterfaceLayer
             FillGenericCategoryCombo();
             FillShelfCombo();
             FillProdCategoryCombo();
-            //FillFirstCreditorCombo();
-            //FillSecondCreditorCombo();
-            //FillThirdCreditorCombo();
-            //FillFourthCreditorCombo();
-            //FillScheduleDrugCombo();
         }
         private void FillCompanyCombo()
         {
@@ -756,29 +664,6 @@ namespace EcoMart.InterfaceLayer
 
         }
 
-        //private void FillScheduleDrugCombo()
-        //{
-        //    cbSchedule.Items.Clear();
-        //    Schedule _Schedule = new Schedule();
-        //    DataTable dtable = _Schedule.GetOverviewData();
-        //    if (dtable != null)
-        //    {
-        //        foreach (DataRow dr in dtable.Rows)
-        //        {
-        //            if (dr["ScheduleCode"] != DBNull.Value)
-        //            {
-        //                cbSchedule.Items.Add(dr["ScheduleCode"].ToString());
-        //            }
-        //        }
-        //        foreach (DataRow dr in dtable.Rows)
-        //        {
-        //            cbSchedule.Text = dr["ScheduleCode"].ToString();
-        //            cbSchedule.SelectedIndex = cbSchedule.Text.IndexOf(dr["ScheduleCode"].ToString());
-        //            break;
-        //        }
-        //    }
-        //}
-
         private void FillPack()
         {
             txtPack.SelectedID = null;
@@ -809,53 +694,7 @@ namespace EcoMart.InterfaceLayer
             mcbProductCategory.FillData(dtable);
         }
 
-        //private void FillFirstCreditorCombo()
-        //{
-        //    mcbFirstCreditor.SelectedID = null;
-        //    mcbFirstCreditor.SourceDataString = new string[2] { "AccountID", "AccName", };
-        //    mcbFirstCreditor.ColumnWidth = new string[2] { "0", "300" };  // kiran
-        //    mcbFirstCreditor.ValueColumnNo = 0;
-        //    mcbFirstCreditor.UserControlToShow = new UclAccount();
-        //    Account _Account = new Account();
-        //    DataTable dtable = _Account.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
-        //    mcbFirstCreditor.FillData(dtable);
-        //}
 
-        //private void FillSecondCreditorCombo()
-        //{
-        //    mcbSecondCreditor.SelectedID = null;
-        //    mcbSecondCreditor.SourceDataString = new string[2] { "AccountID", "AccName", };
-        //    mcbSecondCreditor.ColumnWidth = new string[2] { "0", "300" };   // kiran
-        //    mcbSecondCreditor.ValueColumnNo = 0;
-        //    mcbSecondCreditor.UserControlToShow = new UclAccount();
-        //    Account _Account = new Account();
-        //    DataTable dtable = _Account.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
-        //    mcbSecondCreditor.FillData(dtable);
-        //}
-
-        //private void FillThirdCreditorCombo()
-        //{
-        //    mcbThirdCreditor.SelectedID = null;
-        //    mcbThirdCreditor.SourceDataString = new string[2] { "AccountID", "AccName", };
-        //    mcbThirdCreditor.ColumnWidth = new string[2] { "0", "300" };   // kiran
-        //    mcbThirdCreditor.ValueColumnNo = 0;
-        //    mcbThirdCreditor.UserControlToShow = new UclAccount();
-        //    Account _Account = new Account();
-        //    DataTable dtable = _Account.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
-        //    mcbThirdCreditor.FillData(dtable);
-        //}
-
-        //private void FillFourthCreditorCombo()
-        //{
-        //    mcbFourthCreditor.SelectedID = null;
-        //    mcbFourthCreditor.SourceDataString = new string[2] { "AccountID", "AccName", };
-        //    mcbFourthCreditor.ColumnWidth = new string[2] { "0", "300" };   // kiran
-        //    mcbFourthCreditor.ValueColumnNo = 0;
-        //    mcbFourthCreditor.UserControlToShow = new UclAccount();
-        //    Account _Account = new Account();
-        //    DataTable dtable = _Account.GetSSAccountHoldersList(FixAccounts.AccCodeForCreditor);
-        //    mcbFourthCreditor.FillData(dtable);
-        //}
 
         #endregion
 
@@ -895,10 +734,10 @@ namespace EcoMart.InterfaceLayer
                 case Keys.Enter:
                     if ((_Mode == OperationMode.Add || _Mode == OperationMode.Edit || _Mode == OperationMode.OpenAsChild) && ValidateEmptyorNullData(txtCompShortName.Text.Trim(), "Please Enter Company Short Name.") == true)
                         txtCompShortName.Focus();
-                    else txtLoosePack.Focus();
+                    else txtPack.Focus();
                     break;
                 case Keys.Down:
-                    txtLoosePack.Focus();
+                    txtPack.Focus();
                     break;
                 case Keys.Up:
                     mcbCompany.Focus();
@@ -909,29 +748,28 @@ namespace EcoMart.InterfaceLayer
 
 
 
-        private void txtLoosePack_KeyDown(object sender, KeyEventArgs e)
-        {
+        //private void txtLoosePack_KeyDown(object sender, KeyEventArgs e)
+        //{
 
-            //     label1.Text = "You can Make it the Short Company Name of the product";
-            switch (e.KeyCode)
-            {
-                case Keys.Enter:
-                    if ((_Mode == OperationMode.Add || _Mode == OperationMode.Edit || _Mode == OperationMode.OpenAsChild) && ValidateEmptyorNullData(txtLoosePack.Text.Trim(), "Please Enter Unit of Measure.") == true)
-                        txtLoosePack.Focus();
-                    else
-                        txtPack.SetFocus();
-                    e.Handled = true;
-                    break;
-                case Keys.Down:
-                    txtPack.SetFocus();
-                    e.Handled = true;
-                    break;
-                case Keys.Up:
-                    txtCompShortName.Focus();
-                    e.Handled = true;
-                    break;
-            }
-        }
+        //    //     label1.Text = "You can Make it the Short Company Name of the product";
+        //    switch (e.KeyCode)
+        //    {
+        //        case Keys.Enter:
+        //            if ((_Mode == OperationMode.Add || _Mode == OperationMode.Edit || _Mode == OperationMode.OpenAsChild) && ValidateEmptyorNullData(txtLoosePack.Text.Trim(), "Please Enter Unit of Measure.") == true)
+
+        //                txtPack.SetFocus();
+        //            e.Handled = true;
+        //            break;
+        //        case Keys.Down:
+        //            txtPack.SetFocus();
+        //            e.Handled = true;
+        //            break;
+        //        case Keys.Up:
+        //            txtCompShortName.Focus();
+        //            e.Handled = true;
+        //            break;
+        //    }
+        //}
 
         private void txtPack_KeyDown(object sender, KeyEventArgs e)
         {
@@ -944,7 +782,7 @@ namespace EcoMart.InterfaceLayer
                     txtVAT.Focus();
                     break;
                 case Keys.Up:
-                    txtLoosePack.Focus();
+                    txtPack.Focus();
                     break;
             }
         }
@@ -955,15 +793,15 @@ namespace EcoMart.InterfaceLayer
             {
                 case Keys.Tab:
                     txtHSNNumber.Focus();
-                //    txtCST.Focus();
+                    //    txtCST.Focus();
                     break;
                 case Keys.Enter:
                     txtHSNNumber.Focus();
-                 //   txtCST.Focus();
+                    //   txtCST.Focus();
                     break;
                 case Keys.Down:
                     txtHSNNumber.Focus();
-                 //   txtCST.Focus();
+                    //   txtCST.Focus();
                     break;
                 case Keys.Up:
                     txtPackType.Focus();
@@ -985,7 +823,7 @@ namespace EcoMart.InterfaceLayer
                     break;
             }
         }
-      
+
 
         private void txtMinLevel_KeyDown(object sender, KeyEventArgs e)
         {
@@ -1000,7 +838,7 @@ namespace EcoMart.InterfaceLayer
                     break;
                 case Keys.Up:
                     txtHSNNumber.Focus();
-               //     txtCST.Focus();
+                    //     txtCST.Focus();
                     break;
             }
         }
@@ -1056,18 +894,18 @@ namespace EcoMart.InterfaceLayer
         }
 
 
-        private void txtLoosePack_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtLoosePack.Text.Trim() != "")
-            {
-                int numberEntered = int.Parse(txtLoosePack.Text.Trim());
-                if (numberEntered < 1)
-                {
-                    e.Cancel = true;
-                    MessageBox.Show("Not valid entry", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-        }
+        //private void txtLoosePack_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (txtLoosePack.Text.Trim() != "")
+        //    {
+        //        int numberEntered = int.Parse(txtLoosePack.Text.Trim());
+        //        if (numberEntered < 1)
+        //        {
+        //            e.Cancel = true;
+        //            MessageBox.Show("Not valid entry", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        }
+        //    }
+        //}
         private void mcbCompany_EnterKeyPressed(object sender, EventArgs e)
         {
             try
@@ -1144,7 +982,7 @@ namespace EcoMart.InterfaceLayer
         {
             if (mcbCompany.SeletedItem != null)
             {
-                //       txtCompShortName.Text = mcbCompany.SeletedItem.Col3.ToString();
+                //_Product.ProdCreditor1ID = Convert.ToInt32(mcbCompany.SeletedItem.ItemData[4]);
 
             }
         }
@@ -1160,6 +998,7 @@ namespace EcoMart.InterfaceLayer
                 mcbCompany.SelectedID = selectedId;
                 _Product.ProdCompShortName = mcbCompany.SeletedItem.ItemData[2];
                 txtCompShortName.Text = _Product.ProdCompShortName.ToString();
+                _Product.ProdCreditor1ID = Convert.ToInt32(mcbCompany.SeletedItem.ItemData[4]);
                 //if (mcbCompany.SeletedItem.ItemData[3] != null && mcbCompany.SeletedItem.ItemData[3].ToString() != string.Empty)
                 //{
                 //    _Product.ProdCreditor1ID = Convert.ToInt32( mcbCompany.SeletedItem.ItemData[3].ToString());
@@ -1350,13 +1189,13 @@ namespace EcoMart.InterfaceLayer
         private void AddToolTip()
         {
             ttproduct.SetToolTip(txtCompShortName, "Maximum 3 Letters");
-        //    ttproduct.SetToolTip(txtCST, "Central Tax");
-            ttproduct.SetToolTip(txtLoosePack, "Quantity per pack if sold in loose quantity and NOT by pack. Enter 1 if sold by pack");
+            //    ttproduct.SetToolTip(txtCST, "Central Tax");
+            //ttproduct.SetToolTip(txtLoosePack, "Quantity per pack if sold in loose quantity and NOT by pack. Enter 1 if sold by pack");
             ttproduct.SetToolTip(txtName, "A-Z,0-9,space only");
             ttproduct.SetToolTip(txtPack, "TAB,CAP,NO,VIAL etc Max Characters 6 (Six)");
             //ttproduct.SetToolTip(cbGrade, "Grade according to Sale or Rate or Availability ");
             ttproduct.SetToolTip(txtVAT, "GST % = 0.00 5.0, 12.00, 18.00,28.00");
-         //   ttproduct.SetToolTip(txtCST, "CST in Rupees");
+            //   ttproduct.SetToolTip(txtCST, "CST in Rupees");
             mcbProductCategory.SetToolTip(ttproduct, "Fill Product Category");
             mcbProductCategory.SetToolTipNewButton(ttproduct, "Click to create new Product Category");
             ttproduct.SetToolTip(mcbGenericCategory, "Fill Generic Category");
@@ -1493,10 +1332,10 @@ namespace EcoMart.InterfaceLayer
         {
             txtRequireColdStorage.Focus();
         }
-        private void txtPack_UpArrowKeyPressed(object sender, EventArgs e)
-        {
-            txtLoosePack.Focus();
-        }
+        //private void txtPack_UpArrowKeyPressed(object sender, EventArgs e)
+        //{
+        //    txtLoosePack.Focus();
+        //}
 
         private void mcbGenericCategory_UpArrowPressed(object sender, EventArgs e)
         {
@@ -1613,6 +1452,6 @@ namespace EcoMart.InterfaceLayer
 
         #endregion ValidateData
 
-        
+
     }
 }

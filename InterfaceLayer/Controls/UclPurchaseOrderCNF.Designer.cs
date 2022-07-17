@@ -32,6 +32,8 @@ namespace EcoMart.InterfaceLayer
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UclPurchaseOrderCNF));
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.btnDownLoad = new System.Windows.Forms.Button();
+            this.btnCreateOrder = new System.Windows.Forms.Button();
             this.btnUploadSearch = new System.Windows.Forms.Button();
             this.btnRecoverQty = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -41,7 +43,6 @@ namespace EcoMart.InterfaceLayer
             this.FromdateNextVisit = new System.Windows.Forms.DateTimePicker();
             this.ToDateNextVisit = new System.Windows.Forms.DateTimePicker();
             this.btnClearQty = new System.Windows.Forms.Button();
-            this.btnCreateOrder = new System.Windows.Forms.Button();
             this.mPlbl6 = new EcoMart.InterfaceLayer.CommonControls.PSLabel();
             this.txtBillAmount = new PharmaSYSPlus.CommonLibrary.DecimalTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -115,7 +116,7 @@ namespace EcoMart.InterfaceLayer
             this.MMBottomPanel.Controls.Add(this.lblAmountTotal);
             this.MMBottomPanel.Controls.Add(this.lblNoofRows);
             this.MMBottomPanel.Controls.Add(this.txtNoOfRows);
-            this.MMBottomPanel.Location = new System.Drawing.Point(0, 689);
+            this.MMBottomPanel.Location = new System.Drawing.Point(0, 646);
             this.MMBottomPanel.Size = new System.Drawing.Size(1054, 65);
             this.MMBottomPanel.Controls.SetChildIndex(this.lblFooterMessage, 0);
             this.MMBottomPanel.Controls.SetChildIndex(this.lblRightSideFooterMsg, 0);
@@ -132,7 +133,7 @@ namespace EcoMart.InterfaceLayer
             this.MMMainPanel.Controls.Add(this.pnlTop);
             this.MMMainPanel.Controls.Add(this.dgvBatchGrid);
             this.MMMainPanel.Controls.Add(this.mpMainSubViewControl);
-            this.MMMainPanel.Size = new System.Drawing.Size(1054, 626);
+            this.MMMainPanel.Size = new System.Drawing.Size(1054, 583);
             this.MMMainPanel.Controls.SetChildIndex(this.mpMainSubViewControl, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.dgvBatchGrid, 0);
             this.MMMainPanel.Controls.SetChildIndex(this.ctrlUclSaleSummaryControl, 0);
@@ -149,11 +150,12 @@ namespace EcoMart.InterfaceLayer
             // 
             this.pnlTop.BackColor = System.Drawing.Color.OldLace;
             this.pnlTop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTop.Controls.Add(this.btnDownLoad);
+            this.pnlTop.Controls.Add(this.btnCreateOrder);
             this.pnlTop.Controls.Add(this.btnUploadSearch);
             this.pnlTop.Controls.Add(this.btnRecoverQty);
             this.pnlTop.Controls.Add(this.panel4);
             this.pnlTop.Controls.Add(this.btnClearQty);
-            this.pnlTop.Controls.Add(this.btnCreateOrder);
             this.pnlTop.Controls.Add(this.mPlbl6);
             this.pnlTop.Controls.Add(this.txtBillAmount);
             this.pnlTop.Controls.Add(this.panel3);
@@ -168,6 +170,32 @@ namespace EcoMart.InterfaceLayer
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1052, 154);
             this.pnlTop.TabIndex = 1018;
+            // 
+            // btnDownLoad
+            // 
+            this.btnDownLoad.BackColor = System.Drawing.Color.DarkOrchid;
+            this.btnDownLoad.Location = new System.Drawing.Point(489, 16);
+            this.btnDownLoad.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDownLoad.Name = "btnDownLoad";
+            this.btnDownLoad.Size = new System.Drawing.Size(112, 62);
+            this.btnDownLoad.TabIndex = 1115;
+            this.btnDownLoad.Text = "DownLoad";
+            this.btnDownLoad.UseVisualStyleBackColor = false;
+            this.btnDownLoad.Visible = false;
+            this.btnDownLoad.Click += new System.EventHandler(this.btnDownLoad_Click);
+            // 
+            // btnCreateOrder
+            // 
+            this.btnCreateOrder.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnCreateOrder.Enabled = false;
+            this.btnCreateOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateOrder.Location = new System.Drawing.Point(324, 102);
+            this.btnCreateOrder.Name = "btnCreateOrder";
+            this.btnCreateOrder.Size = new System.Drawing.Size(194, 37);
+            this.btnCreateOrder.TabIndex = 1114;
+            this.btnCreateOrder.Text = "Create &Orders";
+            this.btnCreateOrder.UseVisualStyleBackColor = false;
+            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click_1);
             // 
             // btnUploadSearch
             // 
@@ -191,6 +219,7 @@ namespace EcoMart.InterfaceLayer
             this.btnRecoverQty.TabIndex = 1112;
             this.btnRecoverQty.Text = "Recover Qty";
             this.btnRecoverQty.UseVisualStyleBackColor = true;
+            this.btnRecoverQty.Visible = false;
             // 
             // panel4
             // 
@@ -272,19 +301,7 @@ namespace EcoMart.InterfaceLayer
             this.btnClearQty.TabIndex = 1110;
             this.btnClearQty.Text = "Clear Qty";
             this.btnClearQty.UseVisualStyleBackColor = true;
-            // 
-            // btnCreateOrder
-            // 
-            this.btnCreateOrder.BackColor = System.Drawing.Color.LemonChiffon;
-            this.btnCreateOrder.Enabled = false;
-            this.btnCreateOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateOrder.Location = new System.Drawing.Point(383, 111);
-            this.btnCreateOrder.Name = "btnCreateOrder";
-            this.btnCreateOrder.Size = new System.Drawing.Size(120, 29);
-            this.btnCreateOrder.TabIndex = 1109;
-            this.btnCreateOrder.Text = "Create &Orders";
-            this.btnCreateOrder.UseVisualStyleBackColor = false;
-            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
+            this.btnClearQty.Visible = false;
             // 
             // mPlbl6
             // 
@@ -440,19 +457,20 @@ namespace EcoMart.InterfaceLayer
             this.panel1.Controls.Add(this.ToDateShortList);
             this.panel1.Location = new System.Drawing.Point(3, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 118);
+            this.panel1.Size = new System.Drawing.Size(316, 146);
             this.panel1.TabIndex = 1103;
             // 
             // btnGO
             // 
             this.btnGO.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnGO.Location = new System.Drawing.Point(123, 69);
+            this.btnGO.Location = new System.Drawing.Point(52, 100);
             this.btnGO.Name = "btnGO";
-            this.btnGO.Size = new System.Drawing.Size(79, 39);
-            this.btnGO.TabIndex = 1040;
-            this.btnGO.Text = "GO";
+            this.btnGO.Size = new System.Drawing.Size(210, 39);
+            this.btnGO.TabIndex = 1041;
+            this.btnGO.Text = "Show Products";
             this.btnGO.UseVisualStyleBackColor = false;
-            this.btnGO.Click += new System.EventHandler(this.btnGO_Click_1);
+            this.btnGO.Visible = false;
+            this.btnGO.Click += new System.EventHandler(this.btnGO_Click);
             // 
             // cbSaleToday
             // 
@@ -713,7 +731,7 @@ namespace EcoMart.InterfaceLayer
             this.mpMainSubViewControl1.Name = "mpMainSubViewControl1";
             this.mpMainSubViewControl1.NextRowColumn = 0;
             this.mpMainSubViewControl1.NumericColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpMainSubViewControl1.NumericColumnNames")));
-            this.mpMainSubViewControl1.Size = new System.Drawing.Size(965, 447);
+            this.mpMainSubViewControl1.Size = new System.Drawing.Size(965, 395);
             this.mpMainSubViewControl1.SubGridWidth = 450;
             this.mpMainSubViewControl1.TabIndex = 1027;
             this.mpMainSubViewControl1.ViewControl = null;
@@ -758,7 +776,7 @@ namespace EcoMart.InterfaceLayer
             this.pnlSummary.Controls.Add(this.label21);
             this.pnlSummary.Controls.Add(this.btnExitSummary);
             this.pnlSummary.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlSummary.Location = new System.Drawing.Point(96, 196);
+            this.pnlSummary.Location = new System.Drawing.Point(96, 158);
             this.pnlSummary.Name = "pnlSummary";
             this.pnlSummary.Size = new System.Drawing.Size(844, 375);
             this.pnlSummary.TabIndex = 1080;
@@ -823,7 +841,7 @@ namespace EcoMart.InterfaceLayer
             // 
             this.uclPurchaseNewProduct2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.uclPurchaseNewProduct2.Font = new System.Drawing.Font("Cambria", 8.25F);
-            this.uclPurchaseNewProduct2.Location = new System.Drawing.Point(0, 599);
+            this.uclPurchaseNewProduct2.Location = new System.Drawing.Point(0, 556);
             this.uclPurchaseNewProduct2.MainViewControl = this.mpMainSubViewControl1;
             this.uclPurchaseNewProduct2.Name = "uclPurchaseNewProduct2";
             this.uclPurchaseNewProduct2.Size = new System.Drawing.Size(1052, 25);
@@ -913,7 +931,7 @@ namespace EcoMart.InterfaceLayer
             this.mpMainSubViewControl.Name = "mpMainSubViewControl";
             this.mpMainSubViewControl.NextRowColumn = 0;
             this.mpMainSubViewControl.NumericColumnNames = ((System.Collections.ArrayList)(resources.GetObject("mpMainSubViewControl.NumericColumnNames")));
-            this.mpMainSubViewControl.Size = new System.Drawing.Size(1052, 624);
+            this.mpMainSubViewControl.Size = new System.Drawing.Size(1052, 581);
             this.mpMainSubViewControl.SubGridWidth = 450;
             this.mpMainSubViewControl.TabIndex = 1085;
             this.mpMainSubViewControl.ViewControl = null;
@@ -923,7 +941,7 @@ namespace EcoMart.InterfaceLayer
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "UclPurchaseOrderCNF";
-            this.Size = new System.Drawing.Size(1054, 754);
+            this.Size = new System.Drawing.Size(1054, 711);
             this.MMBottomPanel.ResumeLayout(false);
             this.MMBottomPanel.PerformLayout();
             this.MMMainPanel.ResumeLayout(false);
@@ -961,7 +979,6 @@ namespace EcoMart.InterfaceLayer
         private System.Windows.Forms.DateTimePicker FromdateNextVisit;
         private System.Windows.Forms.DateTimePicker ToDateNextVisit;
         private System.Windows.Forms.Button btnClearQty;
-        private System.Windows.Forms.Button btnCreateOrder;
         private CommonControls.PSLabel mPlbl6;
         private PharmaSYSPlus.CommonLibrary.DecimalTextBox txtBillAmount;
         private System.Windows.Forms.Panel panel3;
@@ -974,7 +991,6 @@ namespace EcoMart.InterfaceLayer
         private System.Windows.Forms.RadioButton rbtLastOrderAllProducts;
         private CommonControls.PSRadioButton psRadioButton2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnGO;
         private System.Windows.Forms.CheckBox cbSaleToday;
         private System.Windows.Forms.CheckBox cbShortList;
         private CommonControls.PSLabel psLabel3;
@@ -1012,5 +1028,8 @@ namespace EcoMart.InterfaceLayer
         private System.Windows.Forms.Label lblNoofRows;
         private PharmaSYSPlus.CommonLibrary.NumericTextBox txtNoOfRows;
         private CommonControls.PSMainSubViewControl mpMainSubViewControl;
+        private System.Windows.Forms.Button btnGO;
+        private System.Windows.Forms.Button btnCreateOrder;
+        private System.Windows.Forms.Button btnDownLoad;
     }
 }

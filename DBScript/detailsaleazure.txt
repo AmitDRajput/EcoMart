@@ -1,0 +1,83 @@
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[detailsale_cs]') AND type in (N'U'))
+DROP TABLE [dbo].[detailsale_cs]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[detailsale_CS](
+	[DetailSaleID] [int] IDENTITY(1,1) NOT NULL,
+	[MasterSaleID] [int] NOT NULL,
+	[ProductID] [int] NULL,
+	[StockID] [int] NULL,
+	[BatchNumber] [varchar](15) NULL,
+	[PurchaseRate] [decimal](18, 2) NULL,
+	[MRP] [decimal](18, 2) NULL,
+	[SaleRate] [decimal](18, 2) NULL,
+	[TradeRate] [decimal](18, 2) NULL,
+	[EcoMartRate] [decimal](18, 2) NULL,
+	[CNFRate] [decimal](18, 2) NULL,
+	[StockistRate] [decimal](18, 2) NULL,
+	[Expiry] [varchar](5) NULL,
+	[ExpiryDate] [varchar](32) NULL,
+	[Quantity] [int] NULL,
+	[SchemeQuantity] [int] NULL,
+	[SchemeDiscountAmount] [decimal](18, 2) NULL,
+	[Amount] [decimal](18, 2) NULL,
+	[OctroiPer] [decimal](6, 2) NULL,
+	[OctroiAmount] [decimal](13, 2) NULL,
+	[CSTPer] [decimal](6, 2) NULL,
+	[CSTAmount] [decimal](18, 2) NULL,
+	[VATPer] [decimal](18, 2) NULL,
+	[VATAmount] [decimal](18, 2) NULL,
+	[InwardNumber] [varchar](15) NULL,
+	[OperatorID] [int] NULL,
+	[IPDOPDCode] [char](1) NULL,
+	[IndentNumber] [int] NULL,
+	[PMTDiscount] [decimal](6, 2) NULL,
+	[PMTAmount] [decimal](18, 2) NULL,
+	[ItemDiscountPer] [decimal](6, 2) NULL,
+	[ItemDiscountAmount] [decimal](18, 2) NULL,
+	[CashDiscountAmount] [decimal](18, 2) NULL,
+	[IfProductDiscount] [varchar](1) NULL,
+	[SerialNumber] [tinyint] NULL,
+	[ProfitInRupees] [decimal](18, 2) NULL,
+	[ProfitPercentBySaleRate] [decimal](8, 4) NULL,
+	[ProfitPercentByPurchaseRate] [decimal](8, 4) NULL,
+	[AccountID] [int] NULL,
+	[VoucherDate] [varchar](32) NULL,
+	[SalAmntOn12P5Vat] [decimal](18, 2) NULL,
+	[SalAmntOnZeroVat] [decimal](18, 2) NULL,
+	[SalAmntOn18Vat] [decimal](18, 2) NULL,
+	[VatAmntFor12P5vat] [decimal](18, 2) NULL,
+	[VatAmntFor18Pvat] [decimal](18, 2) NULL,
+	[GSTAmountZero] [decimal](18, 2) NULL,
+	[GSTSAmount] [decimal](18, 2) NULL,
+	[GSTCAmount] [decimal](18, 2) NULL,
+	[GSTIAmount] [decimal](18, 2) NULL,
+	[GSTS] [decimal](18, 2) NULL,
+	[GSTC] [decimal](18, 2) NULL,
+	[GSTI] [decimal](18, 2) NULL,
+	[ActualBatchNumber] [varchar](15) NULL,
+	[ActualMRP] [decimal](18, 2) NULL,
+	[ActualSaleRate] [decimal](18, 2) NULL,
+	[PONumber] [int] NULL,
+	[POId] [int] NULL,
+	[EcoMartID] [int] NULL,
+	[CNFID] [int] NULL,
+	[StockistID] [int] NULL,
+ CONSTRAINT [PK_detailsale_CS] PRIMARY KEY CLUSTERED 
+(
+	[DetailSaleID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+SET IDENTITY_INSERT [dbo].[detailsale_cs] ON 
+
+INSERT [dbo].[detailsale_CS] ([DetailSaleID], [MasterSaleID], [ProductID], [StockID], [BatchNumber], [PurchaseRate], [MRP], [SaleRate], [TradeRate], [EcoMartRate], [CNFRate], [StockistRate], [Expiry], [ExpiryDate], [Quantity], [SchemeQuantity], [SchemeDiscountAmount], [Amount], [OctroiPer], [OctroiAmount], [CSTPer], [CSTAmount], [VATPer], [VATAmount], [InwardNumber], [OperatorID], [IPDOPDCode], [IndentNumber], [PMTDiscount], [PMTAmount], [ItemDiscountPer], [ItemDiscountAmount], [CashDiscountAmount], [IfProductDiscount], [SerialNumber], [ProfitInRupees], [ProfitPercentBySaleRate], [ProfitPercentByPurchaseRate], [AccountID], [VoucherDate], [SalAmntOn12P5Vat], [SalAmntOnZeroVat], [SalAmntOn18Vat], [VatAmntFor12P5vat], [VatAmntFor18Pvat], [GSTAmountZero], [GSTSAmount], [GSTCAmount], [GSTIAmount], [GSTS], [GSTC], [GSTI], [ActualBatchNumber], [ActualMRP], [ActualSaleRate], [PONumber], [POId], [EcoMartID], [CNFID], [StockistID]) VALUES (1045, 14, 2, 25, N'B123', CAST(0.00 AS Decimal(18, 2)), CAST(230.00 AS Decimal(18, 2)), CAST(230.00 AS Decimal(18, 2)), CAST(100.00 AS Decimal(18, 2)), NULL, NULL, NULL, N'09/25', N'20250901', 100, 0, CAST(0.00 AS Decimal(18, 2)), CAST(23000.00 AS Decimal(18, 2)), NULL, NULL, NULL, NULL, CAST(12.00 AS Decimal(18, 2)), CAST(2760.00 AS Decimal(18, 2)), NULL, NULL, NULL, NULL, CAST(0.00 AS Decimal(6, 2)), CAST(0.00 AS Decimal(18, 2)), CAST(0.00 AS Decimal(6, 2)), CAST(0.00 AS Decimal(18, 2)), CAST(0.00 AS Decimal(18, 2)), N'', 1, CAST(0.00 AS Decimal(18, 2)), CAST(0.0000 AS Decimal(8, 4)), CAST(0.0000 AS Decimal(8, 4)), 16, N'20220711', NULL, NULL, NULL, NULL, NULL, CAST(0.00 AS Decimal(18, 2)), CAST(11500.00 AS Decimal(18, 2)), CAST(11500.00 AS Decimal(18, 2)), NULL, CAST(1380.00 AS Decimal(18, 2)), CAST(1380.00 AS Decimal(18, 2)), NULL, N'B123', CAST(230.00 AS Decimal(18, 2)), CAST(230.00 AS Decimal(18, 2)), NULL, NULL, 1, 2, 0)
+INSERT [dbo].[detailsale_CS] ([DetailSaleID], [MasterSaleID], [ProductID], [StockID], [BatchNumber], [PurchaseRate], [MRP], [SaleRate], [TradeRate], [EcoMartRate], [CNFRate], [StockistRate], [Expiry], [ExpiryDate], [Quantity], [SchemeQuantity], [SchemeDiscountAmount], [Amount], [OctroiPer], [OctroiAmount], [CSTPer], [CSTAmount], [VATPer], [VATAmount], [InwardNumber], [OperatorID], [IPDOPDCode], [IndentNumber], [PMTDiscount], [PMTAmount], [ItemDiscountPer], [ItemDiscountAmount], [CashDiscountAmount], [IfProductDiscount], [SerialNumber], [ProfitInRupees], [ProfitPercentBySaleRate], [ProfitPercentByPurchaseRate], [AccountID], [VoucherDate], [SalAmntOn12P5Vat], [SalAmntOnZeroVat], [SalAmntOn18Vat], [VatAmntFor12P5vat], [VatAmntFor18Pvat], [GSTAmountZero], [GSTSAmount], [GSTCAmount], [GSTIAmount], [GSTS], [GSTC], [GSTI], [ActualBatchNumber], [ActualMRP], [ActualSaleRate], [PONumber], [POId], [EcoMartID], [CNFID], [StockistID]) VALUES (1047, 13, 2, 25, N'B123', CAST(0.00 AS Decimal(18, 2)), CAST(230.00 AS Decimal(18, 2)), CAST(230.00 AS Decimal(18, 2)), CAST(100.00 AS Decimal(18, 2)), NULL, NULL, NULL, N'09/25', N'20250901', 25, 0, CAST(0.00 AS Decimal(18, 2)), CAST(5750.00 AS Decimal(18, 2)), NULL, NULL, NULL, NULL, CAST(12.00 AS Decimal(18, 2)), CAST(690.00 AS Decimal(18, 2)), NULL, NULL, NULL, NULL, CAST(0.00 AS Decimal(6, 2)), CAST(0.00 AS Decimal(18, 2)), CAST(0.00 AS Decimal(6, 2)), CAST(0.00 AS Decimal(18, 2)), CAST(0.00 AS Decimal(18, 2)), N'', 1, CAST(0.00 AS Decimal(18, 2)), CAST(0.0000 AS Decimal(8, 4)), CAST(0.0000 AS Decimal(8, 4)), 7, N'20220711', NULL, NULL, NULL, NULL, NULL, CAST(0.00 AS Decimal(18, 2)), CAST(2875.00 AS Decimal(18, 2)), CAST(2875.00 AS Decimal(18, 2)), NULL, CAST(345.00 AS Decimal(18, 2)), CAST(345.00 AS Decimal(18, 2)), NULL, N'B123', CAST(230.00 AS Decimal(18, 2)), CAST(230.00 AS Decimal(18, 2)), NULL, NULL, 1, 2, 0)
+INSERT [dbo].[detailsale_CS] ([DetailSaleID], [MasterSaleID], [ProductID], [StockID], [BatchNumber], [PurchaseRate], [MRP], [SaleRate], [TradeRate], [EcoMartRate], [CNFRate], [StockistRate], [Expiry], [ExpiryDate], [Quantity], [SchemeQuantity], [SchemeDiscountAmount], [Amount], [OctroiPer], [OctroiAmount], [CSTPer], [CSTAmount], [VATPer], [VATAmount], [InwardNumber], [OperatorID], [IPDOPDCode], [IndentNumber], [PMTDiscount], [PMTAmount], [ItemDiscountPer], [ItemDiscountAmount], [CashDiscountAmount], [IfProductDiscount], [SerialNumber], [ProfitInRupees], [ProfitPercentBySaleRate], [ProfitPercentByPurchaseRate], [AccountID], [VoucherDate], [SalAmntOn12P5Vat], [SalAmntOnZeroVat], [SalAmntOn18Vat], [VatAmntFor12P5vat], [VatAmntFor18Pvat], [GSTAmountZero], [GSTSAmount], [GSTCAmount], [GSTIAmount], [GSTS], [GSTC], [GSTI], [ActualBatchNumber], [ActualMRP], [ActualSaleRate], [PONumber], [POId], [EcoMartID], [CNFID], [StockistID]) VALUES (1048, 15, 1, 26, N'B-876', CAST(0.00 AS Decimal(18, 2)), CAST(300.00 AS Decimal(18, 2)), CAST(250.00 AS Decimal(18, 2)), CAST(150.00 AS Decimal(18, 2)), NULL, NULL, NULL, N'07/24', N'20240701', 10, 0, CAST(0.00 AS Decimal(18, 2)), CAST(2500.00 AS Decimal(18, 2)), NULL, NULL, NULL, NULL, CAST(12.00 AS Decimal(18, 2)), CAST(300.00 AS Decimal(18, 2)), NULL, NULL, NULL, NULL, CAST(0.00 AS Decimal(6, 2)), CAST(0.00 AS Decimal(18, 2)), CAST(0.00 AS Decimal(6, 2)), CAST(0.00 AS Decimal(18, 2)), CAST(0.00 AS Decimal(18, 2)), N'', 1, CAST(0.00 AS Decimal(18, 2)), CAST(0.0000 AS Decimal(8, 4)), CAST(0.0000 AS Decimal(8, 4)), 7, N'20220711', NULL, NULL, NULL, NULL, NULL, CAST(0.00 AS Decimal(18, 2)), CAST(1250.00 AS Decimal(18, 2)), CAST(1250.00 AS Decimal(18, 2)), NULL, CAST(150.00 AS Decimal(18, 2)), CAST(150.00 AS Decimal(18, 2)), NULL, N'B-876', CAST(300.00 AS Decimal(18, 2)), CAST(250.00 AS Decimal(18, 2)), NULL, NULL, 1, 2, 0)
+INSERT [dbo].[detailsale_cs] ([DetailSaleID], [MasterSaleID], [ProductID], [StockID], [BatchNumber], [PurchaseRate], [MRP], [SaleRate], [TradeRate], [EcoMartRate], [CNFRate], [StockistRate], [Expiry], [ExpiryDate], [Quantity], [SchemeQuantity], [SchemeDiscountAmount], [Amount], [OctroiPer], [OctroiAmount], [CSTPer], [CSTAmount], [VATPer], [VATAmount], [InwardNumber], [OperatorID], [IPDOPDCode], [IndentNumber], [PMTDiscount], [PMTAmount], [ItemDiscountPer], [ItemDiscountAmount], [CashDiscountAmount], [IfProductDiscount], [SerialNumber], [ProfitInRupees], [ProfitPercentBySaleRate], [ProfitPercentByPurchaseRate], [AccountID], [VoucherDate], [SalAmntOn12P5Vat], [SalAmntOnZeroVat], [SalAmntOn18Vat], [VatAmntFor12P5vat], [VatAmntFor18Pvat], [GSTAmountZero], [GSTSAmount], [GSTCAmount], [GSTIAmount], [GSTS], [GSTC], [GSTI], [ActualBatchNumber], [ActualMRP], [ActualSaleRate], [PONumber], [POId], [EcoMartID], [CNFID], [StockistID]) VALUES (1049, 15, 3, 27, N'B-234', CAST(0.00 AS Decimal(18, 2)), CAST(45.00 AS Decimal(18, 2)), CAST(30.00 AS Decimal(18, 2)), CAST(25.00 AS Decimal(18, 2)), NULL, NULL, NULL, N'00/00', N'', 10, 0, CAST(0.00 AS Decimal(18, 2)), CAST(300.00 AS Decimal(18, 2)), NULL, NULL, NULL, NULL, CAST(12.00 AS Decimal(18, 2)), CAST(36.00 AS Decimal(18, 2)), NULL, NULL, NULL, NULL, CAST(0.00 AS Decimal(6, 2)), CAST(0.00 AS Decimal(18, 2)), CAST(0.00 AS Decimal(6, 2)), CAST(0.00 AS Decimal(18, 2)), CAST(0.00 AS Decimal(18, 2)), N'', 2, CAST(0.00 AS Decimal(18, 2)), CAST(0.0000 AS Decimal(8, 4)), CAST(0.0000 AS Decimal(8, 4)), 7, N'20220711', NULL, NULL, NULL, NULL, NULL, CAST(0.00 AS Decimal(18, 2)), CAST(150.00 AS Decimal(18, 2)), CAST(150.00 AS Decimal(18, 2)), NULL, CAST(18.00 AS Decimal(18, 2)), CAST(18.00 AS Decimal(18, 2)), NULL, N'B-234', CAST(45.00 AS Decimal(18, 2)), CAST(30.00 AS Decimal(18, 2)), NULL, NULL, 1, 2, 0)
+SET IDENTITY_INSERT [dbo].[detailsale_CS] OFF
+GO

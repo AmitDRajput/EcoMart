@@ -157,6 +157,48 @@ namespace EcoMart.DataLayer
             dtable = DBInterface.SelectDataTable(strsql);
             return dtable;
         }
+
+
+
+        //start by snehal
+        public DataTable GetOverviewDataWithOutZeroAllProducts()
+        {
+            DataTable dtable = new DataTable();
+            //string strSql = "Select a.ProductID,b.ProductID,b.ProdName,b.ProdLoosePack," +
+            //"b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP," +
+            //"b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc," +
+            //"b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,sum(b.ProdClosingStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as CLValueByMRP, sum(b.ProdClosingStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,sum(b.ProdOpeningStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as OPValueByMRP, sum(b.ProdOpeningStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID  where b.ProdOpeningstock != 0 || b.ProdClosingStock != 0  Group by a.ProductID order by b.ProdName";
+            //dtable = DBInterface.SelectDataTable(strSql);
+            string strSql = "Select a.ProductID,MAX(b.ProductID) AS ProductID,b.ProdName,MAX(b.ProdLoosePack)as ProdLoosePack ,MAX(b.ProdPack)AS ProdPack,MAX(b.ProdCompShortName) AS ProdCompShortName,MAX(b.ProdBoxQuantity) AS ProdBoxQuantity,MAX(b.ProdVATPercent) AS ProdVATPercent, MAX(b.ProdCST) AS ProdCST, MAX(b.ProdGrade) AS ProdGrade, MAX(b.ProdCompID) AS ProdCompID, MAX(b.ProdLastPurchaseMRP) AS ProdLastPurchaseMRP,MAX(b.ProdShelfID) AS ProdShelfID, MAX(b.ProdScheduleDrugCode)AS ProdScheduleDrugCode, MAX(b.ProdIfSchedule) AS ProdIfSchedule, MAX(b.ProdClosingStock) AS ProdClosingStock,MAX(b.ProdOpeningStock) AS ProdOpeningStock, MAX(b.ProdIfSaleDisc) AS ProdIfSaleDisc, MAX(b.ProdLastPurchaseRate) AS ProdLastPurchaseRate, MAX(b.ProdIfShortListed) AS ProdIfShortListed,MAX(b.ProdMaxLevel)AS ProdMaxLevel, MAX(b.ProdRequireColdStorage) AS ProdRequireColdStorage,sum(a.ClosingStock * a.MRP / b.ProdLoosePack) as CLValueByMRP,sum(a.ClosingStock * a.PurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,sum(a.Openingstock * a.MRP / b.ProdLoosePack) as OPValueByMRP,sum(a.Openingstock * a.PurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,MAX(c.CompID) AS CompID, MAX(c.CompName) AS CompName from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID  where " + "a.Openingstock >= 0 and a.ClosingStock >= 0  Group by a.ProductID,b.ProdName,a.BatchNumber,a.MRP order by b.ProdName";
+            dtable = DBInterface.SelectDataTable(strSql);
+            return dtable;
+        }
+        //end by snehal
+
+        //start  by snehal
+        public DataTable GetOverviewDataWithZeroAllProducts()
+        {
+            DataTable dtable = new DataTable();
+            string strSql = "Select a.ProductID,MAX(b.ProductID) AS ProductID,b.ProdName,MAX(b.ProdLoosePack)as ProdLoosePack ,MAX(b.ProdPack)AS ProdPack,MAX(b.ProdCompShortName) AS ProdCompShortName,MAX(b.ProdBoxQuantity) AS ProdBoxQuantity,MAX(b.ProdVATPercent) AS ProdVATPercent, MAX(b.ProdCST) AS ProdCST, MAX(b.ProdGrade) AS ProdGrade, MAX(b.ProdCompID) AS ProdCompID, MAX(b.ProdLastPurchaseMRP) AS ProdLastPurchaseMRP,MAX(b.ProdShelfID) AS ProdShelfID, MAX(b.ProdScheduleDrugCode)AS ProdScheduleDrugCode, MAX(b.ProdIfSchedule) AS ProdIfSchedule, MAX(b.ProdClosingStock) AS ProdClosingStock,MAX(b.ProdOpeningStock) AS ProdOpeningStock, MAX(b.ProdIfSaleDisc) AS ProdIfSaleDisc, MAX(b.ProdLastPurchaseRate) AS ProdLastPurchaseRate, MAX(b.ProdIfShortListed) AS ProdIfShortListed,MAX(b.ProdMaxLevel)AS ProdMaxLevel, MAX(b.ProdRequireColdStorage) AS ProdRequireColdStorage,sum(b.ProdClosingStock * b.ProdLastPurchaseMRP / b.ProdLoosePack) as CLValueByMRP,sum(b.ProdClosingStock * b.ProdLastPurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,sum(b.ProdOpeningStock * b.ProdLastPurchaseMRP / b.ProdLoosePack) as OPValueByMRP,sum(b.ProdOpeningStock * b.ProdLastPurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,MAX(c.CompID) AS CompID, MAX(c.CompName) AS CompName  from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID  Group by a.ProductID,b.ProdName,a.BatchNumber,a.MRP order by b.ProdName";
+            dtable = DBInterface.SelectDataTable(strSql);
+            return dtable;
+        }
+
+        //end by snehal
+
+        //start by snehal
+        public DataTable GetOverviewDataWithOutZeroAllProductsBatchWise()
+        {
+            DataTable dtable = new DataTable();
+            string strSql = "Select a.ProductID,b.ProductID,b.ProdName,b.ProdLoosePack," +
+            "b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID," +
+            "b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,a.ClosingStock ,a.OpeningStock,b.ProdIfSaleDisc,a.BatchNumber,a.MRP,a.TradeRate," +
+            "b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,(a.ClosingStock* a.mrp / b.ProdLoosePack) as CLValueByMRP, (a.ClosingStock* a.PurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,(a.OpeningStock* a.mrp / b.ProdLoosePack) as OPValueByMRP, (a.OpeningStock* a.PurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName " +
+            "from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID Where a.ClosingStock >= 0 and a.Openingstock >= 0 order by b.ProdName";
+            dtable = DBInterface.SelectDataTable(strSql);
+            return dtable;
+        }
+        // end by snehal
         public DataTable GetOverviewDataForClosingStockNotZero(int ProductID)
         {
             DataTable dtable = new DataTable();
@@ -176,45 +218,45 @@ namespace EcoMart.DataLayer
             dtable = DBInterface.SelectDataTable(strsql);
             return dtable;
         }
-        public DataTable GetOverviewDataWithOutZeroAllProducts()
-        {
-            DataTable dtable = new DataTable();
-            //string strSql = "Select a.ProductID,b.ProductID,b.ProdName,b.ProdLoosePack," +
-            //"b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP," +
-            //"b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc," +
-            //"b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,sum(b.ProdClosingStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as CLValueByMRP, sum(b.ProdClosingStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,sum(b.ProdOpeningStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as OPValueByMRP, sum(b.ProdOpeningStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID  where b.ProdOpeningstock != 0 || b.ProdClosingStock != 0  Group by a.ProductID order by b.ProdName";
-            //dtable = DBInterface.SelectDataTable(strSql);
+        //public DataTable GetOverviewDataWithOutZeroAllProducts()
+        //{
+        //    DataTable dtable = new DataTable();
+        //    //string strSql = "Select a.ProductID,b.ProductID,b.ProdName,b.ProdLoosePack," +
+        //    //"b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP," +
+        //    //"b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc," +
+        //    //"b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,sum(b.ProdClosingStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as CLValueByMRP, sum(b.ProdClosingStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,sum(b.ProdOpeningStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as OPValueByMRP, sum(b.ProdOpeningStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID  where b.ProdOpeningstock != 0 || b.ProdClosingStock != 0  Group by a.ProductID order by b.ProdName";
+        //    //dtable = DBInterface.SelectDataTable(strSql);
 
-            string strSql = "Select a.ProductID,b.ProductID,b.ProdName,b.ProdLoosePack," +
-           "b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP," +
-           "b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc," +
-           "b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,sum(a.ClosingStock* a.MRP / b.ProdLoosePack) as CLValueByMRP, sum(a.ClosingStock* a.PurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,sum(a.Openingstock* a.MRP / b.ProdLoosePack) as OPValueByMRP, sum(a.Openingstock* a.PurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName " +
-           "from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID  where " +
-           "a.Openingstock >= 0 and a.ClosingStock >= 0  Group by a.ProductID ,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP,b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc ,b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,c.CompID,c.CompName  order by b.ProdName";
-            dtable = DBInterface.SelectDataTable(strSql);
-            return dtable;
-        }
-        public DataTable GetOverviewDataWithZeroAllProducts()
-        {
-            DataTable dtable = new DataTable();
-            string strSql = "Select a.ProductID,b.ProductID,b.ProdName,b.ProdLoosePack," +
-            "b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP," +
-            "b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc," +
-            "b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,sum(b.ProdClosingStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as CLValueByMRP, sum(b.ProdClosingStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,sum(b.ProdOpeningStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as OPValueByMRP, sum(b.ProdOpeningStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID  Group by a.ProductID ,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP,b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc ,b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,c.CompID,c.CompName  order by b.ProdName";
-            dtable = DBInterface.SelectDataTable(strSql);
-            return dtable;
-        }
-        public DataTable GetOverviewDataWithOutZeroAllProductsBatchWise()
-        {
-            DataTable dtable = new DataTable();
-            string strSql = "Select a.ProductID,b.ProductID,b.ProdName,b.ProdLoosePack," +
-            "b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID," +
-            "b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,a.ClosingStock ,a.OpeningStock,b.ProdIfSaleDisc,a.BatchNumber,a.MRP,a.TradeRate," +
-            "b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,(a.ClosingStock* a.mrp / b.ProdLoosePack) as CLValueByMRP, (a.ClosingStock* a.PurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,(a.OpeningStock* a.mrp / b.ProdLoosePack) as OPValueByMRP, (a.OpeningStock* a.PurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName " +
-            "from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID Where a.ClosingStock >= 0 AND a.Openingstock >= 0 order by b.ProdName";
-            dtable = DBInterface.SelectDataTable(strSql);
-            return dtable;
-        }
+        //    string strSql = "Select a.ProductID,b.ProductID,b.ProdName,b.ProdLoosePack," +
+        //   "b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP," +
+        //   "b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc," +
+        //   "b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,sum(a.ClosingStock* a.MRP / b.ProdLoosePack) as CLValueByMRP, sum(a.ClosingStock* a.PurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,sum(a.Openingstock* a.MRP / b.ProdLoosePack) as OPValueByMRP, sum(a.Openingstock* a.PurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName " +
+        //   "from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID  where " +
+        //   "a.Openingstock >= 0 and a.ClosingStock >= 0  Group by a.ProductID ,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP,b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc ,b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,c.CompID,c.CompName  order by b.ProdName";
+        //    dtable = DBInterface.SelectDataTable(strSql);
+        //    return dtable;
+        //}
+        //public DataTable GetOverviewDataWithZeroAllProducts()
+        //{
+        //    DataTable dtable = new DataTable();
+        //    string strSql = "Select a.ProductID,b.ProductID,b.ProdName,b.ProdLoosePack," +
+        //    "b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP," +
+        //    "b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc," +
+        //    "b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,sum(b.ProdClosingStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as CLValueByMRP, sum(b.ProdClosingStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,sum(b.ProdOpeningStock* b.ProdLastPurchaseMRP / b.ProdLoosePack) as OPValueByMRP, sum(b.ProdOpeningStock* b.ProdLastPurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID  Group by a.ProductID ,b.ProductID,b.ProdName,b.ProdLoosePack,b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID,b.ProdLastPurchaseMRP,b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,b.ProdClosingStock ,b.ProdOpeningStock,b.ProdIfSaleDisc ,b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,c.CompID,c.CompName  order by b.ProdName";
+        //    dtable = DBInterface.SelectDataTable(strSql);
+        //    return dtable;
+        //}
+        //public DataTable GetOverviewDataWithOutZeroAllProductsBatchWise()
+        //{
+        //    DataTable dtable = new DataTable();
+        //    string strSql = "Select a.ProductID,b.ProductID,b.ProdName,b.ProdLoosePack," +
+        //    "b.ProdPack,b.ProdCompShortName,b.ProdBoxQuantity,b.ProdVATPercent,b.ProdCST,b.ProdGrade,b.ProdCompID," +
+        //    "b.ProdShelfID,b.ProdScheduleDrugCode,b.ProdIfSchedule,a.ClosingStock ,a.OpeningStock,b.ProdIfSaleDisc,a.BatchNumber,a.MRP,a.TradeRate," +
+        //    "b.ProdLastPurchaseRate,b.ProdIfShortListed,b.ProdMaxLevel,b.ProdRequireColdStorage,(a.ClosingStock* a.mrp / b.ProdLoosePack) as CLValueByMRP, (a.ClosingStock* a.PurchaseRate / b.ProdLoosePack) as CLValueByPurchaseRate,(a.OpeningStock* a.mrp / b.ProdLoosePack) as OPValueByMRP, (a.OpeningStock* a.PurchaseRate / b.ProdLoosePack) as OPValueByPurchaseRate,c.CompID,c.CompName " +
+        //    "from tblstock a inner join masterproduct b on a.ProductID = b.ProductID  inner join  mastercompany c on b.ProdCompID = c.CompID Where a.ClosingStock >= 0 AND a.Openingstock >= 0 order by b.ProdName";
+        //    dtable = DBInterface.SelectDataTable(strSql);
+        //    return dtable;
+        //}
         public DataTable GetForClosingStockNotZero()
         {
             DataTable dtable = new DataTable();
@@ -345,26 +387,33 @@ namespace EcoMart.DataLayer
             DataTable dtable = new DataTable();
             DataTable dtableClsStk = new DataTable();
             DataTable dtableMerged = new DataTable();
+            string strsql = "";
+            strsql = "Select a.ProductID,a.ProdName,a.ProdPack,a.ProdPackType,a.ProdLoosePack,a.ProdClosingStock as ProdClosingStockPack," +
+           "a.ProdCompShortName,a.ProdBoxQuantity,a.ProdClosingStock,a.ProdVATPercent,a.ProdCST,a.ProdGrade,a.ProdCompID,a.ProdLastPurchaseMRP,a.ProdLastPurchaseSaleRate," +
+           "a.ProdShelfID,a.ProdScheduleDrugCode,a.ProdIfSchedule,a.ProdOpeningStock,a.ProdIfSaleDisc,a.ProdLastPurchaseRate,a.ProdIfShortListed,a.ProdRequireColdStorage,a.ProdMRP, " +
+           "a.ProdMinLevel,a.ProdMaxLevel,a.ProdLastSaleStockID,a.ProdLastPurchaseStockID,a.tag,a.ProdDrugID,a.HSNNumber,b.ShelfID,b.ShelfCode,c.CompID,c.CompName,d.GenericCategoryName, 0 as  lastSaleMRP, a.ScannedBarcode as Barcode,ProdCategoryID from masterproduct a  left outer join mastershelf b  on a.ProdShelfID = b.ShelfID  inner join mastercompany c on a.ProdCompId = c.CompId left outer join mastergenericcategory d on a.ProdDrugID = d.GenericCategoryID  order by a.ProdName";
 
-            string strsql = "Select a.ProductID,a.ProdName,a.ProdPack,a.ProdPackType,a.ProdLoosePack,a.ProdClosingStock as ProdClosingStockPack," +
-                            "a.ProdCompShortName,a.ProdBoxQuantity,a.ProdClosingStock,a.ProdVATPercent,a.ProdCST,a.ProdGrade,a.ProdCompID,a.ProdLastPurchaseMRP,a.ProdLastPurchaseSaleRate," +
-                            "a.ProdShelfID,a.ProdScheduleDrugCode,a.ProdIfSchedule,a.ProdOpeningStock,a.ProdIfSaleDisc,a.ProdLastPurchaseRate,a.ProdIfShortListed,a.ProdRequireColdStorage,a.ProdMRP, " +
-                            "a.ProdMinLevel,a.ProdMaxLevel,a.ProdLastSaleStockID,a.ProdLastPurchaseStockID,a.tag,a.ProdDrugID,a.HSNNumber,b.ShelfID,b.ShelfCode,c.CompID,c.CompName,d.GenericCategoryName, 0 as  lastSaleMRP, a.ScannedBarcode as Barcode,ProdCategoryID from masterproduct a  left outer join mastershelf b  on a.ProdShelfID = b.ShelfID  inner join mastercompany c on a.ProdCompId = c.CompId left outer join mastergenericcategory d on a.ProdDrugID = d.GenericCategoryID  order by a.ProdName";
-
-            // dtable = CacheObject.Get<DataTable>("cacheCounterSale");
             dtable = DBInterface.SelectDataTable(strsql);
-            //if (dtable == null)
-            //{
-            //    dtable = DBInterface.SelectDataTable(strsql);
-            //    CacheObject.Add(dtable, "cacheCounterSale");
-            //}
 
             return dtable;
-
-
         }
 
+        public DataTable GetOverviewData(int compid)
+        {
+            DataTable dtable = new DataTable();
+            DataTable dtableClsStk = new DataTable();
+            DataTable dtableMerged = new DataTable();
+            string strsql = "";
+            strsql = "Select a.ProductID,a.ProdName,a.ProdPack,a.ProdPackType,a.ProdLoosePack,a.ProdClosingStock as ProdClosingStockPack," +
+                                "a.ProdCompShortName,a.ProdBoxQuantity,a.ProdClosingStock,a.ProdVATPercent,a.ProdCST,a.ProdGrade,a.ProdCompID,a.ProdLastPurchaseMRP,a.ProdLastPurchaseSaleRate," +
+                                "a.ProdShelfID,a.ProdScheduleDrugCode,a.ProdIfSchedule,a.ProdOpeningStock,a.ProdIfSaleDisc,a.ProdLastPurchaseRate,a.ProdIfShortListed,a.ProdRequireColdStorage,a.ProdMRP, " +
+                                "a.ProdMinLevel,a.ProdMaxLevel,a.ProdLastSaleStockID,a.ProdLastPurchaseStockID,a.tag,a.ProdDrugID,a.HSNNumber,b.ShelfID,b.ShelfCode,c.CompID,c.CompName,d.GenericCategoryName, " +
+                                " 0 as  lastSaleMRP, a.ScannedBarcode as Barcode,ProdCategoryID from masterproduct a  left outer join mastershelf b  on a.ProdShelfID = b.ShelfID  inner join mastercompany c on  " +
+                                "a.ProdCompId = c.CompId left outer join mastergenericcategory d on a.ProdDrugID = d.GenericCategoryID where prodpartyid_1 = " + compid + " order by a.ProdName ";
 
+            dtable = DBInterface.SelectDataTable(strsql);
+            return dtable;
+        }
 
         public static DataTable GetFilteredProductStock(string filterValue)
         {
@@ -538,10 +587,11 @@ namespace EcoMart.DataLayer
                 {
                     if (dtTempCounterSale.Rows.Count > 0 && dtable.Rows.Count > 0)
                     {
-                        var JoinResultCounter = (from p in dtable.AsEnumerable() 
-                                                 join t in dtTempCounterSale.AsEnumerable() 
-                                                    on p.Field<int>("ProductID") equals t.Field<int>("ProductID") 
-                                                    into joinedtables from stuff in joinedtables.DefaultIfEmpty()
+                        var JoinResultCounter = (from p in dtable.AsEnumerable()
+                                                 join t in dtTempCounterSale.AsEnumerable()
+                                                    on p.Field<int>("ProductID") equals t.Field<int>("ProductID")
+                                                    into joinedtables
+                                                 from stuff in joinedtables.DefaultIfEmpty()
                                                  select new
                                                  {
                                                      ProductID = p.Field<int>("ProductID"),
@@ -666,53 +716,53 @@ namespace EcoMart.DataLayer
         public DataRow ReadDetailsByID(int Id)
         {
             DataRow dRow = null;
-                string strsql = "Select a.ProductID,a.ProdName,a.ProdLoosePack,a.ProdPack,a.ProdPackType," +
-                            "a.ProdCompShortName,a.ProdVATPercent,a.ProdCST,a.ProdGrade,a.ProdCompID," +
-                            "a.ProdShelfID,a.ProdScheduleDrugCode,a.ProdDrugID,a.ProdIfOctroi,a.ProdIfSchedule," +
-                            "a.ProdCategoryID,a.ProdPartyId_1,a.ProdPartyId_2,a.ProdMinLevel,a.ProdMaxLevel,a.ProdBoxQuantity," +
-                            "a.ProdIfMRPInclusive,a.ProdIfSaleDisc,a.ProdIfPurchaseRateInclusive,a.ProdIfShortListed,a.ProdRequireColdStorage,b.ShelfID,b.ShelfCode," +
-                             "a.ProdScheduleDrugCode, a.ScannedBarcode, a.ProdlastPurchaseRate,a.HSNNumber from masterproduct a left outer join mastershelf b on a.ProdShelfID = b.ShelfID where ProductID= '{0}'";
+            string strsql = "Select a.ProductID,a.ProdName,a.ProdLoosePack,a.ProdPack,a.ProdPackType," +
+                        "a.ProdCompShortName,a.ProdVATPercent,a.ProdCST,a.ProdGrade,a.ProdCompID," +
+                        "a.ProdShelfID,a.ProdScheduleDrugCode,a.ProdDrugID,a.ProdIfOctroi,a.ProdIfSchedule," +
+                        "a.ProdCategoryID,a.ProdPartyId_1,a.ProdPartyId_2,a.ProdMinLevel,a.ProdMaxLevel,a.ProdBoxQuantity," +
+                        "a.ProdIfMRPInclusive,a.ProdIfSaleDisc,a.ProdIfPurchaseRateInclusive,a.ProdIfShortListed,a.ProdRequireColdStorage,b.ShelfID,b.ShelfCode," +
+                         "a.ProdScheduleDrugCode, a.ScannedBarcode, a.ProdlastPurchaseRate,a.HSNNumber from masterproduct a left outer join mastershelf b on a.ProdShelfID = b.ShelfID where ProductID= '{0}'";
 
-                strsql = string.Format(strsql, Id);
-                dRow = DBInterface.SelectFirstRow(strsql);
+            strsql = string.Format(strsql, Id);
+            dRow = DBInterface.SelectFirstRow(strsql);
             return dRow;
         }
         public DataRow ReadLastSaleByID(int Id)
         {
             DataRow dRow = null;
-            
-                string strsql = "select * from masterproduct A left outer join mastershelf B  on A.ProdShelfID = B.ShelfID   where A.ProductID= '{0}' ";
-                strsql = string.Format(strsql, Id);
-                dRow = DBInterface.SelectFirstRow(strsql);
+
+            string strsql = "select * from masterproduct A left outer join mastershelf B  on A.ProdShelfID = B.ShelfID   where A.ProductID= '{0}' ";
+            strsql = string.Format(strsql, Id);
+            dRow = DBInterface.SelectFirstRow(strsql);
             return dRow;
         }
         public DataRow ReadLastPurchaseByID(int Id)
         {
             DataRow dRow = null;
-            
-                string strsql = "select * from masterproduct A left outer join mastershelf B  on A.ProdShelfID = B.ShelfID   where A.ProductID= '{0}' ";
-                strsql = string.Format(strsql, Id);
-                dRow = DBInterface.SelectFirstRow(strsql);
+
+            string strsql = "select * from masterproduct A left outer join mastershelf B  on A.ProdShelfID = B.ShelfID   where A.ProductID= '{0}' ";
+            strsql = string.Format(strsql, Id);
+            dRow = DBInterface.SelectFirstRow(strsql);
             return dRow;
         }
 
         public DataRow GetDetailsForProduct(int prodID)
         {
             DataRow dRow = null;
-            
-                string strsql = "Select a.ProductID,a.ProdName,a.ProdPack,a.ProdPackType,a.ProdLoosePack," +
-                           "a.ProdCompShortName,a.ProdBoxQuantity,a.ProdVATPercent,a.ProdCST,a.ProdGrade,a.ProdCompID,a.ProdLastPurchaseMRP,a.ProdLastPurchaseSaleRate," +
-                           "a.ProdShelfID,a.ProdScheduleDrugCode,a.ProdIfSchedule,a.ProdIfOctroi,a.ProdOpeningStock,a.ProdClosingStock ,a.ProdIfSaleDisc,a.ProdLastPurchaseRate,a.ProdIfShortListed,a.ProdRequireColdStorage, " +
-                           "a.ProdMaxLevel,a.ProdLastSaleStockID,a.ProdLastPurchaseStockID,a.tag,a.ProdDrugID,a.HSNNumber,b.ShelfID,b.ShelfCode,c.CompID,c.CompName  from masterproduct a  left outer join mastershelf b  on a.ProdShelfID = b.ShelfID  inner join mastercompany c on a.ProdCompId = c.CompId where a.ProductID = '" + prodID + "'";
-                dRow = DBInterface.SelectFirstRow(strsql);
+
+            string strsql = "Select a.ProductID,a.ProdName,a.ProdPack,a.ProdPackType,a.ProdLoosePack," +
+                       "a.ProdCompShortName,a.ProdBoxQuantity,a.ProdVATPercent,a.ProdCST,a.ProdGrade,a.ProdCompID,a.ProdLastPurchaseMRP,a.ProdLastPurchaseSaleRate," +
+                       "a.ProdShelfID,a.ProdScheduleDrugCode,a.ProdIfSchedule,a.ProdIfOctroi,a.ProdOpeningStock,a.ProdClosingStock ,a.ProdIfSaleDisc,a.ProdLastPurchaseRate,a.ProdIfShortListed,a.ProdRequireColdStorage, " +
+                       "a.ProdMaxLevel,a.ProdLastSaleStockID,a.ProdLastPurchaseStockID,a.tag,a.ProdDrugID,a.HSNNumber,b.ShelfID,b.ShelfCode,c.CompID,c.CompName  from masterproduct a  left outer join mastershelf b  on a.ProdShelfID = b.ShelfID  inner join mastercompany c on a.ProdCompId = c.CompId where a.ProductID = '" + prodID + "'";
+            dRow = DBInterface.SelectFirstRow(strsql);
             return dRow;
         }
         public DataTable ReadPatientProdDetailsByID(int Id)
         {
             DataTable dt = null;
-            
-                string strsql = "Select distinct a.ProductID,a.ProdName,a.ProdLoosePack,a.Prodpack , b.PatientId,b.ProductID,b.Quantity from masterproduct a,linkpatientproduct b where a.ProductID = b.ProductID and  b.patientId = '" + Id + "' order by a.prodname";
-                dt = DBInterface.SelectDataTable(strsql);
+
+            string strsql = "Select distinct a.ProductID,a.ProdName,a.ProdLoosePack,a.Prodpack , b.PatientId,b.ProductID,b.Quantity from masterproduct a,linkpatientproduct b where a.ProductID = b.ProductID and  b.patientId = '" + Id + "' order by a.prodname";
+            dt = DBInterface.SelectDataTable(strsql);
             return dt;
 
         }
@@ -970,12 +1020,13 @@ namespace EcoMart.DataLayer
         }
 
         public bool UpdatePurchaseDataInmasterProduct(int ProductID, string PurchaseBillNumber, string VoucherDate, string AccountID, string VoucherType,
-                int VoucherNumber, double PurchaseRate, double TradeRate, double SaleRate, double MRP, double PurchaseVATPercent, double CSTPercent, double AmountCST, double SchemeDiscountPercent,
+                int VoucherNumber, double PurchaseRate, double TradeRate, double SaleRate, double MRP, double PurchaseVATPercent, double CSTPercent, double AmountCST,
+                double SchemeDiscountPercent, double mpricetoretailer,
                 double AmountSchemeDiscount, double ItemDiscountPercent, string Expiry, string ExpiryDate, string Batchno, string shelfID, string stockid)
         {
             bool returnVal = false;
             string strSql = GetUpdateQueryforlastpurchase(ProductID, PurchaseBillNumber, VoucherDate, AccountID, VoucherType,
-                   VoucherNumber, PurchaseRate, TradeRate, SaleRate, MRP, PurchaseVATPercent, CSTPercent, AmountCST, SchemeDiscountPercent,
+                   VoucherNumber, PurchaseRate, TradeRate, SaleRate, MRP, PurchaseVATPercent, CSTPercent, AmountCST, SchemeDiscountPercent, mpricetoretailer,
                    AmountSchemeDiscount, ItemDiscountPercent, Expiry, ExpiryDate, Batchno, shelfID, stockid);
 
             if (DBInterface.ExecuteQuery(strSql) > 0)
@@ -992,9 +1043,9 @@ namespace EcoMart.DataLayer
             string strSql = "";
             int closingstk = 0;
             DataRow dRow = null;
-            
-                strSql = "select ProdClosingStock from masterproduct where ProductID = '" + ProdId + "'";
-                dRow = DBInterface.SelectFirstRow(strSql);
+
+            strSql = "select ProdClosingStock from masterproduct where ProductID = '" + ProdId + "'";
+            dRow = DBInterface.SelectFirstRow(strSql);
             if (dRow != null)
                 if (dRow["prodclosingstock"] != DBNull.Value)
                     closingstk = Convert.ToInt32(dRow["prodclosingstock"].ToString());
@@ -1031,7 +1082,7 @@ namespace EcoMart.DataLayer
 
         #region For Product
 
-        public int AddDetails(int Id, string ProdName,
+        public bool AddDetails(int Id, string ProdName,
            int ProdLoosePack, string ProdPack, string ProdPackType, string ProdCompShortName,
             Int32 ProdCompID, double ProdVATPercent, double ProdCST, string ProdGrade,
             int ProdMinLevel, int ProdMaxLevel, int ProdBoxQty,
@@ -1042,7 +1093,7 @@ namespace EcoMart.DataLayer
            string prodifscheduleddrug, string prodrequirecoldstorage, string prodIfBarCodeRequired, string ScannedBarcode, int hsnnumber,
            string createdby, string createddate, string createdtime)
         {
-            int iRetValue = 0;
+            bool iRetValue = false;
             string strSql = GetInsertQuery(Id, ProdName,
            ProdLoosePack, ProdPack, ProdPackType, ProdCompShortName,
              ProdCompID, ProdVATPercent, ProdCST, ProdGrade,
@@ -1054,9 +1105,12 @@ namespace EcoMart.DataLayer
             prodclosingstock, prodifscheduleddrug, prodrequirecoldstorage, prodIfBarCodeRequired, ScannedBarcode, hsnnumber,
             createdby, createddate, createdtime);
 
-            iRetValue = DBInterface.ExecuteScalar(strSql);
+            if (DBInterface.ExecuteQuery(strSql) > 0)
+            {
+                iRetValue = true;
+            }
             return iRetValue;
-           
+
         }
         public bool AddPack(Int32 Id, string Pack)
         {
@@ -1143,7 +1197,7 @@ namespace EcoMart.DataLayer
         {
             Query objQuery = new Query();
             objQuery.Table = "masterproduct";
-            //objQuery.AddToQuery("ProductID", Id);
+            objQuery.AddToQuery("ProductID", Id);
             objQuery.AddToQuery("ProdName", ProdName);
             objQuery.AddToQuery("ProdLoosePack", ProdLoosePack);
             objQuery.AddToQuery("ProdPack", ProdPack);
@@ -1301,7 +1355,7 @@ namespace EcoMart.DataLayer
 
         private string GetUpdateQueryforlastpurchase(int ProductID, string PurchaseBillNumber, string VoucherDate, string AccountID, string VoucherType,
                 int VoucherNumber, double PurchaseRate, double TradeRate, double SaleRate, double MRP, double PurchaseVATPercent,
-               double CSTPercent, double AmountCST, double SchemeDiscountPercent,
+               double CSTPercent, double AmountCST, double SchemeDiscountPercent, double mpricetoretailer,
                 double AmountSchemeDiscount, double ItemDiscountPercent, string Expiry, string ExpiryDate, string Batchno, string shelfID, string stockid)
         {
             Query objQuery = new Query();
@@ -1327,10 +1381,22 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("ProdLastPurchaseExpiry", Expiry);
             objQuery.AddToQuery("ProdLastPurchaseExpiryDate", ExpiryDate);
             objQuery.AddToQuery("ProdLastPurchaseBatchNumber", Batchno);
-            //objQuery.AddToQuery("ProdShelfID", shelfID);
             objQuery.AddToQuery("ProdLastPurchaseStockID", stockid);
-            //  objQuery.AddToQuery("ProdLastPurchaseDistributorSaleRatePer", distSaleRatePer);
-            //   objQuery.AddToQuery("ProdLastPurchaseDistributorSaleRate", distributorSaleRate);
+            objQuery.AddToQuery("ProdLastPurchasePTR", mpricetoretailer);
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+            {               
+                //objQuery.AddToQuery("ProdLastPurchaseCNF", PurchaseRate);
+                objQuery.AddToQuery("ProdLastPurchaseEcoMart", PurchaseRate);
+            }
+            else
+            {
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+                {                    
+                    objQuery.AddToQuery("ProdLastPurchaseCNF", PurchaseRate);
+                }
+               
+            }
+
             return objQuery.UpdateQuery();
         }
         #endregion
@@ -1347,12 +1413,12 @@ namespace EcoMart.DataLayer
             }
             return bRetValue;
         }
-       
-       
 
-       
 
-       
+
+
+
+
         //public bool IsNameUniqueForEdit(string Name, string Id)
         //{
         //    int ifdup = GetDataForUniqueForAdd(Name, Id);
@@ -1386,7 +1452,7 @@ namespace EcoMart.DataLayer
             }
             else
                 return 1;
-           
+
         }
         private string GetQueryUniqueForAdd(string ProdName, int loosepack, string pack, Int32 compcode, string Id)
         {
@@ -1420,13 +1486,16 @@ namespace EcoMart.DataLayer
         //    }
 
         //}
-        public string SearchForProdPack(string pack)
+        public int SearchForProdPack(string pack)
         {
-            string mpackID = "";
+            Int32 mpackID = 0;
             string strSql = "Select PackID from masterpack where packName = '" + pack + "'";
             DataRow drow = DBInterface.SelectFirstRow(strSql);
             if (drow != null)
-                mpackID = drow["PackID"].ToString();
+                mpackID = Convert.ToInt32(drow["PackID"].ToString());
+            else
+                mpackID = 0;
+
             return mpackID;
         }
         public Int32 SearchForProdPackType(string packtype)
@@ -1436,6 +1505,8 @@ namespace EcoMart.DataLayer
             DataRow drow = DBInterface.SelectFirstRow(strSql);
             if (drow != null)
                 mpackID = Convert.ToInt32(drow["ID"].ToString());
+            else
+                mpackID = 0;
             return mpackID;
         }
         public bool RemoveProductDrugLink(Int32 Id, Int32 ProdGenericID)
@@ -1450,7 +1521,7 @@ namespace EcoMart.DataLayer
         }
         #region Query Building Functions
 
-        
+
 
         //private string GetQueryUniqueForEdit(string ProdName, int loosepack, string pack, int compId, Int32 Id)
         //{
@@ -1474,22 +1545,63 @@ namespace EcoMart.DataLayer
 
             return strSql;
         }
-        #endregion 
+        #endregion
         #endregion
 
-        public bool UpdatePurchaseOrder(int ProductID, int Quantity)
+        public bool UpdatePurchaseOrderStockist(int ProductID, int Quantity)
         {
-            bool returnVal = false;
+            bool returnVal = true;
             int prodid = Convert.ToInt32(ProductID);
-            string strSql = "Update detailpurchaseorderstockist SET PurchaseQuantity = " + Quantity + "  where ProductID = '" + ProductID + "'";
-            if (DBInterface.ExecuteQuery(strSql) > 0)
+            string strSql = "Select StockistReceivedQuantity from detailpurchaseorderstockist where ProductID = '" + ProductID + "'";
+            DataRow dt = DBInterface.SelectFirstRow(strSql);
+
+            if (dt != null)
             {
-                returnVal = true;
+                strSql = "Update detailpurchaseorderstockist SET StockistReceivedQuantity =  stockistReceivedQuantity + " + Quantity + "  where ProductID = '" + ProductID + "'";
+                if (DBInterface.ExecuteQuery(strSql) > 0)
+                {
+                    returnVal = true;
+                }
             }
 
             return returnVal;
         }
+        public bool UpdatePurchaseOrderCNF(int ProductID, int Quantity)
+        {
+            bool returnVal = true;
+            int prodid = Convert.ToInt32(ProductID);
+            string strSql = "Select CNFReceivedQuantity from detailpurchaseorderCNF where ProductID = '" + ProductID + "'";
+            DataRow dt = DBInterface.SelectFirstRow(strSql);
 
+            if (dt != null)
+            {
+                strSql = "Update detailpurchaseorderCNF SET CNFReceivedQuantity =  CNFReceivedQuantity + " + Quantity + "  where ProductID = " + ProductID;
+                if (DBInterface.ExecuteQuery(strSql) > 0)
+                {
+                    returnVal = true;
+                }
+            }
+            return returnVal;
+        }
+        public bool UpdatePurchaseOrderEcoMart(int ProductID, int Quantity)
+        {
+            bool returnVal = true;
+            int prodid = Convert.ToInt32(ProductID);
+
+            string strSql = "Select EcoMartReceivedQuantity from detailpurchaseorderEcoMart where ProductID = '" + ProductID + "'";
+            DataRow dt = DBInterface.SelectFirstRow(strSql);
+
+            if (dt != null)
+            {
+                strSql = "Update detailpurchaseorderEcoMart SET EcoMartReceivedQuantity =  EcoMartReceivedQuantity +  " + Quantity + "  where ProductID = '" + ProductID + "'";
+                if (DBInterface.ExecuteQuery(strSql) > 0)
+                {
+                    returnVal = true;
+                }
+            }
+
+            return returnVal;
+        }
         public bool SetMinMax(int _min, int _max)
         {
             bool returnVal = false;

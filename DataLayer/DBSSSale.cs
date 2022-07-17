@@ -155,7 +155,7 @@ namespace EcoMart.DataLayer
         public DataTable GetPreviousSale(string accountid)
         {
             DataTable dt = null;
-            string strSql = "Select voucherdate, sum(AmountNet) as AmountNet from vouchersale  where (AccountID = '" + accountid + "' OR PatientID = '" + accountid + "' OR debtorsPatientID = '"+accountid +"') group by  substring(voucherDate,5,2)";
+            string strSql = "Select voucherdate, sum(AmountNet) as AmountNet from vouchersale  where (AccountID = '" + accountid + "' OR PatientID = '" + accountid + "' OR debtorsPatientID = '" + accountid + "') group by  substring(voucherDate,5,2)";
             dt = DBInterface.SelectDataTable(strSql);
             return dt;
         }
@@ -167,7 +167,7 @@ namespace EcoMart.DataLayer
             else
                 cmonth = month.ToString().Trim();
 
-           
+
 
             DataTable dt = null;
             string strSql = "Select ID, VoucherType,VoucherSubType,VoucherNumber,Voucherdate,AmountNet, PatientName from vouchersale  where (AccountID = '" + accountid + "' OR PatientID = '" + accountid + "') AND  substring(voucherDate,5,2) = " + cmonth;
@@ -185,7 +185,7 @@ namespace EcoMart.DataLayer
                 "a.OctroiPercentage,a.AmountOctroi,a.Narration1,a.Narration2,a.StatementNumber,a.DoctorID,a.DoctorShortName,a.DoctorAddress,a.PatientID, " +
                 "a.OperatorID,a.PatientName,a.PatientAddress1,a.PatientAddress2,a.PatientShortName,a.PatientShortAddress,a.AmountForZeroVAT,a.IPDOPDCode,a.VAT5Per,a.VAT12Point5Per,a.AmountVAT12Point5Per,a.AmountVAT5Per, " +
                 "a.RoundingAmount,a.DiscountAmountCB,b.AccountID,b.AccTokenNumber,a.OrderNumber,a.OrderDate from vouchersale  a  left outer join masteraccount b on a.AccountID = b.AccountID  where  a.VoucherNumber ={0} AND a.VoucherType = '{1}' AND a.VoucherSubType = '{2}' AND a.VoucherSeries = '{3}'";
-                strSql = string.Format(strSql, vouno, voutype, subtype,vouSeries);
+                strSql = string.Format(strSql, vouno, voutype, subtype, vouSeries);
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
             return dRow;
@@ -227,16 +227,8 @@ namespace EcoMart.DataLayer
         {
             DataRow dRow = null;
             if (Id != "")
-            {
-                //string strSql = "Select a.ID, a.VoucherType,a.VoucherNumber,a.CounterSaleNumber,a.VoucherDate, " +
-                //"a.VoucherSubType,a.AccountID,a.AmountNet,a.AmountClear,a.AmountBalance,a.AmountGross,a.MobileNumberForSMS, " +
-                //"a.CashDiscountPercent,a.AmountCashDiscount,a.AddOnFreight,a.AmountCreditNote,a.AmountDebitNote, " +
-                //"a.OctroiPercentage,a.AmountOctroi,a.Narration,a.StatementNumber,a.DoctorID,a.DoctorShortName,a.DoctorAddress,a.PatientID, " +
-                //"a.OperatorID,a.PatientName,a.PatientAddress1,a.PatientAddress2,a.PatientShortName,a.PatientShortAddress,a.AmountForZeroVAT,a.IPDOPDCode,a.VAT5Per,a.VAT12Point5Per,a.AmountVAT5Per,a.AmountVAT12point5Per,a.ScanPrescriptionFileName, " +
-                //"a.RoundingAmount,a.DiscountAmountCB,a.ProfitInRupees,a.ProfitPercentBySaleRate,a.ProfitPercentByPurchaseRate,a.AmountPMTDiscount,a.AmountItemDiscount,a.DoctorShortName,a.DoctorAddress,a.Telephone, b.AccountID,b.AccTokenNumber,a.OrderNumber, " +
-                //"a.OrderDate,a.MySpecialDiscountPercent,a.DebtorsPatientID, a.MySpecialDiscountAmount,a.MySpecialDiscountAmount12point5,a.MySpecialDiscountAmount5,a.AmountCashDiscount5,a.AmountCashDiscount12point5,a.AmountSchemeDiscount,a.IfFullPayment,a.NextVisitDate,a.CreditCardBankID from " + 
-                //"vouchersale  a  left outer join masteraccount b on a.AccountID = b.AccountID  where  a.ID='{0}'  AND a.VoucherSubType = '{1}' ";
-                string strSql = "Select * from vouchersale where ID = '" + Id +"'"; 
+            {                
+                string strSql = "Select * from vouchersale where ID = '" + Id + "'";
                 strSql = string.Format(strSql, Id, subtype);
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
@@ -257,7 +249,7 @@ namespace EcoMart.DataLayer
                 "a.OrderDate from specialvouchersale  a  left outer join masteraccount b on a.AccountID = b.AccountID  where  a.ID='{0}' ";
                 strSql = string.Format(strSql, Id);
                 dRow = DBInterface.SelectFirstRow(strSql);
-            
+
             }
             return dRow;
         }
@@ -305,13 +297,13 @@ namespace EcoMart.DataLayer
 
         public DataRow CheckProductInShortList(int ProductID)
         {
-            string strSql = string.Format("Select *  from detailpurchaseorderstockist where ProductID = '{0}' AND  OrderNumber =  0 AND ShortListDate = '"+ DateTime.Today.Date.ToString("yyyyMMdd") +"' ", ProductID);
+            string strSql = string.Format("Select *  from detailpurchaseorderstockist where ProductID = '{0}' AND  OrderNumber =  0 AND ShortListDate = '" + DateTime.Today.Date.ToString("yyyyMMdd") + "' ", ProductID);
             return DBInterface.SelectFirstRow(strSql);
         }
 
         public bool AddToShortList(int ProductID, string Voudate, string shortlistid, double purchaserate, string accID)
         {
-            string sql = GetInsertQueryforShortList(ProductID, Voudate, shortlistid, purchaserate,accID);
+            string sql = GetInsertQueryforShortList(ProductID, Voudate, shortlistid, purchaserate, accID);
             bool bRetValue = false;
             if (DBInterface.ExecuteQuery(sql) > 0)
             {
@@ -343,7 +335,7 @@ namespace EcoMart.DataLayer
             if (Id != "")
             {
                 string strsql = "select a.ProductID, a.ProdName,a.Prodloosepack,a.prodpack,a.ProdClosingStock,a.ProdClosingStock/a.ProdLoosePack as ProdClosingStockPack,a.ProdVATPercent,a.ProdCompShortName,a.ProdLastSaleStockID as LastStockID,a.ProdScheduleDrugCode,a.ProdBoxQuantity,a.ProdLastPurchaseRate,a.ProdIfShortListed,a.ProdMaxLevel,a.ProdCategoryID,ProdIfSaleDisc,b.ProductID, " +
-                "b.StockID,b.StockID as ProdLastSaleStockID, b.BatchNumber,b.MRP,b.PurchaseRate,b.SaleRate,b.TradeRate,b.Expiry,b.ExpiryDate,b.Quantity,b.Quantity as OldQuantity,b.VATAmount,b.Amount,b.ItemDiscountPer,b.ItemDiscountAmount,b.ProfitPercentBySaleRate,b.ProfitInRupees,b.ProfitPercentByPurchaseRate,b.CashDiscountAmount,b.SchemeQuantity,SchemeDiscountAmount,c.ShelfID,c.ShelfCode," +
+                "b.StockID,b.StockID as ProdLastSaleStockID, b.BatchNumber,b.MRP,b.PurchaseRate,b.SaleRate,b.TradeRate,b.pricetoretailer,b.Expiry,b.ExpiryDate,b.Quantity,b.Quantity as OldQuantity,b.VATAmount,b.Amount,b.ItemDiscountPer,b.ItemDiscountAmount,b.ProfitPercentBySaleRate,b.ProfitInRupees,b.ProfitPercentByPurchaseRate,b.CashDiscountAmount,b.SchemeQuantity,SchemeDiscountAmount,c.ShelfID,c.ShelfCode," +
                 "b.GSTAmountZero,b.GSTSAmount,b.GSTCAmount,b.GSTIAmount,b.GSTS,b.GSTC,b.GSTI,b.ActualBatchNumber,b.ActualMRP,b.ActualSaleRate,d.ClosingStock,e.GenericCategoryName from masterproduct A inner join  detailsale b  on A.ProductID = B.ProductID  left outer join mastershelf C on A.ProdShelfID = C.ShelfID   left outer join tblstock D on B.stockID = d.stockID left outer join mastergenericcategory e on a.ProdCategoryID = e.GenericCategoryID where B.MasterSaleID = '{0}' order by b.SerialNumber";
                 strsql = string.Format(strsql, Id);
                 dt = DBInterface.SelectDataTable(strsql);
@@ -451,30 +443,57 @@ namespace EcoMart.DataLayer
 
         #region write Data
 
-        public int AddDetails(string Id, string CreditorId, string Narration1,string Narration2, string VouType, int VouNo, string VouDate,
+        public int AddDetails(string Id, string CreditorId, string Narration1, string Narration2, string VouType, int VouNo, string VouDate,
             double AmountNet, double DiscPer, double DiscAmt, double Amt, double rnd, string docId, double addon,
-            string vousubtype,double amtbal, double amtclear, int statementnumber,double cramount,
-            double dbamount, string patientname, string patientaddress1, string patientaddress2,string operatorid, int salesmanid, int transporterid,
-            string OrderNumber, string OrderDate, double totalProfitInRupees, double totalProfitPercentbyPurchaseRate,double totalProfitPercentBySaleRate,
-            double itemDiscount,double SchemeTotalDiscount,
+            string vousubtype, double amtbal, double amtclear, int statementnumber, double cramount,
+            double dbamount, string patientname, string patientaddress1, string patientaddress2, string operatorid, int salesmanid, int transporterid,
+            string OrderNumber, string OrderDate, double totalProfitInRupees, double totalProfitPercentbyPurchaseRate, double totalProfitPercentBySaleRate,
+            double itemDiscount, double SchemeTotalDiscount,
              double gstAmt0, double gstAmtS5, double gstAmtS12, double gstAmtS18, double gstAmtS28,
             double gstAmtC5, double gstAmtC12, double gstAmtC18, double gstAmtC28, double gsts5, double gsts12, double gsts18, double gsts28,
-            double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28, string createdby, string createddate, string createdtime)
+            double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28,
+            int debtorid,string createdby, string createddate, string createdtime)
         {
-           
-            string strSql = GetInsertQuerySale(Id, CreditorId, Narration1,Narration2, VouType, VouNo,
+
+            string strSql = GetInsertQuerySale(Id, CreditorId, Narration1, Narration2, VouType, VouNo,
                 VouDate, AmountNet, DiscPer, DiscAmt, Amt, rnd, docId, addon, vousubtype,
                 amtbal, amtclear, statementnumber, cramount, dbamount, patientname, patientaddress1,
-                patientaddress2, operatorid, salesmanid,transporterid, OrderNumber,
-                OrderDate, totalProfitInRupees, totalProfitPercentbyPurchaseRate, totalProfitPercentBySaleRate,  itemDiscount,
+                patientaddress2, operatorid, salesmanid, transporterid, OrderNumber,
+                OrderDate, totalProfitInRupees, totalProfitPercentbyPurchaseRate, totalProfitPercentBySaleRate, itemDiscount,
                 SchemeTotalDiscount,
                  gstAmt0, gstAmtS5, gstAmtS12, gstAmtS18, gstAmtS28, gstAmtC5, gstAmtC12, gstAmtC18, gstAmtC28, gsts5,
-                gsts12, gsts18, gsts28, gstc5, gstc12, gstc18, gstc28, gstAmtI5, gstAmtI12, gstAmtI18, gstAmtI28, gstI5, gstI12, gstI18, gstI28, createdby, createddate, createdtime);
+                gsts12, gsts18, gsts28, gstc5, gstc12, gstc18, gstc28, gstAmtI5, gstAmtI12, gstAmtI18, gstAmtI28, gstI5, gstI12, gstI18, gstI28, 
+                debtorid,createdby, createddate, createdtime);
             //strSql += ";select last_insert_ID()";
             int ii = Convert.ToInt32(DBInterface.ExecuteScalar(strSql));
             return ii;
         }
 
+        public bool AddDetailsAzure(string Id, string CreditorId, string Narration1, string Narration2, string VouType, int VouNo, string VouDate,
+           double AmountNet, double DiscPer, double DiscAmt, double Amt, double rnd, string docId, double addon,
+           string vousubtype, double amtbal, double amtclear, int statementnumber, double cramount,
+           double dbamount, string patientname, string patientaddress1, string patientaddress2, string operatorid, int salesmanid, int transporterid,
+           string OrderNumber, string OrderDate, double totalProfitInRupees, double totalProfitPercentbyPurchaseRate, double totalProfitPercentBySaleRate,
+           double itemDiscount, double SchemeTotalDiscount,
+            double gstAmt0, double gstAmtS5, double gstAmtS12, double gstAmtS18, double gstAmtS28,
+           double gstAmtC5, double gstAmtC12, double gstAmtC18, double gstAmtC28, double gsts5, double gsts12, double gsts18, double gsts28,
+           double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28,
+           int debtorid, string createdby, string createddate, string createdtime)
+        {
+            bool retValue;
+            string strSql = GetInsertQuerySaleAzure(Id, CreditorId, Narration1, Narration2, VouType, VouNo,
+                VouDate, AmountNet, DiscPer, DiscAmt, Amt, rnd, docId, addon, vousubtype,
+                amtbal, amtclear, statementnumber, cramount, dbamount, patientname, patientaddress1,
+                patientaddress2, operatorid, salesmanid, transporterid, OrderNumber,
+                OrderDate, totalProfitInRupees, totalProfitPercentbyPurchaseRate, totalProfitPercentBySaleRate, itemDiscount,
+                SchemeTotalDiscount,
+                 gstAmt0, gstAmtS5, gstAmtS12, gstAmtS18, gstAmtS28, gstAmtC5, gstAmtC12, gstAmtC18, gstAmtC28, gsts5,
+                gsts12, gsts18, gsts28, gstc5, gstc12, gstc18, gstc28, gstAmtI5, gstAmtI12, gstAmtI18, gstAmtI28, gstI5, gstI12, gstI18, gstI28,
+                debtorid, createdby, createddate, createdtime);
+            //strSql += ";select last_insert_ID()";
+           retValue  = (AzureDBInterface.ExecuteQuery(strSql) > 0);
+            return retValue;
+        }
         public bool SaveNewDoctor(string DocID, string doctorNameAddress, string doctorAddress, string createdby, string createddate, string createdtime)
         {
             bool retValue = false;
@@ -492,7 +511,7 @@ namespace EcoMart.DataLayer
         //}
 
 
-        public bool AddDetailsSpecialSale(string Id, string CreditorId, string Narration1,string Narration2, string VouType, int VouNo,
+        public bool AddDetailsSpecialSale(string Id, string CreditorId, string Narration1, string Narration2, string VouType, int VouNo,
             string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5, double Vat12,
             double rnd, string docId, string docshortname, string docAddress, double addon, string vousubtype,
             double amtbal, double amtclear, double octper, double octamt, int countersalenum, int statementnumber,
@@ -500,7 +519,7 @@ namespace EcoMart.DataLayer
             string patientshortname, string patientShortAddress, double amountforzerovat, string operatorid, string patientid, double AmountVat12, double AmountVat5, string IPDOPD, string OrderNumber, string OrderDate, double totalProfitInRupees, double totalProfitPercentbyPurchaseRate, double totalProfitPercentBySaleRate, double pmtTotalDiscount, double itemDiscount, string createdby, string createddate, string createdtime)
         {
             bool bRetValue = false;
-            string strSql = GetInsertQuerySaleSpecialSale(Id, CreditorId, Narration1,Narration2, VouType, VouNo,
+            string strSql = GetInsertQuerySaleSpecialSale(Id, CreditorId, Narration1, Narration2, VouType, VouNo,
                 VouDate, AmountNet, DiscPer, DiscAmt, Amt, Vat5, Vat12, rnd, docId, docshortname, docAddress, addon, vousubtype,
                 amtbal, amtclear, octper, octamt, countersalenum, statementnumber, cramount, dbamount, patientname, patientaddress1,
                 patientaddress2, patientshortname, patientShortAddress, amountforzerovat, operatorid, patientid, AmountVat12, AmountVat5, IPDOPD, OrderNumber, OrderDate, totalProfitInRupees, totalProfitPercentbyPurchaseRate, totalProfitPercentBySaleRate, pmtTotalDiscount, itemDiscount, createdby, createddate, createdtime);
@@ -529,9 +548,9 @@ namespace EcoMart.DataLayer
                 string ExpiryDate, string accId, string CompId, double VatAmt, string ifproddisc, string stockid, string mydetailsaleid,
                 int serialNumber, double ProfitInRupees, double ProfitByPurchaseRate, double ProfitBySaleRate,
                 double pmtDiscountPer, double pmtDiscountAmt, double itemDiscountPer, double itemDiscountAmt,
-                double cashDiscountAmount, double mySpecialDiscountamount,double schemeDiscountAmount, int schemeDiscountQuantity,string vouDate, 
+                double cashDiscountAmount, double mySpecialDiscountamount, double schemeDiscountAmount, int schemeDiscountQuantity, string vouDate,
                 int vouNo, string vouType, double gstPurchaseAmountZero, double gstSPurchaseAmount, double gstCPurchaseAmount,
-               double gstSAmount, double gstCAmount, string newbatchno, double newmrp,double newsalerate)
+               double gstSAmount, double gstCAmount, string newbatchno, double newmrp, double newsalerate , int debtorid, double pricetoretailer)
         {
             bool bRetValue = false;
             string strSql = GetInsertQueryProductsSS(Id, ProductID, Batchno, quantity, PurchaseRate, MRP,
@@ -539,7 +558,7 @@ namespace EcoMart.DataLayer
                       stockid, mydetailsaleid, serialNumber, ProfitInRupees, ProfitByPurchaseRate, ProfitBySaleRate,
                       pmtDiscountPer, pmtDiscountAmt, itemDiscountPer, itemDiscountAmt, cashDiscountAmount, mySpecialDiscountamount,
                       schemeDiscountAmount, schemeDiscountQuantity, vouDate, vouNo, vouType, gstPurchaseAmountZero, gstSPurchaseAmount,
-                      gstCPurchaseAmount, gstSAmount, gstCAmount,newbatchno,newmrp,newsalerate);
+                      gstCPurchaseAmount, gstSAmount, gstCAmount, newbatchno, newmrp, newsalerate,debtorid, pricetoretailer);
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 bRetValue = true;
@@ -547,6 +566,28 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
+        public bool AddDetailsProductsSSAzure(int Id, int ProductID, string Batchno, int quantity,
+               double PurchaseRate, double MRP, double SaleRate, double TradeRate, string Expiry, double VatPer, double Amount,
+               string ExpiryDate, string accId, string CompId, double VatAmt, string ifproddisc, string stockid, string mydetailsaleid,
+               int serialNumber, double ProfitInRupees, double ProfitByPurchaseRate, double ProfitBySaleRate,
+               double pmtDiscountPer, double pmtDiscountAmt, double itemDiscountPer, double itemDiscountAmt,
+               double cashDiscountAmount, double mySpecialDiscountamount, double schemeDiscountAmount, int schemeDiscountQuantity, string vouDate,
+               int vouNo, string vouType, double gstPurchaseAmountZero, double gstSPurchaseAmount, double gstCPurchaseAmount,
+              double gstSAmount, double gstCAmount, string newbatchno, double newmrp, double newsalerate, int debtorid, double pricetoretailer)
+        {
+            bool bRetValue = false;
+            string strSql = GetInsertQueryProductsSSAzure(Id, ProductID, Batchno, quantity, PurchaseRate, MRP,
+                      SaleRate, TradeRate, Expiry, VatPer, Amount, ExpiryDate, accId, CompId, VatAmt, ifproddisc,
+                      stockid, mydetailsaleid, serialNumber, ProfitInRupees, ProfitByPurchaseRate, ProfitBySaleRate,
+                      pmtDiscountPer, pmtDiscountAmt, itemDiscountPer, itemDiscountAmt, cashDiscountAmount, mySpecialDiscountamount,
+                      schemeDiscountAmount, schemeDiscountQuantity, vouDate, vouNo, vouType, gstPurchaseAmountZero, gstSPurchaseAmount,
+                      gstCPurchaseAmount, gstSAmount, gstCAmount, newbatchno, newmrp, newsalerate, debtorid, pricetoretailer);
+            if ( AzureDBInterface.ExecuteQuery(strSql) > 0)
+            {
+                bRetValue = true;
+            }
+            return bRetValue;
+        }
         public bool AddDetailsProductsSSSpecialSale(string Id, int ProductID, string Batchno, int quantity,
                double PurchaseRate, double MRP, double SaleRate, double TradeRate, string Expiry, double VatPer, double Amount,
                string ExpiryDate, string accId, string CompId, double VatAmt, string ifproddisc, string stockid, string mydetailsaleid, int serialNumber, double ProfitInRupees, double ProfitByPurchaseRate, double ProfitBySaleRate, double pmtDiscountPer, double pmtDiscountAmt, double itemDiscountPer, double itemDiscountAmt)
@@ -592,7 +633,7 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool UpdateDetails(string Id, string CreditorId, string Narration1,string Narration2, string VouType, int VouNo,
+        public bool UpdateDetails(string Id, string CreditorId, string Narration1, string Narration2, string VouType, int VouNo,
              string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5, double Vat12,
              double rnd, double balamt, string docId, string docNameAddress, string docAddress, double addon, string vousubtype,
              double amtbal, double amtclear, double octper, double octamt, int countersalenum, int statementnumber, double cramount,
@@ -601,21 +642,21 @@ namespace EcoMart.DataLayer
             double totalProfitPercentbyPurchaseRate, double totalProfitPercentBySaleRate, double pmtTotalDiscount,
             double itemTotalDiscount, string prescriptionFileName, string telephone, double mySpecialDiscountAmount,
             double MySpecialDiscountPercent, double MyTotalSpecialDiscountPer12point5, double MyTotalSpecialDiscountPer5,
-            double TotalDiscount12point5, double TotalDiscount5,double SchemeTotalDiscount, string iffullpayment, string nextVisitDate, string debtorsPatientID,
+            double TotalDiscount12point5, double TotalDiscount5, double SchemeTotalDiscount, string iffullpayment, string nextVisitDate, string debtorsPatientID,
              double gstAmt0, double gstAmtS5, double gstAmtS12, double gstAmtS18, double gstAmtS28,
             double gstAmtC5, double gstAmtC12, double gstAmtC18, double gstAmtC28, double gsts5, double gsts12, double gsts18, double gsts28,
-            double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28, string modifiedby, string modifydate, string modifytime)
+            double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28, int debtorsid, string modifiedby, string modifydate, string modifytime)
         {
             bool bRetValue = false;
-            string strSql = GetUpdateQuerySale(Id, CreditorId, Narration1,Narration2, VouType, VouNo,
+            string strSql = GetUpdateQuerySale(Id, CreditorId, Narration1, Narration2, VouType, VouNo,
                 VouDate, AmountNet, DiscPer, DiscAmt, Amt, Vat5, Vat12, rnd, balamt, docId, docNameAddress, docAddress, addon, vousubtype,
                 amtbal, amtclear, octper, octamt, countersalenum, statementnumber, cramount, dbamount, patientname,
                 patientAddress1, patientAddress2, ShortName, patientShortAddress, amountforzerovat, operatorid, patientID, AmountVat12,
                 AmountVat5, IPDOPD, orderNumber, orderDate, totalProfitInRupees, totalProfitPercentbyPurchaseRate, totalProfitPercentBySaleRate,
                 pmtTotalDiscount, itemTotalDiscount, prescriptionFileName, telephone, mySpecialDiscountAmount, MySpecialDiscountPercent,
-                MyTotalSpecialDiscountPer12point5, MyTotalSpecialDiscountPer5, TotalDiscount12point5, TotalDiscount5, SchemeTotalDiscount, iffullpayment, nextVisitDate,debtorsPatientID,
+                MyTotalSpecialDiscountPer12point5, MyTotalSpecialDiscountPer5, TotalDiscount12point5, TotalDiscount5, SchemeTotalDiscount, iffullpayment, nextVisitDate, debtorsPatientID,
                   gstAmt0, gstAmtS5, gstAmtS12, gstAmtS18, gstAmtS28, gstAmtC5, gstAmtC12, gstAmtC18, gstAmtC28, gsts5,
-                gsts12, gsts18, gsts28, gstc5, gstc12, gstc18, gstc28, gstAmtI5, gstAmtI12, gstAmtI18, gstAmtI28, gstI5, gstI12, gstI18, gstI28, modifiedby, modifydate, modifytime);
+                gsts12, gsts18, gsts28, gstc5, gstc12, gstc18, gstc28, gstAmtI5, gstAmtI12, gstAmtI18, gstAmtI28, gstI5, gstI12, gstI18, gstI28,debtorsid, modifiedby, modifydate, modifytime);
             if (DBInterface.ExecuteQuery(strSql) > 0)
             {
                 bRetValue = true;
@@ -634,7 +675,7 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool AddDetailsInDeleteMaster(string Id, string CreditorId, string Narration1,string Narration2, string VouType, int VouNo,
+        public bool AddDetailsInDeleteMaster(string Id, string CreditorId, string Narration1, string Narration2, string VouType, int VouNo,
              string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5, double Vat12,
              double rnd, double balamt, string docId, string docshortname, string docAddress, double addon, string vousubtype,
              double amtbal, double amtclear, double octper, double octamt, int countersalenum, int statementnumber, double cramount,
@@ -653,7 +694,7 @@ namespace EcoMart.DataLayer
             return bRetValue;
         }
 
-        public bool AddDetailsInChangedMaster(string Id, string ChangedID, string CreditorId, string Narration1,string Narration2, string VouType, int VouNo,
+        public bool AddDetailsInChangedMaster(string Id, string ChangedID, string CreditorId, string Narration1, string Narration2, string VouType, int VouNo,
             string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5, double Vat12,
             double rnd, double balamt, string docId, string docshortname, string docAddress, double addon, string vousubtype,
             double amtbal, double amtclear, double octper, double octamt, int countersalenum, int statementnumber, double cramount,
@@ -661,7 +702,7 @@ namespace EcoMart.DataLayer
            string operatorid, double AmountVat12, double AmountVat5, string IPDOPD, string orderNumber, string orderDate, double totalProfitInRupees, double totalProfitPercentbyPurchaseRate, double totalProfitPercentBySaleRate, double pmtTotalDiscount, string telephone, string modifiedby, string modifydate, string modifytime)
         {
             bool bRetValue = false;
-            string strSql = GetAddDetailsInChangedMaster(Id, ChangedID, CreditorId, Narration1,Narration2, VouType, VouNo,
+            string strSql = GetAddDetailsInChangedMaster(Id, ChangedID, CreditorId, Narration1, Narration2, VouType, VouNo,
                 VouDate, AmountNet, DiscPer, DiscAmt, Amt, Vat5, Vat12, rnd, balamt, docId, docshortname, docAddress, addon, vousubtype,
                 amtbal, amtclear, octper, octamt, countersalenum, statementnumber, cramount, dbamount, patientname,
                 patientAddress1, patientAddress2, ShortName, patientShortAddress, amountforzerovat, operatorid, AmountVat12, AmountVat5, IPDOPD, orderNumber, orderDate, totalProfitInRupees, totalProfitPercentbyPurchaseRate, totalProfitPercentBySaleRate, pmtTotalDiscount, telephone, modifiedby, modifydate, modifytime);
@@ -697,8 +738,8 @@ namespace EcoMart.DataLayer
         //        bRetValue = true;
         //    }
         //    return bRetValue;
-  
-            //here 30/10/2015
+
+        //here 30/10/2015
         //    string Id, string CreditorId, string VouType, int VouNo,
         //    string VouDate, string docId, string docshortname, string docAddress, string vousubtype, int countersalenum, string patientname, string patientID,
         //    string patientaddress1, string patientaddress2, string shortname, string patientShortAddress, string operatorid, string telePhone,
@@ -709,11 +750,11 @@ namespace EcoMart.DataLayer
         //        VouDate, docId, docshortname, docAddress, vousubtype, countersalenum, patientname, patientID,
         //        patientaddress1, patientaddress2, shortname, patientShortAddress, operatorid, telePhone,
         //        modifiedby, modifydate, modifytime);
-            //if (DBInterface.ExecuteQuery(strSql) > 0)
-            //{
-            //    bRetValue = true;
-            //}
-            //return bRetValue;
+        //if (DBInterface.ExecuteQuery(strSql) > 0)
+        //{
+        //    bRetValue = true;
+        //}
+        //return bRetValue;
         //}
         public bool DeleteDetails(string Id)
         {
@@ -740,7 +781,7 @@ namespace EcoMart.DataLayer
         {
             bool bRetValue = false;
             DataTable dt = null;
-            string strSql = "Select * from detailsale where MasterSaleID = '"+ Id +"'";
+            string strSql = "Select * from detailsale where MasterSaleID = '" + Id + "'";
             dt = DBInterface.SelectDataTable(strSql);
             if (dt == null || dt.Rows.Count == 0)
                 bRetValue = true;
@@ -758,9 +799,9 @@ namespace EcoMart.DataLayer
         }
         public bool DeleteDetailsFromtblTrnac(string Id)
         {
-            bool bRetValue = false;            
+            bool bRetValue = false;
             DataTable dt = null;
-            string strSql = "Select * from tbltrnac where voucherID = '"+ Id +"'";
+            string strSql = "Select * from tbltrnac where voucherID = '" + Id + "'";
             dt = DBInterface.SelectDataTable(strSql);
             if (dt == null || dt.Rows.Count == 0)
                 bRetValue = true;
@@ -967,7 +1008,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("VoucherNumber", VoucherNumber);
             objQuery.AddToQuery("VoucherSubType", subType);
             objQuery.AddToQuery("AccountID", accountID);
-        //    objQuery.AddToQuery("CreditCardBankID", CreditCardBankID); 
+            //    objQuery.AddToQuery("CreditCardBankID", CreditCardBankID); 
             objQuery.AddToQuery("AmountClear", amountClear);
             objQuery.AddToQuery("AmountBalance", amountBalance);
             objQuery.AddToQuery("ModifiedUserID", modifiedby);
@@ -977,18 +1018,7 @@ namespace EcoMart.DataLayer
         }
 
 
-        private string GetInsertQuerySale(/*string Id, string AccountId, string Narration1,string Narration2, string VouType, int VouNo,
-             string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5, double Vat12, double rnd,
-            string docId, string docNameAddress, string docAddress, double addon, string vousubtype, double amtbal, double amtclear, double octper, double octamt,
-            int countersalenum, int statementnumber, double cramount, double dbamount, string patientname, string patientaddress1,
-            string patientaddress2, string patientshortname, string patientShortAddress, double amountforzerovat, string operatorid, int salesmanid,int transporterid, string patientid,
-            double AmountVat12, double AmountVat5, string IPDOPD, string orderNumber, string orderDate, double totalProfitInRupees,
-            double totalProfitPercentbyPurchaseRate, double totalProfitPercentBySaleRate, double pmtTotalDiscount, double itemTotalDiscount,
-            string prescriptionFileName, string telephone, double mySpecialDiscountAmount, double mySpecialDiscountPer,
-            double MyTotalSpecialDiscountPer12point5, double MyTotalSpecialDiscountPer5, double TotalDiscount12point5,
-            double TotalDiscount5, double SchemeTotalDiscount, string iffullpayment, int creditCardBankID, string MobileNumberForSMS, string nextVisitDate,string debtorPatientID,*/
-
-            string Id, string AccountId, string Narration1, string Narration2, string VouType, int VouNo, string VouDate,
+        private string GetInsertQuerySale(string Id, string AccountId, string Narration1, string Narration2, string VouType, int VouNo, string VouDate,
             double AmountNet, double DiscPer, double DiscAmt, double Amt, double rnd, string docId, double addon,
             string vousubtype, double amtbal, double amtclear, int statementnumber, double cramount,
             double dbamount, string patientname, string patientaddress1, string patientaddress2, string operatorid, int salesmanid, int transporterid,
@@ -996,18 +1026,132 @@ namespace EcoMart.DataLayer
             double itemTotalDiscount, double SchemeTotalDiscount,
             double gstAmt0, double gstAmtS5, double gstAmtS12, double gstAmtS18, double gstAmtS28,
             double gstAmtC5, double gstAmtC12, double gstAmtC18, double gstAmtC28, double gsts5, double gsts12, double gsts18, double gsts28,
-            double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28, string createdby, string createddate, string createdtime)
+            double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28, 
+            int debtorid, string createdby, string createddate, string createdtime)
         {
             int mmoo = 0;
             if (operatorid != string.Empty)
                 mmoo = Convert.ToInt32(operatorid.ToString());
             Query objQuery = new Query();
             objQuery.Table = "vouchersale";
-          //  objQuery.AddToQuery("ID", Id);
+            //  objQuery.AddToQuery("ID", Id);
+            objQuery.AddToQuery("AccountID", AccountId);            
+            objQuery.AddToQuery("Narration", Narration1);            
+            objQuery.AddToQuery("VoucherType", VouType);
+            objQuery.AddToQuery("VoucherNumber", VouNo);
+            objQuery.AddToQuery("VoucherDate", VouDate);
+            objQuery.AddToQuery("VoucherSeries", General.ShopDetail.ShopVoucherSeries);
+            objQuery.AddToQuery("AmountNet", AmountNet);
+            objQuery.AddToQuery("CashDiscountPercent", DiscPer);
+            objQuery.AddToQuery("AmountCashDiscount", DiscAmt);
+            objQuery.AddToQuery("AmountGross", Amt);            
+            objQuery.AddToQuery("RoundingAmount", rnd);
+            objQuery.AddToQuery("AmountBalance", amtbal);
+            objQuery.AddToQuery("DoctorID", docId);            
+            objQuery.AddToQuery("AddOnFreight", addon);
+            objQuery.AddToQuery("VoucherSubType", vousubtype);
+            objQuery.AddToQuery("AmountClear", amtclear);           
+            objQuery.AddToQuery("StatementNumber", statementnumber);
+            objQuery.AddToQuery("AmountCreditNote", cramount);
+            objQuery.AddToQuery("AmountDebitNote", dbamount);           
+            objQuery.AddToQuery("PatientName", patientname);
+            objQuery.AddToQuery("PatientAddress1", patientaddress1);
+            objQuery.AddToQuery("PatientAddress2", patientaddress2);           
+            objQuery.AddToQuery("OperatorID", mmoo);           
+            objQuery.AddToQuery("SalesmanID", salesmanid);
+            objQuery.AddToQuery("TransporterID", transporterid);
+            objQuery.AddToQuery("OrderNumber", orderNumber);
+            objQuery.AddToQuery("OrderDate", orderDate);
+            objQuery.AddToQuery("ProfitInRupees", totalProfitInRupees);
+            objQuery.AddToQuery("ProfitPercentByPurchaseRate", totalProfitPercentbyPurchaseRate);
+            objQuery.AddToQuery("ProfitPercentBySaleRate", totalProfitPercentBySaleRate);           
+            objQuery.AddToQuery("AmountItemDiscount", itemTotalDiscount);           
+            objQuery.AddToQuery("AmountSchemeDiscount", SchemeTotalDiscount);
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+            {
+                objQuery.AddToQuery("EcoMartID",General.EcoMartLicense.ShopID);
+                objQuery.AddToQuery("CNFID", debtorid);
+                objQuery.AddToQuery("StockistID", 0);
+            }
+            else
+            {
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+                {
+                    objQuery.AddToQuery("EcoMartID", General.EcoMartLicense.EcoMartInfo.ShopID);
+                    objQuery.AddToQuery("CNFID", General.EcoMartLicense.ShopID);
+                    objQuery.AddToQuery("StockistID", debtorid);
+                }
+                else
+                {
+                    if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.Stockist)
+                    {
+                        objQuery.AddToQuery("EcoMARTID", General.EcoMartLicense.EcoMartInfo.ShopID);
+                        objQuery.AddToQuery("CNFID", General.EcoMartLicense.CNFInfo.ShopID);
+                        objQuery.AddToQuery("StockistID", General.EcoMartLicense.ShopID);
+                    }
+                }
+            }
+            objQuery.AddToQuery("IFDownloaded", "N");
+
+            objQuery.AddToQuery("AmountGST0", gstAmt0);
+            objQuery.AddToQuery("AmountGSTS5", gstAmtS5);
+            objQuery.AddToQuery("AmountGSTS12", gstAmtS12); 
+            objQuery.AddToQuery("AmountGSTS18", gstAmtS18);
+            objQuery.AddToQuery("AmountGSTS28", gstAmtS28);
+            objQuery.AddToQuery("AmountGSTC5", gstAmtC5);
+            objQuery.AddToQuery("AmountGSTC12", gstAmtC12);
+            objQuery.AddToQuery("AmountGSTC18", gstAmtC18);
+            objQuery.AddToQuery("AmountGSTC28", gstAmtC28);
+
+            objQuery.AddToQuery("GSTS5", gsts5);
+            objQuery.AddToQuery("GSTS12", gsts12);
+            objQuery.AddToQuery("GSTS18", gsts18);
+            objQuery.AddToQuery("GSTS28", gsts28);
+            objQuery.AddToQuery("GSTC5", gstc5);
+            objQuery.AddToQuery("GSTC12", gstc12);
+            objQuery.AddToQuery("GSTC18", gstc18);
+            objQuery.AddToQuery("GSTC28", gstc28);
+
+            objQuery.AddToQuery("AmountGSTI5", gstAmtI5);
+            objQuery.AddToQuery("AmountGSTI12", gstAmtI12);
+            objQuery.AddToQuery("AmountGSTI18", gstAmtI18);
+            objQuery.AddToQuery("AmountGSTI28", gstAmtI28);
+            objQuery.AddToQuery("GSTI5", gstI5);
+            objQuery.AddToQuery("GSTI12", gstI12);
+            objQuery.AddToQuery("GSTI18", gstI18);
+            objQuery.AddToQuery("GSTI28", gstI28);
+            //  objQuery.AddToQuery("IfFullPayment", iffullpayment);
+            //   objQuery.AddToQuery("CreditCardBankID", creditCardBankID);
+            //   objQuery.AddToQuery("MobileNumberForSMS", MobileNumberForSMS);
+            //   objQuery.AddToQuery("NextVisitDate", nextVisitDate);
+            //  objQuery.AddToQuery("AmountByPurchaseRate", amountByPurchaseRate);            
+            objQuery.AddToQuery("CreatedUserID", createdby);
+            objQuery.AddToQuery("CreatedDate", createddate);
+            objQuery.AddToQuery("CreatedTime", createdtime);
+            return objQuery.InsertQuery();
+        }
+
+        private string GetInsertQuerySaleAzure(string Id, string AccountId, string Narration1, string Narration2, string VouType, int VouNo, string VouDate,
+           double AmountNet, double DiscPer, double DiscAmt, double Amt, double rnd, string docId, double addon,
+           string vousubtype, double amtbal, double amtclear, int statementnumber, double cramount,
+           double dbamount, string patientname, string patientaddress1, string patientaddress2, string operatorid, int salesmanid, int transporterid,
+           string orderNumber, string orderDate, double totalProfitInRupees, double totalProfitPercentbyPurchaseRate, double totalProfitPercentBySaleRate,
+           double itemTotalDiscount, double SchemeTotalDiscount,
+           double gstAmt0, double gstAmtS5, double gstAmtS12, double gstAmtS18, double gstAmtS28,
+           double gstAmtC5, double gstAmtC12, double gstAmtC18, double gstAmtC28, double gsts5, double gsts12, double gsts18, double gsts28,
+           double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28,
+           int debtorid, string createdby, string createddate, string createdtime)
+        {
+            int mmoo = 0;
+            char ifyes = 'Y';
+            char ifno = 'N';
+            if (operatorid != string.Empty)
+                mmoo = Convert.ToInt32(operatorid.ToString());
+            Query objQuery = new Query();
+            objQuery.Table = "vouchersale_cs";
+            //  objQuery.AddToQuery("ID", Id);
             objQuery.AddToQuery("AccountID", AccountId);
-         //   objQuery.AddToQuery("PatientID", patientid);
             objQuery.AddToQuery("Narration", Narration1);
-            //objQuery.AddToQuery("Narration2", Narration2);
             objQuery.AddToQuery("VoucherType", VouType);
             objQuery.AddToQuery("VoucherNumber", VouNo);
             objQuery.AddToQuery("VoucherDate", VouDate);
@@ -1016,34 +1160,19 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("CashDiscountPercent", DiscPer);
             objQuery.AddToQuery("AmountCashDiscount", DiscAmt);
             objQuery.AddToQuery("AmountGross", Amt);
-           // objQuery.AddToQuery("VAT5Per", Vat5);
-          //  objQuery.AddToQuery("VAT12Point5Per", Vat12);
             objQuery.AddToQuery("RoundingAmount", rnd);
             objQuery.AddToQuery("AmountBalance", amtbal);
             objQuery.AddToQuery("DoctorID", docId);
-         //   objQuery.AddToQuery("DoctorShortName", docNameAddress);
-         //   objQuery.AddToQuery("DoctorAddress", docAddress);
-         //   objQuery.AddToQuery("Telephone", telephone);
             objQuery.AddToQuery("AddOnFreight", addon);
             objQuery.AddToQuery("VoucherSubType", vousubtype);
             objQuery.AddToQuery("AmountClear", amtclear);
-         //   objQuery.AddToQuery("OctroiPercentage", octper);
-         //   objQuery.AddToQuery("AmountOctroi", octamt);
-         //   objQuery.AddToQuery("CounterSaleNumber", countersalenum);
             objQuery.AddToQuery("StatementNumber", statementnumber);
             objQuery.AddToQuery("AmountCreditNote", cramount);
             objQuery.AddToQuery("AmountDebitNote", dbamount);
-         //   objQuery.AddToQuery("DebtorsPatientID", debtorPatientID);
             objQuery.AddToQuery("PatientName", patientname);
             objQuery.AddToQuery("PatientAddress1", patientaddress1);
             objQuery.AddToQuery("PatientAddress2", patientaddress2);
-            //   objQuery.AddToQuery("PatientShortName", patientshortname);
-            //   objQuery.AddToQuery("PatientShortAddress", patientShortAddress);
-            //   objQuery.AddToQuery("AmountForZeroVAT", amountforzerovat);
-               objQuery.AddToQuery("OperatorID", mmoo);
-            //   objQuery.AddToQuery("AmountVAT12Point5Per", AmountVat12);
-            //   objQuery.AddToQuery("AmountVAT5Per", AmountVat5);
-            //   objQuery.AddToQuery("IPDOPDCode", IPDOPD);
+            objQuery.AddToQuery("OperatorID", mmoo);
             objQuery.AddToQuery("SalesmanID", salesmanid);
             objQuery.AddToQuery("TransporterID", transporterid);
             objQuery.AddToQuery("OrderNumber", orderNumber);
@@ -1051,16 +1180,37 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("ProfitInRupees", totalProfitInRupees);
             objQuery.AddToQuery("ProfitPercentByPurchaseRate", totalProfitPercentbyPurchaseRate);
             objQuery.AddToQuery("ProfitPercentBySaleRate", totalProfitPercentBySaleRate);
-      //      objQuery.AddToQuery("AmountPMTDiscount", pmtTotalDiscount);
             objQuery.AddToQuery("AmountItemDiscount", itemTotalDiscount);
-        //    objQuery.AddToQuery("ScanPrescriptionFileName", prescriptionFileName);
-            //objQuery.AddToQuery("MySpecialDiscountAmount", mySpecialDiscountAmount);
-          //  objQuery.AddToQuery("MySpecialDiscountPercent", mySpecialDiscountPer);
-         //   objQuery.AddToQuery("MySpecialDiscountAmount12point5", MyTotalSpecialDiscountPer12point5);
-         //   objQuery.AddToQuery("MySpecialDiscountAmount5", MyTotalSpecialDiscountPer5);
-        //    objQuery.AddToQuery("AmountCashDiscount5", TotalDiscount5);
-          //  objQuery.AddToQuery("AmountCashDiscount12point5", TotalDiscount12point5);
             objQuery.AddToQuery("AmountSchemeDiscount", SchemeTotalDiscount);
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+            {
+                objQuery.AddToQuery("EcoMartID", General.EcoMartLicense.ShopID);
+                objQuery.AddToQuery("CNFID", debtorid);
+                objQuery.AddToQuery("StockistID", 0);
+            }
+            else
+            {
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+                {
+                    objQuery.AddToQuery("EcoMartID", General.EcoMartLicense.EcoMartInfo.ShopID);
+                    objQuery.AddToQuery("CNFID", General.EcoMartLicense.ShopID);
+                    objQuery.AddToQuery("StockistID", debtorid);
+                    objQuery.AddToQuery("IFCNFSale", "Y" );
+                    objQuery.AddToQuery("IFStockistSale", "N");
+                }
+                else
+                {
+                    if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.Stockist)
+                    {
+                        objQuery.AddToQuery("EcoMARTID", General.EcoMartLicense.EcoMartInfo.ShopID);
+                        objQuery.AddToQuery("CNFID", General.EcoMartLicense.CNFInfo.ShopID);
+                        objQuery.AddToQuery("StockistID", General.EcoMartLicense.ShopID);
+                        objQuery.AddToQuery("IFCNFSale", "N" );
+                        objQuery.AddToQuery("IFStockistSale", "Y" );
+                    }
+                }
+            }
+            objQuery.AddToQuery("IFDownloaded", "N");
 
             objQuery.AddToQuery("AmountGST0", gstAmt0);
             objQuery.AddToQuery("AmountGSTS5", gstAmtS5);
@@ -1100,9 +1250,7 @@ namespace EcoMart.DataLayer
             return objQuery.InsertQuery();
         }
 
-        
-
-        private string GetInsertQuerySaleSpecialSale(string Id, string AccountId, string Narration1,string Narration2, string VouType, int VouNo,
+        private string GetInsertQuerySaleSpecialSale(string Id, string AccountId, string Narration1, string Narration2, string VouType, int VouNo,
            string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5, double Vat12, double rnd,
           string docId, string docshortname, string docAddress, double addon, string vousubtype, double amtbal, double amtclear, double octper, double octamt,
           int countersalenum, int statementnumber, double cramount, double dbamount, string patientname, string patientaddress1,
@@ -1164,37 +1312,37 @@ namespace EcoMart.DataLayer
             return objQuery.InsertQuery();
         }
 
-        private string GetInsertQueryProducts(string Id, int ProductID, string Batchno, int quantity, int SchemeQuantity,
-              double PurchaseRate, double MRP, double SaleRate, string Expiry, string ExpiryDate, string reasoncode, double VatPer, double Amount, string VouType, int VouNo, string VouDate)
-        {
-            Query objQuery = new Query();
-            objQuery.Table = "detailsale";
-            objQuery.AddToQuery("MasterID", Id);
-            objQuery.AddToQuery("ProductID", ProductID);
-            objQuery.AddToQuery("BatchNumber", Batchno);
-            objQuery.AddToQuery("Quantity", quantity);
-            objQuery.AddToQuery("PurchaseRate", PurchaseRate);
-            objQuery.AddToQuery("MRP", MRP);
-            objQuery.AddToQuery("SaleRate", SaleRate);
-            objQuery.AddToQuery("Expiry", Expiry);
-            objQuery.AddToQuery("ExpiryDate", ExpiryDate);
-            objQuery.AddToQuery("ReasonCode", reasoncode);
-            objQuery.AddToQuery("VATPer", VatPer);
-            objQuery.AddToQuery("Amount", Amount);
-            objQuery.AddToQuery("VoucherType", VouType);
-            objQuery.AddToQuery("VoucherNumber", VouNo);
-            objQuery.AddToQuery("VoucherDate", VouDate);
-            return objQuery.InsertQuery();
-        }
+        //private string GetInsertQueryProducts(string Id, int ProductID, string Batchno, int quantity, int SchemeQuantity,
+        //      double PurchaseRate, double MRP, double SaleRate, string Expiry, string ExpiryDate, string reasoncode, double VatPer, double Amount, string VouType, int VouNo, string VouDate)
+        //{
+        //    Query objQuery = new Query();
+        //    objQuery.Table = "detailsale";
+        //    objQuery.AddToQuery("MasterID", Id);
+        //    objQuery.AddToQuery("ProductID", ProductID);
+        //    objQuery.AddToQuery("BatchNumber", Batchno);
+        //    objQuery.AddToQuery("Quantity", quantity);
+        //    objQuery.AddToQuery("PurchaseRate", PurchaseRate);
+        //    objQuery.AddToQuery("MRP", MRP);
+        //    objQuery.AddToQuery("SaleRate", SaleRate);
+        //    objQuery.AddToQuery("Expiry", Expiry);
+        //    objQuery.AddToQuery("ExpiryDate", ExpiryDate);
+        //    objQuery.AddToQuery("ReasonCode", reasoncode);
+        //    objQuery.AddToQuery("VATPer", VatPer);
+        //    objQuery.AddToQuery("Amount", Amount);
+        //    objQuery.AddToQuery("VoucherType", VouType);
+        //    objQuery.AddToQuery("VoucherNumber", VouNo);
+        //    objQuery.AddToQuery("VoucherDate", VouDate);
+        //    return objQuery.InsertQuery();
+        //}
 
         private string GetInsertQueryProductsSS(int Id, int ProductID, string Batchno, int quantity,
                 double PurchaseRate, double MRP, double SaleRate, double TradeRate, string Expiry, double VatPer, double Amount,
                 string ExpiryDate, string accId, string CompId, double VatAmt, string ifproddisc, string stockid,
                 string mydetailsaleid, int serialNumber, double ProfitInRupees, double ProfitByPurchaseRate,
                 double ProfitBySaleRate, double pmtDiscountPer, double pmtDiscountAmt, double itemDiscountPer,
-                double itemDiscountAmt, double cashDiscountAmount, double mySpecialDiscountamount, double schemeDiscountAmount, 
+                double itemDiscountAmt, double cashDiscountAmount, double mySpecialDiscountamount, double schemeDiscountAmount,
                 int schemeDiscountQuantity, string vouDate, int vouNo, string vouType, double gstPurchaseAmountZero, double gstSPurchaseAmount, double gstCPurchaseAmount,
-               double gstSAmount, double gstCAmount, string newbatchno, double newmrp, double newsalerate)
+               double gstSAmount, double gstCAmount, string newbatchno, double newmrp, double newsalerate, int debtorid, double pricetoretailer)
         {
             int maccountid = Convert.ToInt32(accId);
             Query objQuery = new Query();
@@ -1207,6 +1355,7 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("MRP", MRP);
             objQuery.AddToQuery("SaleRate", SaleRate);
             objQuery.AddToQuery("TradeRate", TradeRate);
+            objQuery.AddToQuery("PriceToRetailer", pricetoretailer);
             objQuery.AddToQuery("Expiry", Expiry);
             objQuery.AddToQuery("VATPer", VatPer);
             objQuery.AddToQuery("Amount", Amount);
@@ -1214,8 +1363,8 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("VATAmount", VatAmt);
             objQuery.AddToQuery("IfProductDiscount", ifproddisc);
             objQuery.AddToQuery("StockID", stockid);
-            objQuery.AddToQuery("AccountID", maccountid) ;
-         //   objQuery.AddToQuery("DetailSaleID", mydetailsaleid);
+            objQuery.AddToQuery("AccountID", maccountid);
+            //   objQuery.AddToQuery("DetailSaleID", mydetailsaleid);
             objQuery.AddToQuery("SerialNumber", serialNumber);
             objQuery.AddToQuery("ProfitInRupees", ProfitInRupees);
             objQuery.AddToQuery("ProfitPercentBySaleRate", ProfitBySaleRate);
@@ -1225,10 +1374,11 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("ItemDiscountPer", itemDiscountPer);
             objQuery.AddToQuery("ItemDiscountAmount", itemDiscountAmt);
             objQuery.AddToQuery("CashDiscountAmount", cashDiscountAmount);
-          //  objQuery.AddToQuery("MySpecialDiscountAmount", mySpecialDiscountamount);
+            //  objQuery.AddToQuery("MySpecialDiscountAmount", mySpecialDiscountamount);
             objQuery.AddToQuery("SchemeDiscountAmount", schemeDiscountAmount);
             objQuery.AddToQuery("SchemeQuantity", schemeDiscountQuantity);
             objQuery.AddToQuery("VoucherDate", vouDate);
+            objQuery.AddToQuery("VoucherNumber", vouNo);
 
             objQuery.AddToQuery("GSTAmountZero", gstPurchaseAmountZero);
             objQuery.AddToQuery("GSTSAmount", gstSPurchaseAmount);
@@ -1239,11 +1389,141 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("ActualBatchNumber", newbatchno);
             objQuery.AddToQuery("ActualMRP", newmrp);
             objQuery.AddToQuery("ActualSaleRate", newsalerate);
+
+            
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+            {
+                objQuery.AddToQuery("EcoMartID", General.EcoMartLicense.ShopID);
+                objQuery.AddToQuery("CNFID", debtorid);
+                objQuery.AddToQuery("StockistID", 0);
+                objQuery.AddToQuery("EcoMartRate", TradeRate);
+                objQuery.AddToQuery("CNFRate", SaleRate);
+                objQuery.AddToQuery("StockistRate", pricetoretailer);
+
+            }
+            else
+            {
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+                {
+                    objQuery.AddToQuery("EcoMartID", General.EcoMartLicense.EcoMartInfo.ShopID);
+                    objQuery.AddToQuery("CNFID", General.EcoMartLicense.ShopID);
+                    objQuery.AddToQuery("StockistID", debtorid);                    
+                    objQuery.AddToQuery("CNFRate", SaleRate);
+                    objQuery.AddToQuery("StockistRate", pricetoretailer);
+                }
+                else
+                {
+                    if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.Stockist)
+                    {
+                        objQuery.AddToQuery("EcoMARTID", General.EcoMartLicense.EcoMartInfo.ShopID);
+                        objQuery.AddToQuery("CNFID", General.EcoMartLicense.CNFInfo.ShopID);
+                        objQuery.AddToQuery("StockistID", General.EcoMartLicense.ShopID);
+                        objQuery.AddToQuery("StockistRate", pricetoretailer);
+                    }
+                }
+            }
             //   objQuery.AddToQuery("VoucherNumber", vouNo);
             //  objQuery.AddToQuery("VoucherType", vouType);
             return objQuery.InsertQuery();
         }
 
+        private string GetInsertQueryProductsSSAzure(int Id, int ProductID, string Batchno, int quantity,
+               double PurchaseRate, double MRP, double SaleRate, double TradeRate, string Expiry, double VatPer, double Amount,
+               string ExpiryDate, string accId, string CompId, double VatAmt, string ifproddisc, string stockid,
+               string mydetailsaleid, int serialNumber, double ProfitInRupees, double ProfitByPurchaseRate,
+               double ProfitBySaleRate, double pmtDiscountPer, double pmtDiscountAmt, double itemDiscountPer,
+               double itemDiscountAmt, double cashDiscountAmount, double mySpecialDiscountamount, double schemeDiscountAmount,
+               int schemeDiscountQuantity, string vouDate, int vouNo, string vouType, double gstPurchaseAmountZero, double gstSPurchaseAmount, double gstCPurchaseAmount,
+              double gstSAmount, double gstCAmount, string newbatchno, double newmrp, double newsalerate, int debtorid, double pricetoretailer)
+        {
+            int maccountid = Convert.ToInt32(accId);
+            char ifyes = 'Y';
+            char ifno = 'N';
+            Query objQuery = new Query();
+            objQuery.Table = "detailsale_CS";
+            objQuery.AddToQuery("MasterSaleID", Id);
+            objQuery.AddToQuery("ProductID", ProductID);
+            objQuery.AddToQuery("BatchNumber", Batchno);
+            objQuery.AddToQuery("Quantity", quantity);
+            objQuery.AddToQuery("PurchaseRate", PurchaseRate);
+            objQuery.AddToQuery("MRP", MRP);
+            objQuery.AddToQuery("SaleRate", SaleRate);
+            objQuery.AddToQuery("TradeRate", TradeRate);
+            objQuery.AddToQuery("PriceToRetailer", pricetoretailer);
+            objQuery.AddToQuery("Expiry", Expiry);
+            objQuery.AddToQuery("VATPer", VatPer);
+            objQuery.AddToQuery("Amount", Amount);
+            objQuery.AddToQuery("ExpiryDate", ExpiryDate);
+            objQuery.AddToQuery("VATAmount", VatAmt);
+            objQuery.AddToQuery("IfProductDiscount", ifproddisc);
+            objQuery.AddToQuery("StockID", stockid);
+            objQuery.AddToQuery("AccountID", maccountid);
+            //   objQuery.AddToQuery("DetailSaleID", mydetailsaleid);
+            objQuery.AddToQuery("SerialNumber", serialNumber);
+            objQuery.AddToQuery("ProfitInRupees", ProfitInRupees);
+            objQuery.AddToQuery("ProfitPercentBySaleRate", ProfitBySaleRate);
+            objQuery.AddToQuery("ProfitPercentByPurchaseRate", ProfitByPurchaseRate);
+            objQuery.AddToQuery("PMTDiscount", pmtDiscountPer);
+            objQuery.AddToQuery("PMTAmount", pmtDiscountAmt);
+            objQuery.AddToQuery("ItemDiscountPer", itemDiscountPer);
+            objQuery.AddToQuery("ItemDiscountAmount", itemDiscountAmt);
+            objQuery.AddToQuery("CashDiscountAmount", cashDiscountAmount);
+            //  objQuery.AddToQuery("MySpecialDiscountAmount", mySpecialDiscountamount);
+            objQuery.AddToQuery("SchemeDiscountAmount", schemeDiscountAmount);
+            objQuery.AddToQuery("SchemeQuantity", schemeDiscountQuantity);
+            objQuery.AddToQuery("VoucherDate", vouDate);
+            objQuery.AddToQuery("VoucherNumber", vouNo);
+
+            objQuery.AddToQuery("GSTAmountZero", gstPurchaseAmountZero);
+            objQuery.AddToQuery("GSTSAmount", gstSPurchaseAmount);
+            objQuery.AddToQuery("GSTCAmount", gstCPurchaseAmount);
+            objQuery.AddToQuery("GSTS", gstSAmount);
+            objQuery.AddToQuery("GSTC", gstCAmount);
+
+            objQuery.AddToQuery("ActualBatchNumber", newbatchno);
+            objQuery.AddToQuery("ActualMRP", newmrp);
+            objQuery.AddToQuery("ActualSaleRate", newsalerate);
+
+
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+            {
+                objQuery.AddToQuery("EcoMartID", General.EcoMartLicense.ShopID);
+                objQuery.AddToQuery("CNFID", debtorid);
+                objQuery.AddToQuery("StockistID", 0);
+                objQuery.AddToQuery("EcoMartRate", TradeRate);
+                objQuery.AddToQuery("CNFRate", SaleRate);
+                objQuery.AddToQuery("StockistRate", pricetoretailer);
+
+            }
+            else
+            {
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+                {
+                    objQuery.AddToQuery("EcoMartID", General.EcoMartLicense.EcoMartInfo.ShopID);
+                    objQuery.AddToQuery("CNFID", General.EcoMartLicense.ShopID);
+                    objQuery.AddToQuery("StockistID", 0);
+                    objQuery.AddToQuery("CNFRate", SaleRate);
+                    objQuery.AddToQuery("StockistRate", pricetoretailer);
+                    objQuery.AddToQuery("IFCNFSale", "Y" );
+                    objQuery.AddToQuery("IFStockistSale", "N" );
+                }
+                else
+                {
+                    if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.Stockist)
+                    {
+                        objQuery.AddToQuery("EcoMARTID", General.EcoMartLicense.EcoMartInfo.ShopID);
+                        objQuery.AddToQuery("CNFID", General.EcoMartLicense.CNFInfo.ShopID);
+                        objQuery.AddToQuery("StockistID", General.EcoMartLicense.ShopID);
+                        objQuery.AddToQuery("StockistRate", pricetoretailer);
+                        objQuery.AddToQuery("IFCNFSale", "N");
+                        objQuery.AddToQuery("IFStockistSale", "Y");
+                    }
+                }
+            }
+            //   objQuery.AddToQuery("VoucherNumber", vouNo);
+            //  objQuery.AddToQuery("VoucherType", vouType);
+            return objQuery.InsertQuery();
+        }
         private string GetInsertQueryProductsSSSpecialSale(string Id, int ProductID, string Batchno, int quantity,
               double PurchaseRate, double MRP, double SaleRate, double TradeRate, string Expiry, double VatPer, double Amount,
               string ExpiryDate, string accId, string CompId, double VatAmt, string ifproddisc, string stockid, string mydetailsaleid, int serialNumber, double ProfitInRupees, double ProfitByPurchaseRate, double ProfitBySaleRate, double pmtDiscountPer, double pmtDiscountAmt, double itemDiscountPer, double itemDiscountAmt)
@@ -1350,17 +1630,16 @@ namespace EcoMart.DataLayer
             string operatorid, string patientID, double AmountVat12, double AmountVat5, string IPDOPD, string orderNumber, string orderDate, double totalProfitInRupees,
             double totalProfitPercentbyPurchaseRate, double totalProfitPercentBySaleRate, double pmtTotalDiscount, double itemTotalDiscount,
             string prescriptionFileName, string telephone, double mySpecialDiscountAmount, double MySpecialDiscountPercent, double MyTotalSpecialDiscountPer12point5, double MyTotalSpecialDiscountPer5,
-            double TotalDiscount12point5, double TotalDiscount5,double  SchemeTotalDiscount,string iffullpayment, string nextVisitDate, string debtorPatientID,
+            double TotalDiscount12point5, double TotalDiscount5, double SchemeTotalDiscount, string iffullpayment, string nextVisitDate, string debtorPatientID,
             double gstAmt0, double gstAmtS5, double gstAmtS12, double gstAmtS18, double gstAmtS28,
             double gstAmtC5, double gstAmtC12, double gstAmtC18, double gstAmtC28, double gsts5, double gsts12, double gsts18, double gsts28,
-            double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28, string modifiedby, string modifydate, string modifytime)
+            double gstc5, double gstc12, double gstc18, double gstc28, double gstAmtI5, double gstAmtI12, double gstAmtI18, double gstAmtI28, double gstI5, double gstI12, double gstI18, double gstI28, int debtorid, string modifiedby, string modifydate, string modifytime)
         {
             Query objQuery = new Query();
             objQuery.Table = "vouchersale";
-            objQuery.AddToQuery("ID", Id, true);            
+            objQuery.AddToQuery("ID", Id, true);
             objQuery.AddToQuery("AccountId", CreditorId);
-            objQuery.AddToQuery("Narration", Narration1);
-            //objQuery.AddToQuery("Narration2", Narration2);
+            objQuery.AddToQuery("Narration", Narration1);           
             objQuery.AddToQuery("VoucherType", VouType);
             objQuery.AddToQuery("VoucherNumber", VouNo);
             objQuery.AddToQuery("VoucherDate", VouDate);
@@ -1368,54 +1647,48 @@ namespace EcoMart.DataLayer
             objQuery.AddToQuery("AmountNet", AmountNet);
             objQuery.AddToQuery("CashDiscountPercent", DiscPer);
             objQuery.AddToQuery("AmountCashDiscount", DiscAmt);
-            objQuery.AddToQuery("AmountGross", Amt);
-        //    objQuery.AddToQuery("VAT5Per", Vat5);
-        //    objQuery.AddToQuery("VAT12Point5Per", Vat12);
+            objQuery.AddToQuery("AmountGross", Amt);           
             objQuery.AddToQuery("RoundingAmount", rnd);
             objQuery.AddToQuery("AmountBalance", amtbal);
-            objQuery.AddToQuery("DoctorID", docId);
-         //   objQuery.AddToQuery("DoctorShortName", docNameAddress);
-         //   objQuery.AddToQuery("DoctorAddress", docAddress);
-        //    objQuery.AddToQuery("Telephone", telephone);
+            objQuery.AddToQuery("DoctorID", docId);           
             objQuery.AddToQuery("AddOnFreight", addon);
             objQuery.AddToQuery("VoucherSubType", vousubtype);
-            objQuery.AddToQuery("AmountClear", amtclear);
-       //     objQuery.AddToQuery("OctroiPercentage", octper);
-        //    objQuery.AddToQuery("AmountOctroi", octamt);
-        //    objQuery.AddToQuery("CounterSaleNumber", countersalenum);
+            objQuery.AddToQuery("AmountClear", amtclear);           
             objQuery.AddToQuery("StatementNumber", statementnumber);
             objQuery.AddToQuery("AmountCreditNoteStock", cramount);
-            objQuery.AddToQuery("AmountDebitNote", dbamount);
-        //    objQuery.AddToQuery("PatientID", patientID);
-         //   objQuery.AddToQuery("DebtorsPatientID", debtorPatientID);
-         //   objQuery.AddToQuery("PatientName", patientname);
-        //    objQuery.AddToQuery("PatientAddress1", patientaddress1);
-        //    objQuery.AddToQuery("PatientAddress2", patientaddress2);
-        //    objQuery.AddToQuery("PatientShortName", patientshortname);
-       //     objQuery.AddToQuery("PatientShortAddress", patientShortAddress);
-       //     objQuery.AddToQuery("AmountForZeroVAT", amountforzerovat);
-       //     objQuery.AddToQuery("OperatorID", operatorid);
-         //   objQuery.AddToQuery("AmountVAT12Point5Per", AmountVat12);
-        //    objQuery.AddToQuery("AmountVAT5Per", AmountVat5);
-        //    objQuery.AddToQuery("IPDOPDCode", IPDOPD);
+            objQuery.AddToQuery("AmountDebitNote", dbamount);           
             objQuery.AddToQuery("OrderNumber", orderNumber);
             objQuery.AddToQuery("OrderDate", orderDate);
             objQuery.AddToQuery("ProfitInRupees", totalProfitInRupees);
             objQuery.AddToQuery("ProfitPercentByPurchaseRate", totalProfitPercentbyPurchaseRate);
-            objQuery.AddToQuery("ProfitPercentBySaleRate", totalProfitPercentBySaleRate);
-        //    objQuery.AddToQuery("AmountPMTDiscount", pmtTotalDiscount);
-            objQuery.AddToQuery("AmountItemDiscount", itemTotalDiscount);
-        //    objQuery.AddToQuery("ScanPrescriptionFileName", prescriptionFileName);
-          //  objQuery.AddToQuery("MySpecialDiscountAmount", mySpecialDiscountAmount);
-         //   objQuery.AddToQuery("MySpecialDiscountPercent", MySpecialDiscountPercent);
-         //   objQuery.AddToQuery("MySpecialDiscountAmount12point5", MyTotalSpecialDiscountPer12point5);
-        //    objQuery.AddToQuery("MySpecialDiscountAmount5", MyTotalSpecialDiscountPer5);
-         //   objQuery.AddToQuery("AmountCashDiscount5", TotalDiscount5);
-       //     objQuery.AddToQuery("AmountCashDiscount12point5", TotalDiscount12point5);
+            objQuery.AddToQuery("ProfitPercentBySaleRate", totalProfitPercentBySaleRate);           
+            objQuery.AddToQuery("AmountItemDiscount", itemTotalDiscount);           
             objQuery.AddToQuery("AmountSchemeDiscount", SchemeTotalDiscount);
-            //   objQuery.AddToQuery("IfFullPayment", iffullpayment);
-            //    objQuery.AddToQuery("NextVisitDate", nextVisitDate);
-
+            if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.EcoMart)
+            {
+                objQuery.AddToQuery("EcoMartID", General.EcoMartLicense.ShopID);
+                objQuery.AddToQuery("CNFID", debtorid);
+                objQuery.AddToQuery("StockistID", 0);
+            }
+            else
+            {
+                if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.CNF)
+                {
+                    objQuery.AddToQuery("EcoMartID", General.EcoMartLicense.EcoMartInfo.ShopID);
+                    objQuery.AddToQuery("CNFID", General.EcoMartLicense.ShopID);
+                    objQuery.AddToQuery("StockistID", debtorid);
+                }
+                else
+                {
+                    if (General.EcoMartLicense.ApplicationType == EcoMartLicenseLib.ApplicationTypes.Stockist)
+                    {
+                        objQuery.AddToQuery("EcoMARTID", General.EcoMartLicense.EcoMartInfo.ShopID);
+                        objQuery.AddToQuery("CNFID", General.EcoMartLicense.CNFInfo.ShopID);
+                        objQuery.AddToQuery("StockistID", General.EcoMartLicense.ShopID);
+                    }
+                }
+            }
+            objQuery.AddToQuery("IFDownloaded","N");
             objQuery.AddToQuery("AmountGST0", gstAmt0);
             objQuery.AddToQuery("AmountGSTS5", gstAmtS5);
             objQuery.AddToQuery("AmountGSTS12", gstAmtS12);
@@ -1450,7 +1723,7 @@ namespace EcoMart.DataLayer
             return objQuery.UpdateQuery();
         }
 
-        private string GetAddDetailsInDeleteMaster(string Id, string CreditorId, string Narration1,string Narration2, string VouType, int VouNo,
+        private string GetAddDetailsInDeleteMaster(string Id, string CreditorId, string Narration1, string Narration2, string VouType, int VouNo,
             string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5, double Vat12, double rnd,
            double balamt, string docId, string docshortname, string docAddress, double addon, string vousubtype,
            double amtbal, double amtclear, double octper, double octamt, int countersalenum, int statementnumber, double cramount,
@@ -1511,7 +1784,7 @@ namespace EcoMart.DataLayer
 
         }
 
-        private string GetAddDetailsInChangedMaster(string Id, string ChangedID, string CreditorId, string Narration1,string Narration2, string VouType, int VouNo,
+        private string GetAddDetailsInChangedMaster(string Id, string ChangedID, string CreditorId, string Narration1, string Narration2, string VouType, int VouNo,
             string VouDate, double AmountNet, double DiscPer, double DiscAmt, double Amt, double Vat5, double Vat12, double rnd,
            double balamt, string docId, string docshortname, string docAddress, double addon, string vousubtype,
            double amtbal, double amtclear, double octper, double octamt, int countersalenum, int statementnumber, double cramount,
@@ -1674,7 +1947,7 @@ namespace EcoMart.DataLayer
                 crby = Convert.ToInt32(createdby);
             Query objQuery = new Query();
             objQuery.Table = "tbltrnac";
-          //  objQuery.AddToQuery("tblTrnacID", DetailId);
+            //  objQuery.AddToQuery("tblTrnacID", DetailId);
             objQuery.AddToQuery("VoucherID", Id);
             objQuery.AddToQuery("AccountId", debitaccount);
             objQuery.AddToQuery("Debit", debitamount);
@@ -1778,31 +2051,31 @@ namespace EcoMart.DataLayer
 
         public void UpdateDetailsInTempPurchase(string TempChallanID, int Quantity, string LastStockID, string CreatedBy, string CreatedDate, string CreatedTime)
         {
-           // bool bRetValue = false;
+            // bool bRetValue = false;
             string strSql = "Update tblTempPurchase set Quantity = Quantity " + Quantity + " where StockID = '" + LastStockID + "'";
         }
 
-        public void AddDetailsInTempPurchase(string TempChallanID, int ProductID, string Batchno, int Quantity, double PurchaseRate, double MRP,  double TradeRate, string Expiry, string LastStockID, string CreatedBy, string CreatedDate, string CreatedTime)
+        public void AddDetailsInTempPurchase(string TempChallanID, int ProductID, string Batchno, int Quantity, double PurchaseRate, double MRP, double TradeRate, string Expiry, string LastStockID, string CreatedBy, string CreatedDate, string CreatedTime)
         {
-           // bool bRetValue = false;
-            string strSql = GetInsertQueryInTempPurchase(TempChallanID, ProductID, Batchno, Quantity, PurchaseRate,  MRP, TradeRate, Expiry,  LastStockID, CreatedBy,  CreatedDate,  CreatedTime);
-            DBInterface.ExecuteQuery(strSql);           
+            // bool bRetValue = false;
+            string strSql = GetInsertQueryInTempPurchase(TempChallanID, ProductID, Batchno, Quantity, PurchaseRate, MRP, TradeRate, Expiry, LastStockID, CreatedBy, CreatedDate, CreatedTime);
+            DBInterface.ExecuteQuery(strSql);
         }
-        private string GetInsertQueryInTempPurchase(string TempChallanID, int ProductID, string Batchno, int Quantity, double PurchaseRate, double MRP,double TradeRate, string Expiry, string LastStockID, string CreatedBy, string CreatedDate, string CreatedTime)
+        private string GetInsertQueryInTempPurchase(string TempChallanID, int ProductID, string Batchno, int Quantity, double PurchaseRate, double MRP, double TradeRate, string Expiry, string LastStockID, string CreatedBy, string CreatedDate, string CreatedTime)
         {
             Query objQuery = new Query();
             objQuery.Table = "tblTempPurchase";
             objQuery.AddToQuery("ID", TempChallanID);
             objQuery.AddToQuery("ProductID", ProductID);
-            objQuery.AddToQuery("BatchNumber",Batchno);
-            objQuery.AddToQuery("MRP",MRP);
+            objQuery.AddToQuery("BatchNumber", Batchno);
+            objQuery.AddToQuery("MRP", MRP);
             objQuery.AddToQuery("Quantity", Quantity);
             objQuery.AddToQuery("ClearedQuantity", 0);
             objQuery.AddToQuery("PurchaseRate", PurchaseRate);
-           // objQuery.AddToQuery("TradeRate",TradeRate);
-            objQuery.AddToQuery("Expiry", Expiry);           
+            // objQuery.AddToQuery("TradeRate",TradeRate);
+            objQuery.AddToQuery("Expiry", Expiry);
             objQuery.AddToQuery("StockID", LastStockID);
-            objQuery.AddToQuery("CreatedUserID",CreatedBy);
+            objQuery.AddToQuery("CreatedUserID", CreatedBy);
             objQuery.AddToQuery("CreatedDate", CreatedDate);
             objQuery.AddToQuery("CreatedTime", CreatedTime);
             return objQuery.InsertQuery();
@@ -1810,31 +2083,31 @@ namespace EcoMart.DataLayer
 
         public void UpdateDetailSaleForNewVoucherTypeAndNumber(string Id, string vouID, string vouType, int vouNumber)
         {
-           
-            string strSql = "Update DetailSale set MasterSaleID = '" + Id +"', VoucherType = '"+ vouType +"', VoucherNumber = "+ vouNumber+" where DetailSaleID = '"+ vouID +"'";
 
-            DBInterface.ExecuteQuery(strSql);  
+            string strSql = "Update DetailSale set MasterSaleID = '" + Id + "', VoucherType = '" + vouType + "', VoucherNumber = " + vouNumber + " where DetailSaleID = '" + vouID + "'";
+
+            DBInterface.ExecuteQuery(strSql);
         }
 
         public DataRow GetPartyOtherDetails(string partyID)
         {
             DataRow dr = null;
-            string strSql = "Select * from masterAccount where accountID = '"+ partyID +"'";
+            string strSql = "Select * from masterAccount where accountID = '" + partyID + "'";
             dr = DBInterface.SelectFirstRow(strSql);
             return dr;
         }
 
 
-        public DataRow GetLastRecordForSale(string voutype,string vousubtype, string vouSeries)
+        public DataRow GetLastRecordForSale(string voutype, string vousubtype, string vouSeries)
         {
-            DataRow dRow = null;            
+            DataRow dRow = null;
             {
                 string strSql = "Select a.ID, a.VoucherType,a.VoucherNumber,a.CounterSaleNumber,a.VoucherDate, " +
                 "a.VoucherSubType,a.AccountID,a.AmountNet,a.AmountClear,a.AmountBalance,a.AmountGross, " +
                 "a.CashDiscountPercent,a.AmountCashDiscount,a.AddOnFreight,a.AmountCreditNote,a.AmountDebitNote, " +
                 "a.OctroiPercentage,a.AmountOctroi,a.Narration1,a.Narration2,a.StatementNumber,a.DoctorID,a.DoctorShortName,a.DoctorAddress,a.PatientID, " +
                 "a.OperatorID,a.PatientName,a.PatientAddress1,a.PatientAddress2,a.PatientShortName,a.PatientShortAddress,a.AmountForZeroVAT,a.IPDOPDCode,a.VAT5Per,a.VAT12Point5Per,a.AmountVAT12Point5Per,a.AmountVAT5Per, " +
-                "a.RoundingAmount,a.DiscountAmountCB,b.AccountID,b.AccTokenNumber,a.OrderNumber,a.OrderDate from vouchersale  a  left outer join masteraccount b on a.AccountID = b.AccountID  where  a.VoucherType =  '" + voutype + "'  AND a.VoucherSubType = '" + vousubtype + "' AND a.VoucherSeries = '"+ vouSeries +"'  order by a.Vouchernumber desc ";
+                "a.RoundingAmount,a.DiscountAmountCB,b.AccountID,b.AccTokenNumber,a.OrderNumber,a.OrderDate from vouchersale  a  left outer join masteraccount b on a.AccountID = b.AccountID  where  a.VoucherType =  '" + voutype + "'  AND a.VoucherSubType = '" + vousubtype + "' AND a.VoucherSeries = '" + vouSeries + "'  order by a.Vouchernumber desc ";
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
             return dRow;
@@ -1849,7 +2122,7 @@ namespace EcoMart.DataLayer
             }
             return dRow;
         }
-        public DataRow GetFirstVoucherNumber(string voutype, string vousubtype , string vouseries)
+        public DataRow GetFirstVoucherNumber(string voutype, string vousubtype, string vouseries)
         {
             DataRow dRow = null;
             {
@@ -1868,7 +2141,7 @@ namespace EcoMart.DataLayer
                 "a.CashDiscountPercent,a.AmountCashDiscount,a.AddOnFreight,a.AmountCreditNote,a.AmountDebitNote, " +
                 "a.OctroiPercentage,a.AmountOctroi,a.Narration1,a.Narration2,a.StatementNumber,a.DoctorID,a.DoctorShortName,a.DoctorAddress,a.PatientID, " +
                 "a.OperatorID,a.PatientName,a.PatientAddress1,a.PatientAddress2,a.PatientShortName,a.PatientShortAddress,a.AmountForZeroVAT,a.IPDOPDCode,a.VAT5Per,a.VAT12Point5Per,a.AmountVAT12Point5Per,a.AmountVAT5Per, " +
-                "a.RoundingAmount,a.DiscountAmountCB,b.AccountID,b.AccTokenNumber,a.OrderNumber,a.OrderDate from vouchersale  a  left outer join masteraccount b on a.AccountID = b.AccountID  where  a.VoucherType =  '" + CrdbVouType + "'  AND a.VoucherSubType = '" + SaleSubType + "' AND a.VoucherSeries = '"+ crdbVoucherSeries+"'  order by a.Vouchernumber ";
+                "a.RoundingAmount,a.DiscountAmountCB,b.AccountID,b.AccTokenNumber,a.OrderNumber,a.OrderDate from vouchersale  a  left outer join masteraccount b on a.AccountID = b.AccountID  where  a.VoucherType =  '" + CrdbVouType + "'  AND a.VoucherSubType = '" + SaleSubType + "' AND a.VoucherSeries = '" + crdbVoucherSeries + "'  order by a.Vouchernumber ";
                 dRow = DBInterface.SelectFirstRow(strSql);
             }
             return dRow;
@@ -1928,7 +2201,7 @@ namespace EcoMart.DataLayer
         {
             DataRow dr = null;
             string strSql = "select * from tblstock where ProductID = '{0}' AND mrp != {1} AND closingStock > 0 ";
-            strSql = string.Format(strSql, mprodno,  mmrpn);
+            strSql = string.Format(strSql, mprodno, mmrpn);
             dr = DBInterface.SelectFirstRow(strSql);
             return dr;
         }
@@ -1937,7 +2210,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dt;
             string strSql = "Select VoucherType, sum(AmountNet) as AmountNet from vouchersale where voucherdate >= '" + _MFromDate + "' AND voucherDate <= '" + _MToDate + "' group by vouchertype " +
-                            " union Select VoucherType,sum(Amount) as AmountNet from detailSale where voucherdate >= '" + _MFromDate + "' AND voucherDate <= '" + _MToDate + "' AND VoucherType = '"+ FixAccounts.VoucherTypeForVoucherSale +"' group by vouchertype " +
+                            " union Select VoucherType,sum(Amount) as AmountNet from detailSale where voucherdate >= '" + _MFromDate + "' AND voucherDate <= '" + _MToDate + "' AND VoucherType = '" + FixAccounts.VoucherTypeForVoucherSale + "' group by vouchertype " +
                             " union Select VoucherType, sum(AmountNet) as AmountNet from voucherpurchase where voucherdate >= '" + _MFromDate + "' AND voucherDate <= '" + _MToDate + "' group by vouchertype " +
                             " union Select VoucherType, sum(AmountNet) as AmountNet from vouchercreditdebitnote where voucherdate >= '" + _MFromDate + "' AND voucherDate <= '" + _MToDate + "' group by vouchertype " +
                             " union Select VoucherType, sum(AmountNet) as AmountNet from vouchercashbankreceipt where voucherdate >= '" + _MFromDate + "' AND voucherDate <= '" + _MToDate + "' group by vouchertype " +
@@ -1959,7 +2232,7 @@ namespace EcoMart.DataLayer
         {
             DataTable dt;
             string strSql = "Select ID, VoucherType, vouchernumber, Voucherdate,vouchersubtype, AmountNet,PatientName as AccName,createddate,createdtime,modifieddate from vouchersale where (createddate >= '" + _MFromDate + "' AND createddate <= '" + _MToDate + "' ) OR (modifieddate >= '" + _MFromDate + "' AND modifieddate <= '" + _MToDate + "') " +
-                //" union Select VoucherType,sum(Amount) as AmountNet from detailSale where voucherdate >= '" + _MFromDate + "' AND voucherDate <= '" + _MToDate + "' AND VoucherType = '" + FixAccounts.VoucherTypeForVoucherSale + "' group by vouchertype " +
+            //" union Select VoucherType,sum(Amount) as AmountNet from detailSale where voucherdate >= '" + _MFromDate + "' AND voucherDate <= '" + _MToDate + "' AND VoucherType = '" + FixAccounts.VoucherTypeForVoucherSale + "' group by vouchertype " +
             " union Select a.PurchaseID as ID, a.VoucherType, a.vouchernumber, a.Voucherdate,'' as vouchersubtype, a.AmountNet,b.AccName,a.createddate,a.createdtime,a.modifieddate from voucherpurchase a inner join masteraccount b on a.AccountID = b.AccountID where (a.createddate >= '" + _MFromDate + "' AND a.createddate <= '" + _MToDate + "' ) OR (a.modifieddate >= '" + _MFromDate + "' AND a.modifieddate <= '" + _MToDate + "') " +
             " union Select a.CRDBID as ID, a.VoucherType, a.vouchernumber, a.Voucherdate,'' as vouchersubtype, a.AmountNet,b.AccName,a.createddate,a.createdtime,a.modifieddate from vouchercreditdebitnote a inner join masteraccount b on a.AccountID = b.AccountID  where (a.createddate >= '" + _MFromDate + "' AND a.createddate <= '" + _MToDate + "' ) OR (a.modifieddate >= '" + _MFromDate + "' AND a.modifieddate <= '" + _MToDate + "') " +
             " union Select a.CBID as ID, a.VoucherType, a.vouchernumber, a.Voucherdate,'' as vouchersubtype, a.AmountNet,b.AccName,a.createddate,a.createdtime,a.modifieddate from vouchercashbankreceipt a inner join masteraccount b on a.AccountID = b.AccountID where (a.createddate >= '" + _MFromDate + "' AND a.createddate <= '" + _MToDate + "' ) OR (a.modifieddate >= '" + _MFromDate + "' AND a.modifieddate <= '" + _MToDate + "') " +
@@ -1971,8 +2244,8 @@ namespace EcoMart.DataLayer
         }
         public void UpdateDetailSaleForRateInCounterSale(string detailID, double mrate, string voucherType, int voucherNumber)
         {
-          //  bool retValue = false;
-            string strSql = "Update Detailsale set salerate = "+ mrate +", voucherType = '"+ voucherType +"', vouchernumber = "+ voucherNumber +"  where detailSaleID = '"+ detailID +"'";
+            //  bool retValue = false;
+            string strSql = "Update Detailsale set salerate = " + mrate + ", voucherType = '" + voucherType + "', vouchernumber = " + voucherNumber + "  where detailSaleID = '" + detailID + "'";
             DBInterface.ExecuteQuery(strSql);
             //if (DBInterface.ExecuteQuery(strSql) > 0)
             //    retValue = true;
@@ -2008,7 +2281,7 @@ namespace EcoMart.DataLayer
         {
             string strSql = "Update masterdoctor set DocAddress = '" + address + "' where DocID = '" + docID + "'";
 
-            DBInterface.ExecuteQuery(strSql);  
+            DBInterface.ExecuteQuery(strSql);
         }
 
         //public void UpdatePatient(string mobilenumber, string telephone, string patientID, string docID)
@@ -2018,25 +2291,171 @@ namespace EcoMart.DataLayer
         //    DBInterface.ExecuteQuery(strSql);
         //}
 
-        public DataTable GetNegetiveStockRowsFromtblStock(string crdbVouDate)
+        //public DataTable GetNegetiveStockRowsFromtblStock(string crdbVouDate)
+        //{
+        //    DataTable dt = new DataTable();
+        //    string strSql = "Select a.stockID,a.ProductID,a.BatchNumber,a.purchaseRate,a.MRP,a.SaleRate,a.Expiry,a.ExpiryDate,a.TradeRate,a.ProductVATPercent, sum(a.closingstock) as closingstock, b.voucherDate, c.ProdLoosePack from tblstock a inner join detailsale b on a.stockID = b.stockID inner join masterproduct c on a.ProductID = c.ProductID where closingstock < 0 AND b.Voucherdate = '" + crdbVouDate + "' group by a.stockID";
+        //    dt = DBInterface.SelectDataTable(strSql);
+        //    return dt;
+        //}
+
+        //public void CreateStockInVoucher(string stockINId, int stockINVouNo, DataTable dt)
+        //{
+
+
+        //}
+        //public DataRow GetDetailsByPatientID(string PatientID)  // [ansuman]
+        //{
+        //    //DataRow dr;
+        //    string strsql = "select sum(AmountBalance) as PendingAmount from vouchersale where PatientID = '{0}'";
+        //    strsql = string.Format(strsql, PatientID);
+        //    return DBInterface.SelectFirstRow(strsql);
+        //}
+
+        public bool CheckForPendingOrdersEcoMart()
         {
-            DataTable dt = new DataTable();
-            string strSql = "Select a.stockID,a.ProductID,a.BatchNumber,a.purchaseRate,a.MRP,a.SaleRate,a.Expiry,a.ExpiryDate,a.TradeRate,a.ProductVATPercent, sum(a.closingstock) as closingstock, b.voucherDate, c.ProdLoosePack from tblstock a inner join detailsale b on a.stockID = b.stockID inner join masterproduct c on a.ProductID = c.ProductID where closingstock < 0 AND b.Voucherdate = '" + crdbVouDate +"' group by a.stockID";
+            bool retValue = false;
+            DataRow dr = null;
+            int morderqty = 0;
+            string strSql = "Select cnforderQuantity from detailpurchaseorderfromcnf where cnfOrderQuantity - CNFReceivedQuanity > 0";
+
+            dr = (DBInterface.SelectFirstRow(strSql));
+            {
+                if (dr != null)
+                {
+                    morderqty = Convert.ToInt32(dr["CnfOrderQuantity"].ToString());
+                    if (morderqty > 0)
+                    {
+                        retValue = true;
+                    }
+                }
+            }
+
+            return retValue;
+        }
+        public bool CheckForPendingOrdersCNF()
+        {
+            bool retValue = false;
+            DataRow dr = null;
+            int morderqty = 0;
+            string strSql = "Select stockistorderQuantity from detailpurchaseorderfromstockist where stockistOrderQuantity - StockistReceivedQuantity > 0 and cnfid = " + General.EcoMartLicense.ShopID ;
+
+            dr = (AzureDBInterface.SelectFirstRow(strSql));
+            {
+                if (dr != null)
+                {
+                    morderqty = Convert.ToInt32(dr["stockistorderQuantity"].ToString());
+                    if (morderqty > 0)
+                    {
+                        retValue = true;
+                    }
+                }
+            }
+
+            return retValue;
+        }
+        public DataTable GetPurchaseOrderDataEcoMart()
+        {
+            DataTable dt = null;
+            DataRow dr = null;
+            int mfirstcnf = 0;
+            int mecomartid = General.EcoMartLicense.ShopID; 
+            string strSql = "Select CNFID from detailpurchaseorderfromcnf where cnfOrderQuantity - CNFReceivedQuanity > 0 and EcoMartID = " + mecomartid ;
+
+            dr = (DBInterface.SelectFirstRow(strSql));
+            {
+                if (dr != null)
+                {
+                    mfirstcnf = Convert.ToInt32(dr["CNFID"].ToString());                   
+                }
+            }
+            if (mfirstcnf > 0)
+            {
+                strSql = "Select * from detailpurchaseorderfromcnf where cnfOrderQuantity - CNFReceivedQuanity > 0 and CNFID = " + mfirstcnf + " and EcoMartID = " + mecomartid ;
+                dt = DBInterface.SelectDataTable(strSql);
+            }
+
+            return dt;
+        }
+
+        public DataTable GetStockDataEcoMart(int mprodid)
+        {
+            DataTable dt = null;
+            int mecomartid = General.EcoMartLicense.ShopID;
+
+            string strSql = "select a.ProductID,a.StockID,a.BatchNumber,a.MRP,a.PurchaseRate,a.SaleRate,a.PriceToRetailer, " +
+                                "a.TradeRate,a.Expiry,a.ExpiryDate,a.ClosingStock,a.ProductVatpercent,c.ProdCompShortName,c.ProdShelfID,c.ProductID, " +
+                                "c.ProdName,c.ProdLoosePack,c.ProdPack,d.ShelfCode  from tblstock a inner join masterproduct c on a.ProductID = c.ProductID  " +
+                                "left outer join mastershelf d on c.ProdShelfID = d.ShelfID where a.ClosingStock > 0 and  EcoMartID = " + mecomartid + 
+                                " and a.productID = " + mprodid; 
+
+
+
+            //string strSql = "Select * from tblstock where  ClosingStock > 0 and  EcoMartID = " + mecomartid  + " and productID = " + mprodid;
             dt = DBInterface.SelectDataTable(strSql);
             return dt;
         }
 
-        public void CreateStockInVoucher(string stockINId, int stockINVouNo, DataTable dt)
+        public int GetAccountIDFromCNFIDEcoMart(int mcnfid)
         {
-            
-
+            int macid = 0;
+            DataRow dr = null;
+            string strSql = "select AccountID,AccName,AccAddress1,AccAddress2,AccTelephone from masteraccount where cnfid = " + mcnfid;
+            dr = DBInterface.SelectFirstRow(strSql);
+            macid = Convert.ToInt32(dr["AccountID"].ToString());
+            return macid;
         }
-        public DataRow GetDetailsByPatientID(string PatientID)  // [ansuman]
+
+
+        public DataTable GetPurchaseOrderDataCNF()
         {
-           //DataRow dr;
-            string strsql = "select sum(AmountBalance) as PendingAmount from vouchersale where PatientID = '{0}'";
-            strsql = string.Format(strsql, PatientID);
-            return DBInterface.SelectFirstRow(strsql);
+            DataTable dt = null;
+            DataRow dr = null;
+            int mselectedStockist = 0;
+            int mcnfid = General.EcoMartLicense.ShopID;
+            string strSql = "Select StockistID from detailpurchaseorderfromstockist where stockistOrderQuantity - stockistReceivedQuantity > 0 and cnfID = " + mcnfid;
+
+            dr = (AzureDBInterface.SelectFirstRow(strSql));
+            {
+                if (dr != null)
+                {
+                    mselectedStockist = Convert.ToInt32(dr["StockistID"].ToString());
+                }
+            }
+            if (mselectedStockist > 0)
+            {
+                strSql = "Select * from detailpurchaseorderfromstockist where stockistOrderQuantity - stockistReceivedQuantity  > 0 and CNFID = " + mcnfid;
+                dt = AzureDBInterface.SelectDataTable(strSql);
+            }
+
+            return dt;
+        }
+
+        public DataTable GetStockDataCNF(int mprodid)
+        {
+            DataTable dt = null;
+            int mecomartid = General.EcoMartLicense.ShopID;
+
+            string strSql = "select a.ProductID,a.StockID,a.BatchNumber,a.MRP,a.PurchaseRate,a.SaleRate,a.PriceToRetailer, " +
+                                "a.TradeRate,a.Expiry,a.ExpiryDate,a.ClosingStock,a.ProductVatpercent,c.ProdCompShortName,c.ProdShelfID,c.ProductID, " +
+                                "c.ProdName,c.ProdLoosePack,c.ProdPack,d.ShelfCode  from tblstock a inner join masterproduct c on a.ProductID = c.ProductID  " +
+                                "left outer join mastershelf d on c.ProdShelfID = d.ShelfID where a.ClosingStock > 0 AND a.ExpiryDate > "+ DateTime.Today  +"  AND a.productID = " + mprodid;
+
+
+
+            //string strSql = "Select * from tblstock where  ClosingStock > 0 and  EcoMartID = " + mecomartid  + " and productID = " + mprodid;
+            dt = DBInterface.SelectDataTable(strSql);
+            return dt;
+        }
+
+        public int GetAccountIDFromCNFIDCNF(int mstockistid)
+        {
+            int macid = 0;
+            DataRow dr = null;
+            string strSql = "select AccountID,AccName,AccAddress1,AccAddress2,AccTelephone from masteraccount where StockistID = " + mstockistid;
+            dr = DBInterface.SelectFirstRow(strSql);
+            macid = Convert.ToInt32(dr["AccountID"].ToString());
+            return macid;
         }
     }
 }

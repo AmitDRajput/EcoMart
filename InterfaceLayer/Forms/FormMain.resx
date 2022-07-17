@@ -173,7 +173,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB8
-        GAAAAk1TRnQBSQFMAgEBDwEAASwBAgEsAQIBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        GAAAAk1TRnQBSQFMAgEBDwEAATQBAgE0AQIBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAAUADAAEBAQABCAYAARAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -288,7 +288,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADW
-        QQAAAk1TRnQBSQFMAgEBDwEAASwBAgEsAQIBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        QQAAAk1TRnQBSQFMAgEBDwEAATQBAgE0AQIBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAYADAAEBAQABCAYAAUAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -578,52 +578,52 @@
     <value>Cambria, 12pt</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 6</value>
+    <value>211, 6</value>
   </data>
   <data name="tsmenusubLicAssociation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 24</value>
+    <value>164, 24</value>
   </data>
   <data name="tsmenusubLicAssociation.Text" xml:space="preserve">
     <value>&amp;Association</value>
   </data>
   <data name="tsmesnuShopDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 24</value>
+    <value>164, 24</value>
   </data>
   <data name="tsmesnuShopDetails.Text" xml:space="preserve">
     <value>Shop Details</value>
   </data>
   <data name="tsmenusubLicense.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 24</value>
+    <value>214, 24</value>
   </data>
   <data name="tsmenusubLicense.Text" xml:space="preserve">
     <value>&amp;License</value>
   </data>
   <data name="tsmenusubImportSaleBillAllied.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 24</value>
+    <value>136, 24</value>
   </data>
   <data name="tsmenusubImportSaleBillAllied.Text" xml:space="preserve">
     <value>Sale Bill </value>
   </data>
   <data name="tsmenusubImport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 24</value>
+    <value>214, 24</value>
   </data>
   <data name="tsmenusubImport.Text" xml:space="preserve">
     <value>Import</value>
   </data>
   <data name="downLoadUpdatesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 24</value>
+    <value>214, 24</value>
   </data>
   <data name="downLoadUpdatesToolStripMenuItem.Text" xml:space="preserve">
     <value>DownLoad Updates</value>
   </data>
   <data name="tsmenusubSMS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 24</value>
+    <value>214, 24</value>
   </data>
   <data name="tsmenusubSMS.Text" xml:space="preserve">
     <value>&amp;SMSSetting</value>
   </data>
   <data name="tsmenusubExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 24</value>
+    <value>214, 24</value>
   </data>
   <data name="tsmenusubExit.Text" xml:space="preserve">
     <value>E&amp;xit</value>
@@ -824,7 +824,7 @@
     <value>15, 35</value>
   </data>
   <data name="lblDBBackupMsgLine1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 13</value>
+    <value>283, 16</value>
   </data>
   <data name="lblDBBackupMsgLine1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>

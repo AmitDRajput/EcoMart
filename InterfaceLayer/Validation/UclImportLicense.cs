@@ -111,7 +111,10 @@ namespace EcoMart.InterfaceLayer.Validation
                         General.EcoMartLicense = new EcoMartLicenseLib.Licence();
                         General.EcoMartLicense.LoadLicense(mpLic.Data);
                         MessageBox.Show("License imported successfully...!" + Environment.NewLine + "Click 'Next' to continue ...", General.ApplicationTitle);
-                        //this.DialogResult = DialogResult.OK;
+                        if (General.EcoMartLicense.ApplicationType == ApplicationTypes.Stockist || General.EcoMartLicense.ApplicationType == ApplicationTypes.CNF)
+                        {
+                            General.CreateCreditorinMasterAccount();
+                        }
                         if (OnStateOk != null)
                             OnStateOk(this, new EventArgs());
                     }

@@ -171,7 +171,7 @@
             this.mpMainSubViewControl.Size = new System.Drawing.Size(1176, 580);
             this.mpMainSubViewControl.SubGridWidth = 560;
             this.mpMainSubViewControl.TabIndex = 1016;
-            this.mpMainSubViewControl.ViewControl = null;           
+            this.mpMainSubViewControl.ViewControl = null;
             // 
             // txtAmount
             // 
@@ -266,6 +266,7 @@
             this.btnRecoverQty.TabIndex = 1112;
             this.btnRecoverQty.Text = "Recover Qty";
             this.btnRecoverQty.UseVisualStyleBackColor = true;
+            this.btnRecoverQty.Visible = false;
             // 
             // panel4
             // 
@@ -347,6 +348,7 @@
             this.btnClearQty.TabIndex = 1110;
             this.btnClearQty.Text = "Clear Qty";
             this.btnClearQty.UseVisualStyleBackColor = true;
+            this.btnClearQty.Visible = false;
             this.btnClearQty.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnCreateOrder
@@ -354,9 +356,9 @@
             this.btnCreateOrder.BackColor = System.Drawing.Color.LemonChiffon;
             this.btnCreateOrder.Enabled = false;
             this.btnCreateOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateOrder.Location = new System.Drawing.Point(383, 111);
+            this.btnCreateOrder.Location = new System.Drawing.Point(325, 99);
             this.btnCreateOrder.Name = "btnCreateOrder";
-            this.btnCreateOrder.Size = new System.Drawing.Size(120, 29);
+            this.btnCreateOrder.Size = new System.Drawing.Size(194, 37);
             this.btnCreateOrder.TabIndex = 1109;
             this.btnCreateOrder.Text = "Create &Orders";
             this.btnCreateOrder.UseVisualStyleBackColor = false;
@@ -517,17 +519,17 @@
             this.panel1.Controls.Add(this.ToDateShortList);
             this.panel1.Location = new System.Drawing.Point(3, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 118);
+            this.panel1.Size = new System.Drawing.Size(316, 147);
             this.panel1.TabIndex = 1103;
             // 
             // btnGO
             // 
             this.btnGO.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnGO.Location = new System.Drawing.Point(123, 69);
+            this.btnGO.Location = new System.Drawing.Point(63, 97);
             this.btnGO.Name = "btnGO";
-            this.btnGO.Size = new System.Drawing.Size(79, 39);
+            this.btnGO.Size = new System.Drawing.Size(210, 39);
             this.btnGO.TabIndex = 1040;
-            this.btnGO.Text = "GO";
+            this.btnGO.Text = "Show Products";
             this.btnGO.UseVisualStyleBackColor = false;
             this.btnGO.Click += new System.EventHandler(this.btnGO_Click_1);
             // 

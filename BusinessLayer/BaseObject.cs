@@ -10,7 +10,8 @@ namespace EcoMart.BusinessLayer
     public abstract class BaseObject : IValidation
     {
         #region Declaration
-        
+
+        private int _MasterID;
         private int _IntID;
         private int _IntStockID;
         private string _Id;
@@ -99,8 +100,13 @@ namespace EcoMart.BusinessLayer
         {
             get { return _IntID; }
             set { _IntID = value; }
-        }       
+        }
 
+        public int MasterID
+        {
+            get { return _MasterID; }
+            set { _MasterID = value; }
+        }
         public int CBAccountIDINT
         {
             get { return _CBAccountIDINT; }
@@ -237,6 +243,7 @@ namespace EcoMart.BusinessLayer
         public virtual void Initialise()
         {
             _IntID = 0;
+            _MasterID = 0;
             _Id = "";
             _DetailID = "";
             _ChangedID = "";

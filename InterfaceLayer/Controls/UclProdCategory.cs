@@ -190,17 +190,13 @@ namespace EcoMart.InterfaceLayer
                 {
                     _ProductCategory.CreatedBy = General.CurrentUser.Id;
                     _ProductCategory.CreatedDate = DateTime.Now.Date.ToString("yyyyMMdd");
-                    _ProductCategory.CreatedTime = DateTime.Now.ToString("HH:mm:ss");
-                    //retValue = _ProductCategory.AddDetails();
-                    ////retValue = _ProductCategory.UpdateProductMaster();                
-                    //MessageBox.Show("ProductCategory information has been saved successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //_SavedID = _ProductCategory.Id;
-                    //ClearControls();
-                    //retValue = true;
-                    _ProductCategory.IntID = _ProductCategory.AddDetails();
+                    _ProductCategory.CreatedTime = DateTime.Now.ToString("HH:mm:ss");                   
+                    _ProductCategory.IntID = _ProductCategory.GetNextIntID();
                     if (_ProductCategory.IntID > 0)
+                        retValue = _ProductCategory.AddDetails();
+                    if (retValue)
                     {
-                        MessageBox.Show("Product Category information has been saved successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("ProductCategory information has been saved successfully.", General.ApplicationTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         _SaveIntID = _ProductCategory.IntID;
                         ClearControls();
                         FilltxtName();

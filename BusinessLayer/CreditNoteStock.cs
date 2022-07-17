@@ -918,7 +918,7 @@ namespace EcoMart.BusinessLayer
             try
             {
                 DBProduct dbStock = new DBProduct();
-                dt = dbStock.GetOverviewData();
+                dt = dbStock.GetOverviewData(0);
             }
             catch (Exception ex)
             {

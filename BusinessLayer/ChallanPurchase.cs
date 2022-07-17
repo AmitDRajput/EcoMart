@@ -2356,12 +2356,12 @@ namespace EcoMart.BusinessLayer
 
         public bool UpdateLastPurhcaseDataInMasterProduct()
         {
-            DBProduct dbprod = new DBProduct();
-            return dbprod.UpdatePurchaseDataInmasterProduct(ProductID, PurchaseBillNumber, VoucherDate, AccountID, VoucherType,
-                VoucherNumber, PurchaseRate, TradeRate, SaleRate, MRP, PurchaseVATPercent, CSTPercent, AmountCST, SchemeDiscountPercent,
-                AmountSchemeDiscount, ItemDiscountPercent, Expiry, ExpiryDate, Batchno, ShelfID, StockID);
+            //DBProduct dbprod = new DBProduct();
+            //return dbprod.UpdatePurchaseDataInmasterProduct(ProductID, PurchaseBillNumber, VoucherDate, AccountID, VoucherType,
+            //    VoucherNumber, PurchaseRate, TradeRate, SaleRate, MRP, PurchaseVATPercent, CSTPercent, AmountCST, SchemeDiscountPercent,
+            //    AmountSchemeDiscount, ItemDiscountPercent, Expiry, ExpiryDate, Batchno, ShelfID, StockID);
 
-
+            return true;
         }
 
         public bool UpdatePurchaseStockInmasterProductReduceFromTemp()
@@ -2878,8 +2878,9 @@ namespace EcoMart.BusinessLayer
 
         public bool UpdatePurchaseOrder()
         {
-            DBProduct dbprod = new DBProduct();
-            return dbprod.UpdatePurchaseOrder(ProductID, (Quantity + SchemeQuanity + ReplacementQuantity));
+            //DBProduct dbprod = new DBProduct();
+            //return dbprod.UpdatePurchaseOrder(ProductID, (Quantity + SchemeQuanity + ReplacementQuantity));
+            return true;
         }
         
         #endregion Functions
