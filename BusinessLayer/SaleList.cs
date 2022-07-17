@@ -125,6 +125,14 @@ namespace EcoMart.BusinessLayer
             DBSaleList dbsalelist = new DBSaleList();
             return dbsalelist.GetSaleDataForGivenProductBatchMrp(ProductID,batch,mrp,fromDate,toDate);
         }
+
+        //start by snehal
+        public DataTable GetCNFSaleDataForGivenProductBatchMrp(int ProductID)
+        {
+            DBSaleList dbsalelist = new DBSaleList();
+            return dbsalelist.GetCNFSaleDataForGivenProductBatchMrp(ProductID);
+        }
+        // end by snehal
         public DataTable GetSaleDataForScheduledProducts(string fromdate, string todate)
         {
             DBSaleList dbsalelist = new DBSaleList();

@@ -189,7 +189,21 @@ namespace EcoMart.DataLayer
             }
             return dt;
         }
+        //start by snehal 
+        public DataTable GetCNFSaleDataForGivenProduct(int ProductID)
+        {
+            DataTable dt = null;
+            {
+                string strSql = "select a.MasterSaleID,a.ProductID,a.BatchNumber,a.MRP,a.PurchaseRate,a.SaleRate, " +
+                                "a.TradeRate,a.Expiry,a.ExpiryDate,a.Quantity,a.VATAmount,a.Amount,b.ID,b.AccountID,b.VoucherType,b.VoucherSubType, " +
+                                "b.VoucherNumber,b.VoucherDate,b.PatientName,b.PatientAddress1 as Address,c.AccCode from detailsale_CS a  inner join vouchersale b " +
+                                "on A.MasterSaleID = B.ID  where a.CNFID = '" + ProductID + "' order by b.VoucherDate,b.VoucherType,b.VoucherNumber";
 
+                dt = DBInterface.SelectDataTable(strSql);
+            }
+            return dt;
+        }
+        //end by snehal
         public DataTable GetSaleDataForH1(string fromdate, string todate)
         {
             DataTable dt = null;
@@ -219,6 +233,21 @@ namespace EcoMart.DataLayer
             }
             return dt;
         }
+        // start by snehal 
+        public DataTable GetCNFSaleDataForGivenProductBatchMrp(int ProductID)
+        {
+            DataTable dt = null;
+            {
+                string strSql = "select a.MasterSaleID,a.ProductID,a.BatchNumber,a.MRP,a.PurchaseRate,a.SaleRate, " +
+                                "a.TradeRate,a.Expiry,a.ExpiryDate,a.Quantity,a.VATAmount,a.Amount,b.ID,b.AccountID,b.VoucherType,b.VoucherSubType, " +
+                                "b.VoucherNumber,b.VoucherDate,b.PatientName,b.PatientAddress1 as Address,c.AccCode from detailsale_CS a  inner join vouchersale b " +
+                                "on A.MasterSaleID = B.ID    where a.ProductID = '" + ProductID + "' order by b.VoucherDate, b.Vouchertype, b.VoucherNumber";
+
+                dt = DBInterface.SelectDataTable(strSql);
+            }
+            return dt;
+        }
+        // end by snehal
         public DataTable GetSaleDataForScheduledProducts(string fromdate, string todate)
         {
             DataTable dt = null;

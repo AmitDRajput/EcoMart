@@ -414,7 +414,15 @@ namespace EcoMart.DataLayer
             dtable = DBInterface.SelectDataTable(strsql);
             return dtable;
         }
-
+        //by start snehal
+        public DataTable GetEcoMartLicensesData()
+        {
+            DataTable dtable = new DataTable();
+            string strSql = "Select  CustomerID ,CustomerName , CustomerType from [dbo].[tblEcoMartLicenses] order by CustomerName";
+            dtable = DBInterface.SelectDataTable(strSql);
+            return dtable;
+        }
+        // end by snehal
         public static DataTable GetFilteredProductStock(string filterValue)
         {
             DataTable dtable = new DataTable();

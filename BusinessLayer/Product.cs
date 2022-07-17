@@ -424,11 +424,20 @@ namespace EcoMart.BusinessLayer
         }
 
         #region Public Methods
+       
         public DataTable GetOverviewData()
         {
             DBProduct dbProd = new DBProduct();
             return dbProd.GetOverviewData();
         }
+
+        //by start snehal//
+        public DataTable GetEcoMartLicensesData()
+        {
+            DBProduct dbComp = new DBProduct();
+            return dbComp.GetEcoMartLicensesData();
+        }
+        //end snehal 
         public DataTable GetOverviewData(int compid)
         {
             DBProduct dbProd = new DBProduct();
