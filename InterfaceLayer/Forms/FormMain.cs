@@ -10010,7 +10010,7 @@ namespace EcoMart
                     if (MessageBox.Show("Do you want to exit from EcoMart?", General.ApplicationTitle,
                                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        CreateDatabaseBackup();
+                        //CreateDatabaseBackup();
                         General.DisposeConnection();
                         retValue = true;
 
