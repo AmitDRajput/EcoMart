@@ -3271,6 +3271,7 @@ namespace EcoMart.InterfaceLayer
             this.btnDownLoad.TabIndex = 1104;
             this.btnDownLoad.Text = "DownLoad";
             this.btnDownLoad.UseVisualStyleBackColor = true;
+            this.btnDownLoad.Visible = false;
             this.btnDownLoad.Click += new System.EventHandler(this.btnDownLoad_Click);
             // 
             // txtpuramount5
