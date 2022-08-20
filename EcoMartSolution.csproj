@@ -151,7 +151,6 @@
     <Compile Include="BusinessLayer\BankReConciliation.cs" />
     <Compile Include="BusinessLayer\BarCode.cs" />
     <Compile Include="BusinessLayer\BaseAccountObject.cs" />
-    <Compile Include="BusinessLayer\BaseObject.cs" />
     <Compile Include="BusinessLayer\BillReprint.cs" />
     <Compile Include="BusinessLayer\Branch.cs" />
     <Compile Include="BusinessLayer\CashExpenses.cs" />
