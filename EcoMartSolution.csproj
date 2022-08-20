@@ -521,35 +521,17 @@
     <Compile Include="InterfaceLayer\CommonControls\PSHeaderLabelForOverView.Designer.cs">
       <DependentUpon>PSHeaderLabelForOverView.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\CommonControls\PSComboBoxNew.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="InterfaceLayer\CommonControls\PSComboBoxNew.Designer.cs">
-      <DependentUpon>PSComboBoxNew.cs</DependentUpon>
-    </Compile>
     <Compile Include="InterfaceLayer\CommonControls\PSbtnOKMultiSelection.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="InterfaceLayer\CommonControls\PSbtnOKMultiSelection.Designer.cs">
       <DependentUpon>PSbtnOKMultiSelection.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\CommonControls\PSMainGridView.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="InterfaceLayer\CommonControls\PSMainSubViewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="InterfaceLayer\CommonControls\PSMainSubViewControl.Designer.cs">
       <DependentUpon>PSMainSubViewControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InterfaceLayer\CommonControls\PSpnlMultiSelection.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="InterfaceLayer\CommonControls\PSpnlMultiSelection.Designer.cs">
-      <DependentUpon>PSpnlMultiSelection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InterfaceLayer\CommonControls\PSProductMainGridView.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="InterfaceLayer\CommonControls\PSProductViewControl.cs">
       <SubType>UserControl</SubType>
@@ -581,9 +563,7 @@
     <Compile Include="InterfaceLayer\Controls\UclCitySearch.Designer.cs">
       <DependentUpon>UclCitySearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclCity.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCity.cs" />
     <Compile Include="InterfaceLayer\Controls\UclCity.Designer.cs">
       <DependentUpon>UclCity.cs</DependentUpon>
     </Compile>
@@ -593,9 +573,7 @@
     <Compile Include="InterfaceLayer\Controls\FormImportInPurchaseControl.Designer.cs">
       <DependentUpon>FormImportInPurchaseControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclAccount.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclAccount.cs" />
     <Compile Include="InterfaceLayer\Controls\UclAccount.designer.cs">
       <DependentUpon>UclAccount.cs</DependentUpon>
     </Compile>
@@ -606,13 +584,9 @@
       <DependentUpon>FormUploadEmilan.cs</DependentUpon>
     </Compile>
     <Compile Include="InterfaceLayer\Controls\StopWatch.cs" />
-    <Compile Include="InterfaceLayer\Controls\UclBulkProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBulkProduct.cs" />
     <Compile Include="InterfaceLayer\Controls\UclBulkProduct.Designer.cs" />
-    <Compile Include="InterfaceLayer\Controls\UclDelivaryBoy.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDelivaryBoy.cs" />
     <Compile Include="InterfaceLayer\Controls\UclDelivaryBoy.Designer.cs">
       <DependentUpon>UclDelivaryBoy.cs</DependentUpon>
     </Compile>
@@ -634,9 +608,7 @@
     <Compile Include="InterfaceLayer\Controls\UclJournalVoucherSearch.designer.cs">
       <DependentUpon>UclJournalVoucherSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclMasterDelivarySalesman.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMasterDelivarySalesman.cs" />
     <Compile Include="InterfaceLayer\Controls\UclMasterDelivarySalesman.Designer.cs">
       <DependentUpon>UclMasterDelivarySalesman.cs</DependentUpon>
     </Compile>
@@ -646,9 +618,7 @@
     <Compile Include="InterfaceLayer\Controls\uclMasterDelivarySalesmanSearch.Designer.cs">
       <DependentUpon>uclMasterDelivarySalesmanSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclMasterMainCompany.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMasterMainCompany.cs" />
     <Compile Include="InterfaceLayer\Controls\UclMasterMainCompany.Designer.cs">
       <DependentUpon>UclMasterMainCompany.cs</DependentUpon>
     </Compile>
@@ -661,9 +631,7 @@
     <Compile Include="InterfaceLayer\Controls\UclOPStock.Designer.cs">
       <DependentUpon>UclOPStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderCNF.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderCNF.cs" />
     <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderCNF.Designer.cs">
       <DependentUpon>UclPurchaseOrderCNF.cs</DependentUpon>
     </Compile>
@@ -673,9 +641,7 @@
     <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderCNFSearch.Designer.cs">
       <DependentUpon>UclPurchaseOrderCNFSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderEcoMart.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderEcoMart.cs" />
     <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderEcoMart.Designer.cs">
       <DependentUpon>UclPurchaseOrderEcoMart.cs</DependentUpon>
     </Compile>
@@ -685,9 +651,7 @@
     <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderEcoMartSearch.Designer.cs">
       <DependentUpon>UclPurchaseOrderEcoMartSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderStockist.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderStockist.cs" />
     <Compile Include="InterfaceLayer\Controls\UclPurchaseOrderStockist.Designer.cs">
       <DependentUpon>UclPurchaseOrderStockist.cs</DependentUpon>
     </Compile>
@@ -697,15 +661,11 @@
     <Compile Include="InterfaceLayer\Controls\UclSaleSummaryControl.Designer.cs">
       <DependentUpon>UclSaleSummaryControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclSettingsBackupPath.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettingsBackupPath.cs" />
     <Compile Include="InterfaceLayer\Controls\UclSettingsBackupPath.Designer.cs">
       <DependentUpon>UclSettingsBackupPath.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclBankExpenses.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankExpenses.cs" />
     <Compile Include="InterfaceLayer\Controls\UclBankExpenses.Designer.cs">
       <DependentUpon>UclBankExpenses.cs</DependentUpon>
     </Compile>
@@ -715,15 +675,11 @@
     <Compile Include="InterfaceLayer\Controls\UclBankExpensesSearch.Designer.cs">
       <DependentUpon>UclBankExpensesSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclBulkPrintPartywiseSale.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBulkPrintPartywiseSale.cs" />
     <Compile Include="InterfaceLayer\Controls\UclBulkPrintPartywiseSale.Designer.cs">
       <DependentUpon>UclBulkPrintPartywiseSale.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclChequeReturn.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclChequeReturn.cs" />
     <Compile Include="InterfaceLayer\Controls\UclChequeReturn.Designer.cs">
       <DependentUpon>UclChequeReturn.cs</DependentUpon>
     </Compile>
@@ -733,9 +689,7 @@
     <Compile Include="InterfaceLayer\Controls\UclChequeReturnSearch.Designer.cs">
       <DependentUpon>UclChequeReturnSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclContraEntry.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclContraEntry.cs" />
     <Compile Include="InterfaceLayer\Controls\UclContraEntry.Designer.cs">
       <DependentUpon>UclContraEntry.cs</DependentUpon>
     </Compile>
@@ -745,15 +699,11 @@
     <Compile Include="InterfaceLayer\Controls\UclContraEntrySearch.Designer.cs">
       <DependentUpon>UclContraEntrySearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclDistributorCreditNoteStock.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDistributorCreditNoteStock.cs" />
     <Compile Include="InterfaceLayer\Controls\UclDistributorCreditNoteStock.Designer.cs">
       <DependentUpon>UclDistributorCreditNoteStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclDistributorSale.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDistributorSale.cs" />
     <Compile Include="InterfaceLayer\Controls\UclDistributorSale.Designer.cs">
       <DependentUpon>UclDistributorSale.cs</DependentUpon>
     </Compile>
@@ -763,15 +713,11 @@
     <Compile Include="InterfaceLayer\Controls\UclDistributorSaleSearch.Designer.cs">
       <DependentUpon>UclDistributorSaleSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclDoBankReconciliation.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDoBankReconciliation.cs" />
     <Compile Include="InterfaceLayer\Controls\UclDoBankReconciliation.Designer.cs">
       <DependentUpon>UclDoBankReconciliation.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclEmailID.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclEmailID.cs" />
     <Compile Include="InterfaceLayer\Controls\UclEmailID.Designer.cs">
       <DependentUpon>UclEmailID.cs</DependentUpon>
     </Compile>
@@ -781,21 +727,15 @@
     <Compile Include="InterfaceLayer\Controls\UclEmailIDSearch.Designer.cs">
       <DependentUpon>UclEmailIDSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclJournalVoucher.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclJournalVoucher.cs" />
     <Compile Include="InterfaceLayer\Controls\UclJournalVoucher.Designer.cs">
       <DependentUpon>UclJournalVoucher.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclLinkProductScheduleH1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkProductScheduleH1.cs" />
     <Compile Include="InterfaceLayer\Controls\UclLinkProductScheduleH1.Designer.cs">
       <DependentUpon>UclLinkProductScheduleH1.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclPhoneBook.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPhoneBook.cs" />
     <Compile Include="InterfaceLayer\Controls\UclPhoneBook.Designer.cs">
       <DependentUpon>UclPhoneBook.cs</DependentUpon>
     </Compile>
@@ -805,63 +745,43 @@
     <Compile Include="InterfaceLayer\Controls\UclPhoneBookSearch.Designer.cs">
       <DependentUpon>UclPhoneBookSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolDistributorPercentageChange.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolDistributorPercentageChange.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolDistributorPercentageChange.designer.cs">
       <DependentUpon>UclToolDistributorPercentageChange.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolTodaysBirthday.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolTodaysBirthday.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolTodaysBirthday.Designer.cs">
       <DependentUpon>UclToolTodaysBirthday.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolCashCounter.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolCashCounter.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolCashCounter.Designer.cs">
       <DependentUpon>UclToolCashCounter.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolChangeVAT5To55.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolChangeVAT5To55.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolChangeVAT5To55.Designer.cs">
       <DependentUpon>UclToolChangeVAT5To55.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolEmilanDownload.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolEmilanDownload.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolEmilanDownload.Designer.cs">
       <DependentUpon>UclToolEmilanDownload.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolEmilanDownLoadPurchase.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolEmilanDownLoadPurchase.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolEmilanDownLoadPurchase.Designer.cs">
       <DependentUpon>UclToolEmilanDownLoadPurchase.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolPrintBarCode.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolPrintBarCode.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolPrintBarCode.Designer.cs">
       <DependentUpon>UclToolPrintBarCode.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclSettingsEmail.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettingsEmail.cs" />
     <Compile Include="InterfaceLayer\Controls\UclSettingsEmail.Designer.cs">
       <DependentUpon>UclSettingsEmail.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclSettingsReport.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettingsReport.cs" />
     <Compile Include="InterfaceLayer\Controls\UclSettingsReport.Designer.cs">
       <DependentUpon>UclSettingsReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclStatementPartywisePurchase.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPartywisePurchase.cs" />
     <Compile Include="InterfaceLayer\Controls\UclStatementPartywisePurchase.Designer.cs">
       <DependentUpon>UclStatementPartywisePurchase.cs</DependentUpon>
     </Compile>
@@ -871,21 +791,15 @@
     <Compile Include="InterfaceLayer\Controls\UclStatementPartywisePurchaseSearch.Designer.cs">
       <DependentUpon>UclStatementPartywisePurchaseSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclStatementPartywiseSale.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPartywiseSale.cs" />
     <Compile Include="InterfaceLayer\Controls\UclStatementPartywiseSale.Designer.cs">
       <DependentUpon>UclStatementPartywiseSale.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclLinkShelfProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkShelfProduct.cs" />
     <Compile Include="InterfaceLayer\Controls\UclLinkShelfProduct.Designer.cs">
       <DependentUpon>UclLinkShelfProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclOperator.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclOperator.cs" />
     <Compile Include="InterfaceLayer\Controls\UclOperator.Designer.cs">
       <DependentUpon>UclOperator.cs</DependentUpon>
     </Compile>
@@ -895,9 +809,7 @@
     <Compile Include="InterfaceLayer\Controls\UclStatementPartywiseSaleSearch.Designer.cs">
       <DependentUpon>UclStatementPartywiseSaleSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclStatementPurchase7Days.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPurchase7Days.cs" />
     <Compile Include="InterfaceLayer\Controls\UclStatementPurchase7Days.Designer.cs">
       <DependentUpon>UclStatementPurchase7Days.cs</DependentUpon>
     </Compile>
@@ -906,12 +818,6 @@
     </Compile>
     <Compile Include="InterfaceLayer\Controls\UclCashReceiptSearch.Designer.cs">
       <DependentUpon>UclCashReceiptSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InterfaceLayer\Controls\BaseControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="InterfaceLayer\Controls\BaseControl.Designer.cs">
-      <DependentUpon>BaseControl.cs</DependentUpon>
     </Compile>
     <Compile Include="InterfaceLayer\Controls\SearchControl.cs">
       <SubType>UserControl</SubType>
@@ -925,9 +831,7 @@
     <Compile Include="InterfaceLayer\Controls\UclAccountSearch.Designer.cs">
       <DependentUpon>UclAccountSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclArea.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclArea.cs" />
     <Compile Include="InterfaceLayer\Controls\UclArea.Designer.cs">
       <DependentUpon>UclArea.cs</DependentUpon>
     </Compile>
@@ -937,9 +841,7 @@
     <Compile Include="InterfaceLayer\Controls\UclAreaSearch.Designer.cs">
       <DependentUpon>UclAreaSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclBank.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBank.cs" />
     <Compile Include="InterfaceLayer\Controls\UclBank.designer.cs">
       <DependentUpon>UclBank.cs</DependentUpon>
     </Compile>
@@ -949,9 +851,7 @@
     <Compile Include="InterfaceLayer\Controls\UclBankSearch.designer.cs">
       <DependentUpon>UclBankSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclBankPayment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankPayment.cs" />
     <Compile Include="InterfaceLayer\Controls\UclBankPayment.Designer.cs">
       <DependentUpon>UclBankPayment.cs</DependentUpon>
     </Compile>
@@ -961,9 +861,7 @@
     <Compile Include="InterfaceLayer\Controls\UclBankPaymentSearch.Designer.cs">
       <DependentUpon>UclBankPaymentSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclBankReceipt.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBankReceipt.cs" />
     <Compile Include="InterfaceLayer\Controls\UclBankReceipt.Designer.cs">
       <DependentUpon>UclBankReceipt.cs</DependentUpon>
     </Compile>
@@ -973,9 +871,7 @@
     <Compile Include="InterfaceLayer\Controls\UclBankReceiptSearch.Designer.cs">
       <DependentUpon>UclBankReceiptSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclBranch.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclBranch.cs" />
     <Compile Include="InterfaceLayer\Controls\UclBranch.Designer.cs">
       <DependentUpon>UclBranch.cs</DependentUpon>
     </Compile>
@@ -985,9 +881,7 @@
     <Compile Include="InterfaceLayer\Controls\UclBranchSearch.Designer.cs">
       <DependentUpon>UclBranchSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclCashExpenses.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashExpenses.cs" />
     <Compile Include="InterfaceLayer\Controls\UclCashExpenses.Designer.cs">
       <DependentUpon>UclCashExpenses.cs</DependentUpon>
     </Compile>
@@ -997,9 +891,7 @@
     <Compile Include="InterfaceLayer\Controls\UclCashExpensesSearch.Designer.cs">
       <DependentUpon>UclCashExpensesSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclCashPayment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashPayment.cs" />
     <Compile Include="InterfaceLayer\Controls\UclCashPayment.Designer.cs">
       <DependentUpon>UclCashPayment.cs</DependentUpon>
     </Compile>
@@ -1009,15 +901,11 @@
     <Compile Include="InterfaceLayer\Controls\UclCashPaymentSearch.Designer.cs">
       <DependentUpon>UclCashPaymentSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclCashReceipt.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCashReceipt.cs" />
     <Compile Include="InterfaceLayer\Controls\UclCashReceipt.Designer.cs">
       <DependentUpon>UclCashReceipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclCompany.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCompany.cs" />
     <Compile Include="InterfaceLayer\Controls\UclCompany.Designer.cs">
       <DependentUpon>UclCompany.cs</DependentUpon>
     </Compile>
@@ -1027,9 +915,7 @@
     <Compile Include="InterfaceLayer\Controls\UclCompanySearch.Designer.cs">
       <DependentUpon>UclCompanySearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclCorrectioninRate.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCorrectioninRate.cs" />
     <Compile Include="InterfaceLayer\Controls\UclCorrectioninRate.Designer.cs">
       <DependentUpon>UclCorrectioninRate.cs</DependentUpon>
     </Compile>
@@ -1039,9 +925,7 @@
     <Compile Include="InterfaceLayer\Controls\UclCorrectioninRateSearch.Designer.cs">
       <DependentUpon>UclCorrectioninRateSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclCreditNoteAmount.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCreditNoteAmount.cs" />
     <Compile Include="InterfaceLayer\Controls\UclCreditNoteAmount.Designer.cs">
       <DependentUpon>UclCreditNoteAmount.cs</DependentUpon>
     </Compile>
@@ -1051,9 +935,7 @@
     <Compile Include="InterfaceLayer\Controls\UclCreditNoteAmountSearch.Designer.cs">
       <DependentUpon>UclCreditNoteAmountSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclCreditNoteStock.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCreditNoteStock.cs" />
     <Compile Include="InterfaceLayer\Controls\UclCreditNoteStock.Designer.cs">
       <DependentUpon>UclCreditNoteStock.cs</DependentUpon>
     </Compile>
@@ -1063,9 +945,7 @@
     <Compile Include="InterfaceLayer\Controls\UclCreditNoteStockSearch.Designer.cs">
       <DependentUpon>UclCreditNoteStockSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclCustomer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclCustomer.cs" />
     <Compile Include="InterfaceLayer\Controls\UclCustomer.Designer.cs">
       <DependentUpon>UclCustomer.cs</DependentUpon>
     </Compile>
@@ -1075,15 +955,11 @@
     <Compile Include="InterfaceLayer\Controls\UclCustomerSearch.Designer.cs">
       <DependentUpon>UclCustomerSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclDailyPurchaseOrder.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDailyPurchaseOrder.cs" />
     <Compile Include="InterfaceLayer\Controls\UclDailyPurchaseOrder.Designer.cs">
       <DependentUpon>UclDailyPurchaseOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclDebitNoteAmount.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDebitNoteAmount.cs" />
     <Compile Include="InterfaceLayer\Controls\UclDebitNoteAmount.Designer.cs">
       <DependentUpon>UclDebitNoteAmount.cs</DependentUpon>
     </Compile>
@@ -1093,9 +969,7 @@
     <Compile Include="InterfaceLayer\Controls\UclDebitNoteAmountSearch.Designer.cs">
       <DependentUpon>UclDebitNoteAmountSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclDebitNoteExpiry.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDebitNoteExpiry.cs" />
     <Compile Include="InterfaceLayer\Controls\UclDebitNoteExpiry.Designer.cs">
       <DependentUpon>UclDebitNoteExpiry.cs</DependentUpon>
     </Compile>
@@ -1105,9 +979,7 @@
     <Compile Include="InterfaceLayer\Controls\UclDebitNoteStockSearch.Designer.cs">
       <DependentUpon>UclDebitNoteStockSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclLinkDebtorProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkDebtorProduct.cs" />
     <Compile Include="InterfaceLayer\Controls\UclLinkDebtorProduct.Designer.cs">
       <DependentUpon>UclLinkDebtorProduct.cs</DependentUpon>
     </Compile>
@@ -1117,9 +989,7 @@
     <Compile Include="InterfaceLayer\Controls\UclLinkDebtorProductSearch.Designer.cs">
       <DependentUpon>UclLinkDebtorProductSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclDoctor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDoctor.cs" />
     <Compile Include="InterfaceLayer\Controls\UclDoctor.Designer.cs">
       <DependentUpon>UclDoctor.cs</DependentUpon>
     </Compile>
@@ -1129,9 +999,7 @@
     <Compile Include="InterfaceLayer\Controls\UclDoctorSearch.Designer.cs">
       <DependentUpon>UclDoctorSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclLinkDrugGrouping.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkDrugGrouping.cs" />
     <Compile Include="InterfaceLayer\Controls\UclLinkDrugGrouping.Designer.cs">
       <DependentUpon>UclLinkDrugGrouping.cs</DependentUpon>
     </Compile>
@@ -1141,9 +1009,7 @@
     <Compile Include="InterfaceLayer\Controls\UclLinkDrugGroupingSearch.Designer.cs">
       <DependentUpon>UclLinkDrugGroupingSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclGenericCategory.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclGenericCategory.cs" />
     <Compile Include="InterfaceLayer\Controls\UclGenericCategory.Designer.cs">
       <DependentUpon>UclGenericCategory.cs</DependentUpon>
     </Compile>
@@ -1153,9 +1019,7 @@
     <Compile Include="InterfaceLayer\Controls\UclGenericCategorySearch.Designer.cs">
       <DependentUpon>UclGenericCategorySearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclGroup.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclGroup.cs" />
     <Compile Include="InterfaceLayer\Controls\UclGroup.Designer.cs">
       <DependentUpon>UclGroup.cs</DependentUpon>
     </Compile>
@@ -1171,9 +1035,7 @@
     <Compile Include="InterfaceLayer\Controls\UclMessagesSearch.Designer.cs">
       <DependentUpon>UclMessagesSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclMessages.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclMessages.cs" />
     <Compile Include="InterfaceLayer\Controls\UclMessages.Designer.cs">
       <DependentUpon>UclMessages.cs</DependentUpon>
     </Compile>
@@ -1183,18 +1045,14 @@
     <Compile Include="InterfaceLayer\Controls\UclMessageView.Designer.cs">
       <DependentUpon>UclMessageView.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclOPStock.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclOPStock.cs" />
     <Compile Include="InterfaceLayer\Controls\UclOPStockSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="InterfaceLayer\Controls\UclOPStockSearch.Designer.cs">
       <DependentUpon>UclOPStockSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclLinkPartyCompany.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclLinkPartyCompany.cs" />
     <Compile Include="InterfaceLayer\Controls\UclLinkPartyCompany.Designer.cs">
       <DependentUpon>UclLinkPartyCompany.cs</DependentUpon>
     </Compile>
@@ -1204,9 +1062,7 @@
     <Compile Include="InterfaceLayer\Controls\UclLinkPartyCompanySearch.Designer.cs">
       <DependentUpon>UclLinkPartyCompanySearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclPrescription.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPrescription.cs" />
     <Compile Include="InterfaceLayer\Controls\UclPrescription.Designer.cs">
       <DependentUpon>UclPrescription.cs</DependentUpon>
     </Compile>
@@ -1216,9 +1072,7 @@
     <Compile Include="InterfaceLayer\Controls\UclPrescriptionSearch.Designer.cs">
       <DependentUpon>UclPrescriptionSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclProdCategory.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclProdCategory.cs" />
     <Compile Include="InterfaceLayer\Controls\UclProdCategory.Designer.cs">
       <DependentUpon>UclProdCategory.cs</DependentUpon>
     </Compile>
@@ -1228,9 +1082,7 @@
     <Compile Include="InterfaceLayer\Controls\UclProdCategorySearch.Designer.cs">
       <DependentUpon>UclProdCategorySearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclProduct.cs" />
     <Compile Include="InterfaceLayer\Controls\UclProduct.Designer.cs">
       <DependentUpon>UclProduct.cs</DependentUpon>
     </Compile>
@@ -1240,9 +1092,7 @@
     <Compile Include="InterfaceLayer\Controls\UclProductSearch.Designer.cs">
       <DependentUpon>UclProductSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclPurchase.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclPurchase.cs" />
     <Compile Include="InterfaceLayer\Controls\UclPurchase.Designer.cs">
       <DependentUpon>UclPurchase.cs</DependentUpon>
     </Compile>
@@ -1258,75 +1108,51 @@
     <Compile Include="InterfaceLayer\Controls\UclPurchaseSearch.Designer.cs">
       <DependentUpon>UclPurchaseSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclSettings.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettings.cs" />
     <Compile Include="InterfaceLayer\Controls\UclSettings.Designer.cs">
       <DependentUpon>UclSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclSettingsForPrint.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSettingsForPrint.cs" />
     <Compile Include="InterfaceLayer\Controls\UclSettingsForPrint.Designer.cs">
       <DependentUpon>UclSettingsForPrint.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclStatementPurchase15Days.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementPurchase15Days.cs" />
     <Compile Include="InterfaceLayer\Controls\UclStatementPurchase15Days.Designer.cs">
       <DependentUpon>UclStatementPurchase15Days.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclStatementSale.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStatementSale.cs" />
     <Compile Include="InterfaceLayer\Controls\UclStatementSale.Designer.cs">
       <DependentUpon>UclStatementSale.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclStockOutExpiredProducts.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStockOutExpiredProducts.cs" />
     <Compile Include="InterfaceLayer\Controls\UclStockOutExpiredProducts.Designer.cs">
       <DependentUpon>UclStockOutExpiredProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolCompanyShortName.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolCompanyShortName.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolCompanyShortName.Designer.cs">
       <DependentUpon>UclToolCompanyShortName.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolPrintSettingForRetailer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolPrintSettingForRetailer.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolPrintSettingForRetailer.Designer.cs">
       <DependentUpon>UclToolPrintSettingForRetailer.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolRemoveLinkEDEProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolRemoveLinkEDEProduct.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolRemoveLinkEDEProduct.Designer.cs">
       <DependentUpon>UclToolRemoveLinkEDEProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolRewrite.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolRewrite.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolRewrite.Designer.cs">
       <DependentUpon>UclToolRewrite.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolShelfTransfer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolShelfTransfer.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolShelfTransfer.Designer.cs">
       <DependentUpon>UclToolShelfTransfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolStockReProcess.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolStockReProcess.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolStockReProcess.Designer.cs">
       <DependentUpon>UclToolStockReProcess.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclSubstitute.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSubstitute.cs" />
     <Compile Include="InterfaceLayer\Controls\UclSubstitute.Designer.cs">
       <DependentUpon>UclSubstitute.cs</DependentUpon>
     </Compile>
@@ -1336,9 +1162,7 @@
     <Compile Include="InterfaceLayer\Controls\UclSubstituteControl.Designer.cs">
       <DependentUpon>UclSubstituteControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolSale.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolSale.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolSale.Designer.cs">
       <DependentUpon>UclToolSale.cs</DependentUpon>
     </Compile>
@@ -1348,9 +1172,7 @@
     <Compile Include="InterfaceLayer\Controls\UclTransporterSearch.Designer.cs">
       <DependentUpon>UclTransporterSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclUserRights.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclUserRights.cs" />
     <Compile Include="InterfaceLayer\Controls\UclUserRights.Designer.cs">
       <DependentUpon>UclUserRights.cs</DependentUpon>
     </Compile>
@@ -1360,9 +1182,7 @@
     <Compile Include="InterfaceLayer\Controls\UclUserRightsSearch.Designer.cs">
       <DependentUpon>UclUserRightsSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclSalesman.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclSalesman.cs" />
     <Compile Include="InterfaceLayer\Controls\UclSalesman.Designer.cs">
       <DependentUpon>UclSalesman.cs</DependentUpon>
     </Compile>
@@ -1372,9 +1192,7 @@
     <Compile Include="InterfaceLayer\Controls\UclSalesmanSearch.Designer.cs">
       <DependentUpon>UclSalesmanSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclScheme.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclScheme.cs" />
     <Compile Include="InterfaceLayer\Controls\UclScheme.Designer.cs">
       <DependentUpon>UclScheme.cs</DependentUpon>
     </Compile>
@@ -1384,9 +1202,7 @@
     <Compile Include="InterfaceLayer\Controls\UclSchemeSearch.Designer.cs">
       <DependentUpon>UclSchemeSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclShelf.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclShelf.cs" />
     <Compile Include="InterfaceLayer\Controls\UclShelf.Designer.cs">
       <DependentUpon>UclShelf.cs</DependentUpon>
     </Compile>
@@ -1396,9 +1212,7 @@
     <Compile Include="InterfaceLayer\Controls\UclShelfSearch.Designer.cs">
       <DependentUpon>UclShelfSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclStockIn.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStockIn.cs" />
     <Compile Include="InterfaceLayer\Controls\UclStockIn.Designer.cs">
       <DependentUpon>UclStockIn.cs</DependentUpon>
     </Compile>
@@ -1408,9 +1222,7 @@
     <Compile Include="InterfaceLayer\Controls\UclStockInSearch.Designer.cs">
       <DependentUpon>UclStockInSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclStockOut.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclStockOut.cs" />
     <Compile Include="InterfaceLayer\Controls\UclStockOut.Designer.cs">
       <DependentUpon>UclStockOut.cs</DependentUpon>
     </Compile>
@@ -1420,9 +1232,7 @@
     <Compile Include="InterfaceLayer\Controls\UclStockOutSearch.Designer.cs">
       <DependentUpon>UclStockOutSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclUser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclUser.cs" />
     <Compile Include="InterfaceLayer\Controls\UclUser.Designer.cs">
       <DependentUpon>UclUser.cs</DependentUpon>
     </Compile>
@@ -1432,9 +1242,7 @@
     <Compile Include="InterfaceLayer\Controls\UclUserSearch.Designer.cs">
       <DependentUpon>UclUserSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclWard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclWard.cs" />
     <Compile Include="InterfaceLayer\Controls\UclWard.Designer.cs">
       <DependentUpon>UclWard.cs</DependentUpon>
     </Compile>
@@ -1444,15 +1252,11 @@
     <Compile Include="InterfaceLayer\Controls\UclWardSearch.Designer.cs">
       <DependentUpon>UclWardSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclDebitNotestock.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclDebitNotestock.cs" />
     <Compile Include="InterfaceLayer\Controls\UclDebitNotestock.Designer.cs">
       <DependentUpon>UclDebitNotestock.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclYearEnd.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclYearEnd.cs" />
     <Compile Include="InterfaceLayer\Controls\UclYearEnd.Designer.cs">
       <DependentUpon>UclYearEnd.cs</DependentUpon>
     </Compile>
@@ -1472,15 +1276,11 @@
     <Compile Include="InterfaceLayer\Forms\FormImportSaleBill.Designer.cs">
       <DependentUpon>FormImportSaleBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolFillBarCodeNumbers.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolFillBarCodeNumbers.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolFillBarCodeNumbers.Designer.cs">
       <DependentUpon>UclToolFillBarCodeNumbers.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclToolSetMinMaxLevel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclToolSetMinMaxLevel.cs" />
     <Compile Include="InterfaceLayer\Controls\UclToolSetMinMaxLevel.Designer.cs">
       <DependentUpon>UclToolSetMinMaxLevel.cs</DependentUpon>
     </Compile>
@@ -1595,21 +1395,15 @@
     <Compile Include="Printing\PrintSettings.cs" />
     <Compile Include="Printing\PrintSettingsForDistributor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reporting\Controls\UclEcoMartCurrentProductWiseStockStockist.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclEcoMartCurrentProductWiseStockStockist.cs" />
     <Compile Include="Reporting\Controls\UclEcoMartCurrentProductWiseStockStockist.Designer.cs">
       <DependentUpon>UclEcoMartCurrentProductWiseStockStockist.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclEcoMartProductWiseSaleCNF.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclEcoMartProductWiseSaleCNF.cs" />
     <Compile Include="Reporting\Controls\UclEcoMartProductWiseSaleCNF.Designer.cs">
       <DependentUpon>UclEcoMartProductWiseSaleCNF.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclEcoMartProductWiseSaleStockist.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclEcoMartProductWiseSaleStockist.cs" />
     <Compile Include="Reporting\Controls\UclEcoMartProductWiseSaleStockist.Designer.cs">
       <DependentUpon>UclEcoMartProductWiseSaleStockist.cs</DependentUpon>
     </Compile>
@@ -1680,28 +1474,12 @@
       <DependentUpon>PSHeaderLabelForOverView.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSComboBoxNew.resx">
-      <DependentUpon>PSComboBoxNew.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\CommonControls\PSbtnOKMultiSelection.resx">
       <DependentUpon>PSbtnOKMultiSelection.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSMainGridView.resx">
-      <DependentUpon>PSMainGridView.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\CommonControls\PSMainSubViewControl.resx">
       <DependentUpon>PSMainSubViewControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSpnlMultiSelection.resx">
-      <DependentUpon>PSpnlMultiSelection.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InterfaceLayer\CommonControls\PSProductMainGridView.resx">
-      <DependentUpon>PSProductMainGridView.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\CommonControls\PSProductViewControl.resx">
@@ -1743,10 +1521,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\Controls\UclCashReceiptSearch.resx">
       <DependentUpon>UclCashReceiptSearch.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InterfaceLayer\Controls\BaseControl.resx">
-      <DependentUpon>BaseControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="InterfaceLayer\Controls\SearchControl.resx">
@@ -2230,10 +2004,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reporting\Base\ReportBaseControl.resx">
-      <DependentUpon>ReportBaseControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reporting\Base\ReportPanelTop.resx">
       <DependentUpon>ReportPanelTop.cs</DependentUpon>
     </EmbeddedResource>
@@ -2715,177 +2485,117 @@
     <Compile Include="Reporting\Base\DateVoucherTypeControl.Designer.cs">
       <DependentUpon>DateVoucherTypeControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Base\ReportBaseControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Reporting\Base\ReportBaseControl.Designer.cs">
-      <DependentUpon>ReportBaseControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reporting\Base\ReportPanelTop.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Reporting\Base\ReportPanelTop.Designer.cs">
       <DependentUpon>ReportPanelTop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclAcListBankBookByClearedDate.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListBankBookByClearedDate.cs" />
     <Compile Include="Reporting\Controls\UclAcListBankBookByClearedDate.Designer.cs">
       <DependentUpon>UclAcListBankBookByClearedDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclChallanProductList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclChallanProductList.cs" />
     <Compile Include="Reporting\Controls\UclChallanProductList.Designer.cs">
       <DependentUpon>UclChallanProductList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclChallanPurchaseList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclChallanPurchaseList.cs" />
     <Compile Include="Reporting\Controls\UclChallanPurchaseList.Designer.cs">
       <DependentUpon>UclChallanPurchaseList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclDistributorAreawiseOutstanding.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclDistributorAreawiseOutstanding.cs" />
     <Compile Include="Reporting\Controls\UclDistributorAreawiseOutstanding.Designer.cs">
       <DependentUpon>UclDistributorAreawiseOutstanding.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclDistributorDailySale.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclDistributorDailySale.cs" />
     <Compile Include="Reporting\Controls\UclDistributorDailySale.Designer.cs">
       <DependentUpon>UclDistributorDailySale.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclDistributorPartywiseOutStanding.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclDistributorPartywiseOutStanding.cs" />
     <Compile Include="Reporting\Controls\UclDistributorPartywiseOutStanding.Designer.cs">
       <DependentUpon>UclDistributorPartywiseOutStanding.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclEcoMartProductWiseCurrentStockCNF.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclEcoMartProductWiseCurrentStockCNF.cs" />
     <Compile Include="Reporting\Controls\UclEcoMartProductWiseCurrentStockCNF.Designer.cs">
       <DependentUpon>UclEcoMartProductWiseCurrentStockCNF.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclExpiryListDetail.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclExpiryListDetail.cs" />
     <Compile Include="Reporting\Controls\UclExpiryListDetail.Designer.cs">
       <DependentUpon>UclExpiryListDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclGSTPurchaseRegister.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclGSTPurchaseRegister.cs" />
     <Compile Include="Reporting\Controls\UclGSTPurchaseRegister.Designer.cs">
       <DependentUpon>UclGSTPurchaseRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclGSTSaleRegister.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclGSTSaleRegister.cs" />
     <Compile Include="Reporting\Controls\UclGSTSaleRegister.Designer.cs">
       <DependentUpon>UclGSTSaleRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclH1SaleList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclH1SaleList.cs" />
     <Compile Include="Reporting\Controls\UclH1SaleList.Designer.cs">
       <DependentUpon>UclH1SaleList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListNextVisitDate.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListNextVisitDate.cs" />
     <Compile Include="Reporting\Controls\UclListNextVisitDate.Designer.cs">
       <DependentUpon>UclListNextVisitDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListTodaysChequesTobeDeposited.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListTodaysChequesTobeDeposited.cs" />
     <Compile Include="Reporting\Controls\UclListTodaysChequesTobeDeposited.Designer.cs">
       <DependentUpon>UclListTodaysChequesTobeDeposited.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclMISListSummaryFromToBillNumber.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListSummaryFromToBillNumber.cs" />
     <Compile Include="Reporting\Controls\UclMISListSummaryFromToBillNumber.Designer.cs">
       <DependentUpon>UclMISListSummaryFromToBillNumber.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclPurchaseListPartyWiseOutstanding.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListPartyWiseOutstanding.cs" />
     <Compile Include="Reporting\Controls\UclPurchaseListPartyWiseOutstanding.Designer.cs">
       <DependentUpon>UclPurchaseListPartyWiseOutstanding.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleDayWiseVoucherSaleTotal.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleDayWiseVoucherSaleTotal.cs" />
     <Compile Include="Reporting\Controls\UclSaleDayWiseVoucherSaleTotal.Designer.cs">
       <DependentUpon>UclSaleDayWiseVoucherSaleTotal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListCompanywisesale.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListCompanywisesale.cs" />
     <Compile Include="Reporting\Controls\UclSaleListCompanywisesale.Designer.cs">
       <DependentUpon>UclSaleListCompanywisesale.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListCompanywiseSummary.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListCompanywiseSummary.cs" />
     <Compile Include="Reporting\Controls\UclSaleListCompanywiseSummary.Designer.cs">
       <DependentUpon>UclSaleListCompanywiseSummary.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListPartywiseOutstanding.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPartywiseOutstanding.cs" />
     <Compile Include="Reporting\Controls\UclSaleListPartywiseOutstanding.Designer.cs">
       <DependentUpon>UclSaleListPartywiseOutstanding.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListAllBatchWise.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListAllBatchWise.cs" />
     <Compile Include="Reporting\Controls\UclStockListAllBatchWise.Designer.cs">
       <DependentUpon>UclStockListAllBatchWise.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListClosingStockAsOn.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListClosingStockAsOn.cs" />
     <Compile Include="Reporting\Controls\UclStockListClosingStockAsOn.Designer.cs">
       <DependentUpon>UclStockListClosingStockAsOn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListProductLedgerBatchWise.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListProductLedgerBatchWise.cs" />
     <Compile Include="Reporting\Controls\UclStockListProductLedgerBatchWise.Designer.cs">
       <DependentUpon>UclStockListProductLedgerBatchWise.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListStocknSaleValue.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListStocknSaleValue.cs" />
     <Compile Include="Reporting\Controls\UclStockListStocknSaleValue.Designer.cs">
       <DependentUpon>UclStockListStocknSaleValue.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclVouBankExpensesList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclVouBankExpensesList.cs" />
     <Compile Include="Reporting\Controls\UclVouBankExpensesList.Designer.cs">
       <DependentUpon>UclVouBankExpensesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclVouChequePaidButNotCleared.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequePaidButNotCleared.cs" />
     <Compile Include="Reporting\Controls\UclVouChequePaidButNotCleared.Designer.cs">
       <DependentUpon>UclVouChequePaidButNotCleared.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclVouChequeReceivedButNotCleared.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequeReceivedButNotCleared.cs" />
     <Compile Include="Reporting\Controls\UclVouChequeReceivedButNotCleared.Designer.cs">
       <DependentUpon>UclVouChequeReceivedButNotCleared.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclExpiryListProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclExpiryListProduct.cs" />
     <Compile Include="Reporting\Controls\UclExpiryListProduct.Designer.cs">
       <DependentUpon>UclExpiryListProduct.cs</DependentUpon>
     </Compile>
@@ -2895,615 +2605,411 @@
     <Compile Include="InterfaceLayer\Controls\UclLinkShelfProductSearch.Designer.cs">
       <DependentUpon>UclLinkShelfProductSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclVouChequeReturnList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequeReturnList.cs" />
     <Compile Include="Reporting\Controls\UclVouChequeReturnList.Designer.cs">
       <DependentUpon>UclVouChequeReturnList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListOperator.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListOperator.cs" />
     <Compile Include="Reporting\Controls\UclListOperator.Designer.cs">
       <DependentUpon>UclListOperator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListTodaysCheques.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListTodaysCheques.cs" />
     <Compile Include="Reporting\Controls\UclListTodaysCheques.Designer.cs">
       <DependentUpon>UclListTodaysCheques.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclMISListChangedVouchers.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListChangedVouchers.cs" />
     <Compile Include="Reporting\Controls\UclMISListChangedVouchers.Designer.cs">
       <DependentUpon>UclMISListChangedVouchers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclMISListDeletedVouchers.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListDeletedVouchers.cs" />
     <Compile Include="Reporting\Controls\UclMISListDeletedVouchers.Designer.cs">
       <DependentUpon>UclMISListDeletedVouchers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclPurchaseListDaily.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListDaily.cs" />
     <Compile Include="Reporting\Controls\UclPurchaseListDaily.Designer.cs">
       <DependentUpon>UclPurchaseListDaily.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListDailyProducts.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListDailyProducts.cs" />
     <Compile Include="Reporting\Controls\UclSaleListDailyProducts.Designer.cs">
       <DependentUpon>UclSaleListDailyProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListPartywiseBills.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPartywiseBills.cs" />
     <Compile Include="Reporting\Controls\UclSaleListPartywiseBills.Designer.cs">
       <DependentUpon>UclSaleListPartywiseBills.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListOpeningStock.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListOpeningStock.cs" />
     <Compile Include="Reporting\Controls\UclStockListOpeningStock.Designer.cs">
       <DependentUpon>UclStockListOpeningStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclAcListAgeing.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListAgeing.cs" />
     <Compile Include="Reporting\Controls\UclAcListAgeing.Designer.cs">
       <DependentUpon>UclAcListAgeing.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclAcListBankBook.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListBankBook.cs" />
     <Compile Include="Reporting\Controls\UclAcListBankBook.Designer.cs">
       <DependentUpon>UclAcListBankBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclAcListCashBook.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListCashBook.cs" />
     <Compile Include="Reporting\Controls\UclAcListCashBook.Designer.cs">
       <DependentUpon>UclAcListCashBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclAcListCreditorLedger.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListCreditorLedger.cs" />
     <Compile Include="Reporting\Controls\UclAcListCreditorLedger.Designer.cs">
       <DependentUpon>UclAcListCreditorLedger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclAcListDebtorLedger.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListDebtorLedger.cs" />
     <Compile Include="Reporting\Controls\UclAcListDebtorLedger.Designer.cs">
       <DependentUpon>UclAcListDebtorLedger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclAcListGeneralLedger.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListGeneralLedger.cs" />
     <Compile Include="Reporting\Controls\UclAcListGeneralLedger.Designer.cs">
       <DependentUpon>UclAcListGeneralLedger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclAcListJournal.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListJournal.cs" />
     <Compile Include="Reporting\Controls\UclAcListJournal.Designer.cs">
       <DependentUpon>UclAcListJournal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclAcListPurchaseRegister.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListPurchaseRegister.cs" />
     <Compile Include="Reporting\Controls\UclAcListPurchaseRegister.Designer.cs">
       <DependentUpon>UclAcListPurchaseRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclAcListSalesRegister.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListSalesRegister.cs" />
     <Compile Include="Reporting\Controls\UclAcListSalesRegister.Designer.cs">
       <DependentUpon>UclAcListSalesRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclAcListSundryCreditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListSundryCreditor.cs" />
     <Compile Include="Reporting\Controls\UclAcListSundryCreditor.Designer.cs">
       <DependentUpon>UclAcListSundryCreditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclAcListSundryDebtor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclAcListSundryDebtor.cs" />
     <Compile Include="Reporting\Controls\UclAcListSundryDebtor.Designer.cs">
       <DependentUpon>UclAcListSundryDebtor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclFACListBalanceSheet.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclFACListBalanceSheet.cs" />
     <Compile Include="Reporting\Controls\UclFACListBalanceSheet.Designer.cs">
       <DependentUpon>UclFACListBalanceSheet.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceLayer\Controls\UclFACListEntryofScheduleNumber.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="InterfaceLayer\Controls\UclFACListEntryofScheduleNumber.cs" />
     <Compile Include="InterfaceLayer\Controls\UclFACListEntryofScheduleNumber.Designer.cs">
       <DependentUpon>UclFACListEntryofScheduleNumber.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclFACListPrintSchedules.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclFACListPrintSchedules.cs" />
     <Compile Include="Reporting\Controls\UclFACListPrintSchedules.Designer.cs">
       <DependentUpon>UclFACListPrintSchedules.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclFACListProfitandLoss.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclFACListProfitandLoss.cs" />
     <Compile Include="Reporting\Controls\UclFACListProfitandLoss.Designer.cs">
       <DependentUpon>UclFACListProfitandLoss.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclFACListTrialBalance.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclFACListTrialBalance.cs" />
     <Compile Include="Reporting\Controls\UclFACListTrialBalance.Designer.cs">
       <DependentUpon>UclFACListTrialBalance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclMISListBankInterest.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListBankInterest.cs" />
     <Compile Include="Reporting\Controls\UclMISListBankInterest.Designer.cs">
       <DependentUpon>UclMISListBankInterest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclMISListCurrentStockValue.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListCurrentStockValue.cs" />
     <Compile Include="Reporting\Controls\UclMISListCurrentStockValue.Designer.cs">
       <DependentUpon>UclMISListCurrentStockValue.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclMISListDailyBankClosing.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListDailyBankClosing.cs" />
     <Compile Include="Reporting\Controls\UclMISListDailyBankClosing.Designer.cs">
       <DependentUpon>UclMISListDailyBankClosing.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclMISListDailyCashClosing.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListDailyCashClosing.cs" />
     <Compile Include="Reporting\Controls\UclMISListDailyCashClosing.Designer.cs">
       <DependentUpon>UclMISListDailyCashClosing.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclMISListProfitCompany.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListProfitCompany.cs" />
     <Compile Include="Reporting\Controls\UclMISListProfitCompany.Designer.cs">
       <DependentUpon>UclMISListProfitCompany.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclMISListProfitDay.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListProfitDay.cs" />
     <Compile Include="Reporting\Controls\UclMISListProfitDay.Designer.cs">
       <DependentUpon>UclMISListProfitDay.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclMISListCurrentStockStatement.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListCurrentStockStatement.cs" />
     <Compile Include="Reporting\Controls\UclMISListCurrentStockStatement.Designer.cs">
       <DependentUpon>UclMISListCurrentStockStatement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclMISListStockStatementBank.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListStockStatementBank.cs" />
     <Compile Include="Reporting\Controls\UclMISListStockStatementBank.Designer.cs">
       <DependentUpon>UclMISListStockStatementBank.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclMISListSummary.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclMISListSummary.cs" />
     <Compile Include="Reporting\Controls\UclMISListSummary.Designer.cs">
       <DependentUpon>UclMISListSummary.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclPurchaseListAllPartySummary.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListAllPartySummary.cs" />
     <Compile Include="Reporting\Controls\UclPurchaseListAllPartySummary.Designer.cs">
       <DependentUpon>UclPurchaseListAllPartySummary.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclPurchaseListCompany.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListCompany.cs" />
     <Compile Include="Reporting\Controls\UclPurchaseListCompany.Designer.cs">
       <DependentUpon>UclPurchaseListCompany.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclPurchaseListDiscount.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListDiscount.cs" />
     <Compile Include="Reporting\Controls\UclPurchaseListDiscount.Designer.cs">
       <DependentUpon>UclPurchaseListDiscount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclPurchaseListPartywisebills.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListPartywisebills.cs" />
     <Compile Include="Reporting\Controls\UclPurchaseListPartywisebills.Designer.cs">
       <DependentUpon>UclPurchaseListPartywisebills.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclPurchaseListProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListProduct.cs" />
     <Compile Include="Reporting\Controls\UclPurchaseListProduct.Designer.cs">
       <DependentUpon>UclPurchaseListProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclPurchaseListNewProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListNewProduct.cs" />
     <Compile Include="Reporting\Controls\UclPurchaseListNewProduct.Designer.cs">
       <DependentUpon>UclPurchaseListNewProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclPurchaseListCategory.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListCategory.cs" />
     <Compile Include="Reporting\Controls\UclPurchaseListCategory.Designer.cs">
       <DependentUpon>UclPurchaseListCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclPurchaseListPartyProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListPartyProduct.cs" />
     <Compile Include="Reporting\Controls\UclPurchaseListPartyProduct.Designer.cs">
       <DependentUpon>UclPurchaseListPartyProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclPurchaseListProductBatch.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclPurchaseListProductBatch.cs" />
     <Compile Include="Reporting\Controls\UclPurchaseListProductBatch.Designer.cs">
       <DependentUpon>UclPurchaseListProductBatch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListAdmitPatient.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListAdmitPatient.cs" />
     <Compile Include="Reporting\Controls\UclSaleListAdmitPatient.Designer.cs">
       <DependentUpon>UclSaleListAdmitPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListCategory.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListCategory.cs" />
     <Compile Include="Reporting\Controls\UclSaleListCategory.Designer.cs">
       <DependentUpon>UclSaleListCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListCreditCard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListCreditCard.cs" />
     <Compile Include="Reporting\Controls\UclSaleListCreditCard.Designer.cs">
       <DependentUpon>UclSaleListCreditCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListDailySale.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListDailySale.cs" />
     <Compile Include="Reporting\Controls\UclSaleListDailySale.Designer.cs">
       <DependentUpon>UclSaleListDailySale.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListProductSummary.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListProductSummary.cs" />
     <Compile Include="Reporting\Controls\UclSaleListProductSummary.Designer.cs">
       <DependentUpon>UclSaleListProductSummary.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListDoctor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListDoctor.cs" />
     <Compile Include="Reporting\Controls\UclSaleListDoctor.Designer.cs">
       <DependentUpon>UclSaleListDoctor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListDoctorCompany.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListDoctorCompany.cs" />
     <Compile Include="Reporting\Controls\UclSaleListDoctorCompany.Designer.cs">
       <DependentUpon>UclSaleListDoctorCompany.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListIPD.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListIPD.cs" />
     <Compile Include="Reporting\Controls\UclSaleListIPD.Designer.cs">
       <DependentUpon>UclSaleListIPD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListOPD.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListOPD.cs" />
     <Compile Include="Reporting\Controls\UclSaleListOPD.Designer.cs">
       <DependentUpon>UclSaleListOPD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListOperator.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListOperator.cs" />
     <Compile Include="Reporting\Controls\UclSaleListOperator.Designer.cs">
       <DependentUpon>UclSaleListOperator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListPartyProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPartyProduct.cs" />
     <Compile Include="Reporting\Controls\UclSaleListPartyProduct.Designer.cs">
       <DependentUpon>UclSaleListPartyProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListPartySaleSummary.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPartySaleSummary.cs" />
     <Compile Include="Reporting\Controls\UclSaleListPartySaleSummary.Designer.cs">
       <DependentUpon>UclSaleListPartySaleSummary.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListPatient.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListPatient.cs" />
     <Compile Include="Reporting\Controls\UclSaleListPatient.Designer.cs">
       <DependentUpon>UclSaleListPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListProduct.cs" />
     <Compile Include="Reporting\Controls\UclSaleListProduct.Designer.cs">
       <DependentUpon>UclSaleListProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListProductBatch.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListProductBatch.cs" />
     <Compile Include="Reporting\Controls\UclSaleListProductBatch.Designer.cs">
       <DependentUpon>UclSaleListProductBatch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListRegularPartyProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListRegularPartyProduct.cs" />
     <Compile Include="Reporting\Controls\UclSaleListRegularPartyProduct.Designer.cs">
       <DependentUpon>UclSaleListRegularPartyProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSaleListSheduledDrug.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSaleListSheduledDrug.cs" />
     <Compile Include="Reporting\Controls\UclSaleListSheduledDrug.Designer.cs">
       <DependentUpon>UclSaleListSheduledDrug.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSchemeListAll.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSchemeListAll.cs" />
     <Compile Include="Reporting\Controls\UclSchemeListAll.Designer.cs">
       <DependentUpon>UclSchemeListAll.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSchemeListCompanywise.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSchemeListCompanywise.cs" />
     <Compile Include="Reporting\Controls\UclSchemeListCompanywise.Designer.cs">
       <DependentUpon>UclSchemeListCompanywise.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSchemeListCompanywisePurchase.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSchemeListCompanywisePurchase.cs" />
     <Compile Include="Reporting\Controls\UclSchemeListCompanywisePurchase.Designer.cs">
       <DependentUpon>UclSchemeListCompanywisePurchase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclCreditNoteStockInListProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditNoteStockInListProduct.cs" />
     <Compile Include="Reporting\Controls\UclCreditNoteStockInListProduct.Designer.cs">
       <DependentUpon>UclCreditNoteStockInListProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclCreditDebitStockINOUTListProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditDebitStockINOUTListProduct.cs" />
     <Compile Include="Reporting\Controls\UclCreditDebitStockINOUTListProduct.Designer.cs">
       <DependentUpon>UclCreditDebitStockINOUTListProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclSchemeListProductPurchase.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclSchemeListProductPurchase.cs" />
     <Compile Include="Reporting\Controls\UclSchemeListProductPurchase.Designer.cs">
       <DependentUpon>UclSchemeListProductPurchase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListBatchwise.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListBatchwise.cs" />
     <Compile Include="Reporting\Controls\UclStockListBatchwise.Designer.cs">
       <DependentUpon>UclStockListBatchwise.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListCategorySummary.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListCategorySummary.cs" />
     <Compile Include="Reporting\Controls\UclStockListCategorySummary.Designer.cs">
       <DependentUpon>UclStockListCategorySummary.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListCompanywiseSummary.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListCompanywiseSummary.cs" />
     <Compile Include="Reporting\Controls\UclStockListCompanywiseSummary.Designer.cs">
       <DependentUpon>UclStockListCompanywiseSummary.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListCurrentStock.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListCurrentStock.cs" />
     <Compile Include="Reporting\Controls\UclStockListCurrentStock.Designer.cs">
       <DependentUpon>UclStockListCurrentStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListNonMoving.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListNonMoving.cs" />
     <Compile Include="Reporting\Controls\UclStockListNonMoving.Designer.cs">
       <DependentUpon>UclStockListNonMoving.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListPatient.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListPatient.cs" />
     <Compile Include="Reporting\Controls\UclStockListPatient.Designer.cs">
       <DependentUpon>UclStockListPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListProductLedger.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListProductLedger.cs" />
     <Compile Include="Reporting\Controls\UclStockListProductLedger.Designer.cs">
       <DependentUpon>UclStockListProductLedger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListShelf.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListShelf.cs" />
     <Compile Include="Reporting\Controls\UclStockListShelf.Designer.cs">
       <DependentUpon>UclStockListShelf.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListStocknSale.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListStocknSale.cs" />
     <Compile Include="Reporting\Controls\UclStockListStocknSale.Designer.cs">
       <DependentUpon>UclStockListStocknSale.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclDebitNoteStockOutListProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclDebitNoteStockOutListProduct.cs" />
     <Compile Include="Reporting\Controls\UclDebitNoteStockOutListProduct.Designer.cs">
       <DependentUpon>UclDebitNoteStockOutListProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListAccount.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListAccount.cs" />
     <Compile Include="Reporting\Controls\UclListAccount.Designer.cs">
       <DependentUpon>UclListAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListArea.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListArea.cs" />
     <Compile Include="Reporting\Controls\UclListArea.Designer.cs">
       <DependentUpon>UclListArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListBank.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListBank.cs" />
     <Compile Include="Reporting\Controls\UclListBank.Designer.cs">
       <DependentUpon>UclListBank.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListBranch.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListBranch.cs" />
     <Compile Include="Reporting\Controls\UclListBranch.Designer.cs">
       <DependentUpon>UclListBranch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclCashExpenseSalaryList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclCashExpenseSalaryList.cs" />
     <Compile Include="Reporting\Controls\UclCashExpenseSalaryList.Designer.cs">
       <DependentUpon>UclCashExpenseSalaryList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclVouCashPaidList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclVouCashPaidList.cs" />
     <Compile Include="Reporting\Controls\UclVouCashPaidList.Designer.cs">
       <DependentUpon>UclVouCashPaidList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclVouCashExpensesList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclVouCashExpensesList.cs" />
     <Compile Include="Reporting\Controls\UclVouCashExpensesList.Designer.cs">
       <DependentUpon>UclVouCashExpensesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclVouCashReceiptList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclVouCashReceiptList.cs" />
     <Compile Include="Reporting\Controls\UclVouCashReceiptList.Designer.cs">
       <DependentUpon>UclVouCashReceiptList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclVouChequePaidList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequePaidList.cs" />
     <Compile Include="Reporting\Controls\UclVouChequePaidList.Designer.cs">
       <DependentUpon>UclVouChequePaidList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclVouChequeReceiptList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclVouChequeReceiptList.cs" />
     <Compile Include="Reporting\Controls\UclVouChequeReceiptList.Designer.cs">
       <DependentUpon>UclVouChequeReceiptList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListCompany.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListCompany.cs" />
     <Compile Include="Reporting\Controls\UclListCompany.Designer.cs">
       <DependentUpon>UclListCompany.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclCreditDebitNoteProductList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditDebitNoteProductList.cs" />
     <Compile Include="Reporting\Controls\UclCreditDebitNoteProductList.Designer.cs">
       <DependentUpon>UclCreditDebitNoteProductList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclCreditNoteList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditNoteList.cs" />
     <Compile Include="Reporting\Controls\UclCreditNoteList.Designer.cs">
       <DependentUpon>UclCreditNoteList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclCreditDebitNotePartyList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditDebitNotePartyList.cs" />
     <Compile Include="Reporting\Controls\UclCreditDebitNotePartyList.Designer.cs">
       <DependentUpon>UclCreditDebitNotePartyList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclCreditNoteListProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditNoteListProduct.cs" />
     <Compile Include="Reporting\Controls\UclCreditNoteListProduct.Designer.cs">
       <DependentUpon>UclCreditNoteListProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclDebitNoteList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclDebitNoteList.cs" />
     <Compile Include="Reporting\Controls\UclDebitNoteList.Designer.cs">
       <DependentUpon>UclDebitNoteList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclDebitNoteListProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclDebitNoteListProduct.cs" />
     <Compile Include="Reporting\Controls\UclDebitNoteListProduct.Designer.cs">
       <DependentUpon>UclDebitNoteListProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListDoctor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListDoctor.cs" />
     <Compile Include="Reporting\Controls\UclListDoctor.Designer.cs">
       <DependentUpon>UclListDoctor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListGenericCategory.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListGenericCategory.cs" />
     <Compile Include="Reporting\Controls\UclListGenericCategory.Designer.cs">
       <DependentUpon>UclListGenericCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListProductAll.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListProductAll.cs" />
     <Compile Include="Reporting\Controls\UclListProductAll.Designer.cs">
       <DependentUpon>UclListProductAll.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListAll.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListAll.cs" />
     <Compile Include="Reporting\Controls\UclStockListAll.Designer.cs">
       <DependentUpon>UclStockListAll.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListProductBySelection.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListProductBySelection.cs" />
     <Compile Include="Reporting\Controls\UclListProductBySelection.Designer.cs">
       <DependentUpon>UclListProductBySelection.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclListShelf.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclListShelf.cs" />
     <Compile Include="Reporting\Controls\UclListShelf.Designer.cs">
       <DependentUpon>UclListShelf.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclCreditNoteStockInList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclCreditNoteStockInList.cs" />
     <Compile Include="Reporting\Controls\UclCreditNoteStockInList.Designer.cs">
       <DependentUpon>UclCreditNoteStockInList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclDebitNoteStockOutList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclDebitNoteStockOutList.cs" />
     <Compile Include="Reporting\Controls\UclDebitNoteStockOutList.Designer.cs">
       <DependentUpon>UclDebitNoteStockOutList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclStockListOpeningStockProduct.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclStockListOpeningStockProduct.cs" />
     <Compile Include="Reporting\Controls\UclStockListOpeningStockProduct.Designer.cs">
       <DependentUpon>UclStockListOpeningStockProduct.cs</DependentUpon>
     </Compile>
@@ -3519,15 +3025,11 @@
     <Compile Include="Printing\PageImageList.cs" />
     <Compile Include="Printing\PrintBill.cs" />
     <Compile Include="Printing\PrintDGV.cs" />
-    <Compile Include="Reporting\Controls\UclVouStatementPurchaseList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclVouStatementPurchaseList.cs" />
     <Compile Include="Reporting\Controls\UclVouStatementPurchaseList.Designer.cs">
       <DependentUpon>UclVouStatementPurchaseList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\Controls\UclVouStatementSaleList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Reporting\Controls\UclVouStatementSaleList.cs" />
     <Compile Include="Reporting\Controls\UclVouStatementSaleList.Designer.cs">
       <DependentUpon>UclVouStatementSaleList.cs</DependentUpon>
     </Compile>
@@ -3537,8 +3039,6 @@
     <Content Include="bin\Debug\CommonLibrary.pdb" />
     <Content Include="bin\Debug\ControlLib.dll" />
     <Content Include="bin\Debug\ControlLibBase.dll" />
-    <Content Include="DLLs\EcoMartLicenseLib.dll" />
-    <Content Include="DLLs\EcoMartLicenseLib.pdb" />
     <Content Include="PrintSettingsForDistributor.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -3902,6 +3402,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DLLs\" />
     <Folder Include="obj\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
